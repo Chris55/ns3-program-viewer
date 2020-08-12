@@ -5,20 +5,15 @@ let express = require('express'),
 const api = require('./server/routes/api.routes');
 
 const app = express();
+const port = process.env.PORT || 4000;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
 app.use(cors());
 
 app.use('/api', api);
-
-
-
-const port = process.env.PORT || 4000;
-const server = app.listen(port, () => {
-    console.log('Connected to port ' + port)
-})
 
 app.use((req, res, next) => {
     // Error goes via `next()` method
@@ -32,6 +27,18 @@ app.use(function (err, req, res, next) {
     if (!err.statusCode) err.statusCode = 400;
     res.status(err.statusCode).send(err.message);
 });
+
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'client/build')));
+
+    // Handle React routing, return all requests to React app
+    app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
+}
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 
