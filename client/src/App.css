@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+
+}
+
+.ns3-program-logo {
+  margin-right: 5px;
+  width: 71px;
+  height: 71px;
+  /*background-image: url("nprog.icns.svg");*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-bottom: 10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
