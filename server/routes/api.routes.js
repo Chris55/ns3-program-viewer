@@ -35,7 +35,9 @@ router.post('/upload', upload.single('nordFile'), async (req, res, next) => {
     if (!req.file) {
         next(Error("Unsupported file"));
     }
-    const result = await loadNs3fFile(req.file.path).catch (err => next(err));
+    console.log(req.file.originalname);
+
+    const result = await loadNs3fFile(req.file.path, req.file.originalname).catch (err => next(err));
 
     await fs.unlink(req.file.path).catch (err => next(err));
 

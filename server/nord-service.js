@@ -43,7 +43,7 @@ const getDrawbars = function (buffer, offset) {
     ];
 }
 
-exports.loadNs3fFile = async filename => {
+exports.loadNs3fFile = async (filename, originalName) => {
 
     const buffer = await fs.readFile(filename);
 
@@ -165,7 +165,7 @@ exports.loadNs3fFile = async filename => {
     // console.log("Oscillator 1 Type Formant Wave Form:", synthOscillator1FormantWaveFormMap.get(synthOscillator1FormantWaveForm));
 
     return {
-        filename: filename,
+        filename: originalName,
         fileId: fileId,
         piano: piano
     };
