@@ -1,6 +1,7 @@
 let express = require('express'),
     cors = require('cors'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    path = require("path");
 
 const api = require('./server/routes/api.routes');
 
@@ -22,7 +23,7 @@ app.use((req, res, next) => {
     });
 });
 
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
     console.error(err.message);
     if (!err.statusCode) err.statusCode = 400;
     res.status(err.statusCode).send(err.message);
