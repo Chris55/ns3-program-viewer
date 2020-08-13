@@ -12,6 +12,7 @@ import Tab from "react-bootstrap/Tab";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Figure from "react-bootstrap/Figure";
 
 
 class App extends Component {
@@ -75,32 +76,52 @@ class App extends Component {
 
                 <Container fluid>
 
-                    <Row className="m-2">
-                        <Col sm={1}>
-                            <img src={programIcon} className="img-fluid" alt="Nord Program"/>
-                        </Col>
-                        <Col sm={4}>
-                            <h5 >NS3 Program File (*.ns3f)</h5>
+                    <Row className="ml-lg-5" >
 
-                        </Col>
-                        <Col sm={1}>
+
+                    </Row>
+
+                    <Row className="" >
+                        <Col sm={1} className="align-self-center">
                             <FileUploaderButton
+                                className=""
                                 title="Select"
                                 handleFile={this.handleFile}/>
                         </Col>
+
+                        <Col sm={2} className="align-self-center">
+                            Nord Program File  (*.ns3f)
+                        </Col>
+
+                        <Col sm={4} className="align-self-center">
+
+
+                                <Figure.Image
+                                    width={64}
+                                    height={64}
+                                    alt="171x180"
+                                    src={programIcon}
+                                />
+
+
+                        </Col>
+
                     </Row>
 
-                    <Row className="m-2">
+                    <Row>
                         <Col sm={12}>
                             <Tabs defaultActiveKey="debug" id="uncontrolled-tab-example">
-                                <Tab eventKey="panel" title="Panel">
 
-                                </Tab>
-                                <Tab eventKey="debug" title="Debug">
+                                <Tab eventKey="debug" title="File Properties">
                                     <pre className="text-monospace">
                                         <Ns3ProgramListingComponent data={this.state.data}/>
                                     </pre>
                                 </Tab>
+
+
+                                {/*<Tab eventKey="panel" title="Panel" disabled={true}>*/}
+                                {/*    */}
+                                {/*</Tab>*/}
                             </Tabs>
                         </Col>
                     </Row>
