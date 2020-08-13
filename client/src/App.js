@@ -74,12 +74,7 @@ class App extends Component {
                     </Container>
                 </div>
 
-                <Container fluid>
-
-                    <Row className="ml-lg-5" >
-
-
-                    </Row>
+                <Container>
 
                     <Row className="" >
                         <Col sm={1} className="align-self-center">
