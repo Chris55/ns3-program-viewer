@@ -1,5 +1,3 @@
-const fs = require('fs').promises;
-const mapping = require('./mapping')
 const {synthOscillator1FormantWaveFormMap} = require("./mapping");
 const {synthOscillator1WaveWaveFormMap} = require("./mapping");
 const {synthOscillator1ClassicWaveFormMap} = require("./mapping");
@@ -43,13 +41,11 @@ const getDrawbars = function (buffer, offset) {
     ];
 }
 
-exports.loadNs3fFile = async (filename, originalName) => {
-
-    const buffer = await fs.readFile(filename);
+exports.loadNs3fFile = (buffer) => {
 
     if (buffer.length > 16) {
-        const nordSignature = buffer.toString("utf8", 0, 4);
-        if (nordSignature !== "CBIN") {
+        const claviaSignature = buffer.toString("utf8", 0, 4);
+        if (claviaSignature !== "CBIN") {
             throw new Error("Invalid Nord file");
         }
         const fileExt = buffer.toString("utf8",8, 12);
@@ -58,7 +54,7 @@ exports.loadNs3fFile = async (filename, originalName) => {
         }
     }
     if (buffer.length !== 592) {
-        throw new Error("Invalid file");
+        throw new Error("Invalid file, unexpected file length");
     }
 
     const fileId = buffer.readUInt32LE(0x0e);
@@ -68,14 +64,13 @@ exports.loadNs3fFile = async (filename, originalName) => {
     const pianoFlag2 = buffer.readUInt8(0x48);
 
     const piano = {
-        "enabled:": (pianoFlag1 & 0x8000) !== 0,
-        "volume:": (pianoFlag1 & 0x7F0) >> 4,
-        "type": pianoTypeMap.get((pianoFlag2 & 0x38) >> 3),
-        "name": pianoNameMap.get(buffer.readBigUInt64BE(0x49)),
-        "pitch stick:": (pianoFlag2 & 0x80) !== 0,
-        "sustain pedal": (pianoFlag2 & 0x40) !== 0,
+        enabled: (pianoFlag1 & 0x8000) !== 0,
+        volume: (pianoFlag1 & 0x7F0) >> 4,
+        type: pianoTypeMap.get((pianoFlag2 & 0x38) >> 3),
+        name: pianoNameMap.get(buffer.readBigUInt64BE(0x49)),
+        pitchStick: (pianoFlag2 & 0x80) !== 0,
+        sustainPedal: (pianoFlag2 & 0x40) !== 0,
     };
-
 
 
     const organFlag34 = buffer.readUInt8(0x34);
@@ -84,37 +79,66 @@ exports.loadNs3fFile = async (filename, originalName) => {
     const organOffsetBa = buffer.readUInt8(0xba);
     const organOffsetBb = buffer.readUInt8(0xbb);
     const organOffsetD3 = buffer.readUInt8(0xd3);
-
-    const organRotarySpeakerSpeed = organFlag34 & 0x01;
-    const organVibratoMode = (organFlag34 & 0b00001110) >> 1;
-    const organPStick = ((organFlag34 & 0x10) !== 0);
-
-    const organRotarySpeakerStopMode = !(((organOffset35 & 0x80) >> 7) !== 0);
-
-    const organEnabled = ((organOffsetB6 & 0x8000) !== 0);
-    const organVolume = (organOffsetB6 & 0x7F0) >> 4;
-
-    const organOctaveShift = (organOffsetBa & 0x07) - 6;
-
-    const organType = (organOffsetBb & 0x70) >> 4;
-    const organSustainPedal = ((organOffsetBb & 0x80) !== 0);
-    const organLiveEnabled = ((organOffsetBb & 0x08) !== 0);
-
-    const organPercussionVolumeSoftEnabled = ((organOffsetD3 & 0x01) !== 0);
-    const organPercussionDecayFast = ((organOffsetD3 & 0x02) !== 0);
-    const organPercussionHarmonicThird = ((organOffsetD3 & 0x04) !== 0);
-    const organPercussionEnabled = ((organOffsetD3 & 0x08) !== 0);
-    const organVibratoEnabled = ((organOffsetD3 & 0x10) !== 0);
-
-    const organDrawbars1 = getDrawbars(buffer, 0xbe);
-    const organDrawbars2 = getDrawbars(buffer, 0xd9);
-
     const rotarySpeakerFlag = buffer.readUInt16BE(0x39);
-    const rotarySpeakerDrive = (rotarySpeakerFlag & 0b0000011111110000) >> 4;
-
     const rotarySpeakerFlag2 = buffer.readUInt8(0x10b);
-    const rotarySpeakerEnabled = (rotarySpeakerFlag2 & 0x80) !== 0;
-    const rotarySpeakerSource = (rotarySpeakerFlag2 & 0b01100000) >> 5;
+
+    const organ = {
+        enabled: ((organOffsetB6 & 0x8000) !== 0),
+        volume: (organOffsetB6 & 0x7F0) >> 4,
+        type: organTypeMap.get((organOffsetBb & 0x70) >> 4),
+        drawbars1: getDrawbars(buffer, 0xbe),
+        drawbars2: getDrawbars(buffer, 0xd9),
+        octaveShift: (organOffsetBa & 0x07) - 6,
+        pitchStick: ((organFlag34 & 0x10) !== 0),
+        sustainPedal: ((organOffsetBb & 0x80) !== 0),
+        live: ((organOffsetBb & 0x08) !== 0),
+        vibrato: {
+            enabled: ((organOffsetD3 & 0x10) !== 0),
+            mode: organVibratoModeMap.get((organFlag34 & 0b00001110) >> 1),
+        },
+        percussion: {
+            enabled: ((organOffsetD3 & 0x08) !== 0),
+            volumeSoft: ((organOffsetD3 & 0x01) !== 0),
+            decayFast: ((organOffsetD3 & 0x02) !== 0),
+            harmonicThird: ((organOffsetD3 & 0x04) !== 0),
+        },
+    };
+
+    const rotarySpeaker = {
+        drive: midi2value(0, 10, (rotarySpeakerFlag & 0b0000011111110000) >> 4),
+        source: sourceMap.get((rotarySpeakerFlag2 & 0b01100000) >> 5),
+        stopMode: !(((organOffset35 & 0x80) >> 7) !== 0),
+        speed: rotarySpeakerSpeedMap.get(organFlag34 & 0x01),
+    };
+
+    // const organRotarySpeakerSpeed = organFlag34 & 0x01;
+    // const organVibratoMode = (organFlag34 & 0b00001110) >> 1;
+    // const organPStick = ((organFlag34 & 0x10) !== 0);
+    //
+    // const organRotarySpeakerStopMode = !(((organOffset35 & 0x80) >> 7) !== 0);
+    //
+    // const organEnabled = ((organOffsetB6 & 0x8000) !== 0);
+    // const organVolume = (organOffsetB6 & 0x7F0) >> 4;
+    //
+    // const organOctaveShift = (organOffsetBa & 0x07) - 6;
+    //
+    // const organType = (organOffsetBb & 0x70) >> 4;
+    // const organSustainPedal = ((organOffsetBb & 0x80) !== 0);
+    // const organLiveEnabled = ((organOffsetBb & 0x08) !== 0);
+    //
+    // const organPercussionVolumeSoftEnabled = ((organOffsetD3 & 0x01) !== 0);
+    // const organPercussionDecayFast = ((organOffsetD3 & 0x02) !== 0);
+    // const organPercussionHarmonicThird = ((organOffsetD3 & 0x04) !== 0);
+    // const organPercussionEnabled = ((organOffsetD3 & 0x08) !== 0);
+    // const organVibratoEnabled = ((organOffsetD3 & 0x10) !== 0);
+    //
+    // const organDrawbars1 = getDrawbars(buffer, 0xbe);
+    // const organDrawbars2 = getDrawbars(buffer, 0xd9);
+    //
+    //
+    // const rotarySpeakerDrive = (rotarySpeakerFlag & 0b0000011111110000) >> 4;
+    // const rotarySpeakerEnabled = (rotarySpeakerFlag2 & 0x80) !== 0;
+    // const rotarySpeakerSource = (rotarySpeakerFlag2 & 0b01100000) >> 5;
 
     // console.log("");
     // console.log("Organ:");
@@ -147,13 +171,27 @@ exports.loadNs3fFile = async (filename, originalName) => {
     const synthOffset8d = buffer.readUInt16BE(0x8d);
     const synthOffset8e = buffer.readUInt16BE(0x8e);
 
-    const synthEnabled = ((synthOffset52 & 0x8000) !== 0);
-    const synthVolume = (synthOffset52 & 0x7F0) >> 4;
+    const oscillatorType = synthOscillatorTypeMap.get((synthOffset8d & 0x0380) >> 7);
+    let oscillator1WaveForm = "";
+    switch (oscillatorType) {
+        case "Classic":
+            oscillator1WaveForm = synthOscillator1ClassicWaveFormMap.get((synthOffset8e & 0x01c0) >> 6);
+            break;
+        case "Wave":
+            oscillator1WaveForm = synthOscillator1WaveWaveFormMap.get((synthOffset8e & 0x0fc0) >> 6);
+            break;
+        case "Formant":
+            oscillator1WaveForm = synthOscillator1FormantWaveFormMap.get((synthOffset8e & 0x03c0) >> 6);
+            break;
+    }
 
-    const synthOscillatorType = (synthOffset8d & 0x0380) >> 7;
-    const synthOscillator1ClassicWaveForm = (synthOffset8e & 0x01c0) >> 6;
-    const synthOscillator1WaveWaveForm = (synthOffset8e & 0x0fc0) >> 6;
-    const synthOscillator1FormantWaveForm = (synthOffset8e & 0x03c0) >> 6;
+    const synth = {
+        enabled: ((synthOffset52 & 0x8000) !== 0),
+        volume: (synthOffset52 & 0x7F0) >> 4,
+
+        oscillatorType: oscillatorType,
+        oscillator1WaveForm: oscillator1WaveForm,
+    };
 
     // console.log("");
     // console.log("Synth:");
@@ -165,9 +203,33 @@ exports.loadNs3fFile = async (filename, originalName) => {
     // console.log("Oscillator 1 Type Formant Wave Form:", synthOscillator1FormantWaveFormMap.get(synthOscillator1FormantWaveForm));
 
     return {
-        filename: originalName,
         fileId: fileId,
-        piano: piano
+        part1: {
+            organ: organ,
+            piano: piano,
+            synth: synth,
+            effect: {
+                rotarySpeaker: rotarySpeaker,
+                effect1: {
+
+                },
+                effect2: {
+
+                },
+                delay: {
+
+                },
+                ampSimEq: {
+
+                },
+                compressor: {
+
+                },
+                reverb: {
+
+                }
+            }
+        }
     };
 }
 

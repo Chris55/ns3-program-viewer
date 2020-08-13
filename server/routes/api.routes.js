@@ -37,11 +37,17 @@ router.post('/upload', upload.single('nordFile'), async (req, res, next) => {
     }
     console.log(req.file.originalname);
 
-    const result = await loadNs3fFile(req.file.path, req.file.originalname).catch (err => next(err));
+    const buffer = await fs.readFile(req.file.path).catch(err => next(err));
+    await fs.unlink(req.file.path).catch(err => next(err));
 
-    await fs.unlink(req.file.path).catch (err => next(err));
+    try {
+        const result = loadNs3fFile(buffer);
+        result.name = req.file.originalname;
+        res.send(result);
+    } catch (err) {
+        next(err);
+    }
 
-    res.send(result);
 })
 
 
