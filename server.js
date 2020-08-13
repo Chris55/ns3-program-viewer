@@ -16,19 +16,7 @@ app.use(cors());
 
 app.use('/api', api);
 
-app.use((req, res, next) => {
-    // Error goes via `next()` method
-    setImmediate(() => {
-        next(new Error('Something went wrong'));
-    });
-});
-
-app.use(function (err, req, res) {
-    console.error(err.message);
-    if (!err.statusCode) err.statusCode = 400;
-    res.status(err.statusCode).send(err.message);
-});
-
+console.log("NODE_ENV:", process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'client/build')));
@@ -38,6 +26,17 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
 }
+
+// error handler must be the last on the stack
+// all 4 parameters required, otherwise handler won't file.
+
+app.use((err, req, res, next) => {
+    if (res.headersSent) {
+        return next(err)
+    }
+    if (!err.statusCode) err.statusCode = 400;
+    res.status(err.statusCode).send(err.message);
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
