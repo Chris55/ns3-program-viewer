@@ -7,7 +7,8 @@
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "start": "NODE_ENV=production node server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -18,7 +19,8 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "jest": "^24.9.0"
   },
   "keywords": [
     "Nord",
@@ -27,5 +29,10 @@
     "File"
   ],
   "author": "Christian Florentz (christian.florentz@gmail.com)",
-  "license": "ISC"
+  "license": "ISC",
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "client"
+    ]
+  }
 }
