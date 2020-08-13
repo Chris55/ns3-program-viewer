@@ -1,13 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Button = styled.button`
-`;
+import Button from 'react-bootstrap/Button';
 
 const FileUploaderButton = props => {
     const hiddenFileInput = React.useRef(null);
 
-    const handleClick = event => {
+    const handleClick = () => {
         hiddenFileInput.current.click();
     };
     const handleChange = event => {
@@ -18,7 +15,7 @@ const FileUploaderButton = props => {
     return (
         <>
             <Button
-                className="btn btn-secondary"
+                variant="primary"
                 onClick={handleClick}>
                 {props.title}
             </Button>
