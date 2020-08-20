@@ -1,3 +1,4 @@
+const {Morph} = require("./model/ns3");
 const {dBMap} = require("./mapping");
 const {midi2LinearValue} = require("./mapping");
 const {synthOscillator1FormantWaveFormMap} = require("./mapping");
@@ -36,6 +37,13 @@ const getDrawbars = function (buffer, offset) {
     ];
 }
 
+const getVolume = function(value) {
+    return {
+        midi: value,
+        label: dBMap.get(value)
+    };
+}
+
 exports.loadNs3fFile = (buffer) => {
 
     if (buffer.length > 16) {
@@ -60,7 +68,7 @@ exports.loadNs3fFile = (buffer) => {
 
     const piano = {
         enabled: (pianoFlag1 & 0x8000) !== 0,
-        volume: dBMap.get((pianoFlag1 & 0x7F0) >> 4),
+        volume: getVolume((pianoFlag1 & 0x7F0) >> 4),
         type: pianoTypeMap.get((pianoFlag2 & 0x38) >> 3),
         name: pianoNameMap.get(buffer.readBigUInt64BE(0x49)),
         pitchStick: (pianoFlag2 & 0x80) !== 0,
@@ -74,13 +82,13 @@ exports.loadNs3fFile = (buffer) => {
     const organOffsetBa = buffer.readUInt8(0xba);
     const organOffsetBb = buffer.readUInt8(0xbb);
     const organOffsetD3 = buffer.readUInt8(0xd3);
-    const rotarySpeakerFlag = buffer.readUInt16BE(0x39);
-    const rotarySpeakerFlag2 = buffer.readUInt8(0x10b);
+    const rotarySpeakerOffset39 = buffer.readUInt16BE(0x39);
+    const rotarySpeakerOffset10B = buffer.readUInt8(0x10b);
 
 
     const organ = {
         enabled: ((organOffsetB6 & 0x8000) !== 0),
-        volume: dBMap.get((organOffsetB6 & 0x7F0) >> 4),
+        volume: getVolume((organOffsetB6 & 0x7F0) >> 4),
         type: organTypeMap.get((organOffsetBb & 0x70) >> 4),
         preset1: getDrawbars(buffer, 0xbe).join(""),
         preset2: getDrawbars(buffer, 0xd9).join(""),
@@ -101,8 +109,8 @@ exports.loadNs3fFile = (buffer) => {
     };
 
     const rotarySpeaker = {
-        drive: midi2LinearValue(0, 10, (rotarySpeakerFlag & 0b0000011111110000) >> 4, 1, ""),
-        source: sourceMap.get((rotarySpeakerFlag2 & 0b01100000) >> 5),
+        drive: midi2LinearValue(0, 10, (rotarySpeakerOffset39 & 0b0000011111110000) >> 4, 1, ""),
+        source: sourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
         stopMode: !(((organOffset35 & 0x80) >> 7) !== 0),
         speed: rotarySpeakerSpeedMap.get(organFlag34 & 0x01),
     };
@@ -183,7 +191,7 @@ exports.loadNs3fFile = (buffer) => {
 
     const synth = {
         enabled: ((synthOffset52 & 0x8000) !== 0),
-        volume: dBMap.get((synthOffset52 & 0x7F0) >> 4),
+        volume: getVolume((synthOffset52 & 0x7F0) >> 4),
 
         oscillatorType: oscillatorType,
         oscillator1WaveForm: oscillator1WaveForm,
@@ -198,9 +206,12 @@ exports.loadNs3fFile = (buffer) => {
     // console.log("Oscillator 1 Type Wave Wave Form:", synthOscillator1WaveWaveFormMap.get(synthOscillator1WaveWaveForm));
     // console.log("Oscillator 1 Type Formant Wave Form:", synthOscillator1FormantWaveFormMap.get(synthOscillator1FormantWaveForm));
 
+
+
     return {
+        name: '',
         fileId: fileId,
-        part1: {
+        panelA: {
             organ: organ,
             piano: piano,
             synth: synth,
@@ -212,8 +223,38 @@ exports.loadNs3fFile = (buffer) => {
                 ampSimEq: {},
                 compressor: {},
                 reverb: {}
-            }
-        }
+            },
+            morph: {
+                wheel: new Morph(),
+                afterTouch: new Morph(),
+                controlPedal: new Morph(),
+            },
+        },
+        panelB:  {
+
+        },
+        masterClock:  {
+            rate: '',
+            keyboardSync: ''
+        },
+        transpose: '',
+        split: {
+            enabled: '',
+            low: {
+                width: '',
+                key: '',
+            },
+            mid: {
+                width: '',
+                key: '',
+            },
+            high: {
+                width: '',
+                key: '',
+            },
+        },
+        monoOut: '',
+        dualKeyboard: ''
     };
 }
 

@@ -19,6 +19,7 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.10",
     "concurrently": "^4.0.1",
     "jest": "^24.9.0"
   },
