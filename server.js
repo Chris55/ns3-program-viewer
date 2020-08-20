@@ -40,5 +40,9 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
+setInterval(() => {
+    http.get(`https://${process.env.PROJECT_DOMAIN}.herokuapp.com/`);
+}, 1740000); // 29min
+
 
 
