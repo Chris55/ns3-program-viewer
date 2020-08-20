@@ -16,7 +16,8 @@ app.use(cors());
 
 app.use('/api', api);
 
-console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("env: ", JSON.stringify(process.env, null, 2));
+
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'client/build')));
@@ -40,8 +41,12 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
+
 setInterval(() => {
-    http.get(`https://${process.env.PROJECT_DOMAIN}.herokuapp.com/`);
+    const hour = new Date().getUTCHours();
+    if (process.env.PROJECT_DOMAIN && hour >= 8) {
+        http.get(`https://${process.env.PROJECT_DOMAIN}.herokuapp.com/`);
+    }
 }, 1740000); // 29min
 
 
