@@ -44,8 +44,8 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 setInterval(() => {
     const hour = new Date().getUTCHours();
-    if (process.env.PROJECT_DOMAIN && hour >= 8) {
-        http.get(`https://${process.env.PROJECT_DOMAIN}.herokuapp.com/`);
+    if (hour >= 8) {
+        http.get(`https://ns3-program-viewer.herokuapp.com.herokuapp.com/`);
     }
 }, 1740000); // 29min
 
