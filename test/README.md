@@ -18,5 +18,7 @@ The API should return:
 - panelA.synth.oscillatorType = Classic
 - panelA.synth.oscillator1WaveForm = Sine
 
-
+### Special characters
+- "/" is replaced by @s
+- "±" is replaced by @=
 

@@ -7,7 +7,7 @@ const getNestedObject = (nestedObj, pathArr) => {
         (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
 }
 
-exports.getNs3Object = async (filename) => {
+exports.getNs3TestCase = async (filename) => {
 
     // load Nord File
     const buffer = await fs.readFile(filename);
@@ -15,7 +15,9 @@ exports.getNs3Object = async (filename) => {
 
     // decode expression from filename
 
-    const basename = path.basename(filename, path.extname(filename));
+    let basename = path.basename(filename, path.extname(filename));
+    basename = basename.replace("@a", "/");
+    basename = basename.replace("@=", "±");
 
     const ands = basename.split(' and ');
     const data = [];

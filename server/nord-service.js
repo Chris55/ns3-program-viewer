@@ -1,3 +1,10 @@
+const {synthEnvDecayMap} = require("./mapping");
+const {synthEnvAttackMap} = require("./mapping");
+const {synthLfoRateMap} = require("./mapping");
+const {synthLfoWaveMap} = require("./mapping");
+const {synthPitchShiftRangeMap} = require("./mapping");
+const {synthOctaveShiftMap} = require("./mapping");
+const {synthOscillator1SuperWaveFormMap} = require("./mapping");
 const {Morph} = require("./model/ns3");
 const {dBMap} = require("./mapping");
 const {midi2LinearValue} = require("./mapping");
@@ -171,30 +178,98 @@ exports.loadNs3fFile = (buffer) => {
     // console.log("Speed:", rotarySpeakerSpeedMap.get(organRotarySpeakerSpeed));
     // console.log("Stop Mode Enabled:", organRotarySpeakerStopMode);
 
-    const synthOffset52 = buffer.readUInt16BE(0x52);
-    const synthOffset8d = buffer.readUInt16BE(0x8d);
-    const synthOffset8e = buffer.readUInt16BE(0x8e);
+    const synthOffset3b = buffer.readUInt8(0x3b);
+    const synthOffset52W = buffer.readUInt16BE(0x52);
+    const synthOffset56 = buffer.readUInt8(0x56);
+    const synthOffset57 = buffer.readUInt8(0x57);
+    const synthOffset80 = buffer.readUInt8(0x80);
+    const synthOffset86 = buffer.readUInt8(0x86);
+    const synthOffset87 = buffer.readUInt8(0x87);
+    const synthOffset8bW = buffer.readUInt16BE(0x8b);
+    const synthOffset8cW = buffer.readUInt16BE(0x8c);
+    const synthOffset8dW = buffer.readUInt16BE(0x8d);
+    const synthOffset8eW = buffer.readUInt16BE(0x8e);
 
-    const oscillatorType = synthOscillatorTypeMap.get((synthOffset8d & 0x0380) >> 7);
+    const oscillatorType = synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >> 7);
     let oscillator1WaveForm = "";
     switch (oscillatorType) {
         case "Classic":
-            oscillator1WaveForm = synthOscillator1ClassicWaveFormMap.get((synthOffset8e & 0x01c0) >> 6);
+            oscillator1WaveForm = synthOscillator1ClassicWaveFormMap.get((synthOffset8eW & 0x01c0) >> 6);
             break;
         case "Wave":
-            oscillator1WaveForm = synthOscillator1WaveWaveFormMap.get((synthOffset8e & 0x0fc0) >> 6);
+            oscillator1WaveForm = synthOscillator1WaveWaveFormMap.get((synthOffset8eW & 0x0fc0) >> 6);
             break;
         case "Formant":
-            oscillator1WaveForm = synthOscillator1FormantWaveFormMap.get((synthOffset8e & 0x03c0) >> 6);
+            oscillator1WaveForm = synthOscillator1FormantWaveFormMap.get((synthOffset8eW & 0x03c0) >> 6);
+            break;
+        case "Super":
+            oscillator1WaveForm = synthOscillator1SuperWaveFormMap.get((synthOffset8eW & 0x01c0) >> 6);
+            break;
+        case "Sample":
+            oscillator1WaveForm = "Sample " + (((synthOffset8eW & 0x7fc0) >> 6) + 1);
             break;
     }
 
+    const lfoRate = synthOffset87 & 0x7f;
+    const envModAttack = (synthOffset8bW & 0xfe00) >> 9;
+    const envModDecay = (synthOffset8bW & 0x01fc) >> 2;
+    const envModRelease = (synthOffset8cW & 0x03f8) >> 3;
+
     const synth = {
-        enabled: ((synthOffset52 & 0x8000) !== 0),
-        volume: getVolume((synthOffset52 & 0x7F0) >> 4),
+        enabled: ((synthOffset52W & 0x8000) !== 0),
+        volume: getVolume((synthOffset52W & 0x7F0) >> 4),
+
+        octaveShift: synthOctaveShiftMap.get(synthOffset56 & 0x03),
+        pitchStick: ((synthOffset57 & 0x80) !== 0),
+        pitchStickRange: synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >> 4),
+        sustainPedal: ((synthOffset57 & 0x40) !== 0),
+        keyboardHold: ((synthOffset80 & 0x80) !== 0),
+
 
         oscillatorType: oscillatorType,
         oscillator1WaveForm: oscillator1WaveForm,
+
+        envelopes: {
+          modulation: {
+              attack: {
+                  midi: envModAttack,
+                  label: synthEnvAttackMap.get(envModAttack),
+              },
+              decay: {
+                  midi: envModDecay,
+                  label: synthEnvDecayMap.get(envModDecay),
+              },
+              release: {
+                  midi: envModRelease,
+                  label: '',
+              },
+              velocity: ((synthOffset8dW & 0x0400) !== 0),
+          },
+          amplifier: {
+              attack: {
+                  midi: '',
+                  label: '',
+              },
+              decay: {
+                  midi: '',
+                  label: '',
+              },
+              release: {
+                  midi: '',
+                  label: '',
+              },
+              velocity: '',
+          }
+        },
+        lfo: {
+            wave: synthLfoWaveMap.get(synthOffset86 & 0x07),
+            rate: {
+                midi: lfoRate,
+                label: synthLfoRateMap.get(lfoRate),
+            },
+            masterClock: ((synthOffset87 & 0x80) !== 0),
+        },
+
     };
 
     // console.log("");
