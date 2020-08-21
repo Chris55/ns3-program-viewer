@@ -39,6 +39,7 @@ const build = async(folder, testFilename) => {
 const buildAll = async() => {
     await build("/Organ", "organ.test.js");
     await build("/Synth", "synth.test.js");
+    await build("/Synth/oscillators", "synth.oscillators.test.js");
     await build("/Synth/lfo", "synth.lfo.test.js");
     await build("/Synth/envelopes", "synth.envelopes.test.js");
 }

@@ -1,4 +1,7 @@
-const {synthEnvDecayMap} = require("./mapping");
+const {midi2LinearValueAndComplement} = require("./mapping");
+const {synthOscillatorsTypeMap} = require("./mapping");
+const {synthAmpEnvelopeVelocityMap} = require("./mapping");
+const {synthEnvDecayOrReleaseLabel} = require("./mapping");
 const {synthEnvAttackMap} = require("./mapping");
 const {synthLfoRateMap} = require("./mapping");
 const {synthLfoWaveMap} = require("./mapping");
@@ -122,61 +125,7 @@ exports.loadNs3fFile = (buffer) => {
         speed: rotarySpeakerSpeedMap.get(organFlag34 & 0x01),
     };
 
-    // const organRotarySpeakerSpeed = organFlag34 & 0x01;
-    // const organVibratoMode = (organFlag34 & 0b00001110) >> 1;
-    // const organPStick = ((organFlag34 & 0x10) !== 0);
-    //
-    // const organRotarySpeakerStopMode = !(((organOffset35 & 0x80) >> 7) !== 0);
-    //
-    // const organEnabled = ((organOffsetB6 & 0x8000) !== 0);
-    // const organVolume = (organOffsetB6 & 0x7F0) >> 4;
-    //
-    // const organOctaveShift = (organOffsetBa & 0x07) - 6;
-    //
-    // const organType = (organOffsetBb & 0x70) >> 4;
-    // const organSustainPedal = ((organOffsetBb & 0x80) !== 0);
-    // const organLiveEnabled = ((organOffsetBb & 0x08) !== 0);
-    //
-    // const organPercussionVolumeSoftEnabled = ((organOffsetD3 & 0x01) !== 0);
-    // const organPercussionDecayFast = ((organOffsetD3 & 0x02) !== 0);
-    // const organPercussionHarmonicThird = ((organOffsetD3 & 0x04) !== 0);
-    // const organPercussionEnabled = ((organOffsetD3 & 0x08) !== 0);
-    // const organVibratoEnabled = ((organOffsetD3 & 0x10) !== 0);
-    //
-    // const organDrawbars1 = getDrawbars(buffer, 0xbe);
-    // const organDrawbars2 = getDrawbars(buffer, 0xd9);
-    //
-    //
-    // const rotarySpeakerDrive = (rotarySpeakerFlag & 0b0000011111110000) >> 4;
-    // const rotarySpeakerEnabled = (rotarySpeakerFlag2 & 0x80) !== 0;
-    // const rotarySpeakerSource = (rotarySpeakerFlag2 & 0b01100000) >> 5;
 
-    // console.log("");
-    // console.log("Organ:");
-    // console.log("Enabled:", organEnabled);
-    // console.log("Volume:", organVolume);
-    // console.log("Organ Type:", organTypeMap.get(organType));
-    // console.log("Pitch Stick Enabled:", organPStick);
-    // console.log("Sustain Pedal Enabled:", organSustainPedal);
-    // console.log("Octave Shift:", organOctaveShift);
-    // console.log("Vibrato/Chorus Enabled:", organVibratoEnabled);
-    // console.log("Vibrato/Chorus Mode:", organVibratoModeMap.get(organVibratoMode));
-    // console.log("Percussion Enabled:", organPercussionEnabled);
-    // console.log("Percussion Volume Soft Enabled:", organPercussionVolumeSoftEnabled);
-    // console.log("Percussion Decay Fast Enabled:", organPercussionDecayFast);
-    // console.log("Percussion Harmonic Third Enabled:", organPercussionHarmonicThird);
-    //
-    // console.log("Drawbars Preset I:  " + organDrawbars1);
-    // console.log("Drawbars Preset II: " + organDrawbars2);
-    // console.log("Live Enabled:", organLiveEnabled);
-    //
-    // console.log("");
-    // console.log("Rotary Speaker:");
-    // console.log("Drive: " + midi2value(0, 10, rotarySpeakerDrive));
-    // console.log("Enabled:", rotarySpeakerEnabled);
-    // console.log("Source:", sourceMap.get(rotarySpeakerSource));
-    // console.log("Speed:", rotarySpeakerSpeedMap.get(organRotarySpeakerSpeed));
-    // console.log("Stop Mode Enabled:", organRotarySpeakerStopMode);
 
     const synthOffset3b = buffer.readUInt8(0x3b);
     const synthOffset52W = buffer.readUInt16BE(0x52);
@@ -189,6 +138,12 @@ exports.loadNs3fFile = (buffer) => {
     const synthOffset8cW = buffer.readUInt16BE(0x8c);
     const synthOffset8dW = buffer.readUInt16BE(0x8d);
     const synthOffset8eW = buffer.readUInt16BE(0x8e);
+    const synthOffset8f = buffer.readUInt8(0x8f);
+    const synthOffset90W = buffer.readUInt16BE(0x90);
+    const synthOffsetA8 = buffer.readUInt8(0xa8);
+    const synthOffsetA5W = buffer.readUInt16BE(0xa5);
+    const synthOffsetA6W = buffer.readUInt16BE(0xa6);
+    const synthOffsetA7W = buffer.readUInt16BE(0xa7);
 
     const oscillatorType = synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >> 7);
     let oscillator1WaveForm = "";
@@ -210,10 +165,65 @@ exports.loadNs3fFile = (buffer) => {
             break;
     }
 
+    const oscConfig = synthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >> 1);
+    const oscCtrlMidi = (synthOffset90W & 0x07f0) >> 4;
+
+    let oscCtrl = "";
+    switch (oscConfig) {
+        case '1 Pitch':
+            oscCtrl = midi2LinearValue(0, 24, oscCtrlMidi, 1, "");
+            break;
+        case '2 Shape':
+            oscCtrl = midi2LinearValue(0, 100, oscCtrlMidi, 0, "%");
+            break;
+        case '3 Sync':
+            oscCtrl = midi2LinearValue(0, 10, oscCtrlMidi, 1, "");
+            break;
+        case '4 Detune':
+            oscCtrl = midi2LinearValue(0, 4, oscCtrlMidi, 2, "");
+            break;
+        case '5 MixSin':
+            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            break;
+        case '6 MixTri':
+            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            break;
+        case '7 MixSaw':
+            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            break;
+        case '8 MixSqr':
+            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            break;
+        case '9 MixBell':
+            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            break;
+        case '10 MixNs1':
+            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            break;
+        case '11 MixNs2':
+            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            break;
+        case '12 FM1':
+            oscCtrl = midi2LinearValue(0, 100, oscCtrlMidi, 0, "%");
+            break;
+        case '13 FM2':
+            oscCtrl = midi2LinearValue(0, 100, oscCtrlMidi, 0, "%");
+            break;
+        case '14 RM':
+            oscCtrl = midi2LinearValue(0, 100, oscCtrlMidi, 0, "%");
+            break;
+    }
+
+
     const lfoRate = synthOffset87 & 0x7f;
+
     const envModAttack = (synthOffset8bW & 0xfe00) >> 9;
     const envModDecay = (synthOffset8bW & 0x01fc) >> 2;
     const envModRelease = (synthOffset8cW & 0x03f8) >> 3;
+
+    const envAmpAttack = (synthOffsetA5W & 0x03f8) >> 3;
+    const envAmpDecay = (synthOffsetA6W & 0x07f0) >> 4;
+    const envAmpRelease = (synthOffsetA7W & 0x0fe0) >> 5;
 
     const synth = {
         enabled: ((synthOffset52W & 0x8000) !== 0),
@@ -225,9 +235,15 @@ exports.loadNs3fFile = (buffer) => {
         sustainPedal: ((synthOffset57 & 0x40) !== 0),
         keyboardHold: ((synthOffset80 & 0x80) !== 0),
 
-
-        oscillatorType: oscillatorType,
-        oscillator1WaveForm: oscillator1WaveForm,
+        oscillators: {
+            type: oscillatorType,
+            waveForm1: oscillator1WaveForm,
+            config: oscConfig,
+            control: oscCtrl,
+            pitch2: '',
+            lfoModAmount: '',
+            fastAttack: '',
+        },
 
         envelopes: {
           modulation: {
@@ -237,28 +253,28 @@ exports.loadNs3fFile = (buffer) => {
               },
               decay: {
                   midi: envModDecay,
-                  label: synthEnvDecayMap.get(envModDecay),
+                  label: synthEnvDecayOrReleaseLabel(envModDecay, "mod.decay"),
               },
               release: {
                   midi: envModRelease,
-                  label: '',
+                  label: synthEnvDecayOrReleaseLabel(envModRelease, "mod.release"),
               },
               velocity: ((synthOffset8dW & 0x0400) !== 0),
           },
           amplifier: {
               attack: {
-                  midi: '',
-                  label: '',
+                  midi: envAmpAttack,
+                  label: synthEnvAttackMap.get(envAmpAttack),
               },
               decay: {
-                  midi: '',
-                  label: '',
+                  midi: envAmpDecay,
+                  label: synthEnvDecayOrReleaseLabel(envAmpDecay, "amp.decay"),
               },
               release: {
-                  midi: '',
-                  label: '',
+                  midi: envAmpRelease,
+                  label: synthEnvDecayOrReleaseLabel(envAmpRelease, "amp.release"),
               },
-              velocity: '',
+              velocity: synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >> 3),
           }
         },
         lfo: {
@@ -271,17 +287,6 @@ exports.loadNs3fFile = (buffer) => {
         },
 
     };
-
-    // console.log("");
-    // console.log("Synth:");
-    // console.log("Enabled:", synthEnabled);
-    // console.log("Volume:", synthVolume);
-    // console.log("Oscillator Type", synthOscillatorTypeMap.get(synthOscillatorType));
-    // console.log("Oscillator 1 Type Classic Wave Form:", synthOscillator1ClassicWaveFormMap.get(synthOscillator1ClassicWaveForm));
-    // console.log("Oscillator 1 Type Wave Wave Form:", synthOscillator1WaveWaveFormMap.get(synthOscillator1WaveWaveForm));
-    // console.log("Oscillator 1 Type Formant Wave Form:", synthOscillator1FormantWaveFormMap.get(synthOscillator1FormantWaveForm));
-
-
 
     return {
         name: '',

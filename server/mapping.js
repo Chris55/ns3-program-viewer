@@ -579,7 +579,7 @@ exports.synthEnvAttackMap = new Map([
     [127, '45 s'],
 ]);
 
-exports.synthEnvDecayMap = new Map([
+const synthEnvDecayOrReleaseMap = new Map([
     [0, '3.0 ms'],
     [1, '3.5 ms'],
     [2, '4.0 ms'],
@@ -707,10 +707,66 @@ exports.synthEnvDecayMap = new Map([
     [124, '39 s'],
     [125, '41 s'],
     [126, '43 s'],
-    [127, 'Sustain'],
+    [127, '45 s'],
 ]);
 
+exports.synthEnvDecayOrReleaseLabel = function(value, type) {
+    switch (type) {
+        case 'mod.decay': {
+            if (value === 127) return 'Sustain';
+            else return synthEnvDecayOrReleaseMap.get(value);
+        }
+        case 'mod.release': {
+            if (value === 127) return 'Inf';
+            else return synthEnvDecayOrReleaseMap.get(value);
+        }
+        case 'amp.decay': {
+            if (value === 127) return 'Sustain';
+            else return synthEnvDecayOrReleaseMap.get(value);
+        }
+        case 'amp.release': {
+            return synthEnvDecayOrReleaseMap.get(value);
+        }
+    }
+    return "";
+};
 
+exports.synthAmpEnvelopeVelocityMap = new Map([
+    [0, 'Off'],
+    [1, '1'],
+    [2, '2'],
+    [3, '3'],
+]);
+
+exports.synthOscillatorsTypeMap = new Map([
+    [0, 'None'],
+    [1, '1 Pitch'],
+    [2, '2 Shape'],
+    [3, '3 Sync'],
+    [4, '4 Detune'],
+    [5, '5 MixSin'],
+    [6, '6 MixTri'],
+    [7, '7 MixSaw'],
+    [8, '8 MixSqr'],
+    [9, '9 MixBell'],
+    [10, '10 MixNs1'],
+    [11, '11 MixNs2'],
+    [12, '12 FM1'],
+    [13, '13 FM2'],
+    [14, '14 RM'],
+]);
+
+/***
+ * returns scaled value with precision and eng unit.
+ * input: (0, 100, 127, 1, '%'), output '100.0 %'
+ * input: (0, 100, 64, 1, '%'), output '50.0 %'
+ * @param min: eng min value
+ * @param max: eng max value
+ * @param value: midi input value (0-127)
+ * @param precision: number of decimal
+ * @param unit: eng unit
+ * @returns {string}
+ */
 exports.midi2LinearValue = function (min, max, value, precision, unit) {
     // midi 0 = min
     // midi 127 = max
@@ -718,8 +774,23 @@ exports.midi2LinearValue = function (min, max, value, precision, unit) {
         return "Off";
     }
     const result = (value * (max - min) / 127) + min;
-    return round(result, precision).toFixed(precision) + " " + unit;
+    const str = round(result, precision).toFixed(precision);
+    return (unit) ? str + " " + unit: str;
+}
 
+/***
+ * returns value and complement, range 0/100
+ * (used for mix oscillator config)
+ * input: 0, output 100/0
+ * input: 127, output 0/100
+ * @param value midi value (0-127)
+ * @returns {string}
+ */
+exports.midi2LinearValueAndComplement = function (value) {
+    const result = value * 100 / 127;
+    const val1 = round(result, 0);
+    const val2 = 100 - val1;
+    return val2.toFixed(0) + "/" + val1.toFixed(0);
 }
 
 exports.midi2LogValue = function (min, max, value, precision, unit) {
