@@ -6,112 +6,112 @@ const {getNs3TestCase} = require("./helpers");
 const root = "/Users/christian/dev/ns3-program-viewer/test/Synth/oscillators" + "/";
 
 describe("/Synth/oscillators", () => {
-    test("panelA.synth.oscillators.config eq 1 Pitch and panelA.synth.oscillators.control eq 0.0", async () => {
-        const file = "panelA.synth.oscillators.config eq 1 Pitch and panelA.synth.oscillators.control eq 0.0.ns3f";
+    test("panelA.synth.oscillators.config eq 1 Pitch and panelA.synth.oscillators.control.label eq 0.0", async () => {
+        const file = "panelA.synth.oscillators.config eq 1 Pitch and panelA.synth.oscillators.control.label eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 10 MixNs1 and panelA.synth.oscillators.control eq 100@a0", async () => {
-        const file = "panelA.synth.oscillators.config eq 10 MixNs1 and panelA.synth.oscillators.control eq 100@a0.ns3f";
+    test("panelA.synth.oscillators.config eq 10 MixNs1 and panelA.synth.oscillators.control.label eq 100@a0", async () => {
+        const file = "panelA.synth.oscillators.config eq 10 MixNs1 and panelA.synth.oscillators.control.label eq 100@a0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 11 MixNs2 and panelA.synth.oscillators.control eq 100@a0", async () => {
-        const file = "panelA.synth.oscillators.config eq 11 MixNs2 and panelA.synth.oscillators.control eq 100@a0.ns3f";
+    test("panelA.synth.oscillators.config eq 11 MixNs2 and panelA.synth.oscillators.control.label eq 100@a0", async () => {
+        const file = "panelA.synth.oscillators.config eq 11 MixNs2 and panelA.synth.oscillators.control.label eq 100@a0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 12 FM1 and panelA.synth.oscillators.control eq 0 %", async () => {
-        const file = "panelA.synth.oscillators.config eq 12 FM1 and panelA.synth.oscillators.control eq 0 %.ns3f";
+    test("panelA.synth.oscillators.config eq 12 FM1 and panelA.synth.oscillators.control.label eq 0 %", async () => {
+        const file = "panelA.synth.oscillators.config eq 12 FM1 and panelA.synth.oscillators.control.label eq 0 %.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 13 FM2 and panelA.synth.oscillators.control eq 0 %", async () => {
-        const file = "panelA.synth.oscillators.config eq 13 FM2 and panelA.synth.oscillators.control eq 0 %.ns3f";
+    test("panelA.synth.oscillators.config eq 13 FM2 and panelA.synth.oscillators.control.label eq 0 %", async () => {
+        const file = "panelA.synth.oscillators.config eq 13 FM2 and panelA.synth.oscillators.control.label eq 0 %.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 14 RM and panelA.synth.oscillators.control eq 0 %", async () => {
-        const file = "panelA.synth.oscillators.config eq 14 RM and panelA.synth.oscillators.control eq 0 %.ns3f";
+    test("panelA.synth.oscillators.config eq 14 RM and panelA.synth.oscillators.control.label eq 0 %", async () => {
+        const file = "panelA.synth.oscillators.config eq 14 RM and panelA.synth.oscillators.control.label eq 0 %.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 2 Shape and panelA.synth.oscillators.control eq 0 %", async () => {
-        const file = "panelA.synth.oscillators.config eq 2 Shape and panelA.synth.oscillators.control eq 0 %.ns3f";
+    test("panelA.synth.oscillators.config eq 2 Shape and panelA.synth.oscillators.control.label eq 0 %", async () => {
+        const file = "panelA.synth.oscillators.config eq 2 Shape and panelA.synth.oscillators.control.label eq 0 %.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 3 Sync and panelA.synth.oscillators.control eq 0.0", async () => {
-        const file = "panelA.synth.oscillators.config eq 3 Sync and panelA.synth.oscillators.control eq 0.0.ns3f";
+    test("panelA.synth.oscillators.config eq 3 Sync and panelA.synth.oscillators.control.label eq 0.0", async () => {
+        const file = "panelA.synth.oscillators.config eq 3 Sync and panelA.synth.oscillators.control.label eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 4 Detune and panelA.synth.oscillators.control eq 0.00", async () => {
-        const file = "panelA.synth.oscillators.config eq 4 Detune and panelA.synth.oscillators.control eq 0.00.ns3f";
+    test("panelA.synth.oscillators.config eq 4 Detune and panelA.synth.oscillators.control.label eq 0.00", async () => {
+        const file = "panelA.synth.oscillators.config eq 4 Detune and panelA.synth.oscillators.control.label eq 0.00.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 5 MixSin and panelA.synth.oscillators.control eq 100@a0", async () => {
-        const file = "panelA.synth.oscillators.config eq 5 MixSin and panelA.synth.oscillators.control eq 100@a0.ns3f";
+    test("panelA.synth.oscillators.config eq 5 MixSin and panelA.synth.oscillators.control.label eq 100@a0", async () => {
+        const file = "panelA.synth.oscillators.config eq 5 MixSin and panelA.synth.oscillators.control.label eq 100@a0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 6 MixTri and panelA.synth.oscillators.control eq 100@a0", async () => {
-        const file = "panelA.synth.oscillators.config eq 6 MixTri and panelA.synth.oscillators.control eq 100@a0.ns3f";
+    test("panelA.synth.oscillators.config eq 6 MixTri and panelA.synth.oscillators.control.label eq 100@a0", async () => {
+        const file = "panelA.synth.oscillators.config eq 6 MixTri and panelA.synth.oscillators.control.label eq 100@a0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 7 MixSaw and panelA.synth.oscillators.control eq 100@a0", async () => {
-        const file = "panelA.synth.oscillators.config eq 7 MixSaw and panelA.synth.oscillators.control eq 100@a0.ns3f";
+    test("panelA.synth.oscillators.config eq 7 MixSaw and panelA.synth.oscillators.control.label eq 100@a0", async () => {
+        const file = "panelA.synth.oscillators.config eq 7 MixSaw and panelA.synth.oscillators.control.label eq 100@a0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 8 MixSqr and panelA.synth.oscillators.control eq 100@a0", async () => {
-        const file = "panelA.synth.oscillators.config eq 8 MixSqr and panelA.synth.oscillators.control eq 100@a0.ns3f";
+    test("panelA.synth.oscillators.config eq 8 MixSqr and panelA.synth.oscillators.control.label eq 100@a0", async () => {
+        const file = "panelA.synth.oscillators.config eq 8 MixSqr and panelA.synth.oscillators.control.label eq 100@a0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.config eq 9 MixBell and panelA.synth.oscillators.control eq 100@a0", async () => {
-        const file = "panelA.synth.oscillators.config eq 9 MixBell and panelA.synth.oscillators.control eq 100@a0.ns3f";
+    test("panelA.synth.oscillators.config eq 9 MixBell and panelA.synth.oscillators.control.label eq 100@a0", async () => {
+        const file = "panelA.synth.oscillators.config eq 9 MixBell and panelA.synth.oscillators.control.label eq 100@a0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -120,6 +120,22 @@ describe("/Synth/oscillators", () => {
 
     test("panelA.synth.oscillators.config eq None", async () => {
         const file = "panelA.synth.oscillators.config eq None.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.fastAttack eq false", async () => {
+        const file = "panelA.synth.oscillators.fastAttack eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.fastAttack eq true", async () => {
+        const file = "panelA.synth.oscillators.fastAttack eq true.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

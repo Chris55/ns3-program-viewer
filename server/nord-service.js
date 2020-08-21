@@ -144,6 +144,7 @@ exports.loadNs3fFile = (buffer) => {
     const synthOffsetA5W = buffer.readUInt16BE(0xa5);
     const synthOffsetA6W = buffer.readUInt16BE(0xa6);
     const synthOffsetA7W = buffer.readUInt16BE(0xa7);
+    const synthOffsetAc = buffer.readUInt8(0xac);
 
     const oscillatorType = synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >> 7);
     let oscillator1WaveForm = "";
@@ -239,10 +240,19 @@ exports.loadNs3fFile = (buffer) => {
             type: oscillatorType,
             waveForm1: oscillator1WaveForm,
             config: oscConfig,
-            control: oscCtrl,
-            pitch2: '',
-            lfoModAmount: '',
-            fastAttack: '',
+            control: {
+                midi: oscCtrlMidi,
+                label: oscCtrl,
+            },
+            pitch: {
+                midi: '',
+                label: '',
+            },
+            lfoModAmount: {
+                midi: '',
+                label: '',
+            },
+            fastAttack: ((synthOffsetAc & 0x04) !== 0),
         },
 
         envelopes: {
