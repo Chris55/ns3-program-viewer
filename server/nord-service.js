@@ -250,6 +250,7 @@ exports.loadNs3fFile = (buffer) => {
         voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >> 7),
         glide: converter.midi2LinearStringValue(0, 10,synthOffset84W & 0x007f, 1, ""),
         unison: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >> 6),
+        vibrato: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >> 3),
 
         oscillators: {
             type: oscillatorType,

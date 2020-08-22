@@ -81,6 +81,15 @@ exports.synthUnisonMap = new Map([
     [3, '3'],
 ]);
 
+exports.synthVibratoMap = new Map([
+    [0, 'Off'],
+    [1, 'Delay 1'],
+    [2, 'Delay 2'],
+    [3, 'Delay 3'],
+    [4, 'Wheel'],
+    [5, 'After Touch'],
+]);
+
 exports.synthOscillatorTypeMap = new Map([
     [0x00, 'Classic'],
     [0x01, 'Wave'],

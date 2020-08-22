@@ -230,6 +230,54 @@ describe("/Synth", () => {
         });
     });
 
+    test("panelA.synth.vibrato eq After Touch", async () => {
+        const file = "panelA.synth.vibrato eq After Touch.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.vibrato eq Delay 1", async () => {
+        const file = "panelA.synth.vibrato eq Delay 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.vibrato eq Delay 2", async () => {
+        const file = "panelA.synth.vibrato eq Delay 2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.vibrato eq Delay 3", async () => {
+        const file = "panelA.synth.vibrato eq Delay 3.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.vibrato eq Off", async () => {
+        const file = "panelA.synth.vibrato eq Off.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.vibrato eq Wheel", async () => {
+        const file = "panelA.synth.vibrato eq Wheel.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.voice eq Legato", async () => {
         const file = "panelA.synth.voice eq Legato.ns3f";
         const sut = await getNs3TestCase(root + file);
