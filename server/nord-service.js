@@ -1,26 +1,7 @@
-const {midi2LinearValueAndComplement} = require("./mapping");
-const {synthOscillatorsTypeMap} = require("./mapping");
-const {synthAmpEnvelopeVelocityMap} = require("./mapping");
-const {synthEnvDecayOrReleaseLabel} = require("./mapping");
-const {synthEnvAttackMap} = require("./mapping");
-const {synthLfoRateMap} = require("./mapping");
-const {synthLfoWaveMap} = require("./mapping");
-const {synthPitchShiftRangeMap} = require("./mapping");
-const {synthOctaveShiftMap} = require("./mapping");
-const {synthOscillator1SuperWaveFormMap} = require("./mapping");
+const mapping = require("./mapping");
+const converter = require("./converter");
 const {Morph} = require("./model/ns3");
-const {dBMap} = require("./mapping");
-const {midi2LinearValue} = require("./mapping");
-const {synthOscillator1FormantWaveFormMap} = require("./mapping");
-const {synthOscillator1WaveWaveFormMap} = require("./mapping");
-const {synthOscillator1ClassicWaveFormMap} = require("./mapping");
-const {synthOscillatorTypeMap} = require("./mapping");
-const {rotarySpeakerSpeedMap} = require("./mapping");
-const {sourceMap} = require("./mapping");
-const {organVibratoModeMap} = require("./mapping");
-const {organTypeMap} = require("./mapping");
-const {pianoNameMap} = require("./mapping");
-const {pianoTypeMap} = require("./mapping");
+
 
 
 const getDrawbars = function (buffer, offset) {
@@ -50,7 +31,8 @@ const getDrawbars = function (buffer, offset) {
 const getVolume = function(value) {
     return {
         midi: value,
-        label: dBMap.get(value)
+        //label: (value === 0) ? "Off": mapping.dBMap.get(value)
+        label: mapping.dBMap.get(value)
     };
 }
 
@@ -79,8 +61,8 @@ exports.loadNs3fFile = (buffer) => {
     const piano = {
         enabled: (pianoFlag1 & 0x8000) !== 0,
         volume: getVolume((pianoFlag1 & 0x7F0) >> 4),
-        type: pianoTypeMap.get((pianoFlag2 & 0x38) >> 3),
-        name: pianoNameMap.get(buffer.readBigUInt64BE(0x49)),
+        type: mapping.pianoTypeMap.get((pianoFlag2 & 0x38) >> 3),
+        name: mapping.pianoNameMap.get(buffer.readBigUInt64BE(0x49)),
         pitchStick: (pianoFlag2 & 0x80) !== 0,
         sustainPedal: (pianoFlag2 & 0x40) !== 0,
     };
@@ -99,7 +81,7 @@ exports.loadNs3fFile = (buffer) => {
     const organ = {
         enabled: ((organOffsetB6 & 0x8000) !== 0),
         volume: getVolume((organOffsetB6 & 0x7F0) >> 4),
-        type: organTypeMap.get((organOffsetBb & 0x70) >> 4),
+        type: mapping.organTypeMap.get((organOffsetBb & 0x70) >> 4),
         preset1: getDrawbars(buffer, 0xbe).join(""),
         preset2: getDrawbars(buffer, 0xd9).join(""),
         octaveShift: (organOffsetBa & 0x07) - 6,
@@ -108,7 +90,7 @@ exports.loadNs3fFile = (buffer) => {
         live: ((organOffsetBb & 0x08) !== 0),
         vibrato: {
             enabled: ((organOffsetD3 & 0x10) !== 0),
-            mode: organVibratoModeMap.get((organFlag34 & 0b00001110) >> 1),
+            mode: mapping.organVibratoModeMap.get((organFlag34 & 0b00001110) >> 1),
         },
         percussion: {
             enabled: ((organOffsetD3 & 0x08) !== 0),
@@ -119,10 +101,10 @@ exports.loadNs3fFile = (buffer) => {
     };
 
     const rotarySpeaker = {
-        drive: midi2LinearValue(0, 10, (rotarySpeakerOffset39 & 0b0000011111110000) >> 4, 1, ""),
-        source: sourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
+        drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39 & 0b0000011111110000) >> 4, 1, ""),
+        source: mapping.sourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
         stopMode: !(((organOffset35 & 0x80) >> 7) !== 0),
-        speed: rotarySpeakerSpeedMap.get(organFlag34 & 0x01),
+        speed: mapping.rotarySpeakerSpeedMap.get(organFlag34 & 0x01),
     };
 
 
@@ -132,6 +114,7 @@ exports.loadNs3fFile = (buffer) => {
     const synthOffset56 = buffer.readUInt8(0x56);
     const synthOffset57 = buffer.readUInt8(0x57);
     const synthOffset80 = buffer.readUInt8(0x80);
+    const synthOffset84W = buffer.readUInt16BE(0x84);
     const synthOffset86 = buffer.readUInt8(0x86);
     const synthOffset87 = buffer.readUInt8(0x87);
     const synthOffset8bW = buffer.readUInt16BE(0x8b);
@@ -141,83 +124,103 @@ exports.loadNs3fFile = (buffer) => {
     const synthOffset8f = buffer.readUInt8(0x8f);
     const synthOffset8fW = buffer.readUInt16BE(0x8f);
     const synthOffset90W = buffer.readUInt16BE(0x90);
+    const synthOffset94W = buffer.readUInt16BE(0x94);
     const synthOffsetA8 = buffer.readUInt8(0xa8);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5);
     const synthOffsetA6W = buffer.readUInt16BE(0xa6);
     const synthOffsetA7W = buffer.readUInt16BE(0xa7);
     const synthOffsetAc = buffer.readUInt8(0xac);
 
-    const oscillatorType = synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >> 7);
+    const oscillatorType = mapping.synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >> 7);
     let oscillator1WaveForm = "";
     switch (oscillatorType) {
         case "Classic":
-            oscillator1WaveForm = synthOscillator1ClassicWaveFormMap.get((synthOffset8eW & 0x01c0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1ClassicWaveFormMap.get((synthOffset8eW & 0x01c0) >> 6);
             break;
         case "Wave":
-            oscillator1WaveForm = synthOscillator1WaveWaveFormMap.get((synthOffset8eW & 0x0fc0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1WaveWaveFormMap.get((synthOffset8eW & 0x0fc0) >> 6);
             break;
         case "Formant":
-            oscillator1WaveForm = synthOscillator1FormantWaveFormMap.get((synthOffset8eW & 0x03c0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1FormantWaveFormMap.get((synthOffset8eW & 0x03c0) >> 6);
             break;
         case "Super":
-            oscillator1WaveForm = synthOscillator1SuperWaveFormMap.get((synthOffset8eW & 0x01c0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1SuperWaveFormMap.get((synthOffset8eW & 0x01c0) >> 6);
             break;
         case "Sample":
             oscillator1WaveForm = "Sample " + (((synthOffset8eW & 0x7fc0) >> 6) + 1);
             break;
     }
 
-    const oscConfig = synthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >> 1);
-
+    const oscConfig = mapping.synthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >> 1);
 
     const osc2Pitch = ((synthOffset8fW & 0x01f8) >> 3) - 12;
     const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127 / (48 + 12)));
 
     const oscCtrlMidi = (synthOffset90W & 0x07f0) >> 4;
 
+    // Osc Modulation is coded on 7 bits in byte 0x94 and 0x95 (b11 to b5) for Panel A.
+    // Value is not the direct midi value as usual, instead it is coded on a weird
+    // 0/120 range:
+    // 0   = 10.0 LFO Amount,
+    // 60  = 0.0 LFO/Mod Env Amount,
+    // 120 = 10.0 Mod Env Amount
+    // note: API also returns the midi value that is deduced from the final value.
+
+    const oscModulationRange120 = (synthOffset94W & 0x0fe0) >> 5;
+    const oscModulationMidi = Math.ceil(((oscModulationRange120) * 127 / (120)));
+    const oscModulation = converter.midi2LinearValue(-10, 10, oscModulationRange120, 1, 0, 120);
+    let oscLfoAmount = "0.0";
+    let oscModEnvAmount = "0.0";
+    if (oscModulation < 0) {
+        oscLfoAmount = Math.abs(oscModulation).toFixed(1);
+    } else {
+        oscModEnvAmount = oscModulation.toFixed(1);
+    }
+
+
     let oscCtrl = "";
     switch (oscConfig) {
         case '1 Pitch':
-            oscCtrl = midi2LinearValue(0, 24, oscCtrlMidi, 1, "");
+            oscCtrl = converter.midi2LinearStringValue(0, 24, oscCtrlMidi, 1, "");
             break;
         case '2 Shape':
-            oscCtrl = midi2LinearValue(0, 100, oscCtrlMidi, 0, "%");
+            oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
             break;
         case '3 Sync':
-            oscCtrl = midi2LinearValue(0, 10, oscCtrlMidi, 1, "");
+            oscCtrl = converter.midi2LinearStringValue(0, 10, oscCtrlMidi, 1, "");
             break;
         case '4 Detune':
-            oscCtrl = midi2LinearValue(0, 4, oscCtrlMidi, 2, "");
+            oscCtrl = converter.midi2LinearStringValue(0, 4, oscCtrlMidi, 2, "");
             break;
         case '5 MixSin':
-            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
         case '6 MixTri':
-            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
         case '7 MixSaw':
-            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
         case '8 MixSqr':
-            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
         case '9 MixBell':
-            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
         case '10 MixNs1':
-            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
         case '11 MixNs2':
-            oscCtrl = midi2LinearValueAndComplement(oscCtrlMidi);
+            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
         case '12 FM1':
-            oscCtrl = midi2LinearValue(0, 100, oscCtrlMidi, 0, "%");
+            oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
             break;
         case '13 FM2':
-            oscCtrl = midi2LinearValue(0, 100, oscCtrlMidi, 0, "%");
+            oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
             break;
         case '14 RM':
-            oscCtrl = midi2LinearValue(0, 100, oscCtrlMidi, 0, "%");
+            oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
             break;
     }
 
@@ -238,11 +241,15 @@ exports.loadNs3fFile = (buffer) => {
         enabled: ((synthOffset52W & 0x8000) !== 0),
         volume: getVolume((synthOffset52W & 0x7F0) >> 4),
 
-        octaveShift: synthOctaveShiftMap.get(synthOffset56 & 0x03),
+        octaveShift: mapping.synthOctaveShiftMap.get(synthOffset56 & 0x03),
         pitchStick: ((synthOffset57 & 0x80) !== 0),
-        pitchStickRange: synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >> 4),
+        pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >> 4),
         sustainPedal: ((synthOffset57 & 0x40) !== 0),
         keyboardHold: ((synthOffset80 & 0x80) !== 0),
+
+        voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >> 7),
+        glide: converter.midi2LinearStringValue(0, 10,synthOffset84W & 0x007f, 1, ""),
+        unison: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >> 6),
 
         oscillators: {
             type: oscillatorType,
@@ -256,9 +263,11 @@ exports.loadNs3fFile = (buffer) => {
                 midi: osc2PitchMidi,
                 label: (osc2Pitch === -12) ? 'Sub': osc2Pitch + ' semi',
             },
-            lfoModAmount: {
-                midi: '',
-                label: '',
+            modulation: {
+                midi: oscModulationMidi,
+                lfoAmount: oscLfoAmount,
+                modEnvAmount: oscModEnvAmount,
+                //label: oscModulationLabel,
             },
             fastAttack: ((synthOffsetAc & 0x04) !== 0),
         },
@@ -267,39 +276,39 @@ exports.loadNs3fFile = (buffer) => {
           modulation: {
               attack: {
                   midi: envModAttackMidi,
-                  label: synthEnvAttackMap.get(envModAttackMidi),
+                  label: mapping.synthEnvAttackMap.get(envModAttackMidi),
               },
               decay: {
                   midi: envModDecayMidi,
-                  label: synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
+                  label: mapping.synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
               },
               release: {
                   midi: envModReleaseMidi,
-                  label: synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
+                  label: mapping.synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
               },
               velocity: ((synthOffset8dW & 0x0400) !== 0),
           },
           amplifier: {
               attack: {
                   midi: envAmpAttackMidi,
-                  label: synthEnvAttackMap.get(envAmpAttackMidi),
+                  label: mapping.synthEnvAttackMap.get(envAmpAttackMidi),
               },
               decay: {
                   midi: envAmpDecayMidi,
-                  label: synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
+                  label: mapping.synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
               },
               release: {
                   midi: envAmpReleaseMidi,
-                  label: synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
+                  label: mapping.synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
               },
-              velocity: synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >> 3),
+              velocity: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >> 3),
           }
         },
         lfo: {
-            wave: synthLfoWaveMap.get(synthOffset86 & 0x07),
+            wave: mapping.synthLfoWaveMap.get(synthOffset86 & 0x07),
             rate: {
                 midi: lfoRateMidi,
-                label: synthLfoRateMap.get(lfoRateMidi),
+                label: mapping.synthLfoRateMap.get(lfoRateMidi),
             },
             masterClock: ((synthOffset87 & 0x80) !== 0),
         },

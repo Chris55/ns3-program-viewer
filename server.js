@@ -16,7 +16,7 @@ app.use(cors());
 
 app.use('/api', api);
 
-console.log("env: ", JSON.stringify(process.env, null, 2));
+//console.log("env: ", JSON.stringify(process.env, null, 2));
 
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files

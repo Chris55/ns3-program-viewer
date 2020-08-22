@@ -68,6 +68,19 @@ exports.rotarySpeakerSpeedMap = new Map([
     [0x01, 'Fast'],
 ]);
 
+exports.synthVoiceMap = new Map([
+    [0, 'Poly'],
+    [1, 'Legato'],
+    [2, 'Mono'],
+]);
+
+exports.synthUnisonMap = new Map([
+    [0, 'Off'],
+    [1, '1'],
+    [2, '2'],
+    [3, '3'],
+]);
+
 exports.synthOscillatorTypeMap = new Map([
     [0x00, 'Classic'],
     [0x01, 'Wave'],
@@ -756,65 +769,7 @@ exports.synthOscillatorsTypeMap = new Map([
     [14, '14 RM'],
 ]);
 
-/***
- * returns scaled value with precision and eng unit.
- * input: (0, 100, 127, 1, '%'), output '100.0 %'
- * input: (0, 100, 64, 1, '%'), output '50.0 %'
- * @param min: eng min value
- * @param max: eng max value
- * @param value: midi input value (0-127)
- * @param precision: number of decimal
- * @param unit: eng unit
- * @returns {string}
- */
-exports.midi2LinearValue = function (min, max, value, precision, unit) {
-    // midi 0 = min
-    // midi 127 = max
-    if (unit === "dB" && value === 0) {
-        return "Off";
-    }
-    const result = (value * (max - min) / 127) + min;
-    const str = round(result, precision).toFixed(precision);
-    return (unit) ? str + " " + unit: str;
-}
 
-/***
- * returns value and complement, range 0/100
- * (used for mix oscillator config)
- * input: 0, output 100/0
- * input: 127, output 0/100
- * @param value midi value (0-127)
- * @returns {string}
- */
-exports.midi2LinearValueAndComplement = function (value) {
-    const result = value * 100 / 127;
-    const val1 = round(result, 0);
-    const val2 = 100 - val1;
-    return val2.toFixed(0) + "/" + val1.toFixed(0);
-}
-
-exports.midi2LogValue = function (min, max, value, precision, unit) {
-    if (unit === "dB" && value === 0) {
-        if (value === 0) return "Off";
-        if (value === 127) return "O dB";
-    }
-    // https://stackoverflow.com/questions/19472747/convert-linear-scale-to-logarithmic
-    const x0 = 0;   // midi min value
-    const x1 = 127; // midi max value
-    const x = value;
-    const y0 = min === 0 ? 0.0001: min;
-    const y1 = max === 0 ? 0.0001: max;
-    const a = (x - x0) / (x1 - x0);
-    const b = Math.log10(y1) - Math.log10(y0);
-    const y = Math.pow(10, a * b + Math.log10(y0)) - 90;
-    return round(y, precision).toFixed(precision) + " " + unit;
-
-}
-
-const round = function(value, precision) {
-    const multiplier = Math.pow(10, precision || 0);
-    return Math.round(value * multiplier) / multiplier;
-}
 
 
 

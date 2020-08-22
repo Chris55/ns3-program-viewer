@@ -142,6 +142,70 @@ describe("/Synth/oscillators", () => {
         });
     });
 
+    test("panelA.synth.oscillators.modulation.lfoAmount eq 10.0", async () => {
+        const file = "panelA.synth.oscillators.modulation.lfoAmount eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.modulation.lfoAmount eq 9.7", async () => {
+        const file = "panelA.synth.oscillators.modulation.lfoAmount eq 9.7.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.modulation.lfoAmount eq 9.8", async () => {
+        const file = "panelA.synth.oscillators.modulation.lfoAmount eq 9.8.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.modulation.modEnvAmount eq 0.0 and panelA.synth.oscillators.modulation.lfoAmount eq 0.0", async () => {
+        const file = "panelA.synth.oscillators.modulation.modEnvAmount eq 0.0 and panelA.synth.oscillators.modulation.lfoAmount eq 0.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.modulation.modEnvAmount eq 0.2", async () => {
+        const file = "panelA.synth.oscillators.modulation.modEnvAmount eq 0.2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.modulation.modEnvAmount eq 0.3", async () => {
+        const file = "panelA.synth.oscillators.modulation.modEnvAmount eq 0.3.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.modulation.modEnvAmount eq 10.0", async () => {
+        const file = "panelA.synth.oscillators.modulation.modEnvAmount eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.modulation.modEnvAmount eq 9.8", async () => {
+        const file = "panelA.synth.oscillators.modulation.modEnvAmount eq 9.8.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.oscillators.pitch.midi eq 0 and panelA.synth.oscillators.pitch.label eq Sub", async () => {
         const file = "panelA.synth.oscillators.pitch.midi eq 0 and panelA.synth.oscillators.pitch.label eq Sub.ns3f";
         const sut = await getNs3TestCase(root + file);

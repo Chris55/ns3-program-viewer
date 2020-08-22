@@ -22,6 +22,30 @@ describe("/Synth", () => {
         });
     });
 
+    test("panelA.synth.glide eq 0.0", async () => {
+        const file = "panelA.synth.glide eq 0.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.glide eq 10.0", async () => {
+        const file = "panelA.synth.glide eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.glide eq 5.0", async () => {
+        const file = "panelA.synth.glide eq 5.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.keyboardHold eq false", async () => {
         const file = "panelA.synth.keyboardHold eq false.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -168,6 +192,62 @@ describe("/Synth", () => {
 
     test("panelA.synth.sustainPedal eq true", async () => {
         const file = "panelA.synth.sustainPedal eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.unison eq 1", async () => {
+        const file = "panelA.synth.unison eq 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.unison eq 2", async () => {
+        const file = "panelA.synth.unison eq 2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.unison eq 3", async () => {
+        const file = "panelA.synth.unison eq 3.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.unison eq Off", async () => {
+        const file = "panelA.synth.unison eq Off.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.voice eq Legato", async () => {
+        const file = "panelA.synth.voice eq Legato.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.voice eq Mono", async () => {
+        const file = "panelA.synth.voice eq Mono.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.voice eq Poly", async () => {
+        const file = "panelA.synth.voice eq Poly.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
