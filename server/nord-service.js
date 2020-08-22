@@ -139,6 +139,7 @@ exports.loadNs3fFile = (buffer) => {
     const synthOffset8dW = buffer.readUInt16BE(0x8d);
     const synthOffset8eW = buffer.readUInt16BE(0x8e);
     const synthOffset8f = buffer.readUInt8(0x8f);
+    const synthOffset8fW = buffer.readUInt16BE(0x8f);
     const synthOffset90W = buffer.readUInt16BE(0x90);
     const synthOffsetA8 = buffer.readUInt8(0xa8);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5);
@@ -167,6 +168,11 @@ exports.loadNs3fFile = (buffer) => {
     }
 
     const oscConfig = synthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >> 1);
+
+
+    const osc2Pitch = ((synthOffset8fW & 0x01f8) >> 3) - 12;
+    const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127 / (48 + 12)));
+
     const oscCtrlMidi = (synthOffset90W & 0x07f0) >> 4;
 
     let oscCtrl = "";
@@ -216,15 +222,17 @@ exports.loadNs3fFile = (buffer) => {
     }
 
 
-    const lfoRate = synthOffset87 & 0x7f;
+    const lfoRateMidi = synthOffset87 & 0x7f;
 
-    const envModAttack = (synthOffset8bW & 0xfe00) >> 9;
-    const envModDecay = (synthOffset8bW & 0x01fc) >> 2;
-    const envModRelease = (synthOffset8cW & 0x03f8) >> 3;
+    const envModAttackMidi = (synthOffset8bW & 0xfe00) >> 9;
+    const envModDecayMidi = (synthOffset8bW & 0x01fc) >> 2;
+    const envModReleaseMidi = (synthOffset8cW & 0x03f8) >> 3;
 
-    const envAmpAttack = (synthOffsetA5W & 0x03f8) >> 3;
-    const envAmpDecay = (synthOffsetA6W & 0x07f0) >> 4;
-    const envAmpRelease = (synthOffsetA7W & 0x0fe0) >> 5;
+    const envAmpAttackMidi = (synthOffsetA5W & 0x03f8) >> 3;
+    const envAmpDecayMidi = (synthOffsetA6W & 0x07f0) >> 4;
+    const envAmpReleaseMidi = (synthOffsetA7W & 0x0fe0) >> 5;
+
+
 
     const synth = {
         enabled: ((synthOffset52W & 0x8000) !== 0),
@@ -245,8 +253,8 @@ exports.loadNs3fFile = (buffer) => {
                 label: oscCtrl,
             },
             pitch: {
-                midi: '',
-                label: '',
+                midi: osc2PitchMidi,
+                label: (osc2Pitch === -12) ? 'Sub': osc2Pitch + ' semi',
             },
             lfoModAmount: {
                 midi: '',
@@ -258,31 +266,31 @@ exports.loadNs3fFile = (buffer) => {
         envelopes: {
           modulation: {
               attack: {
-                  midi: envModAttack,
-                  label: synthEnvAttackMap.get(envModAttack),
+                  midi: envModAttackMidi,
+                  label: synthEnvAttackMap.get(envModAttackMidi),
               },
               decay: {
-                  midi: envModDecay,
-                  label: synthEnvDecayOrReleaseLabel(envModDecay, "mod.decay"),
+                  midi: envModDecayMidi,
+                  label: synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
               },
               release: {
-                  midi: envModRelease,
-                  label: synthEnvDecayOrReleaseLabel(envModRelease, "mod.release"),
+                  midi: envModReleaseMidi,
+                  label: synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
               },
               velocity: ((synthOffset8dW & 0x0400) !== 0),
           },
           amplifier: {
               attack: {
-                  midi: envAmpAttack,
-                  label: synthEnvAttackMap.get(envAmpAttack),
+                  midi: envAmpAttackMidi,
+                  label: synthEnvAttackMap.get(envAmpAttackMidi),
               },
               decay: {
-                  midi: envAmpDecay,
-                  label: synthEnvDecayOrReleaseLabel(envAmpDecay, "amp.decay"),
+                  midi: envAmpDecayMidi,
+                  label: synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
               },
               release: {
-                  midi: envAmpRelease,
-                  label: synthEnvDecayOrReleaseLabel(envAmpRelease, "amp.release"),
+                  midi: envAmpReleaseMidi,
+                  label: synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
               },
               velocity: synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >> 3),
           }
@@ -290,8 +298,8 @@ exports.loadNs3fFile = (buffer) => {
         lfo: {
             wave: synthLfoWaveMap.get(synthOffset86 & 0x07),
             rate: {
-                midi: lfoRate,
-                label: synthLfoRateMap.get(lfoRate),
+                midi: lfoRateMidi,
+                label: synthLfoRateMap.get(lfoRateMidi),
             },
             masterClock: ((synthOffset87 & 0x80) !== 0),
         },

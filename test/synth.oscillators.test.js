@@ -142,6 +142,46 @@ describe("/Synth/oscillators", () => {
         });
     });
 
+    test("panelA.synth.oscillators.pitch.midi eq 0 and panelA.synth.oscillators.pitch.label eq Sub", async () => {
+        const file = "panelA.synth.oscillators.pitch.midi eq 0 and panelA.synth.oscillators.pitch.label eq Sub.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.pitch.midi eq 127 and panelA.synth.oscillators.pitch.label eq 48 semi", async () => {
+        const file = "panelA.synth.oscillators.pitch.midi eq 127 and panelA.synth.oscillators.pitch.label eq 48 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.pitch.midi eq 26 and panelA.synth.oscillators.pitch.label eq 0 semi", async () => {
+        const file = "panelA.synth.oscillators.pitch.midi eq 26 and panelA.synth.oscillators.pitch.label eq 0 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.pitch.midi eq 28 and panelA.synth.oscillators.pitch.label eq 1 semi", async () => {
+        const file = "panelA.synth.oscillators.pitch.midi eq 28 and panelA.synth.oscillators.pitch.label eq 1 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.pitch.midi eq 30 and panelA.synth.oscillators.pitch.label eq 2 semi", async () => {
+        const file = "panelA.synth.oscillators.pitch.midi eq 30 and panelA.synth.oscillators.pitch.label eq 2 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.oscillators.type eq Classic and panelA.synth.oscillators.waveForm1 eq ESaw", async () => {
         const file = "panelA.synth.oscillators.type eq Classic and panelA.synth.oscillators.waveForm1 eq ESaw.ns3f";
         const sut = await getNs3TestCase(root + file);
