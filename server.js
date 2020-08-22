@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require("path");
-const http = require("http");
+const https = require("https");
 const api = require('./server/routes/api.routes');
 
 const app = express();
@@ -46,7 +46,7 @@ setInterval(() => {
     const hour = new Date().getUTCHours();
     console.log("refresh... hour = ", hour);
     if (hour >= 8) {
-        http.get('https://ns3-program-viewer.herokuapp.com/');
+        https.get('https://ns3-program-viewer.herokuapp.com/');
     }
 }, 1740000); // 29min
 
