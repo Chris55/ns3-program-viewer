@@ -36,27 +36,30 @@ const getVolume = function(value) {
     };
 }
 
-exports.loadNs3fFile = (buffer) => {
+const getPanel = function(buffer, id) {
 
-    if (buffer.length > 16) {
-        const claviaSignature = buffer.toString("utf8", 0, 4);
-        if (claviaSignature !== "CBIN") {
-            throw new Error("Invalid Nord file");
-        }
-        const fileExt = buffer.toString("utf8", 8, 12);
-        if (fileExt !== "ns3f") {
-            throw new Error(fileExt + " file are not supported, select a valid ns3f file");
-        }
-    }
-    if (buffer.length !== 592) {
-        throw new Error("Invalid file, unexpected file length");
-    }
+    // Panel enabled flag is offset 0x31 (b5 & b6)
+    // 0 = A only
+    // 1 = B only
+    // 2 = A & B
+    // Panel selected flag is offset 0x31 (b7);
+    // A = 0, B = 1 (not used here)
 
-    const fileId = buffer.readUInt32LE(0x0e);
+    const panelOffset31 = buffer.readUInt8(0x31);
+    const panelEnabledFlag = (panelOffset31 & 0x60) >> 5;
+    const panelEnabled = (id === 0)
+        ? (panelEnabledFlag === 0 || panelEnabledFlag === 2)
+        : (panelEnabledFlag === 1 || panelEnabledFlag === 2);
 
 
-    const pianoFlag1 = buffer.readUInt16BE(0x43);
-    const pianoFlag2 = buffer.readUInt8(0x48);
+    // all hardcoded offset are for Panel A, offset value is for Panel B
+
+    const panelOffset = id * 263;
+
+    // Piano section
+
+    const pianoFlag1 = buffer.readUInt16BE(0x43 + panelOffset);
+    const pianoFlag2 = buffer.readUInt8(0x48 + panelOffset);
 
     const piano = {
         enabled: (pianoFlag1 & 0x8000) !== 0,
@@ -67,16 +70,16 @@ exports.loadNs3fFile = (buffer) => {
         sustainPedal: (pianoFlag2 & 0x40) !== 0,
     };
 
+    // Organ Section
 
-    const organFlag34 = buffer.readUInt8(0x34);
-    const organOffset35 = buffer.readUInt8(0x35);
-    const organOffsetB6 = buffer.readUInt16BE(0xb6);
-    const organOffsetBa = buffer.readUInt8(0xba);
-    const organOffsetBb = buffer.readUInt8(0xbb);
-    const organOffsetD3 = buffer.readUInt8(0xd3);
-    const rotarySpeakerOffset39 = buffer.readUInt16BE(0x39);
-    const rotarySpeakerOffset10B = buffer.readUInt8(0x10b);
-
+    const organFlag34 = buffer.readUInt8(0x34 + panelOffset);
+    const organOffset35 = buffer.readUInt8(0x35 + panelOffset);
+    const organOffsetB6 = buffer.readUInt16BE(0xb6 + panelOffset);
+    const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
+    const organOffsetBb = buffer.readUInt8(0xbb + panelOffset);
+    const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
+    const rotarySpeakerOffset39 = buffer.readUInt16BE(0x39 + panelOffset);
+    const rotarySpeakerOffset10B = buffer.readUInt8(0x10b + panelOffset);
 
     const organ = {
         enabled: ((organOffsetB6 & 0x8000) !== 0),
@@ -107,29 +110,29 @@ exports.loadNs3fFile = (buffer) => {
         speed: mapping.rotarySpeakerSpeedMap.get(organFlag34 & 0x01),
     };
 
+    // synth section
 
-
-    const synthOffset3b = buffer.readUInt8(0x3b);
-    const synthOffset52W = buffer.readUInt16BE(0x52);
-    const synthOffset56 = buffer.readUInt8(0x56);
-    const synthOffset57 = buffer.readUInt8(0x57);
-    const synthOffset80 = buffer.readUInt8(0x80);
-    const synthOffset84W = buffer.readUInt16BE(0x84);
-    const synthOffset86 = buffer.readUInt8(0x86);
-    const synthOffset87 = buffer.readUInt8(0x87);
-    const synthOffset8bW = buffer.readUInt16BE(0x8b);
-    const synthOffset8cW = buffer.readUInt16BE(0x8c);
-    const synthOffset8dW = buffer.readUInt16BE(0x8d);
-    const synthOffset8eW = buffer.readUInt16BE(0x8e);
-    const synthOffset8f = buffer.readUInt8(0x8f);
-    const synthOffset8fW = buffer.readUInt16BE(0x8f);
-    const synthOffset90W = buffer.readUInt16BE(0x90);
-    const synthOffset94W = buffer.readUInt16BE(0x94);
-    const synthOffsetA8 = buffer.readUInt8(0xa8);
-    const synthOffsetA5W = buffer.readUInt16BE(0xa5);
-    const synthOffsetA6W = buffer.readUInt16BE(0xa6);
-    const synthOffsetA7W = buffer.readUInt16BE(0xa7);
-    const synthOffsetAc = buffer.readUInt8(0xac);
+    const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
+    const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
+    const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
+    const synthOffset57 = buffer.readUInt8(0x57 + panelOffset);
+    const synthOffset80 = buffer.readUInt8(0x80 + panelOffset);
+    const synthOffset84W = buffer.readUInt16BE(0x84 + panelOffset);
+    const synthOffset86 = buffer.readUInt8(0x86 + panelOffset);
+    const synthOffset87 = buffer.readUInt8(0x87 + panelOffset);
+    const synthOffset8bW = buffer.readUInt16BE(0x8b + panelOffset);
+    const synthOffset8cW = buffer.readUInt16BE(0x8c + panelOffset);
+    const synthOffset8dW = buffer.readUInt16BE(0x8d + panelOffset);
+    const synthOffset8eW = buffer.readUInt16BE(0x8e + panelOffset);
+    const synthOffset8f = buffer.readUInt8(0x8f + panelOffset);
+    const synthOffset8fW = buffer.readUInt16BE(0x8f + panelOffset);
+    const synthOffset90W = buffer.readUInt16BE(0x90 + panelOffset);
+    const synthOffset94W = buffer.readUInt16BE(0x94 + panelOffset);
+    const synthOffsetA8 = buffer.readUInt8(0xa8 + panelOffset);
+    const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
+    const synthOffsetA6W = buffer.readUInt16BE(0xa6 + panelOffset);
+    const synthOffsetA7W = buffer.readUInt16BE(0xa7 + panelOffset);
+    const synthOffsetAc = buffer.readUInt8(0xac + panelOffset);
 
     const oscillatorType = mapping.synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >> 7);
     let oscillator1WaveForm = "";
@@ -158,7 +161,7 @@ exports.loadNs3fFile = (buffer) => {
 
     const oscCtrlMidi = (synthOffset90W & 0x07f0) >> 4;
 
-    // Osc Modulation is coded on 7 bits in byte 0x94 and 0x95 (b11 to b5) for Panel A.
+    // Osc Modulation is coded on 7 bits in bytes 0x94 and 0x95 (b11 to b5) for Panel A.
     // Value is not the direct midi value as usual, instead it is coded on a weird
     // 0/120 range:
     // 0   = 10.0 LFO Amount,
@@ -272,38 +275,39 @@ exports.loadNs3fFile = (buffer) => {
             },
             fastAttack: ((synthOffsetAc & 0x04) !== 0),
         },
-
+        filter: {
+        },
         envelopes: {
-          modulation: {
-              attack: {
-                  midi: envModAttackMidi,
-                  label: mapping.synthEnvAttackMap.get(envModAttackMidi),
-              },
-              decay: {
-                  midi: envModDecayMidi,
-                  label: mapping.synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
-              },
-              release: {
-                  midi: envModReleaseMidi,
-                  label: mapping.synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
-              },
-              velocity: ((synthOffset8dW & 0x0400) !== 0),
-          },
-          amplifier: {
-              attack: {
-                  midi: envAmpAttackMidi,
-                  label: mapping.synthEnvAttackMap.get(envAmpAttackMidi),
-              },
-              decay: {
-                  midi: envAmpDecayMidi,
-                  label: mapping.synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
-              },
-              release: {
-                  midi: envAmpReleaseMidi,
-                  label: mapping.synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
-              },
-              velocity: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >> 3),
-          }
+            modulation: {
+                attack: {
+                    midi: envModAttackMidi,
+                    label: mapping.synthEnvAttackMap.get(envModAttackMidi),
+                },
+                decay: {
+                    midi: envModDecayMidi,
+                    label: mapping.synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
+                },
+                release: {
+                    midi: envModReleaseMidi,
+                    label: mapping.synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
+                },
+                velocity: ((synthOffset8dW & 0x0400) !== 0),
+            },
+            amplifier: {
+                attack: {
+                    midi: envAmpAttackMidi,
+                    label: mapping.synthEnvAttackMap.get(envAmpAttackMidi),
+                },
+                decay: {
+                    midi: envAmpDecayMidi,
+                    label: mapping.synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
+                },
+                release: {
+                    midi: envAmpReleaseMidi,
+                    label: mapping.synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
+                },
+                velocity: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >> 3),
+            }
         },
         lfo: {
             wave: mapping.synthLfoWaveMap.get(synthOffset86 & 0x07),
@@ -313,34 +317,58 @@ exports.loadNs3fFile = (buffer) => {
             },
             masterClock: ((synthOffset87 & 0x80) !== 0),
         },
+        arpeggiator: {
 
+        }
     };
+
+
+    return {
+        enabled: panelEnabled,
+        organ: organ,
+        piano: piano,
+        synth: synth,
+        effect: {
+            rotarySpeaker: rotarySpeaker,
+            effect1: {},
+            effect2: {},
+            delay: {},
+            ampSimEq: {},
+            compressor: {},
+            reverb: {}
+        },
+        morph: {
+            wheel: new Morph(),
+            afterTouch: new Morph(),
+            controlPedal: new Morph(),
+        },
+    };
+}
+
+exports.loadNs3fFile = (buffer) => {
+
+    if (buffer.length > 16) {
+        const claviaSignature = buffer.toString("utf8", 0, 4);
+        if (claviaSignature !== "CBIN") {
+            throw new Error("Invalid Nord file");
+        }
+        const fileExt = buffer.toString("utf8", 8, 12);
+        if (fileExt !== "ns3f") {
+            throw new Error(fileExt + " file are not supported, select a valid ns3f file");
+        }
+    }
+    if (buffer.length !== 592) {
+        throw new Error("Invalid file, unexpected file length");
+    }
+
+    // const fileId = buffer.readUInt32LE(0x0e);
+
 
     return {
         name: '',
-        fileId: fileId,
-        panelA: {
-            organ: organ,
-            piano: piano,
-            synth: synth,
-            effect: {
-                rotarySpeaker: rotarySpeaker,
-                effect1: {},
-                effect2: {},
-                delay: {},
-                ampSimEq: {},
-                compressor: {},
-                reverb: {}
-            },
-            morph: {
-                wheel: new Morph(),
-                afterTouch: new Morph(),
-                controlPedal: new Morph(),
-            },
-        },
-        panelB:  {
-
-        },
+        //fileId: fileId,
+        panelA: getPanel(buffer, 0),
+        panelB: getPanel(buffer, 1),
         masterClock:  {
             rate: '',
             keyboardSync: ''

@@ -11,7 +11,7 @@ const build = async(folder, testFilename) => {
     file += 'const {getNs3TestCase} = require("./helpers");' + os.EOL;
     file += os.EOL + os.EOL;
 
-    file += 'const root = "' + ns3Folder + '" + "/";' + os.EOL + os.EOL;
+    file += 'const root = __dirname + "' + folder + '/";' + os.EOL + os.EOL;
 
     file += 'describe("' + folder + '", () => {' + os.EOL;
 
@@ -37,7 +37,9 @@ const build = async(folder, testFilename) => {
 }
 
 const buildAll = async() => {
+    await build("/Global", "global.test.js");
     await build("/Organ", "organ.test.js");
+    await build("/Piano", "piano.test.js");
     await build("/Synth", "synth.test.js");
     await build("/Synth/oscillators", "synth.oscillators.test.js");
     await build("/Synth/lfo", "synth.lfo.test.js");

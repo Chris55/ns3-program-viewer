@@ -3,7 +3,7 @@
 const {getNs3TestCase} = require("./helpers");
 
 
-const root = "/Users/christian/dev/ns3-program-viewer/test/Synth/lfo" + "/";
+const root = __dirname + "/Synth/lfo/";
 
 describe("/Synth/lfo", () => {
     test("panelA.synth.lfo.masterClock eq true", async () => {

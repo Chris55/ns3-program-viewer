@@ -3,7 +3,7 @@
 const {getNs3TestCase} = require("./helpers");
 
 
-const root = "/Users/christian/dev/ns3-program-viewer/test/Synth" + "/";
+const root = __dirname + "/Synth/";
 
 describe("/Synth", () => {
     test("panelA.synth.enabled eq false", async () => {

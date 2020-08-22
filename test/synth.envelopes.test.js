@@ -3,7 +3,7 @@
 const {getNs3TestCase} = require("./helpers");
 
 
-const root = "/Users/christian/dev/ns3-program-viewer/test/Synth/envelopes" + "/";
+const root = __dirname + "/Synth/envelopes/";
 
 describe("/Synth/envelopes", () => {
     test("panelA.synth.envelopes.amplifier.attack.midi eq 0 and panelA.synth.envelopes.amplifier.attack.label eq 0.5 ms", async () => {

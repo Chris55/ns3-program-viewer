@@ -3,7 +3,7 @@
 const {getNs3TestCase} = require("./helpers");
 
 
-const root = "/Users/christian/dev/ns3-program-viewer/test/Synth/oscillators" + "/";
+const root = __dirname + "/Synth/oscillators/";
 
 describe("/Synth/oscillators", () => {
     test("panelA.synth.oscillators.config eq 1 Pitch and panelA.synth.oscillators.control.label eq 0.0", async () => {

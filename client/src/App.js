@@ -60,13 +60,27 @@ class App extends Component {
 
                         <blockquote className="blockquote">
                             <footer className="blockquote-footer">
-                                As this feature is not implemented in the official Nord Sound Manager, I decided to
-                                implement it myself.
-                                This site is not affiliated with Clavia / Nord.
-                                Information is provided "as is" without warranty of any kind. All written content on
-                                this site is for information purposes only.
 
-                                If you want something done, do it yourself.
+                                <p>
+                                    If you want something done, do it yourself... As this feature is not implemented in the official Nord Sound Manager, I decided to
+                                    implement it myself.
+                                </p>
+
+                                <p>
+                                    This site is not affiliated with Clavia / Nord.
+                                    Information is provided "as is" without warranty of any kind. All written content on
+                                    this site is for information purposes only.
+                                </p>
+
+
+                                    Work in progress:
+                                    Organ: 100%
+                                    Piano: 80%
+                                    Synth: 80% (missing Filter section and Arppegiator)
+                                    External: 0%
+                                    Effects: 0%
+                                    All global (Morph, Master Clock, Transpose, Split): 0%
+
                             </footer>
                         </blockquote>
                         {/*<p><a href="https://www.brainyquote.com/quotes/napoleon_bonaparte_108864" className="font-italic stretched-link">If you want something done, do it yourself</a>*/}

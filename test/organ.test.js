@@ -3,7 +3,7 @@
 const {getNs3TestCase} = require("./helpers");
 
 
-const root = "/Users/christian/dev/ns3-program-viewer/test/Organ" + "/";
+const root = __dirname + "/Organ/";
 
 describe("/Organ", () => {
     test("panelA.organ.percussion.decayFast eq false", async () => {

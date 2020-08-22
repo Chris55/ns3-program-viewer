@@ -1,4 +1,9 @@
 
+exports.panelEnabledMap = new Map([
+    [0, 'A only'],
+    [1, 'B only'],
+    [2, 'A & B'],
+]);
 
 exports.pianoNameMap = new Map([
     // Grand Piano
