@@ -52,13 +52,21 @@ const getKnobDualValues = function(valueRange120) {
     const value = converter.midi2LinearValue(-10, 10, valueRange120, 1, 0, 120);
     let leftValue = "0.0";
     let rightValue = "0.0";
-    if (value < 0) {
+    let leftMidi = 0;
+    let rightMidi = 0;
+    if (value === 0) {
+        leftMidi = valueRange127;
+        rightMidi = valueRange127;
+    } else if (value < 0) {
         leftValue = Math.abs(value).toFixed(1);
+        leftMidi = valueRange127;
     } else {
         rightValue = value.toFixed(1);
+        rightMidi = valueRange127;
     }
     return {
-        midi: valueRange127,
+        leftMidi: leftMidi,
+        rightMidi: rightMidi,
         leftValue: leftValue,
         rightValue: rightValue
     }
@@ -140,7 +148,7 @@ const getPanel = function(buffer, id) {
 
     // synth section
 
-    const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
+    //const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
     const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
     const synthOffset57 = buffer.readUInt8(0x57 + panelOffset);
@@ -157,6 +165,8 @@ const getPanel = function(buffer, id) {
     const synthOffset90W = buffer.readUInt16BE(0x90 + panelOffset);
     const synthOffset94W = buffer.readUInt16BE(0x94 + panelOffset);
     const synthOffset98 = buffer.readUInt8(0x98 + panelOffset);
+    const synthOffset98W = buffer.readUInt16BE(0x98 + panelOffset);
+    const synthOffset9cW = buffer.readUInt16BE(0x9c + panelOffset);
     const synthOffsetA0W = buffer.readUInt16BE(0xa0 + panelOffset);
     const synthOffsetA4W = buffer.readUInt16BE(0xa4 + panelOffset);
     const synthOffsetA8 = buffer.readUInt8(0xa8 + panelOffset);
@@ -251,9 +261,11 @@ const getPanel = function(buffer, id) {
     const envAmpDecayMidi = (synthOffsetA6W & 0x07f0) >> 4;
     const envAmpReleaseMidi = (synthOffsetA7W & 0x0fe0) >> 5;
 
-    const filterLfoMidi = (synthOffsetA0W & 0x0fe0) >> 5;
-    const filterModulation2 = getKnobDualValues((synthOffsetA4W & 0x1fc0) >> 6);
-
+    const filterType = mapping.synthFilterTypeMap.get((synthOffset98 & 0x1c) >> 2);
+    const filterModulation1KnobMidi = (synthOffsetA0W & 0x0fe0) >> 5;
+    const filterModulation2Knob = getKnobDualValues((synthOffsetA4W & 0x1fc0) >> 6);
+    const filterResFreqHpKnobMidi = (synthOffset9cW & 0x07f0) >> 4;
+    const filterCutoffFreqKnobMidi = (synthOffset98W & 0x03F8) >> 3;
 
     const synth = {
         enabled: ((synthOffset52W & 0x8000) !== 0),
@@ -261,7 +273,7 @@ const getPanel = function(buffer, id) {
 
         octaveShift: mapping.synthOctaveShiftMap.get(synthOffset56 & 0x03),
         pitchStick: ((synthOffset57 & 0x80) !== 0),
-        pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >> 4),
+        //pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >> 4),
         sustainPedal: ((synthOffset57 & 0x40) !== 0),
         keyboardHold: ((synthOffset80 & 0x80) !== 0),
 
@@ -282,37 +294,55 @@ const getPanel = function(buffer, id) {
                 midi: osc2PitchMidi,
                 label: (osc2Pitch === -12) ? 'Sub': osc2Pitch + ' semi',
             },
-            modulation: {
-                midi: oscModulation.midi,
-                lfoAmount: oscModulation.leftValue,
-                modEnvAmount: oscModulation.rightValue,
-                //label: oscModulationLabel,
+            modulations: {
+                lfoAmount: {
+                    midi: oscModulation.leftMidi,
+                    label: oscModulation.leftValue,
+                },
+                modEnvAmount: {
+                    midi: oscModulation.rightMidi,
+                    label: oscModulation.rightValue,
+                },
             },
             fastAttack: ((synthOffsetAc & 0x04) !== 0),
         },
         filter: {
-            type: mapping.synthFilterTypeMap.get((synthOffset98 & 0x1c) >> 2),
+            type: filterType,
             kbTrack: mapping.synthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >> 12),
             drive:mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >> 10),
-            modulation1: {
+            modulations: {
                 lfoAmount: {
-                  midi: filterLfoMidi,
-                  label: converter.midi2LinearStringValue(0, 10, filterLfoMidi, 1, ""),
+                  midi: filterModulation1KnobMidi,
+                  label: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
+                },
+                velAmount: {
+                    midi: filterModulation2Knob.leftMidi,
+                    label: filterModulation2Knob.leftValue,
+                },
+                modEnvAmount: {
+                    midi: filterModulation2Knob.rightMidi,
+                    label: filterModulation2Knob.rightValue,
                 },
             },
-            modulation2: {
-                midi: filterModulation2.midi,
-                velAmount: filterModulation2.leftValue,
-                modEnvAmount: filterModulation2.rightValue,
+            cutoffFrequency: {
+                midi: filterCutoffFreqKnobMidi,
+                label: mapping.synthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
             },
-            frequency: {
-                midi: '',
-                label: ''
+            highPassCutoffFrequency: {
+                midi: (filterType === 'LP+HP')
+                    ? filterResFreqHpKnobMidi
+                    : 0,
+                label: (filterType === 'LP+HP')
+                    ? mapping.synthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi)
+                    : "0.0",
             },
-            resonanceFreqHp: {
-                midi: '',
-                resonance: '',
-                freqHp: ''
+            resonance: {
+                midi: (filterType === 'LP+HP')
+                    ? 0
+                    : filterResFreqHpKnobMidi,
+                label: (filterType === 'LP+HP')
+                    ? "0.0"
+                    : converter.midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
             },
         },
         envelopes: {
@@ -407,28 +437,32 @@ exports.loadNs3fFile = (buffer) => {
         //fileId: fileId,
         panelA: getPanel(buffer, 0),
         panelB: getPanel(buffer, 1),
-        masterClock:  {
-            rate: '',
-            keyboardSync: ''
-        },
-        transpose: '',
-        split: {
-            enabled: '',
-            low: {
-                width: '',
-                key: '',
+        program: {
+            masterClock:  {
+                rate: '',
+                keyboardSync: ''
             },
-            mid: {
-                width: '',
-                key: '',
+            transpose: '',
+            split: {
+                enabled: '',
+                low: {
+                    width: '',
+                    key: '',
+                },
+                mid: {
+                    width: '',
+                    key: '',
+                },
+                high: {
+                    width: '',
+                    key: '',
+                },
             },
-            high: {
-                width: '',
-                key: '',
+            dualKeyboard: {
+                enabled: '',
+                style: '',
             },
-        },
-        monoOut: '',
-        dualKeyboard: ''
+        }
     };
 }
 

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-import Ns3ProgramListingComponent from "./components/ns3-program-listing-component";
+//import Ns3ProgramListingComponent from "./components/ns3-program-listing-component";
 import FileUploaderButton from "./components/file-uploader-button";
 import axios from "axios";
 import programIcon from "./nprog.icns.svg";
@@ -57,17 +57,17 @@ class App extends Component {
                         <h1 className="display-5">Online Nord Stage 3 Program File Viewer</h1>
                         <p className="lead">Simple online tool to review Nord Stage 3 program file settings.</p>
 
-                        <hr className="my-4"/>
+                        {/*<hr className="my-4"/>*/}
 
-                        <blockquote className="blockquote">
-                            If you want something done, do it yourself... As this feature is not implemented in the official Nord Sound Manager, I decided to
-                            implement it myself.
-                            <footer className="blockquote-footer">
-                                This site is not affiliated with Clavia / Nord.
-                                Information is provided "as is" without warranty of any kind. All written content on
-                                this site is for information purposes only.
-                            </footer>
-                        </blockquote>
+                        {/*<blockquote className="blockquote">*/}
+                        {/*    If you want something done, do it yourself... As this feature is not implemented in the official Nord Sound Manager, I decided to*/}
+                        {/*    implement it myself.*/}
+                        {/*    <footer className="blockquote-footer">*/}
+                        {/*        This site is not affiliated with Clavia / Nord.*/}
+                        {/*        Information is provided "as is" without warranty of any kind. All written content on*/}
+                        {/*        this site is for information purposes only.*/}
+                        {/*    </footer>*/}
+                        {/*</blockquote>*/}
                         {/*<p><a href="https://www.brainyquote.com/quotes/napoleon_bonaparte_108864" className="font-italic stretched-link">If you want something done, do it yourself</a>*/}
                         {/*</p>*/}
                     </Container>
