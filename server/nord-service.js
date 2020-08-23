@@ -267,6 +267,9 @@ const getPanel = function(buffer, id) {
     const filterResFreqHpKnobMidi = (synthOffset9cW & 0x07f0) >> 4;
     const filterCutoffFreqKnobMidi = (synthOffset98W & 0x03F8) >> 3;
 
+    const arpeggiatorRange = (synthOffset80 & 0x18) >> 3;
+    const arpeggiatorPattern = (synthOffset80 & 0x06) >> 1;
+
     const synth = {
         enabled: ((synthOffset52W & 0x8000) !== 0),
         volume: getVolume((synthOffset52W & 0x7F0) >> 4),
@@ -386,7 +389,11 @@ const getPanel = function(buffer, id) {
             masterClock: ((synthOffset87 & 0x80) !== 0),
         },
         arpeggiator: {
-
+            enabled: ((synthOffset80 & 0x40) !== 0),
+            kbSync: ((synthOffset80 & 0x20) !== 0),
+            masterClock: ((synthOffset80 & 0x01) !== 0),
+            range: mapping.arpeggiatorRangeMap.get(arpeggiatorRange),
+            pattern: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern)
         }
     };
 
@@ -429,8 +436,11 @@ exports.loadNs3fFile = (buffer) => {
         throw new Error("Invalid file, unexpected file length");
     }
 
-    // const fileId = buffer.readUInt32LE(0x0e);
+    // const fileId = buffer.readUInt16BE(0x0e);
+    const offset38W = buffer.readUInt16BE(0x38);
 
+
+    const tempo = ((offset38W & 0x07f8) >> 3) + 30;
 
     return {
         name: '',
@@ -439,8 +449,8 @@ exports.loadNs3fFile = (buffer) => {
         panelB: getPanel(buffer, 1),
         program: {
             masterClock:  {
-                rate: '',
-                keyboardSync: ''
+                rate: tempo + ' bpm',
+                //keyboardSync: '' // this is a global setting
             },
             transpose: '',
             split: {
@@ -462,6 +472,7 @@ exports.loadNs3fFile = (buffer) => {
                 enabled: '',
                 style: '',
             },
+            //monoOut: '' // this is a global setting
         }
     };
 }

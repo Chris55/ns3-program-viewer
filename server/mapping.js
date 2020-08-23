@@ -937,6 +937,20 @@ exports.synthFilterCutoffFrequencyMap = new Map([
     [127, '21 kHz'],
 ]);
 
+exports.arpeggiatorRangeMap = new Map([
+    [0, '1 Octave'],
+    [1, '2 Octaves'],
+    [2, '3 Octaves'],
+    [3, '4 Octaves'],
+]);
+
+exports.arpeggiatorPatternMap = new Map([
+    [0, 'Up'],
+    [1, 'Down'],
+    [2, 'Up/Down'],
+    [3, 'Random'],
+]);
+
 
 
 
