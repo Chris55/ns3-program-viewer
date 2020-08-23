@@ -783,6 +783,29 @@ exports.synthOscillatorsTypeMap = new Map([
     [14, '14 RM'],
 ]);
 
+exports.synthFilterTypeMap = new Map([
+    [0, 'LP12'],
+    [1, 'LP24'],
+    [2, 'Mini Moog'],
+    [3, 'LP+HP'],
+    [4, 'BP24'],
+    [5, 'HP24'],
+]);
+
+exports.synthFilterKbTrackMap = new Map([
+    [0, 'Off'],
+    [1, '1/3'],
+    [2, '2/3'],
+    [3, '1'],
+]);
+
+exports.synthFilterDriveMap = new Map([
+    [0, 'Off'],
+    [1, '1'],
+    [2, '2'],
+    [3, '3'],
+]);
+
 
 
 

@@ -42,6 +42,7 @@ const buildAll = async() => {
     await build("/Piano", "piano.test.js");
     await build("/Synth", "synth.test.js");
     await build("/Synth/oscillators", "synth.oscillators.test.js");
+    await build("/Synth/filter", "synth.filter.test.js");
     await build("/Synth/lfo", "synth.lfo.test.js");
     await build("/Synth/envelopes", "synth.envelopes.test.js");
 }

@@ -36,6 +36,34 @@ const getVolume = function(value) {
     };
 }
 
+/***
+ * Returns two values from a single knob (and equivalent midi value).
+ * Settings like Osc modulation (lfo/env mod) and Filter modulation (vel/env mod) are using this option
+ * to define two settings with a single knob.
+ * Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
+ * 0   = 10.0 (100% left value, example LFO Amount),
+ * 60  = 0.0 for both values,
+ * 120 = 10.0 (100% right value, example Mod Env Amount)
+ * @param valueRange120
+ * @returns {{midi: number, leftValue: string, rightValue: string}}
+ */
+const getKnobDualValues = function(valueRange120) {
+    const valueRange127 = Math.ceil(((valueRange120) * 127 / (120)));
+    const value = converter.midi2LinearValue(-10, 10, valueRange120, 1, 0, 120);
+    let leftValue = "0.0";
+    let rightValue = "0.0";
+    if (value < 0) {
+        leftValue = Math.abs(value).toFixed(1);
+    } else {
+        rightValue = value.toFixed(1);
+    }
+    return {
+        midi: valueRange127,
+        leftValue: leftValue,
+        rightValue: rightValue
+    }
+}
+
 const getPanel = function(buffer, id) {
 
     // Panel enabled flag is offset 0x31 (b5 & b6)
@@ -128,6 +156,9 @@ const getPanel = function(buffer, id) {
     const synthOffset8fW = buffer.readUInt16BE(0x8f + panelOffset);
     const synthOffset90W = buffer.readUInt16BE(0x90 + panelOffset);
     const synthOffset94W = buffer.readUInt16BE(0x94 + panelOffset);
+    const synthOffset98 = buffer.readUInt8(0x98 + panelOffset);
+    const synthOffsetA0W = buffer.readUInt16BE(0xa0 + panelOffset);
+    const synthOffsetA4W = buffer.readUInt16BE(0xa4 + panelOffset);
     const synthOffsetA8 = buffer.readUInt8(0xa8 + panelOffset);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
     const synthOffsetA6W = buffer.readUInt16BE(0xa6 + panelOffset);
@@ -160,25 +191,7 @@ const getPanel = function(buffer, id) {
     const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127 / (48 + 12)));
 
     const oscCtrlMidi = (synthOffset90W & 0x07f0) >> 4;
-
-    // Osc Modulation is coded on 7 bits in bytes 0x94 and 0x95 (b11 to b5) for Panel A.
-    // Value is not the direct midi value as usual, instead it is coded on a weird
-    // 0/120 range:
-    // 0   = 10.0 LFO Amount,
-    // 60  = 0.0 LFO/Mod Env Amount,
-    // 120 = 10.0 Mod Env Amount
-    // note: API also returns the midi value that is deduced from the final value.
-
-    const oscModulationRange120 = (synthOffset94W & 0x0fe0) >> 5;
-    const oscModulationMidi = Math.ceil(((oscModulationRange120) * 127 / (120)));
-    const oscModulation = converter.midi2LinearValue(-10, 10, oscModulationRange120, 1, 0, 120);
-    let oscLfoAmount = "0.0";
-    let oscModEnvAmount = "0.0";
-    if (oscModulation < 0) {
-        oscLfoAmount = Math.abs(oscModulation).toFixed(1);
-    } else {
-        oscModEnvAmount = oscModulation.toFixed(1);
-    }
+    const oscModulation = getKnobDualValues((synthOffset94W & 0x0fe0) >> 5);
 
 
     let oscCtrl = "";
@@ -238,6 +251,8 @@ const getPanel = function(buffer, id) {
     const envAmpDecayMidi = (synthOffsetA6W & 0x07f0) >> 4;
     const envAmpReleaseMidi = (synthOffsetA7W & 0x0fe0) >> 5;
 
+    const filterLfoMidi = (synthOffsetA0W & 0x0fe0) >> 5;
+    const filterModulation2 = getKnobDualValues((synthOffsetA4W & 0x1fc0) >> 6);
 
 
     const synth = {
@@ -268,14 +283,37 @@ const getPanel = function(buffer, id) {
                 label: (osc2Pitch === -12) ? 'Sub': osc2Pitch + ' semi',
             },
             modulation: {
-                midi: oscModulationMidi,
-                lfoAmount: oscLfoAmount,
-                modEnvAmount: oscModEnvAmount,
+                midi: oscModulation.midi,
+                lfoAmount: oscModulation.leftValue,
+                modEnvAmount: oscModulation.rightValue,
                 //label: oscModulationLabel,
             },
             fastAttack: ((synthOffsetAc & 0x04) !== 0),
         },
         filter: {
+            type: mapping.synthFilterTypeMap.get((synthOffset98 & 0x1c) >> 2),
+            kbTrack: mapping.synthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >> 12),
+            drive:mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >> 10),
+            modulation1: {
+                lfoAmount: {
+                  midi: filterLfoMidi,
+                  label: converter.midi2LinearStringValue(0, 10, filterLfoMidi, 1, ""),
+                },
+            },
+            modulation2: {
+                midi: filterModulation2.midi,
+                velAmount: filterModulation2.leftValue,
+                modEnvAmount: filterModulation2.rightValue,
+            },
+            frequency: {
+                midi: '',
+                label: ''
+            },
+            resonanceFreqHp: {
+                midi: '',
+                resonance: '',
+                freqHp: ''
+            },
         },
         envelopes: {
             modulation: {

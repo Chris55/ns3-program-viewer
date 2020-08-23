@@ -17,7 +17,8 @@ exports.getNs3TestCase = async (filename) => {
 
     let basename = path.basename(filename, path.extname(filename));
     basename = basename.replace("@a", "/");
-    basename = basename.replace("@=", "±");
+    basename = basename.replace("@=", "±")
+    basename = basename.replace("@p", "+");
 
     const ands = basename.split(' and ');
     const data = [];
