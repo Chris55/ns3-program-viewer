@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-//import Ns3ProgramListingComponent from "./components/ns3-program-listing-component";
+import Ns3ProgramListingComponent from "./components/ns3-program-listing-component";
 import FileUploaderButton from "./components/file-uploader-button";
 import axios from "axios";
 import programIcon from "./nprog.icns.svg";
@@ -102,45 +102,26 @@ class App extends Component {
                         <Col sm={12}>
                             <Tabs defaultActiveKey="debug" id="uncontrolled-tab-example">
 
-                                {/*<Tab eventKey="debug1" title="File Properties1" disabled={true}>*/}
-                                {/*    <pre className="text-monospace">*/}
-                                {/*        <Ns3ProgramListingComponent data={this.state.data}/>*/}
-                                {/*    </pre>*/}
-                                {/*</Tab>*/}
-
-
                                 <Tab eventKey="debug" title="File Properties" disabled={false}>
-                                    <JsonViewer
-                                        src={this.state.data}
-                                        theme="ashes"
-                                        collapsed={false}
-                                        enableClipboard={true}
-                                        displayObjectSize={false}
-
-                                        name={"ns3f"}
-                                        displayDataTypes={false}
-                                        indentWidth={4}
-
-                                        // theme={{
-                                        //     base00: "#343a40",
-                                        //     base01: "#ddd",
-                                        //     base02: "#ddd",
-                                        //     base03: "#444",
-                                        //     base04: "purple",
-                                        //     base05: "#444",
-                                        //     base06: "#444",
-                                        //     base07: "#444",
-                                        //     base08: "#444",
-                                        //     base09: "rgba(70, 70, 230, 1)",
-                                        //     base0A: "rgba(70, 70, 230, 1)",
-                                        //     base0B: "rgba(70, 70, 230, 1)",
-                                        //     base0C: "rgba(70, 70, 230, 1)",
-                                        //     base0D: "rgba(70, 70, 230, 1)",
-                                        //     base0E: "rgba(70, 70, 230, 1)",
-                                        //     base0F: "rgba(70, 70, 230, 1)"
-                                        // }}
-                                    />
+                                    <pre className="text-monospace">
+                                        <Ns3ProgramListingComponent data={this.state.data}/>
+                                    </pre>
                                 </Tab>
+
+
+                                {/*<Tab eventKey="debug" title="File Properties" disabled={false}>*/}
+                                {/*    <JsonViewer*/}
+                                {/*        src={this.state.data}*/}
+                                {/*        theme="ashes"*/}
+                                {/*        collapsed={false}*/}
+                                {/*        enableClipboard={true}*/}
+                                {/*        displayObjectSize={false}*/}
+
+                                {/*        name={"ns3f"}*/}
+                                {/*        displayDataTypes={false}*/}
+                                {/*        indentWidth={4}*/}
+                                {/*    />*/}
+                                {/*</Tab>*/}
                             </Tabs>
                         </Col>
                     </Row>
