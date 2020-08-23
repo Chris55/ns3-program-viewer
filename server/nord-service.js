@@ -412,20 +412,20 @@ const getPanel = function(buffer, id) {
         organ: organ,
         piano: piano,
         synth: synth,
-        effect: {
+        effects: {
             rotarySpeaker: rotarySpeaker,
-            effect1: {},
-            effect2: {},
-            delay: {},
-            ampSimEq: {},
-            compressor: {},
-            reverb: {}
+            // effect1: {},
+            // effect2: {},
+            // delay: {},
+            // ampSimEq: {},
+            // compressor: {},
+            // reverb: {}
         },
-        morph: {
-            wheel: new Morph(),
-            afterTouch: new Morph(),
-            controlPedal: new Morph(),
-        },
+        // morph: {
+        //     wheel: new Morph(),
+        //     afterTouch: new Morph(),
+        //     controlPedal: new Morph(),
+        // },
     };
 }
 
@@ -461,26 +461,26 @@ exports.loadNs3fFile = (buffer) => {
                 rate: tempo + ' bpm',
                 //keyboardSync: '' // this is a global setting
             },
-            transpose: '',
-            split: {
-                enabled: '',
-                low: {
-                    width: '',
-                    key: '',
-                },
-                mid: {
-                    width: '',
-                    key: '',
-                },
-                high: {
-                    width: '',
-                    key: '',
-                },
-            },
-            dualKeyboard: {
-                enabled: '',
-                style: '',
-            },
+            // transpose: '',
+            // split: {
+            //     enabled: '',
+            //     low: {
+            //         width: '',
+            //         key: '',
+            //     },
+            //     mid: {
+            //         width: '',
+            //         key: '',
+            //     },
+            //     high: {
+            //         width: '',
+            //         key: '',
+            //     },
+            // },
+            // dualKeyboard: {
+            //     enabled: '',
+            //     style: '',
+            // },
             //monoOut: '' // this is a global setting
         }
     };

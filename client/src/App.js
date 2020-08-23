@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-import Ns3ProgramListingComponent from "./components/ns3-program-listing-component";
+//import Ns3ProgramListingComponent from "./components/ns3-program-listing-component";
 import FileUploaderButton from "./components/file-uploader-button";
 import axios from "axios";
 import programIcon from "./nprog.icns.svg";
@@ -13,7 +13,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Figure from "react-bootstrap/Figure";
-import JsonViewer from "react-json-view"
+import JSONTree from 'react-json-tree'
 
 
 class App extends Component {
@@ -102,26 +102,42 @@ class App extends Component {
                         <Col sm={12}>
                             <Tabs defaultActiveKey="debug" id="uncontrolled-tab-example">
 
-                                <Tab eventKey="debug" title="File Properties" disabled={false}>
-                                    <pre className="text-monospace">
-                                        <Ns3ProgramListingComponent data={this.state.data}/>
-                                    </pre>
-                                </Tab>
-
-
-                                {/*<Tab eventKey="debug" title="File Properties" disabled={false}>*/}
-                                {/*    <JsonViewer*/}
-                                {/*        src={this.state.data}*/}
-                                {/*        theme="ashes"*/}
-                                {/*        collapsed={false}*/}
-                                {/*        enableClipboard={true}*/}
-                                {/*        displayObjectSize={false}*/}
-
-                                {/*        name={"ns3f"}*/}
-                                {/*        displayDataTypes={false}*/}
-                                {/*        indentWidth={4}*/}
-                                {/*    />*/}
+                                {/*<Tab eventKey="debug" title="File Properties1" disabled={false}>*/}
+                                {/*    <pre className="text-monospace">*/}
+                                {/*        <Ns3ProgramListingComponent data={this.state.data}/>*/}
+                                {/*    </pre>*/}
                                 {/*</Tab>*/}
+
+
+                                <Tab eventKey="debug" title="File Properties" disabled={false}>
+                                    <JSONTree
+                                        data={this.state.data}
+                                        hideRoot={true}
+                                        getItemString={(type, data, itemType, itemString) => <span></span>}
+                                        shouldExpandNode={(keyPath, data, level) => true}
+                                        theme={{
+                                            scheme: 'custom',
+                                            author: 'wimer hazenberg (http://www.monokai.nl)',
+                                            base00: '#343a40',
+                                            base01: '#383830',
+                                            base02: '#49483e',
+                                            base03: '#75715e',
+                                            base04: '#a59f85',
+                                            base05: '#f8f8f2',
+                                            base06: '#f5f4f1',
+                                            base07: '#f9f8f5',
+                                            base08: '#f92672',
+                                            base09: '#fd971f',
+                                            base0A: '#f4bf75',
+                                            base0B: '#a6e22e',
+                                            base0C: '#a1efe4',
+                                            base0D: '#66d9ef',
+                                            base0E: '#ae81ff',
+                                            base0F: '#cc6633',
+                                        }}
+                                        invertTheme={false}
+                                    />
+                                </Tab>
                             </Tabs>
                         </Col>
                     </Row>
