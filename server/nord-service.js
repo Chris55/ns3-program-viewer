@@ -153,6 +153,7 @@ const getPanel = function(buffer, id) {
     const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
     const synthOffset57 = buffer.readUInt8(0x57 + panelOffset);
     const synthOffset80 = buffer.readUInt8(0x80 + panelOffset);
+    const synthOffset81 = buffer.readUInt8(0x81 + panelOffset);
     const synthOffset84W = buffer.readUInt16BE(0x84 + panelOffset);
     const synthOffset86 = buffer.readUInt8(0x86 + panelOffset);
     const synthOffset87 = buffer.readUInt8(0x87 + panelOffset);
@@ -269,6 +270,8 @@ const getPanel = function(buffer, id) {
 
     const arpeggiatorRange = (synthOffset80 & 0x18) >> 3;
     const arpeggiatorPattern = (synthOffset80 & 0x06) >> 1;
+    const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >> 1;
+    const arpeggiatorMasterClock = ((synthOffset80 & 0x01) !== 0);
 
     const synth = {
         enabled: ((synthOffset52W & 0x8000) !== 0),
@@ -390,8 +393,14 @@ const getPanel = function(buffer, id) {
         },
         arpeggiator: {
             enabled: ((synthOffset80 & 0x40) !== 0),
+            rate: {
+                midi: arpeggiatorRateMidi,
+                label:  arpeggiatorMasterClock
+                    ? mapping.synthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
+                    : mapping.synthArpRateMap.get(arpeggiatorRateMidi),
+            },
             kbSync: ((synthOffset80 & 0x20) !== 0),
-            masterClock: ((synthOffset80 & 0x01) !== 0),
+            masterClock: arpeggiatorMasterClock,
             range: mapping.arpeggiatorRangeMap.get(arpeggiatorRange),
             pattern: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern)
         }

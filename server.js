@@ -42,13 +42,13 @@ app.use((err, req, res, next) => {
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
-setInterval(() => {
-    const hour = new Date().getUTCHours();
-    console.log("refresh... hour = ", hour);
-    if (hour >= 8) {
-        https.get('https://ns3-program-viewer.herokuapp.com/');
-    }
-}, 1740000); // 29min
+// setInterval(() => {
+//     const hour = new Date().getUTCHours();
+//     console.log("refresh... hour = ", hour);
+//     if (hour >= 8) {
+//         https.get('https://ns3-program-viewer.herokuapp.com/');
+//     }
+// }, 1740000); // 29min
 
 
 

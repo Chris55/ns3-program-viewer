@@ -45,6 +45,7 @@ const buildAll = async() => {
     await build("/Synth/filter", "synth.filter.test.js");
     await build("/Synth/lfo", "synth.lfo.test.js");
     await build("/Synth/envelopes", "synth.envelopes.test.js");
+    await build("/Synth/arpeggiator", "synth.arpeggiator.test.js");
 }
 
 buildAll().catch(console.error)
