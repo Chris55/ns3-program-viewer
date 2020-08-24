@@ -121,7 +121,7 @@ const getPanel = function(buffer, id) {
         type: mapping.pianoTypeMap.get((pianoOffset48 & 0x38) >> 3),
 
         // Model:
-        // Offset 0x49 and 0x4A (last 3 bits of 0x49 and first 2 bits of 0x4A). So byte 0x49 OR 0x07 and byte 0x4a OR 0xC0
+        // Offset 0x48 and 0x49 (last 3 bits of 0x49 and first 2 bits of 0x4A).
         // Values:
         // 0x00 0x00: model 1
         // 0x00 0x01: model 2
