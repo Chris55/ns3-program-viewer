@@ -446,13 +446,19 @@ exports.loadNs3fFile = (buffer) => {
     }
 
     // const fileId = buffer.readUInt16BE(0x0e);
+    const offset14W = buffer.readUInt16LE(0x14);
     const offset38W = buffer.readUInt16BE(0x38);
+
+    const zeroPad = (num, places) => String(num).padStart(places, '0')
+    const majorVersion = Math.trunc(offset14W / 100);
+    const minorVersion = zeroPad((offset14W - (majorVersion * 100)), 2);
 
 
     const tempo = ((offset38W & 0x07f8) >> 3) + 30;
 
     return {
         name: '',
+        version: majorVersion + '.' + minorVersion,
         //fileId: fileId,
         panelA: getPanel(buffer, 0),
         panelB: getPanel(buffer, 1),
