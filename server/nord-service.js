@@ -94,10 +94,13 @@ const getPanel = function(buffer, id) {
 
     // Piano section
 
+    const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
     const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
     const pianoOffset49WW = buffer.readBigUInt64BE(0x49);
     const pianoOffset4e = buffer.readUInt8(0x4e + panelOffset);
+    const pianoOffset4d = buffer.readUInt8(0x4d + panelOffset);
+    const pianoOffset4dW = buffer.readUInt16BE(0x4d + panelOffset);
 
     const piano = {
         enabled: (pianoOffset43W & 0x8000) !== 0,
@@ -119,6 +122,46 @@ const getPanel = function(buffer, id) {
         // 0x28- DYNO2
         //
         timbre: mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >> 3),
+
+        // Piano KB Touch
+        // Offset in file: 0x4D (just least significant bit 1, so OR 0x01) and 0x4E (Just Most Significant Bit, so OR 0x80)
+        //
+        // Values:
+        // 0x00 + 0x8x- KB Touch 1
+        // 0x01 + 0x0x- KB Touch 2
+        // 0x01 + 0x8x- KB Touch 3
+        kbTouch: mapping.pianoKbTouchMap.get((pianoOffset4dW & 0x0180) >> 7),
+
+        // Piano Layer Detune
+        // Offset in file: 0x34
+        //
+        // Values:
+        // 0x00- Off
+        // 0x20- 1
+        // 0x40- 2
+        // 0x60- 3
+        layerDetune: mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >> 5),
+
+        // Piano Soft Release
+        // Offset in file: 0x4D (just least significant bit 4, so OR 0x08)
+        //
+        // Values:
+        // 0x00 - No
+        // 0x08 - Soft Release
+        softRelease: (pianoOffset4d & 0x08) !== 0,
+
+        // Piano Pedal Noise
+        // Offset in file: 0x4D (just least significant bit 2, so OR 0x02)
+        //
+        // 0x00- No
+        // 0x02- Pedal Noise
+        pedalNoise: (pianoOffset4d & 0x02) !== 0,
+
+        // String Res
+        // Offset in file: 0x4D (just least significant bit 3, so OR 0x04)
+        stringResonance: (pianoOffset4d & 0x04) !== 0,
+
+
     };
 
     // Organ Section

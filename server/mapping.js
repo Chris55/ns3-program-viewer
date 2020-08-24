@@ -90,6 +90,20 @@ exports.pianoTimbreMap = new Map([
     [5, 'Dyno2'],
 ]);
 
+exports.pianoKbTouchMap = new Map([
+    [0, 'Normal'],
+    [1, '1'],
+    [2, '2'],
+    [3, '3'],
+]);
+
+exports.pianoLayerDetuneMap = new Map([
+    [0, 'Off'],
+    [1, '1'],
+    [2, '2'],
+    [3, '3'],
+]);
+
 exports.organTypeMap = new Map([
     [0x00, 'B3'],
     [0x01, 'Vox'],
