@@ -103,7 +103,7 @@ const getPanel = function(buffer, id) {
         enabled: (pianoOffset43W & 0x8000) !== 0,
         volume: getVolume((pianoOffset43W & 0x7F0) >> 4),
         type: mapping.pianoTypeMap.get((pianoOffset48 & 0x38) >> 3),
-        name: mapping.pianoNameMap.get(pianoOffset49WW >> 24n), // read 5 bytes?
+        //name: mapping.pianoNameMap.get(pianoOffset49WW >> 24n), // read 5 bytes?
         pitchStick: (pianoOffset48 & 0x80) !== 0,
         sustainPedal: (pianoOffset48 & 0x40) !== 0,
 
