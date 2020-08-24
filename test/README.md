@@ -12,7 +12,7 @@ The API should return:
 
 ### example 2: testing Panel A / Synth Osc1 Wave Form Type = Classic Sine
 
-filename must be "panelA.synth.oscillatorType eq Classic and panelA.synth.oscillator1WaveForm eq Sine.ns3f"
+filename must be "panelA.synth.oscillators.type eq Classic and panelA.synth.oscillators.waveForm1 eq Sine.ns3f"
 
 The API should return:
 - panelA.synth.oscillatorType = Classic

@@ -43,33 +43,33 @@ exports.panelEnabledMap = new Map([
 
 exports.pianoNameMap = new Map([
     // Grand Piano
-    [0x02D577B5A0000000n, 'Royal Grand 3D YaS6 Lrg 5.4'],
-    [0x4F04DA3060000000n, 'White Grand Lrg 6.1'],
-    [0x85F256D930000000n, 'Grand Lady D   Stw D  Lrg 5.3'],
+    [0x02D577B5A0n, 'Royal Grand 3D YaS6 Lrg 5.4'],
+    [0x4F04DA3060n, 'White Grand Lrg 6.1'],
+    [0x85F256D930n, 'Grand Lady D   Stw D  Lrg 5.3'],
 
     // Upright Piano
-    [0xe5dd43ce0000000n, 'Bambino Upright Baldwin XL 5.4'],
-    [0x40f4358d90000000n, 'Black Upright Petrof Lrg 5.3'],
-    [0xc354a2c600000000n, 'HonkyTonkUpright      Lrg 5.3'],
+    [0xe5dd43ce00n, 'Bambino Upright Baldwin XL 5.4'],
+    [0x40f4358d90n, 'Black Upright Petrof Lrg 5.3'],
+    [0xc354a2c600n, 'HonkyTonkUpright      Lrg 5.3'],
 
     // Electric Piano
-    [0x4e099de00000000n, 'EP1 Deep Timbre Lrg 6.0'],
+    [0x04e099de00n, 'EP1 Deep Timbre Lrg 6.0'],
 
     // Clavinet
-    [0x1bedfa440000000n, 'Clavinet D6  5.0'],
+    [0x01bedfa440n, 'Clavinet D6  5.0'],
 
     // Digital
-    [0x51accddc0000000n, 'DX7 FullTines  Lrg 5.4'],
+    [0x051accddc0n, 'DX7 FullTines  Lrg 5.4'],
 
     // Misc
-    [0x97a8d1770000000n, 'Ballad EP1  Sml 5.2'],
+    [0x097a8d1770n, 'Ballad EP1  Sml 5.2'],
 
     // Samples
-    [0x071348A9B0000000n, 'OrchString Legato'],      // Sample 1
-    [0x000C39B798000000n, 'DeepSoft'],               // Sample 2
-    [0x06B11580D8000000n, 'SymphStr FastAtk Amb'],   // Sample 3
-    [0xC52F98AB40000000n, 'A'],                      // Sample 4
-    [0xC2CB0EFCA8000000n, 'B'],                      // Sample 4
+    [0x071348A9B0n, 'OrchString Legato'],      // Sample 1
+    [0x000C39B798n, 'DeepSoft'],               // Sample 2
+    [0x06B11580D8n, 'SymphStr FastAtk Amb'],   // Sample 3
+    [0xC52F98AB40n, 'A'],                      // Sample 4
+    [0xC2CB0EFCA8n, 'B'],                      // Sample 4
 ]);
 
 exports.pianoTypeMap = new Map([
@@ -79,6 +79,15 @@ exports.pianoTypeMap = new Map([
     [0x03, 'Clav'],
     [0x04, 'Digital'],
     [0x05, 'Misc'],
+]);
+
+exports.pianoTimbreMap = new Map([
+    [0, 'None'],
+    [1, 'Soft'],
+    [2, 'Mid'],
+    [3, 'Bright'],
+    [4, 'Dyno1'],
+    [5, 'Dyno2'],
 ]);
 
 exports.organTypeMap = new Map([

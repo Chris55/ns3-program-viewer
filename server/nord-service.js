@@ -94,16 +94,31 @@ const getPanel = function(buffer, id) {
 
     // Piano section
 
-    const pianoFlag1 = buffer.readUInt16BE(0x43 + panelOffset);
-    const pianoFlag2 = buffer.readUInt8(0x48 + panelOffset);
+    const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
+    const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
+    const pianoOffset49WW = buffer.readBigUInt64BE(0x49);
+    const pianoOffset4e = buffer.readUInt8(0x4e + panelOffset);
 
     const piano = {
-        enabled: (pianoFlag1 & 0x8000) !== 0,
-        volume: getVolume((pianoFlag1 & 0x7F0) >> 4),
-        type: mapping.pianoTypeMap.get((pianoFlag2 & 0x38) >> 3),
-        name: mapping.pianoNameMap.get(buffer.readBigUInt64BE(0x49)),
-        pitchStick: (pianoFlag2 & 0x80) !== 0,
-        sustainPedal: (pianoFlag2 & 0x40) !== 0,
+        enabled: (pianoOffset43W & 0x8000) !== 0,
+        volume: getVolume((pianoOffset43W & 0x7F0) >> 4),
+        type: mapping.pianoTypeMap.get((pianoOffset48 & 0x38) >> 3),
+        name: mapping.pianoNameMap.get(pianoOffset49WW >> 24n), // read 5 bytes?
+        pitchStick: (pianoOffset48 & 0x80) !== 0,
+        sustainPedal: (pianoOffset48 & 0x40) !== 0,
+
+        //
+        // Piano Timbre
+        // Offset in file: 0x4E
+        // Possible Values:
+        // 0x00- None
+        // 0x08- Soft
+        // 0x10- Mid
+        // 0x18- Bright
+        // 0x20- DYNO1
+        // 0x28- DYNO2
+        //
+        timbre: mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >> 3),
     };
 
     // Organ Section
