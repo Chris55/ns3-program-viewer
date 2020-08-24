@@ -446,6 +446,7 @@ exports.loadNs3fFile = (buffer) => {
     }
 
     // const fileId = buffer.readUInt16BE(0x0e);
+    const offset10 = buffer.readUInt8(0x10);
     const offset14W = buffer.readUInt16LE(0x14);
     const offset38W = buffer.readUInt16BE(0x38);
 
@@ -459,6 +460,7 @@ exports.loadNs3fFile = (buffer) => {
     return {
         name: '',
         version: majorVersion + '.' + minorVersion,
+        category: mapping.categoryMap.get(offset10),
         //fileId: fileId,
         panelA: getPanel(buffer, 0),
         panelB: getPanel(buffer, 1),
