@@ -96,8 +96,10 @@ const getPanel = function(buffer, id) {
 
     const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
+    const pianoOffset47 = buffer.readUInt8(0x47 + panelOffset);
     const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
-    const pianoOffset49WW = buffer.readBigUInt64BE(0x49);
+    //const pianoOffset49WW = buffer.readBigUInt64BE(0x49);
+    const pianoOffset49W = buffer.readUInt16BE(0x49 + panelOffset);
     const pianoOffset4e = buffer.readUInt8(0x4e + panelOffset);
     const pianoOffset4d = buffer.readUInt8(0x4d + panelOffset);
     const pianoOffset4dW = buffer.readUInt16BE(0x4d + panelOffset);
@@ -105,9 +107,50 @@ const getPanel = function(buffer, id) {
     const piano = {
         enabled: (pianoOffset43W & 0x8000) !== 0,
         volume: getVolume((pianoOffset43W & 0x7F0) >> 4),
+
+        // Type:
+        // offset 0x48 (only 4 bits, last 3 of first nibble, first of second nibble) OR 0x98
+        //
+        // Values:
+        // 0x40- Grand
+        // 0x48- Upright
+        // 0x50- Electric
+        // 0x58- Clav
+        // 0x60- Digital
+        // 0x68- Misc
         type: mapping.pianoTypeMap.get((pianoOffset48 & 0x38) >> 3),
-        //name: mapping.pianoNameMap.get(pianoOffset49WW >> 24n), // read 5 bytes?
+
+        // Model:
+        // Offset 0x49 and 0x4A (last 3 bits of 0x49 and first 2 bits of 0x4A). So byte 0x49 OR 0x07 and byte 0x4a OR 0xC0
+        // Values:
+        // 0x00 0x00: model 1
+        // 0x00 0x01: model 2
+        // .. and so on
+        // 0x02 0x01: model 10
+        //model: (pianoOffset49W & 0x07c0) >> 6,
+
+        // Octave Shift
+        // offset in file: 0x47 (just 4 last bits, OR 0x0F)
+        //
+        // Values:
+        // 0xF5- Shift -1
+        // 0xF6- No shift
+        // 0xF7- Shift +1
+        octaveShift: (pianoOffset47 & 0x07) - 6,
+
+        // Pitch Stick
+        // offset in file: 0x48 (just bit 0x80)
+        // Values
+        // 0x00- No
+        // 0x80- Yes
         pitchStick: (pianoOffset48 & 0x80) !== 0,
+
+        //Sustain Pedal
+        // Offset in file: 0x48 (just bit 0x40)
+        //
+        // Values:
+        // 0x00- No
+        // 0x40- Yes
         sustainPedal: (pianoOffset48 & 0x40) !== 0,
 
         //
@@ -159,9 +202,10 @@ const getPanel = function(buffer, id) {
 
         // String Res
         // Offset in file: 0x4D (just least significant bit 3, so OR 0x04)
+        //
+        // 0x00- No
+        // 0x04- String Res
         stringResonance: (pianoOffset4d & 0x04) !== 0,
-
-
     };
 
     // Organ Section

@@ -54,6 +54,30 @@ describe("/Piano", () => {
         });
     });
 
+    test("panelA.piano.octaveShift eq -1", async () => {
+        const file = "panelA.piano.octaveShift eq -1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.piano.octaveShift eq 0", async () => {
+        const file = "panelA.piano.octaveShift eq 0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.piano.octaveShift eq 1", async () => {
+        const file = "panelA.piano.octaveShift eq 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.piano.pedalNoise eq false", async () => {
         const file = "panelA.piano.pedalNoise eq false.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -144,6 +168,54 @@ describe("/Piano", () => {
 
     test("panelA.piano.timbre eq Soft", async () => {
         const file = "panelA.piano.timbre eq Soft.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.piano.type eq Clav", async () => {
+        const file = "panelA.piano.type eq Clav.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.piano.type eq Digital", async () => {
+        const file = "panelA.piano.type eq Digital.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.piano.type eq Electric", async () => {
+        const file = "panelA.piano.type eq Electric.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.piano.type eq Grand", async () => {
+        const file = "panelA.piano.type eq Grand.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.piano.type eq Misc", async () => {
+        const file = "panelA.piano.type eq Misc.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.piano.type eq Upright", async () => {
+        const file = "panelA.piano.type eq Upright.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
