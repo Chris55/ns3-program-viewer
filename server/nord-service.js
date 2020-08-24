@@ -99,7 +99,7 @@ const getPanel = function(buffer, id) {
     const pianoOffset47 = buffer.readUInt8(0x47 + panelOffset);
     const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
     //const pianoOffset49WW = buffer.readBigUInt64BE(0x49);
-    const pianoOffset49W = buffer.readUInt16BE(0x49 + panelOffset);
+    const pianoOffset48W = buffer.readUInt16BE(0x48 + panelOffset);
     const pianoOffset4e = buffer.readUInt8(0x4e + panelOffset);
     const pianoOffset4d = buffer.readUInt8(0x4d + panelOffset);
     const pianoOffset4dW = buffer.readUInt16BE(0x4d + panelOffset);
@@ -127,7 +127,7 @@ const getPanel = function(buffer, id) {
         // 0x00 0x01: model 2
         // .. and so on
         // 0x02 0x01: model 10
-        //model: (pianoOffset49W & 0x07c0) >> 6,
+        model: (pianoOffset48W & 0x07c0) >> 6,
 
         // Octave Shift
         // offset in file: 0x47 (just 4 last bits, OR 0x0F)
