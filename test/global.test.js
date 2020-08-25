@@ -158,6 +158,30 @@ describe("/Global", () => {
         });
     });
 
+    test("masterClock.rate eq 240 bpm", async () => {
+        const file = "masterClock.rate eq 240 bpm.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("masterClock.rate eq 30 bpm", async () => {
+        const file = "masterClock.rate eq 30 bpm.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("masterClock.rate eq 31 bpm", async () => {
+        const file = "masterClock.rate eq 31 bpm.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.enabled eq false and panelB.enabled eq true", async () => {
         const file = "panelA.enabled eq false and panelB.enabled eq true.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -182,24 +206,152 @@ describe("/Global", () => {
         });
     });
 
-    test("program.masterClock.rate eq 240 bpm", async () => {
-        const file = "program.masterClock.rate eq 240 bpm.ns3f";
+    test("split.enabled eq false", async () => {
+        const file = "split.enabled eq false.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("program.masterClock.rate eq 30 bpm", async () => {
-        const file = "program.masterClock.rate eq 30 bpm.ns3f";
+    test("split.high.width eq 1", async () => {
+        const file = "split.high.width eq 1.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("program.masterClock.rate eq 31 bpm", async () => {
-        const file = "program.masterClock.rate eq 31 bpm.ns3f";
+    test("split.high.width eq 12", async () => {
+        const file = "split.high.width eq 12.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.high.width eq 6", async () => {
+        const file = "split.high.width eq 6.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C3", async () => {
+        const file = "split.low.note eq C3.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C4", async () => {
+        const file = "split.low.note eq C4.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C5", async () => {
+        const file = "split.low.note eq C5.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C6", async () => {
+        const file = "split.low.note eq C6.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C7", async () => {
+        const file = "split.low.note eq C7.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F2", async () => {
+        const file = "split.low.note eq F2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F3", async () => {
+        const file = "split.low.note eq F3.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F4", async () => {
+        const file = "split.low.note eq F4.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F5", async () => {
+        const file = "split.low.note eq F5.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F6 and split.high.note eq C7", async () => {
+        const file = "split.low.note eq F6 and split.high.note eq C7.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F6", async () => {
+        const file = "split.low.note eq F6.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.width eq 1", async () => {
+        const file = "split.low.width eq 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.width eq 12", async () => {
+        const file = "split.low.width eq 12.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.width eq 6", async () => {
+        const file = "split.low.width eq 6.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.width eq Off", async () => {
+        const file = "split.low.width eq Off.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

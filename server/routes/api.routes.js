@@ -34,6 +34,7 @@ router.post('/upload', upload.single('nordFile'), async (req, res, next) => {
 
     if (!req.file) {
         next(Error("Unsupported file"));
+        return;
     }
     console.log(req.file.originalname);
 

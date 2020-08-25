@@ -41,6 +41,25 @@ exports.panelEnabledMap = new Map([
     [2, 'A & B'],
 ]);
 
+exports.splitNoteMap = new Map([
+    [0, 'F2'],
+    [1, 'C3'],
+    [2, 'F3'],
+    [3, 'C4'],
+    [4, 'F4'],
+    [5, 'C5'],
+    [6, 'F5'],
+    [7, 'C6'],
+    [8, 'F6'],
+    [9, 'C7'],
+]);
+
+exports.splitWidthMap = new Map([
+    [0, '1'],
+    [1, '6'],
+    [2, '12'],
+]);
+
 exports.pianoNameMap = new Map([
     // Grand Piano
     [0x02D577B5A0n, 'Royal Grand 3D YaS6 Lrg 5.4'],

@@ -74,6 +74,8 @@ const getKnobDualValues = function(valueRange120) {
 
 const getPanel = function(buffer, id) {
 
+    const panelOffset31 = buffer.readUInt8(0x31);
+
     // Panel enabled flag is offset 0x31 (b5 & b6)
     // 0 = A only
     // 1 = B only
@@ -81,12 +83,10 @@ const getPanel = function(buffer, id) {
     // Panel selected flag is offset 0x31 (b7);
     // A = 0, B = 1 (not used here)
 
-    const panelOffset31 = buffer.readUInt8(0x31);
     const panelEnabledFlag = (panelOffset31 & 0x60) >> 5;
     const panelEnabled = (id === 0)
         ? (panelEnabledFlag === 0 || panelEnabledFlag === 2)
         : (panelEnabledFlag === 1 || panelEnabledFlag === 2);
-
 
     // all hardcoded offset are for Panel A, offset value is for Panel B
 
@@ -550,7 +550,151 @@ exports.loadNs3fFile = (buffer) => {
     // const fileId = buffer.readUInt16BE(0x0e);
     const offset10 = buffer.readUInt8(0x10);
     const offset14W = buffer.readUInt16LE(0x14);
+    const offset31 = buffer.readUInt8(0x31);
+    const offset31W = buffer.readUInt16BE(0x31);
+    const offset32W = buffer.readUInt16BE(0x32);
+    const offset33W = buffer.readUInt16BE(0x33);
     const offset38W = buffer.readUInt16BE(0x38);
+
+    /***
+     * Split:
+     * offset 0x31 (b4 to b0) to 0x34 (b7 only)
+     *
+     *   0X31        0x32       0x33       0x34
+     * xxx4 3210  7654 3210  7654 3210  7xxx xxxx
+     * ---------  ---------  ---------  ---------
+     * xxx4 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx: split off/on
+     * xxxx 321x  xxxx xxxx  xxxx xxxx  xxxx xxxx: low off/on, mid off/on, high off/on
+     * xxxx xxx0  765x xxxx  xxxx xxxx  xxxx xxxx: low note (0 = F2, 1 = C3, 9 = C7)
+     * xxxx xxxx  xxx4 321x  xxxx xxxx  xxxx xxxx: mid note
+     * xxxx xxxx  xxxx xxx0  765x xxxx  xxxx xxxx: high note
+     * xxxx xxxx  xxxx xxxx  xxx5 4xxx  xxxx xxxx: low width (0 = 1, 1 = 6, 2 = 12)
+     * xxxx xxxx  xxxx xxxx  xxxx x32x  xxxx xxxx: mid width
+     * xxxx xxxx  xxxx xxxx  xxxx xxx0  7xxx xxxx: high width
+     */
+
+    /***
+     * Split Example:
+     *
+     * Test1:  06 07 20 01 : Split Off
+     *
+     * Test2:  16 07 20 01 : Width Off 1   1
+     *                       Note  --  C4  C7
+     *
+     * Test3:  1E 07 20 01 : Width 1   1   1
+     *                       Note  F2  C4  C7
+     *
+     * Test4:  1E 07 28 01 : Width 6   1   1
+     *                       Note  F2  C4  C7
+     *
+     * Test5:  1E 07 30 01 : Width 12  1   1
+     *                       Note  F2  C4  C7
+     *
+     * Test6:  18 07 30 01 : Width 12  Off Off
+     *                       Note  F2  --  --
+     *
+     * Test7:  18 27 30 01 : Width 12  Off Off
+     *                       Note  C3  --  --
+     *
+     * Test8:  18 47 30 01 : Width 12  Off Off
+     *                       Note  F3  --  --
+     *
+     * Test9:  18 67 30 01 : Width 12  Off Off
+     *                       Note  C4  --  --
+     *
+     * Test10: 18 87 30 01 : Width 12  Off Off
+     *                       Note  F4  --  --
+     *
+     * Test11: 18 A7 30 01 : Width 12  Off Off
+     *                       Note  C5  --  --
+     *
+     * Test12: 18 C7 30 01 : Width 12  Off Off
+     *                       Note  F5  --  --
+     *
+     * Test13: 18 E7 30 01 : Width 12  Off Off
+     *                       Note  C6  --  --
+     *
+     * Test14: 19 07 30 01 : Width 12  Off Off
+     *                       Note  F6  --  --
+     *
+     * Test15: 19 27 30 01 : Width 12  Off Off
+     *                       Note  C7  --  --
+     *
+     * Test16: 1B 27 30 01 : Width 12  Off 1     ! From test 15 to 16 only High Width was changed manually !
+     *                       Note  F6  --  C7    ! Note Low in file is C7 but fixed on display to F6...
+     *
+     * Test17: 1B 27 30 81 : Width 12  Off 6
+     *                       Note  F6  --  C7
+     *
+     * Test18: 1B 27 31 01 : Width 12  Off 12
+     *                       Note  F6  --  C7
+     *
+     * Test19: 1C 23 30 01 : Width 12  1   Off
+     *                       Note  C3  F3  --   ! Note Mid in file is C3 but fixed on display to F3 !
+     */
+
+    const splitLowEnabled = (offset31 & 0x08) !== 0;
+    const splitMidEnabled = (offset31 & 0x04) !== 0;
+    const splitHighEnabled = (offset31 & 0x02) !== 0;
+    let splitLowNote = (offset31W & 0x01e0) >> 5;
+    let splitMidNote = (offset31W & 0x001e) >> 1;
+    let splitHighNote = (offset32W & 0x01e0) >> 5;
+    const lastNote = 9;
+
+    // low/mid/high note can unordered in file !!!
+    // validation must be done to fix note order if required
+
+    if (splitLowEnabled && splitMidEnabled && !splitHighEnabled) {
+        if (splitLowNote >= splitMidNote) {
+            splitMidNote = splitLowNote + 1;
+            if (splitMidNote > lastNote) {
+                splitLowNote--;
+                splitMidNote--;
+            }
+        }
+    } else if (splitLowEnabled && !splitMidEnabled && splitHighEnabled) {
+        if (splitLowNote >= splitHighNote) {
+            splitHighNote = splitLowNote + 1;
+            if (splitHighNote > lastNote) {
+                splitLowNote--;
+                splitHighNote--;
+            }
+        }
+    } else if (!splitLowEnabled && splitMidEnabled && splitHighEnabled) {
+        if (splitMidNote >= splitHighNote) {
+            splitHighNote = splitMidNote + 1;
+            if (splitHighNote > lastNote) {
+                splitMidNote--;
+                splitHighNote--;
+            }
+        }
+    } else if (splitLowEnabled && splitMidEnabled && splitHighEnabled) {
+        // not sure what to do...
+        // if (splitMidNote >= splitHighNote) {
+        //     splitHighNote = splitMidNote + 1;
+        //     if (splitHighNote > lastNote) {
+        //         splitMidNote--;
+        //         splitHighNote--;
+        //     }
+        // }
+    }
+
+
+    const split = {
+        enabled: (offset31 & 0x10) !== 0,
+        low: {
+            width: (splitLowEnabled) ? mapping.splitWidthMap.get((offset33W & 0x1800) >> 11): "Off",
+            note: (splitLowEnabled) ? mapping.splitNoteMap.get(splitLowNote): "--",
+        },
+        mid: {
+            width: (splitMidEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0600) >> 9): "Off",
+            note: (splitMidEnabled) ? mapping.splitNoteMap.get(splitMidNote): "--",
+        },
+        high: {
+            width: (splitHighEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0180) >> 7): "Off",
+            note: (splitHighEnabled) ? mapping.splitNoteMap.get(splitHighNote): "--",
+        },
+    };
 
     const zeroPad = (num, places) => String(num).padStart(places, '0')
     const majorVersion = Math.trunc(offset14W / 100);
@@ -564,35 +708,19 @@ exports.loadNs3fFile = (buffer) => {
         version: majorVersion + '.' + minorVersion,
         category: mapping.categoryMap.get(offset10),
         //fileId: fileId,
+        masterClock:  {
+            rate: tempo + ' bpm',
+            //keyboardSync: '' // this is a global setting
+        },
+        // transpose: '',
+        split: split,
+        // dualKeyboard: {
+        //     enabled: '',
+        //     style: '',
+        // },
+        //monoOut: '', // this is a global setting
         panelA: getPanel(buffer, 0),
         panelB: getPanel(buffer, 1),
-        program: {
-            masterClock:  {
-                rate: tempo + ' bpm',
-                //keyboardSync: '' // this is a global setting
-            },
-            // transpose: '',
-            // split: {
-            //     enabled: '',
-            //     low: {
-            //         width: '',
-            //         key: '',
-            //     },
-            //     mid: {
-            //         width: '',
-            //         key: '',
-            //     },
-            //     high: {
-            //         width: '',
-            //         key: '',
-            //     },
-            // },
-            // dualKeyboard: {
-            //     enabled: '',
-            //     style: '',
-            // },
-            //monoOut: '' // this is a global setting
-        }
     };
 }
 
