@@ -2,7 +2,7 @@ const mapping = require("./mapping");
 const converter = require("./converter");
 
 
-const getDrawbars = function (buffer, offset) {
+const getDrawbars = function (buffer, offset, type) {
     const organDrawbar0Flag = buffer.readUInt8(offset);                 // 0xbe
     const organDrawbar1Flag = buffer.readUInt8(offset + 2);       // 0xc0
     const organDrawbar2Flag = buffer.readUInt16BE(offset + 4);    // 0xc2
@@ -13,17 +13,31 @@ const getDrawbars = function (buffer, offset) {
     const organDrawbar7Flag = buffer.readUInt16BE(offset + 16);    // 0xce
     const organDrawbar8Flag = buffer.readUInt8(offset + 19);       // 0xd1
 
-    return [
-        (organDrawbar0Flag & 0xf0) >> 4,
-        (organDrawbar1Flag & 0x1e) >> 1,
-        (organDrawbar2Flag & 0b0000001111000000) >> 6,  //0x03c0
-        (organDrawbar3Flag & 0b01111000) >> 3,
-        (organDrawbar4Flag & 0x0f),
-        (organDrawbar5Flag & 0b0000000111100000) >> 5,
-        (organDrawbar6Flag & 0b00111100) >> 2,
-        (organDrawbar7Flag & 0b0000011110000000) >> 7,
-        (organDrawbar8Flag & 0xf0) >> 4
-    ];
+    let d0 = (organDrawbar0Flag & 0xf0) >> 4;
+    let d1 = (organDrawbar1Flag & 0x1e) >> 1;
+    let d2 = (organDrawbar2Flag & 0b0000001111000000) >> 6;  //0x03c0
+    let d3 = (organDrawbar3Flag & 0b01111000) >> 3;
+    let d4 = (organDrawbar4Flag & 0x0f);
+    let d5 = (organDrawbar5Flag & 0b0000000111100000) >> 5;
+    let d6 = (organDrawbar6Flag & 0b00111100) >> 2;
+    let d7 = (organDrawbar7Flag & 0b0000011110000000) >> 7;
+    let d8 = (organDrawbar8Flag & 0xf0) >> 4;
+
+    if (type === "Vox") {
+        d7 = 0;
+    } else if (type === "Farfisa"){
+        d0 = (d0 < 4) ? 0: 1;
+        d1 = (d1 < 4) ? 0: 1;
+        d2 = (d2 < 4) ? 0: 1;
+        d3 = (d3 < 4) ? 0: 1;
+        d4 = (d4 < 4) ? 0: 1;
+        d5 = (d5 < 4) ? 0: 1;
+        d6 = (d6 < 4) ? 0: 1;
+        d7 = (d7 < 4) ? 0: 1;
+        d8 = (d8 < 4) ? 0: 1;
+    }
+
+    return [d0, d1, d2, d3, d4, d5, d6, d7, d8];
 }
 
 const getVolume = function(value) {
@@ -208,21 +222,24 @@ const getPanel = function(buffer, id) {
 
     // Organ Section
 
+
+
     const organFlag34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffset35 = buffer.readUInt8(0x35 + panelOffset);
     const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
     const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
     const organOffsetBb = buffer.readUInt8(0xbb + panelOffset);
     const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
-    const rotarySpeakerOffset39 = buffer.readUInt16BE(0x39 + panelOffset);
+    const rotarySpeakerOffset39W = buffer.readUInt16BE(0x39 + panelOffset);
     const rotarySpeakerOffset10B = buffer.readUInt8(0x10b + panelOffset);
+    const organType = mapping.organTypeMap.get((organOffsetBb & 0x70) >> 4);
 
     const organ = {
         enabled: ((organOffsetB6W & 0x8000) !== 0),
         volume: getVolume((organOffsetB6W & 0x7F0) >> 4),
-        type: mapping.organTypeMap.get((organOffsetBb & 0x70) >> 4),
-        preset1: getDrawbars(buffer, 0xbe).join(""),
-        preset2: getDrawbars(buffer, 0xd9).join(""),
+        type: organType,
+        preset1: getDrawbars(buffer, 0xbe, organType).join(""),
+        preset2: getDrawbars(buffer, 0xd9, organType).join(""),
         octaveShift: (organOffsetBa & 0x07) - 6,
         pitchStick: ((organFlag34 & 0x10) !== 0),
         sustainPedal: ((organOffsetBb & 0x80) !== 0),
@@ -239,9 +256,19 @@ const getPanel = function(buffer, id) {
         },
     };
 
+    /***
+     * Rotary Speaker
+     *
+     * enabled: offset 0x10b (bit7): 0 = disabled, 1 = enabled
+     * source: offset 0x10b (b6 and b5): 0 = Organ, 1, Piano, 2 = Synth
+     * drive: offset 0x39 (b2 to b0) and 0x3a (b7 to b4):  7 bit value 0/127 converted to 0/10
+     * stopMode: offset 0x34 (bit0): 0 = enabled, 1 = disabled
+     */
+
     const rotarySpeaker = {
-        drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39 & 0b0000011111110000) >> 4, 1, ""),
+        enabled: (rotarySpeakerOffset10B & 0x80) !== 0,
         source: mapping.sourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
+        drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >> 4, 1, ""),
         stopMode: !(((organOffset35 & 0x80) >> 7) !== 0),
         speed: mapping.rotarySpeakerSpeedMap.get(organFlag34 & 0x01),
     };
