@@ -3,8 +3,16 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const getNestedObject = (nestedObj, pathArr) => {
-    return pathArr.reduce((obj, key) =>
-        (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
+    const result =  pathArr.reduce((obj, key) => {
+        if (obj && obj[key] !== 'undefined') {
+            return obj[key];
+        }
+        throw new Error(pathArr.join('.') + ' is an invalid path or value is undefined !!!');
+    }, nestedObj);
+    if (typeof(result) !== "undefined") {
+        return result;
+    }
+    throw new Error('something wrong with the api, actual value of ' + pathArr.join('.') + ' is undefined !!');
 }
 
 exports.getNs3TestCase = async (filename) => {

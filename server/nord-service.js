@@ -1,7 +1,5 @@
 const mapping = require("./mapping");
 const converter = require("./converter");
-const {Morph} = require("./model/ns3");
-
 
 
 const getDrawbars = function (buffer, offset) {
@@ -212,7 +210,7 @@ const getPanel = function(buffer, id) {
 
     const organFlag34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffset35 = buffer.readUInt8(0x35 + panelOffset);
-    const organOffsetB6 = buffer.readUInt16BE(0xb6 + panelOffset);
+    const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
     const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
     const organOffsetBb = buffer.readUInt8(0xbb + panelOffset);
     const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
@@ -220,8 +218,8 @@ const getPanel = function(buffer, id) {
     const rotarySpeakerOffset10B = buffer.readUInt8(0x10b + panelOffset);
 
     const organ = {
-        enabled: ((organOffsetB6 & 0x8000) !== 0),
-        volume: getVolume((organOffsetB6 & 0x7F0) >> 4),
+        enabled: ((organOffsetB6W & 0x8000) !== 0),
+        volume: getVolume((organOffsetB6W & 0x7F0) >> 4),
         type: mapping.organTypeMap.get((organOffsetBb & 0x70) >> 4),
         preset1: getDrawbars(buffer, 0xbe).join(""),
         preset2: getDrawbars(buffer, 0xd9).join(""),
@@ -508,6 +506,77 @@ const getPanel = function(buffer, id) {
         }
     };
 
+    // EFFECTS
+
+    const effectOffset10b = buffer.readUInt8(0x10b + panelOffset);
+    const effectOffset10bW = buffer.readUInt16BE(0x10b + panelOffset);
+    const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
+    const effectOffset10cW = buffer.readUInt16BE(0x10c + panelOffset);
+
+    /***
+     * Effect 1 ON: Offset 0x10b LSB 5 (AND 0x10)
+     *  0x00: OFF
+     *  0x10: ON
+     *
+     * Effect 1 SOURCE: Offset 0x10b only 2 bits (AND 0x0C)
+     *  0x00: Organ
+     *  0x04: Piano
+     *  0x08: Synth
+     *
+     * Effect 1 TYPE: offset 0x10b two bit (AND 0x03) 0x10c one bit (AND 0x80)
+     *  0x00 0x00: A-Pan
+     *  0x00 0x80: Trem
+     *  0x01 0x00: RM
+     *  0x01 0x80: WA-WA
+     *  0x02 0x00: A-WA1
+     *  0x02 0x80: A-WA2
+     *
+     * Amount: offset 0x110 only last 7 bits (AND 0x7F)
+     * Label: The number you get there, divided by 127 (7 bits) multiplied by 10.
+     * Then rounded to 1 dec
+     *  Example: if you get 0x2A, that is 42 / 127 * 10 = 3.307. Then Label is "3.3"
+     *  if you get 0x15, that is 21 / 127 * 10 = 1.6535. Then Label is "1.7"
+     *  if you get 0x16, that is 22 / 127 * 10 = 1.732. Then Label is "1.7" (yes, same)
+     *
+     * Rate: offset last 6 bits of 0x10c (AND 0x3F) and first bit of 0x10d (and 0x80).
+     * So, those 2 bytes shifted 1 bit to the left, in order to get just 1 byte.
+     * If you get 0x3F 0x80, then that shifted 1 bit to the left is 0x7F.
+     * Then, same logic as with Amount for the label.
+     *
+     * Master clock: offset 0x10c 2nd MS bit (AND 0x40):
+     *  0x00: OFF
+     *  0x40: ON
+     *
+     */
+    const effect1Type = mapping.effect1TypeMap.get((effectOffset10bW & 0x0380) >> 7);
+    const effect1AmountMidi = effectOffset110 & 0x7f;
+    const effect1RateMidi = (effectOffset10cW & 0x3f80) >> 7;
+
+    const effect1MasterClock = (effectOffset10cW & 0x4000) !== 0;
+    const effect1MasterClockUsed = effect1MasterClock && (effect1Type === "Panning" || effect1Type === "Tremolo");
+
+    const effect1  = {
+        enabled: (effectOffset10b & 0x10) !== 0,
+        source: mapping.sourceMap.get((effectOffset10b & 0x0c) >> 2),
+        type: effect1Type,
+        amount: {
+            midi: effect1AmountMidi,
+            label: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
+        },
+        rate: {
+            midi: effect1RateMidi,
+            label: effect1MasterClockUsed
+                ? mapping.effect1MasterClockDivisionMap.get(effect1RateMidi)
+                : converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, ""),
+        },
+        masterClock: effect1MasterClockUsed,
+    }
+
+/*
+
+
+*/
+
 
     return {
         enabled: panelEnabled,
@@ -516,7 +585,7 @@ const getPanel = function(buffer, id) {
         synth: synth,
         effects: {
             rotarySpeaker: rotarySpeaker,
-            // effect1: {},
+            effect1: effect1,
             // effect2: {},
             // delay: {},
             // ampSimEq: {},
@@ -555,6 +624,46 @@ exports.loadNs3fFile = (buffer) => {
     const offset32W = buffer.readUInt16BE(0x32);
     const offset33W = buffer.readUInt16BE(0x33);
     const offset38W = buffer.readUInt16BE(0x38);
+    const offset38 = buffer.readUInt8(0x38);
+
+    /***
+     * File version:
+     * Offset 0x14 and 0x15
+     * 16 bit int value, ex 304 = v3.04
+     */
+    const zeroPad = (num, places) => String(num).padStart(places, '0')
+    const majorVersion = Math.trunc(offset14W / 100);
+    const minorVersion = zeroPad((offset14W - (majorVersion * 100)), 2);
+
+    /***
+     * Transpose:
+     * Offset
+     *    0x37       0x38
+     * 7654 3210  7654 3xxx
+     * ---------  ---------
+     *
+     * xxxx xxxx  7xxx xxxx : Transpose Off/On
+     * xxxx xxxx  x654 3xxx : Transpose value
+     */
+
+    /***
+     * Transpose Example:
+     *
+     * Test1:  F8 38 : Transpose Off
+     * Test2:  0D 80 : Transpose -6 semi
+     * Test3:  0D 88 : Transpose -5 semi
+     * Test4:  0D A8 : Transpose -1 semi
+     * Test5:  0D B8 : Transpose +1 semi
+     * Test6:  0D D8 : Transpose +5 semi
+     * Test7:  0D E0 : Transpose +6 semi
+     *
+     */
+    const transposeEnabled = (offset38 & 0x80) !== 0;
+    const transposeValue = (offset38 & 0x78) >> 3;
+    const transpose = {
+        enabled: transposeEnabled,
+        label: transposeEnabled ? mapping.transposeMap.get(transposeValue): "",
+    };
 
     /***
      * Split:
@@ -641,7 +750,7 @@ exports.loadNs3fFile = (buffer) => {
     let splitHighNote = (offset32W & 0x01e0) >> 5;
     const lastNote = 9;
 
-    // low/mid/high note can unordered in file !!!
+    // low/mid/high note can be unordered in file !!!
     // validation must be done to fix note order if required
 
     if (splitLowEnabled && splitMidEnabled && !splitHighEnabled) {
@@ -669,7 +778,7 @@ exports.loadNs3fFile = (buffer) => {
             }
         }
     } else if (splitLowEnabled && splitMidEnabled && splitHighEnabled) {
-        // not sure what to do...
+        // not sure what to do here...
         // if (splitMidNote >= splitHighNote) {
         //     splitHighNote = splitMidNote + 1;
         //     if (splitHighNote > lastNote) {
@@ -679,27 +788,22 @@ exports.loadNs3fFile = (buffer) => {
         // }
     }
 
-
+    const splitEnabled = (offset31 & 0x10) !== 0;
     const split = {
-        enabled: (offset31 & 0x10) !== 0,
+        enabled: splitEnabled,
         low: {
-            width: (splitLowEnabled) ? mapping.splitWidthMap.get((offset33W & 0x1800) >> 11): "Off",
-            note: (splitLowEnabled) ? mapping.splitNoteMap.get(splitLowNote): "--",
+            width: (splitEnabled && splitLowEnabled) ? mapping.splitWidthMap.get((offset33W & 0x1800) >> 11): "Off",
+            note: (splitEnabled && splitLowEnabled) ? mapping.splitNoteMap.get(splitLowNote): "--",
         },
         mid: {
-            width: (splitMidEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0600) >> 9): "Off",
-            note: (splitMidEnabled) ? mapping.splitNoteMap.get(splitMidNote): "--",
+            width: (splitEnabled && splitMidEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0600) >> 9): "Off",
+            note: (splitEnabled && splitMidEnabled) ? mapping.splitNoteMap.get(splitMidNote): "--",
         },
         high: {
-            width: (splitHighEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0180) >> 7): "Off",
-            note: (splitHighEnabled) ? mapping.splitNoteMap.get(splitHighNote): "--",
+            width: (splitEnabled && splitHighEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0180) >> 7): "Off",
+            note: (splitEnabled && splitHighEnabled) ? mapping.splitNoteMap.get(splitHighNote): "--",
         },
     };
-
-    const zeroPad = (num, places) => String(num).padStart(places, '0')
-    const majorVersion = Math.trunc(offset14W / 100);
-    const minorVersion = zeroPad((offset14W - (majorVersion * 100)), 2);
-
 
     const tempo = ((offset38W & 0x07f8) >> 3) + 30;
 
@@ -708,19 +812,22 @@ exports.loadNs3fFile = (buffer) => {
         version: majorVersion + '.' + minorVersion,
         category: mapping.categoryMap.get(offset10),
         //fileId: fileId,
+
+        panelA: getPanel(buffer, 0),
+
+        panelB: getPanel(buffer, 1),
+
         masterClock:  {
             rate: tempo + ' bpm',
             //keyboardSync: '' // this is a global setting
         },
-        // transpose: '',
+        transpose: transpose,
         split: split,
         // dualKeyboard: {
         //     enabled: '',
         //     style: '',
         // },
         //monoOut: '', // this is a global setting
-        panelA: getPanel(buffer, 0),
-        panelB: getPanel(buffer, 1),
     };
 }
 

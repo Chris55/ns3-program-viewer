@@ -358,5 +358,61 @@ describe("/Global", () => {
         });
     });
 
+    test("transpose.enabled eq false", async () => {
+        const file = "transpose.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.enabled eq true and transpose.label eq +1 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.label eq +1 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.enabled eq true and transpose.label eq +5 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.label eq +5 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.enabled eq true and transpose.label eq +6 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.label eq +6 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.enabled eq true and transpose.label eq -1 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.label eq -1 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.enabled eq true and transpose.label eq -5 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.label eq -5 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.enabled eq true and transpose.label eq -6 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.label eq -6 semi.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
 });
 

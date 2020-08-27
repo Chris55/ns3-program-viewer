@@ -37,6 +37,7 @@ const build = async(folder, testFilename) => {
 }
 
 const buildAll = async() => {
+    await build("/Effects", "effects.test.js");
     await build("/Global", "global.test.js");
     await build("/Organ", "organ.test.js");
     await build("/Piano", "piano.test.js");
