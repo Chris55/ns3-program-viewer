@@ -25,22 +25,22 @@ const getDrawbars = function (buffer, offset, type) {
 
     if (type === "Vox") {
         d7 = 0;
-    } else if (type === "Farfisa"){
-        d0 = (d0 < 4) ? 0: 1;
-        d1 = (d1 < 4) ? 0: 1;
-        d2 = (d2 < 4) ? 0: 1;
-        d3 = (d3 < 4) ? 0: 1;
-        d4 = (d4 < 4) ? 0: 1;
-        d5 = (d5 < 4) ? 0: 1;
-        d6 = (d6 < 4) ? 0: 1;
-        d7 = (d7 < 4) ? 0: 1;
-        d8 = (d8 < 4) ? 0: 1;
+    } else if (type === "Farfisa") {
+        d0 = (d0 < 4) ? 0 : 1;
+        d1 = (d1 < 4) ? 0 : 1;
+        d2 = (d2 < 4) ? 0 : 1;
+        d3 = (d3 < 4) ? 0 : 1;
+        d4 = (d4 < 4) ? 0 : 1;
+        d5 = (d5 < 4) ? 0 : 1;
+        d6 = (d6 < 4) ? 0 : 1;
+        d7 = (d7 < 4) ? 0 : 1;
+        d8 = (d8 < 4) ? 0 : 1;
     }
 
     return [d0, d1, d2, d3, d4, d5, d6, d7, d8];
 }
 
-const getVolume = function(value) {
+const getVolume = function (value) {
     return {
         midi: value,
         //label: (value === 0) ? "Off": mapping.dBMap.get(value)
@@ -59,7 +59,7 @@ const getVolume = function(value) {
  * @param valueRange120
  * @returns {{midi: number, leftValue: string, rightValue: string}}
  */
-const getKnobDualValues = function(valueRange120) {
+const getKnobDualValues = function (valueRange120) {
     const valueRange127 = Math.ceil(((valueRange120) * 127 / (120)));
     const value = converter.midi2LinearValue(-10, 10, valueRange120, 1, 0, 120);
     let leftValue = "0.0";
@@ -84,7 +84,7 @@ const getKnobDualValues = function(valueRange120) {
     }
 }
 
-const getPanel = function(buffer, id) {
+const getPanel = function (buffer, id) {
 
     const panelOffset31 = buffer.readUInt8(0x31);
 
@@ -104,7 +104,6 @@ const getPanel = function(buffer, id) {
 
     const panelOffset = id * 263;
 
-    // Piano section
 
     const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
@@ -116,113 +115,178 @@ const getPanel = function(buffer, id) {
     const pianoOffset4d = buffer.readUInt8(0x4d + panelOffset);
     const pianoOffset4dW = buffer.readUInt16BE(0x4d + panelOffset);
 
-    const piano = {
-        enabled: (pianoOffset43W & 0x8000) !== 0,
-        volume: getVolume((pianoOffset43W & 0x7F0) >> 4),
+    const pianoEnabled = (pianoOffset43W & 0x8000) !== 0;
 
-        // Type:
-        // offset 0x48 (only 4 bits, last 3 of first nibble, first of second nibble) OR 0x98
-        //
-        // Values:
-        // 0x40- Grand
-        // 0x48- Upright
-        // 0x50- Electric
-        // 0x58- Clav
-        // 0x60- Digital
-        // 0x68- Misc
+    const piano = {
+        /***
+         * Piano Enabled:
+         * Offset in file: 0x43 (b7): O = disabled, 1 = enabled
+         */
+        enabled: pianoEnabled,
+
+        /***
+         * Piano Kb Zone:
+         * Offset in file: 0x43 (b6 to b3)
+         * ref Organ section for more examples
+         */
+        kbZone: pianoEnabled ? mapping.kbZoneMap.get((pianoOffset43W & 0x7800) >> 11) : "----",
+
+        /***
+         * Piano Volume:
+         * Offset in file: 0x43 (b2 to b0), 0xB7 (b7 to b4) 7 bits = 0/127 range
+         */
+        volume: getVolume((pianoOffset43W & 0x07F0) >> 4),
+
+        /***
+         * Piano Type
+         * Offset in file: 0x48 (only 4 bits, last 3 of first nibble, first of second nibble) OR 0x98
+         *
+         * Values:
+         *   0x40- Grand
+         *   0x48- Upright
+         *   0x50- Electric
+         *   0x58- Clav
+         *   0x60- Digital
+         *   0x68- Misc
+         */
         type: mapping.pianoTypeMap.get((pianoOffset48 & 0x38) >> 3),
 
-        // Model:
-        // Offset 0x48 and 0x49 (last 3 bits of 0x49 and first 2 bits of 0x4A).
-        // Values:
-        // 0x00 0x00: model 1
-        // 0x00 0x01: model 2
-        // .. and so on
-        // 0x02 0x01: model 10
+        /***
+         * Piano Model
+         * Offset in file: 0x48 and 0x49 (last 3 bits of 0x49 and first 2 bits of 0x4A).
+         *
+         * Values:
+         *   0x00 0x00: model 1
+         *   0x00 0x01: model 2
+         *   .. and so on
+         *   0x02 0x01: model 10
+         */
         model: (pianoOffset48W & 0x07c0) >> 6,
 
-        // Octave Shift
-        // offset in file: 0x47 (just 4 last bits, OR 0x0F)
-        //
-        // Values:
-        // 0xF5- Shift -1
-        // 0xF6- No shift
-        // 0xF7- Shift +1
+        /***
+         * Piano Octave Shift
+         * Offset in file: 0x47 (just 4 last bits, OR 0x0F)
+         *
+         * Values:
+         *   0xF5- Shift -1
+         *   0xF6- No shift
+         *   0xF7- Shift +1
+         */
         octaveShift: (pianoOffset47 & 0x07) - 6,
 
-        // Pitch Stick
-        // offset in file: 0x48 (just bit 0x80)
-        // Values
-        // 0x00- No
-        // 0x80- Yes
+        /***
+         * Piano Pitch Stick
+         * Offset in file: 0x48 (just bit 0x80)
+         *
+         * Values
+         *   0x00- No
+         *   0x80- Yes
+         */
         pitchStick: (pianoOffset48 & 0x80) !== 0,
 
-        //Sustain Pedal
-        // Offset in file: 0x48 (just bit 0x40)
-        //
-        // Values:
-        // 0x00- No
-        // 0x40- Yes
+        /***
+         * Piano Sustain Pedal
+         * Offset in file: 0x48 (just bit 0x40)
+         *
+         * Values:
+         *   0x00- No
+         *   0x40- Yes
+         */
         sustainPedal: (pianoOffset48 & 0x40) !== 0,
 
-        //
-        // Piano Timbre
-        // Offset in file: 0x4E
-        // Possible Values:
-        // 0x00- None
-        // 0x08- Soft
-        // 0x10- Mid
-        // 0x18- Bright
-        // 0x20- DYNO1
-        // 0x28- DYNO2
-        //
+        /***
+         * Piano Timbre
+         * Offset in file: 0x4E
+         *
+         * Possible Values:
+         *   0x00- None
+         *   0x08- Soft
+         *   0x10- Mid
+         *   0x18- Bright
+         *   0x20- DYNO1
+         *   0x28- DYNO2
+         */
         timbre: mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >> 3),
 
-        // Piano KB Touch
-        // Offset in file: 0x4D (just least significant bit 1, so OR 0x01) and 0x4E (Just Most Significant Bit, so OR 0x80)
-        //
-        // Values:
-        // 0x00 + 0x8x- KB Touch 1
-        // 0x01 + 0x0x- KB Touch 2
-        // 0x01 + 0x8x- KB Touch 3
+        /***
+         * Piano KB Touch
+         * Offset in file: 0x4D (just least significant bit 1, so OR 0x01) and
+         *                 0x4E (Just Most Significant Bit, so OR 0x80)
+         *
+         * Values:
+         *   0x00 + 0x8x- KB Touch 1
+         *   0x01 + 0x0x- KB Touch 2
+         *   0x01 + 0x8x- KB Touch 3
+         */
         kbTouch: mapping.pianoKbTouchMap.get((pianoOffset4dW & 0x0180) >> 7),
 
-        // Piano Layer Detune
-        // Offset in file: 0x34
-        //
-        // Values:
-        // 0x00- Off
-        // 0x20- 1
-        // 0x40- 2
-        // 0x60- 3
+        /***
+         * Piano Layer Detune
+         * Offset in file: 0x34
+         *
+         * Values:
+         *   0x00- Off
+         *   0x20- 1
+         *   0x40- 2
+         *   0x60- 3
+         */
         layerDetune: mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >> 5),
 
-        // Piano Soft Release
-        // Offset in file: 0x4D (just least significant bit 4, so OR 0x08)
-        //
-        // Values:
-        // 0x00 - No
-        // 0x08 - Soft Release
+        /***
+         * Piano Soft Release
+         * Offset in file: 0x4D (just least significant bit 4, so OR 0x08)
+         *
+         * Values:
+         *   0x00 - No
+         *   0x08 - Soft Release
+         */
         softRelease: (pianoOffset4d & 0x08) !== 0,
 
-        // Piano Pedal Noise
-        // Offset in file: 0x4D (just least significant bit 2, so OR 0x02)
-        //
-        // 0x00- No
-        // 0x02- Pedal Noise
+        /***
+         * Piano Pedal Noise
+         * Offset in file: 0x4D (just least significant bit 2, so OR 0x02)
+         *
+         * Values:
+         *   0x00- No
+         *   0x02- Pedal Noise
+         */
         pedalNoise: (pianoOffset4d & 0x02) !== 0,
 
-        // String Res
-        // Offset in file: 0x4D (just least significant bit 3, so OR 0x04)
-        //
-        // 0x00- No
-        // 0x04- String Res
+        /***
+         * Piano String Resonance
+         * Offset in file: 0x4D (just least significant bit 3, so OR 0x04)
+         *
+         * Values:
+         *   0x00- No
+         *   0x04- String Res
+         */
         stringResonance: (pianoOffset4d & 0x04) !== 0,
     };
 
     // Organ Section
 
+    /***
+     * Organ
+     * Enabled: Offset 0xB6 (b7): O = disabled, 1 = enabled
+     * Kb Zone: Offset 0xB6 (b6 to b3)
+     * Volume:  Offset 0xB6 (b2 to b0), 0xB7 (b7 to b4) 7 bits = 0/127 range
+     */
 
+    /***
+     * Organ KB Zone example:
+     *
+     *   0X87 x000 0xxx = 0  = o---
+     *   0X8F x000 1xxx = 1  =-o--
+     *   0x97 x001 0xxx = 2  = --o-
+     *   0x9F x001 1xxx = 3  = ---o
+     *   0xA7 x010 0xxx = 4  = oo--
+     *   0xAF x010 1xxx = 5  = -oo-
+     *   0xB7 x011 0xxx = 6  = --oo
+     *   0xBF x011 1xxx = 7  = ooo-
+     *   0xC7 x100 0xxx = 8  = -ooo
+     *   0xCF x100 1xxx = 9  = oooo
+     *
+     */
 
     const organFlag34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffset35 = buffer.readUInt8(0x35 + panelOffset);
@@ -233,10 +297,12 @@ const getPanel = function(buffer, id) {
     const rotarySpeakerOffset39W = buffer.readUInt16BE(0x39 + panelOffset);
     const rotarySpeakerOffset10B = buffer.readUInt8(0x10b + panelOffset);
     const organType = mapping.organTypeMap.get((organOffsetBb & 0x70) >> 4);
+    const organEnabled = ((organOffsetB6W & 0x8000) !== 0);
 
     const organ = {
-        enabled: ((organOffsetB6W & 0x8000) !== 0),
-        volume: getVolume((organOffsetB6W & 0x7F0) >> 4),
+        enabled: organEnabled,
+        kbZone: organEnabled ? mapping.kbZoneMap.get((organOffsetB6W & 0x7800) >> 11) : "----",
+        volume: getVolume((organOffsetB6W & 0x07F0) >> 4),
         type: organType,
         preset1: getDrawbars(buffer, 0xbe, organType).join(""),
         preset2: getDrawbars(buffer, 0xd9, organType).join(""),
@@ -399,9 +465,22 @@ const getPanel = function(buffer, id) {
     const arpeggiatorPattern = (synthOffset80 & 0x06) >> 1;
     const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >> 1;
     const arpeggiatorMasterClock = ((synthOffset80 & 0x01) !== 0);
+    const synthEnabled = ((synthOffset52W & 0x8000) !== 0);
 
     const synth = {
-        enabled: ((synthOffset52W & 0x8000) !== 0),
+        /***
+         * Synth Enabled:
+         * Offset in file: 0x52 (b7): O = disabled, 1 = enabled
+         */
+        enabled: synthEnabled,
+
+        /***
+         * Synth Kb Zone:
+         * Offset in file: 0x52 (b6 to b3)
+         * ref Organ section for more examples
+         */
+        kbZone: synthEnabled ? mapping.kbZoneMap.get((synthOffset52W & 0x7800) >> 11) : "----",
+
         volume: getVolume((synthOffset52W & 0x7F0) >> 4),
 
         octaveShift: mapping.synthOctaveShiftMap.get(synthOffset56 & 0x03),
@@ -411,7 +490,7 @@ const getPanel = function(buffer, id) {
         keyboardHold: ((synthOffset80 & 0x80) !== 0),
 
         voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >> 7),
-        glide: converter.midi2LinearStringValue(0, 10,synthOffset84W & 0x007f, 1, ""),
+        glide: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
         unison: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >> 6),
         vibrato: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >> 3),
 
@@ -425,7 +504,7 @@ const getPanel = function(buffer, id) {
             },
             pitch: {
                 midi: osc2PitchMidi,
-                label: (osc2Pitch === -12) ? 'Sub': osc2Pitch + ' semi',
+                label: (osc2Pitch === -12) ? 'Sub' : osc2Pitch + ' semi',
             },
             modulations: {
                 lfoAmount: {
@@ -442,11 +521,11 @@ const getPanel = function(buffer, id) {
         filter: {
             type: filterType,
             kbTrack: mapping.synthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >> 12),
-            drive:mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >> 10),
+            drive: mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >> 10),
             modulations: {
                 lfoAmount: {
-                  midi: filterModulation1KnobMidi,
-                  label: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
+                    midi: filterModulation1KnobMidi,
+                    label: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
                 },
                 velAmount: {
                     midi: filterModulation2Knob.leftMidi,
@@ -522,7 +601,7 @@ const getPanel = function(buffer, id) {
             enabled: ((synthOffset80 & 0x40) !== 0),
             rate: {
                 midi: arpeggiatorRateMidi,
-                label:  arpeggiatorMasterClock
+                label: arpeggiatorMasterClock
                     ? mapping.synthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
                     : mapping.synthArpRateMap.get(arpeggiatorRateMidi),
             },
@@ -582,7 +661,7 @@ const getPanel = function(buffer, id) {
     const effect1MasterClock = (effectOffset10cW & 0x4000) !== 0;
     const effect1MasterClockUsed = effect1MasterClock && (effect1Type === "Panning" || effect1Type === "Tremolo");
 
-    const effect1  = {
+    const effect1 = {
         enabled: (effectOffset10b & 0x10) !== 0,
         source: mapping.sourceMap.get((effectOffset10b & 0x0c) >> 2),
         type: effect1Type,
@@ -599,10 +678,10 @@ const getPanel = function(buffer, id) {
         masterClock: effect1MasterClockUsed,
     }
 
-/*
+    /*
 
 
-*/
+    */
 
 
     return {
@@ -685,11 +764,12 @@ exports.loadNs3fFile = (buffer) => {
      * Test7:  0D E0 : Transpose +6 semi
      *
      */
+
     const transposeEnabled = (offset38 & 0x80) !== 0;
     const transposeValue = (offset38 & 0x78) >> 3;
     const transpose = {
         enabled: transposeEnabled,
-        label: transposeEnabled ? mapping.transposeMap.get(transposeValue): "",
+        label: transposeEnabled ? mapping.transposeMap.get(transposeValue) : "",
     };
 
     /***
@@ -819,16 +899,16 @@ exports.loadNs3fFile = (buffer) => {
     const split = {
         enabled: splitEnabled,
         low: {
-            width: (splitEnabled && splitLowEnabled) ? mapping.splitWidthMap.get((offset33W & 0x1800) >> 11): "Off",
-            note: (splitEnabled && splitLowEnabled) ? mapping.splitNoteMap.get(splitLowNote): "--",
+            width: (splitEnabled && splitLowEnabled) ? mapping.splitWidthMap.get((offset33W & 0x1800) >> 11) : "Off",
+            note: (splitEnabled && splitLowEnabled) ? mapping.splitNoteMap.get(splitLowNote) : "--",
         },
         mid: {
-            width: (splitEnabled && splitMidEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0600) >> 9): "Off",
-            note: (splitEnabled && splitMidEnabled) ? mapping.splitNoteMap.get(splitMidNote): "--",
+            width: (splitEnabled && splitMidEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0600) >> 9) : "Off",
+            note: (splitEnabled && splitMidEnabled) ? mapping.splitNoteMap.get(splitMidNote) : "--",
         },
         high: {
-            width: (splitEnabled && splitHighEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0180) >> 7): "Off",
-            note: (splitEnabled && splitHighEnabled) ? mapping.splitNoteMap.get(splitHighNote): "--",
+            width: (splitEnabled && splitHighEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0180) >> 7) : "Off",
+            note: (splitEnabled && splitHighEnabled) ? mapping.splitNoteMap.get(splitHighNote) : "--",
         },
     };
 
@@ -844,7 +924,7 @@ exports.loadNs3fFile = (buffer) => {
 
         panelB: getPanel(buffer, 1),
 
-        masterClock:  {
+        masterClock: {
             rate: tempo + ' bpm',
             //keyboardSync: '' // this is a global setting
         },

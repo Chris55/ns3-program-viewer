@@ -46,6 +46,22 @@ describe("/Synth", () => {
         });
     });
 
+    test("panelA.synth.kbZone eq -O--", async () => {
+        const file = "panelA.synth.kbZone eq -O--.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.kbZone eq O---", async () => {
+        const file = "panelA.synth.kbZone eq O---.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.keyboardHold eq false", async () => {
         const file = "panelA.synth.keyboardHold eq false.ns3f";
         const sut = await getNs3TestCase(root + file);

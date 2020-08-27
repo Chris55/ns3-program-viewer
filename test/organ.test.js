@@ -118,6 +118,94 @@ describe("/Organ", () => {
         });
     });
 
+    test("panelA.organ.kbZone eq ----", async () => {
+        const file = "panelA.organ.kbZone eq ----.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq ---O", async () => {
+        const file = "panelA.organ.kbZone eq ---O.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq --O-", async () => {
+        const file = "panelA.organ.kbZone eq --O-.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq --OO", async () => {
+        const file = "panelA.organ.kbZone eq --OO.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq -O--", async () => {
+        const file = "panelA.organ.kbZone eq -O--.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq -OO-", async () => {
+        const file = "panelA.organ.kbZone eq -OO-.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq -OOO", async () => {
+        const file = "panelA.organ.kbZone eq -OOO.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq O---", async () => {
+        const file = "panelA.organ.kbZone eq O---.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq OO--", async () => {
+        const file = "panelA.organ.kbZone eq OO--.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq OOO-", async () => {
+        const file = "panelA.organ.kbZone eq OOO-.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.kbZone eq OOOO", async () => {
+        const file = "panelA.organ.kbZone eq OOOO.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.organ.octaveShift eq -1", async () => {
         const file = "panelA.organ.octaveShift eq -1.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -368,6 +456,30 @@ describe("/Organ", () => {
 
     test("panelA.organ.volume.label eq -12.2 dB", async () => {
         const file = "panelA.organ.volume.label eq -12.2 dB.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.volume.label eq -2.0 dB", async () => {
+        const file = "panelA.organ.volume.label eq -2.0 dB.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.volume.label eq -7.6 dB", async () => {
+        const file = "panelA.organ.volume.label eq -7.6 dB.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.volume.label eq -7.8 dB", async () => {
+        const file = "panelA.organ.volume.label eq -7.8 dB.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

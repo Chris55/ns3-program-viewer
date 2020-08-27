@@ -41,6 +41,19 @@ exports.panelEnabledMap = new Map([
     [2, 'A & B'],
 ]);
 
+exports.kbZoneMap = new Map([
+    [0, 'O---'],
+    [1, '-O--'],
+    [2, '--O-'],
+    [3, '---O'],
+    [4, 'OO--'],
+    [5, '-OO-'],
+    [6, '--OO'],
+    [7, 'OOO-'],
+    [8, '-OOO'],
+    [9, 'OOOO'],
+]);
+
 exports.splitNoteMap = new Map([
     [0, 'F2'],
     [1, 'C3'],
@@ -161,6 +174,8 @@ exports.sourceMap = new Map([
     [0x01, 'Piano'],
     [0x02, 'Synth'],
 ]);
+
+
 
 
 
