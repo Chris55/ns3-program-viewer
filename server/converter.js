@@ -4,10 +4,10 @@
  * @param precision
  * @returns {number}
  */
-const round = function(value, precision) {
+const round = function (value, precision) {
     const multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
-}
+};
 
 /***
  * convert midi value (0/127) to eng value
@@ -22,9 +22,9 @@ const round = function(value, precision) {
 const midi2LinearValue = function (engMin, engMax, midiValue, precision, midiMin, midiMax) {
     //const mmin = midiMin || 0; // todo: not yet used
     const mmax = midiMax || 127;
-    const result = (midiValue * (engMax - engMin) / mmax) + engMin;
+    const result = (midiValue * (engMax - engMin)) / mmax + engMin;
     return round(result, precision);
-}
+};
 
 exports.midi2LinearValue = midi2LinearValue;
 
@@ -41,8 +41,8 @@ exports.midi2LinearValue = midi2LinearValue;
  */
 exports.midi2LinearStringValue = function (min, max, value, precision, unit) {
     const result = midi2LinearValue(min, max, value, precision).toFixed(precision);
-    return (unit) ? result + " " + unit: result;
-}
+    return unit ? result + " " + unit : result;
+};
 
 /***
  * returns value and complement, range 0/100
@@ -53,11 +53,11 @@ exports.midi2LinearStringValue = function (min, max, value, precision, unit) {
  * @returns {string}
  */
 exports.midi2LinearValueAndComplement = function (value) {
-    const result = value * 100 / 127;
+    const result = (value * 100) / 127;
     const val1 = round(result, 0);
     const val2 = 100 - val1;
     return val2.toFixed(0) + "/" + val1.toFixed(0);
-}
+};
 
 /***
  * returns scaled log10 value with precision and eng unit.
@@ -72,18 +72,13 @@ exports.midi2LinearValueAndComplement = function (value) {
  */
 exports.midi2LogValue = function (min, max, value, precision, unit) {
     // https://stackoverflow.com/questions/19472747/convert-linear-scale-to-logarithmic
-    const x0 = 0;   // midi min value
+    const x0 = 0; // midi min value
     const x1 = 127; // midi max value
     const x = value;
-    const y0 = min === 0 ? 0.0001: min;
-    const y1 = max === 0 ? 0.0001: max;
+    const y0 = min === 0 ? 0.0001 : min;
+    const y1 = max === 0 ? 0.0001 : max;
     const a = (x - x0) / (x1 - x0);
     const b = Math.log10(y1) - Math.log10(y0);
     const y = Math.pow(10, a * b + Math.log10(y0)) - 90;
     return round(y, precision).toFixed(precision) + " " + unit;
-}
-
-
-
-
-
+};

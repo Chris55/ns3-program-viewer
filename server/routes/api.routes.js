@@ -1,20 +1,20 @@
-let express = require('express'),
-    multer = require('multer'),
+let express = require("express"),
+    multer = require("multer"),
     //uuidv4 = require('uuid/v4'),
     router = express.Router();
-const {loadNs3fFile} = require("../nord-service");
+const { loadNs3fFile } = require("../nord-service");
 const fs = require("fs").promises;
 
-const DIR = './upload/';
+const DIR = "./upload/";
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, DIR);
     },
     filename: (req, file, cb) => {
-        const fileName = file.originalname.toLowerCase().split(' ').join('-');
-        cb(null, Date.now() + '-' + fileName)
-    }
+        const fileName = file.originalname.toLowerCase().split(" ").join("-");
+        cb(null, Date.now() + "-" + fileName);
+    },
 });
 
 const upload = multer({
@@ -26,12 +26,10 @@ const upload = multer({
             cb(null, false);
             //return cb(new Error('file is not supported'));
         }
-    }
+    },
 });
 
-
-router.post('/upload', upload.single('nordFile'), async (req, res, next) => {
-
+router.post("/upload", upload.single("nordFile"), async (req, res, next) => {
     if (!req.file) {
         next(Error("Unsupported file"));
         return;
@@ -48,8 +46,6 @@ router.post('/upload', upload.single('nordFile'), async (req, res, next) => {
     } catch (err) {
         next(err);
     }
-
-})
-
+});
 
 module.exports = router;

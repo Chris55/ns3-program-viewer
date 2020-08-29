@@ -1,23 +1,22 @@
 const mapping = require("./mapping");
 const converter = require("./converter");
 
-
 const getDrawbars = function (buffer, offset, type) {
-    const organDrawbar0Flag = buffer.readUInt8(offset);                 // 0xbe
-    const organDrawbar1Flag = buffer.readUInt8(offset + 2);       // 0xc0
-    const organDrawbar2Flag = buffer.readUInt16BE(offset + 4);    // 0xc2
-    const organDrawbar3Flag = buffer.readUInt8(offset + 7);       // 0xc5
-    const organDrawbar4Flag = buffer.readUInt8(offset + 9);       // 0xc7
-    const organDrawbar5Flag = buffer.readUInt16BE(offset + 11);    // 0xc9
-    const organDrawbar6Flag = buffer.readUInt8(offset + 14);       // 0xcc
-    const organDrawbar7Flag = buffer.readUInt16BE(offset + 16);    // 0xce
-    const organDrawbar8Flag = buffer.readUInt8(offset + 19);       // 0xd1
+    const organDrawbar0Flag = buffer.readUInt8(offset); // 0xbe
+    const organDrawbar1Flag = buffer.readUInt8(offset + 2); // 0xc0
+    const organDrawbar2Flag = buffer.readUInt16BE(offset + 4); // 0xc2
+    const organDrawbar3Flag = buffer.readUInt8(offset + 7); // 0xc5
+    const organDrawbar4Flag = buffer.readUInt8(offset + 9); // 0xc7
+    const organDrawbar5Flag = buffer.readUInt16BE(offset + 11); // 0xc9
+    const organDrawbar6Flag = buffer.readUInt8(offset + 14); // 0xcc
+    const organDrawbar7Flag = buffer.readUInt16BE(offset + 16); // 0xce
+    const organDrawbar8Flag = buffer.readUInt8(offset + 19); // 0xd1
 
     let d0 = (organDrawbar0Flag & 0xf0) >> 4;
     let d1 = (organDrawbar1Flag & 0x1e) >> 1;
-    let d2 = (organDrawbar2Flag & 0b0000001111000000) >> 6;  //0x03c0
+    let d2 = (organDrawbar2Flag & 0b0000001111000000) >> 6; //0x03c0
     let d3 = (organDrawbar3Flag & 0b01111000) >> 3;
-    let d4 = (organDrawbar4Flag & 0x0f);
+    let d4 = organDrawbar4Flag & 0x0f;
     let d5 = (organDrawbar5Flag & 0b0000000111100000) >> 5;
     let d6 = (organDrawbar6Flag & 0b00111100) >> 2;
     let d7 = (organDrawbar7Flag & 0b0000011110000000) >> 7;
@@ -26,27 +25,27 @@ const getDrawbars = function (buffer, offset, type) {
     if (type === "Vox") {
         d7 = 0;
     } else if (type === "Farfisa") {
-        d0 = (d0 < 4) ? 0 : 1;
-        d1 = (d1 < 4) ? 0 : 1;
-        d2 = (d2 < 4) ? 0 : 1;
-        d3 = (d3 < 4) ? 0 : 1;
-        d4 = (d4 < 4) ? 0 : 1;
-        d5 = (d5 < 4) ? 0 : 1;
-        d6 = (d6 < 4) ? 0 : 1;
-        d7 = (d7 < 4) ? 0 : 1;
-        d8 = (d8 < 4) ? 0 : 1;
+        d0 = d0 < 4 ? 0 : 1;
+        d1 = d1 < 4 ? 0 : 1;
+        d2 = d2 < 4 ? 0 : 1;
+        d3 = d3 < 4 ? 0 : 1;
+        d4 = d4 < 4 ? 0 : 1;
+        d5 = d5 < 4 ? 0 : 1;
+        d6 = d6 < 4 ? 0 : 1;
+        d7 = d7 < 4 ? 0 : 1;
+        d8 = d8 < 4 ? 0 : 1;
     }
 
     return [d0, d1, d2, d3, d4, d5, d6, d7, d8];
-}
+};
 
 const getVolume = function (value) {
     return {
         midi: value,
         //label: (value === 0) ? "Off": mapping.dBMap.get(value)
-        label: mapping.dBMap.get(value)
+        label: mapping.dBMap.get(value),
     };
-}
+};
 
 /***
  * Returns two values from a single knob (and equivalent midi value).
@@ -60,7 +59,7 @@ const getVolume = function (value) {
  * @returns {{midi: number, leftValue: string, rightValue: string}}
  */
 const getKnobDualValues = function (valueRange120) {
-    const valueRange127 = Math.ceil(((valueRange120) * 127 / (120)));
+    const valueRange127 = Math.ceil((valueRange120 * 127) / 120);
     const value = converter.midi2LinearValue(-10, 10, valueRange120, 1, 0, 120);
     let leftValue = "0.0";
     let rightValue = "0.0";
@@ -80,12 +79,11 @@ const getKnobDualValues = function (valueRange120) {
         leftMidi: leftMidi,
         rightMidi: rightMidi,
         leftValue: leftValue,
-        rightValue: rightValue
-    }
-}
+        rightValue: rightValue,
+    };
+};
 
 const getPanel = function (buffer, id) {
-
     const panelOffset31 = buffer.readUInt8(0x31);
 
     // Panel enabled flag is offset 0x31 (b5 & b6)
@@ -96,14 +94,12 @@ const getPanel = function (buffer, id) {
     // A = 0, B = 1 (not used here)
 
     const panelEnabledFlag = (panelOffset31 & 0x60) >> 5;
-    const panelEnabled = (id === 0)
-        ? (panelEnabledFlag === 0 || panelEnabledFlag === 2)
-        : (panelEnabledFlag === 1 || panelEnabledFlag === 2);
+    const panelEnabled =
+        id === 0 ? panelEnabledFlag === 0 || panelEnabledFlag === 2 : panelEnabledFlag === 1 || panelEnabledFlag === 2;
 
     // all hardcoded offset are for Panel A, offset value is for Panel B
 
     const panelOffset = id * 263;
-
 
     const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
@@ -135,7 +131,7 @@ const getPanel = function (buffer, id) {
          * Piano Volume:
          * Offset in file: 0x43 (b2 to b0), 0xB7 (b7 to b4) 7 bits = 0/127 range
          */
-        volume: getVolume((pianoOffset43W & 0x07F0) >> 4),
+        volume: getVolume((pianoOffset43W & 0x07f0) >> 4),
 
         /***
          * Piano Type
@@ -297,28 +293,28 @@ const getPanel = function (buffer, id) {
     const rotarySpeakerOffset39W = buffer.readUInt16BE(0x39 + panelOffset);
     const rotarySpeakerOffset10B = buffer.readUInt8(0x10b + panelOffset);
     const organType = mapping.organTypeMap.get((organOffsetBb & 0x70) >> 4);
-    const organEnabled = ((organOffsetB6W & 0x8000) !== 0);
+    const organEnabled = (organOffsetB6W & 0x8000) !== 0;
 
     const organ = {
         enabled: organEnabled,
         kbZone: organEnabled ? mapping.kbZoneMap.get((organOffsetB6W & 0x7800) >> 11) : "----",
-        volume: getVolume((organOffsetB6W & 0x07F0) >> 4),
+        volume: getVolume((organOffsetB6W & 0x07f0) >> 4),
         type: organType,
         preset1: getDrawbars(buffer, 0xbe, organType).join(""),
         preset2: getDrawbars(buffer, 0xd9, organType).join(""),
         octaveShift: (organOffsetBa & 0x07) - 6,
-        pitchStick: ((organFlag34 & 0x10) !== 0),
-        sustainPedal: ((organOffsetBb & 0x80) !== 0),
-        live: ((organOffsetBb & 0x08) !== 0),
+        pitchStick: (organFlag34 & 0x10) !== 0,
+        sustainPedal: (organOffsetBb & 0x80) !== 0,
+        live: (organOffsetBb & 0x08) !== 0,
         vibrato: {
-            enabled: ((organOffsetD3 & 0x10) !== 0),
+            enabled: (organOffsetD3 & 0x10) !== 0,
             mode: mapping.organVibratoModeMap.get((organFlag34 & 0b00001110) >> 1),
         },
         percussion: {
-            enabled: ((organOffsetD3 & 0x08) !== 0),
-            volumeSoft: ((organOffsetD3 & 0x01) !== 0),
-            decayFast: ((organOffsetD3 & 0x02) !== 0),
-            harmonicThird: ((organOffsetD3 & 0x04) !== 0),
+            enabled: (organOffsetD3 & 0x08) !== 0,
+            volumeSoft: (organOffsetD3 & 0x01) !== 0,
+            decayFast: (organOffsetD3 & 0x02) !== 0,
+            harmonicThird: (organOffsetD3 & 0x04) !== 0,
         },
     };
 
@@ -335,7 +331,7 @@ const getPanel = function (buffer, id) {
         enabled: (rotarySpeakerOffset10B & 0x80) !== 0,
         source: mapping.sourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
         drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >> 4, 1, ""),
-        stopMode: !(((organOffset35 & 0x80) >> 7) !== 0),
+        stopMode: !((organOffset35 & 0x80) >> 7 !== 0),
         speed: mapping.rotarySpeakerSpeedMap.get(organFlag34 & 0x01),
     };
 
@@ -392,58 +388,56 @@ const getPanel = function (buffer, id) {
     const oscConfig = mapping.synthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >> 1);
 
     const osc2Pitch = ((synthOffset8fW & 0x01f8) >> 3) - 12;
-    const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127 / (48 + 12)));
+    const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127) / (48 + 12));
 
     const oscCtrlMidi = (synthOffset90W & 0x07f0) >> 4;
     const oscModulation = getKnobDualValues((synthOffset94W & 0x0fe0) >> 5);
 
-
     let oscCtrl = "";
     switch (oscConfig) {
-        case '1 Pitch':
+        case "1 Pitch":
             oscCtrl = converter.midi2LinearStringValue(0, 24, oscCtrlMidi, 1, "");
             break;
-        case '2 Shape':
+        case "2 Shape":
             oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
             break;
-        case '3 Sync':
+        case "3 Sync":
             oscCtrl = converter.midi2LinearStringValue(0, 10, oscCtrlMidi, 1, "");
             break;
-        case '4 Detune':
+        case "4 Detune":
             oscCtrl = converter.midi2LinearStringValue(0, 4, oscCtrlMidi, 2, "");
             break;
-        case '5 MixSin':
+        case "5 MixSin":
             oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
-        case '6 MixTri':
+        case "6 MixTri":
             oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
-        case '7 MixSaw':
+        case "7 MixSaw":
             oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
-        case '8 MixSqr':
+        case "8 MixSqr":
             oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
-        case '9 MixBell':
+        case "9 MixBell":
             oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
-        case '10 MixNs1':
+        case "10 MixNs1":
             oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
-        case '11 MixNs2':
+        case "11 MixNs2":
             oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
             break;
-        case '12 FM1':
+        case "12 FM1":
             oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
             break;
-        case '13 FM2':
+        case "13 FM2":
             oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
             break;
-        case '14 RM':
+        case "14 RM":
             oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
             break;
     }
-
 
     const lfoRateMidi = synthOffset87 & 0x7f;
 
@@ -459,13 +453,13 @@ const getPanel = function (buffer, id) {
     const filterModulation1KnobMidi = (synthOffsetA0W & 0x0fe0) >> 5;
     const filterModulation2Knob = getKnobDualValues((synthOffsetA4W & 0x1fc0) >> 6);
     const filterResFreqHpKnobMidi = (synthOffset9cW & 0x07f0) >> 4;
-    const filterCutoffFreqKnobMidi = (synthOffset98W & 0x03F8) >> 3;
+    const filterCutoffFreqKnobMidi = (synthOffset98W & 0x03f8) >> 3;
 
     const arpeggiatorRange = (synthOffset80 & 0x18) >> 3;
     const arpeggiatorPattern = (synthOffset80 & 0x06) >> 1;
     const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >> 1;
-    const arpeggiatorMasterClock = ((synthOffset80 & 0x01) !== 0);
-    const synthEnabled = ((synthOffset52W & 0x8000) !== 0);
+    const arpeggiatorMasterClock = (synthOffset80 & 0x01) !== 0;
+    const synthEnabled = (synthOffset52W & 0x8000) !== 0;
 
     const synth = {
         /***
@@ -481,13 +475,13 @@ const getPanel = function (buffer, id) {
          */
         kbZone: synthEnabled ? mapping.kbZoneMap.get((synthOffset52W & 0x7800) >> 11) : "----",
 
-        volume: getVolume((synthOffset52W & 0x7F0) >> 4),
+        volume: getVolume((synthOffset52W & 0x7f0) >> 4),
 
         octaveShift: mapping.synthOctaveShiftMap.get(synthOffset56 & 0x03),
-        pitchStick: ((synthOffset57 & 0x80) !== 0),
+        pitchStick: (synthOffset57 & 0x80) !== 0,
         //pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >> 4),
-        sustainPedal: ((synthOffset57 & 0x40) !== 0),
-        keyboardHold: ((synthOffset80 & 0x80) !== 0),
+        sustainPedal: (synthOffset57 & 0x40) !== 0,
+        keyboardHold: (synthOffset80 & 0x80) !== 0,
 
         voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >> 7),
         glide: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
@@ -504,7 +498,7 @@ const getPanel = function (buffer, id) {
             },
             pitch: {
                 midi: osc2PitchMidi,
-                label: (osc2Pitch === -12) ? 'Sub' : osc2Pitch + ' semi',
+                label: osc2Pitch === -12 ? "Sub" : osc2Pitch + " semi",
             },
             modulations: {
                 lfoAmount: {
@@ -516,7 +510,7 @@ const getPanel = function (buffer, id) {
                     label: oscModulation.rightValue,
                 },
             },
-            fastAttack: ((synthOffsetAc & 0x04) !== 0),
+            fastAttack: (synthOffsetAc & 0x04) !== 0,
         },
         filter: {
             type: filterType,
@@ -541,20 +535,16 @@ const getPanel = function (buffer, id) {
                 label: mapping.synthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
             },
             highPassCutoffFrequency: {
-                midi: (filterType === 'LP+HP')
-                    ? filterResFreqHpKnobMidi
-                    : 0,
-                label: (filterType === 'LP+HP')
-                    ? mapping.synthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi)
-                    : "0.0",
+                midi: filterType === "LP+HP" ? filterResFreqHpKnobMidi : 0,
+                label:
+                    filterType === "LP+HP" ? mapping.synthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
             },
             resonance: {
-                midi: (filterType === 'LP+HP')
-                    ? 0
-                    : filterResFreqHpKnobMidi,
-                label: (filterType === 'LP+HP')
-                    ? "0.0"
-                    : converter.midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
+                midi: filterType === "LP+HP" ? 0 : filterResFreqHpKnobMidi,
+                label:
+                    filterType === "LP+HP"
+                        ? "0.0"
+                        : converter.midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
             },
         },
         envelopes: {
@@ -571,7 +561,7 @@ const getPanel = function (buffer, id) {
                     midi: envModReleaseMidi,
                     label: mapping.synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
                 },
-                velocity: ((synthOffset8dW & 0x0400) !== 0),
+                velocity: (synthOffset8dW & 0x0400) !== 0,
             },
             amplifier: {
                 attack: {
@@ -587,7 +577,7 @@ const getPanel = function (buffer, id) {
                     label: mapping.synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
                 },
                 velocity: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >> 3),
-            }
+            },
         },
         lfo: {
             wave: mapping.synthLfoWaveMap.get(synthOffset86 & 0x07),
@@ -595,21 +585,21 @@ const getPanel = function (buffer, id) {
                 midi: lfoRateMidi,
                 label: mapping.synthLfoRateMap.get(lfoRateMidi),
             },
-            masterClock: ((synthOffset87 & 0x80) !== 0),
+            masterClock: (synthOffset87 & 0x80) !== 0,
         },
         arpeggiator: {
-            enabled: ((synthOffset80 & 0x40) !== 0),
+            enabled: (synthOffset80 & 0x40) !== 0,
             rate: {
                 midi: arpeggiatorRateMidi,
                 label: arpeggiatorMasterClock
                     ? mapping.synthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
                     : mapping.synthArpRateMap.get(arpeggiatorRateMidi),
             },
-            kbSync: ((synthOffset80 & 0x20) !== 0),
+            kbSync: (synthOffset80 & 0x20) !== 0,
             masterClock: arpeggiatorMasterClock,
             range: mapping.arpeggiatorRangeMap.get(arpeggiatorRange),
-            pattern: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern)
-        }
+            pattern: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern),
+        },
     };
 
     // EFFECTS
@@ -676,13 +666,12 @@ const getPanel = function (buffer, id) {
                 : converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, ""),
         },
         masterClock: effect1MasterClockUsed,
-    }
+    };
 
     /*
 
 
     */
-
 
     return {
         enabled: panelEnabled,
@@ -704,10 +693,9 @@ const getPanel = function (buffer, id) {
         //     controlPedal: new Morph(),
         // },
     };
-}
+};
 
 exports.loadNs3fFile = (buffer) => {
-
     if (buffer.length > 16) {
         const claviaSignature = buffer.toString("utf8", 0, 4);
         if (claviaSignature !== "CBIN") {
@@ -737,9 +725,9 @@ exports.loadNs3fFile = (buffer) => {
      * Offset 0x14 and 0x15
      * 16 bit int value, ex 304 = v3.04
      */
-    const zeroPad = (num, places) => String(num).padStart(places, '0')
+    const zeroPad = (num, places) => String(num).padStart(places, "0");
     const majorVersion = Math.trunc(offset14W / 100);
-    const minorVersion = zeroPad((offset14W - (majorVersion * 100)), 2);
+    const minorVersion = zeroPad(offset14W - majorVersion * 100, 2);
 
     /***
      * Transpose:
@@ -899,24 +887,24 @@ exports.loadNs3fFile = (buffer) => {
     const split = {
         enabled: splitEnabled,
         low: {
-            width: (splitEnabled && splitLowEnabled) ? mapping.splitWidthMap.get((offset33W & 0x1800) >> 11) : "Off",
-            note: (splitEnabled && splitLowEnabled) ? mapping.splitNoteMap.get(splitLowNote) : "--",
+            width: splitEnabled && splitLowEnabled ? mapping.splitWidthMap.get((offset33W & 0x1800) >> 11) : "Off",
+            note: splitEnabled && splitLowEnabled ? mapping.splitNoteMap.get(splitLowNote) : "--",
         },
         mid: {
-            width: (splitEnabled && splitMidEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0600) >> 9) : "Off",
-            note: (splitEnabled && splitMidEnabled) ? mapping.splitNoteMap.get(splitMidNote) : "--",
+            width: splitEnabled && splitMidEnabled ? mapping.splitWidthMap.get((offset33W & 0x0600) >> 9) : "Off",
+            note: splitEnabled && splitMidEnabled ? mapping.splitNoteMap.get(splitMidNote) : "--",
         },
         high: {
-            width: (splitEnabled && splitHighEnabled) ? mapping.splitWidthMap.get((offset33W & 0x0180) >> 7) : "Off",
-            note: (splitEnabled && splitHighEnabled) ? mapping.splitNoteMap.get(splitHighNote) : "--",
+            width: splitEnabled && splitHighEnabled ? mapping.splitWidthMap.get((offset33W & 0x0180) >> 7) : "Off",
+            note: splitEnabled && splitHighEnabled ? mapping.splitNoteMap.get(splitHighNote) : "--",
         },
     };
 
     const tempo = ((offset38W & 0x07f8) >> 3) + 30;
 
     return {
-        name: '',
-        version: majorVersion + '.' + minorVersion,
+        name: "",
+        version: majorVersion + "." + minorVersion,
         category: mapping.categoryMap.get(offset10),
         //fileId: fileId,
 
@@ -925,7 +913,7 @@ exports.loadNs3fFile = (buffer) => {
         panelB: getPanel(buffer, 1),
 
         masterClock: {
-            rate: tempo + ' bpm',
+            rate: tempo + " bpm",
             //keyboardSync: '' // this is a global setting
         },
         transpose: transpose,
@@ -936,7 +924,4 @@ exports.loadNs3fFile = (buffer) => {
         // },
         //monoOut: '', // this is a global setting
     };
-}
-
-
-
+};

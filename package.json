@@ -1,39 +1,66 @@
 {
-  "name": "ns3-file-parser",
-  "version": "1.0.0",
-  "description": "Nord Stage 3 file Parser",
-  "scripts": {
-    "client": "cd client && yarn start",
-    "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "start": "NODE_ENV=production node server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "test": "jest"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "multer": "^1.4.2",
-    "nodemon": "^2.0.4",
-    "uuid": "^8.3.0"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.10",
-    "concurrently": "^4.0.1",
-    "jest": "^24.9.0"
-  },
-  "keywords": [
-    "Nord",
-    "Stage",
-    "3",
-    "File"
-  ],
-  "author": "Christian Florentz (christian.florentz@gmail.com)",
-  "license": "ISC",
-  "jest": {
-    "modulePathIgnorePatterns": [
-      "client"
-    ]
-  }
+    "name": "ns3-file-parser",
+    "version": "1.0.0",
+    "description": "Nord Stage 3 file Parser",
+    "scripts": {
+        "client": "cd client && yarn start",
+        "server": "nodemon server.js",
+        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+        "start": "NODE_ENV=production node server.js",
+        "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+        "test": "jest"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "multer": "^1.4.2",
+        "nodemon": "^2.0.4",
+        "uuid": "^8.3.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.10",
+        "concurrently": "^4.0.1",
+        "eslint": "^6.6.0",
+        "jest": "^24.9.0",
+        "prettier": "^2.1.1"
+    },
+    "keywords": [
+        "Nord",
+        "Stage",
+        "NS3",
+        "File"
+    ],
+    "author": "Christian Florentz (christian.florentz@gmail.com)",
+    "license": "ISC",
+    "jest": {
+        "modulePathIgnorePatterns": [
+            "client"
+        ]
+    },
+    "eslintConfig": {
+        "root": true,
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+            "ecmaVersion": 2020,
+            "sourceType": "module"
+        },
+        "extends": [
+            "eslint:recommended",
+            "plugin:mocha/recommended",
+            "plugin:@typescript-eslint/recommended",
+            "prettier/@typescript-eslint",
+            "plugin:prettier/recommended"
+        ],
+        "env": {
+            "commonjs": true,
+            "es6": true,
+            "node": true,
+            "mocha": true
+        },
+        "plugins": [
+            "jest"
+        ]
+    },
+    "prettier": {}
 }

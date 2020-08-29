@@ -1,7 +1,6 @@
 // this file is auto-generated with builder.js
 
-const {getNs3TestCase} = require("./helpers");
-
+const { getNs3TestCase } = require("./helpers");
 
 const root = __dirname + "/Global/";
 

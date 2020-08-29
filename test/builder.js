@@ -8,8 +8,8 @@ const build = async(folder, testFilename) => {
     const filenames = await fs.readdir(ns3Folder);
 
     let file = "// this file is auto-generated with builder.js" + os.EOL + os.EOL;
-    file += 'const {getNs3TestCase} = require("./helpers");' + os.EOL;
-    file += os.EOL + os.EOL;
+    file += 'const { getNs3TestCase } = require("./helpers");' + os.EOL;
+    file += os.EOL;
 
     file += 'const root = __dirname + "' + folder + '/";' + os.EOL + os.EOL;
 
