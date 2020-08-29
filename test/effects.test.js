@@ -1,7 +1,6 @@
 // this file is auto-generated with builder.js
 
-const {getNs3TestCase} = require("./helpers");
-
+const { getNs3TestCase } = require("./helpers");
 
 const root = __dirname + "/Effects/";
 
@@ -181,6 +180,4 @@ describe("/Effects", () => {
             expect(d.actual).toEqual(d.expected);
         });
     });
-
 });
-

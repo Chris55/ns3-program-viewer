@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {toast, ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './App.css';
-//import Ns3ProgramListingComponent from "./components/ns3-program-listing-component";
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 import FileUploaderButton from "./components/file-uploader-button";
 import axios from "axios";
 import programIcon from "./nprog.icns.svg";
@@ -13,41 +12,43 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Figure from "react-bootstrap/Figure";
-import JSONTree from 'react-json-tree'
+import JSONTree from "react-json-tree";
+import Ns3PanelComponent from "./components/ns3-panel-component";
+import "./components/ns3-panel-component.css";
 
 
 class App extends Component {
-
     constructor(props) {
         super(props);
 
         this.state = {
-            data: { },
-            error: null
-        }
+            data: {},
+            error: null,
+        };
     }
 
     onSuccess = (data) => {
         //console.log("success: ", data);
-        this.setState({data: data, error: null});
-    }
+        this.setState({ data: data, error: null });
+    };
 
     onError = (err) => {
-        this.setState({data: null, error: err});
+        this.setState({ data: null, error: err });
         toast.error(this.state.error);
-    }
+    };
 
     handleFile = async (filename) => {
-        const formData = new FormData()
-        formData.append('nordFile', filename)
-        await axios.post("api/upload", formData, {})
-            .then(res => {
+        const formData = new FormData();
+        formData.append("nordFile", filename);
+        await axios
+            .post("api/upload", formData, {})
+            .then((res) => {
                 this.onSuccess(res.data);
             })
             .catch((err) => {
                 this.onError(err.response.data);
             });
-    }
+    };
 
     render() {
         return (
@@ -74,40 +75,32 @@ class App extends Component {
                 </div>
 
                 <Container>
-
-                    <Row className="" >
+                    <Row className="">
                         <Col sm={2} className="align-self-center">
-                            <FileUploaderButton
-                                className=""
-                                title="Select"
-                                handleFile={this.handleFile}/>
+                            <FileUploaderButton className="" title="Select" handleFile={this.handleFile} />
                         </Col>
 
                         <Col sm={2} className="align-self-center">
-                            Nord Program File  (*.ns3f)
+                            Nord Program File (*.ns3f)
                         </Col>
 
                         <Col sm={4} className="align-self-center">
-                                <Figure.Image
-                                    width={64}
-                                    height={64}
-                                    alt="171x180"
-                                    src={programIcon}
-                                />
+                            <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
                         </Col>
+                    </Row>
+
+                    <Row>
 
                     </Row>
 
                     <Row className="mt-5">
                         <Col sm={12}>
-                            <Tabs defaultActiveKey="debug" id="uncontrolled-tab-example">
-
-                                {/*<Tab eventKey="debug" title="File Properties1" disabled={false}>*/}
-                                {/*    <pre className="text-monospace">*/}
-                                {/*        <Ns3ProgramListingComponent data={this.state.data}/>*/}
-                                {/*    </pre>*/}
-                                {/*</Tab>*/}
-
+                            <Tabs defaultActiveKey="panel" id="uncontrolled-tab-example">
+                                <Tab eventKey="panel" title="Panel" disabled={false} style={{backgroundColor: 'lightgray'}}>
+                                    <pre className="text-monospace">
+                                        <Ns3PanelComponent data={this.state.data}  />
+                                    </pre>
+                                </Tab>
 
                                 <Tab eventKey="debug" title="File Properties" disabled={false}>
                                     <JSONTree
@@ -116,24 +109,24 @@ class App extends Component {
                                         getItemString={(type, data, itemType, itemString) => <span></span>}
                                         shouldExpandNode={(keyPath, data, level) => true}
                                         theme={{
-                                            scheme: 'custom',
-                                            author: 'wimer hazenberg (http://www.monokai.nl)',
-                                            base00: '#343a40',
-                                            base01: '#383830',
-                                            base02: '#49483e',
-                                            base03: '#75715e',
-                                            base04: '#a59f85',
-                                            base05: '#f8f8f2',
-                                            base06: '#f5f4f1',
-                                            base07: '#f9f8f5',
-                                            base08: '#f92672',
-                                            base09: '#fd971f',
-                                            base0A: '#f4bf75',
-                                            base0B: '#a6e22e',
-                                            base0C: '#a1efe4',
-                                            base0D: '#66d9ef',
-                                            base0E: '#ae81ff',
-                                            base0F: '#cc6633',
+                                            scheme: "custom",
+                                            author: "wimer hazenberg (http://www.monokai.nl)",
+                                            base00: "#343a40",
+                                            base01: "#383830",
+                                            base02: "#49483e",
+                                            base03: "#75715e",
+                                            base04: "#a59f85",
+                                            base05: "#f8f8f2",
+                                            base06: "#f5f4f1",
+                                            base07: "#f9f8f5",
+                                            base08: "#f92672",
+                                            base09: "#fd971f",
+                                            base0A: "#f4bf75",
+                                            base0B: "#a6e22e",
+                                            base0C: "#a1efe4",
+                                            base0D: "#66d9ef",
+                                            base0E: "#ae81ff",
+                                            base0F: "#cc6633",
                                         }}
                                         invertTheme={false}
                                     />
@@ -141,9 +134,8 @@ class App extends Component {
                             </Tabs>
                         </Col>
                     </Row>
-
                 </Container>
-                <ToastContainer/>
+                <ToastContainer />
 
                 {/*<Navbar fixed="bottom"  expand="lg" bg="dark" variant="light">*/}
                 {/*    Hello*/}
