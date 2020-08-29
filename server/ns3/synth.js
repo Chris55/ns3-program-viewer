@@ -4,6 +4,33 @@ const { getVolume } = require("../common/utils");
 const { getKnobDualValues } = require("../common/utils");
 
 /***
+ * Synth Envelope Decay / Release Label
+ * @param value
+ * @param type
+ * @returns {string}
+ */
+const synthEnvDecayOrReleaseLabel = function (value, type) {
+    switch (type) {
+        case "mod.decay": {
+            if (value === 127) return "Sustain";
+            else return mapping.synthEnvDecayOrReleaseMap.get(value);
+        }
+        case "mod.release": {
+            if (value === 127) return "Inf";
+            else return mapping.synthEnvDecayOrReleaseMap.get(value);
+        }
+        case "amp.decay": {
+            if (value === 127) return "Sustain";
+            else return mapping.synthEnvDecayOrReleaseMap.get(value);
+        }
+        case "amp.release": {
+            return mapping.synthEnvDecayOrReleaseMap.get(value);
+        }
+    }
+    return "";
+};
+
+/***
  * returns Synth section
  *
  * @param buffer
@@ -11,6 +38,7 @@ const { getKnobDualValues } = require("../common/utils");
  * @returns {{voice: unknown, oscillators: {control: {midi: number, label: string}, fastAttack: boolean, pitch: {midi: number, label: (string|string)}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, label: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, label: unknown}, filter: {highPassCutoffFrequency: {midi: number, label: unknown}, cutoffFrequency: {midi: number, label: unknown}, type: unknown, drive: unknown, resonance: {midi: number, label: (string|string)}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, label: string}, velAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, label: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: unknown}}, vibrato: unknown}}
  */
 exports.getSynth = (buffer, panelOffset) => {
+
     //const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
     const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
@@ -43,16 +71,16 @@ exports.getSynth = (buffer, panelOffset) => {
     let oscillator1WaveForm = "";
     switch (oscillatorType) {
         case "Classic":
-            oscillator1WaveForm = mapping.synthOscillator1ClassicWaveFormMap.get((synthOffset8eW & 0x01c0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1ClassicWaveTypeMap.get((synthOffset8eW & 0x01c0) >> 6);
             break;
         case "Wave":
-            oscillator1WaveForm = mapping.synthOscillator1WaveWaveFormMap.get((synthOffset8eW & 0x0fc0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1WaveWaveTypeMap.get((synthOffset8eW & 0x0fc0) >> 6);
             break;
         case "Formant":
-            oscillator1WaveForm = mapping.synthOscillator1FormantWaveFormMap.get((synthOffset8eW & 0x03c0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1FormantWaveTypeMap.get((synthOffset8eW & 0x03c0) >> 6);
             break;
         case "Super":
-            oscillator1WaveForm = mapping.synthOscillator1SuperWaveFormMap.get((synthOffset8eW & 0x01c0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1SuperWaveTypeMap.get((synthOffset8eW & 0x01c0) >> 6);
             break;
         case "Sample":
             oscillator1WaveForm = "Sample " + (((synthOffset8eW & 0x7fc0) >> 6) + 1);
@@ -149,32 +177,135 @@ exports.getSynth = (buffer, panelOffset) => {
          */
         kbZone: synthEnabled ? mapping.kbZoneMap.get((synthOffset52W & 0x7800) >> 11) : "----",
 
-        volume: getVolume((synthOffset52W & 0x7f0) >> 4),
+        /***
+         * Synth Volume:
+         * Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
+         */
+        volume: getVolume((synthOffset52W & 0x07f0) >> 4),
 
+        /***
+         * Synth Octave Shift:
+         * Offset in file: 0x56 (b1/0)
+         */
         octaveShift: mapping.synthOctaveShiftMap.get(synthOffset56 & 0x03),
+
+        /***
+         * Synth Pitch Stick:
+         * Offset in file: 0x57 (b7)
+         */
         pitchStick: (synthOffset57 & 0x80) !== 0,
+
         //pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >> 4),
+
+        /***
+         * Synth Sustain Pedal:
+         * Offset in file: 0x57 (b2)
+         */
         sustainPedal: (synthOffset57 & 0x40) !== 0,
+
+        /***
+         * Synth Keyboard Hold:
+         * Offset in file: 0x80 (b7)
+         */
         keyboardHold: (synthOffset80 & 0x80) !== 0,
 
+        /***
+         * Synth Voices:
+         * Offset in file: 0x84 (b0) and 0x85 (b7)
+         */
         voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >> 7),
+
+        /***
+         * Synth Glide:
+         * Offset in file: 0x84 (b6 to b0) 7 bits, range 0/10
+         */
         glide: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
+
+        /***
+         * Synth Unison:
+         * Offset in file: 0x86 (b7/6)
+         */
         unison: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >> 6),
+
+        /***
+         * Synth Vibrato:
+         * Offset in file: 0x86 (b5/4/3)
+         */
         vibrato: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >> 3),
 
+        /***
+         * Synth Oscillators Definition
+         */
         oscillators: {
+            /***
+             * Synth Oscillator Type:
+             * Offset in file: 0x8D (b1/0) and 0x81 (b7)
+             */
             type: oscillatorType,
+
+            /***
+             * Synth Oscillator 1 Wave Form
+             * Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
+             */
             waveForm1: oscillator1WaveForm,
+
+            /***
+             * Synth Oscillator Configuration
+             * Offset in file: 0x8F (b4-1)
+             */
             config: oscConfig,
+
+            /***
+             * Synth Control Value
+             */
             control: {
+                /***
+                 * Synth Control Midi value
+                 * Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)
+                 * 0/127 value
+                 */
                 midi: oscCtrlMidi,
+
+                /***
+                 * Synth Control Value
+                 * Midi value is converted as following:
+                 * Pitch (1):           0/127 => 0/24
+                 * Shape (2):           0/127 => 0/100 %
+                 * Sync (3):            0/127 => 0/10
+                 * Detune (4):          0/127 => 0/4
+                 * Mix* (5 to 11):      0/127 => 100/0 to 0/100
+                 * FM & RM (12 to 14):  0/127 => 0/100 %
+                 */
                 label: oscCtrl,
             },
+
+            /***
+             * Synth Pitch Value
+             */
             pitch: {
+                /***
+                 * Synth Pitch Midi value
+                 * Offset in file: 0x8f (b0) and 0x90 (b7-3)
+                 * Midi value are the 6 bits value used + b0 (zero)
+                 */
                 midi: osc2PitchMidi,
+
+                /***
+                 * Synth Pitch Value
+                 * Midi value is converted as following:
+                 * -12 (Sub) to +48
+                 */
                 label: osc2Pitch === -12 ? "Sub" : osc2Pitch + " semi",
             },
+
+            /***
+             * Modulation options
+             */
             modulations: {
+
+                /***
+                 * LFO Amount
+                 */
                 lfoAmount: {
                     midi: oscModulation.leftMidi,
                     label: oscModulation.leftValue,
@@ -229,11 +360,11 @@ exports.getSynth = (buffer, panelOffset) => {
                 },
                 decay: {
                     midi: envModDecayMidi,
-                    label: mapping.synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
+                    label: synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
                 },
                 release: {
                     midi: envModReleaseMidi,
-                    label: mapping.synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
+                    label: synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
                 },
                 velocity: (synthOffset8dW & 0x0400) !== 0,
             },
@@ -244,11 +375,11 @@ exports.getSynth = (buffer, panelOffset) => {
                 },
                 decay: {
                     midi: envAmpDecayMidi,
-                    label: mapping.synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
+                    label: synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
                 },
                 release: {
                     midi: envAmpReleaseMidi,
-                    label: mapping.synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
+                    label: synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
                 },
                 velocity: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >> 3),
             },

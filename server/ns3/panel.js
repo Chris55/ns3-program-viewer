@@ -1,3 +1,4 @@
+const { getMorph } = require("./morph");
 const { getEffect2 } = require("./effects");
 const { getEffect1 } = require("./effects");
 const { getRotarySpeakerEffect } = require("./effects");
@@ -43,10 +44,6 @@ exports.getPanel = function (buffer, id) {
             // compressor: {},
             // reverb: {}
         },
-        // morph: {
-        //     wheel: new Morph(),
-        //     afterTouch: new Morph(),
-        //     controlPedal: new Morph(),
-        // },
+        morph: getMorph(buffer, panelOffset),
     };
 };

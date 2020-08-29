@@ -31,7 +31,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * Values:
          * 0 = Organ, 1, Piano, 2 = Synth
          */
-        source: mapping.sourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
+        source: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
 
         /***
          * Rotary Speaker Drive:
@@ -99,7 +99,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  0x04: Piano
          *  0x08: Synth
          */
-        source: mapping.sourceMap.get((effectOffset10b & 0x0c) >> 2),
+        source: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >> 2),
 
         /***
          *  Effect 1 TYPE:
@@ -187,7 +187,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          *  0x04: Piano
          *  0x08: Synth
          */
-        source: mapping.sourceMap.get((effectOffset114 & 0x60) >> 5),
+        source: mapping.effectSourceMap.get((effectOffset114 & 0x60) >> 5),
 
         /***
          *  Effect 2 TYPE:

@@ -9,6 +9,7 @@ const { getVolume } = require("../common/utils");
  * @returns {number[]}
  */
 const getDrawbars = function (buffer, offset, type) {
+
     const organDrawbar0Flag = buffer.readUInt8(offset); // 0xbe
     const organDrawbar1Flag = buffer.readUInt8(offset + 2); // 0xc0
     const organDrawbar2Flag = buffer.readUInt16BE(offset + 4); // 0xc2
@@ -53,6 +54,7 @@ const getDrawbars = function (buffer, offset, type) {
  * @returns {{volume: {midi: *, label: unknown}, preset2: string, pitchStick: boolean, kbZone: unknown, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: unknown, enabled: boolean}}}
  */
 exports.getOrgan = (buffer, panelOffset) => {
+
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
     const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
@@ -96,23 +98,90 @@ exports.getOrgan = (buffer, panelOffset) => {
         volume: getVolume((organOffsetB6W & 0x07f0) >> 4),
 
         /***
-         *
+         * Organ Type:
+         * Offset in file: 0xBB (b6/5/4)
          */
         type: organType,
+
+        /***
+         * Organ Drawbars Preset 1:
+         * Offset in file: 0xBE
+         */
         preset1: getDrawbars(buffer, 0xbe, organType).join(""),
+
+        /***
+         * Organ Drawbars Preset 2:
+         * Offset in file: 0xD9
+         */
         preset2: getDrawbars(buffer, 0xd9, organType).join(""),
+
+        /***
+         * Organ Octave Shift:
+         * Offset in file: 0xBA (b2/1/0)
+         */
         octaveShift: (organOffsetBa & 0x07) - 6,
+
+        /***
+         * Organ Pitch Stick:
+         * Offset in file: 0x34 (b4)
+         */
         pitchStick: (organOffset34 & 0x10) !== 0,
+
+        /***
+         * Organ Sustain Pedal:
+         * Offset in file: 0xBB (b7)
+         */
         sustainPedal: (organOffsetBb & 0x80) !== 0,
+
+        /***
+         * Organ Live Mode (NS3 Compact model only)
+         * Offset in file: 0xBB (b3)
+         */
         live: (organOffsetBb & 0x08) !== 0,
+
+        /***
+         * Organ Vibrato Options
+         */
         vibrato: {
+            /***
+             * Organ Vibrato On/Off
+             * Offset in file: 0xD3 (b4)
+             */
             enabled: (organOffsetD3 & 0x10) !== 0,
+
+            /***
+             * Organ Vibrato Mode:
+             * Offset in file: 0x34 (b3/2/1)
+             */
             mode: mapping.organVibratoModeMap.get((organOffset34 & 0b00001110) >> 1),
         },
+
+        /***
+         * Organ Percussion Options
+         */
         percussion: {
+            /***
+             * Organ Percussion On/Off
+             * Offset in file: 0xD3 (b4)
+             */
             enabled: (organOffsetD3 & 0x08) !== 0,
+
+            /***
+             * Organ Percussion Volume Soft On/Off
+             * Offset in file: 0xD3 (b0)
+             */
             volumeSoft: (organOffsetD3 & 0x01) !== 0,
+
+            /***
+             * Organ Percussion Decay Fast On/Off
+             * Offset in file: 0xD3 (b1)
+             */
             decayFast: (organOffsetD3 & 0x02) !== 0,
+
+            /***
+             * Organ Percussion Harmonic Third On/Off
+             * Offset in file: 0xD3 (b2)
+             */
             harmonicThird: (organOffsetD3 & 0x04) !== 0,
         },
     };

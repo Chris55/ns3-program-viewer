@@ -1,3 +1,7 @@
+/***
+ * Program Categories
+ * @type {Map<number, string>}
+ */
 exports.categoryMap = new Map([
     [0x00, "Acoustic"],
     [0x01, "Bass"],
@@ -34,12 +38,20 @@ exports.categoryMap = new Map([
     [0xff, "Undefined"],
 ]);
 
+/***
+ * Panel Enable Matrix
+ * @type {Map<number, string>}
+ */
 exports.panelEnabledMap = new Map([
     [0, "A only"],
     [1, "B only"],
     [2, "A & B"],
 ]);
 
+/***
+ * Keyboard Zone Values
+ * @type {Map<number, string>}
+ */
 exports.kbZoneMap = new Map([
     [0, "O---"],
     [1, "-O--"],
@@ -53,6 +65,10 @@ exports.kbZoneMap = new Map([
     [9, "OOOO"],
 ]);
 
+/***
+ * Split Note Values
+ * @type {Map<number, string>}
+ */
 exports.splitNoteMap = new Map([
     [0, "F2"],
     [1, "C3"],
@@ -66,12 +82,20 @@ exports.splitNoteMap = new Map([
     [9, "C7"],
 ]);
 
+/***
+ * Split Width Values
+ * @type {Map<number, string>}
+ */
 exports.splitWidthMap = new Map([
     [0, "1"],
     [1, "6"],
     [2, "12"],
 ]);
 
+/***
+ * Transpose Values
+ * @type {Map<number, string>}
+ */
 exports.transposeMap = new Map([
     [0, "-6 semi"],
     [1, "-5 semi"],
@@ -88,6 +112,10 @@ exports.transposeMap = new Map([
     [12, "+6 semi"],
 ]);
 
+/***
+ * Piano Sample Names
+ * @type {Map<bigint, string>}
+ */
 exports.pianoNameMap = new Map([
     // Grand Piano
     [0x02d577b5a0n, "Royal Grand 3D YaS6 Lrg 5.4"],
@@ -119,6 +147,10 @@ exports.pianoNameMap = new Map([
     [0xc2cb0efca8n, "B"], // Sample 4
 ]);
 
+/***
+ * Piano Types
+ * @type {Map<number, string>}
+ */
 exports.pianoTypeMap = new Map([
     [0x00, "Grand"],
     [0x01, "Upright"],
@@ -128,6 +160,10 @@ exports.pianoTypeMap = new Map([
     [0x05, "Misc"],
 ]);
 
+/***
+ * Piano Timbre Values
+ * @type {Map<number, string>}
+ */
 exports.pianoTimbreMap = new Map([
     [0, "None"],
     [1, "Soft"],
@@ -137,6 +173,10 @@ exports.pianoTimbreMap = new Map([
     [5, "Dyno2"],
 ]);
 
+/***
+ * Piano Keyboard Touch Mode Values
+ * @type {Map<number, string>}
+ */
 exports.pianoKbTouchMap = new Map([
     [0, "Normal"],
     [1, "1"],
@@ -144,6 +184,10 @@ exports.pianoKbTouchMap = new Map([
     [3, "3"],
 ]);
 
+/***
+ * Piano Layer Detune Values
+ * @type {Map<number, string>}
+ */
 exports.pianoLayerDetuneMap = new Map([
     [0, "Off"],
     [1, "1"],
@@ -151,6 +195,10 @@ exports.pianoLayerDetuneMap = new Map([
     [3, "3"],
 ]);
 
+/***
+ * Organ Types
+ * @type {Map<number, string>}
+ */
 exports.organTypeMap = new Map([
     [0x00, "B3"],
     [0x01, "Vox"],
@@ -159,6 +207,10 @@ exports.organTypeMap = new Map([
     [0x04, "Pipe2"],
 ]);
 
+/***
+ * Organ Vibrato Modes
+ * @type {Map<number, string>}
+ */
 exports.organVibratoModeMap = new Map([
     [0x00, "V1"],
     [0x01, "C1"],
@@ -168,18 +220,30 @@ exports.organVibratoModeMap = new Map([
     [0x05, "C3"],
 ]);
 
-exports.sourceMap = new Map([
+/***
+ * Effect Source Values
+ * @type {Map<number, string>}
+ */
+exports.effectSourceMap = new Map([
     [0x00, "Organ"],
     [0x01, "Piano"],
     [0x02, "Synth"],
 ]);
 
+/***
+ * Synth Voice Values
+ * @type {Map<number, string>}
+ */
 exports.synthVoiceMap = new Map([
     [0, "Poly"],
     [1, "Legato"],
     [2, "Mono"],
 ]);
 
+/***
+ * Synth Unison Values
+ * @type {Map<number, string>}
+ */
 exports.synthUnisonMap = new Map([
     [0, "Off"],
     [1, "1"],
@@ -187,6 +251,10 @@ exports.synthUnisonMap = new Map([
     [3, "3"],
 ]);
 
+/***
+ * Synth Vibrato Values
+ * @type {Map<number, string>}
+ */
 exports.synthVibratoMap = new Map([
     [0, "Off"],
     [1, "Delay 1"],
@@ -196,6 +264,10 @@ exports.synthVibratoMap = new Map([
     [5, "After Touch"],
 ]);
 
+/***
+ * Synth Oscillator Types
+ * @type {Map<number, string>}
+ */
 exports.synthOscillatorTypeMap = new Map([
     [0x00, "Classic"],
     [0x01, "Wave"],
@@ -204,7 +276,11 @@ exports.synthOscillatorTypeMap = new Map([
     [0x04, "Sample"],
 ]);
 
-exports.synthOscillator1ClassicWaveFormMap = new Map([
+/***
+ * Synth Oscillator 1 Classic Wave Types
+ * @type {Map<number, string>}
+ */
+exports.synthOscillator1ClassicWaveTypeMap = new Map([
     [0, "Sine"],
     [1, "Triangle"],
     [2, "Saw"],
@@ -215,7 +291,11 @@ exports.synthOscillator1ClassicWaveFormMap = new Map([
     [7, "ESquare"],
 ]);
 
-exports.synthOscillator1WaveWaveFormMap = new Map([
+/***
+ * Synth Oscillator 1 Wave Wave Types
+ * @type {Map<number, string>}
+ */
+exports.synthOscillator1WaveWaveTypeMap = new Map([
     [0, "Wave 2nd Harm"],
     [1, "Wave 3rd Harm"],
     [2, "Wave 4th Harm"],
@@ -264,7 +344,11 @@ exports.synthOscillator1WaveWaveFormMap = new Map([
     [45, "Wave Tubular Bells"],
 ]);
 
-exports.synthOscillator1FormantWaveFormMap = new Map([
+/***
+ * Synth Oscillator 1 Formant Wave Types
+ * @type {Map<number, string>}
+ */
+exports.synthOscillator1FormantWaveTypeMap = new Map([
     [0, "Format Wave Aaa"],
     [1, "Format Wave Eee"],
     [2, "Format Wave Iii"],
@@ -276,7 +360,11 @@ exports.synthOscillator1FormantWaveFormMap = new Map([
     [8, "Format Wave OE"],
 ]);
 
-exports.synthOscillator1SuperWaveFormMap = new Map([
+/***
+ * Synth Oscillator 1 Super Wave Wave Types
+ * @type {Map<number, string>}
+ */
+exports.synthOscillator1SuperWaveTypeMap = new Map([
     [0, "Super Wave Saw"],
     [1, "Super Wave Saw 2"],
     [2, "Super Wave Square"],
@@ -287,6 +375,10 @@ exports.synthOscillator1SuperWaveFormMap = new Map([
     [7, "Super Wave Organ"],
 ]);
 
+/***
+ * Volume dB Values
+ * @type {Map<number, string>}
+ */
 exports.dBMap = new Map([
     [0, "Off"],
     [1, "-84.2 dB"],
@@ -418,12 +510,20 @@ exports.dBMap = new Map([
     [127, "0.0 dB"],
 ]);
 
+/***
+ * Synth Octave Shift Values
+ * @type {Map<number, string>}
+ */
 exports.synthOctaveShiftMap = new Map([
     [1, "-1"],
     [2, "0"],
     [3, "1"],
 ]);
 
+/***
+ * Synth Pitch Shift Range
+ * @type {Map<number, string>}
+ */
 exports.synthPitchShiftRangeMap = new Map([
     [0, "±1 semi"], // macos: shift + option + =
     [1, "±2 semi"],
@@ -437,6 +537,10 @@ exports.synthPitchShiftRangeMap = new Map([
     [9, "+2/-24 semi"],
 ]);
 
+/***
+ * Synth LFO Wave Types
+ * @type {Map<number, string>}
+ */
 exports.synthLfoWaveMap = new Map([
     [0, "Triangle"],
     [1, "Saw"],
@@ -445,6 +549,10 @@ exports.synthLfoWaveMap = new Map([
     [4, "S/H"],
 ]);
 
+/***
+ * LFO Rate Values
+ * @type {Map<number, string>}
+ */
 exports.synthLfoRateMap = new Map([
     [0, "0.03 Hz"],
     [1, "0.03 Hz"],
@@ -576,6 +684,10 @@ exports.synthLfoRateMap = new Map([
     [127, "523 Hz"],
 ]);
 
+/***
+ * Synth Envelope Attack Values
+ * @type {Map<number, string>}
+ */
 exports.synthEnvAttackMap = new Map([
     [0, "0.5 ms"],
     [1, "0.6 ms"],
@@ -707,7 +819,11 @@ exports.synthEnvAttackMap = new Map([
     [127, "45 s"],
 ]);
 
-const synthEnvDecayOrReleaseMap = new Map([
+/***
+ * Synth Envelope Decay or Release Values
+ * @type {Map<number, string>}
+ */
+exports.synthEnvDecayOrReleaseMap = new Map([
     [0, "3.0 ms"],
     [1, "3.5 ms"],
     [2, "4.0 ms"],
@@ -838,27 +954,11 @@ const synthEnvDecayOrReleaseMap = new Map([
     [127, "45 s"],
 ]);
 
-exports.synthEnvDecayOrReleaseLabel = function (value, type) {
-    switch (type) {
-        case "mod.decay": {
-            if (value === 127) return "Sustain";
-            else return synthEnvDecayOrReleaseMap.get(value);
-        }
-        case "mod.release": {
-            if (value === 127) return "Inf";
-            else return synthEnvDecayOrReleaseMap.get(value);
-        }
-        case "amp.decay": {
-            if (value === 127) return "Sustain";
-            else return synthEnvDecayOrReleaseMap.get(value);
-        }
-        case "amp.release": {
-            return synthEnvDecayOrReleaseMap.get(value);
-        }
-    }
-    return "";
-};
 
+/***
+ * Synth Amp Envelope Velocity Values
+ * @type {Map<number, string>}
+ */
 exports.synthAmpEnvelopeVelocityMap = new Map([
     [0, "Off"],
     [1, "1"],
@@ -866,6 +966,10 @@ exports.synthAmpEnvelopeVelocityMap = new Map([
     [3, "3"],
 ]);
 
+/***
+ * Synth Oscillator Types
+ * @type {Map<number, string>}
+ */
 exports.synthOscillatorsTypeMap = new Map([
     [0, "None"],
     [1, "1 Pitch"],
@@ -884,6 +988,10 @@ exports.synthOscillatorsTypeMap = new Map([
     [14, "14 RM"],
 ]);
 
+/***
+ * Synth Filter Types
+ * @type {Map<number, string>}
+ */
 exports.synthFilterTypeMap = new Map([
     [0, "LP12"],
     [1, "LP24"],
@@ -893,6 +1001,10 @@ exports.synthFilterTypeMap = new Map([
     [5, "HP24"],
 ]);
 
+/***
+ * Synth Filter Keyboard Tracking Values
+ * @type {Map<number, string>}
+ */
 exports.synthFilterKbTrackMap = new Map([
     [0, "Off"],
     [1, "1/3"],
@@ -900,6 +1012,10 @@ exports.synthFilterKbTrackMap = new Map([
     [3, "1"],
 ]);
 
+/***
+ * Synth Filter Drive Values
+ * @type {Map<number, string>}
+ */
 exports.synthFilterDriveMap = new Map([
     [0, "Off"],
     [1, "1"],
@@ -907,6 +1023,10 @@ exports.synthFilterDriveMap = new Map([
     [3, "3"],
 ]);
 
+/***
+ * Synth Filter Cutoff Frequency Values
+ * @type {Map<number, string>}
+ */
 exports.synthFilterCutoffFrequencyMap = new Map([
     [0, "14 Hz"],
     [1, "15 Hz"],
@@ -1038,6 +1158,10 @@ exports.synthFilterCutoffFrequencyMap = new Map([
     [127, "21 kHz"],
 ]);
 
+/***
+ * Synth Arpeggiator Range Values
+ * @type {Map<number, string>}
+ */
 exports.arpeggiatorRangeMap = new Map([
     [0, "1 Octave"],
     [1, "2 Octaves"],
@@ -1045,6 +1169,10 @@ exports.arpeggiatorRangeMap = new Map([
     [3, "4 Octaves"],
 ]);
 
+/***
+ * Synth Arpeggiator Pattern Values
+ * @type {Map<number, string>}
+ */
 exports.arpeggiatorPatternMap = new Map([
     [0, "Up"],
     [1, "Down"],
@@ -1052,6 +1180,10 @@ exports.arpeggiatorPatternMap = new Map([
     [3, "Random"],
 ]);
 
+/***
+ * Synth Arpeggiator Master Clock Division Values
+ * @type {Map<number, string>}
+ */
 exports.synthArpMasterClockDivisionMap = new Map([
     [0, "1/2"],
     [1, "1/2"],
@@ -1183,6 +1315,10 @@ exports.synthArpMasterClockDivisionMap = new Map([
     [127, "1/32"],
 ]);
 
+/***
+ * Synth Arpeggiator Rate Values
+ * @type {Map<number, string>}
+ */
 exports.synthArpRateMap = new Map([
     [0, "16 bpm"],
     [1, "16 bpm"],
@@ -1314,11 +1450,19 @@ exports.synthArpRateMap = new Map([
     [127, "Fast 5"],
 ]);
 
+/***
+ * Rotary Speaker Speed Values
+ * @type {Map<number, string>}
+ */
 exports.rotarySpeakerSpeedMap = new Map([
     [0x00, "Slow/Stop"],
     [0x01, "Fast"],
 ]);
 
+/***
+ * Effect 1 Types
+ * @type {Map<number, string>}
+ */
 exports.effect1TypeMap = new Map([
     [0, "Panning"],
     [1, "Tremolo"],
@@ -1328,6 +1472,10 @@ exports.effect1TypeMap = new Map([
     [5, "Auto-Wah 2"],
 ]);
 
+/***
+ * Effect 1 Master Clock Division Values
+ * @type {Map<number, string>}
+ */
 exports.effect1MasterClockDivisionMap = new Map([
     [0, "4/1"],
     [1, "4/1"],
@@ -1459,6 +1607,10 @@ exports.effect1MasterClockDivisionMap = new Map([
     [127, "1/32"],
 ]);
 
+/***
+ * Effect 2 Types
+ * @type {Map<number, string>}
+ */
 exports.effect2TypeMap = new Map([
     [0, "Phaser 1"],
     [1, "Phaser 2"],

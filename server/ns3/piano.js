@@ -37,7 +37,7 @@ exports.getPiano = (buffer, panelOffset) => {
 
         /***
          * Piano Volume:
-         * Offset in file: 0x43 (b2 to b0), 0xB7 (b7 to b4) 7 bits = 0/127 range
+         * Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4) 7 bits = 0/127 range
          */
         volume: getVolume((pianoOffset43W & 0x07f0) >> 4),
 

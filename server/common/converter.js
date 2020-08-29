@@ -15,8 +15,8 @@ const round = function (value, precision) {
  * @param engMax - eng max value
  * @param midiValue - midi value (0/127)
  * @param precision
- * @param midiMin - midi min value (default 0)
- * @param midiMax - midi max value (default 127)
+ * @param midiMin - optional midi min value (default 0)
+ * @param midiMax - optional midi max value (default 127)
  * @returns {number}
  */
 const midi2LinearValue = function (engMin, engMax, midiValue, precision, midiMin, midiMax) {
