@@ -1458,3 +1458,12 @@ exports.effect1MasterClockDivisionMap = new Map([
     [126, "1/32"],
     [127, "1/32"],
 ]);
+
+exports.effect2TypeMap = new Map([
+    [0, "Phaser 1"],
+    [1, "Phaser 2"],
+    [2, "Flanger"],
+    [3, "Vibe"],
+    [4, "Chorus 1"],
+    [5, "Chorus 2"],
+]);

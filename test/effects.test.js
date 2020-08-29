@@ -180,4 +180,118 @@ describe("/Effects", () => {
             expect(d.actual).toEqual(d.expected);
         });
     });
+
+    test("panelA.effects.effect2.amount.label eq 0.0", async () => {
+        const file = "panelA.effects.effect2.amount.label eq 0.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.amount.label eq 10.0", async () => {
+        const file = "panelA.effects.effect2.amount.label eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq false", async () => {
+        const file = "panelA.effects.effect2.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq true and panelA.effects.effect2.source eq Organ", async () => {
+        const file = "panelA.effects.effect2.enabled eq true and panelA.effects.effect2.source eq Organ.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq true and panelA.effects.effect2.source eq Piano", async () => {
+        const file = "panelA.effects.effect2.enabled eq true and panelA.effects.effect2.source eq Piano.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq true and panelA.effects.effect2.source eq Synth", async () => {
+        const file = "panelA.effects.effect2.enabled eq true and panelA.effects.effect2.source eq Synth.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Chorus 1", async () => {
+        const file = "panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Chorus 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Chorus 2", async () => {
+        const file = "panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Chorus 2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Flanger", async () => {
+        const file = "panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Flanger.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Phaser 1", async () => {
+        const file = "panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Phaser 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Phaser 2", async () => {
+        const file = "panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Phaser 2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Vibe", async () => {
+        const file = "panelA.effects.effect2.enabled eq true and panelA.effects.effect2.type eq Vibe.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.rate.label eq 0.0", async () => {
+        const file = "panelA.effects.effect2.rate.label eq 0.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.rate.label eq 10.0", async () => {
+        const file = "panelA.effects.effect2.rate.label eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
 });
+

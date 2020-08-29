@@ -49,14 +49,17 @@ const getVolume = function (value) {
 
 /***
  * Returns two values from a single knob (and equivalent midi value).
+ *
  * Settings like Osc modulation (lfo/env mod) and Filter modulation (vel/env mod) are using this option
  * to define two settings with a single knob.
  * Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
  * 0   = 10.0 (100% left value, example LFO Amount),
  * 60  = 0.0 for both values,
  * 120 = 10.0 (100% right value, example Mod Env Amount)
+ *
  * @param valueRange120
- * @returns {{midi: number, leftValue: string, rightValue: string}}
+ * @param valueRange120
+ * @returns {{leftMidi: number, leftValue: string, rightValue: string, rightMidi: number}}
  */
 const getKnobDualValues = function (valueRange120) {
     const valueRange127 = Math.ceil((valueRange120 * 127) / 120);
@@ -83,24 +86,86 @@ const getKnobDualValues = function (valueRange120) {
     };
 };
 
-const getPanel = function (buffer, id) {
-    const panelOffset31 = buffer.readUInt8(0x31);
+/***
+ * returns Organ section
+ * @param buffer
+ * @param panelOffset
+ * @returns {{volume: {midi: *, label: unknown}, preset2: string, pitchStick: boolean, kbZone: unknown, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: unknown, enabled: boolean}}}
+ */
+const getOrgan = (buffer, panelOffset) => {
+    const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
+    const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
+    const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
+    const organOffsetBb = buffer.readUInt8(0xbb + panelOffset);
+    const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
 
-    // Panel enabled flag is offset 0x31 (b5 & b6)
-    // 0 = A only
-    // 1 = B only
-    // 2 = A & B
-    // Panel selected flag is offset 0x31 (b7);
-    // A = 0, B = 1 (not used here)
+    const organType = mapping.organTypeMap.get((organOffsetBb & 0x70) >> 4);
+    const organEnabled = (organOffsetB6W & 0x8000) !== 0;
 
-    const panelEnabledFlag = (panelOffset31 & 0x60) >> 5;
-    const panelEnabled =
-        id === 0 ? panelEnabledFlag === 0 || panelEnabledFlag === 2 : panelEnabledFlag === 1 || panelEnabledFlag === 2;
+    return {
+        /***
+         * Organ Enabled:
+         * Offset in file: 0xB6 (b7)
+         *
+         * O = disabled, 1 = enabled
+         */
+        enabled: organEnabled,
 
-    // all hardcoded offset are for Panel A, offset value is for Panel B
+        /***
+         * Organ Kb Zone:
+         * Offset in file: 0xB6 (b6 to b3)
+         *
+         * Values:
+         *   0X87 x000 0xxx = 0  = o---
+         *   0X8F x000 1xxx = 1  =-o--
+         *   0x97 x001 0xxx = 2  = --o-
+         *   0x9F x001 1xxx = 3  = ---o
+         *   0xA7 x010 0xxx = 4  = oo--
+         *   0xAF x010 1xxx = 5  = -oo-
+         *   0xB7 x011 0xxx = 6  = --oo
+         *   0xBF x011 1xxx = 7  = ooo-
+         *   0xC7 x100 0xxx = 8  = -ooo
+         *   0xCF x100 1xxx = 9  = oooo
+         */
+        kbZone: organEnabled ? mapping.kbZoneMap.get((organOffsetB6W & 0x7800) >> 11) : "----",
 
-    const panelOffset = id * 263;
+        /***
+         * Organ Volume:
+         * Offset in file: 0xB6 (b2 to b0), 0xB7 (b7 to b4) 7 bits = 0/127 range
+         */
+        volume: getVolume((organOffsetB6W & 0x07f0) >> 4),
 
+        /***
+         *
+         */
+        type: organType,
+        preset1: getDrawbars(buffer, 0xbe, organType).join(""),
+        preset2: getDrawbars(buffer, 0xd9, organType).join(""),
+        octaveShift: (organOffsetBa & 0x07) - 6,
+        pitchStick: (organOffset34 & 0x10) !== 0,
+        sustainPedal: (organOffsetBb & 0x80) !== 0,
+        live: (organOffsetBb & 0x08) !== 0,
+        vibrato: {
+            enabled: (organOffsetD3 & 0x10) !== 0,
+            mode: mapping.organVibratoModeMap.get((organOffset34 & 0b00001110) >> 1),
+        },
+        percussion: {
+            enabled: (organOffsetD3 & 0x08) !== 0,
+            volumeSoft: (organOffsetD3 & 0x01) !== 0,
+            decayFast: (organOffsetD3 & 0x02) !== 0,
+            harmonicThird: (organOffsetD3 & 0x04) !== 0,
+        },
+    };
+};
+
+/***
+ * returns Piano section
+ *
+ * @param buffer
+ * @param panelOffset
+ * @returns {{kbTouch: unknown, kbZone: unknown, softRelease: boolean, sustainPedal: boolean, type: unknown, octaveShift: number, enabled: boolean, volume: {midi: *, label: unknown}, timbre: unknown, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: unknown}}
+ */
+const getPiano = (buffer, panelOffset) => {
     const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
     const pianoOffset47 = buffer.readUInt8(0x47 + panelOffset);
@@ -113,7 +178,7 @@ const getPanel = function (buffer, id) {
 
     const pianoEnabled = (pianoOffset43W & 0x8000) !== 0;
 
-    const piano = {
+    return {
         /***
          * Piano Enabled:
          * Offset in file: 0x43 (b7): O = disabled, 1 = enabled
@@ -258,85 +323,16 @@ const getPanel = function (buffer, id) {
          */
         stringResonance: (pianoOffset4d & 0x04) !== 0,
     };
+};
 
-    // Organ Section
-
-    /***
-     * Organ
-     * Enabled: Offset 0xB6 (b7): O = disabled, 1 = enabled
-     * Kb Zone: Offset 0xB6 (b6 to b3)
-     * Volume:  Offset 0xB6 (b2 to b0), 0xB7 (b7 to b4) 7 bits = 0/127 range
-     */
-
-    /***
-     * Organ KB Zone example:
-     *
-     *   0X87 x000 0xxx = 0  = o---
-     *   0X8F x000 1xxx = 1  =-o--
-     *   0x97 x001 0xxx = 2  = --o-
-     *   0x9F x001 1xxx = 3  = ---o
-     *   0xA7 x010 0xxx = 4  = oo--
-     *   0xAF x010 1xxx = 5  = -oo-
-     *   0xB7 x011 0xxx = 6  = --oo
-     *   0xBF x011 1xxx = 7  = ooo-
-     *   0xC7 x100 0xxx = 8  = -ooo
-     *   0xCF x100 1xxx = 9  = oooo
-     *
-     */
-
-    const organFlag34 = buffer.readUInt8(0x34 + panelOffset);
-    const organOffset35 = buffer.readUInt8(0x35 + panelOffset);
-    const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
-    const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
-    const organOffsetBb = buffer.readUInt8(0xbb + panelOffset);
-    const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
-    const rotarySpeakerOffset39W = buffer.readUInt16BE(0x39 + panelOffset);
-    const rotarySpeakerOffset10B = buffer.readUInt8(0x10b + panelOffset);
-    const organType = mapping.organTypeMap.get((organOffsetBb & 0x70) >> 4);
-    const organEnabled = (organOffsetB6W & 0x8000) !== 0;
-
-    const organ = {
-        enabled: organEnabled,
-        kbZone: organEnabled ? mapping.kbZoneMap.get((organOffsetB6W & 0x7800) >> 11) : "----",
-        volume: getVolume((organOffsetB6W & 0x07f0) >> 4),
-        type: organType,
-        preset1: getDrawbars(buffer, 0xbe, organType).join(""),
-        preset2: getDrawbars(buffer, 0xd9, organType).join(""),
-        octaveShift: (organOffsetBa & 0x07) - 6,
-        pitchStick: (organFlag34 & 0x10) !== 0,
-        sustainPedal: (organOffsetBb & 0x80) !== 0,
-        live: (organOffsetBb & 0x08) !== 0,
-        vibrato: {
-            enabled: (organOffsetD3 & 0x10) !== 0,
-            mode: mapping.organVibratoModeMap.get((organFlag34 & 0b00001110) >> 1),
-        },
-        percussion: {
-            enabled: (organOffsetD3 & 0x08) !== 0,
-            volumeSoft: (organOffsetD3 & 0x01) !== 0,
-            decayFast: (organOffsetD3 & 0x02) !== 0,
-            harmonicThird: (organOffsetD3 & 0x04) !== 0,
-        },
-    };
-
-    /***
-     * Rotary Speaker
-     *
-     * enabled: offset 0x10b (bit7): 0 = disabled, 1 = enabled
-     * source: offset 0x10b (b6 and b5): 0 = Organ, 1, Piano, 2 = Synth
-     * drive: offset 0x39 (b2 to b0) and 0x3a (b7 to b4):  7 bit value 0/127 converted to 0/10
-     * stopMode: offset 0x34 (bit0): 0 = enabled, 1 = disabled
-     */
-
-    const rotarySpeaker = {
-        enabled: (rotarySpeakerOffset10B & 0x80) !== 0,
-        source: mapping.sourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
-        drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >> 4, 1, ""),
-        stopMode: !((organOffset35 & 0x80) >> 7 !== 0),
-        speed: mapping.rotarySpeakerSpeedMap.get(organFlag34 & 0x01),
-    };
-
-    // synth section
-
+/***
+ * returns Synth section
+ *
+ * @param buffer
+ * @param panelOffset
+ * @returns {{voice: unknown, oscillators: {control: {midi: number, label: string}, fastAttack: boolean, pitch: {midi: number, label: (string|string)}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, label: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, label: unknown}, filter: {highPassCutoffFrequency: {midi: number, label: unknown}, cutoffFrequency: {midi: number, label: unknown}, type: unknown, drive: unknown, resonance: {midi: number, label: (string|string)}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, label: string}, velAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, label: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: unknown}}, vibrato: unknown}}
+ */
+const getSynth = (buffer, panelOffset) => {
     //const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
     const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
@@ -461,7 +457,7 @@ const getPanel = function (buffer, id) {
     const arpeggiatorMasterClock = (synthOffset80 & 0x01) !== 0;
     const synthEnabled = (synthOffset52W & 0x8000) !== 0;
 
-    const synth = {
+    return {
         /***
          * Synth Enabled:
          * Offset in file: 0x52 (b7): O = disabled, 1 = enabled
@@ -601,49 +597,81 @@ const getPanel = function (buffer, id) {
             pattern: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern),
         },
     };
+};
 
-    // EFFECTS
+/***
+ * returns Rotary Speaker Effect section
+ *
+ * @param buffer
+ * @param panelOffset
+ * @returns {{stopMode: boolean, source: unknown, drive: string, enabled: boolean, speed: unknown}}
+ */
+const getRotarySpeakerEffect = (buffer, panelOffset) => {
+    const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
+    const organOffset35 = buffer.readUInt8(0x35 + panelOffset);
+    const rotarySpeakerOffset39W = buffer.readUInt16BE(0x39 + panelOffset);
+    const rotarySpeakerOffset10B = buffer.readUInt8(0x10b + panelOffset);
 
+    return {
+        /***
+         * Rotary Speaker On:
+         * Offset in file: 0x10b (bit7):
+         *
+         * Values:
+         * 0 = disabled, 1 = enabled
+         */
+        enabled: (rotarySpeakerOffset10B & 0x80) !== 0,
+
+        /***
+         * Rotary Speaker Source:
+         * Offset in file: 0x10b (b6 and b5):
+         *
+         * Values:
+         * 0 = Organ, 1, Piano, 2 = Synth
+         */
+        source: mapping.sourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
+
+        /***
+         * Rotary Speaker Drive:
+         * Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4):
+         *
+         * Values:
+         * 7 bits value 0/127 converted to 0/10
+         */
+        drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >> 4, 1, ""),
+
+        /***
+         * Rotary Speaker Stop Mode:
+         * Offset in file: 0x35 (bit7):
+         *
+         * Values:
+         * 0 = enabled (Speed Stop), 1 = disabled (Speed Slow)
+         */
+        stopMode: !((organOffset35 & 0x80) >> 7 !== 0),
+
+        /***
+         * Rotary Speaker Speed
+         * Offset in file: 0x34 (bit0):
+         *
+         * Values:
+         * 0 = Slow/Stop, 1 = Fast
+         */
+        speed: mapping.rotarySpeakerSpeedMap.get(organOffset34 & 0x01),
+    };
+};
+
+/***
+ * returns effect 1
+ * @param buffer
+ * @param panelOffset
+ * @returns {{amount: {midi: number, label: string}, rate: {midi: number, label: unknown}, masterClock: (boolean|boolean), source: unknown, type: unknown, enabled: boolean}}
+ */
+const getEffect1 = (buffer, panelOffset) => {
     const effectOffset10b = buffer.readUInt8(0x10b + panelOffset);
     const effectOffset10bW = buffer.readUInt16BE(0x10b + panelOffset);
     const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
     const effectOffset10cW = buffer.readUInt16BE(0x10c + panelOffset);
 
-    /***
-     * Effect 1 ON: Offset 0x10b LSB 5 (AND 0x10)
-     *  0x00: OFF
-     *  0x10: ON
-     *
-     * Effect 1 SOURCE: Offset 0x10b only 2 bits (AND 0x0C)
-     *  0x00: Organ
-     *  0x04: Piano
-     *  0x08: Synth
-     *
-     * Effect 1 TYPE: offset 0x10b two bit (AND 0x03) 0x10c one bit (AND 0x80)
-     *  0x00 0x00: A-Pan
-     *  0x00 0x80: Trem
-     *  0x01 0x00: RM
-     *  0x01 0x80: WA-WA
-     *  0x02 0x00: A-WA1
-     *  0x02 0x80: A-WA2
-     *
-     * Amount: offset 0x110 only last 7 bits (AND 0x7F)
-     * Label: The number you get there, divided by 127 (7 bits) multiplied by 10.
-     * Then rounded to 1 dec
-     *  Example: if you get 0x2A, that is 42 / 127 * 10 = 3.307. Then Label is "3.3"
-     *  if you get 0x15, that is 21 / 127 * 10 = 1.6535. Then Label is "1.7"
-     *  if you get 0x16, that is 22 / 127 * 10 = 1.732. Then Label is "1.7" (yes, same)
-     *
-     * Rate: offset last 6 bits of 0x10c (AND 0x3F) and first bit of 0x10d (and 0x80).
-     * So, those 2 bytes shifted 1 bit to the left, in order to get just 1 byte.
-     * If you get 0x3F 0x80, then that shifted 1 bit to the left is 0x7F.
-     * Then, same logic as with Amount for the label.
-     *
-     * Master clock: offset 0x10c 2nd MS bit (AND 0x40):
-     *  0x00: OFF
-     *  0x40: ON
-     *
-     */
     const effect1Type = mapping.effect1TypeMap.get((effectOffset10bW & 0x0380) >> 7);
     const effect1AmountMidi = effectOffset110 & 0x7f;
     const effect1RateMidi = (effectOffset10cW & 0x3f80) >> 7;
@@ -651,37 +679,178 @@ const getPanel = function (buffer, id) {
     const effect1MasterClock = (effectOffset10cW & 0x4000) !== 0;
     const effect1MasterClockUsed = effect1MasterClock && (effect1Type === "Panning" || effect1Type === "Tremolo");
 
-    const effect1 = {
+    return {
+        /***
+         * Effect 1 ON:
+         * Offset in file: 0x10b LSB 5 (AND 0x10)
+         *
+         *  0x00: OFF
+         *  0x10: ON
+         */
         enabled: (effectOffset10b & 0x10) !== 0,
+
+        /***
+         * Effect 1 SOURCE:
+         * Offset in file: 0x10b only 2 bits (AND 0x0C)
+         *
+         *  0x00: Organ
+         *  0x04: Piano
+         *  0x08: Synth
+         */
         source: mapping.sourceMap.get((effectOffset10b & 0x0c) >> 2),
+
+        /***
+         *  Effect 1 TYPE:
+         *  Offset 0 in file: 0x10b two bit (AND 0x03) 0x10c one bit (AND 0x80)
+         *
+         *  0x00 0x00: A-Pan
+         *  0x00 0x80: Trem
+         *  0x01 0x00: RM
+         *  0x01 0x80: WA-WA
+         *  0x02 0x00: A-WA1
+         *  0x02 0x80: A-WA2
+         */
         type: effect1Type,
+
+        /***
+         * Effect 1 Amount:
+         * Offset in file: 0x110 only last 7 bits (AND 0x7F)
+         *
+         * Label: The number you get there, divided by 127 (7 bits) multiplied by 10.
+         * Then rounded to 1 dec
+         *  Example: if you get 0x2A, that is 42 / 127 * 10 = 3.307. Then Label is "3.3"
+         *  if you get 0x15, that is 21 / 127 * 10 = 1.6535. Then Label is "1.7"
+         *  if you get 0x16, that is 22 / 127 * 10 = 1.732. Then Label is "1.7" (yes, same)
+         */
         amount: {
             midi: effect1AmountMidi,
             label: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
         },
+
+        /***
+         * Effect 2 Rate:
+         * Offset in file: last 6 bits of 0x10c (AND 0x3F) and first bit of 0x10d (and 0x80).
+         *
+         * So, those 2 bytes shifted 1 bit to the left, in order to get just 1 byte.
+         * If you get 0x3F 0x80, then that shifted 1 bit to the left is 0x7F.
+         * Then, same logic as with Amount for the label.
+         */
         rate: {
             midi: effect1RateMidi,
             label: effect1MasterClockUsed
                 ? mapping.effect1MasterClockDivisionMap.get(effect1RateMidi)
                 : converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, ""),
         },
+
+        /***
+         *  Effect 1 Master clock:
+         *  Offset in file: 0x10c 2nd MS bit (AND 0x40):
+         *
+         *  0x00: OFF
+         *  0x40: ON
+         */
         masterClock: effect1MasterClockUsed,
     };
+};
 
-    /*
+/***
+ * returns effect 2
+ * @param buffer
+ * @param panelOffset
+ * @returns {{amount: {midi: number, label: string}, rate: {midi: number, label: string}, source: unknown, type: unknown, enabled: boolean}}
+ */
+const getEffect2 = (buffer, panelOffset) => {
+    const effectOffset114 = buffer.readUInt8(0x114 + panelOffset);
+    const effectOffset114W = buffer.readUInt16BE(0x114 + panelOffset);
+    const effectOffset115W = buffer.readUInt16BE(0x115 + panelOffset);
 
+    const effect2AmountMidi = (effectOffset115W & 0x07f0) >> 4;
+    const effect2RateMidi = (effectOffset114W & 0x03f8) >> 3;
 
-    */
+    return {
+        /***
+         * Effect 2 ON:
+         * Offset in file: 0x114 b7 (AND 0x80)
+         *
+         *  0x00: OFF
+         *  0x10: ON
+         */
+        enabled: (effectOffset114 & 0x80) !== 0,
+
+        /***
+         * Effect 2 SOURCE:
+         * Offset in file: 0x114 b6 and b5 (AND 0x60)
+         *
+         *  0x00: Organ
+         *  0x04: Piano
+         *  0x08: Synth
+         */
+        source: mapping.sourceMap.get((effectOffset114 & 0x60) >> 5),
+
+        /***
+         *  Effect 2 TYPE:
+         *  Offset 0 in file: 0x114 bits 4-2 (AND 0x1C)
+         *
+         * 0x00: PHAS1
+         * 0x04: PHAS2
+         * 0x08: FLANG
+         * 0x0C: VIBE
+         * 0x10: CHOR1
+         * 0x14: CHOR2
+         */
+        type: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >> 2),
+
+        /***
+         * Effect 2 Amount:
+         * Offset in file: 0x115 (last 3 bits) and 0x116 (first 4 bits) So 0x115 AND
+         * 0x07 + 0x115 AND 0xF0. All that then shifted for places to the right.
+         * To calculate number it is same as amount on Effects 1
+         */
+        amount: {
+            midi: effect2AmountMidi,
+            label: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
+        },
+
+        /***
+         * Effect 2 Rate:
+         * Offset in file: last 2 bits of 0x114 and first 5 bits of 0x115
+         * So, 0x114 AND 0x03 + 0x115 AND 0xF8. All that shifted 3 places to the right
+         * Sames as Amount
+         */
+        rate: {
+            midi: effect2RateMidi,
+            label: converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, ""),
+        },
+    };
+};
+
+const getPanel = function (buffer, id) {
+    const panelOffset31 = buffer.readUInt8(0x31);
+
+    // Panel enabled flag is offset 0x31 (b5 & b6)
+    // 0 = A only
+    // 1 = B only
+    // 2 = A & B
+    // Panel selected flag is offset 0x31 (b7);
+    // A = 0, B = 1 (not used here)
+
+    const panelEnabledFlag = (panelOffset31 & 0x60) >> 5;
+    const panelEnabled =
+        id === 0 ? panelEnabledFlag === 0 || panelEnabledFlag === 2 : panelEnabledFlag === 1 || panelEnabledFlag === 2;
+
+    // all hardcoded offset are for Panel A, offset value is for Panel B
+
+    const panelOffset = id * 263;
 
     return {
         enabled: panelEnabled,
-        organ: organ,
-        piano: piano,
-        synth: synth,
+        organ: getOrgan(buffer, panelOffset),
+        piano: getPiano(buffer, panelOffset),
+        synth: getSynth(buffer, panelOffset),
         effects: {
-            rotarySpeaker: rotarySpeaker,
-            effect1: effect1,
-            // effect2: {},
+            rotarySpeaker: getRotarySpeakerEffect(buffer, panelOffset),
+            effect1: getEffect1(buffer, panelOffset),
+            effect2: getEffect2(buffer, panelOffset),
             // delay: {},
             // ampSimEq: {},
             // compressor: {},
@@ -775,10 +944,8 @@ exports.loadNs3fFile = (buffer) => {
      * xxxx xxxx  xxxx xxxx  xxx5 4xxx  xxxx xxxx: low width (0 = 1, 1 = 6, 2 = 12)
      * xxxx xxxx  xxxx xxxx  xxxx x32x  xxxx xxxx: mid width
      * xxxx xxxx  xxxx xxxx  xxxx xxx0  7xxx xxxx: high width
-     */
-
-    /***
-     * Split Example:
+     *
+     * Values:
      *
      * Test1:  06 07 20 01 : Split Off
      *
