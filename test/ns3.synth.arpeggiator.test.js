@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/Synth/arpeggiator/";
+const root = __dirname + "/ns3/Synth/arpeggiator/";
 
-describe("/Synth/arpeggiator", () => {
+describe("/ns3/Synth/arpeggiator", () => {
     test("panelA.synth.arpeggiator.enabled eq false", async () => {
         const file = "panelA.synth.arpeggiator.enabled eq false.ns3f";
         const sut = await getNs3TestCase(root + file);

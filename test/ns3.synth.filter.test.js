@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/Synth/filter/";
+const root = __dirname + "/ns3/Synth/filter/";
 
-describe("/Synth/filter", () => {
+describe("/ns3/Synth/filter", () => {
     test("panelA.synth.filter.cutoffFrequency.label eq 14 Hz", async () => {
         const file = "panelA.synth.filter.cutoffFrequency.label eq 14 Hz.ns3f";
         const sut = await getNs3TestCase(root + file);

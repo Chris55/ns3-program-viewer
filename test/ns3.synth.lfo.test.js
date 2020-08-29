@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/Synth/lfo/";
+const root = __dirname + "/ns3/Synth/lfo/";
 
-describe("/Synth/lfo", () => {
+describe("/ns3/Synth/lfo", () => {
     test("panelA.synth.lfo.masterClock eq true", async () => {
         const file = "panelA.synth.lfo.masterClock eq true.ns3f";
         const sut = await getNs3TestCase(root + file);

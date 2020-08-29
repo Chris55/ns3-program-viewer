@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/Piano/";
+const root = __dirname + "/ns3/Piano/";
 
-describe("/Piano", () => {
+describe("/ns3/Piano", () => {
     test("panelA.piano.enabled eq false", async () => {
         const file = "panelA.piano.enabled eq false.ns3f";
         const sut = await getNs3TestCase(root + file);

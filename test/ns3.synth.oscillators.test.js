@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/Synth/oscillators/";
+const root = __dirname + "/ns3/Synth/oscillators/";
 
-describe("/Synth/oscillators", () => {
+describe("/ns3/Synth/oscillators", () => {
     test("panelA.synth.oscillators.config eq 1 Pitch and panelA.synth.oscillators.control.label eq 0.0", async () => {
         const file = "panelA.synth.oscillators.config eq 1 Pitch and panelA.synth.oscillators.control.label eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);

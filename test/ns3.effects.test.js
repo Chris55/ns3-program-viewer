@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/Effects/";
+const root = __dirname + "/ns3/Effects/";
 
-describe("/Effects", () => {
+describe("/ns3/Effects", () => {
     test("panelA.effects.effect1.amount.label eq 0.0", async () => {
         const file = "panelA.effects.effect1.amount.label eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);

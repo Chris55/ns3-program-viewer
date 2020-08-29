@@ -82,3 +82,5 @@ exports.midi2LogValue = function (min, max, value, precision, unit) {
     const y = Math.pow(10, a * b + Math.log10(y0)) - 90;
     return round(y, precision).toFixed(precision) + " " + unit;
 };
+
+

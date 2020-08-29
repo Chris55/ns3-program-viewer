@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/Organ/";
+const root = __dirname + "/ns3/Organ/";
 
-describe("/Organ", () => {
+describe("/ns3/Organ", () => {
     test("panelA.effects.rotarySpeaker.drive eq 0.0", async () => {
         const file = "panelA.effects.rotarySpeaker.drive eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);

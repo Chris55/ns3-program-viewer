@@ -37,16 +37,16 @@ const build = async(folder, testFilename) => {
 }
 
 const buildAll = async() => {
-    await build("/Effects", "effects.test.js");
-    await build("/Global", "global.test.js");
-    await build("/Organ", "organ.test.js");
-    await build("/Piano", "piano.test.js");
-    await build("/Synth", "synth.test.js");
-    await build("/Synth/oscillators", "synth.oscillators.test.js");
-    await build("/Synth/filter", "synth.filter.test.js");
-    await build("/Synth/lfo", "synth.lfo.test.js");
-    await build("/Synth/envelopes", "synth.envelopes.test.js");
-    await build("/Synth/arpeggiator", "synth.arpeggiator.test.js");
+    await build("/ns3/Effects", "ns3.effects.test.js");
+    await build("/ns3/Global", "ns3.global.test.js");
+    await build("/ns3/Organ", "ns3.organ.test.js");
+    await build("/ns3/Piano", "ns3.piano.test.js");
+    await build("/ns3/Synth", "ns3.synth.test.js");
+    await build("/ns3/Synth/oscillators", "ns3.synth.oscillators.test.js");
+    await build("/ns3/Synth/filter", "ns3.synth.filter.test.js");
+    await build("/ns3/Synth/lfo", "ns3.synth.lfo.test.js");
+    await build("/ns3/Synth/envelopes", "ns3.synth.envelopes.test.js");
+    await build("/ns3/Synth/arpeggiator", "ns3.synth.arpeggiator.test.js");
 }
 
 buildAll().catch(console.error)
