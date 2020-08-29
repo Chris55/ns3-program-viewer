@@ -95,12 +95,12 @@ class App extends Component {
 
                     <Row className="mt-5">
                         <Col sm={12}>
-                            <Tabs defaultActiveKey="panel" id="uncontrolled-tab-example">
-                                <Tab eventKey="panel" title="Panel" disabled={false} style={{backgroundColor: 'lightgray'}}>
-                                    <pre className="text-monospace">
-                                        <Ns3PanelComponent data={this.state.data}  />
-                                    </pre>
-                                </Tab>
+                            <Tabs defaultActiveKey="debug" id="uncontrolled-tab-example">
+                                {/*<Tab eventKey="panel" title="Panel" disabled={false} style={{backgroundColor: 'lightgray'}}>*/}
+                                {/*    <pre className="text-monospace">*/}
+                                {/*        <Ns3PanelComponent data={this.state.data}  />*/}
+                                {/*    </pre>*/}
+                                {/*</Tab>*/}
 
                                 <Tab eventKey="debug" title="File Properties" disabled={false}>
                                     <JSONTree
