@@ -217,9 +217,9 @@ exports.loadNs3fFile = (buffer) => {
         category: mapping.categoryMap.get(offset10),
         //fileId: fileId,
 
-        panelA: getPanel(buffer, 0),
+        panelA: getPanel(buffer, 0, split.enabled),
 
-        panelB: getPanel(buffer, 1),
+        panelB: getPanel(buffer, 1, split.enabled),
 
         masterClock: {
             rate: tempo + " bpm",

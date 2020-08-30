@@ -2,20 +2,6 @@ const mapping = require("../ns3/mapping");
 const converter = require("./converter");
 
 /***
- * returns volume object
- *
- * @param value
- * @returns {{midi: *, label: unknown}}
- */
-exports.getVolume = function (value) {
-    return {
-        midi: value,
-        label: mapping.dBMap.get(value),
-    };
-};
-
-
-/***
  * Returns two values from a single knob (and equivalent midi value).
  *
  * Settings like Osc modulation (lfo/env mod) and Filter modulation (vel/env mod) are using this option
@@ -51,5 +37,140 @@ exports.getKnobDualValues = function (valueRange120) {
         rightMidi: rightMidi,
         leftValue: leftValue,
         rightValue: rightValue,
+    };
+};
+
+/***
+ * returns Keyboard Zone
+ * @param sectionEnabled
+ * @param splitEnabled
+ * @param value
+ * @returns {string}
+ */
+exports.getKbZone = (sectionEnabled, splitEnabled, value) => {
+    if (sectionEnabled) {
+        if (splitEnabled) {
+            return mapping.kbZoneMap.get(value);
+        }
+        // no split, full keyboard is used
+        return "0000";
+    }
+    // section is not used
+    return "----";
+};
+
+/***
+ * returns volume object
+ *
+ * @param value
+ * @returns {{midi: *, label: string}}
+ */
+const getVolumeValueAndLabel = (value) => ({
+    midi: value,
+    label: mapping.dBMap.get(value),
+});
+
+
+/***
+ * returns Volume settings with Morph options
+ *
+ * @param buffer
+ * @param offset
+ * @returns {{midi: *, label: string, morph: {afterTouch: {to: ({midi: *, label: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, label: string}|string), enabled: boolean}, wheel: {to: ({midi: *, label: string}|string), enabled: boolean}}}}
+ */
+exports.getVolumeEx = (buffer, offset) => {
+    const organOffsetB6W = buffer.readUInt16BE(offset); // 0xB6
+
+    const morphOffsetB7W = buffer.readUInt16BE(offset + 1); // 0xB7
+    const morphOffsetB8W = buffer.readUInt16BE(offset + 2); // 0xB8
+    const morphOffsetB9W = buffer.readUInt16BE(offset + 3); // 0xB9
+
+    const morph = (rawValue, midiFrom) => {
+        const rawOffsetValue = (rawValue & 0x07f0) >> 4;
+        const up = (rawValue & 0x0800) !== 0;
+        const offset = up ? rawOffsetValue + 1: rawOffsetValue - 127;
+        const enabled = offset !== 0;
+        const midiTo = midiFrom + offset;
+
+        return {
+            enabled: enabled,
+            midiTo: enabled ? getVolumeValueAndLabel(midiTo): "none",
+        }
+    }
+
+    // From value
+    const volume = getVolumeValueAndLabel((organOffsetB6W & 0x07f0) >> 4);
+
+    // To values
+    const morphWheel = morph(morphOffsetB7W, volume.midi);
+    const morphAfterTouch = morph(morphOffsetB8W, volume.midi);
+    const morphControlPedal = morph(morphOffsetB9W, volume.midi);
+
+    return {
+        /***
+         * Volume Midi value
+         */
+        midi: volume.midi,
+
+        /***
+         * Volume Label
+         */
+        label: volume.label,
+
+        /***
+         * Morphing settings
+         */
+        morph: {
+            /***
+             * Wheel Morphing
+             */
+            wheel: {
+                /***
+                 * Wheel Morphing Level On/Off
+                 * Offset in file: 0xB8 (b4) 0 = Enabled, 1 = Disabled
+                 */
+                enabled: morphWheel.enabled,
+
+                /***
+                 * Wheel Morphing Final Level Value
+                 * Offset in file: 0xB7 (b3-0) and 0xB8 (b7-5) 0/127 midi value
+                 */
+                to: morphWheel.midiTo,
+            },
+
+            /***
+             * After Touch Morphing
+             */
+            afterTouch: {
+                /***
+                 * After Touch Morphing Level On/Off
+                 * Offset in file: 0xB8 (b4) 0 = Enabled, 1 = Disabled
+                 */
+                enabled: morphAfterTouch.enabled,
+
+                /***
+                 * After Touch Morphing Final Level Value
+                 * Offset in file: 0xB7 (b3-0) and 0xB8 (b7-5) 0/127 midi value
+                 */
+                to: morphAfterTouch.midiTo,
+            },
+
+            /***
+             * Control Pedal Morphing
+             */
+            controlPedal: {
+                /***
+                 * Control Pedal Morphing Level On/Off
+                 * Offset in file: 0xB8 (b4) 0 = Enabled, 1 = Disabled
+                 */
+                enabled: morphControlPedal.enabled,
+
+                /***
+                 * Control Pedal Morphing Final Level Value
+                 * Offset in file: 0xB7 (b3-0) and 0xB8 (b7-5) 0/127 midi value
+                 */
+                to: morphControlPedal.midiTo,
+            },
+        },
     };
 };

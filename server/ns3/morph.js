@@ -7,75 +7,11 @@ exports.getMorph = (buffer, panelOffset) => {
     const morphOffsetB8W = buffer.readUInt16BE(0xb8 + panelOffset);
     const morphOffsetB9W = buffer.readUInt16BE(0xb9 + panelOffset);
 
-    // this is to read the from value
-    const organ = getOrgan(buffer, panelOffset);
 
-    const organLevelWheelEnabled = !((morphOffsetB8W & 0x1000) !== 0);
-    const organLevelWheelMidi = (morphOffsetB7W & 0x0fe0) >> 5;
-    const organLevelAfterTouchEnabled = !((morphOffsetB9W & 0x1000) !== 0);
-    const organLevelAfterTouchMidi = (morphOffsetB8W & 0x0fe0) >> 5;
-    const organLevelControlPedalEnabled = !((morphOffsetB9W & 0x0010) !== 0);
-    const organLevelControlPedalMidi = (morphOffsetB9W & 0x0fe0) >> 5;
 
     return {
         organ: {
-            level: {
-                /***
-                 * Morphing Organ Initial Level Value
-                 */
-                from: organ.volume,
 
-                /***
-                 * Wheel Morphing Organ
-                 */
-                wheel: {
-                    /***
-                     * Wheel Morphing Organ Level On/Off
-                     * Offset in file: 0xB8 (b4) 0 = Enabled, 1 = Disabled
-                     */
-                    enabled: organLevelWheelEnabled,
-
-                    /***
-                     * Wheel Morphing Organ Final Level Value
-                     * Offset in file: 0xB7 (b3-0) and 0xB8 (b7-5) 0/127 midi value
-                     */
-                    to: organLevelWheelEnabled ? getVolume(organLevelWheelMidi) : "none",
-                },
-
-                /***
-                 * After Touch Morphing Organ
-                 */
-                afterTouch: {
-                    /***
-                     * After Touch Morphing Organ Level On/Off
-                     * Offset in file: 0xB8 (b4) 0 = Enabled, 1 = Disabled
-                     */
-                    enabled: organLevelAfterTouchEnabled,
-
-                    /***
-                     * After Touch Morphing Organ Final Level Value
-                     * Offset in file: 0xB7 (b3-0) and 0xB8 (b7-5) 0/127 midi value
-                     */
-                    to: organLevelAfterTouchEnabled ? getVolume(organLevelAfterTouchMidi) : "none",
-                },
-
-                /***
-                 * Control Pedal Morphing Organ
-                 */
-                controlPedal: {
-                    /***
-                     * Control Pedal Morphing Organ Level On/Off
-                     * Offset in file: 0xB8 (b4) 0 = Enabled, 1 = Disabled
-                     */
-                    enabled: organLevelControlPedalEnabled,
-
-                    /***
-                     * Control Pedal Morphing Organ Final Level Value
-                     * Offset in file: 0xB7 (b3-0) and 0xB8 (b7-5) 0/127 midi value
-                     */
-                    to: organLevelControlPedalEnabled ? getVolume(organLevelControlPedalMidi) : "none",
-                },
-            },
             /***
              * Organ Morph Rotary Speed
              * Offset in file: 0x35 and 0x36

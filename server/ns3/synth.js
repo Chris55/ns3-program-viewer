@@ -1,5 +1,7 @@
 const mapping = require("./mapping");
 const converter = require("../common/converter");
+const {getVolumeEx} = require("../common/utils");
+const { getKbZone } = require("../common/utils");
 const { getVolume } = require("../common/utils");
 const { getKnobDualValues } = require("../common/utils");
 
@@ -35,10 +37,10 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  *
  * @param buffer
  * @param panelOffset
+ * @param splitEnabled
  * @returns {{voice: unknown, oscillators: {control: {midi: number, label: string}, fastAttack: boolean, pitch: {midi: number, label: (string|string)}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, label: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, label: unknown}, filter: {highPassCutoffFrequency: {midi: number, label: unknown}, cutoffFrequency: {midi: number, label: unknown}, type: unknown, drive: unknown, resonance: {midi: number, label: (string|string)}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, label: string}, velAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, label: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: unknown}}, vibrato: unknown}}
  */
-exports.getSynth = (buffer, panelOffset) => {
-
+exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     //const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
     const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
@@ -175,13 +177,13 @@ exports.getSynth = (buffer, panelOffset) => {
          * Offset in file: 0x52 (b6 to b3)
          * ref Organ section for more examples
          */
-        kbZone: synthEnabled ? mapping.kbZoneMap.get((synthOffset52W & 0x7800) >> 11) : "----",
+        kbZone: getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >> 11),
 
         /***
          * Synth Volume:
          * Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
          */
-        volume: getVolume((synthOffset52W & 0x07f0) >> 4),
+        volume: getVolumeEx(buffer, 0x52 + panelOffset),
 
         /***
          * Synth Octave Shift:
@@ -302,7 +304,6 @@ exports.getSynth = (buffer, panelOffset) => {
              * Modulation options
              */
             modulations: {
-
                 /***
                  * LFO Amount
                  */

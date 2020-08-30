@@ -1,5 +1,6 @@
 const mapping = require("./mapping");
-const { getVolume } = require("../common/utils");
+const { getKbZone } = require("../common/utils");
+const { getVolumeEx } = require("../common/utils");
 
 /***
  * return Drawbars as an array
@@ -9,7 +10,6 @@ const { getVolume } = require("../common/utils");
  * @returns {number[]}
  */
 const getDrawbars = function (buffer, offset, type) {
-
     const organDrawbar0Flag = buffer.readUInt8(offset); // 0xbe
     const organDrawbar1Flag = buffer.readUInt8(offset + 2); // 0xc0
     const organDrawbar2Flag = buffer.readUInt16BE(offset + 4); // 0xc2
@@ -51,10 +51,10 @@ const getDrawbars = function (buffer, offset, type) {
  * returns Organ section
  * @param buffer
  * @param panelOffset
+ * @param splitEnabled
  * @returns {{volume: {midi: *, label: unknown}, preset2: string, pitchStick: boolean, kbZone: unknown, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: unknown, enabled: boolean}}}
  */
-exports.getOrgan = (buffer, panelOffset) => {
-
+exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
     const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
@@ -89,31 +89,13 @@ exports.getOrgan = (buffer, panelOffset) => {
          *   0xC7 x100 0xxx = 8  = -ooo
          *   0xCF x100 1xxx = 9  = oooo
          */
-        kbZone: organEnabled ? mapping.kbZoneMap.get((organOffsetB6W & 0x7800) >> 11) : "----",
+        kbZone: getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >> 11),
 
         /***
          * Organ Volume:
          * Offset in file: 0xB6 (b2 to b0), 0xB7 (b7 to b4) 7 bits = 0/127 range
          */
-        volume: getVolume((organOffsetB6W & 0x07f0) >> 4),
-
-        /***
-         * Organ Type:
-         * Offset in file: 0xBB (b6/5/4)
-         */
-        type: organType,
-
-        /***
-         * Organ Drawbars Preset 1:
-         * Offset in file: 0xBE
-         */
-        preset1: getDrawbars(buffer, 0xbe, organType).join(""),
-
-        /***
-         * Organ Drawbars Preset 2:
-         * Offset in file: 0xD9
-         */
-        preset2: getDrawbars(buffer, 0xd9, organType).join(""),
+        volume: getVolumeEx(buffer, 0xb6 + panelOffset),
 
         /***
          * Organ Octave Shift:
@@ -132,6 +114,24 @@ exports.getOrgan = (buffer, panelOffset) => {
          * Offset in file: 0xBB (b7)
          */
         sustainPedal: (organOffsetBb & 0x80) !== 0,
+
+        /***
+         * Organ Type:
+         * Offset in file: 0xBB (b6/5/4)
+         */
+        type: organType,
+
+        /***
+         * Organ Drawbars Preset 1:
+         * Offset in file: 0xBE
+         */
+        preset1: getDrawbars(buffer, 0xbe, organType).join(""),
+
+        /***
+         * Organ Drawbars Preset 2:
+         * Offset in file: 0xD9
+         */
+        preset2: getDrawbars(buffer, 0xd9, organType).join(""),
 
         /***
          * Organ Live Mode (NS3 Compact model only)
