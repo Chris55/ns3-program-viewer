@@ -35,7 +35,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0x43 (b6 to b3)
          * ref Organ section for more examples
          */
-        kbZone: getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >> 11),
+        kbZone: getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11),
 
         /***
          * Piano Volume:
@@ -86,7 +86,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *   0x60- Digital
          *   0x68- Misc
          */
-        type: mapping.pianoTypeMap.get((pianoOffset48 & 0x38) >> 3),
+        type: mapping.pianoTypeMap.get((pianoOffset48 & 0x38) >>> 3),
 
         /***
          * Piano Model
@@ -98,7 +98,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *   .. and so on
          *   0x02 0x01: model 10
          */
-        model: (pianoOffset48W & 0x07c0) >> 6,
+        model: (pianoOffset48W & 0x07c0) >>> 6,
 
         /***
          * Piano Timbre
@@ -112,7 +112,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *   0x20- DYNO1
          *   0x28- DYNO2
          */
-        timbre: mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >> 3),
+        timbre: mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3),
 
         /***
          * Piano KB Touch
@@ -124,7 +124,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *   0x01 + 0x0x- KB Touch 2
          *   0x01 + 0x8x- KB Touch 3
          */
-        kbTouch: mapping.pianoKbTouchMap.get((pianoOffset4dW & 0x0180) >> 7),
+        kbTouch: mapping.pianoKbTouchMap.get((pianoOffset4dW & 0x0180) >>> 7),
 
         /***
          * Piano Layer Detune
@@ -136,7 +136,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *   0x40- 2
          *   0x60- 3
          */
-        layerDetune: mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >> 5),
+        layerDetune: mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >>> 5),
 
         /***
          * Piano Soft Release

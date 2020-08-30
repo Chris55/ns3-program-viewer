@@ -31,7 +31,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * Values:
          * 0 = Organ, 1, Piano, 2 = Synth
          */
-        source: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >> 5),
+        source: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
 
         /***
          * Rotary Speaker Drive:
@@ -40,7 +40,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * Values:
          * 7 bits value 0/127 converted to 0/10
          */
-        drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >> 4, 1, ""),
+        drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >>> 4, 1, ""),
 
         /***
          * Rotary Speaker Stop Mode:
@@ -49,7 +49,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * Values:
          * 0 = enabled (Speed Stop), 1 = disabled (Speed Slow)
          */
-        stopMode: !((organOffset35 & 0x80) >> 7 !== 0),
+        stopMode: !((organOffset35 & 0x80) >>> 7 !== 0),
 
         /***
          * Rotary Speaker Speed
@@ -74,9 +74,9 @@ exports.getEffect1 = (buffer, panelOffset) => {
     const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
     const effectOffset10cW = buffer.readUInt16BE(0x10c + panelOffset);
 
-    const effect1Type = mapping.effect1TypeMap.get((effectOffset10bW & 0x0380) >> 7);
+    const effect1Type = mapping.effect1TypeMap.get((effectOffset10bW & 0x0380) >>> 7);
     const effect1AmountMidi = effectOffset110 & 0x7f;
-    const effect1RateMidi = (effectOffset10cW & 0x3f80) >> 7;
+    const effect1RateMidi = (effectOffset10cW & 0x3f80) >>> 7;
 
     const effect1MasterClock = (effectOffset10cW & 0x4000) !== 0;
     const effect1MasterClockUsed = effect1MasterClock && (effect1Type === "Panning" || effect1Type === "Tremolo");
@@ -99,7 +99,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  0x04: Piano
          *  0x08: Synth
          */
-        source: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >> 2),
+        source: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
 
         /***
          *  Effect 1 TYPE:
@@ -166,8 +166,8 @@ exports.getEffect2 = (buffer, panelOffset) => {
     const effectOffset114W = buffer.readUInt16BE(0x114 + panelOffset);
     const effectOffset115W = buffer.readUInt16BE(0x115 + panelOffset);
 
-    const effect2AmountMidi = (effectOffset115W & 0x07f0) >> 4;
-    const effect2RateMidi = (effectOffset114W & 0x03f8) >> 3;
+    const effect2AmountMidi = (effectOffset115W & 0x07f0) >>> 4;
+    const effect2RateMidi = (effectOffset114W & 0x03f8) >>> 3;
 
     return {
         /***
@@ -187,7 +187,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          *  0x04: Piano
          *  0x08: Synth
          */
-        source: mapping.effectSourceMap.get((effectOffset114 & 0x60) >> 5),
+        source: mapping.effectSourceMap.get((effectOffset114 & 0x60) >>> 5),
 
         /***
          *  Effect 2 TYPE:
@@ -200,7 +200,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * 0x10: CHOR1
          * 0x14: CHOR2
          */
-        type: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >> 2),
+        type: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2),
 
         /***
          * Effect 2 Amount:

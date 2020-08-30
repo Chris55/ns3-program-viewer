@@ -20,15 +20,15 @@ const getDrawbars = function (buffer, offset, type) {
     const organDrawbar7Flag = buffer.readUInt16BE(offset + 16); // 0xce
     const organDrawbar8Flag = buffer.readUInt8(offset + 19); // 0xd1
 
-    let d0 = (organDrawbar0Flag & 0xf0) >> 4;
-    let d1 = (organDrawbar1Flag & 0x1e) >> 1;
-    let d2 = (organDrawbar2Flag & 0b0000001111000000) >> 6; //0x03c0
-    let d3 = (organDrawbar3Flag & 0b01111000) >> 3;
+    let d0 = (organDrawbar0Flag & 0xf0) >>> 4;
+    let d1 = (organDrawbar1Flag & 0x1e) >>> 1;
+    let d2 = (organDrawbar2Flag & 0b0000001111000000) >>> 6; //0x03c0
+    let d3 = (organDrawbar3Flag & 0b01111000) >>> 3;
     let d4 = organDrawbar4Flag & 0x0f;
-    let d5 = (organDrawbar5Flag & 0b0000000111100000) >> 5;
-    let d6 = (organDrawbar6Flag & 0b00111100) >> 2;
-    let d7 = (organDrawbar7Flag & 0b0000011110000000) >> 7;
-    let d8 = (organDrawbar8Flag & 0xf0) >> 4;
+    let d5 = (organDrawbar5Flag & 0b0000000111100000) >>> 5;
+    let d6 = (organDrawbar6Flag & 0b00111100) >>> 2;
+    let d7 = (organDrawbar7Flag & 0b0000011110000000) >>> 7;
+    let d8 = (organDrawbar8Flag & 0xf0) >>> 4;
 
     if (type === "Vox") {
         d7 = 0;
@@ -61,7 +61,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
     const organOffsetBb = buffer.readUInt8(0xbb + panelOffset);
     const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
 
-    const organType = mapping.organTypeMap.get((organOffsetBb & 0x70) >> 4);
+    const organType = mapping.organTypeMap.get((organOffsetBb & 0x70) >>> 4);
     const organEnabled = (organOffsetB6W & 0x8000) !== 0;
 
     return {
@@ -89,7 +89,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *   0xC7 x100 0xxx = 8  = -ooo
          *   0xCF x100 1xxx = 9  = oooo
          */
-        kbZone: getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >> 11),
+        kbZone: getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11),
 
         /***
          * Organ Volume:
@@ -153,7 +153,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * Organ Vibrato Mode:
              * Offset in file: 0x34 (b3/2/1)
              */
-            mode: mapping.organVibratoModeMap.get((organOffset34 & 0b00001110) >> 1),
+            mode: mapping.organVibratoModeMap.get((organOffset34 & 0b00001110) >>> 1),
         },
 
         /***

@@ -65,7 +65,7 @@ exports.loadNs3fFile = (buffer) => {
      */
 
     const transposeEnabled = (offset38 & 0x80) !== 0;
-    const transposeValue = (offset38 & 0x78) >> 3;
+    const transposeValue = (offset38 & 0x78) >>> 3;
     const transpose = {
         enabled: transposeEnabled,
         label: transposeEnabled ? mapping.transposeMap.get(transposeValue) : "",
@@ -149,9 +149,9 @@ exports.loadNs3fFile = (buffer) => {
     const splitLowEnabled = (offset31 & 0x08) !== 0;
     const splitMidEnabled = (offset31 & 0x04) !== 0;
     const splitHighEnabled = (offset31 & 0x02) !== 0;
-    let splitLowNote = (offset31W & 0x01e0) >> 5;
-    let splitMidNote = (offset31W & 0x001e) >> 1;
-    let splitHighNote = (offset32W & 0x01e0) >> 5;
+    let splitLowNote = (offset31W & 0x01e0) >>> 5;
+    let splitMidNote = (offset31W & 0x001e) >>> 1;
+    let splitHighNote = (offset32W & 0x01e0) >>> 5;
     const lastNote = 9;
 
     // low/mid/high note can be unordered in file !!!
@@ -196,20 +196,20 @@ exports.loadNs3fFile = (buffer) => {
     const split = {
         enabled: splitEnabled,
         low: {
-            width: splitEnabled && splitLowEnabled ? mapping.splitWidthMap.get((offset33W & 0x1800) >> 11) : "Off",
+            width: splitEnabled && splitLowEnabled ? mapping.splitWidthMap.get((offset33W & 0x1800) >>> 11) : "Off",
             note: splitEnabled && splitLowEnabled ? mapping.splitNoteMap.get(splitLowNote) : "--",
         },
         mid: {
-            width: splitEnabled && splitMidEnabled ? mapping.splitWidthMap.get((offset33W & 0x0600) >> 9) : "Off",
+            width: splitEnabled && splitMidEnabled ? mapping.splitWidthMap.get((offset33W & 0x0600) >>> 9) : "Off",
             note: splitEnabled && splitMidEnabled ? mapping.splitNoteMap.get(splitMidNote) : "--",
         },
         high: {
-            width: splitEnabled && splitHighEnabled ? mapping.splitWidthMap.get((offset33W & 0x0180) >> 7) : "Off",
+            width: splitEnabled && splitHighEnabled ? mapping.splitWidthMap.get((offset33W & 0x0180) >>> 7) : "Off",
             note: splitEnabled && splitHighEnabled ? mapping.splitNoteMap.get(splitHighNote) : "--",
         },
     };
 
-    const tempo = ((offset38W & 0x07f8) >> 3) + 30;
+    const tempo = ((offset38W & 0x07f8) >>> 3) + 30;
 
     return {
         name: "",

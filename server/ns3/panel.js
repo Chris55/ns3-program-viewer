@@ -23,7 +23,7 @@ exports.getPanel = function (buffer, id, splitEnabled) {
     // Panel selected flag is offset 0x31 (b7);
     // A = 0, B = 1 (not used here)
 
-    const panelEnabledFlag = (panelOffset31 & 0x60) >> 5;
+    const panelEnabledFlag = (panelOffset31 & 0x60) >>> 5;
     const panelEnabled =
         id === 0 ? panelEnabledFlag === 0 || panelEnabledFlag === 2 : panelEnabledFlag === 1 || panelEnabledFlag === 2;
 

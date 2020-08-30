@@ -70,6 +70,26 @@ const getVolumeValueAndLabel = (value) => ({
     label: mapping.dBMap.get(value),
 });
 
+/***
+ * returns morphing value
+ *
+ *
+ * @param rawValue
+ * @param midiFrom
+ * @returns {{midiTo: ({midi: *, label: string}|string), enabled: boolean}}
+ */
+const morph = (rawValue, midiFrom) => {
+    const rawOffsetValue = (rawValue & 0x07f0) >>> 4;
+    const up = (rawValue & 0x0800) !== 0;
+    const offset = up ? rawOffsetValue + 1: rawOffsetValue - 127;
+    const enabled = offset !== 0;
+    const midiTo = midiFrom + offset;
+
+    return {
+        enabled: enabled,
+        midiTo: enabled ? getVolumeValueAndLabel(midiTo): "none",
+    }
+};
 
 /***
  * returns Volume settings with Morph options
@@ -85,21 +105,9 @@ exports.getVolumeEx = (buffer, offset) => {
     const morphOffsetB8W = buffer.readUInt16BE(offset + 2); // 0xB8
     const morphOffsetB9W = buffer.readUInt16BE(offset + 3); // 0xB9
 
-    const morph = (rawValue, midiFrom) => {
-        const rawOffsetValue = (rawValue & 0x07f0) >> 4;
-        const up = (rawValue & 0x0800) !== 0;
-        const offset = up ? rawOffsetValue + 1: rawOffsetValue - 127;
-        const enabled = offset !== 0;
-        const midiTo = midiFrom + offset;
-
-        return {
-            enabled: enabled,
-            midiTo: enabled ? getVolumeValueAndLabel(midiTo): "none",
-        }
-    }
 
     // From value
-    const volume = getVolumeValueAndLabel((organOffsetB6W & 0x07f0) >> 4);
+    const volume = getVolumeValueAndLabel((organOffsetB6W & 0x07f0) >>> 4);
 
     // To values
     const morphWheel = morph(morphOffsetB7W, volume.midi);
@@ -127,13 +135,11 @@ exports.getVolumeEx = (buffer, offset) => {
             wheel: {
                 /***
                  * Wheel Morphing Level On/Off
-                 * Offset in file: 0xB8 (b4) 0 = Enabled, 1 = Disabled
                  */
                 enabled: morphWheel.enabled,
 
                 /***
                  * Wheel Morphing Final Level Value
-                 * Offset in file: 0xB7 (b3-0) and 0xB8 (b7-5) 0/127 midi value
                  */
                 to: morphWheel.midiTo,
             },
@@ -144,13 +150,11 @@ exports.getVolumeEx = (buffer, offset) => {
             afterTouch: {
                 /***
                  * After Touch Morphing Level On/Off
-                 * Offset in file: 0xB8 (b4) 0 = Enabled, 1 = Disabled
                  */
                 enabled: morphAfterTouch.enabled,
 
                 /***
                  * After Touch Morphing Final Level Value
-                 * Offset in file: 0xB7 (b3-0) and 0xB8 (b7-5) 0/127 midi value
                  */
                 to: morphAfterTouch.midiTo,
             },
@@ -161,13 +165,11 @@ exports.getVolumeEx = (buffer, offset) => {
             controlPedal: {
                 /***
                  * Control Pedal Morphing Level On/Off
-                 * Offset in file: 0xB8 (b4) 0 = Enabled, 1 = Disabled
                  */
                 enabled: morphControlPedal.enabled,
 
                 /***
                  * Control Pedal Morphing Final Level Value
-                 * Offset in file: 0xB7 (b3-0) and 0xB8 (b7-5) 0/127 midi value
                  */
                 to: morphControlPedal.midiTo,
             },

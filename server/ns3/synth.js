@@ -63,39 +63,45 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const synthOffset9cW = buffer.readUInt16BE(0x9c + panelOffset);
     const synthOffsetA0W = buffer.readUInt16BE(0xa0 + panelOffset);
     const synthOffsetA4W = buffer.readUInt16BE(0xa4 + panelOffset);
-    const synthOffsetA8 = buffer.readUInt8(0xa8 + panelOffset);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
     const synthOffsetA6W = buffer.readUInt16BE(0xa6 + panelOffset);
     const synthOffsetA7W = buffer.readUInt16BE(0xa7 + panelOffset);
+    const synthOffsetA8 = buffer.readUInt8(0xa8 + panelOffset);
+    const synthOffsetA8W = buffer.readUInt16BE(0xa8 + panelOffset);
+    const synthOffsetA9W = buffer.readUInt16BE(0xa9 + panelOffset);
+    const synthOffsetAaW = buffer.readUInt16BE(0xaa + panelOffset);
+    const synthOffsetAbW = buffer.readUInt16BE(0xab + panelOffset);
     const synthOffsetAc = buffer.readUInt8(0xac + panelOffset);
 
-    const oscillatorType = mapping.synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >> 7);
+
+
+    const oscillatorType = mapping.synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >>> 7);
     let oscillator1WaveForm = "";
     switch (oscillatorType) {
         case "Classic":
-            oscillator1WaveForm = mapping.synthOscillator1ClassicWaveTypeMap.get((synthOffset8eW & 0x01c0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1ClassicWaveTypeMap.get((synthOffset8eW & 0x01c0) >>> 6);
             break;
         case "Wave":
-            oscillator1WaveForm = mapping.synthOscillator1WaveWaveTypeMap.get((synthOffset8eW & 0x0fc0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1WaveWaveTypeMap.get((synthOffset8eW & 0x0fc0) >>> 6);
             break;
         case "Formant":
-            oscillator1WaveForm = mapping.synthOscillator1FormantWaveTypeMap.get((synthOffset8eW & 0x03c0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1FormantWaveTypeMap.get((synthOffset8eW & 0x03c0) >>> 6);
             break;
         case "Super":
-            oscillator1WaveForm = mapping.synthOscillator1SuperWaveTypeMap.get((synthOffset8eW & 0x01c0) >> 6);
+            oscillator1WaveForm = mapping.synthOscillator1SuperWaveTypeMap.get((synthOffset8eW & 0x01c0) >>> 6);
             break;
         case "Sample":
-            oscillator1WaveForm = "Sample " + (((synthOffset8eW & 0x7fc0) >> 6) + 1);
+            oscillator1WaveForm = "Sample " + (((synthOffset8eW & 0x7fc0) >>> 6) + 1);
             break;
     }
 
-    const oscConfig = mapping.synthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >> 1);
+    const oscConfig = mapping.synthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >>> 1);
 
-    const osc2Pitch = ((synthOffset8fW & 0x01f8) >> 3) - 12;
+    const osc2Pitch = ((synthOffset8fW & 0x01f8) >>> 3) - 12;
     const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127) / (48 + 12));
 
-    const oscCtrlMidi = (synthOffset90W & 0x07f0) >> 4;
-    const oscModulation = getKnobDualValues((synthOffset94W & 0x0fe0) >> 5);
+    const oscCtrlMidi = (synthOffset90W & 0x07f0) >>> 4;
+    const oscModulation = getKnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
 
     let oscCtrl = "";
     switch (oscConfig) {
@@ -145,27 +151,38 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
 
     const lfoRateMidi = synthOffset87 & 0x7f;
 
-    const envModAttackMidi = (synthOffset8bW & 0xfe00) >> 9;
-    const envModDecayMidi = (synthOffset8bW & 0x01fc) >> 2;
-    const envModReleaseMidi = (synthOffset8cW & 0x03f8) >> 3;
+    const envModAttackMidi = (synthOffset8bW & 0xfe00) >>> 9;
+    const envModDecayMidi = (synthOffset8bW & 0x01fc) >>> 2;
+    const envModReleaseMidi = (synthOffset8cW & 0x03f8) >>> 3;
 
-    const envAmpAttackMidi = (synthOffsetA5W & 0x03f8) >> 3;
-    const envAmpDecayMidi = (synthOffsetA6W & 0x07f0) >> 4;
-    const envAmpReleaseMidi = (synthOffsetA7W & 0x0fe0) >> 5;
+    const envAmpAttackMidi = (synthOffsetA5W & 0x03f8) >>> 3;
+    const envAmpDecayMidi = (synthOffsetA6W & 0x07f0) >>> 4;
+    const envAmpReleaseMidi = (synthOffsetA7W & 0x0fe0) >>> 5;
 
-    const filterType = mapping.synthFilterTypeMap.get((synthOffset98 & 0x1c) >> 2);
-    const filterModulation1KnobMidi = (synthOffsetA0W & 0x0fe0) >> 5;
-    const filterModulation2Knob = getKnobDualValues((synthOffsetA4W & 0x1fc0) >> 6);
-    const filterResFreqHpKnobMidi = (synthOffset9cW & 0x07f0) >> 4;
-    const filterCutoffFreqKnobMidi = (synthOffset98W & 0x03f8) >> 3;
+    const filterType = mapping.synthFilterTypeMap.get((synthOffset98 & 0x1c) >>> 2);
+    const filterModulation1KnobMidi = (synthOffsetA0W & 0x0fe0) >>> 5;
+    const filterModulation2Knob = getKnobDualValues((synthOffsetA4W & 0x1fc0) >>> 6);
+    const filterResFreqHpKnobMidi = (synthOffset9cW & 0x07f0) >>> 4;
+    const filterCutoffFreqKnobMidi = (synthOffset98W & 0x03f8) >>> 3;
 
-    const arpeggiatorRange = (synthOffset80 & 0x18) >> 3;
-    const arpeggiatorPattern = (synthOffset80 & 0x06) >> 1;
-    const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >> 1;
+    const arpeggiatorRange = (synthOffset80 & 0x18) >>> 3;
+    const arpeggiatorPattern = (synthOffset80 & 0x06) >>> 1;
+    const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >>> 1;
     const arpeggiatorMasterClock = (synthOffset80 & 0x01) !== 0;
     const synthEnabled = (synthOffset52W & 0x8000) !== 0;
 
-    return {
+    const sampleId1 = ((synthOffsetA8W & 0x07f8) >>> 3) * Math.pow(2, 24);
+    const sampleId2 = ((synthOffsetA9W & 0x07f8) >>> 3) * Math.pow(2, 16);
+    const sampleId3 = ((synthOffsetAaW & 0x07f8) >>> 3) * Math.pow(2, 8);
+    const sampleId4 = (synthOffsetAbW & 0x07f8) >>> 3;
+    const sampleId = sampleId1 + sampleId2 + sampleId3 + sampleId4;
+
+    const synth = {
+        debug: {
+            name: mapping.sampleIdMap.get(sampleId),
+            sampleId: sampleId.toString(16),
+        },
+
         /***
          * Synth Enabled:
          * Offset in file: 0x52 (b7): O = disabled, 1 = enabled
@@ -177,7 +194,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0x52 (b6 to b3)
          * ref Organ section for more examples
          */
-        kbZone: getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >> 11),
+        kbZone: getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11),
 
         /***
          * Synth Volume:
@@ -197,7 +214,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          */
         pitchStick: (synthOffset57 & 0x80) !== 0,
 
-        //pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >> 4),
+        //pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >>> 4),
 
         /***
          * Synth Sustain Pedal:
@@ -215,7 +232,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          * Synth Voices:
          * Offset in file: 0x84 (b0) and 0x85 (b7)
          */
-        voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >> 7),
+        voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
 
         /***
          * Synth Glide:
@@ -227,13 +244,13 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          * Synth Unison:
          * Offset in file: 0x86 (b7/6)
          */
-        unison: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >> 6),
+        unison: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
 
         /***
          * Synth Vibrato:
          * Offset in file: 0x86 (b5/4/3)
          */
-        vibrato: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >> 3),
+        vibrato: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
 
         /***
          * Synth Oscillators Definition
@@ -320,8 +337,8 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         },
         filter: {
             type: filterType,
-            kbTrack: mapping.synthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >> 12),
-            drive: mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >> 10),
+            kbTrack: mapping.synthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >>> 12),
+            drive: mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >>> 10),
             modulations: {
                 lfoAmount: {
                     midi: filterModulation1KnobMidi,
@@ -382,7 +399,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                     midi: envAmpReleaseMidi,
                     label: synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
                 },
-                velocity: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >> 3),
+                velocity: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >>> 3),
             },
         },
         lfo: {
@@ -407,4 +424,10 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
             pattern: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern),
         },
     };
+
+    if (process.env.NODE_ENV === 'production')  {
+        synth.debug = null;
+    }
+
+    return synth;
 };
