@@ -426,7 +426,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     };
 
     if (process.env.NODE_ENV === 'production')  {
-        synth.debug = null;
+        synth.debug = undefined;
     }
 
     return synth;
