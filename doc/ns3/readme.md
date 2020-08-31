@@ -56,7 +56,7 @@
 | `0x002E` | `--------` |
 | `0x002F` | `--------` |
 | `0x0030` | `--------` |
-| `0x0031` | `---sssss` | [split](./ns3-split.md) 0x31 (b4 to b0) to 0x34 (b7 only)
+| `0x0031` | `---sssss` | [split](global/ns3-split.md) 0x31 (b4 to b0) to 0x34 (b7 only)
 | `0x0032` | `ssssssss` |
 | `0x0033` | `ssssssss` |
 | `0x0034` | `s-------` |
