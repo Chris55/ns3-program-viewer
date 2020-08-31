@@ -212,12 +212,12 @@ exports.organTypeMap = new Map([
  * @type {Map<number, string>}
  */
 exports.organVibratoModeMap = new Map([
-    [0x00, "V1"],
-    [0x01, "C1"],
-    [0x02, "V2"],
-    [0x03, "C2"],
-    [0x04, "V3"],
-    [0x05, "C3"],
+    [0, "V1"],
+    [1, "C1"],
+    [2, "V2"],
+    [3, "C2"],
+    [4, "V3"],
+    [5, "C3"],
 ]);
 
 /***

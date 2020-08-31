@@ -2,7 +2,7 @@
 
 ns3f file description:
 
-| offset   | bits       | description                         
+| offset   | bits       | description
 | :---:    |   :----:   | :---
 | -------- | ---------- | -----------------------------------
 |          | `76543210` |
@@ -26,8 +26,8 @@ ns3f file description:
 | `0x0011` | `--------` |
 | `0x0012` | `--------` |
 | `0x0013` | `--------` |
-| `0x0014` | `--------` |
-| `0x0015` | `--------` |
+| `0x0014` | `iiiiiiii` | [version](global/ns3-version.md) (16 bits value)
+| `0x0015` | `iiiiiiii` |
 | `0x0016` | `--------` |
 | `0x0017` | `--------` |
 | `0x0018` | `--------` |
@@ -55,15 +55,15 @@ ns3f file description:
 | `0x002E` | `--------` |
 | `0x002F` | `--------` |
 | `0x0030` | `--------` |
-| `0x0031` | `---sssss` | [split](global/ns3-split.md) 0x31 (b4 to b0) to 0x34 (b7 only)
+| `0x0031` | `pppsssss` | p = [Panel](global/ns3-panel.md), s = [Split](global/ns3-split.md)
 | `0x0032` | `ssssssss` |
 | `0x0033` | `ssssssss` |
-| `0x0034` | `s-------` |
+| `0x0034` | `sddpvvv-` | d = [Piano Layer Detune](piano/ns3-piano-layer-detune.md), p = Organ PStick, v = [Organ Vibrato Mode](organ/ns3-organ-vibrato-mode.md)
 | `0x0035` | `--------` |
 | `0x0036` | `--------` |
 | `0x0037` | `--------` |
-| `0x0038` | `--------` |
-| `0x0039` | `--------` |
+| `0x0038` | `tttttccc` | t = [Transpose](global/ns3-transpose.md), c = [Master Clock Rate](global/ns3-master-clock.md)
+| `0x0039` | `ccccc---` |
 | `0x003A` | `--------` |
 | `0x003B` | `--------` |
 | `0x003C` | `--------` |

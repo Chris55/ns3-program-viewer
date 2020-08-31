@@ -7,8 +7,9 @@
         "server": "nodemon server.js",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "start": "NODE_ENV=production node server.js",
-        "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-        "test": "jest"
+        "heroku-postbuild": "cd client && npminstall && npm install --only=dev --no-shrinkwrap && npm run build",
+        "test": "jest",
+        "doc": "jsdoc ./server/nord-service.js -t ./node_modules/better-docs --verbose"
     },
     "dependencies": {
         "body-parser": "^1.18.3",
@@ -20,9 +21,11 @@
     },
     "devDependencies": {
         "@types/jest": "^26.0.10",
+        "better-docs": "^2.3.1",
         "concurrently": "^4.0.1",
         "eslint": "^6.6.0",
         "jest": "^24.9.0",
+        "jsdoc": "^3.6.5",
         "prettier": "^2.1.1"
     },
     "keywords": [
@@ -61,7 +64,9 @@
         "plugins": [
             "jest"
         ],
-        "ignorePatterns": ["client/**/*.js"]
+        "ignorePatterns": [
+            "client/**/*.js"
+        ]
     },
     "prettier": {}
 }

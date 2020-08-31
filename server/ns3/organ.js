@@ -52,7 +52,7 @@ const getDrawbars = function (buffer, offset, type) {
  * @param buffer
  * @param panelOffset
  * @param splitEnabled
- * @returns {{volume: {midi: *, label: unknown}, preset2: string, pitchStick: boolean, kbZone: unknown, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: unknown, enabled: boolean}}}
+ * @returns {{volume: {midi: *, label: string, morph: {afterTouch: {to: ({midi: *, label: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, label: string}|string), enabled: boolean}, wheel: {to: ({midi: *, label: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}}
  */
 exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
