@@ -9,7 +9,7 @@
         "start": "NODE_ENV=production node server.js",
         "heroku-postbuild": "cd client && npminstall && npm install --only=dev --no-shrinkwrap && npm run build",
         "test": "jest",
-        "doc": "jsdoc2md server/ns3/*.js > doc/api.md"
+        "doc": "jsdoc2md server/ns3/*.js > doc/ns3/api.md"
     },
     "dependencies": {
         "body-parser": "^1.18.3",

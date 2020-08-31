@@ -1,7 +1,3 @@
-/**
- * @module NS3 Effects
- */
-
 const converter = require("../common/converter");
 const mapping = require("./mapping");
 
@@ -28,7 +24,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * Values:
          * 0 = disabled, 1 = enabled
          *
-         * @category Rotary-Speaker
+         * @module NS3 Rotary Speaker On
          */
         enabled: (rotarySpeakerOffset10B & 0x80) !== 0,
 
@@ -39,7 +35,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * Values:
          * 0 = Organ, 1, Piano, 2 = Synth
          *
-         * @category Rotary-Speaker
+         * @module NS3 Rotary Speaker Source
          */
         source: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
 
@@ -50,7 +46,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * Values:
          * 7 bits value 0/127 converted to 0/10
          *
-         * @category Rotary-Speaker
+         * @module NS3 Rotary Speaker Drive
          */
         drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >>> 4, 1, ""),
 
@@ -61,7 +57,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * Values:
          * 0 = enabled (Speed Stop), 1 = disabled (Speed Slow)
          *
-         * @category Rotary-Speaker
+         * @module NS3 Rotary Speaker Stop Mode
          */
         stopMode: !((organOffset35 & 0x80) >>> 7 !== 0),
 
@@ -72,7 +68,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * Values:
          * 0 = Slow/Stop, 1 = Fast
          *
-         * @category Rotary-Speaker
+         * @module NS3 Rotary Speaker Speed
          */
         speed: mapping.rotarySpeakerSpeedMap.get(organOffset34 & 0x01),
     };
@@ -108,7 +104,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  0x00: OFF
          *  0x10: ON
          *
-         *  @category Effect-1
+         * @module NS3 Effect 1 On
          */
         enabled: (effectOffset10b & 0x10) !== 0,
 
@@ -120,7 +116,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  0x04: Piano
          *  0x08: Synth
          *
-         *  @category Effect-1
+         * @module NS3 Effect 1 Source
          */
         source: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
 
@@ -135,7 +131,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  0x02 0x00: A-WA1
          *  0x02 0x80: A-WA2
          *
-         *  @category Effect-1
+         * @module NS3 Effect 1 Type
          */
         type: effect1Type,
 
@@ -149,7 +145,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  if you get 0x15, that is 21 / 127 * 10 = 1.6535. Then Label is "1.7"
          *  if you get 0x16, that is 22 / 127 * 10 = 1.732. Then Label is "1.7" (yes, same)
          *
-         *  @category Effect-1
+         * @module NS3 Effect 1 Amount
          */
         amount: {
             midi: effect1AmountMidi,
@@ -164,7 +160,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * If you get 0x3F 0x80, then that shifted 1 bit to the left is 0x7F.
          * Then, same logic as with Amount for the label.
          *
-         * @category Effect-1
+         * @module NS3 Effect 1 Rate
          */
         rate: {
             midi: effect1RateMidi,
@@ -180,7 +176,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  0x00: OFF
          *  0x40: ON
          *
-         *  @category Effect-1
+         * @module NS3 Effect 1 MAster Clock
          */
         masterClock: effect1MasterClockUsed,
     };
@@ -211,7 +207,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          *  0x00: OFF
          *  0x10: ON
          *
-         *  @category Effect-2
+         * @module NS3 Effect 2 On
          */
         enabled: (effectOffset114 & 0x80) !== 0,
 
@@ -223,7 +219,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          *  0x04: Piano
          *  0x08: Synth
          *
-         *  @category Effect-2
+         * @module NS3 Effect 2 Source
          */
         source: mapping.effectSourceMap.get((effectOffset114 & 0x60) >>> 5),
 
@@ -238,7 +234,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * 0x10: CHOR1
          * 0x14: CHOR2
          *
-         * @category Effect-2
+         * @module NS3 Effect 2 Type
          */
         type: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2),
 
@@ -248,7 +244,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * 0x07 + 0x115 AND 0xF0. All that then shifted for places to the right.
          * To calculate number it is same as amount on effects 1
          *
-         * @category Effect-2
+         * @module NS3 Effect 2 Amount
          */
         amount: {
             midi: effect2AmountMidi,
@@ -261,7 +257,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * So, 0x114 AND 0x03 + 0x115 AND 0xF8. All that shifted 3 places to the right
          * Sames as Amount
          *
-         * @category Effect-2
+         * @module NS3 Effect 2 Rate
          */
         rate: {
             midi: effect2RateMidi,
