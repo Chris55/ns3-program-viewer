@@ -108,7 +108,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * Offset in file:
          *
          * `Volume:
-         * 0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 range
+         * 0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 range`
          *
          * Morph Wheel:
          * 0xB7 (b3): direction (1 = up, 0 = down)
