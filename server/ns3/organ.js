@@ -23,6 +23,10 @@ const getDrawbars = function (buffer, offset, type) {
     const organDrawbar7Flag = buffer.readUInt16BE(offset + 16); // 0xce
     const organDrawbar8Flag = buffer.readUInt8(offset + 19); // 0xd1
 
+    /**
+     *
+     *
+     */
     let d0 = (organDrawbar0Flag & 0xf0) >>> 4;
     let d1 = (organDrawbar1Flag & 0x1e) >>> 1;
     let d2 = (organDrawbar2Flag & 0b0000001111000000) >>> 6; //0x03c0
@@ -101,7 +105,28 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         kbZone: getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11),
 
         /**
-         * Offset in file: 0xB6 (b2 to b0), 0xB7 (b7 to b4) 7 bits = 0/127 range
+         * Offset in file:
+         *
+         * Volume:
+         * 0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 range
+         *
+         * Morph Wheel:
+         * 0xB7 (b3): direction (1 = up, 0 = down)
+         * 0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw value
+         *
+         * Morph After Touch:
+         * 0xB8 (b3): direction (1 = up, 0 = down)
+         * 0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw value
+         *
+         * Morph Control Pedal:
+         * 0xB9 (b3): direction (1 = up, 0 = down)
+         * 0xBA (b2-b0), 0xBA (b7-b4): 7-bit raw value
+         *
+         * if direction = 1 then Morph offset value = raw value + 1
+         * if direction = 0 then Morph offset value = raw value - 127
+         *
+         * Final 'To' Morph value = 'From value (aka original volume)' + 'Morph offset value'
+         * Morph Enabled if  'From value' <> 'Morph offset value'
          *
          * @module Organ Volume
          */
