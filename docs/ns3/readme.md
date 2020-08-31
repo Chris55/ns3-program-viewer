@@ -24,7 +24,7 @@ ns3f file description:
 | `0x0011` | `--------` |
 | `0x0012` | `--------` |
 | `0x0013` | `--------` |
-| `0x0014` | `iiiiiiii` | [File Version](api.md#File-version) (16-bit)
+| `0x0014` | `iiiiiiii` | [File Version](api.md#file-version) (16-bit)
 | `0x0015` | `iiiiiiii` |
 | `0x0016` | `--------` |
 | `0x0017` | `--------` |
@@ -56,8 +56,8 @@ ns3f file description:
 | `0x0031` | `pppsssss` | [(p)anel](api.md#panel-enabled-and-selection), [(s)plit](api.md#split)
 | `0x0032` | `ssssssss` |
 | `0x0033` | `ssssssss` |
-| `0x0034` | `sddpvvvr` | [piano layer (d)etune](api.md#piano-layer-detune), organ (p)stick, [organ (v)ibrato mode](api.md#Organ-Vibrato-Mode), [(r)otary speaker speed](api.md#Rotary-Speaker-Speed)
-| `0x0035` | `m-------` | [rotary speaker stop (m)ode](api.md#Rotary-Speaker-Stop-Mode)
+| `0x0034` | `sddpvvvr` | [piano layer (d)etune](api.md#piano-layer-detune), [organ (p)itch stick](api.md#organ-pitch-stick), [organ (v)ibrato mode](api.md#organ-vibrato-mode), [(r)otary speaker speed](api.md#rotary-speaker-speed)
+| `0x0035` | `m-------` | [rotary speaker stop (m)ode](api.md#rotary-speaker-stop-mode)
 | `0x0036` | `--------` |
 | `0x0037` | `--------` |
 | `0x0038` | `tttttccc` | [(t)ranspose](api.md#transpose), [master (c)lock rate](api.md#master-clock-rate)
@@ -186,14 +186,78 @@ ns3f file description:
 | `0x00B3` | `--------` |
 | `0x00B4` | `--------` |
 | `0x00B5` | `--------` |
-| `0x00B6` | `------vv` | [organ (v)olume](api.md#organ-volume)
-| `0x00B7` | `vvvvvwww` | [organ morph (w)heel](api.md#organ-volume)
-| `0x00B8` | `wwwwwaaa` | [organ morph (a)fter touch](api.md#organ-volume)
-| `0x00B9` | `aaaaappp` | [organ morph control (p)edal](api.md#organ-volume)
-| `0x00BA` | `ppppp---` |
-| `0x00BB` | `--------` |
+| `0x00B6` | `ozzzzvvv` | [organ (o)n](api.md#organ-on), [organ kb (z)one](api.md#organ-kb-zone), [organ (v)olume](api.md#organ-volume)
+| `0x00B7` | `vvvvwwww` | [organ volume morph (w)heel](api.md#organ-volume)
+| `0x00B8` | `wwwwaaaa` | [organ volume morph (a)fter touch](api.md#organ-volume)
+| `0x00B9` | `aaaapppp` | [organ volume morph control (p)edal](api.md#organ-volume)
+| `0x00BA` | `pppp-ooo` | [organ (o)ctave shift](api.md#organ-octave-shift)
+| `0x00BB` | `stttl---` | [organ (s)ustain-pedal](api.md#organ-sustain-pedal),[organ (t)ype](api.md#organ-type),[organ (l)ive mode](api.md#organ-live-mode)
 | `0x00BC` | `--------` |
 | `0x00BD` | `--------` |
-| `0x00BE` | `--------` |
+| `0x00BE` | `1111----` | [organ preset 1 drawbar (1)](api.md#organ-drawbars-preset-1),
 | `0x00BF` | `--------` |
+| `0x00C0` | `---2222-` | [organ preset 1 drawbar (2)](api.md#organ-drawbars-preset-1),
+| `0x00C1` | `--------` |
+| `0x00C2` | `------33` | [organ preset 1 drawbar (3)](api.md#organ-drawbars-preset-1),
+| `0x00C3` | `33------` |
+| `0x00C4` | `--------` |
+| `0x00C5` | `-4444---` | [organ preset 1 drawbar (4)](api.md#organ-drawbars-preset-1),
+| `0x00C6` | `--------` |
+| `0x00C7` | `----5555` | [organ preset 1 drawbar (5)](api.md#organ-drawbars-preset-1),
+| `0x00C8` | `--------` |
+| `0x00C9` | `-------6` | [organ preset 1 drawbar (6)](api.md#organ-drawbars-preset-1),
+| `0x00CA` | `666-----` |
+| `0x00CB` | `--------` |
+| `0x00CC` | `--7777--` | [organ preset 1 drawbar (7)](api.md#organ-drawbars-preset-1),
+| `0x00CD` | `--------` |
+| `0x00CE` | `-----888` | [organ preset 1 drawbar (8)](api.md#organ-drawbars-preset-1),
+| `0x00CF` | `8-------` |
+| `0x00D0` | `--------` |
+| `0x00D1` | `9999----` | [organ preset 1 drawbar (9)](api.md#organ-drawbars-preset-1),
+| `0x00D2` | `--------` |
+| `0x00D3` | `---vphds` | [organ (v)ibrato on](api.md#organ-vibrato-on), [organ (p)ercussion on](api.md#organ-percussion-on), [organ percussion (h)armonic third](api.md#organ-percussion-harmonic-third), [organ percussion (d)ecay fast](api.md#organ-percussion-decay-fast), [organ percussion volume (s)oft](api.md#organ-percussion-volume-soft)
+| `0x00D4` | `--------` |
+| `0x00D5` | `--------` |
+| `0x00D6` | `--------` |
+| `0x00D7` | `--------` |
+| `0x00D8` | `--------` |
+| `0x00D9` | `1111----` | [organ preset 2 drawbar (1)](api.md#organ-drawbars-preset-2),
+| `0x00DA` | `--------` |
+| `0x00DB` | `---2222-` | [organ preset 2 drawbar (2)](api.md#organ-drawbars-preset-2),
+| `0x00DC` | `--------` |
+| `0x00DD` | `------33` | [organ preset 2 drawbar (3)](api.md#organ-drawbars-preset-2),
+| `0x00DE` | `33------` |
+| `0x00DF` | `--------` |
+| `0x00E0` | `-4444---` | [organ preset 2 drawbar (4)](api.md#organ-drawbars-preset-2),
+| `0x00E1` | `--------` |
+| `0x00E2` | `----5555` | [organ preset 2 drawbar (5)](api.md#organ-drawbars-preset-2),
+| `0x00E3` | `--------` |
+| `0x00E4` | `-------6` | [organ preset 2 drawbar (6)](api.md#organ-drawbars-preset-2),
+| `0x00E5` | `666-----` |
+| `0x00E6` | `--------` |
+| `0x00E7` | `--7777--` | [organ preset 2 drawbar (7)](api.md#organ-drawbars-preset-2),
+| `0x00E8` | `--------` |
+| `0x00E9` | `-----888` | [organ preset 2 drawbar (8)](api.md#organ-drawbars-preset-2),
+| `0x00EA` | `8-------` |
+| `0x00EB` | `--------` |
+| `0x00EC` | `9999----` | [organ preset 2 drawbar (9)](api.md#organ-drawbars-preset-2),
+| `0x00ED` | `--------` |
+| `0x00EE` | `--------` |
+| `0x00EF` | `--------` |
+| `0x00F0` | `--------` |
+| `0x00F1` | `--------` |
+| `0x00F2` | `--------` |
+| `0x00F3` | `--------` |
+| `0x00F4` | `--------` |
+| `0x00F5` | `--------` |
+| `0x00F6` | `--------` |
+| `0x00F7` | `--------` |
+| `0x00F8` | `--------` |
+| `0x00F9` | `--------` |
+| `0x00FA` | `--------` |
+| `0x00FB` | `--------` |
+| `0x00FC` | `--------` |
+| `0x00FD` | `--------` |
+| `0x00FE` | `--------` |
+| `0x00FF` | `--------` |
 ```
