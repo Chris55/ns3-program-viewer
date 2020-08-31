@@ -206,7 +206,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * Effect 2 Amount:
          * Offset in file: 0x115 (last 3 bits) and 0x116 (first 4 bits) So 0x115 AND
          * 0x07 + 0x115 AND 0xF0. All that then shifted for places to the right.
-         * To calculate number it is same as amount on Effects 1
+         * To calculate number it is same as amount on effects 1
          */
         amount: {
             midi: effect2AmountMidi,

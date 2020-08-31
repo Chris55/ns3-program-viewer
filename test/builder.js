@@ -37,7 +37,7 @@ const build = async(folder, testFilename) => {
 }
 
 const buildAll = async() => {
-    await build("/ns3/Effects", "ns3.effects.test.js");
+    await build("/ns3/effects", "ns3.effects.test.js");
     await build("/ns3/Global", "ns3.global.test.js");
     await build("/ns3/Morph", "ns3.morph.test.js");
     await build("/ns3/Organ", "ns3.organ.test.js");
