@@ -18,57 +18,52 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
 
     return {
         /**
-         * Rotary Speaker On:
          * Offset in file: 0x10b (bit7):
          *
          * Values:
          * 0 = disabled, 1 = enabled
          *
-         * @module NS3 Rotary Speaker On
+         * @module Rotary Speaker On
          */
         enabled: (rotarySpeakerOffset10B & 0x80) !== 0,
 
         /**
-         * Rotary Speaker Source:
          * Offset in file: 0x10b (b6 and b5):
          *
          * Values:
          * 0 = Organ, 1, Piano, 2 = Synth
          *
-         * @module NS3 Rotary Speaker Source
+         * @module Rotary Speaker Source
          */
         source: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
 
         /**
-         * Rotary Speaker Drive:
          * Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4):
          *
          * Values:
          * 7 bits value 0/127 converted to 0/10
          *
-         * @module NS3 Rotary Speaker Drive
+         * @module Rotary Speaker Drive
          */
         drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >>> 4, 1, ""),
 
         /**
-         * Rotary Speaker Stop Mode:
          * Offset in file: 0x35 (bit7):
          *
          * Values:
          * 0 = enabled (Speed Stop), 1 = disabled (Speed Slow)
          *
-         * @module NS3 Rotary Speaker Stop Mode
+         * @module Rotary Speaker Stop Mode
          */
         stopMode: !((organOffset35 & 0x80) >>> 7 !== 0),
 
         /**
-         * Rotary Speaker Speed
          * Offset in file: 0x34 (bit0):
          *
          * Values:
          * 0 = Slow/Stop, 1 = Fast
          *
-         * @module NS3 Rotary Speaker Speed
+         * @module Rotary Speaker Speed
          */
         speed: mapping.rotarySpeakerSpeedMap.get(organOffset34 & 0x01),
     };
@@ -98,30 +93,27 @@ exports.getEffect1 = (buffer, panelOffset) => {
 
     return {
         /**
-         * Effect 1 ON:
          * Offset in file: 0x10b LSB 5 (AND 0x10)
          *
          *  0x00: OFF
          *  0x10: ON
          *
-         * @module NS3 Effect 1 On
+         *  @module Effect 1 On
          */
         enabled: (effectOffset10b & 0x10) !== 0,
 
         /**
-         * Effect 1 SOURCE:
          * Offset in file: 0x10b only 2 bits (AND 0x0C)
          *
          *  0x00: Organ
          *  0x04: Piano
          *  0x08: Synth
          *
-         * @module NS3 Effect 1 Source
+         *  @module Effect 1 Source
          */
         source: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
 
         /**
-         *  Effect 1 TYPE:
          *  Offset 0 in file: 0x10b two bit (AND 0x03) 0x10c one bit (AND 0x80)
          *
          *  0x00 0x00: A-Pan
@@ -131,21 +123,22 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  0x02 0x00: A-WA1
          *  0x02 0x80: A-WA2
          *
-         * @module NS3 Effect 1 Type
+         *  @module Effect 1 Type
          */
         type: effect1Type,
 
         /**
-         * Effect 1 Amount:
          * Offset in file: 0x110 only last 7 bits (AND 0x7F)
          *
          * Label: The number you get there, divided by 127 (7 bits) multiplied by 10.
          * Then rounded to 1 dec
-         *  Example: if you get 0x2A, that is 42 / 127 * 10 = 3.307. Then Label is "3.3"
-         *  if you get 0x15, that is 21 / 127 * 10 = 1.6535. Then Label is "1.7"
-         *  if you get 0x16, that is 22 / 127 * 10 = 1.732. Then Label is "1.7" (yes, same)
          *
-         * @module NS3 Effect 1 Amount
+         * @example
+         * if you get 0x2A, that is 42 / 127 * 10 = 3.307. Then Label is "3.3"
+         * if you get 0x15, that is 21 / 127 * 10 = 1.6535. Then Label is "1.7"
+         * if you get 0x16, that is 22 / 127 * 10 = 1.732. Then Label is "1.7" (yes, same)
+         *
+         *  @module Effect 1 Amount
          */
         amount: {
             midi: effect1AmountMidi,
@@ -153,14 +146,13 @@ exports.getEffect1 = (buffer, panelOffset) => {
         },
 
         /**
-         * Effect 2 Rate:
          * Offset in file: last 6 bits of 0x10c (AND 0x3F) and first bit of 0x10d (and 0x80).
          *
          * So, those 2 bytes shifted 1 bit to the left, in order to get just 1 byte.
          * If you get 0x3F 0x80, then that shifted 1 bit to the left is 0x7F.
          * Then, same logic as with Amount for the label.
          *
-         * @module NS3 Effect 1 Rate
+         * @module Effect 1 Rate
          */
         rate: {
             midi: effect1RateMidi,
@@ -170,13 +162,12 @@ exports.getEffect1 = (buffer, panelOffset) => {
         },
 
         /**
-         *  Effect 1 Master clock:
          *  Offset in file: 0x10c 2nd MS bit (AND 0x40):
          *
          *  0x00: OFF
          *  0x40: ON
          *
-         * @module NS3 Effect 1 MAster Clock
+         *  @module Effect 1 Master Clock
          */
         masterClock: effect1MasterClockUsed,
     };
@@ -201,50 +192,46 @@ exports.getEffect2 = (buffer, panelOffset) => {
 
     return {
         /**
-         * Effect 2 ON:
          * Offset in file: 0x114 b7 (AND 0x80)
          *
          *  0x00: OFF
          *  0x10: ON
          *
-         * @module NS3 Effect 2 On
+         *  @module Effect 2 On
          */
         enabled: (effectOffset114 & 0x80) !== 0,
 
         /**
-         * Effect 2 SOURCE:
          * Offset in file: 0x114 b6 and b5 (AND 0x60)
          *
          *  0x00: Organ
          *  0x04: Piano
          *  0x08: Synth
          *
-         * @module NS3 Effect 2 Source
+         *  @module Effect 2 Source
          */
         source: mapping.effectSourceMap.get((effectOffset114 & 0x60) >>> 5),
 
         /**
-         *  Effect 2 TYPE:
-         *  Offset in file: 0x114 bits 4-2 (AND 0x1C)
+         * Offset in file: 0x114 bits 4-2 (AND 0x1C)
          *
-         * 0x00: PHAS1
-         * 0x04: PHAS2
-         * 0x08: FLANG
-         * 0x0C: VIBE
-         * 0x10: CHOR1
-         * 0x14: CHOR2
+         *  0x00: PHAS1
+         *  0x04: PHAS2
+         *  0x08: FLANG
+         *  0x0C: VIBE
+         *  0x10: CHOR1
+         *  0x14: CHOR2
          *
-         * @module NS3 Effect 2 Type
+         * @module Effect 2 Type
          */
         type: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2),
 
         /**
-         * Effect 2 Amount:
          * Offset in file: 0x115 (last 3 bits) and 0x116 (first 4 bits) So 0x115 AND
          * 0x07 + 0x115 AND 0xF0. All that then shifted for places to the right.
          * To calculate number it is same as amount on effects 1
          *
-         * @module NS3 Effect 2 Amount
+         * @module Effect 2 Amount
          */
         amount: {
             midi: effect2AmountMidi,
@@ -252,12 +239,11 @@ exports.getEffect2 = (buffer, panelOffset) => {
         },
 
         /**
-         * Effect 2 Rate:
          * Offset in file: last 2 bits of 0x114 and first 5 bits of 0x115
          * So, 0x114 AND 0x03 + 0x115 AND 0xF8. All that shifted 3 places to the right
          * Sames as Amount
          *
-         * @module NS3 Effect 2 Rate
+         * @module Effect 2 Rate
          */
         rate: {
             midi: effect2RateMidi,
