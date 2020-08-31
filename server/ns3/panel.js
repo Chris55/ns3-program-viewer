@@ -19,12 +19,19 @@ const { getOrgan } = require("./organ");
 exports.getPanel = function (buffer, id, splitEnabled) {
     const panelOffset31 = buffer.readUInt8(0x31);
 
-    // Panel enabled flag is offset 0x31 (b5 & b6)
-    // 0 = A only
-    // 1 = B only
-    // 2 = A & B
-    // Panel selected flag is offset 0x31 (b7);
-    // A = 0, B = 1 (not used here)
+    /**
+     * Offset in file 0x31
+     *
+     * Enabled (b5 & b6):
+     * 0 = A only
+     * 1 = B only
+     * 2 = A & B
+     *
+     * Selected Panel (b7):
+     * A = 0, B = 1 (not used here)
+     *
+     * @module Panel enabled and selection
+     */
 
     const panelEnabledFlag = (panelOffset31 & 0x60) >>> 5;
     const panelEnabled =

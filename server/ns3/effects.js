@@ -22,6 +22,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          *
          * Values:
          * 0 = disabled, 1 = enabled
+         *
          * @module Rotary Speaker On
          */
         enabled: (rotarySpeakerOffset10B & 0x80) !== 0,

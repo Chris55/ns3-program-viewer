@@ -35,23 +35,28 @@ exports.loadNs3fFile = (buffer) => {
     const offset38 = buffer.readUInt8(0x38);
 
 
+    /**
+     * Offset in file: 0x14 and 0x15
+     *
+     * @example
+     * 16 bit int value, ex 304 = v3.04
+     *
+     * @module File version
+     */
+
     const zeroPad = (num, places) => String(num).padStart(places, "0");
     const majorVersion = Math.trunc(offset14W / 100);
     const minorVersion = zeroPad(offset14W - majorVersion * 100, 2);
 
-    /***
-     * Transpose:
-     * Offset
-     *    0x37       0x38
-     * 7654 3210  7654 3xxx
-     * ---------  ---------
+    /**
+     * Offset in file: 0x38 (b7-3)
      *
-     * xxxx xxxx  7xxx xxxx : Transpose Off/On
-     * xxxx xxxx  x654 3xxx : Transpose value
-     */
-
-    /***
-     * Transpose Example:
+     * Enabled: 0x38 (b7)
+     * Value: 0x38 (b6-3)
+     *
+     * @example
+     * 7xxx xxxx : Transpose Off/On
+     * x654 3xxx : Transpose value
      *
      * Test1:  F8 38 : Transpose Off
      * Test2:  0D 80 : Transpose -6 semi
@@ -61,6 +66,7 @@ exports.loadNs3fFile = (buffer) => {
      * Test6:  0D D8 : Transpose +5 semi
      * Test7:  0D E0 : Transpose +6 semi
      *
+     * @module Transpose
      */
 
     const transposeEnabled = (offset38 & 0x80) !== 0;
@@ -71,7 +77,7 @@ exports.loadNs3fFile = (buffer) => {
     };
 
     /**
-     * offset 0x31 (b4 to b0) to 0x34 (b7 only)
+     * 0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)
      *
      * @example
      * |  0X31     |    0x32   |     0x33  |    0x34   | description
@@ -207,25 +213,19 @@ exports.loadNs3fFile = (buffer) => {
         },
     };
 
-    /***
-     * Master Clock Rate:
-     * offset in file: 0x38 (b2-0) 0x39 (b7-3)
+    /**
+     * Offset in file: 0x38 (b2-0) 0x39 (b7-3)
      *
      * bpm = value + 30
+     *
+     * @module Master Clock Rate
      */
     const tempo = ((offset38W & 0x07f8) >>> 3) + 30;
 
     return {
         // program file
         name: "",
-        /**
-         * Offset 0x14 and 0x15
-         *
-         * @example
-         * 16 bit int value, ex 304 = v3.04
-         *
-         * @module File version
-         */
+
         version: majorVersion + "." + minorVersion,
 
 

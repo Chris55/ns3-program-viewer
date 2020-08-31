@@ -55,14 +55,14 @@ ns3f file description:
 | `0x002E` | `--------` |
 | `0x002F` | `--------` |
 | `0x0030` | `--------` |
-| `0x0031` | `pppsssss` | p = [Panel](global/ns3-panel.md), s = [Split](api.md#split)
+| `0x0031` | `pppsssss` | p = [Panel](api.md#panel-enabled-and-selection), s = [Split](api.md#split)
 | `0x0032` | `ssssssss` |
 | `0x0033` | `ssssssss` |
 | `0x0034` | `sddpvvvr` | d = [Piano Layer Detune](api.md#piano-layer-detune), p = Organ PStick, v = [Organ Vibrato Mode](api.md#Organ-Vibrato-Mode), r = [Rotary Speaker Speed](api.md#Rotary-Speaker-Speed)
 | `0x0035` | `m-------` | m = [Rotary Speaker Stop Mode](api.md#Rotary-Speaker-Stop-Mode)
 | `0x0036` | `--------` |
 | `0x0037` | `--------` |
-| `0x0038` | `tttttccc` | t = [Transpose](global/ns3-transpose.md), c = [Master Clock Rate](global/ns3-master-clock.md)
+| `0x0038` | `tttttccc` | t = [Transpose](api.md#transpose), c = [Master Clock Rate](api.md#master-clock-rate)
 | `0x0039` | `ccccc---` |
 | `0x003A` | `--------` |
 | `0x003B` | `--------` |
