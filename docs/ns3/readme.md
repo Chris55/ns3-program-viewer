@@ -4,9 +4,7 @@ ns3f file description:
 
 | offset   | bits       | description
 | :---:    |   :----:   | :---
-| -------- | ---------- | -----------------------------------
-|          | `76543210` |
-| `0x0000` | `cccccccc` | ascii 'C' 0x43, 4 bytes Clavia ID
+| `0x0000` | `cccccccc` | ascii 'C' 0x43, 4-byte Clavia ID
 | `0x0001` | `cccccccc` | ascii 'B' 0x42
 | `0x0002` | `cccccccc` | ascii 'I' 0x49
 | `0x0003` | `cccccccc` | ascii 'N' 0x4E
@@ -14,7 +12,7 @@ ns3f file description:
 | `0x0005` | `--------` |
 | `0x0006` | `--------` |
 | `0x0007` | `--------` |
-| `0x0008` | `cccccccc` | ascii 'n' 0x6E, 4 bytes NS3 Program file ID
+| `0x0008` | `cccccccc` | ascii 'n' 0x6E, 4-byte NS3 Program file ID
 | `0x0009` | `cccccccc` | ascii 's' 0x73,
 | `0x000A` | `cccccccc` | ascii '3' 0x33,
 | `0x000B` | `cccccccc` | ascii 'f' 0x66,
@@ -189,10 +187,10 @@ ns3f file description:
 | `0x00B4` | `--------` |
 | `0x00B5` | `--------` |
 | `0x00B6` | `------vv` | [organ (v)olume](api.md#organ-volume)
-| `0x00B7` | `vvvvv---` |
-| `0x00B8` | `--------` |
-| `0x00B9` | `--------` |
-| `0x00BA` | `--------` |
+| `0x00B7` | `vvvvvwww` | [organ morph (w)heel](api.md#organ-volume)
+| `0x00B8` | `wwwwwaaa` | [organ morph (a)fter touch](api.md#organ-volume)
+| `0x00B9` | `aaaaappp` | [organ morph control (p)edal](api.md#organ-volume)
+| `0x00BA` | `ppppp---` |
 | `0x00BB` | `--------` |
 | `0x00BC` | `--------` |
 | `0x00BD` | `--------` |
