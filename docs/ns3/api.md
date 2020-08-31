@@ -179,27 +179,21 @@ Sames as Amount</p>
 <dt><a href="#module_Organ Volume">Organ Volume</a></dt>
 <dd><p>Offset in file:
 | -------- |
-|Volume:
-|0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 range
-| -------- |
-|Morph Wheel:
-|0xB7 (b3): direction (1 = up, 0 = down)
-|0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw value
-| -------- |
-|Morph After Touch:
-|0xB8 (b3): direction (1 = up, 0 = down)
-|0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw value
-| -------- |
-|Morph Control Pedal:
-|0xB9 (b3): direction (1 = up, 0 = down)
-|0xBA (b2-b0), 0xBA (b7-b4): 7-bit raw value
-| -------- |
-|if direction = 1 then Morph offset value = raw value + 1
-|if direction = 0 then Morph offset value = raw value - 127
-| -------- |
-|Final &#39;To&#39; Morph value = &#39;From value (aka original volume)&#39; + &#39;Morph offset value&#39;
-|Morph Enabled if  &#39;From value&#39; &lt;&gt; &#39;Morph offset value&#39;
-| -------- |</p>
+Volume:
+0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 range
+Morph Wheel:
+0xB7 (b3): direction (1 = up, 0 = down)
+0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw value
+Morph After Touch:
+0xB8 (b3): direction (1 = up, 0 = down)
+0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw value
+Morph Control Pedal:
+0xB9 (b3): direction (1 = up, 0 = down)
+0xBA (b2-b0), 0xBA (b7-b4): 7-bit raw value
+if direction = 1 then Morph offset value = raw value + 1
+if direction = 0 then Morph offset value = raw value - 127
+Final &#39;To&#39; Morph value = &#39;From value (aka original volume)&#39; + &#39;Morph offset value&#39;
+Morph Enabled if  &#39;From value&#39; &lt;&gt; &#39;Morph offset value&#39;</p>
 </dd>
 <dt><a href="#module_Organ Octave Shift">Organ Octave Shift</a></dt>
 <dd><p>Offset in file: 0xBA (b2/1/0)</p>
@@ -433,7 +427,7 @@ Offset in file: 0xB6 (b6 to b3)| value     |      | Label   || --------- | --
 <a name="module_Organ Volume"></a>
 
 ## Organ Volume
-Offset in file:| -------- ||Volume:|0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 range| -------- ||Morph Wheel:|0xB7 (b3): direction (1 = up, 0 = down)|0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw value| -------- ||Morph After Touch:|0xB8 (b3): direction (1 = up, 0 = down)|0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw value| -------- ||Morph Control Pedal:|0xB9 (b3): direction (1 = up, 0 = down)|0xBA (b2-b0), 0xBA (b7-b4): 7-bit raw value| -------- ||if direction = 1 then Morph offset value = raw value + 1|if direction = 0 then Morph offset value = raw value - 127| -------- ||Final 'To' Morph value = 'From value (aka original volume)' + 'Morph offset value'|Morph Enabled if  'From value' <> 'Morph offset value'| -------- |
+Offset in file:| -------- |Volume:0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 rangeMorph Wheel:0xB7 (b3): direction (1 = up, 0 = down)0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw valueMorph After Touch:0xB8 (b3): direction (1 = up, 0 = down)0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw valueMorph Control Pedal:0xB9 (b3): direction (1 = up, 0 = down)0xBA (b2-b0), 0xBA (b7-b4): 7-bit raw valueif direction = 1 then Morph offset value = raw value + 1if direction = 0 then Morph offset value = raw value - 127Final 'To' Morph value = 'From value (aka original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 
 <a name="module_Organ Octave Shift"></a>
 
