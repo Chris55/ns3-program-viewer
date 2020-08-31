@@ -83,19 +83,20 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0xB6 (b6 to b3)
          *
-         * Values:
-         *   0X87 x000 0xxx = 0  = o---
-         *   0X8F x000 1xxx = 1  =-o--
-         *   0x97 x001 0xxx = 2  = --o-
-         *   0x9F x001 1xxx = 3  = ---o
-         *   0xA7 x010 0xxx = 4  = oo--
-         *   0xAF x010 1xxx = 5  = -oo-
-         *   0xB7 x011 0xxx = 6  = --oo
-         *   0xBF x011 1xxx = 7  = ooo-
-         *   0xC7 x100 0xxx = 8  = -ooo
-         *   0xCF x100 1xxx = 9  = oooo
+         * | value     |      | Label   |
+         * | --------- | ---- | ------- |
+         * | x000 0xxx | 0    | `o---`
+         * | x000 1xxx | 1    | `-o--`
+         * | x001 0xxx | 2    | `--o-`
+         * | x001 1xxx | 3    | `---o`
+         * | x010 0xxx | 4    | `oo--`
+         * | x010 1xxx | 5    | `-oo-`
+         * | x011 0xxx | 6    | `--oo`
+         * | x011 1xxx | 7    | `ooo-`
+         * | x100 0xxx | 8    | `-ooo`
+         * | x100 1xxx | 9    | `oooo`
          *
-         *   @module Organ Kb Zone
+         *  @module Organ Kb Zone
          */
         kbZone: getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11),
 

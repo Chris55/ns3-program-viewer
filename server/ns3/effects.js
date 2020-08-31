@@ -2,6 +2,11 @@ const converter = require("../common/converter");
 const mapping = require("./mapping");
 
 /**
+ * My namespace.
+ * @namespace
+ */
+
+/**
  * returns Rotary Speaker Effect section
  *
  * @class
@@ -22,7 +27,6 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          *
          * Values:
          * 0 = disabled, 1 = enabled
-         *
          * @module Rotary Speaker On
          */
         enabled: (rotarySpeakerOffset10B & 0x80) !== 0,

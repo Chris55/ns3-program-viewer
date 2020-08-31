@@ -98,17 +98,65 @@ Sames as Amount</p>
 </dd>
 <dt><a href="#module_Organ Kb Zone">Organ Kb Zone</a></dt>
 <dd><p>Offset in file: 0xB6 (b6 to b3)</p>
-<p>Values:
-  0X87 x000 0xxx = 0  = o---
-  0X8F x000 1xxx = 1  =-o--
-  0x97 x001 0xxx = 2  = --o-
-  0x9F x001 1xxx = 3  = ---o
-  0xA7 x010 0xxx = 4  = oo--
-  0xAF x010 1xxx = 5  = -oo-
-  0xB7 x011 0xxx = 6  = --oo
-  0xBF x011 1xxx = 7  = ooo-
-  0xC7 x100 0xxx = 8  = -ooo
-  0xCF x100 1xxx = 9  = oooo</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th></th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x000 0xxx</td>
+<td>0</td>
+<td><code>o---</code></td>
+</tr>
+<tr>
+<td>x000 1xxx</td>
+<td>1</td>
+<td><code>-o--</code></td>
+</tr>
+<tr>
+<td>x001 0xxx</td>
+<td>2</td>
+<td><code>--o-</code></td>
+</tr>
+<tr>
+<td>x001 1xxx</td>
+<td>3</td>
+<td><code>---o</code></td>
+</tr>
+<tr>
+<td>x010 0xxx</td>
+<td>4</td>
+<td><code>oo--</code></td>
+</tr>
+<tr>
+<td>x010 1xxx</td>
+<td>5</td>
+<td><code>-oo-</code></td>
+</tr>
+<tr>
+<td>x011 0xxx</td>
+<td>6</td>
+<td><code>--oo</code></td>
+</tr>
+<tr>
+<td>x011 1xxx</td>
+<td>7</td>
+<td><code>ooo-</code></td>
+</tr>
+<tr>
+<td>x100 0xxx</td>
+<td>8</td>
+<td><code>-ooo</code></td>
+</tr>
+<tr>
+<td>x100 1xxx</td>
+<td>9</td>
+<td><code>oooo</code></td>
+</tr>
+</tbody></table>
 </dd>
 <dt><a href="#module_Organ Volume">Organ Volume</a></dt>
 <dd><p>Offset in file: 0xB6 (b2 to b0), 0xB7 (b7 to b4) 7 bits = 0/127 range</p>
@@ -155,6 +203,50 @@ Sames as Amount</p>
 </dd>
 <dt><a href="#module_Organ Percussion Harmonic Third On/Off">Organ Percussion Harmonic Third On/Off</a></dt>
 <dd><p>Offset in file: 0xD3 (b2)</p>
+</dd>
+<dt><a href="#module_Piano On">Piano On</a></dt>
+<dd><p>Offset in file: 0x43 (b7): O = disabled, 1 = enabled</p>
+</dd>
+<dt><a href="#module_Piano Kb Zone">Piano Kb Zone</a></dt>
+<dd><p>Offset in file: 0x43 (b6 to b3)
+ref Organ section for more examples</p>
+</dd>
+<dt><a href="#module_Piano Volume">Piano Volume</a></dt>
+<dd><p>Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4) 7 bits = 0/127 range</p>
+</dd>
+<dt><a href="#module_Piano Octave Shift">Piano Octave Shift</a></dt>
+<dd><p>Offset in file: 0x47 (just 4 last bits, OR 0x0F)</p>
+</dd>
+<dt><a href="#module_Piano Pitch Stick">Piano Pitch Stick</a></dt>
+<dd><p>Offset in file: 0x48 (just bit 0x80)</p>
+</dd>
+<dt><a href="#module_Sustain Pedal">Sustain Pedal</a></dt>
+<dd><p>Offset in file: 0x48 (just bit 0x40)</p>
+</dd>
+<dt><a href="#module_Piano Type">Piano Type</a></dt>
+<dd><p>Offset in file: 0x48 (only 4 bits, last 3 of first nibble, first of second nibble) OR 0x98</p>
+</dd>
+<dt><a href="#module_Piano Model">Piano Model</a></dt>
+<dd><p>Offset in file: 0x48 and 0x49 (last 3 bits of 0x49 and first 2 bits of 0x4A).</p>
+</dd>
+<dt><a href="#module_Piano Timbre">Piano Timbre</a></dt>
+<dd><p>Offset in file: 0x4E</p>
+</dd>
+<dt><a href="#module_Piano KB Touch">Piano KB Touch</a></dt>
+<dd><p>Offset in file: 0x4D (just least significant bit 1, so OR 0x01) and
+                0x4E (Just Most Significant Bit, so OR 0x80)</p>
+</dd>
+<dt><a href="#module_Piano Layer Detune">Piano Layer Detune</a></dt>
+<dd><p>Offset in file: 0x34</p>
+</dd>
+<dt><a href="#module_Piano Soft Release">Piano Soft Release</a></dt>
+<dd><p>Offset in file: 0x4D (just least significant bit 4, so OR 0x08)</p>
+</dd>
+<dt><a href="#module_Piano Pedal Noise">Piano Pedal Noise</a></dt>
+<dd><p>Offset in file: 0x4D (just least significant bit 2, so OR 0x02)</p>
+</dd>
+<dt><a href="#module_Piano String Resonance">Piano String Resonance</a></dt>
+<dd><p>Offset in file: 0x4D (just least significant bit 3, so OR 0x04)</p>
 </dd>
 </dl>
 
@@ -250,7 +342,7 @@ Offset in file: 0xB6 (b7)O = disabled, 1 = enabled
 <a name="module_Organ Kb Zone"></a>
 
 ## Organ Kb Zone
-Offset in file: 0xB6 (b6 to b3)Values:  0X87 x000 0xxx = 0  = o---  0X8F x000 1xxx = 1  =-o--  0x97 x001 0xxx = 2  = --o-  0x9F x001 1xxx = 3  = ---o  0xA7 x010 0xxx = 4  = oo--  0xAF x010 1xxx = 5  = -oo-  0xB7 x011 0xxx = 6  = --oo  0xBF x011 1xxx = 7  = ooo-  0xC7 x100 0xxx = 8  = -ooo  0xCF x100 1xxx = 9  = oooo
+Offset in file: 0xB6 (b6 to b3)| value     |      | Label   || --------- | ---- | ------- || x000 0xxx | 0    | `o---`| x000 1xxx | 1    | `-o--`| x001 0xxx | 2    | `--o-`| x001 1xxx | 3    | `---o`| x010 0xxx | 4    | `oo--`| x010 1xxx | 5    | `-oo-`| x011 0xxx | 6    | `--oo`| x011 1xxx | 7    | `ooo-`| x100 0xxx | 8    | `-ooo`| x100 1xxx | 9    | `oooo`
 
 <a name="module_Organ Volume"></a>
 
@@ -328,3 +420,117 @@ Offset in file: 0xD3 (b1)
 ## Organ Percussion Harmonic Third On/Off
 Offset in file: 0xD3 (b2)
 
+<a name="module_Piano On"></a>
+
+## Piano On
+Offset in file: 0x43 (b7): O = disabled, 1 = enabled
+
+<a name="module_Piano Kb Zone"></a>
+
+## Piano Kb Zone
+Offset in file: 0x43 (b6 to b3)ref Organ section for more examples
+
+<a name="module_Piano Volume"></a>
+
+## Piano Volume
+Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4) 7 bits = 0/127 range
+
+<a name="module_Piano Octave Shift"></a>
+
+## Piano Octave Shift
+Offset in file: 0x47 (just 4 last bits, OR 0x0F)
+
+**Example**  
+```js
+0xF5- Shift -10xF6- No shift0xF7- Shift +1
+```
+<a name="module_Piano Pitch Stick"></a>
+
+## Piano Pitch Stick
+Offset in file: 0x48 (just bit 0x80)
+
+**Example**  
+```js
+0x00- No0x80- Yes
+```
+<a name="module_Sustain Pedal"></a>
+
+## Sustain Pedal
+Offset in file: 0x48 (just bit 0x40)
+
+**Example**  
+```js
+0x00- No0x40- Yes
+```
+<a name="module_Piano Type"></a>
+
+## Piano Type
+Offset in file: 0x48 (only 4 bits, last 3 of first nibble, first of second nibble) OR 0x98
+
+**Example**  
+```js
+0x40- Grand0x48- Upright0x50- Electric0x58- Clav0x60- Digital0x68- Misc
+```
+<a name="module_Piano Model"></a>
+
+## Piano Model
+Offset in file: 0x48 and 0x49 (last 3 bits of 0x49 and first 2 bits of 0x4A).
+
+**Example**  
+```js
+0x00 0x00: model 10x00 0x01: model 2.. and so on0x02 0x01: model 10
+```
+<a name="module_Piano Timbre"></a>
+
+## Piano Timbre
+Offset in file: 0x4E
+
+**Example**  
+```js
+0x00- None0x08- Soft0x10- Mid0x18- Bright0x20- DYNO10x28- DYNO2
+```
+<a name="module_Piano KB Touch"></a>
+
+## Piano KB Touch
+Offset in file: 0x4D (just least significant bit 1, so OR 0x01) and                0x4E (Just Most Significant Bit, so OR 0x80)
+
+**Example**  
+```js
+0x00 + 0x8x- KB Touch 10x01 + 0x0x- KB Touch 20x01 + 0x8x- KB Touch 3
+```
+<a name="module_Piano Layer Detune"></a>
+
+## Piano Layer Detune
+Offset in file: 0x34
+
+**Example**  
+```js
+0x00- Off0x20- 10x40- 20x60- 3
+```
+<a name="module_Piano Soft Release"></a>
+
+## Piano Soft Release
+Offset in file: 0x4D (just least significant bit 4, so OR 0x08)
+
+**Example**  
+```js
+0x00 - No0x08 - Soft Release
+```
+<a name="module_Piano Pedal Noise"></a>
+
+## Piano Pedal Noise
+Offset in file: 0x4D (just least significant bit 2, so OR 0x02)
+
+**Example**  
+```js
+0x00- No0x02- Pedal Noise
+```
+<a name="module_Piano String Resonance"></a>
+
+## Piano String Resonance
+Offset in file: 0x4D (just least significant bit 3, so OR 0x04)
+
+**Example**  
+```js
+0x00- No0x04- String Res
+```
