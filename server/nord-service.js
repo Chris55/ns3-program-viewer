@@ -3,6 +3,9 @@ const { getPanel } = require("./ns3/panel");
 
 /**
  * returns Nord Stage 3 program data
+ *
+ * @class
+ * @ignore
  * @param buffer
  * @returns {{split: {high: {note: (*|string), width: (*|string)}, low: {note: (*|string), width: unknown}, mid: {note: (*|string), width: (*|string)}, enabled: boolean}, panelA: {organ: {volume: {midi: *, label: unknown}, preset2: string, pitchStick: boolean, kbZone: unknown, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: unknown, enabled: boolean}}, synth: {voice: unknown, oscillators: {control: {midi: number, label: string}, fastAttack: boolean, pitch: {midi: number, label: string}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, label: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, label: unknown}, filter: {highPassCutoffFrequency: {midi: number, label: unknown}, cutoffFrequency: {midi: number, label: unknown}, type: unknown, drive: unknown, resonance: {midi: number, label: string}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, label: string}, velAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, label: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: unknown}}, vibrato: unknown}, piano: {kbTouch: unknown, kbZone: unknown, softRelease: boolean, sustainPedal: boolean, type: unknown, octaveShift: number, enabled: boolean, volume: {midi: *, label: unknown}, timbre: unknown, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: unknown}, effects: {effect1: {amount: {midi: number, label: string}, rate: {midi: number, label: unknown}, masterClock: boolean, source: unknown, type: unknown, enabled: boolean}, effect2: {amount: {midi: number, label: string}, rate: {midi: number, label: string}, source: unknown, type: unknown, enabled: boolean}, rotarySpeaker: {stopMode: boolean, source: unknown, drive: string, enabled: boolean, speed: unknown}}, enabled: boolean}, masterClock: {rate: string}, panelB: {organ: {volume: {midi: *, label: unknown}, preset2: string, pitchStick: boolean, kbZone: unknown, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: unknown, enabled: boolean}}, synth: {voice: unknown, oscillators: {control: {midi: number, label: string}, fastAttack: boolean, pitch: {midi: number, label: string}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, label: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, label: unknown}, filter: {highPassCutoffFrequency: {midi: number, label: unknown}, cutoffFrequency: {midi: number, label: unknown}, type: unknown, drive: unknown, resonance: {midi: number, label: string}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, label: string}, velAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, label: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: unknown}}, vibrato: unknown}, piano: {kbTouch: unknown, kbZone: unknown, softRelease: boolean, sustainPedal: boolean, type: unknown, octaveShift: number, enabled: boolean, volume: {midi: *, label: unknown}, timbre: unknown, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: unknown}, effects: {effect1: {amount: {midi: number, label: string}, rate: {midi: number, label: unknown}, masterClock: boolean, source: unknown, type: unknown, enabled: boolean}, effect2: {amount: {midi: number, label: string}, rate: {midi: number, label: string}, source: unknown, type: unknown, enabled: boolean}, rotarySpeaker: {stopMode: boolean, source: unknown, drive: string, enabled: boolean, speed: unknown}}, enabled: boolean}, name: string, transpose: {label: unknown, enabled: boolean}, category: string, version: string}}
  */
@@ -31,11 +34,7 @@ exports.loadNs3fFile = (buffer) => {
     const offset38W = buffer.readUInt16BE(0x38);
     const offset38 = buffer.readUInt8(0x38);
 
-    /***
-     * File version:
-     * Offset 0x14 and 0x15
-     * 16 bit int value, ex 304 = v3.04
-     */
+
     const zeroPad = (num, places) => String(num).padStart(places, "0");
     const majorVersion = Math.trunc(offset14W / 100);
     const minorVersion = zeroPad(offset14W - majorVersion * 100, 2);
@@ -71,23 +70,20 @@ exports.loadNs3fFile = (buffer) => {
         label: transposeEnabled ? mapping.transposeMap.get(transposeValue) : "",
     };
 
-    /***
-     * Split:
+    /**
      * offset 0x31 (b4 to b0) to 0x34 (b7 only)
      *
-     *   0X31        0x32       0x33       0x34
-     * xxx4 3210  7654 3210  7654 3210  7xxx xxxx
-     * ---------  ---------  ---------  ---------
-     * xxx4 xxxx  xxxx xxxx  xxxx xxxx  xxxx xxxx: split off/on
-     * xxxx 321x  xxxx xxxx  xxxx xxxx  xxxx xxxx: low off/on, mid off/on, high off/on
-     * xxxx xxx0  765x xxxx  xxxx xxxx  xxxx xxxx: low note (0 = F2, 1 = C3, 9 = C7)
-     * xxxx xxxx  xxx4 321x  xxxx xxxx  xxxx xxxx: mid note
-     * xxxx xxxx  xxxx xxx0  765x xxxx  xxxx xxxx: high note
-     * xxxx xxxx  xxxx xxxx  xxx5 4xxx  xxxx xxxx: low width (0 = 1, 1 = 6, 2 = 12)
-     * xxxx xxxx  xxxx xxxx  xxxx x32x  xxxx xxxx: mid width
-     * xxxx xxxx  xxxx xxxx  xxxx xxx0  7xxx xxxx: high width
-     *
-     * Values:
+     * @example
+     * |  0X31     |    0x32   |     0x33  |    0x34   | description
+     * | xxx4 3210 | 7654 3210 | 7654 3210 | 7xxx xxxx |
+     * | xxx4 xxxx | xxxx xxxx | xxxx xxxx | xxxx xxxx | split off/on
+     * | xxxx 321x | xxxx xxxx | xxxx xxxx | xxxx xxxx | low off/on, mid off/on, high off/on
+     * | xxxx xxx0 | 765x xxxx | xxxx xxxx | xxxx xxxx | low note (0 = F2, 1 = C3, 9 = C7)
+     * | xxxx xxxx | xxx4 321x | xxxx xxxx | xxxx xxxx | mid note
+     * | xxxx xxxx | xxxx xxx0 | 765x xxxx | xxxx xxxx | high note
+     * | xxxx xxxx | xxxx xxxx | xxx5 4xxx | xxxx xxxx | low width (0 = 1, 1 = 6, 2 = 12)
+     * | xxxx xxxx | xxxx xxxx | xxxx x32x | xxxx xxxx | mid width
+     * | xxxx xxxx | xxxx xxxx | xxxx xxx0 | 7xxx xxxx | high width
      *
      * Test1:  06 07 20 01 : Split Off
      *
@@ -144,6 +140,8 @@ exports.loadNs3fFile = (buffer) => {
      *
      * Test19: 1C 23 30 01 : Width 12  1   Off
      *                       Note  C3  F3  --   ! Note Mid in file is C3 but fixed on display to F3 !
+     *
+     * @module Split
      */
 
     const splitLowEnabled = (offset31 & 0x08) !== 0;
@@ -218,8 +216,19 @@ exports.loadNs3fFile = (buffer) => {
     const tempo = ((offset38W & 0x07f8) >>> 3) + 30;
 
     return {
+        // program file
         name: "",
+        /**
+         * Offset 0x14 and 0x15
+         *
+         * @example
+         * 16 bit int value, ex 304 = v3.04
+         *
+         * @module File version
+         */
         version: majorVersion + "." + minorVersion,
+
+
         category: mapping.categoryMap.get(offset10),
         //fileId: fileId,
 

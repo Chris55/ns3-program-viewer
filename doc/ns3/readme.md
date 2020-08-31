@@ -26,7 +26,7 @@ ns3f file description:
 | `0x0011` | `--------` |
 | `0x0012` | `--------` |
 | `0x0013` | `--------` |
-| `0x0014` | `iiiiiiii` | [Program Version](global/ns3-version.md) (16-bit)
+| `0x0014` | `iiiiiiii` | [File Version](api.md#File-version) (16-bit)
 | `0x0015` | `iiiiiiii` |
 | `0x0016` | `--------` |
 | `0x0017` | `--------` |
@@ -55,7 +55,7 @@ ns3f file description:
 | `0x002E` | `--------` |
 | `0x002F` | `--------` |
 | `0x0030` | `--------` |
-| `0x0031` | `pppsssss` | p = [Panel](global/ns3-panel.md), s = [Split](global/ns3-split.md)
+| `0x0031` | `pppsssss` | p = [Panel](global/ns3-panel.md), s = [Split](api.md#split)
 | `0x0032` | `ssssssss` |
 | `0x0033` | `ssssssss` |
 | `0x0034` | `sddpvvvr` | d = [Piano Layer Detune](api.md#piano-layer-detune), p = Organ PStick, v = [Organ Vibrato Mode](api.md#Organ-Vibrato-Mode), r = [Rotary Speaker Speed](api.md#Rotary-Speaker-Speed)

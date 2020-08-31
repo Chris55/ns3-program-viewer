@@ -2,11 +2,6 @@ const converter = require("../common/converter");
 const mapping = require("./mapping");
 
 /**
- * My namespace.
- * @namespace
- */
-
-/**
  * returns Rotary Speaker Effect section
  *
  * @class
