@@ -1,7 +1,7 @@
 # Organ
 
 
-## Organ Vibrato Mode:
+## Organ Vibrato Mode
 
 Offset in file: 0x34 (b3/2/1)
 
