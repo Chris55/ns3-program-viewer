@@ -9,7 +9,7 @@
         "start": "NODE_ENV=production node server.js",
         "heroku-postbuild": "cd client && npminstall && npm install --only=dev --no-shrinkwrap && npm run build",
         "test": "jest",
-        "doc": "jsdoc ./server/nord-service.js -t ./node_modules/better-docs --verbose"
+        "doc": "jsdoc2md server/ns3/*.js > doc/api.md"
     },
     "dependencies": {
         "body-parser": "^1.18.3",
@@ -26,6 +26,7 @@
         "eslint": "^6.6.0",
         "jest": "^24.9.0",
         "jsdoc": "^3.6.5",
+        "jsdoc-to-markdown": "^6.0.1",
         "prettier": "^2.1.1"
     },
     "keywords": [

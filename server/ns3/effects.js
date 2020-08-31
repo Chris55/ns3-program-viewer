@@ -1,7 +1,7 @@
 const converter = require("../common/converter");
 const mapping = require("./mapping");
 
-/***
+/**
  * returns Rotary Speaker Effect section
  *
  * @param buffer
@@ -15,7 +15,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
     const rotarySpeakerOffset10B = buffer.readUInt8(0x10b + panelOffset);
 
     return {
-        /***
+        /**
          * Rotary Speaker On:
          * Offset in file: 0x10b (bit7):
          *
@@ -24,7 +24,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          */
         enabled: (rotarySpeakerOffset10B & 0x80) !== 0,
 
-        /***
+        /**
          * Rotary Speaker Source:
          * Offset in file: 0x10b (b6 and b5):
          *
@@ -33,7 +33,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          */
         source: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
 
-        /***
+        /**
          * Rotary Speaker Drive:
          * Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4):
          *
@@ -42,7 +42,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          */
         drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >>> 4, 1, ""),
 
-        /***
+        /**
          * Rotary Speaker Stop Mode:
          * Offset in file: 0x35 (bit7):
          *
@@ -51,7 +51,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          */
         stopMode: !((organOffset35 & 0x80) >>> 7 !== 0),
 
-        /***
+        /**
          * Rotary Speaker Speed
          * Offset in file: 0x34 (bit0):
          *
@@ -62,7 +62,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
     };
 };
 
-/***
+/**
  * returns effect 1
  * @param buffer
  * @param panelOffset
@@ -82,7 +82,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
     const effect1MasterClockUsed = effect1MasterClock && (effect1Type === "Panning" || effect1Type === "Tremolo");
 
     return {
-        /***
+        /**
          * Effect 1 ON:
          * Offset in file: 0x10b LSB 5 (AND 0x10)
          *
@@ -91,7 +91,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          */
         enabled: (effectOffset10b & 0x10) !== 0,
 
-        /***
+        /**
          * Effect 1 SOURCE:
          * Offset in file: 0x10b only 2 bits (AND 0x0C)
          *
@@ -101,7 +101,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          */
         source: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
 
-        /***
+        /**
          *  Effect 1 TYPE:
          *  Offset 0 in file: 0x10b two bit (AND 0x03) 0x10c one bit (AND 0x80)
          *
@@ -114,7 +114,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          */
         type: effect1Type,
 
-        /***
+        /**
          * Effect 1 Amount:
          * Offset in file: 0x110 only last 7 bits (AND 0x7F)
          *
@@ -129,7 +129,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
             label: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
         },
 
-        /***
+        /**
          * Effect 2 Rate:
          * Offset in file: last 6 bits of 0x10c (AND 0x3F) and first bit of 0x10d (and 0x80).
          *
@@ -144,7 +144,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
                 : converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, ""),
         },
 
-        /***
+        /**
          *  Effect 1 Master clock:
          *  Offset in file: 0x10c 2nd MS bit (AND 0x40):
          *
@@ -155,7 +155,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
     };
 };
 
-/***
+/**
  * returns effect 2
  * @param buffer
  * @param panelOffset
@@ -170,7 +170,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
     const effect2RateMidi = (effectOffset114W & 0x03f8) >>> 3;
 
     return {
-        /***
+        /**
          * Effect 2 ON:
          * Offset in file: 0x114 b7 (AND 0x80)
          *
@@ -179,7 +179,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          */
         enabled: (effectOffset114 & 0x80) !== 0,
 
-        /***
+        /**
          * Effect 2 SOURCE:
          * Offset in file: 0x114 b6 and b5 (AND 0x60)
          *
@@ -189,9 +189,9 @@ exports.getEffect2 = (buffer, panelOffset) => {
          */
         source: mapping.effectSourceMap.get((effectOffset114 & 0x60) >>> 5),
 
-        /***
+        /**
          *  Effect 2 TYPE:
-         *  Offset 0 in file: 0x114 bits 4-2 (AND 0x1C)
+         *  Offset in file: 0x114 bits 4-2 (AND 0x1C)
          *
          * 0x00: PHAS1
          * 0x04: PHAS2
@@ -202,7 +202,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          */
         type: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2),
 
-        /***
+        /**
          * Effect 2 Amount:
          * Offset in file: 0x115 (last 3 bits) and 0x116 (first 4 bits) So 0x115 AND
          * 0x07 + 0x115 AND 0xF0. All that then shifted for places to the right.
@@ -213,7 +213,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
             label: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
         },
 
-        /***
+        /**
          * Effect 2 Rate:
          * Offset in file: last 2 bits of 0x114 and first 5 bits of 0x115
          * So, 0x114 AND 0x03 + 0x115 AND 0xF8. All that shifted 3 places to the right
