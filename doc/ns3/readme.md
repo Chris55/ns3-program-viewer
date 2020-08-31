@@ -1,12 +1,11 @@
 ### Nord Stage 3 Program file mapping
 
-[split](https/www.google.com)
+ns3f file description:
 
-  //```
-
-| offset | bits     | description
-| ------ | -------- | -----------------------------------
-|        | `76543210` |
+| offset   | bits       | description                         
+| :---:    |   :----:   | :---
+| -------- | ---------- | -----------------------------------
+|          | `76543210` |
 | `0x0000` | `cccccccc` | ascii 'C' 0x43, 4 bytes Clavia file ID
 | `0x0001` | `cccccccc` | ascii 'B' 0x42
 | `0x0002` | `cccccccc` | ascii 'I' 0x49
