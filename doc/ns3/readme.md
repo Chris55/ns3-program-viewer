@@ -59,7 +59,7 @@ ns3f file description:
 | `0x0032` | `ssssssss` |
 | `0x0033` | `ssssssss` |
 | `0x0034` | `sddpvvvr` | d = [Piano Layer Detune](piano/ns3-piano-layer-detune.md), p = Organ PStick, v = [Organ Vibrato Mode](organ/ns3-organ.md#Organ-Vibrato-Mode), r = [Rotary Speaker Speed](effects/ns3-rotary-speaker.md#Speed)
-| `0x0035` | `m-------` | m = [Rotary Speaker Stop Mode](effects/ns3-rotary-speaker.md#Stop Mode)
+| `0x0035` | `m-------` | m = [Rotary Speaker Stop Mode](effects/ns3-rotary-speaker.md#Stop-Mode)
 | `0x0036` | `--------` |
 | `0x0037` | `--------` |
 | `0x0038` | `tttttccc` | t = [Transpose](global/ns3-transpose.md), c = [Master Clock Rate](global/ns3-master-clock.md)
