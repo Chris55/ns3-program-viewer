@@ -232,7 +232,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         //pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >>> 4),
 
         /**
-         * Offset in file: 0x57 (b2)
+         * Offset in file: 0x57 (b6)
          *
          * @example
          * O = off, 1 = on
@@ -247,7 +247,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Synth Keyboard Hold
+         * @module Synth Kb Hold
          */
         keyboardHold: (synthOffset80 & 0x80) !== 0,
 
@@ -264,7 +264,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
 
         /**
-         * Offset in file: 0x84 (b6 to b0) 7 bits, range 0/10
+         * Offset in file: 0x85 (b6 to b0) 7 bits, range 0/10
          *
          * @example
          * 0/127 value = 0 / 10
@@ -398,12 +398,12 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              * 13 = FM2
              * 14 = RM
              *
-             * @module Synth Oscillator Configuration
+             * @module Synth Oscillator Config
              */
             config: oscConfig,
 
             /**
-             * Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value
+             * Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)
              *
              * @example
              * Type                  Midi value conversion
@@ -414,16 +414,16 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              * Mix* (5 to 11)        0/127 => 100/0 to 0/100
              * FM & RM (12 to 14)    0/127 => 0/100 %
              *
-             * @module Synth Control Value
+             * @module Synth Oscillator Control
              */
             control: {
                 /***
-                 * Synth Control Midi Value
+                 * Synth Oscillator Control Midi Value
                  */
                 midi: oscCtrlMidi,
 
                 /***
-                 * Synth Control Label
+                 * Synth Oscillator Control Label
                  */
                 label: oscCtrl,
             },
@@ -435,7 +435,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              * Midi value = 6-bit value + b0 forced to zero to have a standard Midi 7-bit value
              * label conversion: -12 (Sub) to +48
              *
-             * @module Synth Pitch Value
+             * @module Synth Pitch
              */
             pitch: {
                 /***
@@ -489,7 +489,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         },
         filter: {
             /**
-             * Offset in file: 0x98 (b4-6)
+             * Offset in file: 0x98 (b4-2)
              *
              * @example
              * 0 = LP12
@@ -538,7 +538,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  * @example
                  * 0/127 value = 0 / 10
                  *
-                 * @module Synth Filter LFO Modulation
+                 * @module Synth Filter LFO Amount
                  */
                 lfoAmount: {
                     midi: filterModulation1KnobMidi,
@@ -555,7 +555,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  * 60  = 0.0 for both values
                  * 120 = 10.0 (100% right value) 'Mod Env Amount'
                  *
-                 * @module Synth Filter Vel Mod Env
+                 * @module Synth Filter Vel Mod Env Amount
                  */
                 velAmount: {
                     midi: filterModulation2Knob.leftMidi,
@@ -581,7 +581,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
             },
 
             /**
-             * Offset in file: 0x9C(b2-0) and 0x9D (b7-4)
+             * Offset in file: 0x9C (b2-0) and 0x9D (b7-4)
              *
              * @example
              * for 'LP+HP' filter
@@ -590,7 +590,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              * for all other filters
              *   => Resonance:  0/127 value = 0 / 10
              *
-             * @module Synth Filter Freq
+             * @module Synth Filter HP Freq Res
              */
 
             highPassCutoffFrequency: {
@@ -792,7 +792,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
             kbSync: (synthOffset80 & 0x20) !== 0,
 
             /**
-             * Offset in file: 0x80 (b5)
+             * Offset in file: 0x80 (b0)
              *
              * @example
              * O = off, 1 = on

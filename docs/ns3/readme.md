@@ -90,29 +90,29 @@ ns3f file description:
 | `0x0053` | `vvvvwwww` | [(w) synth volume morph wheel](api.md#synth-volume)
 | `0x0054` | `wwwwaaaa` | [(a) synth volume morph after touch](api.md#synth-volume)
 | `0x0055` | `aaaapppp` | [(p) synth volume morph control pedal](api.md#synth-volume)
-| `0x0056` | `pppp----` |
-| `0x0057` | `--------` | user sample header 1
-| `0x0058` | `--------` | user sample header 2
-| `0x0059` | `--------` | user sample name 1
-| `0x005A` | `--------` | user sample name 2
-| `0x005B` | `--------` | user sample name 3
-| `0x005C` | `--------` | user sample name 4
-| `0x005D` | `--------` | user sample name 5
-| `0x005E` | `--------` | user sample name 6
-| `0x005F` | `--------` | user sample name 7
-| `0x0060` | `--------` | user sample name 8
-| `0x0061` | `--------` | user sample name 9
-| `0x0062` | `--------` | user sample name 10
-| `0x0063` | `--------` | user sample name 11
-| `0x0064` | `--------` | user sample name 12
-| `0x0065` | `--------` | user sample name 13
-| `0x0066` | `--------` | user sample name 14
-| `0x0067` | `--------` | user sample name 15
-| `0x0068` | `--------` | user sample name 16
-| `0x0069` | `--------` | user sample name 17
-| `0x006A` | `--------` | user sample name 18
-| `0x006B` | `--------` | user sample name 19
-| `0x006C` | `--------` | user sample name 20
+| `0x0056` | `pppp--oo` | [(o) synth octave shift](api.md#synth-octave-shift)
+| `0x0057` | `ps--xxxx` | [(p) synth pitch stick](api.md#synth-pitch-stick), [(s) synth sustain pedal](api.md#synth-sustain-pedal), (x) user sample header 1
+| `0x0058` | `xxxxxxxx` | user sample header 2
+| `0x0059` | `xxxxxxxx` | user sample name 1
+| `0x005A` | `xxxxxxxx` | user sample name 2
+| `0x005B` | `xxxxxxxx` | user sample name 3
+| `0x005C` | `xxxxxxxx` | user sample name 4
+| `0x005D` | `xxxxxxxx` | user sample name 5
+| `0x005E` | `xxxxxxxx` | user sample name 6
+| `0x005F` | `xxxxxxxx` | user sample name 7
+| `0x0060` | `xxxxxxxx` | user sample name 8
+| `0x0061` | `xxxxxxxx` | user sample name 9
+| `0x0062` | `xxxxxxxx` | user sample name 10
+| `0x0063` | `xxxxxxxx` | user sample name 11
+| `0x0064` | `xxxxxxxx` | user sample name 12
+| `0x0065` | `xxxxxxxx` | user sample name 13
+| `0x0066` | `xxxxxxxx` | user sample name 14
+| `0x0067` | `xxxxxxxx` | user sample name 15
+| `0x0068` | `xxxxxxxx` | user sample name 16
+| `0x0069` | `xxxxxxxx` | user sample name 17
+| `0x006A` | `xxxxxxxx` | user sample name 18
+| `0x006B` | `xxxxxxxx` | user sample name 19
+| `0x006C` | `xxxxxxxx` | user sample name 20
 | `0x006D` | `--------` |
 | `0x006E` | `--------` |
 | `0x006F` | `--------` |
@@ -124,59 +124,59 @@ ns3f file description:
 | `0x0075` | `--------` |
 | `0x0076` | `--------` |
 | `0x0077` | `--------` |
-| `0x0078` | `--------` | sample ID 1
-| `0x0079` | `--------` | sample ID 2
-| `0x007A` | `--------` | sample ID 3
-| `0x007B` | `--------` | sample ID 4
-| `0x007C` | `--------` | sample ID 5
+| `0x0078` | `--------` |
+| `0x0079` | `--------` |
+| `0x007A` | `--------` |
+| `0x007B` | `--------` |
+| `0x007C` | `--------` |
 | `0x007D` | `--------` |
 | `0x007E` | `--------` |
 | `0x007F` | `--------` |
-| `0x0080` | `--------` |
-| `0x0081` | `--------` |
+| `0x0080` | `hosrrppc` | [(h) synth kh hold](api.md#synth-kb-hold), [(o) synth arp on](api.md#synth-arp-on), [(o) synth arp kb sync](api.md#synth-arp-kb-sync), [(r) synth arp range](api.md#synth-arp-range), [(p) synth arp pattern](api.md#synth-arp-pattern), [(c) synth arp master clock](api.md#synth-arp-master-clock)
+| `0x0081` | `rrrrrrr-` | [(r) synth arp rate](api.md#synth-arp-rate)
 | `0x0082` | `--------` |
 | `0x0083` | `--------` |
-| `0x0084` | `--------` |
-| `0x0085` | `--------` |
-| `0x0086` | `--------` |
-| `0x0087` | `--------` |
+| `0x0084` | `-------v` | [(v) synth voice](api.md#synth-voice)
+| `0x0085` | `vggggggg` | [(g) synth glide](api.md#synth-glide)
+| `0x0086` | `uuvvvlll` | [(g) synth unison](api.md#synth-unison), [(v) synth vibrato](api.md#synth-vibrato), [(l) synth lfo wave](api.md#synth-lfo-wave)
+| `0x0087` | `mrrrrrrr` | [(m) synth lfo master clock](api.md#synth-lfo-master-clock), [(r) synth lfo rate](api.md#synth-lfo-rate)
 | `0x0088` | `--------` |
 | `0x0089` | `--------` |
 | `0x008A` | `--------` |
-| `0x008B` | `--------` |
-| `0x008C` | `--------` | sample location
-| `0x008D` | `--------` |
-| `0x008E` | `--------` |
-| `0x008F` | `--------` |
-| `0x0090` | `--------` |
-| `0x0091` | `--------` |
+| `0x008B` | `aaaaaaad` | [(a) synth mod env attack](api.md#synth-mod-env-attack), [(d) synth mod env decay](api.md#synth-mod-env-decay)
+| `0x008C` | `ddddddrr` | [(a) synth mod env release](api.md#synth-mod-env-release)
+| `0x008D` | `rrrrrvtt` | [(v) synth mod env velocity](api.md#synth-mod-env-velocity), [(t) synth oscillator type](api.md#synth-oscillator-type)
+| `0x008E` | `twwwwwww` | [(w) synth oscillator 1 wave form](api.md#synth-oscillator-1-wave-form)
+| `0x008F` | `ww-ccccp` | [(c) synth oscillator config](api.md#synth-oscillator-config), [(c) synth pitch](api.md#synth-pitch)
+| `0x0090` | `ppppplll` | [(l) synth oscillator control](api.md#synth-oscillator-control)
+| `0x0091` | `llll----` |
 | `0x0092` | `--------` |
 | `0x0093` | `--------` |
-| `0x0094` | `--------` |
-| `0x0095` | `--------` |
+| `0x0094` | `----llll` | [(l) synth lfo mod env](api.md#synth-lfo-mod-env)
+| `0x0095` | `lll-----` |
 | `0x0096` | `--------` |
 | `0x0097` | `--------` |
-| `0x0098` | `--------` |
-| `0x0099` | `--------` |
+| `0x0098` | `---tttff` | [(t) synth filter type](api.md#synth-filter-type), [(f) synth filter freq](api.md#synth-filter-freq)
+| `0x0099` | `fffff---` |
 | `0x009A` | `--------` |
 | `0x009B` | `--------` |
-| `0x009C` | `--------` |
-| `0x009D` | `--------` |
+| `0x009C` | `-----hhh` | [(h) synth filter hp freq res](api.md#synth-filter-hp-freq-res)
+| `0x009D` | `hhhh----` |
 | `0x009E` | `--------` |
 | `0x009F` | `--------` |
-| `0x00A0` | `--------` |
-| `0x00A1` | `--------` |
+| `0x00A0` | `----llll` | [(l) synth filter lfo amount](api.md#synth-filter-lfo-amount)
+| `0x00A1` | `lll-----` |
 | `0x00A2` | `--------` |
 | `0x00A3` | `--------` |
-| `0x00A4` | `--------` |
-| `0x00A5` | `--------` |
-| `0x00A6` | `--------` |
-| `0x00A7` | `--------` |
-| `0x00A8` | `-----sss` | 32-bit Nord Library Sample ID
+| `0x00A4` | `---mmmmm` | [(m) synth filter vel mod env amount](api.md#synth-filter-vel-mod-env-amount)
+| `0x00A5` | `mmttddaa` | [(t) synth filter kb track](api.md#synth-filter-kb-track), [(d) synth filter drive](api.md#synth-filter-drive), [(a) synth amp env attack](api.md#synth-amp-env-attack)
+| `0x00A6` | `aaaaaddd` | [(d) synth amp env decay](api.md#synth-amp-env-decay)
+| `0x00A7` | `ddddrrrr` | [(r) synth amp env release](api.md#synth-amp-env-release)
+| `0x00A8` | `rrrvvsss` | [(r) synth amp env velocity](api.md#synth-amp-env-velocity), [(s) synth sample id](api.md#synth-sample-id)
 | `0x00A9` | `ssssssss` |
 | `0x00AA` | `ssssssss` |
 | `0x00AB` | `ssssssss` |
-| `0x00AC` | `sssss---` |
+| `0x00AC` | `sssssf--` | [(f) synth fast attack](api.md#synth-fast-attack)
 | `0x00AD` | `--------` |
 | `0x00AE` | `--------` |
 | `0x00AF` | `--------` |

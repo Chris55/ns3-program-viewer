@@ -173,16 +173,16 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0x57 (b7)</p>
 </dd>
 <dt><a href="#module_Synth Sustain Pedal">Synth Sustain Pedal</a></dt>
-<dd><p>Offset in file: 0x57 (b2)</p>
+<dd><p>Offset in file: 0x57 (b6)</p>
 </dd>
-<dt><a href="#module_Synth Keyboard Hold">Synth Keyboard Hold</a></dt>
+<dt><a href="#module_Synth Kb Hold">Synth Kb Hold</a></dt>
 <dd><p>Offset in file: 0x80 (b7)</p>
 </dd>
 <dt><a href="#module_Synth Voice">Synth Voice</a></dt>
 <dd><p>Offset in file: 0x84 (b0) and 0x85 (b7)</p>
 </dd>
 <dt><a href="#module_Synth Glide">Synth Glide</a></dt>
-<dd><p>Offset in file: 0x84 (b6 to b0) 7 bits, range 0/10</p>
+<dd><p>Offset in file: 0x85 (b6 to b0) 7 bits, range 0/10</p>
 </dd>
 <dt><a href="#module_Synth Unison">Synth Unison</a></dt>
 <dd><p>Offset in file: 0x86 (b7/6)</p>
@@ -196,13 +196,13 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_Synth Oscillator 1 Wave Form">Synth Oscillator 1 Wave Form</a></dt>
 <dd><p>Offset in file: 0x8E (b3-0) and 0x8F (b7/6)</p>
 </dd>
-<dt><a href="#module_Synth Oscillator Configuration">Synth Oscillator Configuration</a></dt>
+<dt><a href="#module_Synth Oscillator Config">Synth Oscillator Config</a></dt>
 <dd><p>Offset in file: 0x8F (b4-1)</p>
 </dd>
-<dt><a href="#module_Synth Control Value">Synth Control Value</a></dt>
-<dd><p>Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value</p>
+<dt><a href="#module_Synth Oscillator Control">Synth Oscillator Control</a></dt>
+<dd><p>Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)</p>
 </dd>
-<dt><a href="#module_Synth Pitch Value">Synth Pitch Value</a></dt>
+<dt><a href="#module_Synth Pitch">Synth Pitch</a></dt>
 <dd><p>Offset in file: 0x8f (b0) and 0x90 (b7-3)</p>
 </dd>
 <dt><a href="#module_Synth LFO Mod Env">Synth LFO Mod Env</a></dt>
@@ -212,7 +212,7 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0xAC (b2)</p>
 </dd>
 <dt><a href="#module_Synth Filter Type">Synth Filter Type</a></dt>
-<dd><p>Offset in file: 0x98 (b4-6)</p>
+<dd><p>Offset in file: 0x98 (b4-2)</p>
 </dd>
 <dt><a href="#module_Synth Filter Kb Track">Synth Filter Kb Track</a></dt>
 <dd><p>Offset in file: 0xA5 (b5-4)</p>
@@ -220,17 +220,17 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_Synth Filter Drive">Synth Filter Drive</a></dt>
 <dd><p>Offset in file: 0xA5 (b3-2)</p>
 </dd>
-<dt><a href="#module_Synth Filter LFO Modulation">Synth Filter LFO Modulation</a></dt>
+<dt><a href="#module_Synth Filter LFO Amount">Synth Filter LFO Amount</a></dt>
 <dd><p>Offset in file: 0xA0 (b3-0) and 0xA1 (b7-5)</p>
 </dd>
-<dt><a href="#module_Synth Filter Vel Mod Env">Synth Filter Vel Mod Env</a></dt>
+<dt><a href="#module_Synth Filter Vel Mod Env Amount">Synth Filter Vel Mod Env Amount</a></dt>
 <dd><p>Offset in file: 0xA4 (b4-0) and 0xA5 (b7-6)</p>
 </dd>
 <dt><a href="#module_Synth Filter Freq">Synth Filter Freq</a></dt>
 <dd><p>Offset in file: 0x98 (b1-0) and 0x99 (b7-3)</p>
 </dd>
-<dt><a href="#module_Synth Filter Freq">Synth Filter Freq</a></dt>
-<dd><p>Offset in file: 0x9C(b2-0) and 0x9D (b7-4)</p>
+<dt><a href="#module_Synth Filter HP Freq Res">Synth Filter HP Freq Res</a></dt>
+<dd><p>Offset in file: 0x9C (b2-0) and 0x9D (b7-4)</p>
 </dd>
 <dt><a href="#module_Synth Mod Env Attack">Synth Mod Env Attack</a></dt>
 <dd><p>Offset in file: 0x8B (b7-1)</p>
@@ -275,7 +275,7 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0x80 (b5)</p>
 </dd>
 <dt><a href="#module_Synth Arp Master Clock">Synth Arp Master Clock</a></dt>
-<dd><p>Offset in file: 0x80 (b5)</p>
+<dd><p>Offset in file: 0x80 (b0)</p>
 </dd>
 <dt><a href="#module_Synth Arp Range">Synth Arp Range</a></dt>
 <dd><p>Offset in file: 0x80 (b4-3)</p>
@@ -445,7 +445,7 @@ Offset in file: 0x114 (b4-2)
 
 **Example**  
 ```js
-0 = PHAS1 0 = PHAS2 0 = FLANG 0 = VIBE 0 = CHOR1 0 = CHOR2
+0 = PHAS11 = PHAS22 = FLANG3 = VIBE4 = CHOR15 = CHOR2
 ```
 <a name="module_Effect 2 Amount"></a>
 
@@ -490,7 +490,7 @@ Offset in file:
 
 **Example**  
 ```js
-Volume:0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 rangeMorph Wheel:0xB7 (b3): direction (1 = up, 0 = down)0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw valueMorph After Touch:0xB8 (b3): direction (1 = up, 0 = down)0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw valueMorph Control Pedal:0xB9 (b3): direction (1 = up, 0 = down)0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw valueif direction = 1 then Morph offset value = raw value + 1if direction = 0 then Morph offset value = raw value - 127Final 'To' Morph value = 'From value (aka original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+Volume:0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 rangeMorph Wheel:0xB7 (b3): polarity (1 = positive, 0 = negative)0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw valueMorph After Touch:0xB8 (b3): polarity (1 = positive, 0 = negative)0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw valueMorph Control Pedal:0xB9 (b3): polarity (1 = positive, 0 = negative)0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw valueif direction = 1 then Morph offset value = raw value + 1if direction = 0 then Morph offset value = raw value - 127Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 ```
 <a name="module_Organ Octave Shift"></a>
 
@@ -780,15 +780,15 @@ O = off, 1 = on
 <a name="module_Synth Sustain Pedal"></a>
 
 ## Synth Sustain Pedal
-Offset in file: 0x57 (b2)
+Offset in file: 0x57 (b6)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_Synth Keyboard Hold"></a>
+<a name="module_Synth Kb Hold"></a>
 
-## Synth Keyboard Hold
+## Synth Kb Hold
 Offset in file: 0x80 (b7)
 
 **Example**  
@@ -807,7 +807,7 @@ Offset in file: 0x84 (b0) and 0x85 (b7)
 <a name="module_Synth Glide"></a>
 
 ## Synth Glide
-Offset in file: 0x84 (b6 to b0) 7 bits, range 0/10
+Offset in file: 0x85 (b6 to b0) 7 bits, range 0/10
 
 **Example**  
 ```js
@@ -849,27 +849,27 @@ Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
 ```js
 ID | Classic  | Wave               | Formant         | Super-- | -------- | ------------------ | --------------- | ------------------- O | Sine     | Wave 2nd Harm      | Format Wave Aaa | Super Wave Saw 1 | Triangle | Wave 3rd Harm      | Format Wave Eee | Super Wave Saw 2 2 | Saw      | Wave 4th Harm      | Format Wave Iii | Super Wave Square 3 | Square   | Wave 5th Harm      | Format Wave Ooo | Super Wave Square 2 4 | Pulse 33 | Wave 6th Harm      | Format Wave Uuu | Super Wave Bright 5 | Pulse 10 | Wave 7th Harm      | Format Wave Yyy | Super Wave Bright 2 6 | ESaw     | Wave 8th Harm      | Format Wave AO  | Super Wave Strings 7 | ESquare  | Wave Organ 1       | Format Wave AE  | Super Wave Organ 8 |          | Wave Organ 2       | Format Wave OE  | 9 |          | Wave Principal     |10 |          | Wave Flute 1       |11 |          | Wave Flute 2       |12 |          | Wave Clarinet 1    |13 |          | Wave Clarinet 2    |14 |          | Wave Alto Sax      |15 |          | Wave Tenor Sax     |16 |          | Wave 2nd Spectra   |17 |          | Wave 3rd Spectra   |18 |          | Wave 4th Spectra   |19 |          | Wave 5th Spectra   |20 |          | Wave 6th Spectra   |21 |          | Wave 7th Spectra   |22 |          | Wave 8th Spectra   |23 |          | Wave Saw Random    |24 |          | Wave Saw Bright    |25 |          | Wave Sqr Bright    |26 |          | Wave Saw NoFund    |27 |          | Wave EPiano 1      |28 |          | Wave EPiano 2      |29 |          | Wave EPiano 3      |30 |          | Wave DX 1          |31 |          | Wave DX 2          |32 |          | Wave Full Tines    |33 |          | Wave Ac Piano      |34 |          | Wave Ice 1         |35 |          | Wave Ice 2         |36 |          | Wave Clavinet 1    |37 |          | Wave Clavinet 2    |38 |          | Wave Clavinet 3    |39 |          | Wave Triplets      |40 |          | Wave Bell          |41 |          | Wave Bar 1         |42 |          | Wave Bar 2         |43 |          | Wave Tines         |44 |          | Wave Marimba       |45 |          | Wave Tubular Bells |
 ```
-<a name="module_Synth Oscillator Configuration"></a>
+<a name="module_Synth Oscillator Config"></a>
 
-## Synth Oscillator Configuration
+## Synth Oscillator Config
 Offset in file: 0x8F (b4-1)
 
 **Example**  
 ```js
 0 = None1 = Pitch2 = Shape3 = Sync4 = Detune5 = MixSin6 = MixTri7 = MixSaw8 = MixSqr9 = MixBell10 = MixNs111 = MixNs212 = FM113 = FM214 = RM
 ```
-<a name="module_Synth Control Value"></a>
+<a name="module_Synth Oscillator Control"></a>
 
-## Synth Control Value
-Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value
+## Synth Oscillator Control
+Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)
 
 **Example**  
 ```js
 Type                  Midi value conversionPitch (1)             0/127 => 0/24Shape (2)             0/127 => 0/100 %Sync (3)              0/127 => 0/10Detune (4)            0/127 => 0/4Mix* (5 to 11)        0/127 => 100/0 to 0/100FM & RM (12 to 14)    0/127 => 0/100 %
 ```
-<a name="module_Synth Pitch Value"></a>
+<a name="module_Synth Pitch"></a>
 
-## Synth Pitch Value
+## Synth Pitch
 Offset in file: 0x8f (b0) and 0x90 (b7-3)
 
 **Example**  
@@ -897,7 +897,7 @@ O = off, 1 = on
 <a name="module_Synth Filter Type"></a>
 
 ## Synth Filter Type
-Offset in file: 0x98 (b4-6)
+Offset in file: 0x98 (b4-2)
 
 **Example**  
 ```js
@@ -921,18 +921,18 @@ Offset in file: 0xA5 (b3-2)
 ```js
 0 = Off1 = 12 = 23 = 3
 ```
-<a name="module_Synth Filter LFO Modulation"></a>
+<a name="module_Synth Filter LFO Amount"></a>
 
-## Synth Filter LFO Modulation
+## Synth Filter LFO Amount
 Offset in file: 0xA0 (b3-0) and 0xA1 (b7-5)
 
 **Example**  
 ```js
 0/127 value = 0 / 10
 ```
-<a name="module_Synth Filter Vel Mod Env"></a>
+<a name="module_Synth Filter Vel Mod Env Amount"></a>
 
-## Synth Filter Vel Mod Env
+## Synth Filter Vel Mod Env Amount
 Offset in file: 0xA4 (b4-0) and 0xA5 (b7-6)
 
 **Example**  
@@ -948,10 +948,10 @@ Offset in file: 0x98 (b1-0) and 0x99 (b7-3)
 ```js
 0/127 value = 14 Hz / 21 kHz
 ```
-<a name="module_Synth Filter Freq"></a>
+<a name="module_Synth Filter HP Freq Res"></a>
 
-## Synth Filter Freq
-Offset in file: 0x9C(b2-0) and 0x9D (b7-4)
+## Synth Filter HP Freq Res
+Offset in file: 0x9C (b2-0) and 0x9D (b7-4)
 
 **Example**  
 ```js
@@ -1086,7 +1086,7 @@ O = off, 1 = on
 <a name="module_Synth Arp Master Clock"></a>
 
 ## Synth Arp Master Clock
-Offset in file: 0x80 (b5)
+Offset in file: 0x80 (b0)
 
 **Example**  
 ```js
