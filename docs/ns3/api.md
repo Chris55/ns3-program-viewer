@@ -16,95 +16,52 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0x38 (b2-0) 0x39 (b7-3)</p>
 </dd>
 <dt><a href="#module_Rotary Speaker On">Rotary Speaker On</a></dt>
-<dd><p>Offset in file: 0x10b (bit7):</p>
-<p>Values:
-0 = disabled, 1 = enabled</p>
+<dd><p>Offset in file: 0x10b (bit7)</p>
 </dd>
 <dt><a href="#module_Rotary Speaker Source">Rotary Speaker Source</a></dt>
-<dd><p>Offset in file: 0x10b (b6 and b5):</p>
-<p>Values:
-0 = Organ, 1, Piano, 2 = Synth</p>
+<dd><p>Offset in file: 0x10b (b6 and b5)</p>
 </dd>
 <dt><a href="#module_Rotary Speaker Drive">Rotary Speaker Drive</a></dt>
-<dd><p>Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4):</p>
-<p>Values:
-7 bits value 0/127 converted to 0/10</p>
+<dd><p>Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4)</p>
 </dd>
 <dt><a href="#module_Rotary Speaker Stop Mode">Rotary Speaker Stop Mode</a></dt>
-<dd><p>Offset in file: 0x35 (bit7):</p>
-<p>Values:
-0 = enabled (Speed Stop), 1 = disabled (Speed Slow)</p>
+<dd><p>Offset in file: 0x35 (bit7)</p>
 </dd>
 <dt><a href="#module_Rotary Speaker Speed">Rotary Speaker Speed</a></dt>
-<dd><p>Offset in file: 0x34 (bit0):</p>
-<p>Values:
-0 = Slow/Stop, 1 = Fast</p>
+<dd><p>Offset in file: 0x34 (bit0)</p>
 </dd>
 <dt><a href="#module_Effect 1 On">Effect 1 On</a></dt>
-<dd><p>Offset in file: 0x10b LSB 5 (AND 0x10)</p>
-<p> 0x00: OFF
- 0x10: ON</p>
+<dd><p>Offset in file: 0x10B (b4)</p>
 </dd>
 <dt><a href="#module_Effect 1 Source">Effect 1 Source</a></dt>
-<dd><p>Offset in file: 0x10b only 2 bits (AND 0x0C)</p>
-<p> 0x00: Organ
- 0x04: Piano
- 0x08: Synth</p>
+<dd><p>Offset in file: 0x10B (b3-2)</p>
 </dd>
 <dt><a href="#module_Effect 1 Type">Effect 1 Type</a></dt>
-<dd><p>Offset 0 in file: 0x10b two bit (AND 0x03) 0x10c one bit (AND 0x80)</p>
-<p> 0x00 0x00: A-Pan
- 0x00 0x80: Trem
- 0x01 0x00: RM
- 0x01 0x80: WA-WA
- 0x02 0x00: A-WA1
- 0x02 0x80: A-WA2</p>
+<dd><p>Offset 0 in file: 0x10B (b1-0) and 0x10C (b7)</p>
 </dd>
 <dt><a href="#module_Effect 1 Amount">Effect 1 Amount</a></dt>
-<dd><p>Offset in file: 0x110 only last 7 bits (AND 0x7F)</p>
-<p>Label: The number you get there, divided by 127 (7 bits) multiplied by 10.
-Then rounded to 1 dec</p>
+<dd><p>Offset in file: 0x110 (b6-0)</p>
 </dd>
 <dt><a href="#module_Effect 1 Rate">Effect 1 Rate</a></dt>
-<dd><p>Offset in file: last 6 bits of 0x10c (AND 0x3F) and first bit of 0x10d (and 0x80).</p>
-<p>So, those 2 bytes shifted 1 bit to the left, in order to get just 1 byte.
-If you get 0x3F 0x80, then that shifted 1 bit to the left is 0x7F.
-Then, same logic as with Amount for the label.</p>
+<dd><p>Offset in file: 0x10C (b5-0) and 0x10D (b7)</p>
 </dd>
 <dt><a href="#module_Effect 1 Master Clock">Effect 1 Master Clock</a></dt>
-<dd><p>Offset in file: 0x10c 2nd MS bit (AND 0x40):</p>
-<p> 0x00: OFF
- 0x40: ON</p>
+<dd><p>Offset in file: 0x10C (b6))</p>
 </dd>
 <dt><a href="#module_Effect 2 On">Effect 2 On</a></dt>
-<dd><p>Offset in file: 0x114 b7 (AND 0x80)</p>
-<p> 0x00: OFF
- 0x10: ON</p>
+<dd><p>Offset in file: 0x114 (b7)</p>
 </dd>
 <dt><a href="#module_Effect 2 Source">Effect 2 Source</a></dt>
-<dd><p>Offset in file: 0x114 b6 and b5 (AND 0x60)</p>
-<p> 0x00: Organ
- 0x04: Piano
- 0x08: Synth</p>
+<dd><p>Offset in file: 0x114 (b6-5)</p>
 </dd>
 <dt><a href="#module_Effect 2 Type">Effect 2 Type</a></dt>
-<dd><p>Offset in file: 0x114 bits 4-2 (AND 0x1C)</p>
-<p> 0x00: PHAS1
- 0x04: PHAS2
- 0x08: FLANG
- 0x0C: VIBE
- 0x10: CHOR1
- 0x14: CHOR2</p>
+<dd><p>Offset in file: 0x114 (b4-2)</p>
 </dd>
 <dt><a href="#module_Effect 2 Amount">Effect 2 Amount</a></dt>
-<dd><p>Offset in file: 0x115 (last 3 bits) and 0x116 (first 4 bits) So 0x115 AND
-0x07 + 0x115 AND 0xF0. All that then shifted for places to the right.
-To calculate number it is same as amount on effects 1</p>
+<dd><p>Offset in file: 0x115 (b2-0) and 0x116 (b7-4)</p>
 </dd>
 <dt><a href="#module_Effect 2 Rate">Effect 2 Rate</a></dt>
-<dd><p>Offset in file: last 2 bits of 0x114 and first 5 bits of 0x115
-So, 0x114 AND 0x03 + 0x115 AND 0xF8. All that shifted 3 places to the right
-Sames as Amount</p>
+<dd><p>Offset in file: 0x114 (b1-0) &amp;nd 0x115 (b7-3)</p>
 </dd>
 <dt><a href="#module_Organ On">Organ On</a></dt>
 <dd><p>Offset in file: 0xB6 (b7)</p>
@@ -234,7 +191,7 @@ Sames as Amount</p>
 <dd><p>Offset in file: 0x86 (b5/4/3)</p>
 </dd>
 <dt><a href="#module_Synth Oscillator Type">Synth Oscillator Type</a></dt>
-<dd><p>Offset in file: 0x8D (b1/0) and 0x81 (b7)</p>
+<dd><p>Offset in file: 0x8D (b1/0) and 0x8E (b7)</p>
 </dd>
 <dt><a href="#module_Synth Oscillator 1 Wave Form">Synth Oscillator 1 Wave Form</a></dt>
 <dd><p>Offset in file: 0x8E (b3-0) and 0x8F (b7/6)</p>
@@ -328,14 +285,6 @@ Sames as Amount</p>
 </dd>
 </dl>
 
-## Members
-
-<dl>
-<dt><a href="#categoryMap">categoryMap</a></dt>
-<dd><p>Offset 0x10</p>
-</dd>
-</dl>
-
 <a name="module_File Version"></a>
 
 ## File Version
@@ -375,87 +324,147 @@ bpm = value + 30
 <a name="module_Rotary Speaker On"></a>
 
 ## Rotary Speaker On
-Offset in file: 0x10b (bit7):Values:0 = disabled, 1 = enabled
-
-<a name="module_Rotary Speaker Source"></a>
-
-## Rotary Speaker Source
-Offset in file: 0x10b (b6 and b5):Values:0 = Organ, 1, Piano, 2 = Synth
-
-<a name="module_Rotary Speaker Drive"></a>
-
-## Rotary Speaker Drive
-Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4):Values:7 bits value 0/127 converted to 0/10
-
-<a name="module_Rotary Speaker Stop Mode"></a>
-
-## Rotary Speaker Stop Mode
-Offset in file: 0x35 (bit7):Values:0 = enabled (Speed Stop), 1 = disabled (Speed Slow)
-
-<a name="module_Rotary Speaker Speed"></a>
-
-## Rotary Speaker Speed
-Offset in file: 0x34 (bit0):Values:0 = Slow/Stop, 1 = Fast
-
-<a name="module_Effect 1 On"></a>
-
-## Effect 1 On
-Offset in file: 0x10b LSB 5 (AND 0x10) 0x00: OFF 0x10: ON
-
-<a name="module_Effect 1 Source"></a>
-
-## Effect 1 Source
-Offset in file: 0x10b only 2 bits (AND 0x0C) 0x00: Organ 0x04: Piano 0x08: Synth
-
-<a name="module_Effect 1 Type"></a>
-
-## Effect 1 Type
-Offset 0 in file: 0x10b two bit (AND 0x03) 0x10c one bit (AND 0x80) 0x00 0x00: A-Pan 0x00 0x80: Trem 0x01 0x00: RM 0x01 0x80: WA-WA 0x02 0x00: A-WA1 0x02 0x80: A-WA2
-
-<a name="module_Effect 1 Amount"></a>
-
-## Effect 1 Amount
-Offset in file: 0x110 only last 7 bits (AND 0x7F)Label: The number you get there, divided by 127 (7 bits) multiplied by 10.Then rounded to 1 dec
+Offset in file: 0x10b (bit7)
 
 **Example**  
 ```js
-if you get 0x2A, that is 42 / 127 * 10 = 3.307. Then Label is "3.3"if you get 0x15, that is 21 / 127 * 10 = 1.6535. Then Label is "1.7"if you get 0x16, that is 22 / 127 * 10 = 1.732. Then Label is "1.7" (yes, same) 
+O = off, 1 = on
+```
+<a name="module_Rotary Speaker Source"></a>
+
+## Rotary Speaker Source
+Offset in file: 0x10b (b6 and b5)
+
+**Example**  
+```js
+0 = Organ, 1, Piano, 2 = Synth
+```
+<a name="module_Rotary Speaker Drive"></a>
+
+## Rotary Speaker Drive
+Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4)
+
+**Example**  
+```js
+7-bit value 0/127 converted to 0/10
+```
+<a name="module_Rotary Speaker Stop Mode"></a>
+
+## Rotary Speaker Stop Mode
+Offset in file: 0x35 (bit7)
+
+**Example**  
+```js
+0 = enabled (Speed Stop), 1 = disabled (Speed Slow)
+```
+<a name="module_Rotary Speaker Speed"></a>
+
+## Rotary Speaker Speed
+Offset in file: 0x34 (bit0)
+
+**Example**  
+```js
+0 = Slow/Stop, 1 = Fast
+```
+<a name="module_Effect 1 On"></a>
+
+## Effect 1 On
+Offset in file: 0x10B (b4)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_Effect 1 Source"></a>
+
+## Effect 1 Source
+Offset in file: 0x10B (b3-2)
+
+**Example**  
+```js
+0 = Organ, 1, Piano, 2 = Synth 
+```
+<a name="module_Effect 1 Type"></a>
+
+## Effect 1 Type
+Offset 0 in file: 0x10B (b1-0) and 0x10C (b7)
+
+**Example**  
+```js
+0 = A-Pan 1 = Trem 2 = RM 3 = WA-WA 4 = A-WA1 5 = A-WA2 
+```
+<a name="module_Effect 1 Amount"></a>
+
+## Effect 1 Amount
+Offset in file: 0x110 (b6-0)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10 
 ```
 <a name="module_Effect 1 Rate"></a>
 
 ## Effect 1 Rate
-Offset in file: last 6 bits of 0x10c (AND 0x3F) and first bit of 0x10d (and 0x80).So, those 2 bytes shifted 1 bit to the left, in order to get just 1 byte.If you get 0x3F 0x80, then that shifted 1 bit to the left is 0x7F.Then, same logic as with Amount for the label.
+Offset in file: 0x10C (b5-0) and 0x10D (b7)
 
+**Example**  
+```js
+7-bit value 0/127 = 0/10if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32
+```
 <a name="module_Effect 1 Master Clock"></a>
 
 ## Effect 1 Master Clock
-Offset in file: 0x10c 2nd MS bit (AND 0x40): 0x00: OFF 0x40: ON
+Offset in file: 0x10C (b6))
 
+**Example**  
+```js
+O = off, 1 = on 
+```
 <a name="module_Effect 2 On"></a>
 
 ## Effect 2 On
-Offset in file: 0x114 b7 (AND 0x80) 0x00: OFF 0x10: ON
+Offset in file: 0x114 (b7)
 
+**Example**  
+```js
+O = off, 1 = on 
+```
 <a name="module_Effect 2 Source"></a>
 
 ## Effect 2 Source
-Offset in file: 0x114 b6 and b5 (AND 0x60) 0x00: Organ 0x04: Piano 0x08: Synth
+Offset in file: 0x114 (b6-5)
 
+**Example**  
+```js
+0 = Organ, 1, Piano, 2 = Synth 
+```
 <a name="module_Effect 2 Type"></a>
 
 ## Effect 2 Type
-Offset in file: 0x114 bits 4-2 (AND 0x1C) 0x00: PHAS1 0x04: PHAS2 0x08: FLANG 0x0C: VIBE 0x10: CHOR1 0x14: CHOR2
+Offset in file: 0x114 (b4-2)
 
+**Example**  
+```js
+0 = PHAS1 0 = PHAS2 0 = FLANG 0 = VIBE 0 = CHOR1 0 = CHOR2
+```
 <a name="module_Effect 2 Amount"></a>
 
 ## Effect 2 Amount
-Offset in file: 0x115 (last 3 bits) and 0x116 (first 4 bits) So 0x115 AND0x07 + 0x115 AND 0xF0. All that then shifted for places to the right.To calculate number it is same as amount on effects 1
+Offset in file: 0x115 (b2-0) and 0x116 (b7-4)
 
+**Example**  
+```js
+7-bit value 0/127 = 0/10
+```
 <a name="module_Effect 2 Rate"></a>
 
 ## Effect 2 Rate
-Offset in file: last 2 bits of 0x114 and first 5 bits of 0x115So, 0x114 AND 0x03 + 0x115 AND 0xF8. All that shifted 3 places to the rightSames as Amount
+Offset in file: 0x114 (b1-0) &nd 0x115 (b7-3)
 
+**Example**  
+```js
+7-bit value 0/127 = 0/10
+```
 <a name="module_Organ On"></a>
 
 ## Organ On
@@ -791,36 +800,64 @@ O = off, 1 = on
 ## Synth Voice
 Offset in file: 0x84 (b0) and 0x85 (b7)
 
+**Example**  
+```js
+0 = Poly1 = Legato2 = Mono
+```
 <a name="module_Synth Glide"></a>
 
 ## Synth Glide
 Offset in file: 0x84 (b6 to b0) 7 bits, range 0/10
 
+**Example**  
+```js
+0/127 value = 0 / 10
+```
 <a name="module_Synth Unison"></a>
 
 ## Synth Unison
 Offset in file: 0x86 (b7/6)
 
+**Example**  
+```js
+0 = Off1 = 12 = 23 = 3
+```
 <a name="module_Synth Vibrato"></a>
 
 ## Synth Vibrato
 Offset in file: 0x86 (b5/4/3)
 
+**Example**  
+```js
+0 = Off1 = Delay 12 = Delay 23 = Delay 34 = Wheel5 = After Touch
+```
 <a name="module_Synth Oscillator Type"></a>
 
 ## Synth Oscillator Type
-Offset in file: 0x8D (b1/0) and 0x81 (b7)
+Offset in file: 0x8D (b1/0) and 0x8E (b7)
 
+**Example**  
+```js
+0 = Classic1 = Wave2 = Formant3 = Super4 = Sample
+```
 <a name="module_Synth Oscillator 1 Wave Form"></a>
 
 ## Synth Oscillator 1 Wave Form
 Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
 
+**Example**  
+```js
+ID | Classic  | Wave               | Formant         | Super-- | -------- | ------------------ | --------------- | ------------------- O | Sine     | Wave 2nd Harm      | Format Wave Aaa | Super Wave Saw 1 | Triangle | Wave 3rd Harm      | Format Wave Eee | Super Wave Saw 2 2 | Saw      | Wave 4th Harm      | Format Wave Iii | Super Wave Square 3 | Square   | Wave 5th Harm      | Format Wave Ooo | Super Wave Square 2 4 | Pulse 33 | Wave 6th Harm      | Format Wave Uuu | Super Wave Bright 5 | Pulse 10 | Wave 7th Harm      | Format Wave Yyy | Super Wave Bright 2 6 | ESaw     | Wave 8th Harm      | Format Wave AO  | Super Wave Strings 7 | ESquare  | Wave Organ 1       | Format Wave AE  | Super Wave Organ 8 |          | Wave Organ 2       | Format Wave OE  | 9 |          | Wave Principal     |10 |          | Wave Flute 1       |11 |          | Wave Flute 2       |12 |          | Wave Clarinet 1    |13 |          | Wave Clarinet 2    |14 |          | Wave Alto Sax      |15 |          | Wave Tenor Sax     |16 |          | Wave 2nd Spectra   |17 |          | Wave 3rd Spectra   |18 |          | Wave 4th Spectra   |19 |          | Wave 5th Spectra   |20 |          | Wave 6th Spectra   |21 |          | Wave 7th Spectra   |22 |          | Wave 8th Spectra   |23 |          | Wave Saw Random    |24 |          | Wave Saw Bright    |25 |          | Wave Sqr Bright    |26 |          | Wave Saw NoFund    |27 |          | Wave EPiano 1      |28 |          | Wave EPiano 2      |29 |          | Wave EPiano 3      |30 |          | Wave DX 1          |31 |          | Wave DX 2          |32 |          | Wave Full Tines    |33 |          | Wave Ac Piano      |34 |          | Wave Ice 1         |35 |          | Wave Ice 2         |36 |          | Wave Clavinet 1    |37 |          | Wave Clavinet 2    |38 |          | Wave Clavinet 3    |39 |          | Wave Triplets      |40 |          | Wave Bell          |41 |          | Wave Bar 1         |42 |          | Wave Bar 2         |43 |          | Wave Tines         |44 |          | Wave Marimba       |45 |          | Wave Tubular Bells |
+```
 <a name="module_Synth Oscillator Configuration"></a>
 
 ## Synth Oscillator Configuration
 Offset in file: 0x8F (b4-1)
 
+**Example**  
+```js
+0 = None1 = Pitch2 = Shape3 = Sync4 = Detune5 = MixSin6 = MixTri7 = MixSaw8 = MixSqr9 = MixBell10 = MixNs111 = MixNs212 = FM113 = FM214 = RM
+```
 <a name="module_Synth Control Value"></a>
 
 ## Synth Control Value
@@ -1073,9 +1110,3 @@ Offset in file: 0x80 (b2-1)
 ```js
 0 = Up1 = Down2 = Up/Down3 = Random
 ```
-<a name="categoryMap"></a>
-
-## categoryMap
-Offset 0x10
-
-**Kind**: global variable  
