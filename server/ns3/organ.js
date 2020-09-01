@@ -78,7 +78,8 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0xB6 (b7)
          *
-         * O = disabled, 1 = enabled
+         * @example
+         * O = off, 1 = on
          *
          * @module Organ On
          */
@@ -87,39 +88,46 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0xB6 (b6 to b3)
          *
-         * | value     |      | Label   |
-         * | --------- | ---- | ------- |
-         * | x000 0xxx | 0    | `o---`
-         * | x000 1xxx | 1    | `-o--`
-         * | x001 0xxx | 2    | `--o-`
-         * | x001 1xxx | 3    | `---o`
-         * | x010 0xxx | 4    | `oo--`
-         * | x010 1xxx | 5    | `-oo-`
-         * | x011 0xxx | 6    | `--oo`
-         * | x011 1xxx | 7    | `ooo-`
-         * | x100 0xxx | 8    | `-ooo`
-         * | x100 1xxx | 9    | `oooo`
+         * @example
+         * value     |      | Label
+         * --------- | ---- | -------
+         * x000 0xxx |  0   | `o---`
+         * x000 1xxx |  1   | `-o--`
+         * x001 0xxx |  2   | `--o-`
+         * x001 1xxx |  3   | `---o`
+         * x010 0xxx |  4   | `oo--`
+         * x010 1xxx |  5   | `-oo-`
+         * x011 0xxx |  6   | `--oo`
+         * x011 1xxx |  7   | `ooo-`
+         * x100 0xxx |  8   | `-ooo`
+         * x100 1xxx |  9   | `oooo`
          *
-         *  @module Organ Kb Zone
+         * @module Organ Kb Zone
          */
         kbZone: getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11),
 
         /**
          * Offset in file:
-         * | -------- |
+         *
+         * @example
          * Volume:
          * 0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 range
+         *
          * Morph Wheel:
          * 0xB7 (b3): direction (1 = up, 0 = down)
          * 0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw value
+         *
          * Morph After Touch:
          * 0xB8 (b3): direction (1 = up, 0 = down)
          * 0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw value
+         *
          * Morph Control Pedal:
          * 0xB9 (b3): direction (1 = up, 0 = down)
          * 0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw value
+         *
          * if direction = 1 then Morph offset value = raw value + 1
          * if direction = 0 then Morph offset value = raw value - 127
+         *
          * Final 'To' Morph value = 'From value (aka original volume)' + 'Morph offset value'
          * Morph Enabled if  'From value' <> 'Morph offset value'
          *
@@ -130,6 +138,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0xBA (b2/1/0)
          *
+         * @example
          * Octave Shift = value - 6
          *
          * @module Organ Octave Shift
@@ -139,6 +148,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0x34 (b4)
          *
+         * @example
+         * O = off, 1 = on
+         *
          * @module Organ Pitch Stick
          */
         pitchStick: (organOffset34 & 0x10) !== 0,
@@ -146,13 +158,17 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0xBB (b7)
          *
+         * @example
+         * O = off, 1 = on
+         *
          * @module Organ Sustain Pedal
          */
         sustainPedal: (organOffsetBb & 0x80) !== 0,
 
         /**
          * Offset in file: 0xBB (b6/5/4)
-         * | -------- |
+         *
+         * @example
          * 0 = B3
          * 1 = Vox
          * 2 = Farfisa
@@ -165,7 +181,8 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
 
         /**
          * Offset in file: 0xBE
-         * | -------- |
+         *
+         * @example
          * Drawbar 1: 0xBE (b7-4)
          * Drawbar 2: 0xC0 (b4-1)
          * Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)
@@ -182,7 +199,8 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
 
         /**
          * Offset in file: 0xD9
-         * | -------- |
+         *
+         * @example
          * Drawbar 1: 0xD9 (b7-4)
          * Drawbar 2: 0xDB (b4-1)
          * Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)
@@ -212,12 +230,18 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
             /**
              * Offset in file: 0xD3 (b4)
              *
+             * @example
+             * O = off, 1 = on
+             *
              * @module Organ Vibrato On
              */
             enabled: (organOffsetD3 & 0x10) !== 0,
 
             /**
              * Offset in file: 0x34 (b3/2/1)
+             *
+             * @example
+             * O = off, 1 = on
              *
              * @module Organ Vibrato Mode
              */
@@ -231,12 +255,18 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
             /**
              * Offset in file: 0xD3 (b4)
              *
+             * @example
+             * O = off, 1 = on
+             *
              * @module Organ Percussion On
              */
             enabled: (organOffsetD3 & 0x08) !== 0,
 
             /**
              * Offset in file: 0xD3 (b0)
+             *
+             * @example
+             * O = off, 1 = on
              *
              * @module Organ Percussion Volume Soft
              */
@@ -245,12 +275,18 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
             /**
              * Offset in file: 0xD3 (b1)
              *
+             * @example
+             * O = off, 1 = on
+             *
              * @module Organ Percussion Decay Fast
              */
             decayFast: (organOffsetD3 & 0x02) !== 0,
 
             /**
              * Offset in file: 0xD3 (b2)
+             *
+             * @example
+             * O = off, 1 = on
              *
              * @module Organ Percussion Harmonic Third
              */

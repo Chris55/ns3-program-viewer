@@ -186,6 +186,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0x52 (b7): O = disabled, 1 = enabled
          *
+         * @example
+         * O = off, 1 = on
+         *
          * @module Synth On
          */
         enabled: synthEnabled,
@@ -216,6 +219,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0x57 (b7)
          *
+         * @example
+         * O = off, 1 = on
+         *
          * @module Synth Pitch Stick
          */
         pitchStick: (synthOffset57 & 0x80) !== 0,
@@ -225,12 +231,18 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0x57 (b2)
          *
+         * @example
+         * O = off, 1 = on
+         *
          * @module Synth Sustain Pedal
          */
         sustainPedal: (synthOffset57 & 0x40) !== 0,
 
         /**
          * Offset in file: 0x80 (b7)
+         *
+         * @example
+         * O = off, 1 = on
          *
          * @module Synth Keyboard Hold
          */
@@ -291,14 +303,15 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
 
             /**
              * Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value
-             * | --- | ---
-             * | Midi value conversion |
-             * | Pitch (1)             | 0/127 => 0/24
-             * | Shape (2)             | 0/127 => 0/100 %
-             * | Sync (3)              | 0/127 => 0/10
-             * | Detune (4)            | 0/127 => 0/4
-             * | Mix* (5 to 11)        | 0/127 => 100/0 to 0/100
-             * | FM & RM (12 to 14)    | 0/127 => 0/100 %
+             *
+             * @example
+             * Type                  Midi value conversion
+             * Pitch (1)             0/127 => 0/24
+             * Shape (2)             0/127 => 0/100 %
+             * Sync (3)              0/127 => 0/10
+             * Detune (4)            0/127 => 0/4
+             * Mix* (5 to 11)        0/127 => 100/0 to 0/100
+             * FM & RM (12 to 14)    0/127 => 0/100 %
              *
              * @module Synth Control Value
              */
@@ -336,7 +349,8 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
 
             /**
              * Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
-             * | --- |
+             *
+             * @example
              * Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.
              * Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
              * 0   = 10.0 (100% left value) LFO Amount
@@ -364,6 +378,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
             /**
              * Offset in file: 0xAC (b2)
              *
+             * @example
+             * O = off, 1 = on
+             *
              * @module Synth Fast Attack
              */
             fastAttack: (synthOffsetAc & 0x04) !== 0,
@@ -371,13 +388,14 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         filter: {
             /**
              * Offset in file: 0x98 (b4-6)
-             * | --- | --- |
-             * | 0 | LP12
-             * | 1 | LP24
-             * | 2 | Mini Moog
-             * | 3 | LP+HP
-             * | 4 | BP24
-             * | 5 | HP24
+             *
+             * @example
+             * 0 = LP12
+             * 1 = LP24
+             * 2 = Mini Moog
+             * 3 = LP+HP
+             * 4 = BP24
+             * 5 = HP24
              *
              * @module Synth Filter Type
              */
@@ -385,11 +403,12 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
 
             /**
              * Offset in file: 0xA5 (b5-4)
-             * | --- | --- |
-             * | 0 | Off
-             * | 1 | 1/3
-             * | 2 | 2/3
-             * | 3 | 1
+             *
+             * @example
+             * 0 = Off
+             * 1 = 1/3
+             * 2 = 2/3
+             * 3 = 1
              *
              * @module Synth Filter Kb Track
              */
@@ -397,11 +416,12 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
 
             /**
              * Offset in file: 0xA5 (b3-2)
-             * | --- | --- |
-             * | 0 | Off
-             * | 1 | 1
-             * | 2 | 2
-             * | 3 | 3
+             *
+             * @example
+             * 0 = Off
+             * 1 = 1
+             * 2 = 2
+             * 3 = 3
              *
              * @module Synth Filter Drive
              */

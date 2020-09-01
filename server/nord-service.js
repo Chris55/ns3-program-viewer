@@ -216,6 +216,7 @@ exports.loadNs3fFile = (buffer) => {
     /**
      * Offset in file: 0x38 (b2-0) 0x39 (b7-3)
      *
+     * @example
      * bpm = value + 30
      *
      * @module Master Clock Rate

@@ -22,6 +22,7 @@ exports.getPanel = function (buffer, id, splitEnabled) {
     /**
      * Offset in file 0x31
      *
+     * @example
      * Enabled (b5 & b6):
      * 0 = A only
      * 1 = B only

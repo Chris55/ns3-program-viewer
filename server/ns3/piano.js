@@ -27,7 +27,10 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
 
     return {
         /**
-         * Offset in file: 0x43 (b7): O = disabled, 1 = enabled
+         * Offset in file: 0x43 (b7)
+         *
+         * @example
+         * O = off, 1 = on
          *
          * @module Piano On
          */
@@ -64,44 +67,42 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         octaveShift: (pianoOffset47 & 0x07) - 6,
 
         /**
-         * Offset in file: 0x48 (just bit 0x80)
+         * Offset in file: 0x48 (b7)
          *
          * @example
-         * 0x00- No
-         * 0x80- Yes
+         * O = off, 1 = on
          *
          * @module Piano Pitch Stick
          */
         pitchStick: (pianoOffset48 & 0x80) !== 0,
 
         /**
-         * Offset in file: 0x48 (just bit 0x40)
+         * Offset in file: 0x48 (b6)
          *
          * @example
-         * 0x00- No
-         * 0x40- Yes
+         * O = off, 1 = on
          *
          * @module Piano Sustain Pedal
          */
         sustainPedal: (pianoOffset48 & 0x40) !== 0,
 
         /**
-         * Offset in file: 0x48 (only 4 bits, last 3 of first nibble, first of second nibble) AND 0x98
+         * Offset in file: 0x48 (b5-3)
          *
          * @example
-         * 0x40- Grand
-         * 0x48- Upright
-         * 0x50- Electric
-         * 0x58- Clav
-         * 0x60- Digital
-         * 0x68- Misc
+         * 0 = Grand
+         * 1 = Upright
+         * 2 = Electric
+         * 3 = Clav
+         * 4 = Digital
+         * 5 = Misc
          *
          * @module Piano Type
          */
         type: mapping.pianoTypeMap.get((pianoOffset48 & 0x38) >>> 3),
 
         /**
-         * Offset in file: 0x48 and 0x49 (last 3 bits of 0x49 and first 2 bits of 0x4A).
+         * Offset in file:  0x48 (b2-0) and 0x49 (b7-6)
          *
          * @example
          * 0x00 0x00: model 1
@@ -114,74 +115,71 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         model: (pianoOffset48W & 0x07c0) >>> 6,
 
         /**
-         * Offset in file: 0x4E
+         * Offset in file: 0x4E (b5-3)
          *
          * @example
-         * 0x00- None
-         * 0x08- Soft
-         * 0x10- Mid
-         * 0x18- Bright
-         * 0x20- DYNO1
-         * 0x28- DYNO2
+         * 0 = None
+         * 1 = Soft
+         * 2 = Mid
+         * 3 = Bright
+         * 4 = DYNO1
+         * 5 = DYNO2
          *
          * @module Piano Timbre
          */
         timbre: mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3),
 
         /**
-         * Offset in file: 0x4D (just least significant bit 1, so AND 0x01) and
-         *                 0x4E (Just Most Significant Bit, so AND 0x80)
+         * Offset in file: 0x4D (b0) and 0x4E (b7)
          *
          * @example
-         * 0x00 + 0x8x- KB Touch 1
-         * 0x01 + 0x0x- KB Touch 2
-         * 0x01 + 0x8x- KB Touch 3
+         * 0 = Normal
+         * 1 = KB Touch 1
+         * 2 = Touch 2
+         * 3 = Touch 3
          *
          * @module Piano KB Touch
          */
         kbTouch: mapping.pianoKbTouchMap.get((pianoOffset4dW & 0x0180) >>> 7),
 
         /**
-         * Offset in file: 0x34
+         * Offset in file: 0x34 (b6-5)
          *
          * @example
-         * 0x00- Off
-         * 0x20- 1
-         * 0x40- 2
-         * 0x60- 3
+         * 0 =  Off
+         * 1 =  1
+         * 2 =  2
+         * 3 =  3
          *
          * @module Piano Layer Detune
          */
         layerDetune: mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >>> 5),
 
         /**
-         * Offset in file: 0x4D (just least significant bit 4, so AND 0x08)
+         * Offset in file: 0x4D (b4)
          *
          * @example
-         * 0x00 - No
-         * 0x08 - Soft Release
+         * O = off, 1 = on
          *
          * @module Piano Soft Release
          */
         softRelease: (pianoOffset4d & 0x08) !== 0,
 
         /**
-         * Offset in file: 0x4D (just least significant bit 2, so AND 0x02)
+         * Offset in file: 0x4D (b2)
          *
          * @example
-         * 0x00- No
-         * 0x02- Pedal Noise
+         * O = off, 1 = on
          *
          * @module Piano Pedal Noise
          */
         pedalNoise: (pianoOffset4d & 0x02) !== 0,
 
         /**
-         * Offset in file: 0x4D (just least significant bit 3, so AND 0x04)
+         * Offset in file: 0x4D (b3)
          *
          * @example
-         * 0x00- No
-         * 0x04- String Res
+         * O = off, 1 = on
          *
          * @module Piano String Resonance
          */

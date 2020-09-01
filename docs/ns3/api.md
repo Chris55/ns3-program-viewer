@@ -14,7 +14,6 @@ Value: 0x38 (b6-3)</p>
 </dd>
 <dt><a href="#module_Master Clock Rate">Master Clock Rate</a></dt>
 <dd><p>Offset in file: 0x38 (b2-0) 0x39 (b7-3)</p>
-<p>bpm = value + 30</p>
 </dd>
 <dt><a href="#module_Rotary Speaker On">Rotary Speaker On</a></dt>
 <dd><p>Offset in file: 0x10b (bit7):</p>
@@ -112,92 +111,15 @@ Sames as Amount</p>
 </dd>
 <dt><a href="#module_Organ On">Organ On</a></dt>
 <dd><p>Offset in file: 0xB6 (b7)</p>
-<p>O = disabled, 1 = enabled</p>
 </dd>
 <dt><a href="#module_Organ Kb Zone">Organ Kb Zone</a></dt>
 <dd><p>Offset in file: 0xB6 (b6 to b3)</p>
-<table>
-<thead>
-<tr>
-<th>value</th>
-<th></th>
-<th>Label</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>x000 0xxx</td>
-<td>0</td>
-<td><code>o---</code></td>
-</tr>
-<tr>
-<td>x000 1xxx</td>
-<td>1</td>
-<td><code>-o--</code></td>
-</tr>
-<tr>
-<td>x001 0xxx</td>
-<td>2</td>
-<td><code>--o-</code></td>
-</tr>
-<tr>
-<td>x001 1xxx</td>
-<td>3</td>
-<td><code>---o</code></td>
-</tr>
-<tr>
-<td>x010 0xxx</td>
-<td>4</td>
-<td><code>oo--</code></td>
-</tr>
-<tr>
-<td>x010 1xxx</td>
-<td>5</td>
-<td><code>-oo-</code></td>
-</tr>
-<tr>
-<td>x011 0xxx</td>
-<td>6</td>
-<td><code>--oo</code></td>
-</tr>
-<tr>
-<td>x011 1xxx</td>
-<td>7</td>
-<td><code>ooo-</code></td>
-</tr>
-<tr>
-<td>x100 0xxx</td>
-<td>8</td>
-<td><code>-ooo</code></td>
-</tr>
-<tr>
-<td>x100 1xxx</td>
-<td>9</td>
-<td><code>oooo</code></td>
-</tr>
-</tbody></table>
 </dd>
 <dt><a href="#module_Organ Volume">Organ Volume</a></dt>
-<dd><p>Offset in file:
-| -------- |
-Volume:
-0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 range
-Morph Wheel:
-0xB7 (b3): direction (1 = up, 0 = down)
-0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw value
-Morph After Touch:
-0xB8 (b3): direction (1 = up, 0 = down)
-0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw value
-Morph Control Pedal:
-0xB9 (b3): direction (1 = up, 0 = down)
-0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw value
-if direction = 1 then Morph offset value = raw value + 1
-if direction = 0 then Morph offset value = raw value - 127
-Final &#39;To&#39; Morph value = &#39;From value (aka original volume)&#39; + &#39;Morph offset value&#39;
-Morph Enabled if  &#39;From value&#39; &lt;&gt; &#39;Morph offset value&#39;</p>
+<dd><p>Offset in file:</p>
 </dd>
 <dt><a href="#module_Organ Octave Shift">Organ Octave Shift</a></dt>
 <dd><p>Offset in file: 0xBA (b2/1/0)</p>
-<p>Octave Shift = value - 6</p>
 </dd>
 <dt><a href="#module_Organ Pitch Stick">Organ Pitch Stick</a></dt>
 <dd><p>Offset in file: 0x34 (b4)</p>
@@ -206,39 +128,13 @@ Morph Enabled if  &#39;From value&#39; &lt;&gt; &#39;Morph offset value&#39;</p>
 <dd><p>Offset in file: 0xBB (b7)</p>
 </dd>
 <dt><a href="#module_Organ Type">Organ Type</a></dt>
-<dd><p>Offset in file: 0xBB (b6/5/4)
-| -------- |
-0 = B3
-1 = Vox
-2 = Farfisa
-3 = Pipe1
-4 = Pipe2</p>
+<dd><p>Offset in file: 0xBB (b6/5/4)</p>
 </dd>
 <dt><a href="#module_Organ Drawbars Preset 1">Organ Drawbars Preset 1</a></dt>
-<dd><p>Offset in file: 0xBE
-| -------- |
-Drawbar 1: 0xBE (b7-4)
-Drawbar 2: 0xC0 (b4-1)
-Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)
-Drawbar 4: 0xC5 (b6-3)
-Drawbar 5: 0xC7 (b3-0)
-Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)
-Drawbar 7: 0xCC (b5-2)
-Drawbar 8: 0xCE (b2-0) and 0xCF (b7)
-Drawbar 9: 0xD1 (b7-4)</p>
+<dd><p>Offset in file: 0xBE</p>
 </dd>
 <dt><a href="#module_Organ Drawbars Preset 2">Organ Drawbars Preset 2</a></dt>
-<dd><p>Offset in file: 0xD9
-| -------- |
-Drawbar 1: 0xD9 (b7-4)
-Drawbar 2: 0xDB (b4-1)
-Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)
-Drawbar 4: 0xE0 (b6-3)
-Drawbar 5: 0xE2 (b3-0)
-Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)
-Drawbar 7: 0xE7 (b5-2)
-Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)
-Drawbar 9: 0xEC (b7-4)</p>
+<dd><p>Offset in file: 0xD9</p>
 </dd>
 <dt><a href="#module_Organ Live Mode">Organ Live Mode</a></dt>
 <dd><p>Offset in file: 0xBB (b3)
@@ -266,15 +162,9 @@ Drawbar 9: 0xEC (b7-4)</p>
 </dd>
 <dt><a href="#module_Panel Enabled And Selection">Panel Enabled And Selection</a></dt>
 <dd><p>Offset in file 0x31</p>
-<p>Enabled (b5 &amp; b6):
-0 = A only
-1 = B only
-2 = A &amp; B</p>
-<p>Selected Panel (b7):
-A = 0, B = 1 (not used here)</p>
 </dd>
 <dt><a href="#module_Piano On">Piano On</a></dt>
-<dd><p>Offset in file: 0x43 (b7): O = disabled, 1 = enabled</p>
+<dd><p>Offset in file: 0x43 (b7)</p>
 </dd>
 <dt><a href="#module_Piano Kb Zone">Piano Kb Zone</a></dt>
 <dd><p>Offset in file: 0x43 (b6 to b3)</p>
@@ -286,35 +176,34 @@ A = 0, B = 1 (not used here)</p>
 <dd><p>Offset in file: 0x47 (just 4 last bits, AND 0x0F)</p>
 </dd>
 <dt><a href="#module_Piano Pitch Stick">Piano Pitch Stick</a></dt>
-<dd><p>Offset in file: 0x48 (just bit 0x80)</p>
+<dd><p>Offset in file: 0x48 (b7)</p>
 </dd>
 <dt><a href="#module_Piano Sustain Pedal">Piano Sustain Pedal</a></dt>
-<dd><p>Offset in file: 0x48 (just bit 0x40)</p>
+<dd><p>Offset in file: 0x48 (b6)</p>
 </dd>
 <dt><a href="#module_Piano Type">Piano Type</a></dt>
-<dd><p>Offset in file: 0x48 (only 4 bits, last 3 of first nibble, first of second nibble) AND 0x98</p>
+<dd><p>Offset in file: 0x48 (b5-3)</p>
 </dd>
 <dt><a href="#module_Piano Model">Piano Model</a></dt>
-<dd><p>Offset in file: 0x48 and 0x49 (last 3 bits of 0x49 and first 2 bits of 0x4A).</p>
+<dd><p>Offset in file:  0x48 (b2-0) and 0x49 (b7-6)</p>
 </dd>
 <dt><a href="#module_Piano Timbre">Piano Timbre</a></dt>
-<dd><p>Offset in file: 0x4E</p>
+<dd><p>Offset in file: 0x4E (b5-3)</p>
 </dd>
 <dt><a href="#module_Piano KB Touch">Piano KB Touch</a></dt>
-<dd><p>Offset in file: 0x4D (just least significant bit 1, so AND 0x01) and
-                0x4E (Just Most Significant Bit, so AND 0x80)</p>
+<dd><p>Offset in file: 0x4D (b0) and 0x4E (b7)</p>
 </dd>
 <dt><a href="#module_Piano Layer Detune">Piano Layer Detune</a></dt>
-<dd><p>Offset in file: 0x34</p>
+<dd><p>Offset in file: 0x34 (b6-5)</p>
 </dd>
 <dt><a href="#module_Piano Soft Release">Piano Soft Release</a></dt>
-<dd><p>Offset in file: 0x4D (just least significant bit 4, so AND 0x08)</p>
+<dd><p>Offset in file: 0x4D (b4)</p>
 </dd>
 <dt><a href="#module_Piano Pedal Noise">Piano Pedal Noise</a></dt>
-<dd><p>Offset in file: 0x4D (just least significant bit 2, so AND 0x02)</p>
+<dd><p>Offset in file: 0x4D (b2)</p>
 </dd>
 <dt><a href="#module_Piano String Resonance">Piano String Resonance</a></dt>
-<dd><p>Offset in file: 0x4D (just least significant bit 3, so AND 0x04)</p>
+<dd><p>Offset in file: 0x4D (b3)</p>
 </dd>
 <dt><a href="#module_Synth On">Synth On</a></dt>
 <dd><p>Offset in file: 0x52 (b7): O = disabled, 1 = enabled</p>
@@ -359,15 +248,7 @@ A = 0, B = 1 (not used here)</p>
 <dd><p>Offset in file: 0x8F (b4-1)</p>
 </dd>
 <dt><a href="#module_Synth Control Value">Synth Control Value</a></dt>
-<dd><p>Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value
-| --- | ---
-| Midi value conversion |
-| Pitch (1)             | 0/127 =&gt; 0/24
-| Shape (2)             | 0/127 =&gt; 0/100 %
-| Sync (3)              | 0/127 =&gt; 0/10
-| Detune (4)            | 0/127 =&gt; 0/4
-| Mix* (5 to 11)        | 0/127 =&gt; 100/0 to 0/100
-| FM &amp; RM (12 to 14)    | 0/127 =&gt; 0/100 %</p>
+<dd><p>Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value</p>
 </dd>
 <dt><a href="#module_Synth Pitch Value">Synth Pitch Value</a></dt>
 <dd><p>Offset in file: 0x8f (b0) and 0x90 (b7-3)
@@ -376,42 +257,19 @@ Midi value are the 6 bits value used + b0 (zero)
 label conversion: -12 (Sub) to +48</p>
 </dd>
 <dt><a href="#module_Synth LFO Mod Env">Synth LFO Mod Env</a></dt>
-<dd><p>Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
-| --- |
-Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.
-Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
-0   = 10.0 (100% left value) LFO Amount
-60  = 0.0 for both values
-120 = 10.0 (100% right value) Mod Env Amount</p>
+<dd><p>Offset in file: 0x94 (b3-0) and 0x95 (b7-5)</p>
 </dd>
 <dt><a href="#module_Synth Fast Attack">Synth Fast Attack</a></dt>
 <dd><p>Offset in file: 0xAC (b2)</p>
 </dd>
 <dt><a href="#module_Synth Filter Type">Synth Filter Type</a></dt>
-<dd><p>Offset in file: 0x98 (b4-6)
-| --- | --- |
-| 0 | LP12
-| 1 | LP24
-| 2 | Mini Moog
-| 3 | LP+HP
-| 4 | BP24
-| 5 | HP24</p>
+<dd><p>Offset in file: 0x98 (b4-6)</p>
 </dd>
 <dt><a href="#module_Synth Filter Kb Track">Synth Filter Kb Track</a></dt>
-<dd><p>Offset in file: 0xA5 (b5-4)
-| --- | --- |
-| 0 | Off
-| 1 | 1/3
-| 2 | 2/3
-| 3 | 1</p>
+<dd><p>Offset in file: 0xA5 (b5-4)</p>
 </dd>
 <dt><a href="#module_Synth Filter Drive">Synth Filter Drive</a></dt>
-<dd><p>Offset in file: 0xA5 (b3-2)
-| --- | --- |
-| 0 | Off
-| 1 | 1
-| 2 | 2
-| 3 | 3</p>
+<dd><p>Offset in file: 0xA5 (b3-2)</p>
 </dd>
 </dl>
 
@@ -445,8 +303,12 @@ Offset in file: 0x38 (b7-3)Enabled: 0x38 (b7)Value: 0x38 (b6-3)
 <a name="module_Master Clock Rate"></a>
 
 ## Master Clock Rate
-Offset in file: 0x38 (b2-0) 0x39 (b7-3)bpm = value + 30
+Offset in file: 0x38 (b2-0) 0x39 (b7-3)
 
+**Example**  
+```js
+bpm = value + 30
+```
 <a name="module_Rotary Speaker On"></a>
 
 ## Rotary Speaker On
@@ -539,48 +401,84 @@ Offset 0x10
 <a name="module_Organ On"></a>
 
 ## Organ On
-Offset in file: 0xB6 (b7)O = disabled, 1 = enabled
+Offset in file: 0xB6 (b7)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Organ Kb Zone"></a>
 
 ## Organ Kb Zone
-Offset in file: 0xB6 (b6 to b3)| value     |      | Label   || --------- | ---- | ------- || x000 0xxx | 0    | `o---`| x000 1xxx | 1    | `-o--`| x001 0xxx | 2    | `--o-`| x001 1xxx | 3    | `---o`| x010 0xxx | 4    | `oo--`| x010 1xxx | 5    | `-oo-`| x011 0xxx | 6    | `--oo`| x011 1xxx | 7    | `ooo-`| x100 0xxx | 8    | `-ooo`| x100 1xxx | 9    | `oooo`
+Offset in file: 0xB6 (b6 to b3)
 
+**Example**  
+```js
+value     |      | Label--------- | ---- | -------x000 0xxx |  0   | `o---`x000 1xxx |  1   | `-o--`x001 0xxx |  2   | `--o-`x001 1xxx |  3   | `---o`x010 0xxx |  4   | `oo--`x010 1xxx |  5   | `-oo-`x011 0xxx |  6   | `--oo`x011 1xxx |  7   | `ooo-`x100 0xxx |  8   | `-ooo`x100 1xxx |  9   | `oooo`
+```
 <a name="module_Organ Volume"></a>
 
 ## Organ Volume
-Offset in file:| -------- |Volume:0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 rangeMorph Wheel:0xB7 (b3): direction (1 = up, 0 = down)0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw valueMorph After Touch:0xB8 (b3): direction (1 = up, 0 = down)0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw valueMorph Control Pedal:0xB9 (b3): direction (1 = up, 0 = down)0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw valueif direction = 1 then Morph offset value = raw value + 1if direction = 0 then Morph offset value = raw value - 127Final 'To' Morph value = 'From value (aka original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+Offset in file:
 
+**Example**  
+```js
+Volume:0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 rangeMorph Wheel:0xB7 (b3): direction (1 = up, 0 = down)0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw valueMorph After Touch:0xB8 (b3): direction (1 = up, 0 = down)0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw valueMorph Control Pedal:0xB9 (b3): direction (1 = up, 0 = down)0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw valueif direction = 1 then Morph offset value = raw value + 1if direction = 0 then Morph offset value = raw value - 127Final 'To' Morph value = 'From value (aka original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+```
 <a name="module_Organ Octave Shift"></a>
 
 ## Organ Octave Shift
-Offset in file: 0xBA (b2/1/0)Octave Shift = value - 6
+Offset in file: 0xBA (b2/1/0)
 
+**Example**  
+```js
+Octave Shift = value - 6
+```
 <a name="module_Organ Pitch Stick"></a>
 
 ## Organ Pitch Stick
 Offset in file: 0x34 (b4)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Organ Sustain Pedal"></a>
 
 ## Organ Sustain Pedal
 Offset in file: 0xBB (b7)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Organ Type"></a>
 
 ## Organ Type
-Offset in file: 0xBB (b6/5/4)| -------- |0 = B31 = Vox2 = Farfisa3 = Pipe14 = Pipe2
+Offset in file: 0xBB (b6/5/4)
 
+**Example**  
+```js
+0 = B31 = Vox2 = Farfisa3 = Pipe14 = Pipe2
+```
 <a name="module_Organ Drawbars Preset 1"></a>
 
 ## Organ Drawbars Preset 1
-Offset in file: 0xBE| -------- |Drawbar 1: 0xBE (b7-4)Drawbar 2: 0xC0 (b4-1)Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)Drawbar 4: 0xC5 (b6-3)Drawbar 5: 0xC7 (b3-0)Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)Drawbar 7: 0xCC (b5-2)Drawbar 8: 0xCE (b2-0) and 0xCF (b7)Drawbar 9: 0xD1 (b7-4)
+Offset in file: 0xBE
 
+**Example**  
+```js
+Drawbar 1: 0xBE (b7-4)Drawbar 2: 0xC0 (b4-1)Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)Drawbar 4: 0xC5 (b6-3)Drawbar 5: 0xC7 (b3-0)Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)Drawbar 7: 0xCC (b5-2)Drawbar 8: 0xCE (b2-0) and 0xCF (b7)Drawbar 9: 0xD1 (b7-4)
+```
 <a name="module_Organ Drawbars Preset 2"></a>
 
 ## Organ Drawbars Preset 2
-Offset in file: 0xD9| -------- |Drawbar 1: 0xD9 (b7-4)Drawbar 2: 0xDB (b4-1)Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)Drawbar 4: 0xE0 (b6-3)Drawbar 5: 0xE2 (b3-0)Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)Drawbar 7: 0xE7 (b5-2)Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)Drawbar 9: 0xEC (b7-4)
+Offset in file: 0xD9
 
+**Example**  
+```js
+Drawbar 1: 0xD9 (b7-4)Drawbar 2: 0xDB (b4-1)Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)Drawbar 4: 0xE0 (b6-3)Drawbar 5: 0xE2 (b3-0)Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)Drawbar 7: 0xE7 (b5-2)Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)Drawbar 9: 0xEC (b7-4)
+```
 <a name="module_Organ Live Mode"></a>
 
 ## Organ Live Mode
@@ -597,11 +495,19 @@ Organ Vibrato Options
 ## Organ Vibrato On
 Offset in file: 0xD3 (b4)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Organ Vibrato Mode"></a>
 
 ## Organ Vibrato Mode
 Offset in file: 0x34 (b3/2/1)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Organ Percussion Options"></a>
 
 ## Organ Percussion Options
@@ -610,31 +516,55 @@ Offset in file: 0x34 (b3/2/1)
 ## Organ Percussion On
 Offset in file: 0xD3 (b4)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Organ Percussion Volume Soft"></a>
 
 ## Organ Percussion Volume Soft
 Offset in file: 0xD3 (b0)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Organ Percussion Decay Fast"></a>
 
 ## Organ Percussion Decay Fast
 Offset in file: 0xD3 (b1)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Organ Percussion Harmonic Third"></a>
 
 ## Organ Percussion Harmonic Third
 Offset in file: 0xD3 (b2)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Panel Enabled And Selection"></a>
 
 ## Panel Enabled And Selection
-Offset in file 0x31Enabled (b5 & b6):0 = A only1 = B only2 = A & BSelected Panel (b7):A = 0, B = 1 (not used here)
+Offset in file 0x31
 
+**Example**  
+```js
+Enabled (b5 & b6):0 = A only1 = B only2 = A & BSelected Panel (b7):A = 0, B = 1 (not used here)
+```
 <a name="module_Piano On"></a>
 
 ## Piano On
-Offset in file: 0x43 (b7): O = disabled, 1 = enabled
+Offset in file: 0x43 (b7)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Piano Kb Zone"></a>
 
 ## Piano Kb Zone
@@ -659,34 +589,34 @@ Offset in file: 0x47 (just 4 last bits, AND 0x0F)
 <a name="module_Piano Pitch Stick"></a>
 
 ## Piano Pitch Stick
-Offset in file: 0x48 (just bit 0x80)
+Offset in file: 0x48 (b7)
 
 **Example**  
 ```js
-0x00- No0x80- Yes
+O = off, 1 = on
 ```
 <a name="module_Piano Sustain Pedal"></a>
 
 ## Piano Sustain Pedal
-Offset in file: 0x48 (just bit 0x40)
+Offset in file: 0x48 (b6)
 
 **Example**  
 ```js
-0x00- No0x40- Yes
+O = off, 1 = on
 ```
 <a name="module_Piano Type"></a>
 
 ## Piano Type
-Offset in file: 0x48 (only 4 bits, last 3 of first nibble, first of second nibble) AND 0x98
+Offset in file: 0x48 (b5-3)
 
 **Example**  
 ```js
-0x40- Grand0x48- Upright0x50- Electric0x58- Clav0x60- Digital0x68- Misc
+0 = Grand1 = Upright2 = Electric3 = Clav4 = Digital5 = Misc
 ```
 <a name="module_Piano Model"></a>
 
 ## Piano Model
-Offset in file: 0x48 and 0x49 (last 3 bits of 0x49 and first 2 bits of 0x4A).
+Offset in file:  0x48 (b2-0) and 0x49 (b7-6)
 
 **Example**  
 ```js
@@ -695,62 +625,66 @@ Offset in file: 0x48 and 0x49 (last 3 bits of 0x49 and first 2 bits of 0x4A).
 <a name="module_Piano Timbre"></a>
 
 ## Piano Timbre
-Offset in file: 0x4E
+Offset in file: 0x4E (b5-3)
 
 **Example**  
 ```js
-0x00- None0x08- Soft0x10- Mid0x18- Bright0x20- DYNO10x28- DYNO2
+0 = None1 = Soft2 = Mid3 = Bright4 = DYNO15 = DYNO2
 ```
 <a name="module_Piano KB Touch"></a>
 
 ## Piano KB Touch
-Offset in file: 0x4D (just least significant bit 1, so AND 0x01) and                0x4E (Just Most Significant Bit, so AND 0x80)
+Offset in file: 0x4D (b0) and 0x4E (b7)
 
 **Example**  
 ```js
-0x00 + 0x8x- KB Touch 10x01 + 0x0x- KB Touch 20x01 + 0x8x- KB Touch 3
+0 = Normal1 = KB Touch 12 = Touch 23 = Touch 3
 ```
 <a name="module_Piano Layer Detune"></a>
 
 ## Piano Layer Detune
-Offset in file: 0x34
+Offset in file: 0x34 (b6-5)
 
 **Example**  
 ```js
-0x00- Off0x20- 10x40- 20x60- 3
+0 =  Off1 =  12 =  23 =  3
 ```
 <a name="module_Piano Soft Release"></a>
 
 ## Piano Soft Release
-Offset in file: 0x4D (just least significant bit 4, so AND 0x08)
+Offset in file: 0x4D (b4)
 
 **Example**  
 ```js
-0x00 - No0x08 - Soft Release
+O = off, 1 = on
 ```
 <a name="module_Piano Pedal Noise"></a>
 
 ## Piano Pedal Noise
-Offset in file: 0x4D (just least significant bit 2, so AND 0x02)
+Offset in file: 0x4D (b2)
 
 **Example**  
 ```js
-0x00- No0x02- Pedal Noise
+O = off, 1 = on
 ```
 <a name="module_Piano String Resonance"></a>
 
 ## Piano String Resonance
-Offset in file: 0x4D (just least significant bit 3, so AND 0x04)
+Offset in file: 0x4D (b3)
 
 **Example**  
 ```js
-0x00- No0x04- String Res
+O = off, 1 = on
 ```
 <a name="module_Synth On"></a>
 
 ## Synth On
 Offset in file: 0x52 (b7): O = disabled, 1 = enabled
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Synth Kb Zone"></a>
 
 ## Synth Kb Zone
@@ -773,16 +707,28 @@ Offset in file: 0x56 (b1/0)
 ## Synth Pitch Stick
 Offset in file: 0x57 (b7)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Synth Sustain Pedal"></a>
 
 ## Synth Sustain Pedal
 Offset in file: 0x57 (b2)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Synth Keyboard Hold"></a>
 
 ## Synth Keyboard Hold
 Offset in file: 0x80 (b7)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Synth Voice"></a>
 
 ## Synth Voice
@@ -821,8 +767,12 @@ Offset in file: 0x8F (b4-1)
 <a name="module_Synth Control Value"></a>
 
 ## Synth Control Value
-Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value| --- | ---| Midi value conversion || Pitch (1)             | 0/127 => 0/24| Shape (2)             | 0/127 => 0/100 %| Sync (3)              | 0/127 => 0/10| Detune (4)            | 0/127 => 0/4| Mix* (5 to 11)        | 0/127 => 100/0 to 0/100| FM & RM (12 to 14)    | 0/127 => 0/100 %
+Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value
 
+**Example**  
+```js
+Type                  Midi value conversionPitch (1)             0/127 => 0/24Shape (2)             0/127 => 0/100 %Sync (3)              0/127 => 0/10Detune (4)            0/127 => 0/4Mix* (5 to 11)        0/127 => 100/0 to 0/100FM & RM (12 to 14)    0/127 => 0/100 %
+```
 <a name="module_Synth Pitch Value"></a>
 
 ## Synth Pitch Value
@@ -831,25 +781,45 @@ Offset in file: 0x8f (b0) and 0x90 (b7-3)| --- |Midi value are the 6 bits valu
 <a name="module_Synth LFO Mod Env"></a>
 
 ## Synth LFO Mod Env
-Offset in file: 0x94 (b3-0) and 0x95 (b7-5)| --- |Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:0   = 10.0 (100% left value) LFO Amount60  = 0.0 for both values120 = 10.0 (100% right value) Mod Env Amount
+Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
 
+**Example**  
+```js
+Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:0   = 10.0 (100% left value) LFO Amount60  = 0.0 for both values120 = 10.0 (100% right value) Mod Env Amount
+```
 <a name="module_Synth Fast Attack"></a>
 
 ## Synth Fast Attack
 Offset in file: 0xAC (b2)
 
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Synth Filter Type"></a>
 
 ## Synth Filter Type
-Offset in file: 0x98 (b4-6)| --- | --- || 0 | LP12| 1 | LP24| 2 | Mini Moog| 3 | LP+HP| 4 | BP24| 5 | HP24
+Offset in file: 0x98 (b4-6)
 
+**Example**  
+```js
+0 = LP121 = LP242 = Mini Moog3 = LP+HP4 = BP245 = HP24
+```
 <a name="module_Synth Filter Kb Track"></a>
 
 ## Synth Filter Kb Track
-Offset in file: 0xA5 (b5-4)| --- | --- || 0 | Off| 1 | 1/3| 2 | 2/3| 3 | 1
+Offset in file: 0xA5 (b5-4)
 
+**Example**  
+```js
+0 = Off1 = 1/32 = 2/33 = 1
+```
 <a name="module_Synth Filter Drive"></a>
 
 ## Synth Filter Drive
-Offset in file: 0xA5 (b3-2)| --- | --- || 0 | Off| 1 | 1| 2 | 2| 3 | 3
+Offset in file: 0xA5 (b3-2)
 
+**Example**  
+```js
+0 = Off1 = 12 = 23 = 3
+```

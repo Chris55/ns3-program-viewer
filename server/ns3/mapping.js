@@ -153,12 +153,12 @@ exports.sampleIdMap = new Map([
  * @type {Map<number, string>}
  */
 exports.pianoTypeMap = new Map([
-    [0x00, "Grand"],
-    [0x01, "Upright"],
-    [0x02, "Electric"],
-    [0x03, "Clav"],
-    [0x04, "Digital"],
-    [0x05, "Misc"],
+    [0, "Grand"],
+    [1, "Upright"],
+    [2, "Electric"],
+    [3, "Clav"],
+    [4, "Digital"],
+    [5, "Misc"],
 ]);
 
 /***
