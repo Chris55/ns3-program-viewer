@@ -1,4 +1,4 @@
-/**
+/***
  * Offset 0x10
  */
 exports.categoryMap = new Map([
@@ -268,11 +268,11 @@ exports.synthVibratoMap = new Map([
  * @type {Map<number, string>}
  */
 exports.synthOscillatorTypeMap = new Map([
-    [0x00, "Classic"],
-    [0x01, "Wave"],
-    [0x02, "Formant"],
-    [0x03, "Super"],
-    [0x04, "Sample"],
+    [0, "Classic"],
+    [1, "Wave"],
+    [2, "Formant"],
+    [3, "Super"],
+    [4, "Sample"],
 ]);
 
 /***

@@ -254,12 +254,20 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0x84 (b0) and 0x85 (b7)
          *
+         * @example
+         * 0 = Poly
+         * 1 = Legato
+         * 2 = Mono
+         *
          * @module Synth Voice
          */
         voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
 
         /**
          * Offset in file: 0x84 (b6 to b0) 7 bits, range 0/10
+         *
+         * @example
+         * 0/127 value = 0 / 10
          *
          * @module Synth Glide
          */
@@ -268,12 +276,26 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0x86 (b7/6)
          *
+         * @example
+         * 0 = Off
+         * 1 = 1
+         * 2 = 2
+         * 3 = 3
+         *
          * @module Synth Unison
          */
         unison: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
 
         /**
          * Offset in file: 0x86 (b5/4/3)
+         *
+         * @example
+         * 0 = Off
+         * 1 = Delay 1
+         * 2 = Delay 2
+         * 3 = Delay 3
+         * 4 = Wheel
+         * 5 = After Touch
          *
          * @module Synth Vibrato
          */
@@ -284,7 +306,14 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          */
         oscillators: {
             /**
-             * Offset in file: 0x8D (b1/0) and 0x81 (b7)
+             * Offset in file: 0x8D (b1/0) and 0x8E (b7)
+             *
+             * @example
+             * 0 = Classic
+             * 1 = Wave
+             * 2 = Formant
+             * 3 = Super
+             * 4 = Sample
              *
              * @module Synth Oscillator Type
              */
@@ -293,12 +322,81 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
             /**
              * Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
              *
+             * @example
+
+             * ID | Classic  | Wave               | Formant         | Super
+             * -- | -------- | ------------------ | --------------- | -------------------
+             *  O | Sine     | Wave 2nd Harm      | Format Wave Aaa | Super Wave Saw
+             *  1 | Triangle | Wave 3rd Harm      | Format Wave Eee | Super Wave Saw 2
+             *  2 | Saw      | Wave 4th Harm      | Format Wave Iii | Super Wave Square
+             *  3 | Square   | Wave 5th Harm      | Format Wave Ooo | Super Wave Square 2
+             *  4 | Pulse 33 | Wave 6th Harm      | Format Wave Uuu | Super Wave Bright
+             *  5 | Pulse 10 | Wave 7th Harm      | Format Wave Yyy | Super Wave Bright 2
+             *  6 | ESaw     | Wave 8th Harm      | Format Wave AO  | Super Wave Strings
+             *  7 | ESquare  | Wave Organ 1       | Format Wave AE  | Super Wave Organ
+             *  8 |          | Wave Organ 2       | Format Wave OE  |
+             *  9 |          | Wave Principal     |
+             * 10 |          | Wave Flute 1       |
+             * 11 |          | Wave Flute 2       |
+             * 12 |          | Wave Clarinet 1    |
+             * 13 |          | Wave Clarinet 2    |
+             * 14 |          | Wave Alto Sax      |
+             * 15 |          | Wave Tenor Sax     |
+             * 16 |          | Wave 2nd Spectra   |
+             * 17 |          | Wave 3rd Spectra   |
+             * 18 |          | Wave 4th Spectra   |
+             * 19 |          | Wave 5th Spectra   |
+             * 20 |          | Wave 6th Spectra   |
+             * 21 |          | Wave 7th Spectra   |
+             * 22 |          | Wave 8th Spectra   |
+             * 23 |          | Wave Saw Random    |
+             * 24 |          | Wave Saw Bright    |
+             * 25 |          | Wave Sqr Bright    |
+             * 26 |          | Wave Saw NoFund    |
+             * 27 |          | Wave EPiano 1      |
+             * 28 |          | Wave EPiano 2      |
+             * 29 |          | Wave EPiano 3      |
+             * 30 |          | Wave DX 1          |
+             * 31 |          | Wave DX 2          |
+             * 32 |          | Wave Full Tines    |
+             * 33 |          | Wave Ac Piano      |
+             * 34 |          | Wave Ice 1         |
+             * 35 |          | Wave Ice 2         |
+             * 36 |          | Wave Clavinet 1    |
+             * 37 |          | Wave Clavinet 2    |
+             * 38 |          | Wave Clavinet 3    |
+             * 39 |          | Wave Triplets      |
+             * 40 |          | Wave Bell          |
+             * 41 |          | Wave Bar 1         |
+             * 42 |          | Wave Bar 2         |
+             * 43 |          | Wave Tines         |
+             * 44 |          | Wave Marimba       |
+             * 45 |          | Wave Tubular Bells |
+             *
              * @module Synth Oscillator 1 Wave Form
              */
             waveForm1: oscillator1WaveForm,
 
             /**
              * Offset in file: 0x8F (b4-1)
+             *
+             * @example
+             *
+             * 0 = None
+             * 1 = Pitch
+             * 2 = Shape
+             * 3 = Sync
+             * 4 = Detune
+             * 5 = MixSin
+             * 6 = MixTri
+             * 7 = MixSaw
+             * 8 = MixSqr
+             * 9 = MixBell
+             * 10 = MixNs1
+             * 11 = MixNs2
+             * 12 = FM1
+             * 13 = FM2
+             * 14 = RM
              *
              * @module Synth Oscillator Configuration
              */
