@@ -183,72 +183,83 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
             sampleId: sampleId.toString(16),
         },
 
-        /***
-         * Synth Enabled:
+        /**
          * Offset in file: 0x52 (b7): O = disabled, 1 = enabled
+         *
+         * @module Synth On
          */
         enabled: synthEnabled,
 
-        /***
-         * Synth Kb Zone:
+        /**
          * Offset in file: 0x52 (b6 to b3)
          * ref Organ section for more examples
+         *
+         * @module Synth Kb Zone
          */
         kbZone: getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11),
 
-        /***
-         * Synth Volume:
+        /**
          * Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
+         *
+         * @module Synth Volume
          */
         volume: getVolumeEx(buffer, 0x52 + panelOffset),
 
-        /***
-         * Synth Octave Shift:
+        /**
          * Offset in file: 0x56 (b1/0)
+         *
+         * @module Synth Octave Shift
          */
         octaveShift: mapping.synthOctaveShiftMap.get(synthOffset56 & 0x03),
 
-        /***
-         * Synth Pitch Stick:
+        /**
          * Offset in file: 0x57 (b7)
+         *
+         * @module Synth Pitch Stick
          */
         pitchStick: (synthOffset57 & 0x80) !== 0,
 
         //pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >>> 4),
 
-        /***
-         * Synth Sustain Pedal:
+        /**
          * Offset in file: 0x57 (b2)
+         *
+         * @module Synth Sustain Pedal
          */
         sustainPedal: (synthOffset57 & 0x40) !== 0,
 
-        /***
-         * Synth Keyboard Hold:
+        /**
          * Offset in file: 0x80 (b7)
+         *
+         * @module Synth Keyboard Hold
          */
         keyboardHold: (synthOffset80 & 0x80) !== 0,
 
-        /***
-         * Synth Voices:
+        /**
          * Offset in file: 0x84 (b0) and 0x85 (b7)
+         *
+         * @module Synth Voice
          */
         voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
 
-        /***
-         * Synth Glide:
+        /**
          * Offset in file: 0x84 (b6 to b0) 7 bits, range 0/10
+         *
+         * @module Synth Glide
          */
         glide: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
 
-        /***
-         * Synth Unison:
+        /**
          * Offset in file: 0x86 (b7/6)
+         *
+         * @module Synth Unison
          */
         unison: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
 
-        /***
-         * Synth Vibrato:
+        /**
          * Offset in file: 0x86 (b5/4/3)
+         *
+         * @module Synth Vibrato
          */
         vibrato: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
 
@@ -256,89 +267,145 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          * Synth Oscillators Definition
          */
         oscillators: {
-            /***
-             * Synth Oscillator Type:
+            /**
              * Offset in file: 0x8D (b1/0) and 0x81 (b7)
+             *
+             * @module Synth Oscillator Type
              */
             type: oscillatorType,
 
-            /***
-             * Synth Oscillator 1 Wave Form
+            /**
              * Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
+             *
+             * @module Synth Oscillator 1 Wave Form
              */
             waveForm1: oscillator1WaveForm,
 
-            /***
-             * Synth Oscillator Configuration
+            /**
              * Offset in file: 0x8F (b4-1)
+             *
+             * @module Synth Oscillator Configuration
              */
             config: oscConfig,
 
-            /***
-             * Synth Control Value
+            /**
+             * Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value
+             * | --- | ---
+             * | Midi value conversion |
+             * | Pitch (1)             | 0/127 => 0/24
+             * | Shape (2)             | 0/127 => 0/100 %
+             * | Sync (3)              | 0/127 => 0/10
+             * | Detune (4)            | 0/127 => 0/4
+             * | Mix* (5 to 11)        | 0/127 => 100/0 to 0/100
+             * | FM & RM (12 to 14)    | 0/127 => 0/100 %
+             *
+             * @module Synth Control Value
              */
             control: {
-                /***
-                 * Synth Control Midi value
-                 * Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)
-                 * 0/127 value
+                /**
+                 * Synth Control Midi Value
                  */
                 midi: oscCtrlMidi,
 
-                /***
-                 * Synth Control Value
-                 * Midi value is converted as following:
-                 * Pitch (1):           0/127 => 0/24
-                 * Shape (2):           0/127 => 0/100 %
-                 * Sync (3):            0/127 => 0/10
-                 * Detune (4):          0/127 => 0/4
-                 * Mix* (5 to 11):      0/127 => 100/0 to 0/100
-                 * FM & RM (12 to 14):  0/127 => 0/100 %
+                /**
+                 * Synth Control Label
                  */
                 label: oscCtrl,
             },
 
-            /***
-             * Synth Pitch Value
+            /**
+             * Offset in file: 0x8f (b0) and 0x90 (b7-3)
+             * | --- |
+             * Midi value are the 6 bits value used + b0 (zero)
+             * label conversion: -12 (Sub) to +48
+             *
+             * @module Synth Pitch Value
              */
             pitch: {
                 /***
-                 * Synth Pitch Midi value
-                 * Offset in file: 0x8f (b0) and 0x90 (b7-3)
-                 * Midi value are the 6 bits value used + b0 (zero)
+                 * Synth Pitch Midi Value
                  */
                 midi: osc2PitchMidi,
 
                 /***
-                 * Synth Pitch Value
-                 * Midi value is converted as following:
-                 * -12 (Sub) to +48
+                 * Synth Pitch Label
                  */
                 label: osc2Pitch === -12 ? "Sub" : osc2Pitch + " semi",
             },
 
-            /***
-             * Modulation options
+            /**
+             * Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
+             * | --- |
+             * Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.
+             * Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
+             * 0   = 10.0 (100% left value) LFO Amount
+             * 60  = 0.0 for both values
+             * 120 = 10.0 (100% right value) Mod Env Amount
+             *
+             * @module Synth LFO Mod Env
              */
             modulations: {
-                /***
+                /**
                  * LFO Amount
                  */
                 lfoAmount: {
                     midi: oscModulation.leftMidi,
                     label: oscModulation.leftValue,
                 },
+                /**
+                 * Env Mod Amount
+                 */
                 modEnvAmount: {
                     midi: oscModulation.rightMidi,
                     label: oscModulation.rightValue,
                 },
             },
+            /**
+             * Offset in file: 0xAC (b2)
+             *
+             * @module Synth Fast Attack
+             */
             fastAttack: (synthOffsetAc & 0x04) !== 0,
         },
         filter: {
+            /**
+             * Offset in file: 0x98 (b4-6)
+             * | --- | --- |
+             * | 0 | LP12
+             * | 1 | LP24
+             * | 2 | Mini Moog
+             * | 3 | LP+HP
+             * | 4 | BP24
+             * | 5 | HP24
+             *
+             * @module Synth Filter Type
+             */
             type: filterType,
+
+            /**
+             * Offset in file: 0xA5 (b5-4)
+             * | --- | --- |
+             * | 0 | Off
+             * | 1 | 1/3
+             * | 2 | 2/3
+             * | 3 | 1
+             *
+             * @module Synth Filter Kb Track
+             */
             kbTrack: mapping.synthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >>> 12),
+
+            /**
+             * Offset in file: 0xA5 (b3-2)
+             * | --- | --- |
+             * | 0 | Off
+             * | 1 | 1
+             * | 2 | 2
+             * | 3 | 3
+             *
+             * @module Synth Filter Drive
+             */
             drive: mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >>> 10),
+
             modulations: {
                 lfoAmount: {
                     midi: filterModulation1KnobMidi,

@@ -317,6 +317,104 @@ ref Organ section for more examples</p>
 <dt><a href="#module_Piano String Resonance">Piano String Resonance</a></dt>
 <dd><p>Offset in file: 0x4D (just least significant bit 3, so AND 0x04)</p>
 </dd>
+<dt><a href="#module_Synth On">Synth On</a></dt>
+<dd><p>Offset in file: 0x52 (b7): O = disabled, 1 = enabled</p>
+</dd>
+<dt><a href="#module_Synth Kb Zone">Synth Kb Zone</a></dt>
+<dd><p>Offset in file: 0x52 (b6 to b3)
+ref Organ section for more examples</p>
+</dd>
+<dt><a href="#module_Synth Volume">Synth Volume</a></dt>
+<dd><p>Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)</p>
+</dd>
+<dt><a href="#module_Synth Octave Shift">Synth Octave Shift</a></dt>
+<dd><p>Offset in file: 0x56 (b1/0)</p>
+</dd>
+<dt><a href="#module_Synth Pitch Stick">Synth Pitch Stick</a></dt>
+<dd><p>Offset in file: 0x57 (b7)</p>
+</dd>
+<dt><a href="#module_Synth Sustain Pedal">Synth Sustain Pedal</a></dt>
+<dd><p>Offset in file: 0x57 (b2)</p>
+</dd>
+<dt><a href="#module_Synth Keyboard Hold">Synth Keyboard Hold</a></dt>
+<dd><p>Offset in file: 0x80 (b7)</p>
+</dd>
+<dt><a href="#module_Synth Voice">Synth Voice</a></dt>
+<dd><p>Offset in file: 0x84 (b0) and 0x85 (b7)</p>
+</dd>
+<dt><a href="#module_Synth Glide">Synth Glide</a></dt>
+<dd><p>Offset in file: 0x84 (b6 to b0) 7 bits, range 0/10</p>
+</dd>
+<dt><a href="#module_Synth Unison">Synth Unison</a></dt>
+<dd><p>Offset in file: 0x86 (b7/6)</p>
+</dd>
+<dt><a href="#module_Synth Vibrato">Synth Vibrato</a></dt>
+<dd><p>Offset in file: 0x86 (b5/4/3)</p>
+</dd>
+<dt><a href="#module_Synth Oscillator Type">Synth Oscillator Type</a></dt>
+<dd><p>Offset in file: 0x8D (b1/0) and 0x81 (b7)</p>
+</dd>
+<dt><a href="#module_Synth Oscillator 1 Wave Form">Synth Oscillator 1 Wave Form</a></dt>
+<dd><p>Offset in file: 0x8E (b3-0) and 0x8F (b7/6)</p>
+</dd>
+<dt><a href="#module_Synth Oscillator Configuration">Synth Oscillator Configuration</a></dt>
+<dd><p>Offset in file: 0x8F (b4-1)</p>
+</dd>
+<dt><a href="#module_Synth Control Value">Synth Control Value</a></dt>
+<dd><p>Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value
+| --- | ---
+| Midi value conversion |
+| Pitch (1)             | 0/127 =&gt; 0/24
+| Shape (2)             | 0/127 =&gt; 0/100 %
+| Sync (3)              | 0/127 =&gt; 0/10
+| Detune (4)            | 0/127 =&gt; 0/4
+| Mix* (5 to 11)        | 0/127 =&gt; 100/0 to 0/100
+| FM &amp; RM (12 to 14)    | 0/127 =&gt; 0/100 %</p>
+</dd>
+<dt><a href="#module_Synth Pitch Value">Synth Pitch Value</a></dt>
+<dd><p>Offset in file: 0x8f (b0) and 0x90 (b7-3)
+| --- |
+Midi value are the 6 bits value used + b0 (zero)
+label conversion: -12 (Sub) to +48</p>
+</dd>
+<dt><a href="#module_Synth LFO Mod Env">Synth LFO Mod Env</a></dt>
+<dd><p>Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
+| --- |
+Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.
+Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
+0   = 10.0 (100% left value) LFO Amount
+60  = 0.0 for both values
+120 = 10.0 (100% right value) Mod Env Amount</p>
+</dd>
+<dt><a href="#module_Synth Fast Attack">Synth Fast Attack</a></dt>
+<dd><p>Offset in file: 0xAC (b2)</p>
+</dd>
+<dt><a href="#module_Synth Filter Type">Synth Filter Type</a></dt>
+<dd><p>Offset in file: 0x98 (b4-6)
+| --- | --- |
+| 0 | LP12
+| 1 | LP24
+| 2 | Mini Moog
+| 3 | LP+HP
+| 4 | BP24
+| 5 | HP24</p>
+</dd>
+<dt><a href="#module_Synth Filter Kb Track">Synth Filter Kb Track</a></dt>
+<dd><p>Offset in file: 0xA5 (b5-4)
+| --- | --- |
+| 0 | Off
+| 1 | 1/3
+| 2 | 2/3
+| 3 | 1</p>
+</dd>
+<dt><a href="#module_Synth Filter Drive">Synth Filter Drive</a></dt>
+<dd><p>Offset in file: 0xA5 (b3-2)
+| --- | --- |
+| 0 | Off
+| 1 | 1
+| 2 | 2
+| 3 | 3</p>
+</dd>
 </dl>
 
 <a name="module_File Version"></a>
@@ -556,7 +654,7 @@ Offset in file: 0x47 (just 4 last bits, AND 0x0F)
 
 **Example**  
 ```js
-0xF5- Shift -10xF6- No shift0xF7- Shift +1
+0xF5- Shift -10xF6- No shift0xF7- Shift +1Octave Shift = value - 6
 ```
 <a name="module_Piano Pitch Stick"></a>
 
@@ -648,3 +746,108 @@ Offset in file: 0x4D (just least significant bit 3, so AND 0x04)
 ```js
 0x00- No0x04- String Res
 ```
+<a name="module_Synth On"></a>
+
+## Synth On
+Offset in file: 0x52 (b7): O = disabled, 1 = enabled
+
+<a name="module_Synth Kb Zone"></a>
+
+## Synth Kb Zone
+Offset in file: 0x52 (b6 to b3)ref Organ section for more examples
+
+<a name="module_Synth Volume"></a>
+
+## Synth Volume
+Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
+
+<a name="module_Synth Octave Shift"></a>
+
+## Synth Octave Shift
+Offset in file: 0x56 (b1/0)
+
+<a name="module_Synth Pitch Stick"></a>
+
+## Synth Pitch Stick
+Offset in file: 0x57 (b7)
+
+<a name="module_Synth Sustain Pedal"></a>
+
+## Synth Sustain Pedal
+Offset in file: 0x57 (b2)
+
+<a name="module_Synth Keyboard Hold"></a>
+
+## Synth Keyboard Hold
+Offset in file: 0x80 (b7)
+
+<a name="module_Synth Voice"></a>
+
+## Synth Voice
+Offset in file: 0x84 (b0) and 0x85 (b7)
+
+<a name="module_Synth Glide"></a>
+
+## Synth Glide
+Offset in file: 0x84 (b6 to b0) 7 bits, range 0/10
+
+<a name="module_Synth Unison"></a>
+
+## Synth Unison
+Offset in file: 0x86 (b7/6)
+
+<a name="module_Synth Vibrato"></a>
+
+## Synth Vibrato
+Offset in file: 0x86 (b5/4/3)
+
+<a name="module_Synth Oscillator Type"></a>
+
+## Synth Oscillator Type
+Offset in file: 0x8D (b1/0) and 0x81 (b7)
+
+<a name="module_Synth Oscillator 1 Wave Form"></a>
+
+## Synth Oscillator 1 Wave Form
+Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
+
+<a name="module_Synth Oscillator Configuration"></a>
+
+## Synth Oscillator Configuration
+Offset in file: 0x8F (b4-1)
+
+<a name="module_Synth Control Value"></a>
+
+## Synth Control Value
+Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value| --- | ---| Midi value conversion || Pitch (1)             | 0/127 => 0/24| Shape (2)             | 0/127 => 0/100 %| Sync (3)              | 0/127 => 0/10| Detune (4)            | 0/127 => 0/4| Mix* (5 to 11)        | 0/127 => 100/0 to 0/100| FM & RM (12 to 14)    | 0/127 => 0/100 %
+
+<a name="module_Synth Pitch Value"></a>
+
+## Synth Pitch Value
+Offset in file: 0x8f (b0) and 0x90 (b7-3)| --- |Midi value are the 6 bits value used + b0 (zero)label conversion: -12 (Sub) to +48
+
+<a name="module_Synth LFO Mod Env"></a>
+
+## Synth LFO Mod Env
+Offset in file: 0x94 (b3-0) and 0x95 (b7-5)| --- |Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:0   = 10.0 (100% left value) LFO Amount60  = 0.0 for both values120 = 10.0 (100% right value) Mod Env Amount
+
+<a name="module_Synth Fast Attack"></a>
+
+## Synth Fast Attack
+Offset in file: 0xAC (b2)
+
+<a name="module_Synth Filter Type"></a>
+
+## Synth Filter Type
+Offset in file: 0x98 (b4-6)| --- | --- || 0 | LP12| 1 | LP24| 2 | Mini Moog| 3 | LP+HP| 4 | BP24| 5 | HP24
+
+<a name="module_Synth Filter Kb Track"></a>
+
+## Synth Filter Kb Track
+Offset in file: 0xA5 (b5-4)| --- | --- || 0 | Off| 1 | 1/3| 2 | 2/3| 3 | 1
+
+<a name="module_Synth Filter Drive"></a>
+
+## Synth Filter Drive
+Offset in file: 0xA5 (b3-2)| --- | --- || 0 | Off| 1 | 1| 2 | 2| 3 | 3
+
