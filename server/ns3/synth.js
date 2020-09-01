@@ -184,7 +184,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         },
 
         /**
-         * Offset in file: 0x52 (b7): O = disabled, 1 = enabled
+         * Offset in file: 0x52 (b7)
          *
          * @example
          * O = off, 1 = on
@@ -202,7 +202,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         kbZone: getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11),
 
         /**
-         * Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4) 7 bits = 0/127 range
+         * Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
          * @see {@link api.md#organ-volume Organ Volume} for detailed explanation.
          *
          * @module Synth Volume
@@ -210,7 +210,10 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         volume: getVolumeEx(buffer, 0x52 + panelOffset),
 
         /**
-         * Offset in file: 0x56 (b1/0)
+         * Offset in file: 0x56 (b1-0)
+         *
+         * @example
+         * Octave Shift = value - 6
          *
          * @module Synth Octave Shift
          */
@@ -316,12 +319,12 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              * @module Synth Control Value
              */
             control: {
-                /**
+                /***
                  * Synth Control Midi Value
                  */
                 midi: oscCtrlMidi,
 
-                /**
+                /***
                  * Synth Control Label
                  */
                 label: oscCtrl,
@@ -329,8 +332,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
 
             /**
              * Offset in file: 0x8f (b0) and 0x90 (b7-3)
-             * | --- |
-             * Midi value are the 6 bits value used + b0 (zero)
+             *
+             * @example
+             * Midi value = 6-bit value + b0 forced to zero to have a standard Midi 7-bit value
              * label conversion: -12 (Sub) to +48
              *
              * @module Synth Pitch Value
@@ -353,9 +357,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              * @example
              * Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.
              * Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
-             * 0   = 10.0 (100% left value) LFO Amount
+             * 0   = 10.0 (100% left value) 'LFO Amount'
              * 60  = 0.0 for both values
-             * 120 = 10.0 (100% right value) Mod Env Amount
+             * 120 = 10.0 (100% right value) 'Mod Env Amount'
              *
              * @module Synth LFO Mod Env
              */
@@ -427,11 +431,34 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              */
             drive: mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >>> 10),
 
+
             modulations: {
+
+                /**
+                 * Offset in file: 0xA0 (b3-0) and 0xA1 (b7-5)
+                 *
+                 * @example
+                 * 0/127 value = 0 / 10
+                 *
+                 * @module Synth Filter LFO Modulation
+                 */
                 lfoAmount: {
                     midi: filterModulation1KnobMidi,
                     label: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
                 },
+
+                /**
+                 * Offset in file: 0xA4 (b4-0) and 0xA5 (b7-6)
+                 *
+                 * @example
+                 * Filter modulation (vel/env mod) is using this single 7-bit value to define two settings with a single knob.
+                 * Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
+                 * 0   = 10.0 (100% left value) 'Vel Amount'
+                 * 60  = 0.0 for both values
+                 * 120 = 10.0 (100% right value) 'Mod Env Amount'
+                 *
+                 * @module Synth Filter Vel Mod Env
+                 */
                 velAmount: {
                     midi: filterModulation2Knob.leftMidi,
                     label: filterModulation2Knob.leftValue,
@@ -441,15 +468,39 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                     label: filterModulation2Knob.rightValue,
                 },
             },
+
+            /**
+             * Offset in file: 0x98 (b1-0) and 0x99 (b7-3)
+             *
+             * @example
+             * 0/127 value = 14 Hz / 21 kHz
+             *
+             * @module Synth Filter Freq
+             */
             cutoffFrequency: {
                 midi: filterCutoffFreqKnobMidi,
                 label: mapping.synthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
             },
+
+            /**
+             * Offset in file: 0x9C(b2-0) and 0x9D (b7-4)
+             *
+             * @example
+             * for 'LP+HP' filter
+             *   => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHz
+             *
+             * for all other filters
+             *   => Resonance:  0/127 value = 0 / 10
+             *
+             * @module Synth Filter Freq
+             */
+
             highPassCutoffFrequency: {
                 midi: filterType === "LP+HP" ? filterResFreqHpKnobMidi : 0,
                 label:
                     filterType === "LP+HP" ? mapping.synthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
             },
+
             resonance: {
                 midi: filterType === "LP+HP" ? 0 : filterResFreqHpKnobMidi,
                 label:
@@ -460,55 +511,222 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         },
         envelopes: {
             modulation: {
+
+                /**
+                 * Offset in file: 0x8B (b7-1)
+                 *
+                 * @example
+                 * 0/127 value = 0.5 ms / 45 s
+                 *
+                 * @module Synth Mod Env Attack
+                 */
                 attack: {
                     midi: envModAttackMidi,
                     label: mapping.synthEnvAttackMap.get(envModAttackMidi),
                 },
+
+                /**
+                 * Offset in file: 0x8B (b0) and 0x8C (b7-2)
+                 *
+                 * @example
+                 * 0/127 value = 3.0 ms / 45 s (Sustain)
+                 *
+                 * @module Synth Mod Env Decay
+                 */
                 decay: {
                     midi: envModDecayMidi,
                     label: synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
                 },
+
+                /**
+                 * Offset in file: 0x8C (b1-0) and 0x8D (b7-3)
+                 *
+                 * @example
+                 * 0/127 value = 3.0 ms / 45 s (Inf)
+                 *
+                 * @module Synth Mod Env Release
+                 */
                 release: {
                     midi: envModReleaseMidi,
                     label: synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
                 },
+
+                /**
+                 * Offset in file: 0x8D (b2)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * @module Synth Mod Env Velocity
+                 */
                 velocity: (synthOffset8dW & 0x0400) !== 0,
             },
             amplifier: {
+                /**
+                 * Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)
+                 *
+                 * @example
+                 * 0/127 value = 0.5 ms / 45 s
+                 *
+                 * @module Synth Amp Env Attack
+                 */
                 attack: {
                     midi: envAmpAttackMidi,
                     label: mapping.synthEnvAttackMap.get(envAmpAttackMidi),
                 },
+
+                /**
+                 * Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)
+                 *
+                 * @example
+                 * 0/127 value = 3.0 ms / 45 s (Sustain)
+                 *
+                 * @module Synth Amp Env Decay
+                 */
                 decay: {
                     midi: envAmpDecayMidi,
                     label: synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
                 },
+
+                /**
+                 * Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)
+                 *
+                 * @example
+                 * 0/127 value = 3.0 ms / 45 s
+                 *
+                 * @module Synth Amp Env Release
+                 */
                 release: {
                     midi: envAmpReleaseMidi,
                     label: synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
                 },
+
+                /**
+                 * Offset in file: 0xA8 (b4-3)
+                 *
+                 * @example
+                 * 0 = Off
+                 * 1 = 1
+                 * 2 = 2
+                 * 3 = 3
+                 *
+                 * @module Synth Amp Env Velocity
+                 */
                 velocity: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >>> 3),
             },
         },
         lfo: {
+            /**
+             * Offset in file: 0x86 (b2-0)
+             *
+             * @example
+             * 0 = Triangle
+             * 1 = Saw
+             * 2 = Neg Saw
+             * 3 = Square
+             * 4 = S/H
+             *
+             * @module Synth Lfo Wave
+             */
             wave: mapping.synthLfoWaveMap.get(synthOffset86 & 0x07),
+
+            /**
+             * Offset in file: 0x87 (b6-0)
+             *
+             * @example
+             * 0/127 value = 0.03 Hz / 523 Hz
+             *
+             * if LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division
+             *
+             * @module Synth Lfo Rate
+             */
             rate: {
                 midi: lfoRateMidi,
                 label: mapping.synthLfoRateMap.get(lfoRateMidi),
             },
+
+            /**
+             * Offset in file: 0x87 (b7)
+             *
+             * @example
+             * O = off, 1 = on
+             *
+             * @module Synth Lfo Master Clock
+             */
             masterClock: (synthOffset87 & 0x80) !== 0,
         },
         arpeggiator: {
+            /**
+             * Offset in file: 0x80 (b6)
+             *
+             * @example
+             * O = off, 1 = on
+             *
+             * @module Synth Arp On
+             */
             enabled: (synthOffset80 & 0x40) !== 0,
+
+            /**
+             * Offset in file: 0x81 (b7-1)
+             *
+             * @example
+             * 0/127 value = 16 bpm / Fast 5
+             *
+             * if Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division
+             *
+             * @module Synth Arp Rate
+             */
             rate: {
                 midi: arpeggiatorRateMidi,
                 label: arpeggiatorMasterClock
                     ? mapping.synthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
                     : mapping.synthArpRateMap.get(arpeggiatorRateMidi),
             },
+
+            /**
+             * Offset in file: 0x80 (b5)
+             *
+             * @example
+             * O = off, 1 = on
+             *
+             * @module Synth Arp Kb Sync
+             */
             kbSync: (synthOffset80 & 0x20) !== 0,
+
+            /**
+             * Offset in file: 0x80 (b5)
+             *
+             * @example
+             * O = off, 1 = on
+             *
+             * @module Synth Arp Master Clock
+             */
             masterClock: arpeggiatorMasterClock,
+
+            /**
+             * Offset in file: 0x80 (b4-3)
+             *
+             * @example
+             * 0 = 1 Octave
+             * 1 = 2 Octaves
+             * 2 = 3 Octaves
+             * 3 = 4 Octaves
+             *
+             * @module Synth Arp Range
+             */
             range: mapping.arpeggiatorRangeMap.get(arpeggiatorRange),
+
+            /**
+             * Offset in file: 0x80 (b2-1)
+             *
+             * @example
+             * 0 = Up
+             * 1 = Down
+             * 2 = Up/Down
+             * 3 = Random
+             *
+             * @module Synth Arp Pattern
+             */
             pattern: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern),
         },
     };

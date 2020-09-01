@@ -1,7 +1,5 @@
 /**
  * Offset 0x10
- *
- * @module Category
  */
 exports.categoryMap = new Map([
     [0x00, "Acoustic"],

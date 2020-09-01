@@ -45,7 +45,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         kbZone: getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11),
 
         /**
-         * Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4) 7 bits = 0/127 range
+         * Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)
          * @see {@link api.md#organ-volume Organ Volume} for detailed explanation.
          *
          * @module Piano Volume
@@ -53,13 +53,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         volume: getVolumeEx(buffer, 0x43 + panelOffset),
 
         /**
-         * Offset in file: 0x47 (just 4 last bits, AND 0x0F)
+         * Offset in file: 0x47 (b2-0)
          *
          * @example
-         * 0xF5- Shift -1
-         * 0xF6- No shift
-         * 0xF7- Shift +1
-         *
          * Octave Shift = value - 6
          *
          * @module Piano Octave Shift

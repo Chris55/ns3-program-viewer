@@ -75,7 +75,7 @@ ns3f file description:
 | `0x0044` | `vvvvwwww` | [piano volume morph (w)heel](api.md#piano-volume)
 | `0x0045` | `wwwwaaaa` | [piano volume morph (a)fter touch](api.md#piano-volume)
 | `0x0046` | `aaaapppp` | [piano volume morph control (p)edal](api.md#piano-volume)
-| `0x0047` | `ppppoooo` | [piano (o)ctave shift](api.md#piano-octave-shift)
+| `0x0047` | `pppp-ooo` | [piano (o)ctave shift](api.md#piano-octave-shift)
 | `0x0048` | `pstttmmm` | [piano (p)itch stick](api.md#piano-pitch-stick), [piano (s)ustain pedal](api.md#piano-sustain-pedal), [piano (t)ype](api.md#piano-type), [piano (m)odel](api.md#piano-model)
 | `0x0049` | `mm------` |
 | `0x004A` | `--------` |
@@ -340,4 +340,25 @@ ns3f file description:
 | `0x014D` | `--------` |
 | `0x014E` | `--------` |
 | `0x014F` | `--------` |
+| `...`    |            |
+| `0x0240` | `--------` |
+| `0x0241` | `--------` |
+| `0x0242` | `--------` |
+| `0x0243` | `--------` |
+| `0x0244` | `--------` |
+| `0x0245` | `--------` |
+| `0x0246` | `--------` |
+| `0x0247` | `--------` |
+| `0x0248` | `--------` |
+| `0x0249` | `--------` |
+| `0x024A` | `--------` |
+| `0x024B` | `--------` |
+| `0x024C` | `--------` |
+| `0x024D` | `--------` |
+| `0x024E` | `--------` |
+| `0x024F` | `--------` |
+| `0x0250` | `--------` |
+
+EOF
+
 ```

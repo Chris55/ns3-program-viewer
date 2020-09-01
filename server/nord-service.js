@@ -39,7 +39,7 @@ exports.loadNs3fFile = (buffer) => {
      * Offset in file: 0x14 and 0x15
      *
      * @example
-     * 16 bit int value, ex 304 = v3.04
+     * 16-bit integer value in Little Endian format, ex 304 = v3.04
      *
      * @module File Version
      */

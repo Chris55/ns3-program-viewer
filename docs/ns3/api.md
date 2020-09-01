@@ -106,9 +106,6 @@ To calculate number it is same as amount on effects 1</p>
 So, 0x114 AND 0x03 + 0x115 AND 0xF8. All that shifted 3 places to the right
 Sames as Amount</p>
 </dd>
-<dt><a href="#module_Category">Category</a></dt>
-<dd><p>Offset 0x10</p>
-</dd>
 <dt><a href="#module_Organ On">Organ On</a></dt>
 <dd><p>Offset in file: 0xB6 (b7)</p>
 </dd>
@@ -119,7 +116,7 @@ Sames as Amount</p>
 <dd><p>Offset in file:</p>
 </dd>
 <dt><a href="#module_Organ Octave Shift">Organ Octave Shift</a></dt>
-<dd><p>Offset in file: 0xBA (b2/1/0)</p>
+<dd><p>Offset in file: 0xBA (b2-0)</p>
 </dd>
 <dt><a href="#module_Organ Pitch Stick">Organ Pitch Stick</a></dt>
 <dd><p>Offset in file: 0x34 (b4)</p>
@@ -146,8 +143,6 @@ Sames as Amount</p>
 <dt><a href="#module_Organ Vibrato Mode">Organ Vibrato Mode</a></dt>
 <dd><p>Offset in file: 0x34 (b3/2/1)</p>
 </dd>
-<dt><a href="#module_Organ Percussion Options">Organ Percussion Options</a></dt>
-<dd></dd>
 <dt><a href="#module_Organ Percussion On">Organ Percussion On</a></dt>
 <dd><p>Offset in file: 0xD3 (b4)</p>
 </dd>
@@ -170,10 +165,10 @@ Sames as Amount</p>
 <dd><p>Offset in file: 0x43 (b6 to b3)</p>
 </dd>
 <dt><a href="#module_Piano Volume">Piano Volume</a></dt>
-<dd><p>Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4) 7 bits = 0/127 range</p>
+<dd><p>Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)</p>
 </dd>
 <dt><a href="#module_Piano Octave Shift">Piano Octave Shift</a></dt>
-<dd><p>Offset in file: 0x47 (just 4 last bits, AND 0x0F)</p>
+<dd><p>Offset in file: 0x47 (b2-0)</p>
 </dd>
 <dt><a href="#module_Piano Pitch Stick">Piano Pitch Stick</a></dt>
 <dd><p>Offset in file: 0x48 (b7)</p>
@@ -206,16 +201,16 @@ Sames as Amount</p>
 <dd><p>Offset in file: 0x4D (b3)</p>
 </dd>
 <dt><a href="#module_Synth On">Synth On</a></dt>
-<dd><p>Offset in file: 0x52 (b7): O = disabled, 1 = enabled</p>
+<dd><p>Offset in file: 0x52 (b7)</p>
 </dd>
 <dt><a href="#module_Synth Kb Zone">Synth Kb Zone</a></dt>
 <dd><p>Offset in file: 0x52 (b6 to b3)</p>
 </dd>
 <dt><a href="#module_Synth Volume">Synth Volume</a></dt>
-<dd><p>Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4) 7 bits = 0/127 range</p>
+<dd><p>Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)</p>
 </dd>
 <dt><a href="#module_Synth Octave Shift">Synth Octave Shift</a></dt>
-<dd><p>Offset in file: 0x56 (b1/0)</p>
+<dd><p>Offset in file: 0x56 (b1-0)</p>
 </dd>
 <dt><a href="#module_Synth Pitch Stick">Synth Pitch Stick</a></dt>
 <dd><p>Offset in file: 0x57 (b7)</p>
@@ -251,10 +246,7 @@ Sames as Amount</p>
 <dd><p>Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4) - 0/127 value</p>
 </dd>
 <dt><a href="#module_Synth Pitch Value">Synth Pitch Value</a></dt>
-<dd><p>Offset in file: 0x8f (b0) and 0x90 (b7-3)
-| --- |
-Midi value are the 6 bits value used + b0 (zero)
-label conversion: -12 (Sub) to +48</p>
+<dd><p>Offset in file: 0x8f (b0) and 0x90 (b7-3)</p>
 </dd>
 <dt><a href="#module_Synth LFO Mod Env">Synth LFO Mod Env</a></dt>
 <dd><p>Offset in file: 0x94 (b3-0) and 0x95 (b7-5)</p>
@@ -271,6 +263,77 @@ label conversion: -12 (Sub) to +48</p>
 <dt><a href="#module_Synth Filter Drive">Synth Filter Drive</a></dt>
 <dd><p>Offset in file: 0xA5 (b3-2)</p>
 </dd>
+<dt><a href="#module_Synth Filter LFO Modulation">Synth Filter LFO Modulation</a></dt>
+<dd><p>Offset in file: 0xA0 (b3-0) and 0xA1 (b7-5)</p>
+</dd>
+<dt><a href="#module_Synth Filter Vel Mod Env">Synth Filter Vel Mod Env</a></dt>
+<dd><p>Offset in file: 0xA4 (b4-0) and 0xA5 (b7-6)</p>
+</dd>
+<dt><a href="#module_Synth Filter Freq">Synth Filter Freq</a></dt>
+<dd><p>Offset in file: 0x98 (b1-0) and 0x99 (b7-3)</p>
+</dd>
+<dt><a href="#module_Synth Filter Freq">Synth Filter Freq</a></dt>
+<dd><p>Offset in file: 0x9C(b2-0) and 0x9D (b7-4)</p>
+</dd>
+<dt><a href="#module_Synth Mod Env Attack">Synth Mod Env Attack</a></dt>
+<dd><p>Offset in file: 0x8B (b7-1)</p>
+</dd>
+<dt><a href="#module_Synth Mod Env Decay">Synth Mod Env Decay</a></dt>
+<dd><p>Offset in file: 0x8B (b0) and 0x8C (b7-2)</p>
+</dd>
+<dt><a href="#module_Synth Mod Env Release">Synth Mod Env Release</a></dt>
+<dd><p>Offset in file: 0x8C (b1-0) and 0x8D (b7-3)</p>
+</dd>
+<dt><a href="#module_Synth Mod Env Velocity">Synth Mod Env Velocity</a></dt>
+<dd><p>Offset in file: 0x8D (b2)</p>
+</dd>
+<dt><a href="#module_Synth Amp Env Attack">Synth Amp Env Attack</a></dt>
+<dd><p>Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)</p>
+</dd>
+<dt><a href="#module_Synth Amp Env Decay">Synth Amp Env Decay</a></dt>
+<dd><p>Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)</p>
+</dd>
+<dt><a href="#module_Synth Amp Env Release">Synth Amp Env Release</a></dt>
+<dd><p>Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)</p>
+</dd>
+<dt><a href="#module_Synth Amp Env Velocity">Synth Amp Env Velocity</a></dt>
+<dd><p>Offset in file: 0xA8 (b4-3)</p>
+</dd>
+<dt><a href="#module_Synth Lfo Wave">Synth Lfo Wave</a></dt>
+<dd><p>Offset in file: 0x86 (b2-0)</p>
+</dd>
+<dt><a href="#module_Synth Lfo Rate">Synth Lfo Rate</a></dt>
+<dd><p>Offset in file: 0x87 (b6-0)</p>
+</dd>
+<dt><a href="#module_Synth Lfo Master Clock">Synth Lfo Master Clock</a></dt>
+<dd><p>Offset in file: 0x87 (b7)</p>
+</dd>
+<dt><a href="#module_Synth Arp On">Synth Arp On</a></dt>
+<dd><p>Offset in file: 0x80 (b6)</p>
+</dd>
+<dt><a href="#module_Synth Arp Rate">Synth Arp Rate</a></dt>
+<dd><p>Offset in file: 0x81 (b7-1)</p>
+</dd>
+<dt><a href="#module_Synth Arp Kb Sync">Synth Arp Kb Sync</a></dt>
+<dd><p>Offset in file: 0x80 (b5)</p>
+</dd>
+<dt><a href="#module_Synth Arp Master Clock">Synth Arp Master Clock</a></dt>
+<dd><p>Offset in file: 0x80 (b5)</p>
+</dd>
+<dt><a href="#module_Synth Arp Range">Synth Arp Range</a></dt>
+<dd><p>Offset in file: 0x80 (b4-3)</p>
+</dd>
+<dt><a href="#module_Synth Arp Pattern">Synth Arp Pattern</a></dt>
+<dd><p>Offset in file: 0x80 (b2-1)</p>
+</dd>
+</dl>
+
+## Members
+
+<dl>
+<dt><a href="#categoryMap">categoryMap</a></dt>
+<dd><p>Offset 0x10</p>
+</dd>
 </dl>
 
 <a name="module_File Version"></a>
@@ -280,7 +343,7 @@ Offset in file: 0x14 and 0x15
 
 **Example**  
 ```js
-16 bit int value, ex 304 = v3.04
+16-bit integer value in Little Endian format, ex 304 = v3.04
 ```
 <a name="module_Transpose"></a>
 
@@ -393,11 +456,6 @@ Offset in file: 0x115 (last 3 bits) and 0x116 (first 4 bits) So 0x115 AND0x07 +
 ## Effect 2 Rate
 Offset in file: last 2 bits of 0x114 and first 5 bits of 0x115So, 0x114 AND 0x03 + 0x115 AND 0xF8. All that shifted 3 places to the rightSames as Amount
 
-<a name="module_Category"></a>
-
-## Category
-Offset 0x10
-
 <a name="module_Organ On"></a>
 
 ## Organ On
@@ -414,7 +472,7 @@ Offset in file: 0xB6 (b6 to b3)
 
 **Example**  
 ```js
-value     |      | Label--------- | ---- | -------x000 0xxx |  0   | `o---`x000 1xxx |  1   | `-o--`x001 0xxx |  2   | `--o-`x001 1xxx |  3   | `---o`x010 0xxx |  4   | `oo--`x010 1xxx |  5   | `-oo-`x011 0xxx |  6   | `--oo`x011 1xxx |  7   | `ooo-`x100 0xxx |  8   | `-ooo`x100 1xxx |  9   | `oooo`
+value     |      | Label--------- | ---- | -------x000 0xxx |  0   | o---x000 1xxx |  1   | -o--x001 0xxx |  2   | --o-x001 1xxx |  3   | ---ox010 0xxx |  4   | oo--x010 1xxx |  5   | -oo-x011 0xxx |  6   | --oox011 1xxx |  7   | ooo-x100 0xxx |  8   | -ooox100 1xxx |  9   | oooo
 ```
 <a name="module_Organ Volume"></a>
 
@@ -428,7 +486,7 @@ Volume:0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 rangeMorph Wheel:0xB7 (b3):
 <a name="module_Organ Octave Shift"></a>
 
 ## Organ Octave Shift
-Offset in file: 0xBA (b2/1/0)
+Offset in file: 0xBA (b2-0)
 
 **Example**  
 ```js
@@ -484,12 +542,10 @@ Drawbar 1: 0xD9 (b7-4)Drawbar 2: 0xDB (b4-1)Drawbar 3: 0xDD (b1-0) and 0xDE (b
 ## Organ Live Mode
 Offset in file: 0xBB (b3)(NS3 Compact model only)
 
-<a name="module_Organ Live Mode..vibrato"></a>
-
-### Organ Live Mode~vibrato
-Organ Vibrato Options
-
-**Kind**: inner property of [<code>Organ Live Mode</code>](#module_Organ Live Mode)  
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_Organ Vibrato On"></a>
 
 ## Organ Vibrato On
@@ -508,9 +564,6 @@ Offset in file: 0x34 (b3/2/1)
 ```js
 O = off, 1 = on
 ```
-<a name="module_Organ Percussion Options"></a>
-
-## Organ Percussion Options
 <a name="module_Organ Percussion On"></a>
 
 ## Organ Percussion On
@@ -574,17 +627,17 @@ Offset in file: 0x43 (b6 to b3)
 <a name="module_Piano Volume"></a>
 
 ## Piano Volume
-Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4) 7 bits = 0/127 range
+Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)
 
 **See**: [Organ Volume](api.md#organ-volume) for detailed explanation.  
 <a name="module_Piano Octave Shift"></a>
 
 ## Piano Octave Shift
-Offset in file: 0x47 (just 4 last bits, AND 0x0F)
+Offset in file: 0x47 (b2-0)
 
 **Example**  
 ```js
-0xF5- Shift -10xF6- No shift0xF7- Shift +1Octave Shift = value - 6
+Octave Shift = value - 6
 ```
 <a name="module_Piano Pitch Stick"></a>
 
@@ -679,7 +732,7 @@ O = off, 1 = on
 <a name="module_Synth On"></a>
 
 ## Synth On
-Offset in file: 0x52 (b7): O = disabled, 1 = enabled
+Offset in file: 0x52 (b7)
 
 **Example**  
 ```js
@@ -694,14 +747,18 @@ Offset in file: 0x52 (b6 to b3)
 <a name="module_Synth Volume"></a>
 
 ## Synth Volume
-Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4) 7 bits = 0/127 range
+Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
 
 **See**: [Organ Volume](api.md#organ-volume) for detailed explanation.  
 <a name="module_Synth Octave Shift"></a>
 
 ## Synth Octave Shift
-Offset in file: 0x56 (b1/0)
+Offset in file: 0x56 (b1-0)
 
+**Example**  
+```js
+Octave Shift = value - 6
+```
 <a name="module_Synth Pitch Stick"></a>
 
 ## Synth Pitch Stick
@@ -776,8 +833,12 @@ Type                  Midi value conversionPitch (1)             0/127 => 0/24
 <a name="module_Synth Pitch Value"></a>
 
 ## Synth Pitch Value
-Offset in file: 0x8f (b0) and 0x90 (b7-3)| --- |Midi value are the 6 bits value used + b0 (zero)label conversion: -12 (Sub) to +48
+Offset in file: 0x8f (b0) and 0x90 (b7-3)
 
+**Example**  
+```js
+Midi value = 6-bit value + b0 forced to zero to have a standard Midi 7-bit valuelabel conversion: -12 (Sub) to +48
+```
 <a name="module_Synth LFO Mod Env"></a>
 
 ## Synth LFO Mod Env
@@ -785,7 +846,7 @@ Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
 
 **Example**  
 ```js
-Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:0   = 10.0 (100% left value) LFO Amount60  = 0.0 for both values120 = 10.0 (100% right value) Mod Env Amount
+Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:0   = 10.0 (100% left value) 'LFO Amount'60  = 0.0 for both values120 = 10.0 (100% right value) 'Mod Env Amount'
 ```
 <a name="module_Synth Fast Attack"></a>
 
@@ -823,3 +884,198 @@ Offset in file: 0xA5 (b3-2)
 ```js
 0 = Off1 = 12 = 23 = 3
 ```
+<a name="module_Synth Filter LFO Modulation"></a>
+
+## Synth Filter LFO Modulation
+Offset in file: 0xA0 (b3-0) and 0xA1 (b7-5)
+
+**Example**  
+```js
+0/127 value = 0 / 10
+```
+<a name="module_Synth Filter Vel Mod Env"></a>
+
+## Synth Filter Vel Mod Env
+Offset in file: 0xA4 (b4-0) and 0xA5 (b7-6)
+
+**Example**  
+```js
+Filter modulation (vel/env mod) is using this single 7-bit value to define two settings with a single knob.Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:0   = 10.0 (100% left value) 'Vel Amount'60  = 0.0 for both values120 = 10.0 (100% right value) 'Mod Env Amount'
+```
+<a name="module_Synth Filter Freq"></a>
+
+## Synth Filter Freq
+Offset in file: 0x98 (b1-0) and 0x99 (b7-3)
+
+**Example**  
+```js
+0/127 value = 14 Hz / 21 kHz
+```
+<a name="module_Synth Filter Freq"></a>
+
+## Synth Filter Freq
+Offset in file: 0x9C(b2-0) and 0x9D (b7-4)
+
+**Example**  
+```js
+for 'LP+HP' filter  => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHzfor all other filters  => Resonance:  0/127 value = 0 / 10
+```
+<a name="module_Synth Mod Env Attack"></a>
+
+## Synth Mod Env Attack
+Offset in file: 0x8B (b7-1)
+
+**Example**  
+```js
+0/127 value = 0.5 ms / 45 s
+```
+<a name="module_Synth Mod Env Decay"></a>
+
+## Synth Mod Env Decay
+Offset in file: 0x8B (b0) and 0x8C (b7-2)
+
+**Example**  
+```js
+0/127 value = 3.0 ms / 45 s (Sustain)
+```
+<a name="module_Synth Mod Env Release"></a>
+
+## Synth Mod Env Release
+Offset in file: 0x8C (b1-0) and 0x8D (b7-3)
+
+**Example**  
+```js
+0/127 value = 3.0 ms / 45 s (Inf)
+```
+<a name="module_Synth Mod Env Velocity"></a>
+
+## Synth Mod Env Velocity
+Offset in file: 0x8D (b2)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_Synth Amp Env Attack"></a>
+
+## Synth Amp Env Attack
+Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)
+
+**Example**  
+```js
+0/127 value = 0.5 ms / 45 s
+```
+<a name="module_Synth Amp Env Decay"></a>
+
+## Synth Amp Env Decay
+Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)
+
+**Example**  
+```js
+0/127 value = 3.0 ms / 45 s (Sustain)
+```
+<a name="module_Synth Amp Env Release"></a>
+
+## Synth Amp Env Release
+Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)
+
+**Example**  
+```js
+0/127 value = 3.0 ms / 45 s
+```
+<a name="module_Synth Amp Env Velocity"></a>
+
+## Synth Amp Env Velocity
+Offset in file: 0xA8 (b4-3)
+
+**Example**  
+```js
+0 = Off1 = 12 = 23 = 3
+```
+<a name="module_Synth Lfo Wave"></a>
+
+## Synth Lfo Wave
+Offset in file: 0x86 (b2-0)
+
+**Example**  
+```js
+0 = Triangle1 = Saw2 = Neg Saw3 = Square4 = S/H
+```
+<a name="module_Synth Lfo Rate"></a>
+
+## Synth Lfo Rate
+Offset in file: 0x87 (b6-0)
+
+**Example**  
+```js
+0/127 value = 0.03 Hz / 523 Hzif LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division
+```
+<a name="module_Synth Lfo Master Clock"></a>
+
+## Synth Lfo Master Clock
+Offset in file: 0x87 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_Synth Arp On"></a>
+
+## Synth Arp On
+Offset in file: 0x80 (b6)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_Synth Arp Rate"></a>
+
+## Synth Arp Rate
+Offset in file: 0x81 (b7-1)
+
+**Example**  
+```js
+0/127 value = 16 bpm / Fast 5if Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division
+```
+<a name="module_Synth Arp Kb Sync"></a>
+
+## Synth Arp Kb Sync
+Offset in file: 0x80 (b5)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_Synth Arp Master Clock"></a>
+
+## Synth Arp Master Clock
+Offset in file: 0x80 (b5)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_Synth Arp Range"></a>
+
+## Synth Arp Range
+Offset in file: 0x80 (b4-3)
+
+**Example**  
+```js
+0 = 1 Octave1 = 2 Octaves2 = 3 Octaves3 = 4 Octaves
+```
+<a name="module_Synth Arp Pattern"></a>
+
+## Synth Arp Pattern
+Offset in file: 0x80 (b2-1)
+
+**Example**  
+```js
+0 = Up1 = Down2 = Up/Down3 = Random
+```
+<a name="categoryMap"></a>
+
+## categoryMap
+Offset 0x10
+
+**Kind**: global variable  

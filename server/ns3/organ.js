@@ -91,16 +91,16 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * @example
          * value     |      | Label
          * --------- | ---- | -------
-         * x000 0xxx |  0   | `o---`
-         * x000 1xxx |  1   | `-o--`
-         * x001 0xxx |  2   | `--o-`
-         * x001 1xxx |  3   | `---o`
-         * x010 0xxx |  4   | `oo--`
-         * x010 1xxx |  5   | `-oo-`
-         * x011 0xxx |  6   | `--oo`
-         * x011 1xxx |  7   | `ooo-`
-         * x100 0xxx |  8   | `-ooo`
-         * x100 1xxx |  9   | `oooo`
+         * x000 0xxx |  0   | o---
+         * x000 1xxx |  1   | -o--
+         * x001 0xxx |  2   | --o-
+         * x001 1xxx |  3   | ---o
+         * x010 0xxx |  4   | oo--
+         * x010 1xxx |  5   | -oo-
+         * x011 0xxx |  6   | --oo
+         * x011 1xxx |  7   | ooo-
+         * x100 0xxx |  8   | -ooo
+         * x100 1xxx |  9   | oooo
          *
          * @module Organ Kb Zone
          */
@@ -136,7 +136,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         volume: getVolumeEx(buffer, 0xb6 + panelOffset),
 
         /**
-         * Offset in file: 0xBA (b2/1/0)
+         * Offset in file: 0xBA (b2-0)
          *
          * @example
          * Octave Shift = value - 6
@@ -219,11 +219,14 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0xBB (b3)
          * (NS3 Compact model only)
          *
+         * @example
+         * O = off, 1 = on
+         *
          * @module Organ Live Mode
          */
         live: (organOffsetBb & 0x08) !== 0,
 
-        /**
+        /***
          * Organ Vibrato Options
          */
         vibrato: {
@@ -248,8 +251,8 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
             mode: mapping.organVibratoModeMap.get((organOffset34 & 0b00001110) >>> 1),
         },
 
-        /**
-         * @module Organ Percussion Options
+        /***
+         * Organ Percussion Options
          */
         percussion: {
             /**
