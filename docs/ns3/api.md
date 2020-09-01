@@ -277,8 +277,7 @@ A = 0, B = 1 (not used here)</p>
 <dd><p>Offset in file: 0x43 (b7): O = disabled, 1 = enabled</p>
 </dd>
 <dt><a href="#module_Piano Kb Zone">Piano Kb Zone</a></dt>
-<dd><p>Offset in file: 0x43 (b6 to b3)
-ref Organ section for more examples</p>
+<dd><p>Offset in file: 0x43 (b6 to b3)</p>
 </dd>
 <dt><a href="#module_Piano Volume">Piano Volume</a></dt>
 <dd><p>Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4) 7 bits = 0/127 range</p>
@@ -321,11 +320,10 @@ ref Organ section for more examples</p>
 <dd><p>Offset in file: 0x52 (b7): O = disabled, 1 = enabled</p>
 </dd>
 <dt><a href="#module_Synth Kb Zone">Synth Kb Zone</a></dt>
-<dd><p>Offset in file: 0x52 (b6 to b3)
-ref Organ section for more examples</p>
+<dd><p>Offset in file: 0x52 (b6 to b3)</p>
 </dd>
 <dt><a href="#module_Synth Volume">Synth Volume</a></dt>
-<dd><p>Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)</p>
+<dd><p>Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4) 7 bits = 0/127 range</p>
 </dd>
 <dt><a href="#module_Synth Octave Shift">Synth Octave Shift</a></dt>
 <dd><p>Offset in file: 0x56 (b1/0)</p>
@@ -640,13 +638,15 @@ Offset in file: 0x43 (b7): O = disabled, 1 = enabled
 <a name="module_Piano Kb Zone"></a>
 
 ## Piano Kb Zone
-Offset in file: 0x43 (b6 to b3)ref Organ section for more examples
+Offset in file: 0x43 (b6 to b3)
 
+**See**: [Organ Kb Zone](api.md#organ-kb-zone) for detailed explanation.  
 <a name="module_Piano Volume"></a>
 
 ## Piano Volume
 Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4) 7 bits = 0/127 range
 
+**See**: [Organ Volume](api.md#organ-volume) for detailed explanation.  
 <a name="module_Piano Octave Shift"></a>
 
 ## Piano Octave Shift
@@ -754,13 +754,15 @@ Offset in file: 0x52 (b7): O = disabled, 1 = enabled
 <a name="module_Synth Kb Zone"></a>
 
 ## Synth Kb Zone
-Offset in file: 0x52 (b6 to b3)ref Organ section for more examples
+Offset in file: 0x52 (b6 to b3)
 
+**See**: [Organ Kb Zone](api.md#organ-kb-zone) for detailed explanation.  
 <a name="module_Synth Volume"></a>
 
 ## Synth Volume
-Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
+Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4) 7 bits = 0/127 range
 
+**See**: [Organ Volume](api.md#organ-volume) for detailed explanation.  
 <a name="module_Synth Octave Shift"></a>
 
 ## Synth Octave Shift

@@ -35,7 +35,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
 
         /**
          * Offset in file: 0x43 (b6 to b3)
-         * ref Organ section for more examples
+         * @see {@link api.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
          * @module Piano Kb Zone
          */
@@ -43,6 +43,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
 
         /**
          * Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4) 7 bits = 0/127 range
+         * @see {@link api.md#organ-volume Organ Volume} for detailed explanation.
          *
          * @module Piano Volume
          */

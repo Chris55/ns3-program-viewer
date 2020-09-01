@@ -192,14 +192,15 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
 
         /**
          * Offset in file: 0x52 (b6 to b3)
-         * ref Organ section for more examples
+         * @see {@link api.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
          * @module Synth Kb Zone
          */
         kbZone: getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11),
 
         /**
-         * Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
+         * Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4) 7 bits = 0/127 range
+         * @see {@link api.md#organ-volume Organ Volume} for detailed explanation.
          *
          * @module Synth Volume
          */
