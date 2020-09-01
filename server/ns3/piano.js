@@ -56,6 +56,8 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          * 0xF6- No shift
          * 0xF7- Shift +1
          *
+         * Octave Shift = value - 6
+         *
          * @module Piano Octave Shift
          */
         octaveShift: (pianoOffset47 & 0x07) - 6,
@@ -78,7 +80,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          * 0x00- No
          * 0x40- Yes
          *
-         * @module Sustain Pedal
+         * @module Piano Sustain Pedal
          */
         sustainPedal: (pianoOffset48 & 0x40) !== 0,
 

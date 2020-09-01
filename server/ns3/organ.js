@@ -80,7 +80,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * O = disabled, 1 = enabled
          *
-         * @module organ-on
+         * @module Organ On
          */
         enabled: organEnabled,
 
@@ -100,7 +100,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * | x100 0xxx | 8    | `-ooo`
          * | x100 1xxx | 9    | `oooo`
          *
-         *  @module organ-kb-zone
+         *  @module Organ Kb Zone
          */
         kbZone: getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11),
 
@@ -123,7 +123,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * Final 'To' Morph value = 'From value (aka original volume)' + 'Morph offset value'
          * Morph Enabled if  'From value' <> 'Morph offset value'
          *
-         * @module organ-volume
+         * @module Organ Volume
          */
         volume: getVolumeEx(buffer, 0xb6 + panelOffset),
 
@@ -132,21 +132,21 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * Octave Shift = value - 6
          *
-         * @module organ-octave-shift
+         * @module Organ Octave Shift
          */
         octaveShift: (organOffsetBa & 0x07) - 6,
 
         /**
          * Offset in file: 0x34 (b4)
          *
-         * @module organ-pitch-stick
+         * @module Organ Pitch Stick
          */
         pitchStick: (organOffset34 & 0x10) !== 0,
 
         /**
          * Offset in file: 0xBB (b7)
          *
-         * @module organ-sustain-pedal
+         * @module Organ Sustain Pedal
          */
         sustainPedal: (organOffsetBb & 0x80) !== 0,
 
@@ -159,7 +159,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * 3 = Pipe1
          * 4 = Pipe2
          *
-         * @module organ-type
+         * @module Organ Type
          */
         type: organType,
 
@@ -176,7 +176,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * Drawbar 8: 0xCE (b2-0) and 0xCF (b7)
          * Drawbar 9: 0xD1 (b7-4)
          *
-         * @module organ-drawbars-preset-1
+         * @module Organ Drawbars Preset 1
          */
         preset1: getDrawbars(buffer, 0xbe, organType).join(""),
 
@@ -193,7 +193,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)
          * Drawbar 9: 0xEC (b7-4)
          *
-         * @module organ-drawbars-preset-2
+         * @module Organ Drawbars Preset 2
          */
         preset2: getDrawbars(buffer, 0xd9, organType).join(""),
 
@@ -201,7 +201,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0xBB (b3)
          * (NS3 Compact model only)
          *
-         * @module organ-live-mode
+         * @module Organ Live Mode
          */
         live: (organOffsetBb & 0x08) !== 0,
 
@@ -212,14 +212,14 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
             /**
              * Offset in file: 0xD3 (b4)
              *
-             * @module organ-vibrato-on
+             * @module Organ Vibrato On
              */
             enabled: (organOffsetD3 & 0x10) !== 0,
 
             /**
              * Offset in file: 0x34 (b3/2/1)
              *
-             * @module organ-vibrato-mode
+             * @module Organ Vibrato Mode
              */
             mode: mapping.organVibratoModeMap.get((organOffset34 & 0b00001110) >>> 1),
         },
@@ -231,28 +231,28 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
             /**
              * Offset in file: 0xD3 (b4)
              *
-             * @module organ-percussion-on
+             * @module Organ Percussion On
              */
             enabled: (organOffsetD3 & 0x08) !== 0,
 
             /**
              * Offset in file: 0xD3 (b0)
              *
-             * @module organ-percussion-volume-soft
+             * @module Organ Percussion Volume Soft
              */
             volumeSoft: (organOffsetD3 & 0x01) !== 0,
 
             /**
              * Offset in file: 0xD3 (b1)
              *
-             * @module organ-percussion-decay-fast
+             * @module Organ Percussion Decay Fast
              */
             decayFast: (organOffsetD3 & 0x02) !== 0,
 
             /**
              * Offset in file: 0xD3 (b2)
              *
-             * @module Organ-percussion-harmonic-third
+             * @module Organ Percussion Harmonic Third
              */
             harmonicThird: (organOffsetD3 & 0x04) !== 0,
         },

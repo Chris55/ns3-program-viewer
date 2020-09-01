@@ -41,7 +41,7 @@ exports.loadNs3fFile = (buffer) => {
      * @example
      * 16 bit int value, ex 304 = v3.04
      *
-     * @module file-version
+     * @module File Version
      */
 
     const zeroPad = (num, places) => String(num).padStart(places, "0");
@@ -66,7 +66,7 @@ exports.loadNs3fFile = (buffer) => {
      * Test6:  0D D8 : Transpose +5 semi
      * Test7:  0D E0 : Transpose +6 semi
      *
-     * @module transpose
+     * @module Transpose
      */
 
     const transposeEnabled = (offset38 & 0x80) !== 0;
@@ -147,7 +147,7 @@ exports.loadNs3fFile = (buffer) => {
      * Test19: 1C 23 30 01 : Width 12  1   Off
      *                       Note  C3  F3  --   ! Note Mid in file is C3 but fixed on display to F3 !
      *
-     * @module split
+     * @module Split
      */
 
     const splitLowEnabled = (offset31 & 0x08) !== 0;
@@ -218,7 +218,7 @@ exports.loadNs3fFile = (buffer) => {
      *
      * bpm = value + 30
      *
-     * @module master-clock-rate
+     * @module Master Clock Rate
      */
     const tempo = ((offset38W & 0x07f8) >>> 3) + 30;
 

@@ -61,8 +61,8 @@ ns3f file description:
 | `0x0036` | `--------` |
 | `0x0037` | `--------` |
 | `0x0038` | `tttttccc` | [(t)ranspose](api.md#transpose), [master (c)lock rate](api.md#master-clock-rate)
-| `0x0039` | `ccccc---` |
-| `0x003A` | `--------` |
+| `0x0039` | `cccccddd` | [rotary speaker (d)rive](api.md#rotary-speaker-drive)
+| `0x003A` | `dddd----` |
 | `0x003B` | `--------` |
 | `0x003C` | `--------` |
 | `0x003D` | `--------` |
@@ -71,18 +71,18 @@ ns3f file description:
 | `0x0040` | `--------` |
 | `0x0041` | `--------` |
 | `0x0042` | `--------` |
-| `0x0043` | `--------` |
-| `0x0044` | `--------` |
-| `0x0045` | `--------` |
-| `0x0046` | `--------` |
-| `0x0047` | `--------` |
-| `0x0048` | `--------` |
-| `0x0049` | `--------` |
+| `0x0043` | `ozzzzvvv` | [piano (o)n](api.md#piano-on), [piano kb (z)one](api.md#piano-kb-zone), [piano (v)olume](api.md#piano-volume)
+| `0x0044` | `vvvvwwww` | [piano volume morph (w)heel](api.md#piano-volume)
+| `0x0045` | `wwwwaaaa` | [piano volume morph (a)fter touch](api.md#piano-volume)
+| `0x0046` | `aaaapppp` | [piano volume morph control (p)edal](api.md#piano-volume)
+| `0x0047` | `ppppoooo` | [piano (o)ctave shift](api.md#piano-octave-shift)
+| `0x0048` | `pstttmmm` | [piano (p)itch stick](api.md#piano-pitch-stick), [piano (s)ustain pedal](api.md#piano-sustain-pedal), [piano (t)ype](api.md#piano-type), [piano (m)odel](api.md#piano-model)
+| `0x0049` | `mm------` |
 | `0x004A` | `--------` |
 | `0x004B` | `--------` |
 | `0x004C` | `--------` |
-| `0x004D` | `--------` |
-| `0x004E` | `--------` |
+| `0x004D` | `----srpk` | [piano (s)oft release](api.md#piano-soft-release),[piano string (r)esonance](api.md#piano-string-resonance), [piano (p)edal noise](api.md#piano-pedal-noise), [piano (k)b touch](api.md#piano-kb-touch)
+| `0x004E` | `k-ttt---` | [piano (t)imbre](api.md#piano-timbre)
 | `0x004F` | `--------` |
 | `0x0050` | `--------` |
 | `0x0051` | `--------` |
@@ -260,4 +260,84 @@ ns3f file description:
 | `0x00FD` | `--------` |
 | `0x00FE` | `--------` |
 | `0x00FF` | `--------` |
+| `0x0100` | `--------` |
+| `0x0101` | `--------` |
+| `0x0102` | `--------` |
+| `0x0103` | `--------` |
+| `0x0104` | `--------` |
+| `0x0105` | `--------` |
+| `0x0106` | `--------` |
+| `0x0107` | `--------` |
+| `0x0108` | `--------` |
+| `0x0109` | `--------` |
+| `0x010A` | `--------` |
+| `0x010B` | `ossnrrtt` | [rotary speaker (o)n](api.md#rotary-speaker-on), [rotary speaker (s)ource](api.md#rotary-speaker-source), [effect 1 o(n)](api.md#effect-1-on), [effect-1-sou(r)ce](api.md#effect-1-source), [effect 1 (t)ype](api.md#effect-1-type)
+| `0x010C` | `tcrrrrrr` | [effect 1 master (c)lock](api.md#effect-1-master-clock), [effect 1 (r)ate](api.md#effect-1-rate)
+| `0x010D` | `r-------` |
+| `0x010E` | `--------` |
+| `0x010F` | `--------` |
+| `0x0110` | `-aaaaaaa` | [effect 1 (a)mount](api.md#effect-1-amount)
+| `0x0111` | `--------` |
+| `0x0112` | `--------` |
+| `0x0113` | `--------` |
+| `0x0114` | `osstttrr` | [effect 2 (o)n](api.md#effect-2-on), [effect 2 (s)ource](api.md#effect-2-source), [effect 2 (t)ype](api.md#effect-2-type), [effect 2 (r)ate](api.md#effect-2-rate)
+| `0x0115` | `rrrrraaa` | [effect 2 (a)mount](api.md#effect-2-amount)
+| `0x0116` | `aaaa----` |
+| `0x0117` | `--------` |
+| `0x0118` | `--------` |
+| `0x0119` | `--------` |
+| `0x011A` | `--------` |
+| `0x011B` | `--------` |
+| `0x011C` | `--------` |
+| `0x011D` | `--------` |
+| `0x011E` | `--------` |
+| `0x011F` | `--------` |
+| `0x0120` | `--------` |
+| `0x0121` | `--------` |
+| `0x0122` | `--------` |
+| `0x0123` | `--------` |
+| `0x0124` | `--------` |
+| `0x0125` | `--------` |
+| `0x0126` | `--------` |
+| `0x0127` | `--------` |
+| `0x0128` | `--------` |
+| `0x0129` | `--------` |
+| `0x012A` | `--------` |
+| `0x012B` | `--------` |
+| `0x012C` | `--------` |
+| `0x012D` | `--------` |
+| `0x012E` | `--------` |
+| `0x012F` | `--------` |
+| `0x0130` | `--------` |
+| `0x0131` | `--------` |
+| `0x0132` | `--------` |
+| `0x0133` | `--------` |
+| `0x0134` | `--------` |
+| `0x0135` | `--------` |
+| `0x0136` | `--------` |
+| `0x0137` | `--------` |
+| `0x0138` | `--------` |
+| `0x0139` | `--------` |
+| `0x013A` | `--------` |
+| `0x013B` | `--------` |
+| `0x013C` | `--------` |
+| `0x013D` | `--------` |
+| `0x013E` | `--------` |
+| `0x013F` | `--------` |
+| `0x0140` | `--------` |
+| `0x0141` | `--------` |
+| `0x0142` | `--------` |
+| `0x0143` | `--------` |
+| `0x0144` | `--------` |
+| `0x0145` | `--------` |
+| `0x0146` | `--------` |
+| `0x0147` | `--------` |
+| `0x0148` | `--------` |
+| `0x0149` | `--------` |
+| `0x014A` | `--------` |
+| `0x014B` | `--------` |
+| `0x014C` | `--------` |
+| `0x014D` | `--------` |
+| `0x014E` | `--------` |
+| `0x014F` | `--------` |
 ```

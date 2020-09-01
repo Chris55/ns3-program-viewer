@@ -30,7 +30,7 @@ exports.getPanel = function (buffer, id, splitEnabled) {
      * Selected Panel (b7):
      * A = 0, B = 1 (not used here)
      *
-     * @module panel-enabled-and-selection
+     * @module Panel Enabled And Selection
      */
 
     const panelEnabledFlag = (panelOffset31 & 0x60) >>> 5;
