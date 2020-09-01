@@ -24,7 +24,7 @@ ns3f file description:
 | `0x0011` | `--------` |
 | `0x0012` | `--------` |
 | `0x0013` | `--------` |
-| `0x0014` | `iiiiiiii` | [File Version](api.md#file-version) (16-bit)
+| `0x0014` | `iiiiiiii` | [(i) File Version](api.md#file-version) (16-bit)
 | `0x0015` | `iiiiiiii` |
 | `0x0016` | `--------` |
 | `0x0017` | `--------` |
@@ -53,15 +53,15 @@ ns3f file description:
 | `0x002E` | `--------` |
 | `0x002F` | `--------` |
 | `0x0030` | `--------` |
-| `0x0031` | `pppsssss` | [(p)anel](api.md#panel-enabled-and-selection), [(s)plit](api.md#split)
+| `0x0031` | `pppsssss` | [(p) panel](api.md#panel-enabled-and-selection), [(s) split](api.md#split)
 | `0x0032` | `ssssssss` |
 | `0x0033` | `ssssssss` |
-| `0x0034` | `sddpvvvr` | [piano layer (d)etune](api.md#piano-layer-detune), [organ (p)itch stick](api.md#organ-pitch-stick), [organ (v)ibrato mode](api.md#organ-vibrato-mode), [(r)otary speaker speed](api.md#rotary-speaker-speed)
-| `0x0035` | `m-------` | [rotary speaker stop (m)ode](api.md#rotary-speaker-stop-mode)
+| `0x0034` | `sddpvvvr` | [(d) piano layer detune](api.md#piano-layer-detune), [(p) organ pitch stick](api.md#organ-pitch-stick), [(v) organ vibrato mode](api.md#organ-vibrato-mode), [(r) rotary speaker speed](api.md#rotary-speaker-speed)
+| `0x0035` | `m-------` | [(m) rotary speaker stop mode](api.md#rotary-speaker-stop-mode)
 | `0x0036` | `--------` |
 | `0x0037` | `--------` |
-| `0x0038` | `tttttccc` | [(t)ranspose](api.md#transpose), [master (c)lock rate](api.md#master-clock-rate)
-| `0x0039` | `cccccddd` | [rotary speaker (d)rive](api.md#rotary-speaker-drive)
+| `0x0038` | `tttttccc` | [(t) transpose](api.md#transpose), [(c) master clock rate](api.md#master-clock-rate)
+| `0x0039` | `cccccddd` | [(d) rotary speaker drive](api.md#rotary-speaker-drive)
 | `0x003A` | `dddd----` |
 | `0x003B` | `--------` |
 | `0x003C` | `--------` |
@@ -71,25 +71,25 @@ ns3f file description:
 | `0x0040` | `--------` |
 | `0x0041` | `--------` |
 | `0x0042` | `--------` |
-| `0x0043` | `ozzzzvvv` | [piano (o)n](api.md#piano-on), [piano kb (z)one](api.md#piano-kb-zone), [piano (v)olume](api.md#piano-volume)
-| `0x0044` | `vvvvwwww` | [piano volume morph (w)heel](api.md#piano-volume)
-| `0x0045` | `wwwwaaaa` | [piano volume morph (a)fter touch](api.md#piano-volume)
-| `0x0046` | `aaaapppp` | [piano volume morph control (p)edal](api.md#piano-volume)
-| `0x0047` | `pppp-ooo` | [piano (o)ctave shift](api.md#piano-octave-shift)
-| `0x0048` | `pstttmmm` | [piano (p)itch stick](api.md#piano-pitch-stick), [piano (s)ustain pedal](api.md#piano-sustain-pedal), [piano (t)ype](api.md#piano-type), [piano (m)odel](api.md#piano-model)
+| `0x0043` | `ozzzzvvv` | [(o) piano on](api.md#piano-on), [(z) piano kb zone](api.md#piano-kb-zone), [(v) piano volume](api.md#piano-volume)
+| `0x0044` | `vvvvwwww` | [(w) piano volume morph wheel](api.md#piano-volume)
+| `0x0045` | `wwwwaaaa` | [(a) piano volume morph after touch](api.md#piano-volume)
+| `0x0046` | `aaaapppp` | [(p) piano volume morph control pedal](api.md#piano-volume)
+| `0x0047` | `pppp-ooo` | [(o) piano octave shift](api.md#piano-octave-shift)
+| `0x0048` | `pstttmmm` | [(p) piano pitch stick](api.md#piano-pitch-stick), [(s) piano sustain pedal](api.md#piano-sustain-pedal), [(t) piano type](api.md#piano-type), [(m) piano model](api.md#piano-model)
 | `0x0049` | `mm------` |
 | `0x004A` | `--------` |
 | `0x004B` | `--------` |
 | `0x004C` | `--------` |
-| `0x004D` | `----srpk` | [piano (s)oft release](api.md#piano-soft-release),[piano string (r)esonance](api.md#piano-string-resonance), [piano (p)edal noise](api.md#piano-pedal-noise), [piano (k)b touch](api.md#piano-kb-touch)
-| `0x004E` | `k-ttt---` | [piano (t)imbre](api.md#piano-timbre)
+| `0x004D` | `----srpk` | [(s) piano soft release](api.md#piano-soft-release),[(r) piano string resonance](api.md#piano-string-resonance), [(p) piano pedal noise](api.md#piano-pedal-noise), [(k) piano kb touch](api.md#piano-kb-touch)
+| `0x004E` | `k-ttt---` | [(t) piano timbre](api.md#piano-timbre)
 | `0x004F` | `--------` |
 | `0x0050` | `--------` |
 | `0x0051` | `--------` |
-| `0x0052` | `ozzzzvvv` | [synth (o)n](api.md#synth-on), [synth kb (z)one](api.md#synth-kb-zone), [synth (v)olume](api.md#synth-volume)
-| `0x0053` | `vvvvwwww` | [synth volume morph (w)heel](api.md#synth-volume)
-| `0x0054` | `wwwwaaaa` | [synth volume morph (a)fter touch](api.md#synth-volume)
-| `0x0055` | `aaaapppp` | [synth volume morph control (p)edal](api.md#synth-volume)
+| `0x0052` | `ozzzzvvv` | [(o) synth on](api.md#synth-on), [(z) synth kb zone](api.md#synth-kb-zone), [(v) synth volume](api.md#synth-volume)
+| `0x0053` | `vvvvwwww` | [(w) synth volume morph wheel](api.md#synth-volume)
+| `0x0054` | `wwwwaaaa` | [(a) synth volume morph after touch](api.md#synth-volume)
+| `0x0055` | `aaaapppp` | [(p) synth volume morph control pedal](api.md#synth-volume)
 | `0x0056` | `pppp----` |
 | `0x0057` | `--------` | user sample header 1
 | `0x0058` | `--------` | user sample header 2
@@ -186,12 +186,12 @@ ns3f file description:
 | `0x00B3` | `--------` |
 | `0x00B4` | `--------` |
 | `0x00B5` | `--------` |
-| `0x00B6` | `ozzzzvvv` | [organ (o)n](api.md#organ-on), [organ kb (z)one](api.md#organ-kb-zone), [organ (v)olume](api.md#organ-volume)
-| `0x00B7` | `vvvvwwww` | [organ volume morph (w)heel](api.md#organ-volume)
-| `0x00B8` | `wwwwaaaa` | [organ volume morph (a)fter touch](api.md#organ-volume)
-| `0x00B9` | `aaaapppp` | [organ volume morph control (p)edal](api.md#organ-volume)
-| `0x00BA` | `pppp-ooo` | [organ (o)ctave shift](api.md#organ-octave-shift)
-| `0x00BB` | `stttl---` | [organ (s)ustain-pedal](api.md#organ-sustain-pedal),[organ (t)ype](api.md#organ-type),[organ (l)ive mode](api.md#organ-live-mode)
+| `0x00B6` | `ozzzzvvv` | [(o) organ on](api.md#organ-on), [(z) organ kb zone](api.md#organ-kb-zone), [(v) organ volume](api.md#organ-volume)
+| `0x00B7` | `vvvvwwww` | [(w) organ volume morph wheel](api.md#organ-volume)
+| `0x00B8` | `wwwwaaaa` | [(a) organ volume morph after touch](api.md#organ-volume)
+| `0x00B9` | `aaaapppp` | [(p) organ volume morph control pedal](api.md#organ-volume)
+| `0x00BA` | `pppp-ooo` | [(o) organ octave shift](api.md#organ-octave-shift)
+| `0x00BB` | `stttl---` | [(s) organ sustain-pedal](api.md#organ-sustain-pedal),[(t) organ type](api.md#organ-type),[(l) organ live mode](api.md#organ-live-mode)
 | `0x00BC` | `--------` |
 | `0x00BD` | `--------` |
 | `0x00BE` | `1111----` | [organ preset 1 drawbar (1)](api.md#organ-drawbars-preset-1),
@@ -215,7 +215,7 @@ ns3f file description:
 | `0x00D0` | `--------` |
 | `0x00D1` | `9999----` | [organ preset 1 drawbar (9)](api.md#organ-drawbars-preset-1),
 | `0x00D2` | `--------` |
-| `0x00D3` | `---vphds` | [organ (v)ibrato on](api.md#organ-vibrato-on), [organ (p)ercussion on](api.md#organ-percussion-on), [organ percussion (h)armonic third](api.md#organ-percussion-harmonic-third), [organ percussion (d)ecay fast](api.md#organ-percussion-decay-fast), [organ percussion volume (s)oft](api.md#organ-percussion-volume-soft)
+| `0x00D3` | `---vphds` | [(v) organ vibrato on](api.md#organ-vibrato-on), [(p) organ percussion on](api.md#organ-percussion-on), [(h) organ percussion harmonic third](api.md#organ-percussion-harmonic-third), [(d) organ percussion decay fast](api.md#organ-percussion-decay-fast), [(s) organ percussion volume soft](api.md#organ-percussion-volume-soft)
 | `0x00D4` | `--------` |
 | `0x00D5` | `--------` |
 | `0x00D6` | `--------` |
@@ -271,17 +271,17 @@ ns3f file description:
 | `0x0108` | `--------` |
 | `0x0109` | `--------` |
 | `0x010A` | `--------` |
-| `0x010B` | `ossnrrtt` | [rotary speaker (o)n](api.md#rotary-speaker-on), [rotary speaker (s)ource](api.md#rotary-speaker-source), [effect 1 o(n)](api.md#effect-1-on), [effect-1-sou(r)ce](api.md#effect-1-source), [effect 1 (t)ype](api.md#effect-1-type)
-| `0x010C` | `tcrrrrrr` | [effect 1 master (c)lock](api.md#effect-1-master-clock), [effect 1 (r)ate](api.md#effect-1-rate)
+| `0x010B` | `ossnrrtt` | [(o) rotary speaker on](api.md#rotary-speaker-on), [(s) rotary speaker source](api.md#rotary-speaker-source), [(n) effect 1 on](api.md#effect-1-on), [(r) effect-1-source](api.md#effect-1-source), [(t) effect 1 type](api.md#effect-1-type)
+| `0x010C` | `tcrrrrrr` | [(c) effect 1 master clock](api.md#effect-1-master-clock), [(r) effect 1 rate](api.md#effect-1-rate)
 | `0x010D` | `r-------` |
 | `0x010E` | `--------` |
 | `0x010F` | `--------` |
-| `0x0110` | `-aaaaaaa` | [effect 1 (a)mount](api.md#effect-1-amount)
+| `0x0110` | `-aaaaaaa` | [(a) effect 1 amount](api.md#effect-1-amount)
 | `0x0111` | `--------` |
 | `0x0112` | `--------` |
 | `0x0113` | `--------` |
-| `0x0114` | `osstttrr` | [effect 2 (o)n](api.md#effect-2-on), [effect 2 (s)ource](api.md#effect-2-source), [effect 2 (t)ype](api.md#effect-2-type), [effect 2 (r)ate](api.md#effect-2-rate)
-| `0x0115` | `rrrrraaa` | [effect 2 (a)mount](api.md#effect-2-amount)
+| `0x0114` | `osstttrr` | [(o) effect 2 on](api.md#effect-2-on), [(s) effect 2 source](api.md#effect-2-source), [(t) effect 2 type](api.md#effect-2-type), [(r) effect 2 rate](api.md#effect-2-rate)
+| `0x0115` | `rrrrraaa` | [(a) effect 2 amount](api.md#effect-2-amount)
 | `0x0116` | `aaaa----` |
 | `0x0117` | `--------` |
 | `0x0118` | `--------` |

@@ -205,12 +205,12 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * Offset in file: 0x114 (b4-2)
          *
          * @example
-         *  0 = PHAS1
-         *  0 = PHAS2
-         *  0 = FLANG
-         *  0 = VIBE
-         *  0 = CHOR1
-         *  0 = CHOR2
+         * 0 = PHAS1
+         * 1 = PHAS2
+         * 2 = FLANG
+         * 3 = VIBE
+         * 4 = CHOR1
+         * 5 = CHOR2
          *
          * @module Effect 2 Type
          */
