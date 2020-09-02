@@ -61,6 +61,38 @@ describe("/ns3/Morph", () => {
         });
     });
 
+    test("panelA.synth.filter.cutoffFrequency.morph.afterTouch.enabled eq false", async () => {
+        const file = "panelA.synth.filter.cutoffFrequency.morph.afterTouch.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.cutoffFrequency.morph.afterTouch.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.afterTouch.to.label eq 740 Hz", async () => {
+        const file = "panelA.synth.filter.cutoffFrequency.morph.afterTouch.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.afterTouch.to.label eq 740 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.cutoffFrequency.morph.controlPedal.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.controlPedal.to.label eq 14 Hz", async () => {
+        const file = "panelA.synth.filter.cutoffFrequency.morph.controlPedal.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.controlPedal.to.label eq 14 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.cutoffFrequency.morph.wheel.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.wheel.to.label eq 3.5 kHz", async () => {
+        const file = "panelA.synth.filter.cutoffFrequency.morph.wheel.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.wheel.to.label eq 3.5 kHz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.oscillators.control.morph.afterTouch.enabled eq true and panelA.synth.oscillators.control.morph.afterTouch.to.label eq 52@a48", async () => {
         const file = "panelA.synth.oscillators.control.morph.afterTouch.enabled eq true and panelA.synth.oscillators.control.morph.afterTouch.to.label eq 52@a48.ns3f";
         const sut = await getNs3TestCase(root + file);

@@ -1,6 +1,13 @@
 const converter = require("../common/converter");
-const { morph } = require("../common/utils");
+const { morph2 } = require("../common/utils");
 
+/***
+ * returns Oscillator Control label
+ *
+ * @param oscConfig
+ * @param oscControlMidi
+ * @returns {string}
+ */
 const getOscControlLabel = (oscConfig, oscControlMidi) => {
     let oscControlLabel = "";
     switch (oscConfig) {
@@ -50,16 +57,19 @@ const getOscControlLabel = (oscConfig, oscControlMidi) => {
     return oscControlLabel;
 };
 
+/***
+ * returns Oscillator Control settings
+ *
+ * @param buffer
+ * @param offset
+ * @param oscConfig
+ * @returns {{midi: number, label: string, morph: {afterTouch: {to: {midi: ({midi: *, label: string}|string), label: (string)}, enabled: boolean}, controlPedal: {to: {midi: ({midi: *, label: string}|string), label: (string)}, enabled: boolean}, wheel: {to: {midi: ({midi: *, label: string}|string), label: (string)}, enabled: boolean}}}}
+ */
 exports.getOscControl = (buffer, offset, oscConfig) => {
     const synthOffset90W = buffer.readUInt16BE(offset); // 0x90
-    const synthOffset91W = buffer.readUInt16BE(offset + 1); // 0x91
-    const synthOffset92W = buffer.readUInt16BE(offset + 2); // 0x92
-    const synthOffset93W = buffer.readUInt16BE(offset + 3); // 0x93
+    const synthOffset91Ww = buffer.readUInt32BE(offset + 1); // 0x91
 
     const oscControlMidi = (synthOffset90W & 0x07f0) >>> 4;
-    const morphWheelOscControl = morph(synthOffset91W, oscControlMidi);
-    const morphAfterTouchOscControl = morph(synthOffset92W, oscControlMidi);
-    const morphControlPedalOscControl = morph(synthOffset93W, oscControlMidi);
 
     return {
         /***
@@ -75,66 +85,8 @@ exports.getOscControl = (buffer, offset, oscConfig) => {
         /***
          * Morphing settings
          */
-        morph: {
-            /***
-             * Wheel Morphing
-             */
-            wheel: {
-                /***
-                 * Wheel Morphing Level On/Off
-                 */
-                enabled: morphWheelOscControl.enabled,
-
-                /***
-                 * Wheel Morphing Final Level Value
-                 */
-                to: {
-                    midi: morphWheelOscControl.midiTo,
-                    label: morphWheelOscControl.enabled
-                        ? getOscControlLabel(oscConfig, morphWheelOscControl.midiTo)
-                        : "none",
-                },
-            },
-
-            /***
-             * After Touch Morphing
-             */
-            afterTouch: {
-                /***
-                 * After Touch Morphing Level On/Off
-                 */
-                enabled: morphAfterTouchOscControl.enabled,
-
-                /***
-                 * After Touch Morphing Final Level Value
-                 */
-                to: {
-                    midi: morphAfterTouchOscControl.midiTo,
-                    label: morphAfterTouchOscControl.enabled
-                        ? getOscControlLabel(oscConfig, morphAfterTouchOscControl.midiTo)
-                        : "none",
-                },
-            },
-
-            /***
-             * Control Pedal Morphing
-             */
-            controlPedal: {
-                /***
-                 * Control Pedal Morphing Level On/Off
-                 */
-                enabled: morphControlPedalOscControl.enabled,
-
-                /***
-                 * Control Pedal Morphing Final Level Value
-                 */
-                to: {
-                    midi: morphControlPedalOscControl.midiTo,
-                    label: morphControlPedalOscControl.enabled
-                        ? getOscControlLabel(oscConfig, morphControlPedalOscControl.midiTo)
-                        : "none",
-                },
-            },
-        },
+        morph: morph2(synthOffset91Ww >>> 4, oscControlMidi, (x) => {
+            return getOscControlLabel(oscConfig, x);
+        }),
     };
 };
