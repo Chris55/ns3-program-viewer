@@ -863,9 +863,10 @@ Offset in file: 0x8F (b4-1)
 ## Synth Oscillator Control
 Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)
 
+**See**: [Organ Volume](api.md#organ-volume) for detailed explanation.  
 **Example**  
 ```js
-Type                  Midi value conversionPitch (1)             0/127 => 0/24Shape (2)             0/127 => 0/100 %Sync (3)              0/127 => 0/10Detune (4)            0/127 => 0/4Mix* (5 to 11)        0/127 => 100/0 to 0/100FM & RM (12 to 14)    0/127 => 0/100 %
+Type                  Midi value conversionPitch (1)             0/127 => 0/24Shape (2)             0/127 => 0/100 %Sync (3)              0/127 => 0/10Detune (4)            0/127 => 0/4Mix* (5 to 11)        0/127 => 100/0 to 0/100FM & RM (12 to 14)    0/127 => 0/100 %Morph Wheel:0x91 (b3): polarity (1 = positive, 0 = negative)0x91 (b2-b0), 0x92 (b7-b4): 7-bit raw valueMorph After Touch:0x92 (b3): polarity (1 = positive, 0 = negative)0x92 (b2-b0), 0x93 (b7-b4): 7-bit raw valueMorph Control Pedal:0x93 (b3): polarity (1 = positive, 0 = negative)0xB3 (b2-b0), 0x94 (b7-b4): 7-bit raw value
 ```
 <a name="module_Synth Pitch"></a>
 
@@ -1099,7 +1100,7 @@ Offset in file: 0x80 (b4-3)
 
 **Example**  
 ```js
-0 = 1 Octave1 = 2 Octaves2 = 3 Octaves3 = 4 Octaves
+0 = 1 Octave0 = 1 Octave1 = 2 Octaves2 = 3 Octaves3 = 4 Octaves
 ```
 <a name="module_Synth Arp Pattern"></a>
 

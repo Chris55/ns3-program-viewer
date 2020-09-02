@@ -1,8 +1,9 @@
 const mapping = require("./mapping");
 const converter = require("../common/converter");
+const {getOscControl} = require("./synth-osc-control");
+const {morph} = require("../common/utils");
 const {getVolumeEx} = require("../common/utils");
 const { getKbZone } = require("../common/utils");
-const { getVolume } = require("../common/utils");
 const { getKnobDualValues } = require("../common/utils");
 
 /***
@@ -56,7 +57,6 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const synthOffset8eW = buffer.readUInt16BE(0x8e + panelOffset);
     const synthOffset8f = buffer.readUInt8(0x8f + panelOffset);
     const synthOffset8fW = buffer.readUInt16BE(0x8f + panelOffset);
-    const synthOffset90W = buffer.readUInt16BE(0x90 + panelOffset);
     const synthOffset94W = buffer.readUInt16BE(0x94 + panelOffset);
     const synthOffset98 = buffer.readUInt8(0x98 + panelOffset);
     const synthOffset98W = buffer.readUInt16BE(0x98 + panelOffset);
@@ -100,54 +100,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const osc2Pitch = ((synthOffset8fW & 0x01f8) >>> 3) - 12;
     const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127) / (48 + 12));
 
-    const oscCtrlMidi = (synthOffset90W & 0x07f0) >>> 4;
-    const oscModulation = getKnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
 
-    let oscCtrl = "";
-    switch (oscConfig) {
-        case "1 Pitch":
-            oscCtrl = converter.midi2LinearStringValue(0, 24, oscCtrlMidi, 1, "");
-            break;
-        case "2 Shape":
-            oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
-            break;
-        case "3 Sync":
-            oscCtrl = converter.midi2LinearStringValue(0, 10, oscCtrlMidi, 1, "");
-            break;
-        case "4 Detune":
-            oscCtrl = converter.midi2LinearStringValue(0, 4, oscCtrlMidi, 2, "");
-            break;
-        case "5 MixSin":
-            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
-            break;
-        case "6 MixTri":
-            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
-            break;
-        case "7 MixSaw":
-            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
-            break;
-        case "8 MixSqr":
-            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
-            break;
-        case "9 MixBell":
-            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
-            break;
-        case "10 MixNs1":
-            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
-            break;
-        case "11 MixNs2":
-            oscCtrl = converter.midi2LinearValueAndComplement(oscCtrlMidi);
-            break;
-        case "12 FM1":
-            oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
-            break;
-        case "13 FM2":
-            oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
-            break;
-        case "14 RM":
-            oscCtrl = converter.midi2LinearStringValue(0, 100, oscCtrlMidi, 0, "%");
-            break;
-    }
+
+    const oscModulation = getKnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
 
     const lfoRateMidi = synthOffset87 & 0x7f;
 
@@ -414,19 +369,23 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              * Mix* (5 to 11)        0/127 => 100/0 to 0/100
              * FM & RM (12 to 14)    0/127 => 0/100 %
              *
+             * Morph Wheel:
+             * 0x91 (b3): polarity (1 = positive, 0 = negative)
+             * 0x91 (b2-b0), 0x92 (b7-b4): 7-bit raw value
+             *
+             * Morph After Touch:
+             * 0x92 (b3): polarity (1 = positive, 0 = negative)
+             * 0x92 (b2-b0), 0x93 (b7-b4): 7-bit raw value
+             *
+             * Morph Control Pedal:
+             * 0x93 (b3): polarity (1 = positive, 0 = negative)
+             * 0xB3 (b2-b0), 0x94 (b7-b4): 7-bit raw value
+             *
+             * @see {@link api.md#organ-volume Organ Volume} for detailed explanation.
+             *
              * @module Synth Oscillator Control
              */
-            control: {
-                /***
-                 * Synth Oscillator Control Midi Value
-                 */
-                midi: oscCtrlMidi,
-
-                /***
-                 * Synth Oscillator Control Label
-                 */
-                label: oscCtrl,
-            },
+            control: getOscControl(buffer, 0x90 + panelOffset, oscConfig),
 
             /**
              * Offset in file: 0x8f (b0) and 0x90 (b7-3)
@@ -805,6 +764,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              * Offset in file: 0x80 (b4-3)
              *
              * @example
+             * 0 = 1 Octave
              * 0 = 1 Octave
              * 1 = 2 Octaves
              * 2 = 3 Octaves

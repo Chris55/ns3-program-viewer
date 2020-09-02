@@ -61,5 +61,29 @@ describe("/ns3/Morph", () => {
         });
     });
 
+    test("panelA.synth.oscillators.control.morph.afterTouch.enabled eq true and panelA.synth.oscillators.control.morph.afterTouch.to.label eq 52@a48", async () => {
+        const file = "panelA.synth.oscillators.control.morph.afterTouch.enabled eq true and panelA.synth.oscillators.control.morph.afterTouch.to.label eq 52@a48.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.control.morph.controlPedal.enabled eq true and panelA.synth.oscillators.control.morph.controlPedal.to.label eq 20@a80", async () => {
+        const file = "panelA.synth.oscillators.control.morph.controlPedal.enabled eq true and panelA.synth.oscillators.control.morph.controlPedal.to.label eq 20@a80.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.control.morph.wheel.enabled eq true and panelA.synth.oscillators.control.morph.wheel.to.label eq 79@a21", async () => {
+        const file = "panelA.synth.oscillators.control.morph.wheel.enabled eq true and panelA.synth.oscillators.control.morph.wheel.to.label eq 79@a21.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
 });
 

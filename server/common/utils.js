@@ -87,9 +87,11 @@ const morph = (rawValue, midiFrom) => {
 
     return {
         enabled: enabled,
-        midiTo: enabled ? getVolumeValueAndLabel(midiTo): "none",
+        midiTo: midiTo,
     }
 };
+
+exports.morph = morph;
 
 /***
  * returns Volume settings with Morph options
@@ -141,7 +143,7 @@ exports.getVolumeEx = (buffer, offset) => {
                 /***
                  * Wheel Morphing Final Level Value
                  */
-                to: morphWheel.midiTo,
+                to: morphWheel.enabled ? getVolumeValueAndLabel(morphWheel.midiTo): "none",
             },
 
             /***
@@ -156,7 +158,7 @@ exports.getVolumeEx = (buffer, offset) => {
                 /***
                  * After Touch Morphing Final Level Value
                  */
-                to: morphAfterTouch.midiTo,
+                to: morphAfterTouch.enabled ? getVolumeValueAndLabel(morphAfterTouch.midiTo): "none",
             },
 
             /***
@@ -171,7 +173,7 @@ exports.getVolumeEx = (buffer, offset) => {
                 /***
                  * Control Pedal Morphing Final Level Value
                  */
-                to: morphControlPedal.midiTo,
+                to: morphControlPedal.enabled ? getVolumeValueAndLabel(morphControlPedal.midiTo): "none",
             },
         },
     };

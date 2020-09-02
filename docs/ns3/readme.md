@@ -149,10 +149,10 @@ ns3f file description:
 | `0x008E` | `twwwwwww` | [(w) synth oscillator 1 wave form](api.md#synth-oscillator-1-wave-form)
 | `0x008F` | `ww-ccccp` | [(c) synth oscillator config](api.md#synth-oscillator-config), [(c) synth pitch](api.md#synth-pitch)
 | `0x0090` | `ppppplll` | [(l) synth oscillator control](api.md#synth-oscillator-control)
-| `0x0091` | `llll----` |
-| `0x0092` | `--------` |
-| `0x0093` | `--------` |
-| `0x0094` | `----llll` | [(l) synth lfo mod env](api.md#synth-lfo-mod-env)
+| `0x0091` | `llllwwww` | [(w) synth oscillator control morph wheel](api.md#synth-oscillator-control)
+| `0x0092` | `wwwwaaaa` | [(a) synth oscillator control morph after touch](api.md#synth-oscillator-control)
+| `0x0093` | `aaaapppp` | [(p) synth oscillator control morph control pedal](api.md#synth-oscillator-control)
+| `0x0094` | `ppppllll` | [(l) synth lfo mod env](api.md#synth-lfo-mod-env)
 | `0x0095` | `lll-----` |
 | `0x0096` | `--------` |
 | `0x0097` | `--------` |
