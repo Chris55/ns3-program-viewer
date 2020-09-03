@@ -1,5 +1,6 @@
 const converter = require("../common/converter");
 const mapping = require("./mapping");
+const {getMorph} = require("../common/utils");
 
 /***
  * returns Rotary Speaker Effect section
@@ -79,6 +80,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
     const effectOffset10bW = buffer.readUInt16BE(0x10b + panelOffset);
     const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
     const effectOffset10cW = buffer.readUInt16BE(0x10c + panelOffset);
+    const effectOffset10dWw = buffer.readUInt32BE(0x10d + panelOffset);
 
     const effect1Type = mapping.effect1TypeMap.get((effectOffset10bW & 0x0380) >>> 7);
     const effect1AmountMidi = effectOffset110 & 0x7f;
@@ -144,13 +146,34 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *
          * if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32
          *
+         * Morph Wheel:
+         * 0x10D (b6): polarity (1 = positive, 0 = negative)
+         * 0x10D (b5-b0) and 0x10E (b7): 7-bit raw value
+         *
+         * Morph After Touch:
+         * 0x10E (b6): polarity (1 = positive, 0 = negative)
+         * 0x10E (b5-b0) and 0x10F (b7): 7-bit raw value
+         *
+         * Morph Control Pedal:
+         * 0x10F (b6): polarity (1 = positive, 0 = negative)
+         * 0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
+         *
+         * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
+         *
          * @module Effect 1 Rate
          */
         rate: {
             midi: effect1RateMidi,
+
             label: effect1MasterClockUsed
                 ? mapping.effect1MasterClockDivisionMap.get(effect1RateMidi)
                 : converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, ""),
+
+            morph: getMorph(effectOffset10dWw >>> 7, effect1RateMidi, (x) => {
+                return effect1MasterClockUsed
+                    ? mapping.effect1MasterClockDivisionMap.get(x)
+                    : converter.midi2LinearStringValue(0, 10, x, 1, "");
+            }),
         },
 
         /**

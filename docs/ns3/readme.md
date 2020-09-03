@@ -273,10 +273,10 @@ ns3f file description:
 | `0x010A` | `--------` |
 | `0x010B` | `ossnrrtt` | [(o) rotary speaker on](api.md#rotary-speaker-on), [(s) rotary speaker source](api.md#rotary-speaker-source), [(n) effect 1 on](api.md#effect-1-on), [(r) effect-1-source](api.md#effect-1-source), [(t) effect 1 type](api.md#effect-1-type)
 | `0x010C` | `tcrrrrrr` | [(c) effect 1 master clock](api.md#effect-1-master-clock), [(r) effect 1 rate](api.md#effect-1-rate)
-| `0x010D` | `r-------` |
-| `0x010E` | `--------` |
-| `0x010F` | `--------` |
-| `0x0110` | `-aaaaaaa` | [(a) effect 1 amount](api.md#effect-1-amount)
+| `0x010D` | `rwwwwwww` | [(w) effect 1 rate morph wheel](api.md#effect-1-rate)
+| `0x010E` | `waaaaaaa` | [(a) effect 1 rate morph after touch](api.md#effect-1-rate)
+| `0x010F` | `appppppp` | [(p) effect 1 rate morph control pedal](api.md#effect-1-rate)
+| `0x0110` | `paaaaaaa` | [(a) effect 1 amount](api.md#effect-1-amount)
 | `0x0111` | `--------` |
 | `0x0112` | `--------` |
 | `0x0113` | `--------` |

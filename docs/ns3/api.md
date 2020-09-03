@@ -123,15 +123,6 @@ Value: 0x38 (b6-3)</p>
 </dd>
 <dt><a href="#module_Piano Volume">Piano Volume</a></dt>
 <dd><p>Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)</p>
-<p>Morph Wheel:
-0x44 (b3): polarity (1 = positive, 0 = negative)
-0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw value</p>
-<p>Morph After Touch:
-0x45 (b3): polarity (1 = positive, 0 = negative)
-0x45 (b2-b0), 0x46 (b7-b4): 7-bit raw value</p>
-<p>Morph Control Pedal:
-0x46 (b3): polarity (1 = positive, 0 = negative)
-0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value</p>
 </dd>
 <dt><a href="#module_Piano Octave Shift">Piano Octave Shift</a></dt>
 <dd><p>Offset in file: 0x47 (b2-0)</p>
@@ -416,9 +407,10 @@ Offset in file: 0x110 (b6-0)
 ## Effect 1 Rate
 Offset in file: 0x10C (b5-0) and 0x10D (b7)
 
+**See**: [Organ Volume](api.md#organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-7-bit value 0/127 = 0/10if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32
+7-bit value 0/127 = 0/10if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32Morph Wheel:0x10D (b6): polarity (1 = positive, 0 = negative)0x10D (b5-b0) and 0x10E (b7): 7-bit raw valueMorph After Touch:0x10E (b6): polarity (1 = positive, 0 = negative)0x10E (b5-b0) and 0x10F (b7): 7-bit raw valueMorph Control Pedal:0x10F (b6): polarity (1 = positive, 0 = negative)0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
 ```
 <a name="module_Effect 1 Master Clock"></a>
 
@@ -645,9 +637,13 @@ Offset in file: 0x43 (b6 to b3)
 <a name="module_Piano Volume"></a>
 
 ## Piano Volume
-Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)Morph Wheel:0x44 (b3): polarity (1 = positive, 0 = negative)0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw valueMorph After Touch:0x45 (b3): polarity (1 = positive, 0 = negative)0x45 (b2-b0), 0x46 (b7-b4): 7-bit raw valueMorph Control Pedal:0x46 (b3): polarity (1 = positive, 0 = negative)0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value
+Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)
 
 **See**: [Organ Volume](api.md#organ-volume) for Morph detailed explanation.  
+**Example**  
+```js
+Morph Wheel:0x44 (b3): polarity (1 = positive, 0 = negative)0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw valueMorph After Touch:0x45 (b3): polarity (1 = positive, 0 = negative)0x45 (b2-b0), 0x46 (b7-b4): 7-bit raw valueMorph Control Pedal:0x46 (b3): polarity (1 = positive, 0 = negative)0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value
+```
 <a name="module_Piano Octave Shift"></a>
 
 ## Piano Octave Shift
@@ -834,9 +830,13 @@ Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
 
 **See**
 
-- [Organ Volume](api.md#organ-volume) for detailed explanation.Morph Wheel:0x53 (b3): polarity (1 = positive, 0 = negative)0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw valueMorph After Touch:0x54 (b3): polarity (1 = positive, 0 = negative)0x54 (b2-b0), 0x55 (b7-b4): 7-bit raw valueMorph Control Pedal:0x55 (b3): polarity (1 = positive, 0 = negative)0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
+- [Organ Volume](api.md#organ-volume) for detailed explanation.
 - [Organ Volume](api.md#organ-volume) for Morph detailed explanation.
 
+**Example**  
+```js
+Morph Wheel:0x53 (b3): polarity (1 = positive, 0 = negative)0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw valueMorph After Touch:0x54 (b3): polarity (1 = positive, 0 = negative)0x54 (b2-b0), 0x55 (b7-b4): 7-bit raw valueMorph Control Pedal:0x55 (b3): polarity (1 = positive, 0 = negative)0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
+```
 <a name="module_Synth Octave Shift"></a>
 
 ## Synth Octave Shift

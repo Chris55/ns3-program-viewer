@@ -47,6 +47,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)
          *
+         * @example
          * Morph Wheel:
          * 0x44 (b3): polarity (1 = positive, 0 = negative)
          * 0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw value

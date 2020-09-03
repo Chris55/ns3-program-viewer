@@ -181,6 +181,30 @@ describe("/ns3/effects", () => {
         });
     });
 
+    test("panelA.effects.effect1.rate.morph.afterTouch.to.label eq 2@a1", async () => {
+        const file = "panelA.effects.effect1.rate.morph.afterTouch.to.label eq 2@a1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect1.rate.morph.controlPedal.to.label eq 10.0", async () => {
+        const file = "panelA.effects.effect1.rate.morph.controlPedal.to.label eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect1.rate.morph.wheel.to.label eq 6.4", async () => {
+        const file = "panelA.effects.effect1.rate.morph.wheel.to.label eq 6.4.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.effects.effect2.amount.label eq 0.0", async () => {
         const file = "panelA.effects.effect2.amount.label eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);
