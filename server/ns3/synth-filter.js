@@ -9,6 +9,7 @@ exports.getFilter = (buffer, panelOffset) => {
     const synthOffset99Ww = buffer.readUInt32BE(0x99 + panelOffset);
     const synthOffset9cW = buffer.readUInt16BE(0x9c + panelOffset);
     const synthOffsetA0W = buffer.readUInt16BE(0xa0 + panelOffset);
+    const synthOffsetA1Ww = buffer.readUInt32BE(0xa1 + panelOffset);
     const synthOffsetA4W = buffer.readUInt16BE(0xa4 + panelOffset);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
 
@@ -69,11 +70,28 @@ exports.getFilter = (buffer, panelOffset) => {
              * @example
              * 0/127 value = 0 / 10
              *
+             * Morph Wheel:
+             * 0xA1 (b4): polarity (1 = positive, 0 = negative)
+             * 0xA1 (b3-b0), 0xA2 (b7-b5): 7-bit raw value
+             *
+             * Morph After Touch:
+             * 0xA2 (b4): polarity (1 = positive, 0 = negative)
+             * 0xA2 (b3-b0), 0xA3 (b7-b5): 7-bit raw value
+             *
+             * Morph Control Pedal:
+             * 0xA3 (b4): polarity (1 = positive, 0 = negative)
+             * 0xA3 (b3-b0), 0xA4 (b7-b5): 7-bit raw value
+             *
+             * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
+             *
              * @module Synth Filter LFO Amount
              */
             lfoAmount: {
                 midi: filterModulation1KnobMidi,
                 label: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
+                morph: getMorph(synthOffsetA1Ww >>> 5, filterModulation1KnobMidi, (x) => {
+                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                }),
             },
 
             /**

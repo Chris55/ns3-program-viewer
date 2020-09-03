@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/ns3/Synth/filter/";
+const root = __dirname + "/ns3/synth/filter/";
 
-describe("/ns3/Synth/filter", () => {
+describe("/ns3/synth/filter", () => {
     test("panelA.synth.filter.cutoffFrequency.label eq 14 Hz", async () => {
         const file = "panelA.synth.filter.cutoffFrequency.label eq 14 Hz.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -31,6 +31,38 @@ describe("/ns3/Synth/filter", () => {
 
     test("panelA.synth.filter.cutoffFrequency.label eq 554 Hz", async () => {
         const file = "panelA.synth.filter.cutoffFrequency.label eq 554 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.cutoffFrequency.morph.afterTouch.enabled eq false", async () => {
+        const file = "panelA.synth.filter.cutoffFrequency.morph.afterTouch.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.cutoffFrequency.morph.afterTouch.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.afterTouch.to.label eq 740 Hz", async () => {
+        const file = "panelA.synth.filter.cutoffFrequency.morph.afterTouch.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.afterTouch.to.label eq 740 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.cutoffFrequency.morph.controlPedal.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.controlPedal.to.label eq 14 Hz", async () => {
+        const file = "panelA.synth.filter.cutoffFrequency.morph.controlPedal.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.controlPedal.to.label eq 14 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.cutoffFrequency.morph.wheel.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.wheel.to.label eq 3.5 kHz", async () => {
+        const file = "panelA.synth.filter.cutoffFrequency.morph.wheel.enabled eq true and panelA.synth.filter.cutoffFrequency.morph.wheel.to.label eq 3.5 kHz.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -159,6 +191,30 @@ describe("/ns3/Synth/filter", () => {
 
     test("panelA.synth.filter.modulations.lfoAmount.label eq 9.9 and panelA.synth.filter.modulations.lfoAmount.midi eq 126", async () => {
         const file = "panelA.synth.filter.modulations.lfoAmount.label eq 9.9 and panelA.synth.filter.modulations.lfoAmount.midi eq 126.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.modulations.lfoAmount.morph.afterTouch.to.label eq 7.0", async () => {
+        const file = "panelA.synth.filter.modulations.lfoAmount.morph.afterTouch.to.label eq 7.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.modulations.lfoAmount.morph.controlPedal.to.label eq 10.0", async () => {
+        const file = "panelA.synth.filter.modulations.lfoAmount.morph.controlPedal.to.label eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.modulations.lfoAmount.morph.wheel.to.label eq 0.6", async () => {
+        const file = "panelA.synth.filter.modulations.lfoAmount.morph.wheel.to.label eq 0.6.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

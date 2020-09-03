@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/ns3/Synth/";
+const root = __dirname + "/ns3/synth/";
 
-describe("/ns3/Synth", () => {
+describe("/ns3/synth", () => {
     test("panelA.synth.enabled eq false", async () => {
         const file = "panelA.synth.enabled eq false.ns3f";
         const sut = await getNs3TestCase(root + file);

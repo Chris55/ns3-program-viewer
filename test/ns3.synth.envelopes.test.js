@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/ns3/Synth/envelopes/";
+const root = __dirname + "/ns3/synth/envelopes/";
 
-describe("/ns3/Synth/envelopes", () => {
+describe("/ns3/synth/envelopes", () => {
     test("panelA.synth.envelopes.amplifier.attack.midi eq 0 and panelA.synth.envelopes.amplifier.attack.label eq 0.5 ms", async () => {
         const file = "panelA.synth.envelopes.amplifier.attack.midi eq 0 and panelA.synth.envelopes.amplifier.attack.label eq 0.5 ms.ns3f";
         const sut = await getNs3TestCase(root + file);

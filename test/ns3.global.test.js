@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/ns3/Global/";
+const root = __dirname + "/ns3/global/";
 
-describe("/ns3/Global", () => {
+describe("/ns3/global", () => {
     test("category eq Acoustic", async () => {
         const file = "category eq Acoustic.ns3f";
         const sut = await getNs3TestCase(root + file);

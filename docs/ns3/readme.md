@@ -165,10 +165,10 @@ ns3f file description:
 | `0x009E` | `--------` |
 | `0x009F` | `--------` |
 | `0x00A0` | `----llll` | [(l) synth filter lfo amount](api.md#synth-filter-lfo-amount)
-| `0x00A1` | `lll-----` |
-| `0x00A2` | `--------` |
-| `0x00A3` | `--------` |
-| `0x00A4` | `---mmmmm` | [(m) synth filter vel mod env amount](api.md#synth-filter-vel-mod-env-amount)
+| `0x00A1` | `lllwwwww` | [(w) synth filter lfo amount morph wheel](api.md#synth-filter-lfo-amount)
+| `0x00A2` | `wwwaaaaa` | [(a) synth filter lfo amount morph after touch](api.md#synth-filter-lfo-amount)
+| `0x00A3` | `aaappppp` | [(p) synth filter lfo amount morph control pedal](api.md#synth-filter-lfo-amount)
+| `0x00A4` | `pppmmmmm` | [(m) synth filter vel mod env amount](api.md#synth-filter-vel-mod-env-amount)
 | `0x00A5` | `mmttddaa` | [(t) synth filter kb track](api.md#synth-filter-kb-track), [(d) synth filter drive](api.md#synth-filter-drive), [(a) synth amp env attack](api.md#synth-amp-env-attack)
 | `0x00A6` | `aaaaaddd` | [(d) synth amp env decay](api.md#synth-amp-env-decay)
 | `0x00A7` | `ddddrrrr` | [(r) synth amp env release](api.md#synth-amp-env-release)

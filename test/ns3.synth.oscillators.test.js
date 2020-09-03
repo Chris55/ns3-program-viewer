@@ -2,9 +2,9 @@
 
 const { getNs3TestCase } = require("./helpers");
 
-const root = __dirname + "/ns3/Synth/oscillators/";
+const root = __dirname + "/ns3/synth/oscillators/";
 
-describe("/ns3/Synth/oscillators", () => {
+describe("/ns3/synth/oscillators", () => {
     test("panelA.synth.oscillators.config eq 1 Pitch and panelA.synth.oscillators.control.label eq 0.0", async () => {
         const file = "panelA.synth.oscillators.config eq 1 Pitch and panelA.synth.oscillators.control.label eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -119,6 +119,30 @@ describe("/ns3/Synth/oscillators", () => {
 
     test("panelA.synth.oscillators.config eq None", async () => {
         const file = "panelA.synth.oscillators.config eq None.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.control.morph.afterTouch.enabled eq true and panelA.synth.oscillators.control.morph.afterTouch.to.label eq 52@a48", async () => {
+        const file = "panelA.synth.oscillators.control.morph.afterTouch.enabled eq true and panelA.synth.oscillators.control.morph.afterTouch.to.label eq 52@a48.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.control.morph.controlPedal.enabled eq true and panelA.synth.oscillators.control.morph.controlPedal.to.label eq 20@a80", async () => {
+        const file = "panelA.synth.oscillators.control.morph.controlPedal.enabled eq true and panelA.synth.oscillators.control.morph.controlPedal.to.label eq 20@a80.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.control.morph.wheel.enabled eq true and panelA.synth.oscillators.control.morph.wheel.to.label eq 79@a21", async () => {
+        const file = "panelA.synth.oscillators.control.morph.wheel.enabled eq true and panelA.synth.oscillators.control.morph.wheel.to.label eq 79@a21.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
