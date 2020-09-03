@@ -1,8 +1,8 @@
 const mapping = require("./mapping");
 const converter = require("../common/converter");
+const {getMorph} = require("../common/utils");
 const {getFilter} = require("./synth-filter");
 const {getOscControl} = require("./synth-osc-control");
-const {morph} = require("../common/utils");
 const {getVolumeEx} = require("../common/utils");
 const { getKbZone } = require("../common/utils");
 const { getKnobDualValues } = require("../common/utils");
@@ -52,6 +52,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const synthOffset84W = buffer.readUInt16BE(0x84 + panelOffset);
     const synthOffset86 = buffer.readUInt8(0x86 + panelOffset);
     const synthOffset87 = buffer.readUInt8(0x87 + panelOffset);
+    const synthOffset87Ww = buffer.readUInt32BE(0x87 + panelOffset);
     const synthOffset8bW = buffer.readUInt16BE(0x8b + panelOffset);
     const synthOffset8cW = buffer.readUInt16BE(0x8c + panelOffset);
     const synthOffset8dW = buffer.readUInt16BE(0x8d + panelOffset);
@@ -102,6 +103,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const oscModulation = getKnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
 
     const lfoRateMidi = synthOffset87 & 0x7f;
+    const lfoRateMasterClock = (synthOffset87 & 0x80) !== 0;
 
     const envModAttackMidi = (synthOffset8bW & 0xfe00) >>> 9;
     const envModDecayMidi = (synthOffset8bW & 0x01fc) >>> 2;
@@ -152,6 +154,20 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
          * @see {@link api.md#organ-volume Organ Volume} for detailed explanation.
+         *
+         * Morph Wheel:
+         * 0x53 (b3): polarity (1 = positive, 0 = negative)
+         * 0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw value
+         *
+         * Morph After Touch:
+         * 0x54 (b3): polarity (1 = positive, 0 = negative)
+         * 0x54 (b2-b0), 0x55 (b7-b4): 7-bit raw value
+         *
+         * Morph Control Pedal:
+         * 0x55 (b3): polarity (1 = positive, 0 = negative)
+         * 0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
+         *
+         * @see {@link api.md#organ-volume Organ Volume} for Morph detailed explanation.
          *
          * @module Synth Volume
          */
@@ -372,9 +388,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * Morph Control Pedal:
              * 0x93 (b3): polarity (1 = positive, 0 = negative)
-             * 0xB3 (b2-b0), 0x94 (b7-b4): 7-bit raw value
+             * 0x93 (b2-b0), 0x94 (b7-b4): 7-bit raw value
              *
-             * @see {@link api.md#organ-volume Organ Volume} for detailed explanation.
+             * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
              *
              * @module Synth Oscillator Control
              */
@@ -571,11 +587,34 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * if LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division
              *
+             * Morph Wheel:
+             * 0x88 (b7): polarity (1 = positive, 0 = negative)
+             * 0x88 (b6-b0): 7-bit raw value
+             *
+             * Morph After Touch:
+             * 0x89 (b7): polarity (1 = positive, 0 = negative)
+             * 0x89 (b6-b0): 7-bit raw value
+             *
+             * Morph Control Pedal:
+             * 0x8A (b7): polarity (1 = positive, 0 = negative)
+             * 0x8A (b6-b0): 7-bit raw value
+             *
+             * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
+             *
              * @module Synth Lfo Rate
              */
             rate: {
                 midi: lfoRateMidi,
-                label: mapping.synthLfoRateMap.get(lfoRateMidi),
+
+                label: lfoRateMasterClock
+                    ? mapping.synthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
+                    : mapping.synthLfoRateMap.get(lfoRateMidi),
+
+                morph: getMorph(synthOffset87Ww, lfoRateMidi, (x) => {
+                    return lfoRateMasterClock
+                        ? mapping.synthLfoRateMasterClockDivisionMap.get(x)
+                        : mapping.synthLfoRateMap.get(x);
+                })
             },
 
             /**
@@ -586,7 +625,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Lfo Master Clock
              */
-            masterClock: (synthOffset87 & 0x80) !== 0,
+            masterClock: lfoRateMasterClock,
         },
         arpeggiator: {
             /**

@@ -104,6 +104,20 @@ exports.getFilter = (buffer, panelOffset) => {
          * @example
          * 0/127 value = 14 Hz / 21 kHz
          *
+         * * Morph Wheel:
+         * 0x99 (b2): polarity (1 = positive, 0 = negative)
+         * 0x99 (b1-b0), 0x9A (b7-b3): 7-bit raw value
+         *
+         * Morph After Touch:
+         * 0x9A (b2): polarity (1 = positive, 0 = negative)
+         * 0x9A (b1-b0), 0x9B (b7-b3): 7-bit raw value
+         *
+         * Morph Control Pedal:
+         * 0x9B (b2): polarity (1 = positive, 0 = negative)
+         * 0x9B (b1-b0), 0x9C (b7-b3): 7-bit raw value
+         *
+         * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
+         *
          * @module Synth Filter Freq
          */
         cutoffFrequency: {

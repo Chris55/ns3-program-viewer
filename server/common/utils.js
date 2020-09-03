@@ -62,7 +62,7 @@ exports.getKbZone = (sectionEnabled, splitEnabled, value) => {
 /***
  * returns an array of morph settings
  *
- * @param uint32Value 32-bit value wheel expected to be in b23-16, after touch in b15-8, and control pedal in b7-0.
+ * @param uint32Value 32-bit value, wheel expected to be in b23-16, after touch in b15-8, and control pedal in b7-0.
  * @param midiFrom 7-bit original position
  * @param labelCallBack callback method to render the label
  * @returns {{afterTouch: {to: {midi: *, label: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, label: (*|string)}, enabled: *}, wheel: {to: {midi: *, label: (*|string)}, enabled: *}}}

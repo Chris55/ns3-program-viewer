@@ -93,6 +93,62 @@ describe("/ns3/Morph", () => {
         });
     });
 
+    test("panelA.synth.lfo.rate.morph.afterTouch.enabled eq true and panelA.synth.lfo.rate.morph.afterTouch.to.label eq 1@a64", async () => {
+        const file = "panelA.synth.lfo.rate.morph.afterTouch.enabled eq true and panelA.synth.lfo.rate.morph.afterTouch.to.label eq 1@a64.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.lfo.rate.morph.afterTouch.enabled eq true and panelA.synth.lfo.rate.morph.afterTouch.to.label eq 3.5 Hz", async () => {
+        const file = "panelA.synth.lfo.rate.morph.afterTouch.enabled eq true and panelA.synth.lfo.rate.morph.afterTouch.to.label eq 3.5 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.lfo.rate.morph.controlPedal.enabled eq true and panelA.synth.lfo.rate.morph.controlPedal.to.label eq 48 Hz", async () => {
+        const file = "panelA.synth.lfo.rate.morph.controlPedal.enabled eq true and panelA.synth.lfo.rate.morph.controlPedal.to.label eq 48 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.lfo.rate.morph.controlPedal.enabled eq true and panelA.synth.lfo.rate.morph.controlPedal.to.label eq 4@a1T", async () => {
+        const file = "panelA.synth.lfo.rate.morph.controlPedal.enabled eq true and panelA.synth.lfo.rate.morph.controlPedal.to.label eq 4@a1T.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.lfo.rate.morph.wheel.enabled eq false and panelA.synth.lfo.rate.morph.afterTouch.enabled eq false and panelA.synth.lfo.rate.morph.controlPedal.enabled eq false", async () => {
+        const file = "panelA.synth.lfo.rate.morph.wheel.enabled eq false and panelA.synth.lfo.rate.morph.afterTouch.enabled eq false and panelA.synth.lfo.rate.morph.controlPedal.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.lfo.rate.morph.wheel.enabled eq true and panelA.synth.lfo.rate.morph.wheel.to.label eq 0.03 Hz", async () => {
+        const file = "panelA.synth.lfo.rate.morph.wheel.enabled eq true and panelA.synth.lfo.rate.morph.wheel.to.label eq 0.03 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.lfo.rate.morph.wheel.enabled eq true and panelA.synth.lfo.rate.morph.wheel.to.label eq 4@a1", async () => {
+        const file = "panelA.synth.lfo.rate.morph.wheel.enabled eq true and panelA.synth.lfo.rate.morph.wheel.to.label eq 4@a1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.oscillators.control.morph.afterTouch.enabled eq true and panelA.synth.oscillators.control.morph.afterTouch.to.label eq 52@a48", async () => {
         const file = "panelA.synth.oscillators.control.morph.afterTouch.enabled eq true and panelA.synth.oscillators.control.morph.afterTouch.to.label eq 52@a48.ns3f";
         const sut = await getNs3TestCase(root + file);

@@ -140,9 +140,9 @@ ns3f file description:
 | `0x0085` | `vggggggg` | [(g) synth glide](api.md#synth-glide)
 | `0x0086` | `uuvvvlll` | [(g) synth unison](api.md#synth-unison), [(v) synth vibrato](api.md#synth-vibrato), [(l) synth lfo wave](api.md#synth-lfo-wave)
 | `0x0087` | `mrrrrrrr` | [(m) synth lfo master clock](api.md#synth-lfo-master-clock), [(r) synth lfo rate](api.md#synth-lfo-rate)
-| `0x0088` | `--------` |
-| `0x0089` | `--------` |
-| `0x008A` | `--------` |
+| `0x0088` | `wwwwwwww` | [(w) synth lfo rate morph wheel](api.md#synth-lfo-rate)
+| `0x0089` | `aaaaaaaa` | [(a) synth lfo rate morph after touch](api.md#synth-lfo-rate)
+| `0x008A` | `pppppppp` | [(r) synth lfo rate control pedal](api.md#synth-lfo-rate)
 | `0x008B` | `aaaaaaad` | [(a) synth mod env attack](api.md#synth-mod-env-attack), [(d) synth mod env decay](api.md#synth-mod-env-decay)
 | `0x008C` | `ddddddrr` | [(a) synth mod env release](api.md#synth-mod-env-release)
 | `0x008D` | `rrrrrvtt` | [(v) synth mod env velocity](api.md#synth-mod-env-velocity), [(t) synth oscillator type](api.md#synth-oscillator-type)

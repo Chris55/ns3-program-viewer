@@ -46,7 +46,20 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
 
         /**
          * Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)
-         * @see {@link api.md#organ-volume Organ Volume} for detailed explanation.
+         *
+         * Morph Wheel:
+         * 0x44 (b3): polarity (1 = positive, 0 = negative)
+         * 0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw value
+         *
+         * Morph After Touch:
+         * 0x45 (b3): polarity (1 = positive, 0 = negative)
+         * 0x45 (b2-b0), 0x46 (b7-b4): 7-bit raw value
+         *
+         * Morph Control Pedal:
+         * 0x46 (b3): polarity (1 = positive, 0 = negative)
+         * 0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value
+         *
+         * @see {@link api.md#organ-volume Organ Volume} for Morph detailed explanation.
          *
          * @module Piano Volume
          */
