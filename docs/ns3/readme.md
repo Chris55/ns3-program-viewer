@@ -24,7 +24,7 @@ ns3f file description:
 | `0x0011` | `--------` |
 | `0x0012` | `--------` |
 | `0x0013` | `--------` |
-| `0x0014` | `iiiiiiii` | [(i) File Version](api.md#file-version) (16-bit)
+| `0x0014` | `iiiiiiii` | [(i) file version](api.md#file-version) (16-bit)
 | `0x0015` | `iiiiiiii` |
 | `0x0016` | `--------` |
 | `0x0017` | `--------` |
