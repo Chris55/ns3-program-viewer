@@ -108,11 +108,11 @@ exports.getFilter = (buffer, panelOffset) => {
              */
             velAmount: {
                 midi: filterModulation2Knob.leftMidi,
-                label: filterModulation2Knob.leftValue,
+                label: filterModulation2Knob.leftLabel,
             },
             modEnvAmount: {
                 midi: filterModulation2Knob.rightMidi,
-                label: filterModulation2Knob.rightValue,
+                label: filterModulation2Knob.rightLabel,
             },
         },
 

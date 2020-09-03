@@ -1,5 +1,6 @@
 const mapping = require("./mapping");
 const converter = require("../common/converter");
+const {getMorph2} = require("../common/utils");
 const {getMorph} = require("../common/utils");
 const {getFilter} = require("./synth-filter");
 const {getOscControl} = require("./synth-osc-control");
@@ -49,6 +50,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const synthOffset57 = buffer.readUInt8(0x57 + panelOffset);
     const synthOffset80 = buffer.readUInt8(0x80 + panelOffset);
     const synthOffset81 = buffer.readUInt8(0x81 + panelOffset);
+    const synthOffset81Ww = buffer.readUInt32BE(0x81 + panelOffset);
     const synthOffset84W = buffer.readUInt16BE(0x84 + panelOffset);
     const synthOffset86 = buffer.readUInt8(0x86 + panelOffset);
     const synthOffset87 = buffer.readUInt8(0x87 + panelOffset);
@@ -60,6 +62,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const synthOffset8f = buffer.readUInt8(0x8f + panelOffset);
     const synthOffset8fW = buffer.readUInt16BE(0x8f + panelOffset);
     const synthOffset94W = buffer.readUInt16BE(0x94 + panelOffset);
+    const synthOffset95Ww = buffer.readUInt32BE(0x95 + panelOffset);
 
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
     const synthOffsetA6W = buffer.readUInt16BE(0xa6 + panelOffset);
@@ -435,14 +438,24 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  */
                 lfoAmount: {
                     midi: oscModulation.leftMidi,
-                    label: oscModulation.leftValue,
+                    label: oscModulation.leftLabel,
+                    // morph: getMorph2(synthOffset95Ww >>> 5, oscModulation.leftMidi, (x) => {
+                    //     //const morph = getKnobDualValues(x);
+                    //     //return morph.leftLabel;
+                    //     return x;
+                    // })
                 },
                 /**
                  * Env Mod Amount
                  */
                 modEnvAmount: {
                     midi: oscModulation.rightMidi,
-                    label: oscModulation.rightValue,
+                    label: oscModulation.rightLabel,
+                    // morph: getMorph2(synthOffset95Ww >>> 5, oscModulation.rightMidi, (x) => {
+                    //     //const morph = getKnobDualValues(x);
+                    //     //return morph.rightLabel;
+                    //     return x;
+                    // })
                 },
             },
             /**
@@ -646,13 +659,33 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * if Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division
              *
+             * Morph Wheel:
+             * 0x81 (b0): polarity (1 = positive, 0 = negative)
+             * 0x82 (b7-b1): 7-bit raw value
+             *
+             * Morph After Touch:
+             * 0x82 (b0): polarity (1 = positive, 0 = negative)
+             * 0x83 (b7-b1): 7-bit raw value
+             *
+             * Morph Control Pedal:
+             * 0x83 (b0): polarity (1 = positive, 0 = negative)
+             * 0x84 (b7-b1): 7-bit raw value
+             *
+             * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
              * @module Synth Arp Rate
              */
             rate: {
                 midi: arpeggiatorRateMidi,
+
                 label: arpeggiatorMasterClock
                     ? mapping.synthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
                     : mapping.synthArpRateMap.get(arpeggiatorRateMidi),
+
+                morph: getMorph(synthOffset81Ww >> 1, arpeggiatorRateMidi, (x) => {
+                    return arpeggiatorMasterClock
+                        ? mapping.synthArpMasterClockDivisionMap.get(x)
+                        : mapping.synthArpRateMap.get(x);
+                })
             },
 
             /**

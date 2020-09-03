@@ -133,10 +133,10 @@ ns3f file description:
 | `0x007E` | `--------` |
 | `0x007F` | `--------` |
 | `0x0080` | `hosrrppc` | [(h) synth kh hold](api.md#synth-kb-hold), [(o) synth arp on](api.md#synth-arp-on), [(o) synth arp kb sync](api.md#synth-arp-kb-sync), [(r) synth arp range](api.md#synth-arp-range), [(p) synth arp pattern](api.md#synth-arp-pattern), [(c) synth arp master clock](api.md#synth-arp-master-clock)
-| `0x0081` | `rrrrrrr-` | [(r) synth arp rate](api.md#synth-arp-rate)
-| `0x0082` | `--------` |
-| `0x0083` | `--------` |
-| `0x0084` | `-------v` | [(v) synth voice](api.md#synth-voice)
+| `0x0081` | `rrrrrrrw` | [(r) synth arp rate](api.md#synth-arp-rate), [(w) synth arp rate morph wheel](api.md#synth-arp-rate)
+| `0x0082` | `wwwwwwwa` | [(a) synth arp rate morph after touch](api.md#synth-arp-rate)
+| `0x0083` | `aaaaaaap` | [(p) synth arp rate morph control pedal](api.md#synth-arp-rate)
+| `0x0084` | `pppppppv` | [(v) synth voice](api.md#synth-voice)
 | `0x0085` | `vggggggg` | [(g) synth glide](api.md#synth-glide)
 | `0x0086` | `uuvvvlll` | [(g) synth unison](api.md#synth-unison), [(v) synth vibrato](api.md#synth-vibrato), [(l) synth lfo wave](api.md#synth-lfo-wave)
 | `0x0087` | `mrrrrrrr` | [(m) synth lfo master clock](api.md#synth-lfo-master-clock), [(r) synth lfo rate](api.md#synth-lfo-rate)

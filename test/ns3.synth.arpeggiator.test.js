@@ -253,5 +253,37 @@ describe("/ns3/synth/arpeggiator", () => {
         });
     });
 
+    test("panelA.synth.arpeggiator.rate.morph.afterTouch.to.label eq 100 bpm", async () => {
+        const file = "panelA.synth.arpeggiator.rate.morph.afterTouch.to.label eq 100 bpm.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.arpeggiator.rate.morph.controlPedal.to.label eq Fast 5", async () => {
+        const file = "panelA.synth.arpeggiator.rate.morph.controlPedal.to.label eq Fast 5.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.arpeggiator.rate.morph.wheel.to.label eq 126 bpm", async () => {
+        const file = "panelA.synth.arpeggiator.rate.morph.wheel.to.label eq 126 bpm.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.arpeggiator.rate.morph.wheel.to.label eq 1@a4T", async () => {
+        const file = "panelA.synth.arpeggiator.rate.morph.wheel.to.label eq 1@a4T.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
 });
 

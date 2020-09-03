@@ -18,25 +18,25 @@ const converter = require("./converter");
 exports.getKnobDualValues = function (valueRange120) {
     const valueRange127 = Math.ceil((valueRange120 * 127) / 120);
     const value = converter.midi2LinearValue(-10, 10, valueRange120, 1, 0, 120);
-    let leftValue = "0.0";
-    let rightValue = "0.0";
+    let leftLabel = "0.0";
+    let rightLabel = "0.0";
     let leftMidi = 0;
     let rightMidi = 0;
     if (value === 0) {
         leftMidi = valueRange127;
         rightMidi = valueRange127;
     } else if (value < 0) {
-        leftValue = Math.abs(value).toFixed(1);
+        leftLabel = Math.abs(value).toFixed(1);
         leftMidi = valueRange127;
     } else {
-        rightValue = value.toFixed(1);
+        rightLabel = value.toFixed(1);
         rightMidi = valueRange127;
     }
     return {
         leftMidi: leftMidi,
         rightMidi: rightMidi,
-        leftValue: leftValue,
-        rightValue: rightValue,
+        leftLabel: leftLabel,
+        rightLabel: rightLabel,
     };
 };
 
@@ -82,6 +82,85 @@ const getMorph = (uint32Value, midiFrom, labelCallBack) => {
         result.push({
             enabled: offset !== 0,
             midiTo: midiFrom + offset,
+        });
+    });
+
+    return {
+        /***
+         * Wheel Morphing
+         */
+        wheel: {
+            /***
+             * Wheel Morphing Level On/Off
+             */
+            enabled: result[0].enabled,
+
+            /***
+             * Wheel Morphing Final Level Value
+             */
+            to: {
+                midi: result[0].midiTo,
+                label: result[0].enabled ? labelCallBack(result[0].midiTo) : "none",
+            },
+        },
+
+        /***
+         * After Touch Morphing
+         */
+        afterTouch: {
+            /***
+             * After Touch Morphing Level On/Off
+             */
+            enabled: result[1].enabled,
+
+            /***
+             * After Touch Morphing Final Level Value
+             */
+            to: {
+                midi: result[1].midiTo,
+                label: result[1].enabled ? labelCallBack(result[1].midiTo) : "none",
+            },
+        },
+
+        /***
+         * Control Pedal Morphing
+         */
+        controlPedal: {
+            /***
+             * Control Pedal Morphing Level On/Off
+             */
+            enabled: result[2].enabled,
+
+            /***
+             * Control Pedal Morphing Final Level Value
+             */
+            to: {
+                midi: result[2].midiTo,
+                label: result[2].enabled ? labelCallBack(result[2].midiTo) : "none",
+            },
+        },
+    };
+};
+
+exports.getMorph2 = (uint32Value, midiFrom, labelCallBack) => {
+    const rawMorphValue = [3];
+    const result = [];
+
+    rawMorphValue[0] = (uint32Value & 0x00ff0000) >>> 16; // wheel
+    rawMorphValue[1] = (uint32Value & 0x00ff00) >>> 8; // after touch
+    rawMorphValue[2] = uint32Value & 0x000000ff; // control pedal
+
+    rawMorphValue.forEach((rawValue) => {
+        const valueRange120 = rawValue & 0x7f;
+
+        //const valueRange127 = Math.ceil((valueRange120 * 127) / 120);
+        const rawOffsetValue = converter.midi2LinearValue(-10, 10, valueRange120, 1, 0, 120);
+
+        const positive = (rawValue & 0x80) !== 0;
+        const offset = positive ? rawOffsetValue + 1 : rawOffsetValue - 127;
+        result.push({
+            enabled: true, //offset !== 0,
+            midiTo: rawValue, // midiFrom + offset,
         });
     });
 
