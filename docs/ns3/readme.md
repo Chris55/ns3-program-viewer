@@ -158,11 +158,9 @@ ns3f file description:
 | `0x0097` | `--------` |
 | `0x0098` | `---tttff` | [(t) synth filter type](api.md#synth-filter-type), [(f) synth filter freq](api.md#synth-filter-freq)
 | `0x0099` | `fffffwww` | [(w) synth filter freq morph wheel](api.md#synth-filter-freq)
-| `0x0092` | `wwwwwaaa` | [(a) synth filter freq morph after touch](api.md#synth-filter-freq)
-| `0x0093` | `aaaaappp` | [(p) synth filter freq morph control pedal](api.md#synth-filter-freq)
-| `0x009A` | `ppppp---` |
-| `0x009B` | `--------` |
-| `0x009C` | `-----hhh` | [(h) synth filter hp freq res](api.md#synth-filter-hp-freq-res)
+| `0x009A` | `wwwwwaaa` | [(a) synth filter freq morph after touch](api.md#synth-filter-freq)
+| `0x009B` | `aaaaappp` | [(p) synth filter freq morph control pedal](api.md#synth-filter-freq)
+| `0x009C` | `ppppphhh` | [(h) synth filter hp freq res](api.md#synth-filter-hp-freq-res)
 | `0x009D` | `hhhh----` |
 | `0x009E` | `--------` |
 | `0x009F` | `--------` |
@@ -317,7 +315,7 @@ ns3f file description:
 | `0x0134` | `--------` |
 | `0x0135` | `--------` |
 | `0x0136` | `--------` |
-| `0x0137` | `--------` |
+| `0x0137` | `--------` | Panel B...
 | `0x0138` | `--------` |
 | `0x0139` | `--------` |
 | `0x013A` | `--------` |

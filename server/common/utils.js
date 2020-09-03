@@ -60,61 +60,29 @@ exports.getKbZone = (sectionEnabled, splitEnabled, value) => {
 };
 
 /***
- * returns volume object
- *
- * @param value
- * @returns {{midi: *, label: string}}
- */
-const getVolumeValueAndLabel = (value) => ({
-    midi: value,
-    label: mapping.dBMap.get(value),
-});
-
-/***
- * returns morphing value
- *
- *
- * @param rawValue
- * @param midiFrom
- * @returns {{midiTo: ({midi: *, label: string}|string), enabled: boolean}}
- */
-const morph = (rawValue, midiFrom) => {
-    const rawOffsetValue = (rawValue & 0x07f0) >>> 4;
-    const up = (rawValue & 0x0800) !== 0;
-    const offset = up ? rawOffsetValue + 1: rawOffsetValue - 127;
-    const enabled = offset !== 0;
-    const midiTo = midiFrom + offset;
-
-    return {
-        enabled: enabled,
-        midiTo: midiTo,
-    }
-};
-
-/***
  * returns an array of morph settings
  *
- * @param uint32Value
- * @param midiFrom
- * @param labelCallBack
+ * @param uint32Value 32-bit value wheel expected to be in b23-16, after touch in b15-8, and control pedal in b7-0.
+ * @param midiFrom 7-bit original position
+ * @param labelCallBack callback method to render the label
  * @returns {{afterTouch: {to: {midi: *, label: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, label: (*|string)}, enabled: *}, wheel: {to: {midi: *, label: (*|string)}, enabled: *}}}
  */
-exports.morph2 = (uint32Value, midiFrom, labelCallBack) => {
+const getMorph = (uint32Value, midiFrom, labelCallBack) => {
     const rawMorphValue = [3];
     const result = [];
 
-    rawMorphValue[0] = (uint32Value & 0x00ff0000) >>> 16;   // wheel
-    rawMorphValue[1] = (uint32Value & 0x00ff00) >>> 8;      // after touch
-    rawMorphValue[2] = (uint32Value & 0x000000ff);          // control pedal
+    rawMorphValue[0] = (uint32Value & 0x00ff0000) >>> 16; // wheel
+    rawMorphValue[1] = (uint32Value & 0x00ff00) >>> 8; // after touch
+    rawMorphValue[2] = uint32Value & 0x000000ff; // control pedal
 
-    rawMorphValue.forEach(rawValue => {
+    rawMorphValue.forEach((rawValue) => {
         const rawOffsetValue = rawValue & 0x7f;
         const positive = (rawValue & 0x80) !== 0;
-        const offset = positive ? rawOffsetValue + 1: rawOffsetValue - 127;
+        const offset = positive ? rawOffsetValue + 1 : rawOffsetValue - 127;
         result.push({
             enabled: offset !== 0,
             midiTo: midiFrom + offset,
-        })
+        });
     });
 
     return {
@@ -174,7 +142,7 @@ exports.morph2 = (uint32Value, midiFrom, labelCallBack) => {
     };
 };
 
-exports.morph = morph;
+exports.getMorph = getMorph;
 
 /***
  * returns Volume settings with Morph options
@@ -185,79 +153,30 @@ exports.morph = morph;
  */
 exports.getVolumeEx = (buffer, offset) => {
     const organOffsetB6W = buffer.readUInt16BE(offset); // 0xB6
-
-    const morphOffsetB7W = buffer.readUInt16BE(offset + 1); // 0xB7
-    const morphOffsetB8W = buffer.readUInt16BE(offset + 2); // 0xB8
-    const morphOffsetB9W = buffer.readUInt16BE(offset + 3); // 0xB9
-
+    const morphOffsetB7Ww = buffer.readUInt32BE(offset + 1); // 0xB7
 
     // From value
-    const volume = getVolumeValueAndLabel((organOffsetB6W & 0x07f0) >>> 4);
+    const midi = (organOffsetB6W & 0x07f0) >>> 4;
 
     // To values
-    const morphWheel = morph(morphOffsetB7W, volume.midi);
-    const morphAfterTouch = morph(morphOffsetB8W, volume.midi);
-    const morphControlPedal = morph(morphOffsetB9W, volume.midi);
+    const morph = getMorph(morphOffsetB7Ww >>> 4, midi, (x) => {
+        return mapping.dBMap.get(x);
+    });
 
     return {
         /***
          * Volume Midi value
          */
-        midi: volume.midi,
+        midi: midi,
 
         /***
          * Volume Label
          */
-        label: volume.label,
+        label: mapping.dBMap.get(midi),
 
         /***
          * Morphing settings
          */
-        morph: {
-            /***
-             * Wheel Morphing
-             */
-            wheel: {
-                /***
-                 * Wheel Morphing Level On/Off
-                 */
-                enabled: morphWheel.enabled,
-
-                /***
-                 * Wheel Morphing Final Level Value
-                 */
-                to: morphWheel.enabled ? getVolumeValueAndLabel(morphWheel.midiTo): "none",
-            },
-
-            /***
-             * After Touch Morphing
-             */
-            afterTouch: {
-                /***
-                 * After Touch Morphing Level On/Off
-                 */
-                enabled: morphAfterTouch.enabled,
-
-                /***
-                 * After Touch Morphing Final Level Value
-                 */
-                to: morphAfterTouch.enabled ? getVolumeValueAndLabel(morphAfterTouch.midiTo): "none",
-            },
-
-            /***
-             * Control Pedal Morphing
-             */
-            controlPedal: {
-                /***
-                 * Control Pedal Morphing Level On/Off
-                 */
-                enabled: morphControlPedal.enabled,
-
-                /***
-                 * Control Pedal Morphing Final Level Value
-                 */
-                to: morphControlPedal.enabled ? getVolumeValueAndLabel(morphControlPedal.midiTo): "none",
-            },
-        },
+        morph: morph,
     };
 };

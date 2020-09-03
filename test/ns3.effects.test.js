@@ -293,5 +293,101 @@ describe("/ns3/effects", () => {
         });
     });
 
+    test("panelA.effects.rotarySpeaker.drive eq 0.0", async () => {
+        const file = "panelA.effects.rotarySpeaker.drive eq 0.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.drive eq 10.0", async () => {
+        const file = "panelA.effects.rotarySpeaker.drive eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.drive eq 5.9", async () => {
+        const file = "panelA.effects.rotarySpeaker.drive eq 5.9.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.enabled eq false", async () => {
+        const file = "panelA.effects.rotarySpeaker.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.enabled eq true and panelA.effects.rotarySpeaker.source eq Organ", async () => {
+        const file = "panelA.effects.rotarySpeaker.enabled eq true and panelA.effects.rotarySpeaker.source eq Organ.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.enabled eq true and panelA.effects.rotarySpeaker.source eq Piano", async () => {
+        const file = "panelA.effects.rotarySpeaker.enabled eq true and panelA.effects.rotarySpeaker.source eq Piano.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.enabled eq true and panelA.effects.rotarySpeaker.source eq Synth", async () => {
+        const file = "panelA.effects.rotarySpeaker.enabled eq true and panelA.effects.rotarySpeaker.source eq Synth.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.enabled eq true", async () => {
+        const file = "panelA.effects.rotarySpeaker.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.speed eq Fast", async () => {
+        const file = "panelA.effects.rotarySpeaker.speed eq Fast.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.speed eq Slow@aStop", async () => {
+        const file = "panelA.effects.rotarySpeaker.speed eq Slow@aStop.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.stopMode eq false", async () => {
+        const file = "panelA.effects.rotarySpeaker.stopMode eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.stopMode eq true", async () => {
+        const file = "panelA.effects.rotarySpeaker.stopMode eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
 });
 

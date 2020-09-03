@@ -1,6 +1,6 @@
 const mapping = require("./mapping");
 const converter = require("../common/converter");
-const { morph2 } = require("../common/utils");
+const { getMorph } = require("../common/utils");
 const { getKnobDualValues } = require("../common/utils");
 
 exports.getFilter = (buffer, panelOffset) => {
@@ -109,7 +109,7 @@ exports.getFilter = (buffer, panelOffset) => {
         cutoffFrequency: {
             midi: filterCutoffFreqKnobMidi,
             label: mapping.synthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
-            morph: morph2(synthOffset99Ww >>> 3, filterCutoffFreqKnobMidi, (x) => {
+            morph: getMorph(synthOffset99Ww >>> 3, filterCutoffFreqKnobMidi, (x) => {
                 return mapping.synthFilterCutoffFrequencyMap.get(x);
             }),
         },

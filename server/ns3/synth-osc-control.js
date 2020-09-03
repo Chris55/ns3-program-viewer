@@ -1,5 +1,5 @@
 const converter = require("../common/converter");
-const { morph2 } = require("../common/utils");
+const { getMorph } = require("../common/utils");
 
 /***
  * returns Oscillator Control label
@@ -85,7 +85,7 @@ exports.getOscControl = (buffer, offset, oscConfig) => {
         /***
          * Morphing settings
          */
-        morph: morph2(synthOffset91Ww >>> 4, oscControlMidi, (x) => {
+        morph: getMorph(synthOffset91Ww >>> 4, oscControlMidi, (x) => {
             return getOscControlLabel(oscConfig, x);
         }),
     };
