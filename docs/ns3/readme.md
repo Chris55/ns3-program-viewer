@@ -277,15 +277,15 @@ ns3f file description:
 | `0x010E` | `waaaaaaa` | [(a) effect 1 rate morph after touch](api.md#effect-1-rate)
 | `0x010F` | `appppppp` | [(p) effect 1 rate morph control pedal](api.md#effect-1-rate)
 | `0x0110` | `paaaaaaa` | [(a) effect 1 amount](api.md#effect-1-amount)
-| `0x0111` | `--------` |
-| `0x0112` | `--------` |
-| `0x0113` | `--------` |
+| `0x0111` | `wwwwwwww` | [(w) effect 1 amount morph wheel](api.md#effect-1-amount)
+| `0x0112` | `aaaaaaaa` | [(a) effect 1 amount morph after touch](api.md#effect-1-amount)
+| `0x0113` | `pppppppp` | [(p) effect 1 amount morph control pedal](api.md#effect-1-amount)
 | `0x0114` | `osstttrr` | [(o) effect 2 on](api.md#effect-2-on), [(s) effect 2 source](api.md#effect-2-source), [(t) effect 2 type](api.md#effect-2-type), [(r) effect 2 rate](api.md#effect-2-rate)
 | `0x0115` | `rrrrraaa` | [(a) effect 2 amount](api.md#effect-2-amount)
-| `0x0116` | `aaaa----` |
-| `0x0117` | `--------` |
-| `0x0118` | `--------` |
-| `0x0119` | `--------` |
+| `0x0116` | `aaaawwww` | [(a) effect 2 amount morph wheel](api.md#effect-2-amount)
+| `0x0117` | `wwwwaaaa` | [(w) effect 2 amount after touch](api.md#effect-2-amount)
+| `0x0118` | `aaaapppp` | [(a) effect 2 amount control pedal](api.md#effect-2-amount)
+| `0x0119` | `pppp----` |
 | `0x011A` | `--------` |
 | `0x011B` | `--------` |
 | `0x011C` | `--------` |

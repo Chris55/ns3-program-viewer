@@ -398,9 +398,10 @@ Offset 0 in file: 0x10B (b1-0) and 0x10C (b7)
 ## Effect 1 Amount
 Offset in file: 0x110 (b6-0)
 
+**See**: [Organ Volume](api.md#organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-7-bit value 0/127 = 0/10 
+7-bit value 0/127 = 0/10Morph Wheel:0x111 (b7): polarity (1 = positive, 0 = negative)0x111 (b6-b0): 7-bit raw valueMorph After Touch:0x112 (b7): polarity (1 = positive, 0 = negative)0x112 (b6-b0): 7-bit raw valueMorph Control Pedal:0x113 (b7): polarity (1 = positive, 0 = negative)0x113 (b6-b0): 7-bit raw value
 ```
 <a name="module_Effect 1 Rate"></a>
 
@@ -453,9 +454,10 @@ Offset in file: 0x114 (b4-2)
 ## Effect 2 Amount
 Offset in file: 0x115 (b2-0) and 0x116 (b7-4)
 
+**See**: [Organ Volume](api.md#organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-7-bit value 0/127 = 0/10
+7-bit value 0/127 = 0/10Morph Wheel:0x116 (b3): polarity (1 = positive, 0 = negative)0x116 (b2-b0) and 0x117 (b7-4): 7-bit raw valueMorph After Touch:0x117 (b3): polarity (1 = positive, 0 = negative)0x117 (b2-b0) and 0x118 (b7-4): 7-bit raw valueMorph Control Pedal:0x118 (b3): polarity (1 = positive, 0 = negative)0x118 (b2-b0) and 0x119 (b7-4): 7-bit raw value
 ```
 <a name="module_Effect 2 Rate"></a>
 

@@ -37,6 +37,30 @@ describe("/ns3/effects", () => {
         });
     });
 
+    test("panelA.effects.effect1.amount.morph.afterTouch.to.label eq 7.9", async () => {
+        const file = "panelA.effects.effect1.amount.morph.afterTouch.to.label eq 7.9.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect1.amount.morph.controlPedal.to.label eq 0.0", async () => {
+        const file = "panelA.effects.effect1.amount.morph.controlPedal.to.label eq 0.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect1.amount.morph.wheel.to.label eq 2.5", async () => {
+        const file = "panelA.effects.effect1.amount.morph.wheel.to.label eq 2.5.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.effects.effect1.enabled eq false", async () => {
         const file = "panelA.effects.effect1.enabled eq false.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -215,6 +239,30 @@ describe("/ns3/effects", () => {
 
     test("panelA.effects.effect2.amount.label eq 10.0", async () => {
         const file = "panelA.effects.effect2.amount.label eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.amount.morph.afterTouch.to.label eq 2.7", async () => {
+        const file = "panelA.effects.effect2.amount.morph.afterTouch.to.label eq 2.7.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.amount.morph.controlPedal.to.label eq 1.3", async () => {
+        const file = "panelA.effects.effect2.amount.morph.controlPedal.to.label eq 1.3.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.effect2.amount.morph.wheel.to.label eq 9.9", async () => {
+        const file = "panelA.effects.effect2.amount.morph.wheel.to.label eq 9.9.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

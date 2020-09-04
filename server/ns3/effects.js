@@ -1,6 +1,6 @@
 const converter = require("../common/converter");
 const mapping = require("./mapping");
-const {getMorph} = require("../common/utils");
+const { getMorph } = require("../common/utils");
 
 /***
  * returns Rotary Speaker Effect section
@@ -78,9 +78,10 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
 exports.getEffect1 = (buffer, panelOffset) => {
     const effectOffset10b = buffer.readUInt8(0x10b + panelOffset);
     const effectOffset10bW = buffer.readUInt16BE(0x10b + panelOffset);
-    const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
     const effectOffset10cW = buffer.readUInt16BE(0x10c + panelOffset);
     const effectOffset10dWw = buffer.readUInt32BE(0x10d + panelOffset);
+    const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
+    const effectOffset110Ww = buffer.readUInt32BE(0x110 + panelOffset);
 
     const effect1Type = mapping.effect1TypeMap.get((effectOffset10bW & 0x0380) >>> 7);
     const effect1AmountMidi = effectOffset110 & 0x7f;
@@ -131,11 +132,30 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * @example
          * 7-bit value 0/127 = 0/10
          *
-         *  @module Effect 1 Amount
+         * Morph Wheel:
+         * 0x111 (b7): polarity (1 = positive, 0 = negative)
+         * 0x111 (b6-b0): 7-bit raw value
+         *
+         * Morph After Touch:
+         * 0x112 (b7): polarity (1 = positive, 0 = negative)
+         * 0x112 (b6-b0): 7-bit raw value
+         *
+         * Morph Control Pedal:
+         * 0x113 (b7): polarity (1 = positive, 0 = negative)
+         * 0x113 (b6-b0): 7-bit raw value
+         *
+         * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
+         *
+         * @module Effect 1 Amount
          */
         amount: {
             midi: effect1AmountMidi,
+
             label: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
+
+            morph: getMorph(effectOffset110Ww, effect1AmountMidi, (x) => {
+                return converter.midi2LinearStringValue(0, 10, x, 1, "");
+            }),
         },
 
         /**
@@ -199,6 +219,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
     const effectOffset114 = buffer.readUInt8(0x114 + panelOffset);
     const effectOffset114W = buffer.readUInt16BE(0x114 + panelOffset);
     const effectOffset115W = buffer.readUInt16BE(0x115 + panelOffset);
+    const effectOffset116Ww = buffer.readUInt32BE(0x116 + panelOffset);
 
     const effect2AmountMidi = (effectOffset115W & 0x07f0) >>> 4;
     const effect2RateMidi = (effectOffset114W & 0x03f8) >>> 3;
@@ -245,11 +266,30 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * @example
          * 7-bit value 0/127 = 0/10
          *
+         * Morph Wheel:
+         * 0x116 (b3): polarity (1 = positive, 0 = negative)
+         * 0x116 (b2-b0) and 0x117 (b7-4): 7-bit raw value
+         *
+         * Morph After Touch:
+         * 0x117 (b3): polarity (1 = positive, 0 = negative)
+         * 0x117 (b2-b0) and 0x118 (b7-4): 7-bit raw value
+         *
+         * Morph Control Pedal:
+         * 0x118 (b3): polarity (1 = positive, 0 = negative)
+         * 0x118 (b2-b0) and 0x119 (b7-4): 7-bit raw value
+         *
+         * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
+         *
          * @module Effect 2 Amount
          */
         amount: {
             midi: effect2AmountMidi,
+
             label: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
+
+            morph: getMorph(effectOffset116Ww >>> 4, effect2AmountMidi, (x) => {
+                return converter.midi2LinearStringValue(0, 10, x, 1, "");
+            }),
         },
 
         /**
