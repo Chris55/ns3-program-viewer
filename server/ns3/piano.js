@@ -1,4 +1,5 @@
 const mapping = require("./mapping");
+const {sampleIdMap} = require("../common/nord-library");
 const { getKbZone } = require("../common/utils");
 const { getVolumeEx } = require("../common/utils");
 
@@ -17,7 +18,8 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
     const pianoOffset47 = buffer.readUInt8(0x47 + panelOffset);
     const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
-    //const pianoOffset49WW = buffer.readBigUInt64BE(0x49);
+    const pianoOffset49 = buffer.readUInt8(0x49 + panelOffset);
+    const pianoOffset49WW = buffer.readBigUInt64BE(0x49 + panelOffset);
     const pianoOffset48W = buffer.readUInt16BE(0x48 + panelOffset);
     const pianoOffset4e = buffer.readUInt8(0x4e + panelOffset);
     const pianoOffset4d = buffer.readUInt8(0x4d + panelOffset);
@@ -25,7 +27,20 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
 
     const pianoEnabled = (pianoOffset43W & 0x8000) !== 0;
 
-    return {
+    //const pianoNamePrefix = (pianoOffset4d & 0x30) >>> 4;
+    const pianoNamePrefix = (pianoOffset49 & 0x30) >>> 4;
+
+    const  pianoNameId =  Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
+    //const  pianoNameId =  Number((pianoOffset49WW & 0x0fffffffffffffffn) >> 28n);
+    const pianoName = pianoNameId.toString(16);
+
+    const piano =  {
+        debug: {
+            namePrefix: pianoNamePrefix,
+            nameId: pianoNameId.toString(16),
+            name: sampleIdMap.get(pianoNameId),
+        },
+
         /**
          * Offset in file: 0x43 (b7)
          *
@@ -123,7 +138,17 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Model
          */
-        model: (pianoOffset48W & 0x07c0) >>> 6,
+        model: ((pianoOffset48W & 0x07c0) >>> 6) + 1,
+
+        /**
+         * Offset in file: 0x49 (b3-0) to 0x4D (b7-3)
+         *
+         * @example
+         * 32-bit Nord Sample ID
+         *
+         * @module Piano Name
+         */
+        name: sampleIdMap.get(pianoNameId),
 
         /**
          * Offset in file: 0x4E (b5-3)
@@ -196,4 +221,10 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          */
         stringResonance: (pianoOffset4d & 0x04) !== 0,
     };
+
+    if (process.env.NODE_ENV === 'production')  {
+        piano.debug = undefined;
+    }
+
+    return piano;
 };

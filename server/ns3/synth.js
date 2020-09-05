@@ -132,7 +132,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
 
     const synth = {
         debug: {
-            name: mapping.sampleIdMap.get(sampleId),
+            //name: mapping.sampleIdMap.get(sampleId),
             sampleId: sampleId.toString(16),
         },
 

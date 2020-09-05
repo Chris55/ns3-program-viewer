@@ -112,41 +112,6 @@ exports.transposeMap = new Map([
 ]);
 
 /***
- * Sample Ids
- * @type {Map<number, string>}
- */
-exports.sampleIdMap = new Map([
-    // Grand Piano
-    [0x02d577b5a0, "Royal Grand 3D YaS6 Lrg 5.4"],
-    [0x4f04da3060, "White Grand Lrg 6.1"],
-    [0x85f256d930, "Grand Lady D   Stw D  Lrg 5.3"],
-
-    // Upright Piano
-    [0xe5dd43ce00, "Bambino Upright Baldwin XL 5.4"],
-    [0x40f4358d90, "Black Upright Petrof Lrg 5.3"],
-    [0xc354a2c600, "HonkyTonkUpright      Lrg 5.3"],
-
-    // Electric Piano
-    [0x04e099de00, "EP1 Deep Timbre Lrg 6.0"],
-
-    // Clavinet
-    [0x01bedfa440, "Clavinet D6  5.0"],
-
-    // Digital
-    [0x051accddc0, "DX7 FullTines  Lrg 5.4"],
-
-    // Misc
-    [0x097a8d1770, "Ballad EP1  Sml 5.2"],
-
-    // Samples
-    [0xe2691536, "OrchString Legato"], // Sample 1
-    [0x000c39b798, "DeepSoft"], // Sample 2
-    [0x06b11580d8, "SymphStr FastAtk Amb"], // Sample 3
-    [0xc52f98ab40, "A"], // Sample 4
-    [0xc2cb0efca8, "B"], // Sample 4
-]);
-
-/***
  * Piano Types
  * @type {Map<number, string>}
  */

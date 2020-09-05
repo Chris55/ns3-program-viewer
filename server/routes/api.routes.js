@@ -44,7 +44,7 @@ router.post("/upload", upload.single("nordFile"), async (req, res, next) => {
         result.name = req.file.originalname;
         res.send(result);
     } catch (err) {
-        console.exception(err);
+        console.error(err, err.stack);
         next(err);
     }
 });

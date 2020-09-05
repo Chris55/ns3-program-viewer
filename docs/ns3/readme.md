@@ -83,11 +83,11 @@ ns3f file description:
 | `0x0046` | `aaaapppp` | [(p) piano volume morph control pedal](api.md#piano-volume)
 | `0x0047` | `pppp-ooo` | [(o) piano octave shift](api.md#piano-octave-shift)
 | `0x0048` | `pstttmmm` | [(p) piano pitch stick](api.md#piano-pitch-stick), [(s) piano sustain pedal](api.md#piano-sustain-pedal), [(t) piano type](api.md#piano-type), [(m) piano model](api.md#piano-model)
-| `0x0049` | `mm------` |
-| `0x004A` | `--------` |
-| `0x004B` | `--------` |
-| `0x004C` | `--------` |
-| `0x004D` | `----srpk` | [(s) piano soft release](api.md#piano-soft-release),[(r) piano string resonance](api.md#piano-string-resonance), [(p) piano pedal noise](api.md#piano-pedal-noise), [(k) piano kb touch](api.md#piano-kb-touch)
+| `0x0049` | `mm00iiii` | [(m) piano name](api.md#piano-model)
+| `0x004A` | `iiiiiiii` |
+| `0x004B` | `iiiiiiii` |
+| `0x004C` | `iiiiiiii` |
+| `0x004D` | `iiiisrpk` | [(s) piano soft release](api.md#piano-soft-release),[(r) piano string resonance](api.md#piano-string-resonance), [(p) piano pedal noise](api.md#piano-pedal-noise), [(k) piano kb touch](api.md#piano-kb-touch)
 | `0x004E` | `k-ttt---` | [(t) piano timbre](api.md#piano-timbre)
 | `0x004F` | `--------` |
 | `0x0050` | `--------` |
