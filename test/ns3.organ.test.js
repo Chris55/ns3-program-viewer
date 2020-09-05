@@ -213,6 +213,30 @@ describe("/ns3/organ", () => {
         });
     });
 
+    test("panelA.organ.preset1.label eq 123456780 and panelA.organ.preset1.morph.wheel.enabled eq false", async () => {
+        const file = "panelA.organ.preset1.label eq 123456780 and panelA.organ.preset1.morph.wheel.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.preset1.morph.wheel.label eq 21-------", async () => {
+        const file = "panelA.organ.preset1.morph.wheel.label eq 21-------.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.preset1.morph.wheel.label eq 864-32101", async () => {
+        const file = "panelA.organ.preset1.morph.wheel.label eq 864-32101.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.organ.sustainPedal eq false", async () => {
         const file = "panelA.organ.sustainPedal eq false.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -261,6 +285,14 @@ describe("/ns3/organ", () => {
         });
     });
 
+    test("panelA.organ.type eq Farfisa and panelA.organ.preset1.morph.wheel.label eq -0-11--00", async () => {
+        const file = "panelA.organ.type eq Farfisa and panelA.organ.preset1.morph.wheel.label eq -0-11--00.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.organ.type eq Pipe1 and panelA.organ.preset1.label eq 887544333 and panelA.organ.preset2.label eq 888888888", async () => {
         const file = "panelA.organ.type eq Pipe1 and panelA.organ.preset1.label eq 887544333 and panelA.organ.preset2.label eq 888888888.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -279,6 +311,14 @@ describe("/ns3/organ", () => {
 
     test("panelA.organ.type eq Vox and panelA.organ.preset1.label eq 888888808 and panelA.organ.preset2.label eq 888888808", async () => {
         const file = "panelA.organ.type eq Vox and panelA.organ.preset1.label eq 888888808 and panelA.organ.preset2.label eq 888888808.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.type eq Vox and panelA.organ.preset1.morph.wheel.label eq --66325-0", async () => {
+        const file = "panelA.organ.type eq Vox and panelA.organ.preset1.morph.wheel.label eq --66325-0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -447,6 +487,70 @@ describe("/ns3/organ", () => {
 
     test("panelA.organ.volume.morph.wheel.enabled eq true and panelA.organ.volume.morph.wheel.to.label eq Off", async () => {
         const file = "panelA.organ.volume.morph.wheel.enabled eq true and panelA.organ.volume.morph.wheel.to.label eq Off.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.organ.preset1.label eq 233334366 and panelB.organ.preset2.label eq 882221388", async () => {
+        const file = "panelB.organ.preset1.label eq 233334366 and panelB.organ.preset2.label eq 882221388.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.organ.preset1.morph.afterTouch.label eq 012------", async () => {
+        const file = "panelB.organ.preset1.morph.afterTouch.label eq 012------.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.organ.preset1.morph.controlPedal.label eq 888888888", async () => {
+        const file = "panelB.organ.preset1.morph.controlPedal.label eq 888888888.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.organ.preset1.morph.wheel.label eq 887-2--54", async () => {
+        const file = "panelB.organ.preset1.morph.wheel.label eq 887-2--54.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.organ.preset2.label eq 682221388", async () => {
+        const file = "panelB.organ.preset2.label eq 682221388.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.organ.preset2.morph.afterTouch.label eq ------76-", async () => {
+        const file = "panelB.organ.preset2.morph.afterTouch.label eq ------76-.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.organ.preset2.morph.controlPedal.label eq ---------", async () => {
+        const file = "panelB.organ.preset2.morph.controlPedal.label eq ---------.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.organ.preset2.morph.wheel.label eq ----64--4", async () => {
+        const file = "panelB.organ.preset2.morph.wheel.label eq ----64--4.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

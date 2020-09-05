@@ -48,21 +48,21 @@ const getDrawbars = function (buffer, offset, type) {
     let d8 = (organDrawbar8FlagW & 0b0000011110000000) >>> 7;
     let d9 = (organDrawbar9Flag & 0xf0) >>> 4;
 
-    if (type === "Vox") {
-        d8 = 0;
-    } else if (type === "Farfisa") {
-        d1 = d1 < 4 ? 0 : 1;
-        d2 = d2 < 4 ? 0 : 1;
-        d3 = d3 < 4 ? 0 : 1;
-        d4 = d4 < 4 ? 0 : 1;
-        d5 = d5 < 4 ? 0 : 1;
-        d6 = d6 < 4 ? 0 : 1;
-        d7 = d7 < 4 ? 0 : 1;
-        d8 = d8 < 4 ? 0 : 1;
-        d9 = d9 < 4 ? 0 : 1;
-    }
+    // if (type === "Vox") {
+    //     d8 = 0;
+    // } else if (type === "Farfisa") {
+    //     d1 = d1 < 4 ? 0 : 1;
+    //     d2 = d2 < 4 ? 0 : 1;
+    //     d3 = d3 < 4 ? 0 : 1;
+    //     d4 = d4 < 4 ? 0 : 1;
+    //     d5 = d5 < 4 ? 0 : 1;
+    //     d6 = d6 < 4 ? 0 : 1;
+    //     d7 = d7 < 4 ? 0 : 1;
+    //     d8 = d8 < 4 ? 0 : 1;
+    //     d9 = d9 < 4 ? 0 : 1;
+    // }
 
-    const preset = [d1, d2, d3, d4, d5, d6, d7, d8, d9];
+    const preset = fixVoxAndFarfisa([d1, d2, d3, d4, d5, d6, d7, d8, d9], type);
 
     const morphOffset1 = buffer.readUInt32BE(offset1 - 1);
     const morphOffset2 = buffer.readUInt32BE(offset2 - 1);
@@ -84,33 +84,46 @@ const getDrawbars = function (buffer, offset, type) {
     const m8 = getMorph5Bits(morphOffset8, d8);
     const m9 = getMorph5Bits(morphOffset9 >>> 5, d9);
 
-    const morphWheel = [m1.wheel, m2.wheel, m3.wheel, m4.wheel, m5.wheel, m6.wheel, m7.wheel, m8.wheel, m9.wheel];
+    const morphWheel = fixVoxAndFarfisa(
+        [m1.wheel, m2.wheel, m3.wheel, m4.wheel, m5.wheel, m6.wheel, m7.wheel, m8.wheel, m9.wheel],
+        type
+    );
+    hideIfEqual(preset, morphWheel);
+
     const morphWheelPreset = morphWheel.join("");
 
-    const morphAfterTouch = [
-        m1.afterTouch,
-        m2.afterTouch,
-        m3.afterTouch,
-        m4.afterTouch,
-        m5.afterTouch,
-        m6.afterTouch,
-        m7.afterTouch,
-        m8.afterTouch,
-        m9.afterTouch,
-    ];
+    const morphAfterTouch = fixVoxAndFarfisa(
+        [
+            m1.afterTouch,
+            m2.afterTouch,
+            m3.afterTouch,
+            m4.afterTouch,
+            m5.afterTouch,
+            m6.afterTouch,
+            m7.afterTouch,
+            m8.afterTouch,
+            m9.afterTouch,
+        ],
+        type
+    );
+    hideIfEqual(preset, morphAfterTouch);
     const morphAfterTouchPreset = morphAfterTouch.join("");
 
-    const morphControlPedal = [
-        m1.controlPedal,
-        m2.controlPedal,
-        m3.controlPedal,
-        m4.controlPedal,
-        m5.controlPedal,
-        m6.controlPedal,
-        m7.controlPedal,
-        m8.controlPedal,
-        m9.controlPedal,
-    ];
+    const morphControlPedal = fixVoxAndFarfisa(
+        [
+            m1.controlPedal,
+            m2.controlPedal,
+            m3.controlPedal,
+            m4.controlPedal,
+            m5.controlPedal,
+            m6.controlPedal,
+            m7.controlPedal,
+            m8.controlPedal,
+            m9.controlPedal,
+        ],
+        type
+    );
+    hideIfEqual(preset, morphControlPedal);
     const morphControlPedalPreset = morphControlPedal.join("");
 
     return {
@@ -130,6 +143,25 @@ const getDrawbars = function (buffer, offset, type) {
             },
         },
     };
+};
+
+const fixVoxAndFarfisa = (drawbars, type) => {
+    if (type === "Vox") {
+        drawbars[7] = 0;
+    } else if (type === "Farfisa") {
+        drawbars.forEach((d, i) => {
+            drawbars[i] = d < 4 ? 0 : 1;
+        });
+    }
+    return drawbars;
+};
+
+const hideIfEqual = (from, to) => {
+    to.forEach((d, i) => {
+        if (from[i] === to[i]) {
+            to[i] = "-";
+        }
+    });
 };
 
 /***
@@ -203,8 +235,8 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * 0xB9 (b3): polarity (1 = positive, 0 = negative)
          * 0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw value
          *
-         * if direction = 1 then Morph offset value = raw value + 1
-         * if direction = 0 then Morph offset value = raw value - 127
+         * if polarity = 1 then Morph offset value = raw value + 1
+         * if polarity = 0 then Morph offset value = raw value - 127
          *
          * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
          * Morph Enabled if  'From value' <> 'Morph offset value'
@@ -262,72 +294,132 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @example
          *
+         * Drawbar value range:
+         * B3/Pipe1/Pipe2: 0/8
+         * Vox: 0 (if value < 4) else 1
+         * Farfisa: 0/8 (except drawbar 8 forced to 0)
+         *
          * Drawbar 1: 0xBE (b7-4)
-         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Wheel:         0xBE (b3-0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-2)
          *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
          *
          * Drawbar 2: 0xC0 (b4-1)
-         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-b2)
-         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *            Morph Wheel:         0xC0 (b0) and 0xC1 (b7-4)
+         *            Morph After Touch:   0xC1 (b3-0) and 0xC2 (b7)
+         *            Morph Control Pedal: 0xC2 (b6-2)
          *
          * Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)
-         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-b2)
-         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *            Morph Wheel:         0xC3 (b5-1)
+         *            Morph After Touch:   0xC3 (b0) and 0xC4 (b7-4)
+         *            Morph Control Pedal: 0xC4 (b3-0) and 0xC5 (b7)
          *
          * Drawbar 4: 0xC5 (b6-3)
-         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-b2)
-         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *            Morph Wheel:         0xC5 (b2-0) and 0xC6 (b7-6)
+         *            Morph After Touch:   0xC6 (b5-b1)
+         *            Morph Control Pedal: 0xC6 (b0) and 0xC7 (b7-4)
          *
          * Drawbar 5: 0xC7 (b3-0)
-         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-b2)
-         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *            Morph Wheel:         0xC8 (b7-3)
+         *            Morph After Touch:   0xC8 (b2-0) and 0xC9 (b7-6)
+         *            Morph Control Pedal: 0xC9 (b5-1)
          *
          * Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)
-         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-b2)
-         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *            Morph Wheel:         0xCA (b4-0)
+         *            Morph After Touch:   0xCB (b7-3)
+         *            Morph Control Pedal: 0xCB (b2-0) and 0xCC (b7-6)
          *
          * Drawbar 7: 0xCC (b5-2)
-         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-b2)
-         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *            Morph Wheel:         0xCC (b1-0) and 0xCD (b7-5)
+         *            Morph After Touch:   0xCD (b4-0)
+         *            Morph Control Pedal: 0xCE (b7-3)
          *
          * Drawbar 8: 0xCE (b2-0) and 0xCF (b7)
-         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-b2)
-         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *            Morph Wheel:         0xCF (b6-2)
+         *            Morph After Touch:   0xCF (b1-0) and 0xD0 (b7-5)
+         *            Morph Control Pedal: 0xD0 (b4-0)
          *
          * Drawbar 9: 0xD1 (b7-4)
-         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-b2)
-         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *            Morph Wheel:         0xD1 (b3-0) and 0xBF (b7)
+         *            Morph After Touch:   0xD2 (b6-2)
+         *            Morph Control Pedal: 0xD2 (b1-0) and 0xD3 (b7-5)
+         *
+         * Morph value is on 5-bit
+         * b4 is polarity
+         * b3-0 is raw 4-bit value
+         *
+         * if polarity = 1 then Morph offset value = raw value + 1
+         * if polarity = 0 then Morph offset value = raw value - 8
+         *
+         * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
+         * Morph Enabled if  'From value' <> 'Morph offset value'
          *
          * @module Organ Drawbars Preset 1
          */
-        preset1: getDrawbars(buffer, 0xbe, organType),
+        preset1: getDrawbars(buffer, 0xbe + panelOffset, organType),
 
         /**
          * Offset in file: 0xD9
          *
          * @example
          * Drawbar 1: 0xD9 (b7-4)
+         *            Morph Wheel:         0xD9 (b3-0) and 0xDA (b7)
+         *            Morph After Touch:   0xDA (b6-2)
+         *            Morph Control Pedal: 0xDA (b1-0) and 0xDB (b7-5)
+         *
          * Drawbar 2: 0xDB (b4-1)
+         *            Morph Wheel:         0xDB (b0) and 0xDC (b7-4)
+         *            Morph After Touch:   0xDC (b3-0) and 0xDD (b7)
+         *            Morph Control Pedal: 0xDD (b6-2)
+         *
          * Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)
+         *            Morph Wheel:         0xDE (b5-1)
+         *            Morph After Touch:   0xDE (b0) and 0xDF (b7-4)
+         *            Morph Control Pedal: 0xDF (b3-0) and 0xE0 (b7)
+         *
          * Drawbar 4: 0xE0 (b6-3)
+         *            Morph Wheel:         0xE0 (b2-0) and 0xE1 (b7-6)
+         *            Morph After Touch:   0xE1 (b5-b1)
+         *            Morph Control Pedal: 0xE1 (b0) and 0xE2 (b7-4)
+         *
          * Drawbar 5: 0xE2 (b3-0)
+         *            Morph Wheel:         0xE3 (b7-3)
+         *            Morph After Touch:   0xE3 (b2-0) and 0xE4 (b7-6)
+         *            Morph Control Pedal: 0xE4 (b5-1)
+         *
          * Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)
+         *            Morph Wheel:         0xE5 (b4-0)
+         *            Morph After Touch:   0xE6 (b7-3)
+         *            Morph Control Pedal: 0xE6 (b2-0) and 0xE7 (b7-6)
+         *
          * Drawbar 7: 0xE7 (b5-2)
+         *            Morph Wheel:         0xE7 (b1-0) and 0xE8 (b7-5)
+         *            Morph After Touch:   0xE8 (b4-0)
+         *            Morph Control Pedal: 0xE9 (b7-3)
+         *
          * Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)
+         *            Morph Wheel:         0xEA (b6-2)
+         *            Morph After Touch:   0xEA (b1-0) and 0xEB (b7-5)
+         *            Morph Control Pedal: 0xEB (b4-0)
+         *
          * Drawbar 9: 0xEC (b7-4)
+         *            Morph Wheel:         0xEC (b3-0) and 0xED (b7)
+         *            Morph After Touch:   0xED (b6-2)
+         *            Morph Control Pedal: 0xED (b1-0) and 0xEF (b7-5)
+         *
+         * Morph value is on 5-bit
+         * b4 is polarity
+         * b3-0 is raw 4-bit value
+         *
+         * if polarity = 1 then Morph offset value = raw value + 1
+         * if polarity = 0 then Morph offset value = raw value - 8
+         *
+         * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
+         * Morph Enabled if  'From value' <> 'Morph offset value'
          *
          * @module Organ Drawbars Preset 2
          */
-        preset2: getDrawbars(buffer, 0xd9, organType),
+        preset2: getDrawbars(buffer, 0xd9 + panelOffset, organType),
 
         /**
          * Offset in file: 0xBB (b3)

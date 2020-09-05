@@ -177,23 +177,23 @@ ns3f file description:
 | `0x00AA` | `ssssssss` |
 | `0x00AB` | `ssssssss` |
 | `0x00AC` | `sssssf--` | [(f) synth fast attack](api.md#synth-fast-attack)
-| `0x00AD` | `--------` |
-| `0x00AE` | `--------` |
-| `0x00AF` | `--------` |
-| `0x00B0` | `--------` |
-| `0x00B1` | `--------` |
-| `0x00B2` | `--------` |
-| `0x00B3` | `--------` |
-| `0x00B4` | `--------` |
-| `0x00B5` | `--------` |
+| `0x00AD` | `--------` | '0'
+| `0x00AE` | `--------` | '0'
+| `0x00AF` | `--------` | '0'
+| `0x00B0` | `--------` | '0'
+| `0x00B1` | `--------` | '0'
+| `0x00B2` | `--------` | '0'
+| `0x00B3` | `--------` | '0'
+| `0x00B4` | `--------` | '0'
+| `0x00B5` | `--------` | '07'
 | `0x00B6` | `ozzzzvvv` | [(o) organ on](api.md#organ-on), [(z) organ kb zone](api.md#organ-kb-zone), [(v) organ volume](api.md#organ-volume)
 | `0x00B7` | `vvvvwwww` | [(w) organ volume morph wheel](api.md#organ-volume)
 | `0x00B8` | `wwwwaaaa` | [(a) organ volume morph after touch](api.md#organ-volume)
 | `0x00B9` | `aaaapppp` | [(p) organ volume morph control pedal](api.md#organ-volume)
 | `0x00BA` | `pppp-ooo` | [(o) organ octave shift](api.md#organ-octave-shift)
 | `0x00BB` | `stttl---` | [(s) organ sustain-pedal](api.md#organ-sustain-pedal),[(t) organ type](api.md#organ-type),[(l) organ live mode](api.md#organ-live-mode)
-| `0x00BC` | `--------` |
-| `0x00BD` | `--------` |
+| `0x00BC` | `--------` | '0'
+| `0x00BD` | `--------` | '1A'
 | `0x00BE` | `1111wwww` | [organ preset 1 drawbar (1)](api.md#organ-drawbars-preset-1), [(w) organ preset 1 drawbar 1 morph wheel](api.md#organ-drawbars-preset-1)
 | `0x00BF` | `waaaaapp` | [(a) organ preset 1 drawbar 1 morph after touch](api.md#organ-drawbars-preset-1), [(p) organ preset 1 drawbar 2 morph control pedal](api.md#organ-drawbars-preset-1)
 | `0x00C0` | `ppp2222w` | [organ preset 1 drawbar (2)](api.md#organ-drawbars-preset-1), [(w) organ preset 1 drawbar 2 morph wheel](api.md#organ-drawbars-preset-1)
@@ -216,32 +216,32 @@ ns3f file description:
 | `0x00D1` | `9999wwww` | [organ preset 1 drawbar (9)](api.md#organ-drawbars-preset-1), [(w) organ preset 1 drawbar 9 morph wheel](api.md#organ-drawbars-preset-1)
 | `0x00D2` | `waaaaapp` | [(a) organ preset 1 drawbar 9 morph after touch](api.md#organ-drawbars-preset-1), [(p) organ preset 1 drawbar 9 morph control pedal](api.md#organ-drawbars-preset-1)
 | `0x00D3` | `pppvphds` | [(v) organ vibrato on](api.md#organ-vibrato-on), [(p) organ percussion on](api.md#organ-percussion-on), [(h) organ percussion harmonic third](api.md#organ-percussion-harmonic-third), [(d) organ percussion decay fast](api.md#organ-percussion-decay-fast), [(s) organ percussion volume soft](api.md#organ-percussion-volume-soft)
-| `0x00D4` | `--------` |
-| `0x00D5` | `--------` |
-| `0x00D6` | `--------` |
-| `0x00D7` | `--------` |
-| `0x00D8` | `--------` |
-| `0x00D9` | `1111wwww` | [organ preset 2 drawbar (1)](api.md#organ-drawbars-preset-1), [(w) organ preset 2 drawbar 1 morph wheel](api.md#organ-drawbars-preset-1)
-| `0x00DA` | `waaaaapp` | [(a) organ preset 2 drawbar 1 morph after touch](api.md#organ-drawbars-preset-1), [(p) organ preset 2 drawbar 2 morph control pedal](api.md#organ-drawbars-preset-1)
-| `0x00DB` | `ppp2222w` | [organ preset 2 drawbar (2)](api.md#organ-drawbars-preset-1), [(w) organ preset 2 drawbar 2 morph wheel](api.md#organ-drawbars-preset-1)
-| `0x00DC` | `wwwwaaaa` | [(a) organ preset 2 drawbar 2 morph after touch](api.md#organ-drawbars-preset-1)
-| `0x00DE` | `appppp33` | [(p) organ preset 2 drawbar 2 morph control pedal](api.md#organ-drawbars-preset-1), [organ preset 2 drawbar (3)](api.md#organ-drawbars-preset-1),
-| `0x00DF` | `33wwwwwa` | [(w) organ preset 2 drawbar 3 morph wheel](api.md#organ-drawbars-preset-1), [(a) organ preset 2 drawbar 3 morph after touch](api.md#organ-drawbars-preset-1)
-| `0x00E0` | `aaaapppp` | [(p) organ preset 2 drawbar 3 morph control pedal](api.md#organ-drawbars-preset-1)
-| `0x00E1` | `p4444www` | [organ preset 2 drawbar (4)](api.md#organ-drawbars-preset-1), [(w) organ preset 2 drawbar 4 morph wheel](api.md#organ-drawbars-preset-1)
-| `0x00E2` | `wwaaaaap` | [(a) organ preset 2 drawbar 4 morph after touch](api.md#organ-drawbars-preset-1), [(p) organ preset 2 drawbar 4 morph control pedal](api.md#organ-drawbars-preset-1),
-| `0x00E3` | `pppp5555` | [organ preset 2 drawbar (5)](api.md#organ-drawbars-preset-1),
-| `0x00E4` | `wwwwwaaa` | [(w) organ preset 2 drawbar 5 morph wheel](api.md#organ-drawbars-preset-1), [(a) organ preset 2 drawbar 5 morph after touch](api.md#organ-drawbars-preset-1)
-| `0x00E5` | `aappppp6` | [(p) organ preset 2 drawbar 5 morph control pedal](api.md#organ-drawbars-preset-1), [organ preset 2 drawbar (6)](api.md#organ-drawbars-preset-1),
-| `0x00E6` | `666wwwww` | [(w) organ preset 2 drawbar 6 morph wheel](api.md#organ-drawbars-preset-1)
-| `0x00E7` | `aaaaappp` | [(a) organ preset 2 drawbar 6 morph after touch](api.md#organ-drawbars-preset-1), [(p) organ preset 2 drawbar 6 morph control pedal](api.md#organ-drawbars-preset-1)
-| `0x00E8` | `pp7777ww` | [organ preset 2 drawbar (7)](api.md#organ-drawbars-preset-1), [(w) organ preset 2 drawbar 7 morph wheel](api.md#organ-drawbars-preset-1)
-| `0x00E9` | `wwwaaaaa` | [(a) organ preset 2 drawbar 7 morph after touch](api.md#organ-drawbars-preset-1)
-| `0x00EA` | `ppppp888` | [(p) organ preset 2 drawbar 7 morph control pedal](api.md#organ-drawbars-preset-1), [organ preset 2 drawbar (8)](api.md#organ-drawbars-preset-1),
-| `0x00EB` | `8wwwwwaa` | [(w) organ preset 2 drawbar 8 morph wheel](api.md#organ-drawbars-preset-1), [(a) organ preset 2 drawbar 8 morph after touch](api.md#organ-drawbars-preset-1)
-| `0x00EC` | `aaappppp` | [(p) organ preset 2 drawbar 8 morph control pedal](api.md#organ-drawbars-preset-1)
-| `0x00ED` | `9999wwww` | [organ preset 2 drawbar (9)](api.md#organ-drawbars-preset-1), [(w) organ preset 2 drawbar 9 morph wheel](api.md#organ-drawbars-preset-1)
-| `0x00EE` | `waaaaapp` | [(a) organ preset 2 drawbar 9 morph after touch](api.md#organ-drawbars-preset-1), [(p) organ preset 2 drawbar 9 morph control pedal](api.md#organ-drawbars-preset-1)
+| `0x00D4` | `--------` | '0'
+| `0x00D5` | `--------` | '0'
+| `0x00D6` | `--------` | '0'
+| `0x00D7` | `--------` | '0'
+| `0x00D8` | `--------` | '1A'
+| `0x00D9` | `1111wwww` | [organ preset 2 drawbar (1)](api.md#organ-drawbars-preset-2), [(w) organ preset 2 drawbar 1 morph wheel](api.md#organ-drawbars-preset-2)
+| `0x00DA` | `waaaaapp` | [(a) organ preset 2 drawbar 1 morph after touch](api.md#organ-drawbars-preset-2), [(p) organ preset 2 drawbar 2 morph control pedal](api.md#organ-drawbars-preset-2)
+| `0x00DB` | `ppp2222w` | [organ preset 2 drawbar (2)](api.md#organ-drawbars-preset-2), [(w) organ preset 2 drawbar 2 morph wheel](api.md#organ-drawbars-preset-2)
+| `0x00DC` | `wwwwaaaa` | [(a) organ preset 2 drawbar 2 morph after touch](api.md#organ-drawbars-preset-2)
+| `0x00DE` | `appppp33` | [(p) organ preset 2 drawbar 2 morph control pedal](api.md#organ-drawbars-preset-2), [organ preset 2 drawbar (3)](api.md#organ-drawbars-preset-2),
+| `0x00DF` | `33wwwwwa` | [(w) organ preset 2 drawbar 3 morph wheel](api.md#organ-drawbars-preset-2), [(a) organ preset 2 drawbar 3 morph after touch](api.md#organ-drawbars-preset-2)
+| `0x00E0` | `aaaapppp` | [(p) organ preset 2 drawbar 3 morph control pedal](api.md#organ-drawbars-preset-2)
+| `0x00E1` | `p4444www` | [organ preset 2 drawbar (4)](api.md#organ-drawbars-preset-2), [(w) organ preset 2 drawbar 4 morph wheel](api.md#organ-drawbars-preset-2)
+| `0x00E2` | `wwaaaaap` | [(a) organ preset 2 drawbar 4 morph after touch](api.md#organ-drawbars-preset-2), [(p) organ preset 2 drawbar 4 morph control pedal](api.md#organ-drawbars-preset-2),
+| `0x00E3` | `pppp5555` | [organ preset 2 drawbar (5)](api.md#organ-drawbars-preset-2),
+| `0x00E4` | `wwwwwaaa` | [(w) organ preset 2 drawbar 5 morph wheel](api.md#organ-drawbars-preset-2), [(a) organ preset 2 drawbar 5 morph after touch](api.md#organ-drawbars-preset-2)
+| `0x00E5` | `aappppp6` | [(p) organ preset 2 drawbar 5 morph control pedal](api.md#organ-drawbars-preset-2), [organ preset 2 drawbar (6)](api.md#organ-drawbars-preset-2),
+| `0x00E6` | `666wwwww` | [(w) organ preset 2 drawbar 6 morph wheel](api.md#organ-drawbars-preset-2)
+| `0x00E7` | `aaaaappp` | [(a) organ preset 2 drawbar 6 morph after touch](api.md#organ-drawbars-preset-2), [(p) organ preset 2 drawbar 6 morph control pedal](api.md#organ-drawbars-preset-2)
+| `0x00E8` | `pp7777ww` | [organ preset 2 drawbar (7)](api.md#organ-drawbars-preset-2), [(w) organ preset 2 drawbar 7 morph wheel](api.md#organ-drawbars-preset-2)
+| `0x00E9` | `wwwaaaaa` | [(a) organ preset 2 drawbar 7 morph after touch](api.md#organ-drawbars-preset-2)
+| `0x00EA` | `ppppp888` | [(p) organ preset 2 drawbar 7 morph control pedal](api.md#organ-drawbars-preset-2), [organ preset 2 drawbar (8)](api.md#organ-drawbars-preset-2),
+| `0x00EB` | `8wwwwwaa` | [(w) organ preset 2 drawbar 8 morph wheel](api.md#organ-drawbars-preset-2), [(a) organ preset 2 drawbar 8 morph after touch](api.md#organ-drawbars-preset-2)
+| `0x00EC` | `aaappppp` | [(p) organ preset 2 drawbar 8 morph control pedal](api.md#organ-drawbars-preset-2)
+| `0x00ED` | `9999wwww` | [organ preset 2 drawbar (9)](api.md#organ-drawbars-preset-2), [(w) organ preset 2 drawbar 9 morph wheel](api.md#organ-drawbars-preset-2)
+| `0x00EE` | `waaaaapp` | [(a) organ preset 2 drawbar 9 morph after touch](api.md#organ-drawbars-preset-2), [(p) organ preset 2 drawbar 9 morph control pedal](api.md#organ-drawbars-preset-2)
 | `0x00EF` | `ppp-----` |
 | `0x00F0` | `--------` |
 | `0x00F1` | `--------` |

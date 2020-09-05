@@ -189,8 +189,12 @@ exports.getMorph5Bits = (uint32Value, midiFrom) => {
     });
 
     return {
-        wheel: result[0].enabled ? result[0].midiTo : "-",
-        afterTouch: result[1].enabled ? result[1].midiTo : "-",
-        controlPedal: result[2].enabled ? result[2].midiTo : "-",
+        // wheel: result[0].enabled ? result[0].midiTo : "-",
+        // afterTouch: result[1].enabled ? result[1].midiTo : "-",
+        // controlPedal: result[2].enabled ? result[2].midiTo : "-",
+
+        wheel: result[0].midiTo,
+        afterTouch: result[1].midiTo,
+        controlPedal: result[2].midiTo,
     };
 };
