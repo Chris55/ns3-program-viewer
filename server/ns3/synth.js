@@ -1,7 +1,7 @@
 const mapping = require("./mapping");
 const converter = require("../common/converter");
-const {getMorph2} = require("../common/utils");
-const {getMorph} = require("../common/utils");
+const { getMorph2 } = require("./morph");
+const { getMorph } = require("./morph");
 const {getFilter} = require("./synth-filter");
 const {getOscControl} = require("./synth-osc-control");
 const {getVolumeEx} = require("../common/utils");

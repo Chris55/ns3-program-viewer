@@ -1,6 +1,6 @@
 const mapping = require("./mapping");
 const converter = require("../common/converter");
-const { getMorph } = require("../common/utils");
+const { getMorph } = require("./morph");
 const { getKnobDualValues } = require("../common/utils");
 
 exports.getFilter = (buffer, panelOffset) => {

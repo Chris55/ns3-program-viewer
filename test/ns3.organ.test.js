@@ -229,56 +229,56 @@ describe("/ns3/organ", () => {
         });
     });
 
-    test("panelA.organ.type eq B3 and panelA.organ.preset1 eq 345666554 and panelA.organ.preset2 eq 864111367", async () => {
-        const file = "panelA.organ.type eq B3 and panelA.organ.preset1 eq 345666554 and panelA.organ.preset2 eq 864111367.ns3f";
+    test("panelA.organ.type eq B3 and panelA.organ.preset1.label eq 345666554 and panelA.organ.preset2.label eq 864111367", async () => {
+        const file = "panelA.organ.type eq B3 and panelA.organ.preset1.label eq 345666554 and panelA.organ.preset2.label eq 864111367.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.type eq B3 and panelA.organ.preset1 eq 355788653 and panelA.organ.preset2 eq 343323343", async () => {
-        const file = "panelA.organ.type eq B3 and panelA.organ.preset1 eq 355788653 and panelA.organ.preset2 eq 343323343.ns3f";
+    test("panelA.organ.type eq B3 and panelA.organ.preset1.label eq 355788653 and panelA.organ.preset2.label eq 343323343", async () => {
+        const file = "panelA.organ.type eq B3 and panelA.organ.preset1.label eq 355788653 and panelA.organ.preset2.label eq 343323343.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.type eq B3 and panelA.organ.preset1 eq 888888888 and panelA.organ.preset2 eq 888888888", async () => {
-        const file = "panelA.organ.type eq B3 and panelA.organ.preset1 eq 888888888 and panelA.organ.preset2 eq 888888888.ns3f";
+    test("panelA.organ.type eq B3 and panelA.organ.preset1.label eq 888888888 and panelA.organ.preset2.label eq 888888888", async () => {
+        const file = "panelA.organ.type eq B3 and panelA.organ.preset1.label eq 888888888 and panelA.organ.preset2.label eq 888888888.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.type eq Farfisa and panelA.organ.preset1 eq 111001111 and panelA.organ.preset2 eq 111111111", async () => {
-        const file = "panelA.organ.type eq Farfisa and panelA.organ.preset1 eq 111001111 and panelA.organ.preset2 eq 111111111.ns3f";
+    test("panelA.organ.type eq Farfisa and panelA.organ.preset1.label eq 111001111 and panelA.organ.preset2.label eq 111111111", async () => {
+        const file = "panelA.organ.type eq Farfisa and panelA.organ.preset1.label eq 111001111 and panelA.organ.preset2.label eq 111111111.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.type eq Pipe1 and panelA.organ.preset1 eq 887544333 and panelA.organ.preset2 eq 888888888", async () => {
-        const file = "panelA.organ.type eq Pipe1 and panelA.organ.preset1 eq 887544333 and panelA.organ.preset2 eq 888888888.ns3f";
+    test("panelA.organ.type eq Pipe1 and panelA.organ.preset1.label eq 887544333 and panelA.organ.preset2.label eq 888888888", async () => {
+        const file = "panelA.organ.type eq Pipe1 and panelA.organ.preset1.label eq 887544333 and panelA.organ.preset2.label eq 888888888.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.type eq Pipe2 and panelA.organ.preset1 eq 008000000 and panelA.organ.preset2 eq 888888888", async () => {
-        const file = "panelA.organ.type eq Pipe2 and panelA.organ.preset1 eq 008000000 and panelA.organ.preset2 eq 888888888.ns3f";
+    test("panelA.organ.type eq Pipe2 and panelA.organ.preset1.label eq 008000000 and panelA.organ.preset2.label eq 888888888", async () => {
+        const file = "panelA.organ.type eq Pipe2 and panelA.organ.preset1.label eq 008000000 and panelA.organ.preset2.label eq 888888888.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.type eq Vox and panelA.organ.preset1 eq 888888808 and panelA.organ.preset2 eq 888888808", async () => {
-        const file = "panelA.organ.type eq Vox and panelA.organ.preset1 eq 888888808 and panelA.organ.preset2 eq 888888808.ns3f";
+    test("panelA.organ.type eq Vox and panelA.organ.preset1.label eq 888888808 and panelA.organ.preset2.label eq 888888808", async () => {
+        const file = "panelA.organ.type eq Vox and panelA.organ.preset1.label eq 888888808 and panelA.organ.preset2.label eq 888888808.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

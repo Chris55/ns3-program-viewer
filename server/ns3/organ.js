@@ -1,9 +1,10 @@
 const mapping = require("./mapping");
+const { getMorph5Bits } = require("./morph");
 const { getKbZone } = require("../common/utils");
 const { getVolumeEx } = require("../common/utils");
 
 /***
- * return Drawbars as an array
+ * return Drawbars Preset and Morph
  *
  * @class
  * @ignore
@@ -13,34 +14,43 @@ const { getVolumeEx } = require("../common/utils");
  * @returns {number[]}
  */
 const getDrawbars = function (buffer, offset, type) {
-    const organDrawbar0Flag = buffer.readUInt8(offset); // 0xbe
-    const organDrawbar1Flag = buffer.readUInt8(offset + 2); // 0xc0
-    const organDrawbar2FlagW = buffer.readUInt16BE(offset + 4); // 0xc2
-    const organDrawbar3Flag = buffer.readUInt8(offset + 7); // 0xc5
-    const organDrawbar4Flag = buffer.readUInt8(offset + 9); // 0xc7
-    const organDrawbar5FlagW = buffer.readUInt16BE(offset + 11); // 0xc9
-    const organDrawbar6Flag = buffer.readUInt8(offset + 14); // 0xcc
-    const organDrawbar7FlagW = buffer.readUInt16BE(offset + 16); // 0xce
-    const organDrawbar8Flag = buffer.readUInt8(offset + 19); // 0xd1
+    const offset1 = offset; // 0xbe
+    const offset2 = offset + 2; // 0xc0
+    const offset3 = offset + 4; // 0xc2
+    const offset4 = offset + 7; // 0xc5
+    const offset5 = offset + 9; // 0xc7
+    const offset6 = offset + 11; // 0xc9
+    const offset7 = offset + 14; // 0xcc
+    const offset8 = offset + 16; // 0xce
+    const offset9 = offset + 19; // 0xd1
+
+    const organDrawbar1Flag = buffer.readUInt8(offset1); // 0xbe
+    const organDrawbar2Flag = buffer.readUInt8(offset2); // 0xc0
+    const organDrawbar3FlagW = buffer.readUInt16BE(offset3); // 0xc2
+    const organDrawbar4Flag = buffer.readUInt8(offset4); // 0xc5
+    const organDrawbar5Flag = buffer.readUInt8(offset5); // 0xc7
+    const organDrawbar6FlagW = buffer.readUInt16BE(offset6); // 0xc9
+    const organDrawbar7Flag = buffer.readUInt8(offset7); // 0xcc
+    const organDrawbar8FlagW = buffer.readUInt16BE(offset8); // 0xce
+    const organDrawbar9Flag = buffer.readUInt8(offset9); // 0xd1
 
     /**
      *
      *
      */
-    let d0 = (organDrawbar0Flag & 0xf0) >>> 4;
-    let d1 = (organDrawbar1Flag & 0x1e) >>> 1;
-    let d2 = (organDrawbar2FlagW & 0b0000001111000000) >>> 6; //0x03c0
-    let d3 = (organDrawbar3Flag & 0b01111000) >>> 3;
-    let d4 = organDrawbar4Flag & 0x0f;
-    let d5 = (organDrawbar5FlagW & 0b0000000111100000) >>> 5;
-    let d6 = (organDrawbar6Flag & 0b00111100) >>> 2;
-    let d7 = (organDrawbar7FlagW & 0b0000011110000000) >>> 7;
-    let d8 = (organDrawbar8Flag & 0xf0) >>> 4;
+    let d1 = (organDrawbar1Flag & 0xf0) >>> 4;
+    let d2 = (organDrawbar2Flag & 0x1e) >>> 1;
+    let d3 = (organDrawbar3FlagW & 0b0000001111000000) >>> 6; //0x03c0
+    let d4 = (organDrawbar4Flag & 0b01111000) >>> 3;
+    let d5 = organDrawbar5Flag & 0x0f;
+    let d6 = (organDrawbar6FlagW & 0b0000000111100000) >>> 5;
+    let d7 = (organDrawbar7Flag & 0b00111100) >>> 2;
+    let d8 = (organDrawbar8FlagW & 0b0000011110000000) >>> 7;
+    let d9 = (organDrawbar9Flag & 0xf0) >>> 4;
 
     if (type === "Vox") {
-        d7 = 0;
+        d8 = 0;
     } else if (type === "Farfisa") {
-        d0 = d0 < 4 ? 0 : 1;
         d1 = d1 < 4 ? 0 : 1;
         d2 = d2 < 4 ? 0 : 1;
         d3 = d3 < 4 ? 0 : 1;
@@ -49,9 +59,77 @@ const getDrawbars = function (buffer, offset, type) {
         d6 = d6 < 4 ? 0 : 1;
         d7 = d7 < 4 ? 0 : 1;
         d8 = d8 < 4 ? 0 : 1;
+        d9 = d9 < 4 ? 0 : 1;
     }
 
-    return [d0, d1, d2, d3, d4, d5, d6, d7, d8];
+    const preset = [d1, d2, d3, d4, d5, d6, d7, d8, d9];
+
+    const morphOffset1 = buffer.readUInt32BE(offset1 - 1);
+    const morphOffset2 = buffer.readUInt32BE(offset2 - 1);
+    const morphOffset3 = buffer.readUInt32BE(offset3);
+    const morphOffset4 = buffer.readUInt32BE(offset4 - 1);
+    const morphOffset5 = buffer.readUInt32BE(offset5 - 1);
+    const morphOffset6 = buffer.readUInt32BE(offset6);
+    const morphOffset7 = buffer.readUInt32BE(offset7 - 1);
+    const morphOffset8 = buffer.readUInt32BE(offset8 - 1);
+    const morphOffset9 = buffer.readUInt32BE(offset9 - 1);
+
+    const m1 = getMorph5Bits(morphOffset1 >>> 5, d1);
+    const m2 = getMorph5Bits(morphOffset2 >>> 2, d2);
+    const m3 = getMorph5Bits(morphOffset3 >>> 7, d3);
+    const m4 = getMorph5Bits(morphOffset4 >>> 4, d4);
+    const m5 = getMorph5Bits(morphOffset5 >>> 1, d5);
+    const m6 = getMorph5Bits(morphOffset6 >>> 6, d6);
+    const m7 = getMorph5Bits(morphOffset7 >>> 3, d7);
+    const m8 = getMorph5Bits(morphOffset8, d8);
+    const m9 = getMorph5Bits(morphOffset9 >>> 5, d9);
+
+    const morphWheel = [m1.wheel, m2.wheel, m3.wheel, m4.wheel, m5.wheel, m6.wheel, m7.wheel, m8.wheel, m9.wheel];
+    const morphWheelPreset = morphWheel.join("");
+
+    const morphAfterTouch = [
+        m1.afterTouch,
+        m2.afterTouch,
+        m3.afterTouch,
+        m4.afterTouch,
+        m5.afterTouch,
+        m6.afterTouch,
+        m7.afterTouch,
+        m8.afterTouch,
+        m9.afterTouch,
+    ];
+    const morphAfterTouchPreset = morphAfterTouch.join("");
+
+    const morphControlPedal = [
+        m1.controlPedal,
+        m2.controlPedal,
+        m3.controlPedal,
+        m4.controlPedal,
+        m5.controlPedal,
+        m6.controlPedal,
+        m7.controlPedal,
+        m8.controlPedal,
+        m9.controlPedal,
+    ];
+    const morphControlPedalPreset = morphControlPedal.join("");
+
+    return {
+        label: preset.join(""),
+        morph: {
+            wheel: {
+                enabled: morphWheelPreset !== "---------",
+                label: morphWheelPreset,
+            },
+            afterTouch: {
+                enabled: morphAfterTouchPreset !== "---------",
+                label: morphAfterTouchPreset,
+            },
+            controlPedal: {
+                enabled: morphControlPedalPreset !== "---------",
+                label: morphControlPedalPreset,
+            },
+        },
+    };
 };
 
 /***
@@ -183,19 +261,55 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0xBE
          *
          * @example
+         *
          * Drawbar 1: 0xBE (b7-4)
+         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *
          * Drawbar 2: 0xC0 (b4-1)
+         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *
          * Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)
+         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *
          * Drawbar 4: 0xC5 (b6-3)
+         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *
          * Drawbar 5: 0xC7 (b3-0)
+         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *
          * Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)
+         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *
          * Drawbar 7: 0xCC (b5-2)
+         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *
          * Drawbar 8: 0xCE (b2-0) and 0xCF (b7)
+         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+         *
          * Drawbar 9: 0xD1 (b7-4)
+         *            Morph Wheel:         0xBE (b3-b0) and 0xBF (b7)
+         *            Morph After Touch:   0xBF (b6-b2)
+         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
          *
          * @module Organ Drawbars Preset 1
          */
-        preset1: getDrawbars(buffer, 0xbe, organType).join(""),
+        preset1: getDrawbars(buffer, 0xbe, organType),
 
         /**
          * Offset in file: 0xD9
@@ -213,7 +327,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Organ Drawbars Preset 2
          */
-        preset2: getDrawbars(buffer, 0xd9, organType).join(""),
+        preset2: getDrawbars(buffer, 0xd9, organType),
 
         /**
          * Offset in file: 0xBB (b3)

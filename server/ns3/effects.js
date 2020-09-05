@@ -1,6 +1,6 @@
 const converter = require("../common/converter");
 const mapping = require("./mapping");
-const { getMorph } = require("../common/utils");
+const { getMorph } = require("./morph");
 
 /***
  * returns Rotary Speaker Effect section
