@@ -67,7 +67,7 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0xB6 (b7)</p>
 </dd>
 <dt><a href="#module_Organ Kb Zone">Organ Kb Zone</a></dt>
-<dd><p>Offset in file: 0xB6 (b6 to b3)</p>
+<dd><p>Offset in file: 0xB6 (b6-3)</p>
 </dd>
 <dt><a href="#module_Organ Volume">Organ Volume</a></dt>
 <dd><p>Offset in file:</p>
@@ -119,10 +119,10 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0x43 (b7)</p>
 </dd>
 <dt><a href="#module_Piano Kb Zone">Piano Kb Zone</a></dt>
-<dd><p>Offset in file: 0x43 (b6 to b3)</p>
+<dd><p>Offset in file: 0x43 (b6-3)</p>
 </dd>
 <dt><a href="#module_Piano Volume">Piano Volume</a></dt>
-<dd><p>Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)</p>
+<dd><p>Offset in file: 0x43 (b2-0), 0x44 (b7-4)</p>
 </dd>
 <dt><a href="#module_Piano Octave Shift">Piano Octave Shift</a></dt>
 <dd><p>Offset in file: 0x47 (b2-0)</p>
@@ -182,10 +182,10 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0x52 (b7)</p>
 </dd>
 <dt><a href="#module_Synth Kb Zone">Synth Kb Zone</a></dt>
-<dd><p>Offset in file: 0x52 (b6 to b3)</p>
+<dd><p>Offset in file: 0x52 (b6-3)</p>
 </dd>
 <dt><a href="#module_Synth Volume">Synth Volume</a></dt>
-<dd><p>Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)</p>
+<dd><p>Offset in file: 0x52 (b2-0) and 0x53 (b7-4)</p>
 </dd>
 <dt><a href="#module_Synth Octave Shift">Synth Octave Shift</a></dt>
 <dd><p>Offset in file: 0x56 (b1-0)</p>
@@ -292,7 +292,7 @@ Offset in file: 0x14 and 0x15
 
 **Example**  
 ```js
-16-bit integer value in Little Endian format, ex 304 = v3.04
+16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionv0.92 to v1.32 have version 3.00v1.36 to v1.46 have version 3.01v1.50 to vx.xx have version 3.02vx.xx to vx.xx have version 3.03vx.XX to v2.54 have version 3.04
 ```
 <a name="module_Transpose"></a>
 
@@ -364,7 +364,7 @@ Offset in file: 0x34 (bit0)
 
 **Example**  
 ```js
-0 = Slow/Stop, 1 = Fast
+0 = Slow/Stop, 1 = FastMorph Wheel:         0x35 (b6-4)Morph After Touch:   0x35 (b3-1)Morph Control Pedal: 0x35 (b0) and 0x36 (b7-6)011 = 0x03 = morph off100 = 0x04 = morph on
 ```
 <a name="module_Effect 1 On"></a>
 
@@ -480,7 +480,7 @@ O = off, 1 = on
 <a name="module_Organ Kb Zone"></a>
 
 ## Organ Kb Zone
-Offset in file: 0xB6 (b6 to b3)
+Offset in file: 0xB6 (b6-3)
 
 **Example**  
 ```js
@@ -493,7 +493,7 @@ Offset in file:
 
 **Example**  
 ```js
-Volume:0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 rangeMorph Wheel:0xB7 (b3): polarity (1 = positive, 0 = negative)0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw valueMorph After Touch:0xB8 (b3): polarity (1 = positive, 0 = negative)0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw valueMorph Control Pedal:0xB9 (b3): polarity (1 = positive, 0 = negative)0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 127Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+Volume:0xB6 (b2-b0), 0xB7 (b7-4): 7-bit = 0/127 rangeMorph Wheel:0xB7 (b3): polarity (1 = positive, 0 = negative)0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw valueMorph After Touch:0xB8 (b3): polarity (1 = positive, 0 = negative)0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw valueMorph Control Pedal:0xB9 (b3): polarity (1 = positive, 0 = negative)0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 127Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 ```
 <a name="module_Organ Octave Shift"></a>
 
@@ -538,7 +538,7 @@ Offset in file: 0xBE
 
 **Example**  
 ```js
-Drawbar value range:B3/Pipe1/Pipe2: 0/8Vox: 0 (if value < 4) else 1Farfisa: 0/8 (except drawbar 8 forced to 0)Drawbar 1: 0xBE (b7-4)           Morph Wheel:         0xBE (b3-0) and 0xBF (b7)           Morph After Touch:   0xBF (b6-2)           Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)Drawbar 2: 0xC0 (b4-1)           Morph Wheel:         0xC0 (b0) and 0xC1 (b7-4)           Morph After Touch:   0xC1 (b3-0) and 0xC2 (b7)           Morph Control Pedal: 0xC2 (b6-2)Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)           Morph Wheel:         0xC3 (b5-1)           Morph After Touch:   0xC3 (b0) and 0xC4 (b7-4)           Morph Control Pedal: 0xC4 (b3-0) and 0xC5 (b7)Drawbar 4: 0xC5 (b6-3)           Morph Wheel:         0xC5 (b2-0) and 0xC6 (b7-6)           Morph After Touch:   0xC6 (b5-b1)           Morph Control Pedal: 0xC6 (b0) and 0xC7 (b7-4)Drawbar 5: 0xC7 (b3-0)           Morph Wheel:         0xC8 (b7-3)           Morph After Touch:   0xC8 (b2-0) and 0xC9 (b7-6)           Morph Control Pedal: 0xC9 (b5-1)Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)           Morph Wheel:         0xCA (b4-0)           Morph After Touch:   0xCB (b7-3)           Morph Control Pedal: 0xCB (b2-0) and 0xCC (b7-6)Drawbar 7: 0xCC (b5-2)           Morph Wheel:         0xCC (b1-0) and 0xCD (b7-5)           Morph After Touch:   0xCD (b4-0)           Morph Control Pedal: 0xCE (b7-3)Drawbar 8: 0xCE (b2-0) and 0xCF (b7)           Morph Wheel:         0xCF (b6-2)           Morph After Touch:   0xCF (b1-0) and 0xD0 (b7-5)           Morph Control Pedal: 0xD0 (b4-0)Drawbar 9: 0xD1 (b7-4)           Morph Wheel:         0xD1 (b3-0) and 0xBF (b7)           Morph After Touch:   0xD2 (b6-2)           Morph Control Pedal: 0xD2 (b1-0) and 0xD3 (b7-5)Morph value is on 5-bitb4 is polarityb3-0 is raw 4-bit valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 8Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+Drawbar value range is 0/8.For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1For Farfisa Organ drawbar 8 is not used and forced to 0Drawbar 1: 0xBE (b7-4)           Morph Wheel:         0xBE (b3-0) and 0xBF (b7)           Morph After Touch:   0xBF (b6-2)           Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)Drawbar 2: 0xC0 (b4-1)           Morph Wheel:         0xC0 (b0) and 0xC1 (b7-4)           Morph After Touch:   0xC1 (b3-0) and 0xC2 (b7)           Morph Control Pedal: 0xC2 (b6-2)Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)           Morph Wheel:         0xC3 (b5-1)           Morph After Touch:   0xC3 (b0) and 0xC4 (b7-4)           Morph Control Pedal: 0xC4 (b3-0) and 0xC5 (b7)Drawbar 4: 0xC5 (b6-3)           Morph Wheel:         0xC5 (b2-0) and 0xC6 (b7-6)           Morph After Touch:   0xC6 (b5-b1)           Morph Control Pedal: 0xC6 (b0) and 0xC7 (b7-4)Drawbar 5: 0xC7 (b3-0)           Morph Wheel:         0xC8 (b7-3)           Morph After Touch:   0xC8 (b2-0) and 0xC9 (b7-6)           Morph Control Pedal: 0xC9 (b5-1)Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)           Morph Wheel:         0xCA (b4-0)           Morph After Touch:   0xCB (b7-3)           Morph Control Pedal: 0xCB (b2-0) and 0xCC (b7-6)Drawbar 7: 0xCC (b5-2)           Morph Wheel:         0xCC (b1-0) and 0xCD (b7-5)           Morph After Touch:   0xCD (b4-0)           Morph Control Pedal: 0xCE (b7-3)Drawbar 8: 0xCE (b2-0) and 0xCF (b7)           Morph Wheel:         0xCF (b6-2)           Morph After Touch:   0xCF (b1-0) and 0xD0 (b7-5)           Morph Control Pedal: 0xD0 (b4-0)Drawbar 9: 0xD1 (b7-4)           Morph Wheel:         0xD1 (b3-0) and 0xBF (b7)           Morph After Touch:   0xD2 (b6-2)           Morph Control Pedal: 0xD2 (b1-0) and 0xD3 (b7-5)Morph value is on 5-bitb4 is polarityb3-0 is raw 4-bit valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 8Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 ```
 <a name="module_Organ Drawbars Preset 2"></a>
 
@@ -547,7 +547,7 @@ Offset in file: 0xD9
 
 **Example**  
 ```js
-Drawbar 1: 0xD9 (b7-4)           Morph Wheel:         0xD9 (b3-0) and 0xDA (b7)           Morph After Touch:   0xDA (b6-2)           Morph Control Pedal: 0xDA (b1-0) and 0xDB (b7-5)Drawbar 2: 0xDB (b4-1)           Morph Wheel:         0xDB (b0) and 0xDC (b7-4)           Morph After Touch:   0xDC (b3-0) and 0xDD (b7)           Morph Control Pedal: 0xDD (b6-2)Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)           Morph Wheel:         0xDE (b5-1)           Morph After Touch:   0xDE (b0) and 0xDF (b7-4)           Morph Control Pedal: 0xDF (b3-0) and 0xE0 (b7)Drawbar 4: 0xE0 (b6-3)           Morph Wheel:         0xE0 (b2-0) and 0xE1 (b7-6)           Morph After Touch:   0xE1 (b5-b1)           Morph Control Pedal: 0xE1 (b0) and 0xE2 (b7-4)Drawbar 5: 0xE2 (b3-0)           Morph Wheel:         0xE3 (b7-3)           Morph After Touch:   0xE3 (b2-0) and 0xE4 (b7-6)           Morph Control Pedal: 0xE4 (b5-1)Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)           Morph Wheel:         0xE5 (b4-0)           Morph After Touch:   0xE6 (b7-3)           Morph Control Pedal: 0xE6 (b2-0) and 0xE7 (b7-6)Drawbar 7: 0xE7 (b5-2)           Morph Wheel:         0xE7 (b1-0) and 0xE8 (b7-5)           Morph After Touch:   0xE8 (b4-0)           Morph Control Pedal: 0xE9 (b7-3)Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)           Morph Wheel:         0xEA (b6-2)           Morph After Touch:   0xEA (b1-0) and 0xEB (b7-5)           Morph Control Pedal: 0xEB (b4-0)Drawbar 9: 0xEC (b7-4)           Morph Wheel:         0xEC (b3-0) and 0xED (b7)           Morph After Touch:   0xED (b6-2)           Morph Control Pedal: 0xED (b1-0) and 0xEF (b7-5)Morph value is on 5-bitb4 is polarityb3-0 is raw 4-bit valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 8Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+Drawbar value range is 0/8.For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1For Farfisa Organ drawbar 8 is not used and forced to 0Drawbar 1: 0xD9 (b7-4)           Morph Wheel:         0xD9 (b3-0) and 0xDA (b7)           Morph After Touch:   0xDA (b6-2)           Morph Control Pedal: 0xDA (b1-0) and 0xDB (b7-5)Drawbar 2: 0xDB (b4-1)           Morph Wheel:         0xDB (b0) and 0xDC (b7-4)           Morph After Touch:   0xDC (b3-0) and 0xDD (b7)           Morph Control Pedal: 0xDD (b6-2)Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)           Morph Wheel:         0xDE (b5-1)           Morph After Touch:   0xDE (b0) and 0xDF (b7-4)           Morph Control Pedal: 0xDF (b3-0) and 0xE0 (b7)Drawbar 4: 0xE0 (b6-3)           Morph Wheel:         0xE0 (b2-0) and 0xE1 (b7-6)           Morph After Touch:   0xE1 (b5-b1)           Morph Control Pedal: 0xE1 (b0) and 0xE2 (b7-4)Drawbar 5: 0xE2 (b3-0)           Morph Wheel:         0xE3 (b7-3)           Morph After Touch:   0xE3 (b2-0) and 0xE4 (b7-6)           Morph Control Pedal: 0xE4 (b5-1)Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)           Morph Wheel:         0xE5 (b4-0)           Morph After Touch:   0xE6 (b7-3)           Morph Control Pedal: 0xE6 (b2-0) and 0xE7 (b7-6)Drawbar 7: 0xE7 (b5-2)           Morph Wheel:         0xE7 (b1-0) and 0xE8 (b7-5)           Morph After Touch:   0xE8 (b4-0)           Morph Control Pedal: 0xE9 (b7-3)Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)           Morph Wheel:         0xEA (b6-2)           Morph After Touch:   0xEA (b1-0) and 0xEB (b7-5)           Morph Control Pedal: 0xEB (b4-0)Drawbar 9: 0xEC (b7-4)           Morph Wheel:         0xEC (b3-0) and 0xED (b7)           Morph After Touch:   0xED (b6-2)           Morph Control Pedal: 0xED (b1-0) and 0xEF (b7-5)Morph value is on 5-bitb4 is polarityb3-0 is raw 4-bit valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 8Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 ```
 <a name="module_Organ Live Mode"></a>
 
@@ -633,13 +633,13 @@ O = off, 1 = on
 <a name="module_Piano Kb Zone"></a>
 
 ## Piano Kb Zone
-Offset in file: 0x43 (b6 to b3)
+Offset in file: 0x43 (b6-3)
 
 **See**: [Organ Kb Zone](api.md#organ-kb-zone) for detailed explanation.  
 <a name="module_Piano Volume"></a>
 
 ## Piano Volume
-Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)
+Offset in file: 0x43 (b2-0), 0x44 (b7-4)
 
 **See**: [Organ Volume](api.md#organ-volume) for Morph detailed explanation.  
 **Example**  
@@ -822,19 +822,15 @@ O = off, 1 = on
 <a name="module_Synth Kb Zone"></a>
 
 ## Synth Kb Zone
-Offset in file: 0x52 (b6 to b3)
+Offset in file: 0x52 (b6-3)
 
 **See**: [Organ Kb Zone](api.md#organ-kb-zone) for detailed explanation.  
 <a name="module_Synth Volume"></a>
 
 ## Synth Volume
-Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
+Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
 
-**See**
-
-- [Organ Volume](api.md#organ-volume) for detailed explanation.
-- [Organ Volume](api.md#organ-volume) for Morph detailed explanation.
-
+**See**: [Organ Volume](api.md#organ-volume) for Morph detailed explanation.  
 **Example**  
 ```js
 Morph Wheel:0x53 (b3): polarity (1 = positive, 0 = negative)0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw valueMorph After Touch:0x54 (b3): polarity (1 = positive, 0 = negative)0x54 (b2-b0), 0x55 (b7-b4): 7-bit raw valueMorph Control Pedal:0x55 (b3): polarity (1 = positive, 0 = negative)0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value

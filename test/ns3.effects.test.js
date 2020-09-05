@@ -429,16 +429,40 @@ describe("/ns3/effects", () => {
         });
     });
 
-    test("panelA.effects.rotarySpeaker.speed eq Fast", async () => {
-        const file = "panelA.effects.rotarySpeaker.speed eq Fast.ns3f";
+    test("panelA.effects.rotarySpeaker.speed.label eq Fast", async () => {
+        const file = "panelA.effects.rotarySpeaker.speed.label eq Fast.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.effects.rotarySpeaker.speed eq Slow@aStop", async () => {
-        const file = "panelA.effects.rotarySpeaker.speed eq Slow@aStop.ns3f";
+    test("panelA.effects.rotarySpeaker.speed.label eq Slow@aStop", async () => {
+        const file = "panelA.effects.rotarySpeaker.speed.label eq Slow@aStop.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.speed.morph.afterTouch.enabled eq true", async () => {
+        const file = "panelA.effects.rotarySpeaker.speed.morph.afterTouch.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.speed.morph.controlPedal.enabled eq true", async () => {
+        const file = "panelA.effects.rotarySpeaker.speed.morph.controlPedal.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.rotarySpeaker.speed.morph.wheel.enabled eq true", async () => {
+        const file = "panelA.effects.rotarySpeaker.speed.morph.wheel.enabled eq true.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

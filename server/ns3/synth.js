@@ -147,7 +147,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         enabled: synthEnabled,
 
         /**
-         * Offset in file: 0x52 (b6 to b3)
+         * Offset in file: 0x52 (b6-3)
          * @see {@link api.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
          * @module Synth Kb Zone
@@ -155,10 +155,10 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         kbZone: getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11),
 
         /**
-         * Offset in file: 0x52 (b2/1/0) and 0x53 (b7/6/5/4)
-         * @see {@link api.md#organ-volume Organ Volume} for detailed explanation.
+         * Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
          *
          * @example
+         *
          * Morph Wheel:
          * 0x53 (b3): polarity (1 = positive, 0 = negative)
          * 0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw value

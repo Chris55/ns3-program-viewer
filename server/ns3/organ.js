@@ -196,7 +196,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         enabled: organEnabled,
 
         /**
-         * Offset in file: 0xB6 (b6 to b3)
+         * Offset in file: 0xB6 (b6-3)
          *
          * @example
          * value     |      | Label
@@ -221,7 +221,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @example
          * Volume:
-         * 0xB6 (b2-b0), 0xB7 (b7-b4): 7-bit = 0/127 range
+         * 0xB6 (b2-b0), 0xB7 (b7-4): 7-bit = 0/127 range
          *
          * Morph Wheel:
          * 0xB7 (b3): polarity (1 = positive, 0 = negative)
@@ -294,10 +294,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @example
          *
-         * Drawbar value range:
-         * B3/Pipe1/Pipe2: 0/8
-         * Vox: 0 (if value < 4) else 1
-         * Farfisa: 0/8 (except drawbar 8 forced to 0)
+         * Drawbar value range is 0/8.
+         * For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1
+         * For Farfisa Organ drawbar 8 is not used and forced to 0
          *
          * Drawbar 1: 0xBE (b7-4)
          *            Morph Wheel:         0xBE (b3-0) and 0xBF (b7)
@@ -362,6 +361,11 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0xD9
          *
          * @example
+         *
+         * Drawbar value range is 0/8.
+         * For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1
+         * For Farfisa Organ drawbar 8 is not used and forced to 0
+         *
          * Drawbar 1: 0xD9 (b7-4)
          *            Morph Wheel:         0xD9 (b3-0) and 0xDA (b7)
          *            Morph After Touch:   0xDA (b6-2)

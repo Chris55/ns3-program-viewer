@@ -1,5 +1,11 @@
 ### Nord Stage 3 Program file mapping
 
+
+| rev   | date        | description
+| ----- | ----------- | ---------------------
+| 1.0   | 05-sep-2020 | first release
+
+
 ns3f file description:
 
 | offset   | bits       | description
@@ -57,8 +63,8 @@ ns3f file description:
 | `0x0032` | `ssssssss` |
 | `0x0033` | `ssssssss` |
 | `0x0034` | `sddpvvvr` | [(d) piano layer detune](api.md#piano-layer-detune), [(p) organ pitch stick](api.md#organ-pitch-stick), [(v) organ vibrato mode](api.md#organ-vibrato-mode), [(r) rotary speaker speed](api.md#rotary-speaker-speed)
-| `0x0035` | `m-------` | [(m) rotary speaker stop mode](api.md#rotary-speaker-stop-mode)
-| `0x0036` | `--------` |
+| `0x0035` | `mwwwaaap` | [(m) rotary speaker stop mode](api.md#rotary-speaker-stop-mode), [(w) rotary speaker speed morph wheel](api.md#rotary-speaker-speed), [(a) rotary speaker speed morph after touch](api.md#rotary-speaker-speed), [(p) rotary speaker speed morph control pedal](api.md#rotary-speaker-speed)
+| `0x0036` | `pp------` |
 | `0x0037` | `--------` |
 | `0x0038` | `tttttccc` | [(t) transpose](api.md#transpose), [(c) master clock rate](api.md#master-clock-rate)
 | `0x0039` | `cccccddd` | [(d) rotary speaker drive](api.md#rotary-speaker-drive)

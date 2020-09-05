@@ -41,6 +41,15 @@ exports.loadNs3fFile = (buffer) => {
      * @example
      * 16-bit integer value in Little Endian format, ex 304 = v3.04
      *
+     * Notes:
+     * From {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history}
+     * Programs stored with OS version
+     * v0.92 to v1.32 have version 3.00
+     * v1.36 to v1.46 have version 3.01
+     * v1.50 to vx.xx have version 3.02
+     * vx.xx to vx.xx have version 3.03
+     * vx.XX to v2.54 have version 3.04
+     *
      * @module File Version
      */
 

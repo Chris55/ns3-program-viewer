@@ -37,7 +37,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         enabled: pianoEnabled,
 
         /**
-         * Offset in file: 0x43 (b6 to b3)
+         * Offset in file: 0x43 (b6-3)
          * @see {@link api.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
          * @module Piano Kb Zone
@@ -45,9 +45,10 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         kbZone: getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11),
 
         /**
-         * Offset in file: 0x43 (b2 to b0), 0x44 (b7 to b4)
+         * Offset in file: 0x43 (b2-0), 0x44 (b7-4)
          *
          * @example
+         *
          * Morph Wheel:
          * 0x44 (b3): polarity (1 = positive, 0 = negative)
          * 0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw value
