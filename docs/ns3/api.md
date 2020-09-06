@@ -128,10 +128,10 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0xD3 (b4)</p>
 </dd>
 <dt><a href="#module_Organ Vibrato Mode">Organ Vibrato Mode</a></dt>
-<dd><p>Offset in file: 0x34 (b3/2/1)</p>
+<dd><p>Offset in file: 0x34 (b3-1)</p>
 </dd>
 <dt><a href="#module_Organ Percussion On">Organ Percussion On</a></dt>
-<dd><p>Offset in file: 0xD3 (b4)</p>
+<dd><p>Offset in file: 0xD3 (b3)</p>
 </dd>
 <dt><a href="#module_Organ Percussion Volume Soft">Organ Percussion Volume Soft</a></dt>
 <dd><p>Offset in file: 0xD3 (b0)</p>
@@ -682,20 +682,20 @@ O = off, 1 = on
 <a name="module_Organ Vibrato Mode"></a>
 
 ## Organ Vibrato Mode
-Offset in file: 0x34 (b3/2/1)
+Offset in file: 0x34 (b3-1)
 
 **Example**  
 ```js
-O = off, 1 = on
+0 = V11 = C12 = V23 = C24 = V35 = C3if Organ type is Pipe1 or Pipe2, only C1 is allowedif Organ type is Farfisa, mode C1/V3 are not availableif Organ type is Vox, mode C1/C2/C3 are not availableif Organ type is B3, all mode are available
 ```
 <a name="module_Organ Percussion On"></a>
 
 ## Organ Percussion On
-Offset in file: 0xD3 (b4)
+Offset in file: 0xD3 (b3)
 
 **Example**  
 ```js
-O = off, 1 = on
+O = off, 1 = ononly if Organ type is B3
 ```
 <a name="module_Organ Percussion Volume Soft"></a>
 
@@ -704,7 +704,7 @@ Offset in file: 0xD3 (b0)
 
 **Example**  
 ```js
-O = off, 1 = on
+O = off, 1 = ononly if Organ type is B3
 ```
 <a name="module_Organ Percussion Decay Fast"></a>
 
@@ -713,7 +713,7 @@ Offset in file: 0xD3 (b1)
 
 **Example**  
 ```js
-O = off, 1 = on
+O = off, 1 = ononly if Organ type is B3
 ```
 <a name="module_Organ Percussion Harmonic Third"></a>
 
@@ -722,7 +722,7 @@ Offset in file: 0xD3 (b2)
 
 **Example**  
 ```js
-O = off, 1 = on
+O = off, 1 = ononly if Organ type is B3
 ```
 <a name="module_Panel Enabled And Selection"></a>
 

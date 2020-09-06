@@ -182,7 +182,20 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
     const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
 
     const organType = mapping.organTypeMap.get((organOffsetBb & 0x70) >>> 4);
+    const organTypeIsB3 = organType === "B3";
+
     const organEnabled = (organOffsetB6W & 0x8000) !== 0;
+
+    const organModeValue = (organOffset34 & 0x0e) >>> 1;
+    let organMode = mapping.organVibratoModeMap.get(organModeValue);
+
+    if (organType === "Pipe1" || organType === "Pipe2") {
+        organMode = "C1";
+    } else if (organType === "Farfisa" && (organMode === "C1" || organMode === "V3")) {
+        organMode = mapping.organVibratoModeMap.get(organModeValue + 1);
+    } else if (organType === "Vox" && (organMode === "C1" || organMode === "C2" || organMode === "C3")) {
+        organMode = mapping.organVibratoModeMap.get(organModeValue + 1);
+    }
 
     return {
         /**
@@ -454,11 +467,21 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * Offset in file: 0x34 (b3-1)
              *
              * @example
-             * O = off, 1 = on
+             * 0 = V1
+             * 1 = C1
+             * 2 = V2
+             * 3 = C2
+             * 4 = V3
+             * 5 = C3
+             *
+             * if Organ type is Pipe1 or Pipe2, only C1 is allowed
+             * if Organ type is Farfisa, mode C1/V3 are not available
+             * if Organ type is Vox, mode C1/C2/C3 are not available
+             * if Organ type is B3, all mode are available
              *
              * @module Organ Vibrato Mode
              */
-            mode: mapping.organVibratoModeMap.get((organOffset34 & 0x0e) >>> 1),
+            mode: organMode,
         },
 
         /***
@@ -471,9 +494,11 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * @example
              * O = off, 1 = on
              *
+             * only if Organ type is B3
+             *
              * @module Organ Percussion On
              */
-            enabled: (organOffsetD3 & 0x08) !== 0,
+            enabled: organTypeIsB3 && (organOffsetD3 & 0x08) !== 0,
 
             /**
              * Offset in file: 0xD3 (b0)
@@ -481,9 +506,11 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * @example
              * O = off, 1 = on
              *
+             * only if Organ type is B3
+             *
              * @module Organ Percussion Volume Soft
              */
-            volumeSoft: (organOffsetD3 & 0x01) !== 0,
+            volumeSoft: organTypeIsB3 && (organOffsetD3 & 0x01) !== 0,
 
             /**
              * Offset in file: 0xD3 (b1)
@@ -491,9 +518,11 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * @example
              * O = off, 1 = on
              *
+             * only if Organ type is B3
+             *
              * @module Organ Percussion Decay Fast
              */
-            decayFast: (organOffsetD3 & 0x02) !== 0,
+            decayFast: organTypeIsB3 && (organOffsetD3 & 0x02) !== 0,
 
             /**
              * Offset in file: 0xD3 (b2)
@@ -501,9 +530,11 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * @example
              * O = off, 1 = on
              *
+             * only if Organ type is B3
+             *
              * @module Organ Percussion Harmonic Third
              */
-            harmonicThird: (organOffsetD3 & 0x04) !== 0,
+            harmonicThird: organTypeIsB3 && (organOffsetD3 & 0x04) !== 0,
         },
     };
 };
