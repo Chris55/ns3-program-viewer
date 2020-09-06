@@ -14,7 +14,7 @@ ns3f file description:
 | `0x0001` | `cccccccc` | ascii 'B' 0x42
 | `0x0002` | `cccccccc` | ascii 'I' 0x49
 | `0x0003` | `cccccccc` | ascii 'N' 0x4E
-| `0x0004` | `vvvvvvvv` | version 0 or 1
+| `0x0004` | `vvvvvvvv` | version 1
 | `0x0005` | `--------` | 0
 | `0x0006` | `--------` | 0
 | `0x0007` | `--------` | 0
@@ -263,7 +263,7 @@ ns3f file description:
 | `0x00FB` | `pppppp--` |
 | `0x00FC` | `--------` |
 | `0x00FD` | `-------v` | [(v) extern midi program](api.md#extern-midi-program)
-| `0x00FE` | 'wwwwwwaa` | [(a) extern midi program after touch](api.md#extern-midi-program)
+| `0x00FE` | `wwwwwwaa` | [(a) extern midi program after touch](api.md#extern-midi-program)
 | `0x00FF` | `aaaaaapp` | [(p) extern midi program control pedal](api.md#extern-midi-program)
 | `0x0100` | `pppppp--` |
 | `0x0101` | `-------v` | [(v) extern volume](api.md#extern-volume)

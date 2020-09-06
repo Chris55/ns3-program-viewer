@@ -153,12 +153,12 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  Offset 0 in file: 0x10B (b1-0) and 0x10C (b7)
          *
          * @example
-         *  0 = A-Pan
-         *  1 = Trem
-         *  2 = RM
-         *  3 = WA-WA
-         *  4 = A-WA1
-         *  5 = A-WA2
+         * 0 = A-Pan
+         * 1 = Trem
+         * 2 = RM
+         * 3 = WA-WA
+         * 4 = A-WA1
+         * 5 = A-WA2
          *
          *  @module Effect 1 Type
          */

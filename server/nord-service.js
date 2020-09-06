@@ -22,7 +22,7 @@ exports.loadNs3fFile = (buffer) => {
     }
 
 
-    if (buffer.length !== 592) {
+    if (buffer.length !== 592 && buffer.length !== 574) {
         throw new Error("Invalid file, unexpected file length");
     }
 
