@@ -20,11 +20,14 @@ exports.loadNs3fFile = (buffer) => {
             throw new Error(fileExt + " file are not supported, select a valid ns3f file");
         }
     }
+
+
     if (buffer.length !== 592) {
         throw new Error("Invalid file, unexpected file length");
     }
 
     // const fileId = buffer.readUInt16BE(0x0e);
+    const offset04 = buffer.readUInt8(0x04);
     const offset10 = buffer.readUInt8(0x10);
     const offset14W = buffer.readUInt16LE(0x14);
     const offset31 = buffer.readUInt8(0x31);
@@ -35,6 +38,9 @@ exports.loadNs3fFile = (buffer) => {
     const offset38 = buffer.readUInt8(0x38);
 
 
+    if (offset04 !== 1)  {
+        console.log ("Offset 0x04 <> 1 !!!!!!");
+    }
     /**
      * Offset in file: 0x14 and 0x15
      *
@@ -43,12 +49,14 @@ exports.loadNs3fFile = (buffer) => {
      *
      * Notes:
      * From {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history}
+     *
      * Programs stored with OS version
-     * v0.92 to v1.32 have version 3.00
-     * v1.36 to v1.46 have version 3.01
-     * v1.50 to vx.xx have version 3.02
-     * vx.xx to vx.xx have version 3.03
-     * vx.XX to v2.54 have version 3.04
+     * OS version          Program version   File size
+     * v0.92 (2017-06-15)  v3.00             574  (header type 0)
+     * v1.36 (2018-02-07)  v3.01             574  (header type 0)
+     * v1.50 (2018-10-22)  v3.02             574  (header type 0)
+     * vx.xx               v3.03             592  (header type 1)
+     * vx.xx               v3.04             592  (header type 1)
      *
      * @module File Version
      */
@@ -56,6 +64,11 @@ exports.loadNs3fFile = (buffer) => {
     const zeroPad = (num, places) => String(num).padStart(places, "0");
     const majorVersion = Math.trunc(offset14W / 100);
     const minorVersion = zeroPad(offset14W - majorVersion * 100, 2);
+    const version = majorVersion + "." + minorVersion;
+
+    if (version !== "3.04") {
+        throw new Error("Sorry, only v3.04 is supported... file is v" + version);
+    }
 
     /**
      * Offset in file: 0x38 (b7-3)
@@ -236,9 +249,13 @@ exports.loadNs3fFile = (buffer) => {
         // program file
         name: "",
 
-        version: majorVersion + "." + minorVersion,
+        version: version,
 
-
+        /**
+         * Offset in file: 0x10
+         *
+         * @module Program Category
+         */
         category: mapping.categoryMap.get(offset10),
         //fileId: fileId,
 

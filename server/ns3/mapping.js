@@ -1718,3 +1718,13 @@ exports.effect2TypeMap = new Map([
     [4, "Chorus 1"],
     [5, "Chorus 2"],
 ]);
+
+/***
+ * Extern Control Types
+ * @type {Map<number, string>}
+ */
+exports.externControlMap = new Map([
+    [0, "Midi CC"],
+    [1, "Program"],
+    [2, "Volume"],
+]);

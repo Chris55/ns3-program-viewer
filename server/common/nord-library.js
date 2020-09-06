@@ -14,15 +14,18 @@ exports.sampleIdMap = new Map([
 
     [0xb75c012b, "Velvet Grand Model1 XL 5.3"],
     [0xd78ad52d, "Velvet Grand Model1 Lrg 5.3"],
-    [0xa536dd4, "Velvet Grand Model1 Med 5.3"],
-    [0xeca16f2, "Velvet Grand Model1 Sml 5.3"],
+    [0x0a536dd4, "Velvet Grand Model1 Med 5.3"],
+    [0x0eca16f2, "Velvet Grand Model1 Sml 5.3"],  // 82 26 24 75
 
     // Upright Piano
 
-    [0x8105835, "Baby Upright Nordiska  XL 5.4"],
+    [0x08105835, "Baby Upright Nordiska  XL 5.4"],
     [0x9123351c, "Baby Upright Nordiska  Lrg 5.4"],
     [0x4c459568, "Baby Upright Nordiska  Med 5.4"],
-    [0xd4be9234, "Baby Upright Nordiska  Sml 5.4"],
+    [0xd4be9234, "Baby Upright Nordiska  Sml 5.4"],   // 39 D2 16 65
+
+    //     D4          BE
+    // 1101  0100  1011 1110
 
     [0xb23ac497, "Saloon Upright Baumgardt Lrg 5.3"],
     [0x413649a1, "Saloon Upright Baumgardt Med 5.3"],

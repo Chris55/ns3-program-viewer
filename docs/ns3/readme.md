@@ -14,10 +14,10 @@ ns3f file description:
 | `0x0001` | `cccccccc` | ascii 'B' 0x42
 | `0x0002` | `cccccccc` | ascii 'I' 0x49
 | `0x0003` | `cccccccc` | ascii 'N' 0x4E
-| `0x0004` | `--------` |
-| `0x0005` | `--------` |
-| `0x0006` | `--------` |
-| `0x0007` | `--------` |
+| `0x0004` | `vvvvvvvv` | version 0 or 1
+| `0x0005` | `--------` | 0
+| `0x0006` | `--------` | 0
+| `0x0007` | `--------` | 0
 | `0x0008` | `cccccccc` | ascii 'n' 0x6E, 4-byte NS3 Program file ID
 | `0x0009` | `cccccccc` | ascii 's' 0x73,
 | `0x000A` | `cccccccc` | ascii '3' 0x33,
@@ -26,7 +26,7 @@ ns3f file description:
 | `0x000D` | `--------` |
 | `0x000E` | `--------` |
 | `0x000F` | `--------` |
-| `0x0010` | `--------` |
+| `0x0010` | `cccccccc` | [(c) program category](api.md#program-category)
 | `0x0011` | `--------` |
 | `0x0012` | `--------` |
 | `0x0013` | `--------` |
@@ -253,24 +253,24 @@ ns3f file description:
 | `0x00F1` | `--------` |
 | `0x00F2` | `--------` |
 | `0x00F3` | `--------` |
-| `0x00F4` | `--------` |
-| `0x00F5` | `--------` |
-| `0x00F6` | `--------` |
-| `0x00F7` | `--------` |
-| `0x00F8` | `--------` |
-| `0x00F9` | `--------` |
-| `0x00FA` | `--------` |
-| `0x00FB` | `--------` |
+| `0x00F4` | `ozzz--ss` | [(o) extern on](api.md#extern-on), [(z) extern kb zone](api.md#extern-kb-zone), [(s) extern octave shift](api.md#extern-octave-shift)
+| `0x00F5` | `s-------` |
+| `0x00F6` | `ps----mm` | [(p) extern pitch stick](api.md#extern-pitch-stick), [(s) extern sustain pedal](api.md#extern-sustain-pedal), [(m) extern midi control](api.md#extern-midi-control)
+| `0x00F7` | `-------v` | [(v) extern midi cc](api.md#extern-midi-cc)
+| `0x00F8` | `vvvvvvww` | [(w) extern midi cc morph wheel](api.md#extern-midi-cc)
+| `0x00F9` | `wwwwwwaa` | [(a) extern midi cc morph after touch](api.md#extern-midi-cc)
+| `0x00FA` | `aaaaaapp` | [(p) extern midi cc morph control pedal](api.md#extern-midi-cc)
+| `0x00FB` | `pppppp--` |
 | `0x00FC` | `--------` |
-| `0x00FD` | `--------` |
-| `0x00FE` | `--------` |
-| `0x00FF` | `--------` |
-| `0x0100` | `--------` |
-| `0x0101` | `--------` |
-| `0x0102` | `--------` |
-| `0x0103` | `--------` |
-| `0x0104` | `--------` |
-| `0x0105` | `--------` |
+| `0x00FD` | `-------v` | [(v) extern midi program](api.md#extern-midi-program)
+| `0x00FE` | 'wwwwwwaa` | [(a) extern midi program after touch](api.md#extern-midi-program)
+| `0x00FF` | `aaaaaapp` | [(p) extern midi program control pedal](api.md#extern-midi-program)
+| `0x0100` | `pppppp--` |
+| `0x0101` | `-------v` | [(v) extern volume](api.md#extern-volume)
+| `0x0102` | `vvvvvvww` | [(w) extern volume morph wheel](api.md#extern-volume)
+| `0x0103` | `wwwwwwaa` | [(a) extern volume morph after touch](api.md#extern-volume)
+| `0x0104` | `aaaaaapp` | [(p) extern volume morph control pedal](api.md#extern-volume)
+| `0x0105` | `pppppp--` |
 | `0x0106` | `--------` |
 | `0x0107` | `--------` |
 | `0x0108` | `--------` |

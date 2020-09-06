@@ -1,3 +1,4 @@
+const { getExtern } = require("./extern");
 const { getEffect2 } = require("./effects");
 const { getEffect1 } = require("./effects");
 const { getRotarySpeakerEffect } = require("./effects");
@@ -46,6 +47,7 @@ exports.getPanel = function (buffer, id, splitEnabled) {
         organ: getOrgan(buffer, panelOffset, splitEnabled),
         piano: getPiano(buffer, panelOffset, splitEnabled),
         synth: getSynth(buffer, panelOffset, splitEnabled),
+        extern: getExtern(buffer, panelOffset, splitEnabled),
         effects: {
             rotarySpeaker: getRotarySpeakerEffect(buffer, panelOffset),
             effect1: getEffect1(buffer, panelOffset),
@@ -54,6 +56,6 @@ exports.getPanel = function (buffer, id, splitEnabled) {
             // ampSimEq: {},
             // compressor: {},
             // reverb: {}
-        }
+        },
     };
 };

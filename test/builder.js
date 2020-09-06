@@ -47,6 +47,7 @@ const buildAll = async() => {
     await build("/ns3/synth/lfo", "ns3.synth.lfo.test.js");
     await build("/ns3/synth/envelopes", "ns3.synth.envelopes.test.js");
     await build("/ns3/synth/arpeggiator", "ns3.synth.arpeggiator.test.js");
+    await build("/ns3/extern", "ns3.extern.test.js");
 }
 
 buildAll().catch(console.error)

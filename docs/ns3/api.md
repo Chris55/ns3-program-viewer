@@ -15,6 +15,9 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_Master Clock Rate">Master Clock Rate</a></dt>
 <dd><p>Offset in file: 0x38 (b2-0) 0x39 (b7-3)</p>
 </dd>
+<dt><a href="#module_Program Category">Program Category</a></dt>
+<dd><p>Offset in file: 0x10</p>
+</dd>
 <dt><a href="#module_Rotary Speaker On">Rotary Speaker On</a></dt>
 <dd><p>Offset in file: 0x10b (bit7)</p>
 </dd>
@@ -62,6 +65,33 @@ Value: 0x38 (b6-3)</p>
 </dd>
 <dt><a href="#module_Effect 2 Rate">Effect 2 Rate</a></dt>
 <dd><p>Offset in file: 0x114 (b1-0) &amp;nd 0x115 (b7-3)</p>
+</dd>
+<dt><a href="#module_Extern On">Extern On</a></dt>
+<dd><p>Offset in file: 0xF4 (b7)</p>
+</dd>
+<dt><a href="#module_Extern Kb Zone">Extern Kb Zone</a></dt>
+<dd><p>Offset in file: 0xF4 (b6-3)</p>
+</dd>
+<dt><a href="#module_Extern Octave Shift">Extern Octave Shift</a></dt>
+<dd><p>Offset in file: 0xF4 (b1-0) and 0xF5 (b7)</p>
+</dd>
+<dt><a href="#module_Extern Pitch Stick">Extern Pitch Stick</a></dt>
+<dd><p>Offset in file: 0xF6 (b7)</p>
+</dd>
+<dt><a href="#module_Extern Sustain Pedal">Extern Sustain Pedal</a></dt>
+<dd><p>Offset in file: 0xF6 (b6)</p>
+</dd>
+<dt><a href="#module_Extern Midi Control">Extern Midi Control</a></dt>
+<dd><p>Offset in file: 0xF6 (b1-0)</p>
+</dd>
+<dt><a href="#module_Extern Midi CC">Extern Midi CC</a></dt>
+<dd><p>Offset in file: 0xF7 (b0) and 0xF8 (b7-2)</p>
+</dd>
+<dt><a href="#module_Extern Midi Program">Extern Midi Program</a></dt>
+<dd><p>Offset in file: 0xFD (b0) and 0xFE (b7-2)</p>
+</dd>
+<dt><a href="#module_Extern Volume">Extern Volume</a></dt>
+<dd><p>Offset in file: 0x101 (b0) and 0x102 (b7-2)</p>
 </dd>
 <dt><a href="#module_Organ On">Organ On</a></dt>
 <dd><p>Offset in file: 0xB6 (b7)</p>
@@ -138,6 +168,9 @@ Value: 0x38 (b6-3)</p>
 </dd>
 <dt><a href="#module_Piano Model">Piano Model</a></dt>
 <dd><p>Offset in file:  0x48 (b2-0) and 0x49 (b7-6)</p>
+</dd>
+<dt><a href="#module_Piano Name">Piano Name</a></dt>
+<dd><p>Offset in file: 0x49 (b3-0) to 0x4D (b7-3)</p>
 </dd>
 <dt><a href="#module_Piano Timbre">Piano Timbre</a></dt>
 <dd><p>Offset in file: 0x4E (b5-3)</p>
@@ -292,7 +325,7 @@ Offset in file: 0x14 and 0x15
 
 **Example**  
 ```js
-16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionv0.92 to v1.32 have version 3.00v1.36 to v1.46 have version 3.01v1.50 to vx.xx have version 3.02vx.xx to vx.xx have version 3.03vx.XX to v2.54 have version 3.04
+16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionOS version          Program version   File sizev0.92 (2017-06-15)  v3.00             574  (header type 0)v1.36 (2018-02-07)  v3.01             574  (header type 0)v1.50 (2018-10-22)  v3.02             574  (header type 0)vx.xx               v3.03             592  (header type 1)vx.xx               v3.04             592  (header type 1)
 ```
 <a name="module_Transpose"></a>
 
@@ -321,6 +354,11 @@ Offset in file: 0x38 (b2-0) 0x39 (b7-3)
 ```js
 bpm = value + 30
 ```
+<a name="module_Program Category"></a>
+
+## Program Category
+Offset in file: 0x10
+
 <a name="module_Rotary Speaker On"></a>
 
 ## Rotary Speaker On
@@ -467,6 +505,80 @@ Offset in file: 0x114 (b1-0) &nd 0x115 (b7-3)
 **Example**  
 ```js
 7-bit value 0/127 = 0/10
+```
+<a name="module_Extern On"></a>
+
+## Extern On
+Offset in file: 0xF4 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_Extern Kb Zone"></a>
+
+## Extern Kb Zone
+Offset in file: 0xF4 (b6-3)
+
+**See**: [Organ Kb Zone](api.md#organ-kb-zone) for detailed explanation.  
+<a name="module_Extern Octave Shift"></a>
+
+## Extern Octave Shift
+Offset in file: 0xF4 (b1-0) and 0xF5 (b7)
+
+**Example**  
+```js
+Octave Shift = value - 6
+```
+<a name="module_Extern Pitch Stick"></a>
+
+## Extern Pitch Stick
+Offset in file: 0xF6 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_Extern Sustain Pedal"></a>
+
+## Extern Sustain Pedal
+Offset in file: 0xF6 (b6)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_Extern Midi Control"></a>
+
+## Extern Midi Control
+Offset in file: 0xF6 (b1-0)
+
+<a name="module_Extern Midi CC"></a>
+
+## Extern Midi CC
+Offset in file: 0xF7 (b0) and 0xF8 (b7-2)
+
+**Example**  
+```js
+O7-bit value = 0/127
+```
+<a name="module_Extern Midi Program"></a>
+
+## Extern Midi Program
+Offset in file: 0xFD (b0) and 0xFE (b7-2)
+
+**Example**  
+```js
+O7-bit value = 0/127
+```
+<a name="module_Extern Volume"></a>
+
+## Extern Volume
+Offset in file: 0x101 (b0) and 0x102 (b7-2)
+
+**Example**  
+```js
+O7-bit value = 0/127
 ```
 <a name="module_Organ On"></a>
 
@@ -690,6 +802,15 @@ Offset in file:  0x48 (b2-0) and 0x49 (b7-6)
 **Example**  
 ```js
 0x00 0x00: model 10x00 0x01: model 2.. and so on0x02 0x01: model 10
+```
+<a name="module_Piano Name"></a>
+
+## Piano Name
+Offset in file: 0x49 (b3-0) to 0x4D (b7-3)
+
+**Example**  
+```js
+32-bit Nord Sample ID
 ```
 <a name="module_Piano Timbre"></a>
 
