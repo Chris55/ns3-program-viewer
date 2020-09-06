@@ -429,7 +429,7 @@ Offset 0 in file: 0x10B (b1-0) and 0x10C (b7)
 
 **Example**  
 ```js
-0 = A-Pan 1 = Trem 2 = RM 3 = WA-WA 4 = A-WA1 5 = A-WA2 
+0 = A-Pan1 = Trem2 = RM3 = WA-WA4 = A-WA15 = A-WA2 
 ```
 <a name="module_Effect 1 Amount"></a>
 

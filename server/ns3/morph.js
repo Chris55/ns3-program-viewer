@@ -4,9 +4,10 @@
  * @param uint32Value 32-bit value, wheel expected to be in b23-16, after touch in b15-8, and control pedal in b7-0.
  * @param midiFrom 7-bit original position
  * @param labelCallBack callback method to render the label
+ * @param forceDisabled optional used ont dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, label: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, label: (*|string)}, enabled: *}, wheel: {to: {midi: *, label: (*|string)}, enabled: *}}}
  */
-exports.getMorph = (uint32Value, midiFrom, labelCallBack) => {
+exports.getMorph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -19,7 +20,7 @@ exports.getMorph = (uint32Value, midiFrom, labelCallBack) => {
         const positive = (rawValue & 0x80) !== 0;
         const offset = positive ? rawOffsetValue + 1 : rawOffsetValue - 127;
         result.push({
-            enabled: offset !== 0,
+            enabled: forceDisabled ? false: offset !== 0,
             midiTo: midiFrom + offset,
         });
     });

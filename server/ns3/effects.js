@@ -231,7 +231,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
                 return effect1MasterClockUsed
                     ? mapping.effect1MasterClockDivisionMap.get(x)
                     : converter.midi2LinearStringValue(0, 10, x, 1, "");
-            }),
+            }, false),
         },
 
         /**
@@ -327,7 +327,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
 
             morph: getMorph(effectOffset116Ww >>> 4, effect2AmountMidi, (x) => {
                 return converter.midi2LinearStringValue(0, 10, x, 1, "");
-            }),
+            }, false),
         },
 
         /**

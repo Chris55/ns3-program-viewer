@@ -77,7 +77,7 @@ exports.getVolumeEx = (buffer, offset) => {
     // To values
     const morph = getMorph(morphOffsetB7Ww >>> 4, midi, (x) => {
         return mapping.dBMap.get(x);
-    });
+    }, false);
 
     return {
         /***

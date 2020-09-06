@@ -167,10 +167,10 @@ ns3f file description:
 | `0x009A` | `wwwwwaaa` | [(a) synth filter freq morph after touch](api.md#synth-filter-freq)
 | `0x009B` | `aaaaappp` | [(p) synth filter freq morph control pedal](api.md#synth-filter-freq)
 | `0x009C` | `ppppphhh` | [(h) synth filter hp freq res](api.md#synth-filter-hp-freq-res)
-| `0x009D` | `hhhh----` |
-| `0x009E` | `--------` |
-| `0x009F` | `--------` |
-| `0x00A0` | `----llll` | [(l) synth filter lfo amount](api.md#synth-filter-lfo-amount)
+| `0x009D` | `hhhhwwww` | [(w) synth filter hp freq res morph wheel](api.md#synth-filter-hp-freq-res)
+| `0x009E` | `wwwwaaaa` | [(a) synth filter hp freq res morph after touch](api.md#synth-filter-hp-freq-res)
+| `0x009F` | `aaaapppp` | [(p) synth filter hp freq res morph control pedal](api.md#synth-filter-hp-freq-res)
+| `0x00A0` | `ppppllll` | [(l) synth filter lfo amount](api.md#synth-filter-lfo-amount)
 | `0x00A1` | `lllwwwww` | [(w) synth filter lfo amount morph wheel](api.md#synth-filter-lfo-amount)
 | `0x00A2` | `wwwaaaaa` | [(a) synth filter lfo amount morph after touch](api.md#synth-filter-lfo-amount)
 | `0x00A3` | `aaappppp` | [(p) synth filter lfo amount morph control pedal](api.md#synth-filter-lfo-amount)

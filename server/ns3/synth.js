@@ -628,7 +628,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                     return lfoRateMasterClock
                         ? mapping.synthLfoRateMasterClockDivisionMap.get(x)
                         : mapping.synthLfoRateMap.get(x);
-                })
+                }, false)
             },
 
             /**
@@ -687,7 +687,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                     return arpeggiatorMasterClock
                         ? mapping.synthArpMasterClockDivisionMap.get(x)
                         : mapping.synthArpRateMap.get(x);
-                })
+                }, false)
             },
 
             /**

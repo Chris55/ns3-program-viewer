@@ -333,6 +333,14 @@ describe("/ns3/synth/filter", () => {
         });
     });
 
+    test("panelA.synth.filter.type eq BP24 and panelA.synth.filter.resonance.morph.afterTouch.to.label eq 9.2", async () => {
+        const file = "panelA.synth.filter.type eq BP24 and panelA.synth.filter.resonance.morph.afterTouch.to.label eq 9.2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.filter.type eq BP24", async () => {
         const file = "panelA.synth.filter.type eq BP24.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -359,6 +367,14 @@ describe("/ns3/synth/filter", () => {
 
     test("panelA.synth.filter.type eq LP24", async () => {
         const file = "panelA.synth.filter.type eq LP24.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.filter.type eq LP@pHP and panelA.synth.filter.highPassCutoffFrequency.morph.wheel.to.label eq 1.4 kHz", async () => {
+        const file = "panelA.synth.filter.type eq LP@pHP and panelA.synth.filter.highPassCutoffFrequency.morph.wheel.to.label eq 1.4 kHz.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

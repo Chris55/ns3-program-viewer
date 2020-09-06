@@ -1,5 +1,6 @@
 const mapping = require("./mapping");
 const converter = require("../common/converter");
+const { getMorph2 } = require("./morph");
 const { getMorph } = require("./morph");
 const { getKnobDualValues } = require("../common/utils");
 
@@ -8,12 +9,15 @@ exports.getFilter = (buffer, panelOffset) => {
     const synthOffset98W = buffer.readUInt16BE(0x98 + panelOffset);
     const synthOffset99Ww = buffer.readUInt32BE(0x99 + panelOffset);
     const synthOffset9cW = buffer.readUInt16BE(0x9c + panelOffset);
+    const synthOffset9dWw = buffer.readUInt32BE(0x9d + panelOffset);
     const synthOffsetA0W = buffer.readUInt16BE(0xa0 + panelOffset);
     const synthOffsetA1Ww = buffer.readUInt32BE(0xa1 + panelOffset);
     const synthOffsetA4W = buffer.readUInt16BE(0xa4 + panelOffset);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
 
     const filterType = mapping.synthFilterTypeMap.get((synthOffset98 & 0x1c) >>> 2);
+    const filterTypeIsLpHp = filterType === "LP+HP";
+
     const filterModulation1KnobMidi = (synthOffsetA0W & 0x0fe0) >>> 5;
     const filterModulation2Knob = getKnobDualValues((synthOffsetA4W & 0x1fc0) >>> 6);
 
@@ -91,7 +95,7 @@ exports.getFilter = (buffer, panelOffset) => {
                 label: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
                 morph: getMorph(synthOffsetA1Ww >>> 5, filterModulation1KnobMidi, (x) => {
                     return converter.midi2LinearStringValue(0, 10, x, 1, "");
-                }),
+                }, false),
             },
 
             /**
@@ -143,7 +147,7 @@ exports.getFilter = (buffer, panelOffset) => {
             label: mapping.synthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
             morph: getMorph(synthOffset99Ww >>> 3, filterCutoffFreqKnobMidi, (x) => {
                 return mapping.synthFilterCutoffFrequencyMap.get(x);
-            }),
+            }, false),
         },
 
         /**
@@ -160,16 +164,26 @@ exports.getFilter = (buffer, panelOffset) => {
          */
 
         highPassCutoffFrequency: {
-            midi: filterType === "LP+HP" ? filterResFreqHpKnobMidi : 0,
-            label: filterType === "LP+HP" ? mapping.synthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
+            midi: filterTypeIsLpHp ? filterResFreqHpKnobMidi : 0,
+
+            label: filterTypeIsLpHp ? mapping.synthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
+
+            morph: getMorph(synthOffset9dWw >>> 4, filterResFreqHpKnobMidi, (x) => {
+                return filterTypeIsLpHp ? mapping.synthFilterCutoffFrequencyMap.get(x) : "none";
+            }, !filterTypeIsLpHp),
         },
 
         resonance: {
-            midi: filterType === "LP+HP" ? 0 : filterResFreqHpKnobMidi,
+            midi: filterTypeIsLpHp ? 0 : filterResFreqHpKnobMidi,
+
             label:
-                filterType === "LP+HP"
+                filterTypeIsLpHp
                     ? "0.0"
                     : converter.midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
+
+            morph: getMorph(synthOffset9dWw >>> 4, filterResFreqHpKnobMidi, (x) => {
+                return filterTypeIsLpHp ? "none" : converter.midi2LinearStringValue(0, 10, x, 1, "");
+            }, filterTypeIsLpHp),
         },
     };
 };
