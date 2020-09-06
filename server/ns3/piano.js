@@ -26,6 +26,12 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     const pianoOffset4dW = buffer.readUInt16BE(0x4d + panelOffset);
 
     const pianoEnabled = (pianoOffset43W & 0x8000) !== 0;
+    const pianoTypeValue = (pianoOffset48 & 0x38) >>> 3;
+
+
+    const pianoTimbreValues = mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3);
+    const pianoTimbre = (pianoTypeValue >= 0 && pianoTypeValue < 6) ? pianoTimbreValues[pianoTypeValue]: "None"
+
 
     //const pianoNamePrefix = (pianoOffset4d & 0x30) >>> 4;
     const pianoNamePrefix = (pianoOffset49 & 0x30) >>> 4;
@@ -125,7 +131,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Type
          */
-        type: mapping.pianoTypeMap.get((pianoOffset48 & 0x38) >>> 3),
+        type: mapping.pianoTypeMap.get(pianoTypeValue),
 
         /**
          * Offset in file:  0x48 (b2-0) and 0x49 (b7-6)
@@ -154,16 +160,32 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0x4E (b5-3)
          *
          * @example
+         * Grand, Upright, Digital, and Misc Piano:
+         * 0 = None
+         * 1 = Soft
+         * 2 = Mid
+         *
+         * Electric Piano
          * 0 = None
          * 1 = Soft
          * 2 = Mid
          * 3 = Bright
-         * 4 = DYNO1
-         * 5 = DYNO2
+         * 4 = Dyno1
+         * 5 = Dyno2
+         *
+         * Clavinet
+         * 0 = None
+         * 1 = Soft
+         * 2 = Treble
+         * 3 = Soft+Treble
+         * 4 = Brilliant
+         * 5 = Soft+Brill
+         * 6 = Treble+Brill
+         * 7 = Soft+Trb+Brill
          *
          * @module Piano Timbre
          */
-        timbre: mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3),
+        timbre: pianoTimbre,
 
         /**
          * Offset in file: 0x4D (b0) and 0x4E (b7)
@@ -197,9 +219,11 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          * @example
          * O = off, 1 = on
          *
+         * Not available on Clavinet and Digital Piano
+         *
          * @module Piano Soft Release
          */
-        softRelease: (pianoOffset4d & 0x08) !== 0,
+        softRelease: (pianoTypeValue !== 3) && (pianoTypeValue !== 4) && (pianoOffset4d & 0x08) !== 0,
 
         /**
          * Offset in file: 0x4D (b2)
@@ -207,9 +231,11 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          * @example
          * O = off, 1 = on
          *
+         * Only on Grand, Upright, and Electric piano.
+         *
          * @module Piano Pedal Noise
          */
-        pedalNoise: (pianoOffset4d & 0x02) !== 0,
+        pedalNoise: (pianoTypeValue <= 2) && (pianoOffset4d & 0x02) !== 0,
 
         /**
          * Offset in file: 0x4D (b3)
@@ -217,9 +243,11 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          * @example
          * O = off, 1 = on
          *
+         * Only on Grand and Upright piano.
+         *
          * @module Piano String Resonance
          */
-        stringResonance: (pianoOffset4d & 0x04) !== 0,
+        stringResonance: (pianoTypeValue <= 1) && (pianoOffset4d & 0x04) !== 0,
     };
 
     if (process.env.NODE_ENV === 'production')  {

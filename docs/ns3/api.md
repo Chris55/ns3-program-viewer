@@ -819,7 +819,7 @@ Offset in file: 0x4E (b5-3)
 
 **Example**  
 ```js
-0 = None1 = Soft2 = Mid3 = Bright4 = DYNO15 = DYNO2
+Grand, Upright, Digital, and Misc Piano:0 = None1 = Soft2 = MidElectric Piano0 = None1 = Soft2 = Mid3 = Bright4 = Dyno15 = Dyno2Clavinet0 = None1 = Soft2 = Treble3 = Soft+Treble4 = Brilliant5 = Soft+Brill6 = Treble+Brill7 = Soft+Trb+Brill
 ```
 <a name="module_Piano KB Touch"></a>
 
@@ -846,7 +846,7 @@ Offset in file: 0x4D (b4)
 
 **Example**  
 ```js
-O = off, 1 = on
+O = off, 1 = onNot available on Clavinet and Digital Piano
 ```
 <a name="module_Piano Pedal Noise"></a>
 
@@ -855,7 +855,7 @@ Offset in file: 0x4D (b2)
 
 **Example**  
 ```js
-O = off, 1 = on
+O = off, 1 = onOnly on Grand, Upright, and Electric piano.
 ```
 <a name="module_Piano String Resonance"></a>
 
@@ -864,7 +864,7 @@ Offset in file: 0x4D (b3)
 
 **Example**  
 ```js
-O = off, 1 = on
+O = off, 1 = onOnly on Grand and Upright piano.
 ```
 <a name="module_Synth Filter Type"></a>
 
