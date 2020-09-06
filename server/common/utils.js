@@ -38,6 +38,7 @@ exports.getKnobDualValues = function (valueRange120) {
         rightMidi: rightMidi,
         leftLabel: leftLabel,
         rightLabel: rightLabel,
+        fromValue: value,
     };
 };
 

@@ -189,6 +189,14 @@ describe("/ns3/synth/oscillators", () => {
         });
     });
 
+    test("panelA.synth.oscillators.modulations.lfoAmount.morph.wheel.to.label eq 4.0", async () => {
+        const file = "panelA.synth.oscillators.modulations.lfoAmount.morph.wheel.to.label eq 4.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.oscillators.modulations.modEnvAmount.label eq 0.0 and panelA.synth.oscillators.modulations.lfoAmount.label eq 0.0", async () => {
         const file = "panelA.synth.oscillators.modulations.modEnvAmount.label eq 0.0 and panelA.synth.oscillators.modulations.lfoAmount.label eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -223,6 +231,14 @@ describe("/ns3/synth/oscillators", () => {
 
     test("panelA.synth.oscillators.modulations.modEnvAmount.label eq 9.8", async () => {
         const file = "panelA.synth.oscillators.modulations.modEnvAmount.label eq 9.8.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.oscillators.modulations.modEnvAmount.morph.wheel.to.label eq 6.2", async () => {
+        const file = "panelA.synth.oscillators.modulations.modEnvAmount.morph.wheel.to.label eq 6.2.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

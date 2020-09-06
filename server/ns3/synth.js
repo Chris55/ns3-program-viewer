@@ -1,10 +1,13 @@
 const mapping = require("./mapping");
 const converter = require("../common/converter");
+const { midi2LinearStringValue } = require("../common/converter");
+const { midi2LinearValue } = require("../common/converter");
+const { getMorphSynthOscillatorModulation } = require("./morph");
 const { getMorph2 } = require("./morph");
 const { getMorph } = require("./morph");
-const {getFilter} = require("./synth-filter");
-const {getOscControl} = require("./synth-osc-control");
-const {getVolumeEx} = require("../common/utils");
+const { getFilter } = require("./synth-filter");
+const { getOscControl } = require("./synth-osc-control");
+const { getVolumeEx } = require("../common/utils");
 const { getKbZone } = require("../common/utils");
 const { getKnobDualValues } = require("../common/utils");
 
@@ -74,8 +77,6 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const synthOffsetAbW = buffer.readUInt16BE(0xab + panelOffset);
     const synthOffsetAc = buffer.readUInt8(0xac + panelOffset);
 
-
-
     const oscillatorType = mapping.synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >>> 7);
     let oscillator1WaveForm = "";
     switch (oscillatorType) {
@@ -101,8 +102,6 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const osc2Pitch = ((synthOffset8fW & 0x01f8) >>> 3) - 12;
     const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127) / (48 + 12));
 
-
-
     const oscModulation = getKnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
 
     const lfoRateMidi = synthOffset87 & 0x7f;
@@ -115,8 +114,6 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const envAmpAttackMidi = (synthOffsetA5W & 0x03f8) >>> 3;
     const envAmpDecayMidi = (synthOffsetA6W & 0x07f0) >>> 4;
     const envAmpReleaseMidi = (synthOffsetA7W & 0x0fe0) >>> 5;
-
-
 
     const arpeggiatorRange = (synthOffset80 & 0x18) >>> 3;
     const arpeggiatorPattern = (synthOffset80 & 0x06) >>> 1;
@@ -440,11 +437,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                 lfoAmount: {
                     midi: oscModulation.leftMidi,
                     label: oscModulation.leftLabel,
-                    // morph: getMorph2(synthOffset95Ww >>> 5, oscModulation.leftMidi, (x) => {
-                    //     //const morph = getKnobDualValues(x);
-                    //     //return morph.leftLabel;
-                    //     return x;
-                    // })
+                    morph: getMorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, true),
                 },
                 /**
                  * Env Mod Amount
@@ -452,11 +445,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                 modEnvAmount: {
                     midi: oscModulation.rightMidi,
                     label: oscModulation.rightLabel,
-                    // morph: getMorph2(synthOffset95Ww >>> 5, oscModulation.rightMidi, (x) => {
-                    //     //const morph = getKnobDualValues(x);
-                    //     //return morph.rightLabel;
-                    //     return x;
-                    // })
+                    morph: getMorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, false),
                 },
             },
             /**
@@ -474,7 +463,6 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
 
         envelopes: {
             modulation: {
-
                 /**
                  * Offset in file: 0x8B (b7-1)
                  *
@@ -624,11 +612,16 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                     ? mapping.synthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
                     : mapping.synthLfoRateMap.get(lfoRateMidi),
 
-                morph: getMorph(synthOffset87Ww, lfoRateMidi, (x) => {
-                    return lfoRateMasterClock
-                        ? mapping.synthLfoRateMasterClockDivisionMap.get(x)
-                        : mapping.synthLfoRateMap.get(x);
-                }, false)
+                morph: getMorph(
+                    synthOffset87Ww,
+                    lfoRateMidi,
+                    (x) => {
+                        return lfoRateMasterClock
+                            ? mapping.synthLfoRateMasterClockDivisionMap.get(x)
+                            : mapping.synthLfoRateMap.get(x);
+                    },
+                    false
+                ),
             },
 
             /**
@@ -683,11 +676,16 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                     ? mapping.synthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
                     : mapping.synthArpRateMap.get(arpeggiatorRateMidi),
 
-                morph: getMorph(synthOffset81Ww >>> 1, arpeggiatorRateMidi, (x) => {
-                    return arpeggiatorMasterClock
-                        ? mapping.synthArpMasterClockDivisionMap.get(x)
-                        : mapping.synthArpRateMap.get(x);
-                }, false)
+                morph: getMorph(
+                    synthOffset81Ww >>> 1,
+                    arpeggiatorRateMidi,
+                    (x) => {
+                        return arpeggiatorMasterClock
+                            ? mapping.synthArpMasterClockDivisionMap.get(x)
+                            : mapping.synthArpRateMap.get(x);
+                    },
+                    false
+                ),
             },
 
             /**
@@ -739,7 +737,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
         },
     };
 
-    if (process.env.NODE_ENV === 'production')  {
+    if (process.env.NODE_ENV === "production") {
         synth.debug = undefined;
     }
 

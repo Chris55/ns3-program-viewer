@@ -1,5 +1,5 @@
 const mapping = require("./mapping");
-const { getMorph5Bits } = require("./morph");
+const { getMorphOrganDrawbar } = require("./morph");
 const { getKbZone } = require("../common/utils");
 const { getVolumeEx } = require("../common/utils");
 
@@ -74,15 +74,15 @@ const getDrawbars = function (buffer, offset, type) {
     const morphOffset8 = buffer.readUInt32BE(offset8 - 1);
     const morphOffset9 = buffer.readUInt32BE(offset9 - 1);
 
-    const m1 = getMorph5Bits(morphOffset1 >>> 5, d1);
-    const m2 = getMorph5Bits(morphOffset2 >>> 2, d2);
-    const m3 = getMorph5Bits(morphOffset3 >>> 7, d3);
-    const m4 = getMorph5Bits(morphOffset4 >>> 4, d4);
-    const m5 = getMorph5Bits(morphOffset5 >>> 1, d5);
-    const m6 = getMorph5Bits(morphOffset6 >>> 6, d6);
-    const m7 = getMorph5Bits(morphOffset7 >>> 3, d7);
-    const m8 = getMorph5Bits(morphOffset8, d8);
-    const m9 = getMorph5Bits(morphOffset9 >>> 5, d9);
+    const m1 = getMorphOrganDrawbar(morphOffset1 >>> 5, d1);
+    const m2 = getMorphOrganDrawbar(morphOffset2 >>> 2, d2);
+    const m3 = getMorphOrganDrawbar(morphOffset3 >>> 7, d3);
+    const m4 = getMorphOrganDrawbar(morphOffset4 >>> 4, d4);
+    const m5 = getMorphOrganDrawbar(morphOffset5 >>> 1, d5);
+    const m6 = getMorphOrganDrawbar(morphOffset6 >>> 6, d6);
+    const m7 = getMorphOrganDrawbar(morphOffset7 >>> 3, d7);
+    const m8 = getMorphOrganDrawbar(morphOffset8, d8);
+    const m9 = getMorphOrganDrawbar(morphOffset9 >>> 5, d9);
 
     const morphWheel = fixVoxAndFarfisa(
         [m1.wheel, m2.wheel, m3.wheel, m4.wheel, m5.wheel, m6.wheel, m7.wheel, m8.wheel, m9.wheel],
@@ -451,14 +451,14 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
             enabled: (organOffsetD3 & 0x10) !== 0,
 
             /**
-             * Offset in file: 0x34 (b3/2/1)
+             * Offset in file: 0x34 (b3-1)
              *
              * @example
              * O = off, 1 = on
              *
              * @module Organ Vibrato Mode
              */
-            mode: mapping.organVibratoModeMap.get((organOffset34 & 0b00001110) >>> 1),
+            mode: mapping.organVibratoModeMap.get((organOffset34 & 0x0e) >>> 1),
         },
 
         /***
@@ -466,7 +466,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          */
         percussion: {
             /**
-             * Offset in file: 0xD3 (b4)
+             * Offset in file: 0xD3 (b3)
              *
              * @example
              * O = off, 1 = on

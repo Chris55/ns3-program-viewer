@@ -159,10 +159,10 @@ ns3f file description:
 | `0x0092` | `wwwwaaaa` | [(a) synth oscillator control morph after touch](api.md#synth-oscillator-control)
 | `0x0093` | `aaaapppp` | [(p) synth oscillator control morph control pedal](api.md#synth-oscillator-control)
 | `0x0094` | `ppppllll` | [(l) synth lfo mod env](api.md#synth-lfo-mod-env)
-| `0x0095` | `lll-----` |
-| `0x0096` | `--------` |
-| `0x0097` | `--------` |
-| `0x0098` | `---tttff` | [(t) synth filter type](api.md#synth-filter-type), [(f) synth filter freq](api.md#synth-filter-freq)
+| `0x0095` | `lllwwwww` | [(w) synth lfo mod env morph wheel](api.md#synth-lfo-mod-env)
+| `0x0096` | `wwwaaaaa` | [(a) synth lfo mod env morph after touch](api.md#synth-lfo-mod-env)
+| `0x0097` | `aaappppp` | [(p) synth lfo mod env morph control pedal](api.md#synth-lfo-mod-env)
+| `0x0098` | `ppptttff` | [(t) synth filter type](api.md#synth-filter-type), [(f) synth filter freq](api.md#synth-filter-freq)
 | `0x0099` | `fffffwww` | [(w) synth filter freq morph wheel](api.md#synth-filter-freq)
 | `0x009A` | `wwwwwaaa` | [(a) synth filter freq morph after touch](api.md#synth-filter-freq)
 | `0x009B` | `aaaaappp` | [(p) synth filter freq morph control pedal](api.md#synth-filter-freq)

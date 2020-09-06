@@ -58,6 +58,14 @@ class App extends Component {
                         <h1 className="display-5">Online Nord Stage 3 Program File Viewer</h1>
                         <p className="lead">Simple online tool to review Nord Stage 3 program file settings.</p>
 
+                        <blockquote className="blockquote">
+                            {/*If you want something done, do it yourself... As this feature is not implemented in the official Nord Sound Manager, I decided to*/}
+                            {/*implement it myself.*/}
+                            <footer className="blockquote-footer">
+                                Handmade by NUF Members
+                            </footer>
+                        </blockquote>
+
                         {/*<hr className="my-4"/>*/}
 
                         {/*<blockquote className="blockquote">*/}

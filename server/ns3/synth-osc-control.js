@@ -87,6 +87,6 @@ exports.getOscControl = (buffer, offset, oscConfig) => {
          */
         morph: getMorph(synthOffset91Ww >>> 4, oscControlMidi, (x) => {
             return getOscControlLabel(oscConfig, x);
-        }),
+        }, false),
     };
 };

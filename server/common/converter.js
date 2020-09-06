@@ -9,6 +9,8 @@ const round = function (value, precision) {
     return Math.round(value * multiplier) / multiplier;
 };
 
+exports.round = round;
+
 /***
  * convert midi value (0/127) to eng value
  * @param engMin - eng min value
