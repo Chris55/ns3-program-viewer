@@ -15,7 +15,12 @@ exports.sampleIdMap = new Map([
     [0xb75c012b, "Velvet Grand Model1 XL 5.3"],
     [0xd78ad52d, "Velvet Grand Model1 Lrg 5.3"],
     [0x0a536dd4, "Velvet Grand Model1 Med 5.3"],
-    [0x0eca16f2, "Velvet Grand Model1 Sml 5.3"],  // 82 26 24 75
+    [0x0eca16f2, "Velvet Grand Model1 Sml 5.3"],
+
+    [0x6465e569, "Silver Grand SK7  XL 5.3"],
+    [0xfca6327e, "Silver Grand SK7  Lrg 5.3"],
+    [0xa581a53a, "Silver Grand SK7  Med 5.3"],
+    [0x2f720ac4, "Silver Grand SK7  Sml 5.3"],
 
     // Upright Piano
 
