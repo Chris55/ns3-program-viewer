@@ -2,7 +2,9 @@
 
 
 The mapping corresponds to the Nord Stage 3 ns3f file format.
-The file version is 3.04 (generated with OS v2.54).
+The file version is 3.04 (generated with OS v2.54), and the length is 592 bytes.
+Previous version 3.03 is similar (not yet tested, but the size is the same)
+Older versions, from 3.00 to 3.02 have a length of 574 bytes and a smaller header. Byte 0x18 to 0x2B are missing (20 bytes).
 
 | offset   | bits       | description
 | :---:    |   :----:   | :---
@@ -50,11 +52,11 @@ The file version is 3.04 (generated with OS v2.54).
 | `0x0029` | `--------` |
 | `0x002A` | `--------` |
 | `0x002B` | `--------` |
-| `0x002C` | `--------` |
-| `0x002D` | `--------` |
-| `0x002E` | `--------` |
-| `0x002F` | `--------` |
-| `0x0030` | `--------` |
+| `0x002C` | `--------` | 0
+| `0x002D` | `--------` | 0
+| `0x002E` | `vvvvvvvv` | version 16-bit integer value in Big Endian format
+| `0x002F` | `vvvvvvvv` |
+| `0x0030` | `--------` | 11
 | `0x0031` | `pppsssss` | [(p) panel](api.md#panel-enabled-and-selection), [(s) split](api.md#split)
 | `0x0032` | `ssssssss` |
 | `0x0033` | `ssssssss` |
