@@ -37,6 +37,18 @@ exports.sampleIdMap = new Map([
     [0xd50fbb65, "Grand Imperial Bdorf Med 5.3"],
     [0xe1b8094f, "Grand Imperial Bdorf Sml 5.3"],
 
+    [0x5f256d93, "Grand Lady D   Stw D  Lrg 5.3"],
+    [0x6114dad6, "Grand Lady D   Stw D  Med 5.3"],
+    [0x325897f5, "Grand Lady D   Stw D  Sml 5.3"],
+
+    [0x5f0ce578, "Studio Grand 1 YaC7  Lrg 5.3"],
+    [0xe9560bc1, "Studio Grand 1 YaC7  Med 5.3"],
+    [0x90eaaf93, "Studio Grand 1 YaC7  Sml 5.3"],
+
+    [0xbd4b3e13, "Studio Grand 2 YaC7  Lrg 5.3"],
+    [0x037d7ce6, "Studio Grand 2 YaC7  Med 5.3"],
+    [0x16cc0ef4, "Studio Grand 2 YaC7  Sml 5.3"],
+
     // Upright Piano
 
     [0x08105835, "Baby Upright Nordiska  XL 5.4"],

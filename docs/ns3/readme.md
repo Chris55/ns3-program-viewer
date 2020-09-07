@@ -1,9 +1,12 @@
 ### Nord Stage 3 Program file mapping
 
 
-The mapping corresponds to the Nord Stage 3 ns3f file format.
-The file version is 3.04 (generated with OS v2.54), and the length is 592 bytes.
-Previous version 3.03 is similar (not yet tested, but the size is the same)
+The mapping corresponds to the Nord Stage 3 program file (file extension ns3f).
+
+The file version used is 3.04 (generated with OS v2.54), and the file length is 592 bytes.
+
+Previous version 3.03 is similar (not yet tested, but the size is the same).
+
 Older versions, from 3.00 to 3.02 have a length of 574 bytes and a smaller header. Byte 0x18 to 0x2B are missing (20 bytes).
 
 | offset   | bits       | description
