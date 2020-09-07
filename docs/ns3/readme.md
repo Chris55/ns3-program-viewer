@@ -1,12 +1,8 @@
 ### Nord Stage 3 Program file mapping
 
 
-| rev   | date        | description
-| ----- | ----------- | ---------------------
-| 1.0   | 05-sep-2020 | first release
-
-
-ns3f file description:
+The mapping corresponds to the Nord Stage 3 ns3f file format.
+The file version is 3.04 (generated with OS v2.54).
 
 | offset   | bits       | description
 | :---:    |   :----:   | :---

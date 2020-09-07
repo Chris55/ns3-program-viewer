@@ -27,6 +27,11 @@ exports.sampleIdMap = new Map([
     [0xb7c239e0, "Italian Grand Faz Med 5.3"],
     [0xbf61a63f, "Italian Grand Faz Sml 5.3"],
 
+    [0xb1c75622, "Bright Grand YaS4  XL 5.3"],
+    [0xed7f3a23, "Bright Grand YaS4  Lrg 5.3"],
+    [0xfa8ace45, "Bright Grand YaS4  Med 5.3"],
+    [0x610087f7, "Bright Grand YaS4  Sml 5.3"],
+
     // Upright Piano
 
     [0x08105835, "Baby Upright Nordiska  XL 5.4"],
