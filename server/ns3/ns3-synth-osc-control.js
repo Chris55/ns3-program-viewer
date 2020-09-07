@@ -1,5 +1,5 @@
 const converter = require("../common/converter");
-const { getMorph } = require("./morph");
+const { getMorph } = require("./ns3-morph");
 
 /***
  * returns Oscillator Control label

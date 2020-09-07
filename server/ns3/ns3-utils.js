@@ -1,6 +1,6 @@
-const mapping = require("../ns3/mapping");
-const converter = require("./converter");
-const { getMorph } = require("../ns3/morph");
+const mapping = require("./ns3-mapping");
+const converter = require("../common/converter");
+const { getMorph } = require("./ns3-morph");
 
 /***
  * Returns two values from a single knob (and equivalent midi value).

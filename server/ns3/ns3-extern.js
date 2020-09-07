@@ -1,6 +1,6 @@
-const { externControlMap } = require("./mapping");
-const { getMorph } = require("./morph");
-const { getKbZone } = require("../common/utils");
+const { externControlMap } = require("./ns3-mapping");
+const { getMorph } = require("./ns3-morph");
+const { getKbZone } = require("./ns3-utils");
 
 /***
  * returns Extern section

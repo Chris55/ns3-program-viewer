@@ -1,7 +1,7 @@
-const mapping = require("./mapping");
-const { getMorphOrganDrawbar } = require("./morph");
-const { getKbZone } = require("../common/utils");
-const { getVolumeEx } = require("../common/utils");
+const mapping = require("./ns3-mapping");
+const { getMorphOrganDrawbar } = require("./ns3-morph");
+const { getKbZone } = require("./ns3-utils");
+const { getVolumeEx } = require("./ns3-utils");
 
 /***
  * return Drawbars Preset and Morph

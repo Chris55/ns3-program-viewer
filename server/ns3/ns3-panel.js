@@ -1,10 +1,10 @@
-const { getExtern } = require("./extern");
-const { getEffect2 } = require("./effects");
-const { getEffect1 } = require("./effects");
-const { getRotarySpeakerEffect } = require("./effects");
-const { getSynth } = require("./synth");
-const { getPiano } = require("./piano");
-const { getOrgan } = require("./organ");
+const { getExtern } = require("./ns3-extern");
+const { getEffect2 } = require("./ns3-effects");
+const { getEffect1 } = require("./ns3-effects");
+const { getRotarySpeakerEffect } = require("./ns3-effects");
+const { getSynth } = require("./ns3-synth");
+const { getPiano } = require("./ns3-piano");
+const { getOrgan } = require("./ns3-organ");
 
 /**
  * returns a complete Panel section

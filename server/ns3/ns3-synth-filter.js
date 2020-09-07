@@ -1,8 +1,8 @@
-const mapping = require("./mapping");
+const mapping = require("./ns3-mapping");
 const converter = require("../common/converter");
-const { getMorph2 } = require("./morph");
-const { getMorph } = require("./morph");
-const { getKnobDualValues } = require("../common/utils");
+const { getMorph2 } = require("./ns3-morph");
+const { getMorph } = require("./ns3-morph");
+const { getKnobDualValues } = require("./ns3-utils");
 
 exports.getFilter = (buffer, panelOffset) => {
     const synthOffset98 = buffer.readUInt8(0x98 + panelOffset);

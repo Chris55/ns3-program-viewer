@@ -1,23 +1,6 @@
 ## Modules
 
 <dl>
-<dt><a href="#module_File Version">File Version</a></dt>
-<dd><p>Offset in file: 0x14 and 0x15</p>
-</dd>
-<dt><a href="#module_Transpose">Transpose</a></dt>
-<dd><p>Offset in file: 0x38 (b7-3)</p>
-<p>Enabled: 0x38 (b7)
-Value: 0x38 (b6-3)</p>
-</dd>
-<dt><a href="#module_Split">Split</a></dt>
-<dd><p>0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)</p>
-</dd>
-<dt><a href="#module_Master Clock Rate">Master Clock Rate</a></dt>
-<dd><p>Offset in file: 0x38 (b2-0) 0x39 (b7-3)</p>
-</dd>
-<dt><a href="#module_Program Category">Program Category</a></dt>
-<dd><p>Offset in file: 0x10</p>
-</dd>
 <dt><a href="#module_Rotary Speaker On">Rotary Speaker On</a></dt>
 <dd><p>Offset in file: 0x10b (bit7)</p>
 </dd>
@@ -316,48 +299,24 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_Synth Arp Pattern">Synth Arp Pattern</a></dt>
 <dd><p>Offset in file: 0x80 (b2-1)</p>
 </dd>
+<dt><a href="#module_File Version">File Version</a></dt>
+<dd><p>Offset in file: 0x14 and 0x15</p>
+</dd>
+<dt><a href="#module_Transpose">Transpose</a></dt>
+<dd><p>Offset in file: 0x38 (b7-3)</p>
+<p>Enabled: 0x38 (b7)
+Value: 0x38 (b6-3)</p>
+</dd>
+<dt><a href="#module_Split">Split</a></dt>
+<dd><p>0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)</p>
+</dd>
+<dt><a href="#module_Master Clock Rate">Master Clock Rate</a></dt>
+<dd><p>Offset in file: 0x38 (b2-0) 0x39 (b7-3)</p>
+</dd>
+<dt><a href="#module_Program Category">Program Category</a></dt>
+<dd><p>Offset in file: 0x10</p>
+</dd>
 </dl>
-
-<a name="module_File Version"></a>
-
-## File Version
-Offset in file: 0x14 and 0x15
-
-**Example**  
-```js
-16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionOS version          Program version   File sizev0.92 (2017-06-15)  v3.00             574  (header type 0)v1.36 (2018-02-07)  v3.01             574  (header type 0)v1.50 (2018-10-22)  v3.02             574  (header type 0)vx.xx               v3.03             592  (header type 1)vx.xx               v3.04             592  (header type 1)
-```
-<a name="module_Transpose"></a>
-
-## Transpose
-Offset in file: 0x38 (b7-3)Enabled: 0x38 (b7)Value: 0x38 (b6-3)
-
-**Example**  
-```js
-7xxx xxxx : Transpose Off/Onx654 3xxx : Transpose valueTest1:  F8 38 : Transpose OffTest2:  0D 80 : Transpose -6 semiTest3:  0D 88 : Transpose -5 semiTest4:  0D A8 : Transpose -1 semiTest5:  0D B8 : Transpose +1 semiTest6:  0D D8 : Transpose +5 semiTest7:  0D E0 : Transpose +6 semi
-```
-<a name="module_Split"></a>
-
-## Split
-0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)
-
-**Example**  
-```js
-|  0X31     |    0x32   |     0x33  |    0x34   | description| xxx4 3210 | 7654 3210 | 7654 3210 | 7xxx xxxx || xxx4 xxxx | xxxx xxxx | xxxx xxxx | xxxx xxxx | split off/on| xxxx 321x | xxxx xxxx | xxxx xxxx | xxxx xxxx | low off/on, mid off/on, high off/on| xxxx xxx0 | 765x xxxx | xxxx xxxx | xxxx xxxx | low note (0 = F2, 1 = C3, 9 = C7)| xxxx xxxx | xxx4 321x | xxxx xxxx | xxxx xxxx | mid note| xxxx xxxx | xxxx xxx0 | 765x xxxx | xxxx xxxx | high note| xxxx xxxx | xxxx xxxx | xxx5 4xxx | xxxx xxxx | low width (0 = 1, 1 = 6, 2 = 12)| xxxx xxxx | xxxx xxxx | xxxx x32x | xxxx xxxx | mid width| xxxx xxxx | xxxx xxxx | xxxx xxx0 | 7xxx xxxx | high widthTest1:  06 07 20 01 : Split OffTest2:  16 07 20 01 : Width Off 1   1                      Note  --  C4  C7Test3:  1E 07 20 01 : Width 1   1   1                      Note  F2  C4  C7Test4:  1E 07 28 01 : Width 6   1   1                      Note  F2  C4  C7Test5:  1E 07 30 01 : Width 12  1   1                      Note  F2  C4  C7Test6:  18 07 30 01 : Width 12  Off Off                      Note  F2  --  --Test7:  18 27 30 01 : Width 12  Off Off                      Note  C3  --  --Test8:  18 47 30 01 : Width 12  Off Off                      Note  F3  --  --Test9:  18 67 30 01 : Width 12  Off Off                      Note  C4  --  --Test10: 18 87 30 01 : Width 12  Off Off                      Note  F4  --  --Test11: 18 A7 30 01 : Width 12  Off Off                      Note  C5  --  --Test12: 18 C7 30 01 : Width 12  Off Off                      Note  F5  --  --Test13: 18 E7 30 01 : Width 12  Off Off                      Note  C6  --  --Test14: 19 07 30 01 : Width 12  Off Off                      Note  F6  --  --Test15: 19 27 30 01 : Width 12  Off Off                      Note  C7  --  --Test16: 1B 27 30 01 : Width 12  Off 1     ! From test 15 to 16 only High Width was changed manually !                      Note  F6  --  C7    ! Note Low in file is C7 but fixed on display to F6...Test17: 1B 27 30 81 : Width 12  Off 6                      Note  F6  --  C7Test18: 1B 27 31 01 : Width 12  Off 12                      Note  F6  --  C7Test19: 1C 23 30 01 : Width 12  1   Off                      Note  C3  F3  --   ! Note Mid in file is C3 but fixed on display to F3 !
-```
-<a name="module_Master Clock Rate"></a>
-
-## Master Clock Rate
-Offset in file: 0x38 (b2-0) 0x39 (b7-3)
-
-**Example**  
-```js
-bpm = value + 30
-```
-<a name="module_Program Category"></a>
-
-## Program Category
-Offset in file: 0x10
 
 <a name="module_Rotary Speaker On"></a>
 
@@ -1247,3 +1206,44 @@ Offset in file: 0x80 (b2-1)
 ```js
 0 = Up1 = Down2 = Up/Down3 = Random
 ```
+<a name="module_File Version"></a>
+
+## File Version
+Offset in file: 0x14 and 0x15
+
+**Example**  
+```js
+16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionOS version          Program version   File sizev0.92 (2017-06-15)  v3.00             574  (header type 0)v1.36 (2018-02-07)  v3.01             574  (header type 0)v1.50 (2018-10-22)  v3.02             574  (header type 0)vx.xx               v3.03             592  (header type 1)vx.xx               v3.04             592  (header type 1)
+```
+<a name="module_Transpose"></a>
+
+## Transpose
+Offset in file: 0x38 (b7-3)Enabled: 0x38 (b7)Value: 0x38 (b6-3)
+
+**Example**  
+```js
+7xxx xxxx : Transpose Off/Onx654 3xxx : Transpose valueTest1:  F8 38 : Transpose OffTest2:  0D 80 : Transpose -6 semiTest3:  0D 88 : Transpose -5 semiTest4:  0D A8 : Transpose -1 semiTest5:  0D B8 : Transpose +1 semiTest6:  0D D8 : Transpose +5 semiTest7:  0D E0 : Transpose +6 semi
+```
+<a name="module_Split"></a>
+
+## Split
+0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)
+
+**Example**  
+```js
+|  0X31     |    0x32   |     0x33  |    0x34   | description| xxx4 3210 | 7654 3210 | 7654 3210 | 7xxx xxxx || xxx4 xxxx | xxxx xxxx | xxxx xxxx | xxxx xxxx | split off/on| xxxx 321x | xxxx xxxx | xxxx xxxx | xxxx xxxx | low off/on, mid off/on, high off/on| xxxx xxx0 | 765x xxxx | xxxx xxxx | xxxx xxxx | low note (0 = F2, 1 = C3, 9 = C7)| xxxx xxxx | xxx4 321x | xxxx xxxx | xxxx xxxx | mid note| xxxx xxxx | xxxx xxx0 | 765x xxxx | xxxx xxxx | high note| xxxx xxxx | xxxx xxxx | xxx5 4xxx | xxxx xxxx | low width (0 = 1, 1 = 6, 2 = 12)| xxxx xxxx | xxxx xxxx | xxxx x32x | xxxx xxxx | mid width| xxxx xxxx | xxxx xxxx | xxxx xxx0 | 7xxx xxxx | high widthTest1:  06 07 20 01 : Split OffTest2:  16 07 20 01 : Width Off 1   1                      Note  --  C4  C7Test3:  1E 07 20 01 : Width 1   1   1                      Note  F2  C4  C7Test4:  1E 07 28 01 : Width 6   1   1                      Note  F2  C4  C7Test5:  1E 07 30 01 : Width 12  1   1                      Note  F2  C4  C7Test6:  18 07 30 01 : Width 12  Off Off                      Note  F2  --  --Test7:  18 27 30 01 : Width 12  Off Off                      Note  C3  --  --Test8:  18 47 30 01 : Width 12  Off Off                      Note  F3  --  --Test9:  18 67 30 01 : Width 12  Off Off                      Note  C4  --  --Test10: 18 87 30 01 : Width 12  Off Off                      Note  F4  --  --Test11: 18 A7 30 01 : Width 12  Off Off                      Note  C5  --  --Test12: 18 C7 30 01 : Width 12  Off Off                      Note  F5  --  --Test13: 18 E7 30 01 : Width 12  Off Off                      Note  C6  --  --Test14: 19 07 30 01 : Width 12  Off Off                      Note  F6  --  --Test15: 19 27 30 01 : Width 12  Off Off                      Note  C7  --  --Test16: 1B 27 30 01 : Width 12  Off 1     ! From test 15 to 16 only High Width was changed manually !                      Note  F6  --  C7    ! Note Low in file is C7 but fixed on display to F6...Test17: 1B 27 30 81 : Width 12  Off 6                      Note  F6  --  C7Test18: 1B 27 31 01 : Width 12  Off 12                      Note  F6  --  C7Test19: 1C 23 30 01 : Width 12  1   Off                      Note  C3  F3  --   ! Note Mid in file is C3 but fixed on display to F3 !
+```
+<a name="module_Master Clock Rate"></a>
+
+## Master Clock Rate
+Offset in file: 0x38 (b2-0) 0x39 (b7-3)
+
+**Example**  
+```js
+bpm = value + 30
+```
+<a name="module_Program Category"></a>
+
+## Program Category
+Offset in file: 0x10
+

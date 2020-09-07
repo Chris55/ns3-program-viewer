@@ -1,7 +1,7 @@
-const mapping = require("./mapping");
+const mapping = require("./ns3-mapping");
 const {sampleIdMap} = require("../common/nord-library");
-const { getKbZone } = require("../common/utils");
-const { getVolumeEx } = require("../common/utils");
+const { getKbZone } = require("./ns3-utils");
+const { getVolumeEx } = require("./ns3-utils");
 
 /***
  * returns Piano section

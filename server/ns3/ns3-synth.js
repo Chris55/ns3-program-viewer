@@ -1,15 +1,15 @@
-const mapping = require("./mapping");
+const mapping = require("./ns3-mapping");
 const converter = require("../common/converter");
 const { midi2LinearStringValue } = require("../common/converter");
 const { midi2LinearValue } = require("../common/converter");
-const { getMorphSynthOscillatorModulation } = require("./morph");
-const { getMorph2 } = require("./morph");
-const { getMorph } = require("./morph");
-const { getFilter } = require("./synth-filter");
-const { getOscControl } = require("./synth-osc-control");
-const { getVolumeEx } = require("../common/utils");
-const { getKbZone } = require("../common/utils");
-const { getKnobDualValues } = require("../common/utils");
+const { getMorphSynthOscillatorModulation } = require("./ns3-morph");
+const { getMorph2 } = require("./ns3-morph");
+const { getMorph } = require("./ns3-morph");
+const { getFilter } = require("./ns3-synth-filter");
+const { getOscControl } = require("./ns3-synth-osc-control");
+const { getVolumeEx } = require("./ns3-utils");
+const { getKbZone } = require("./ns3-utils");
+const { getKnobDualValues } = require("./ns3-utils");
 
 /***
  * Synth Envelope Decay / Release Label

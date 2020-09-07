@@ -62,10 +62,17 @@ exports.sampleIdMap = new Map([
     [0x08105835, "Baby Upright Nordiska  XL 5.4"],
     [0x9123351c, "Baby Upright Nordiska  Lrg 5.4"],
     [0x4c459568, "Baby Upright Nordiska  Med 5.4"],
-    [0xd4be9234, "Baby Upright Nordiska  Sml 5.4"],   // 39 D2 16 65
+    [0xd4be9234, "Baby Upright Nordiska  Sml 5.4"],
 
-    //     D4          BE
-    // 1101  0100  1011 1110
+    [0x662ed137, "Amber Upright GrSt 132 XL 5.3"],
+    [0xf1011534, "Amber Upright GrSt 132 Lrg 5.3"],
+    [0x847924a6, "Amber Upright GrSt 132 Med 5.3"],
+    [0x2359d974, "Amber Upright GrSt 132 Sml 5.3"],
+
+
+
+
+
 
     [0xb23ac497, "Saloon Upright Baumgardt Lrg 5.3"],
     [0x413649a1, "Saloon Upright Baumgardt Med 5.3"],

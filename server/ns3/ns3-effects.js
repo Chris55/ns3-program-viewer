@@ -1,6 +1,6 @@
 const converter = require("../common/converter");
-const mapping = require("./mapping");
-const { getMorph } = require("./morph");
+const mapping = require("./ns3-mapping");
+const { getMorph } = require("./ns3-morph");
 
 /***
  * returns Rotary Speaker Effect section
