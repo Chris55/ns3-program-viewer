@@ -59,10 +59,9 @@ class App extends Component {
                         <p className="lead">Simple online tool to review Nord Stage 3 program file settings.</p>
 
                         <blockquote className="blockquote">
-                            {/*If you want something done, do it yourself... As this feature is not implemented in the official Nord Sound Manager, I decided to*/}
-                            {/*implement it myself.*/}
                             <footer className="blockquote-footer">
                                 Handmade by NUF Members
+                                {/*<a href="https://www.norduserforum.com/portal.php">Handmade by NUF Members</a>*/}
                             </footer>
                         </blockquote>
 

@@ -1,6 +1,5 @@
 let express = require("express"),
     multer = require("multer"),
-    //uuidv4 = require('uuid/v4'),
     router = express.Router();
 const { loadNs3fFile } = require("../nord-service");
 const fs = require("fs").promises;

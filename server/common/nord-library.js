@@ -69,7 +69,10 @@ exports.sampleIdMap = new Map([
     [0x847924a6, "Amber Upright GrSt 132 Med 5.3"],
     [0x2359d974, "Amber Upright GrSt 132 Sml 5.3"],
 
-
+    [0xe5dd43ce, "Bambino Upright Baldwin XL 5.4"],
+    [0x5adcf04c, "Bambino Upright Baldwin Lrg 5.4"],
+    [0x8f907603, "Bambino Upright Baldwin Med 5.4"],
+    [0xd1d04935, "Bambino Upright Baldwin Sml 5.4"],
 
 
 
