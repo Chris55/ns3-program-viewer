@@ -23,6 +23,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
     const externOffset102Ww = buffer.readUInt32BE(0x102 + panelOffset);
 
     const externEnabled = (externOffsetF4W & 0x8000) !== 0;
+    const externKbZone = getKbZone(externEnabled, splitEnabled, (externOffsetF4W & 0x7800) >>> 11);
     const midiCc = (externOffsetF7W & 0x01fc) >>> 2;
     const midiProgram = (externOffsetFdW & 0x01fc) >>> 2;
     const volume = (externOffset101W & 0x01fc) >>> 2;
@@ -44,7 +45,10 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Extern Kb Zone
          */
-        kbZone: getKbZone(externEnabled, splitEnabled, (externOffsetF4W & 0x7800) >>> 11),
+        kbZone: {
+            array: externKbZone[1],
+            label: externKbZone[0],
+        },
 
         /**
          * Offset in file: 0xF4 (b1-0) and 0xF5 (b7)

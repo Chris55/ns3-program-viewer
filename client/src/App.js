@@ -13,8 +13,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Figure from "react-bootstrap/Figure";
 import JSONTree from "react-json-tree";
-import Ns3PanelComponent from "./components/ns3-panel-component";
-import "./components/ns3-panel-component.css";
+import Ns3 from "./components/ns3/ns3";
+import "./components/ns3-panel-component-jqx.css";
+import {ns3Model} from "./components/ns3/model";
 
 
 class App extends Component {
@@ -22,18 +23,23 @@ class App extends Component {
         super(props);
 
         this.state = {
-            data: {},
+            data: ns3Model,
             error: null,
         };
     }
 
     onSuccess = (data) => {
         //console.log("success: ", data);
-        this.setState({ data: data, error: null });
+        if (data.success) {
+            this.setState({ data: data.data, error: null });
+        } else {
+            this.setState({ error: data.error });
+        }
+
     };
 
     onError = (err) => {
-        this.setState({ data: null, error: err });
+        this.setState({ error: err.error });
         toast.error(this.state.error);
     };
 
@@ -102,46 +108,51 @@ class App extends Component {
 
                     <Row className="mt-5">
                         <Col sm={12}>
-                            <Tabs defaultActiveKey="debug" id="uncontrolled-tab-example">
-                                {/*<Tab eventKey="panel" title="Panel" disabled={false} style={{backgroundColor: 'lightgray'}}>*/}
-                                {/*    <pre className="text-monospace">*/}
-                                {/*        <Ns3PanelComponent data={this.state.data}  />*/}
-                                {/*    </pre>*/}
-                                {/*</Tab>*/}
+                            {/*defaultActiveKey="debug"*/}
 
-                                <Tab eventKey="debug" title="File Properties" disabled={false}>
-                                    <JSONTree
-                                        data={this.state.data}
-                                        hideRoot={true}
-                                        getItemString={(type, data, itemType, itemString) => <span></span>}
-                                        shouldExpandNode={(keyPath, data, level) => true}
-                                        theme={{
-                                            scheme: "custom",
-                                            author: "wimer hazenberg (http://www.monokai.nl)",
-                                            base00: "#343a40",
-                                            base01: "#383830",
-                                            base02: "#49483e",
-                                            base03: "#75715e",
-                                            base04: "#a59f85",
-                                            base05: "#f8f8f2",
-                                            base06: "#f5f4f1",
-                                            base07: "#f9f8f5",
-                                            base08: "#f92672",
-                                            base09: "#fd971f",
-                                            base0A: "#f4bf75",
-                                            base0B: "#a6e22e",
-                                            base0C: "#a1efe4",
-                                            base0D: "#66d9ef",
-                                            base0E: "#ae81ff",
-                                            base0F: "#cc6633",
-                                        }}
-                                        invertTheme={false}
-                                    />
-                                </Tab>
-                            </Tabs>
                         </Col>
                     </Row>
                 </Container>
+
+                <Tabs  id="uncontrolled-tab-example">
+                    {/*style={{backgroundColor: 'grey'}}*/}
+                    <Tab eventKey="panel" title="Panel" disabled={false}>
+                                    <pre className="text-monospace">
+                                        <Ns3 data={this.state.data}  />
+                                    </pre>
+                    </Tab>
+
+                    <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
+                        <JSONTree
+                            data={this.state.data}
+                            hideRoot={true}
+                            getItemString={(type, data, itemType, itemString) => <span></span>}
+                            shouldExpandNode={(keyPath, data, level) => true}
+                            theme={{
+                                scheme: "custom",
+                                author: "wimer hazenberg (http://www.monokai.nl)",
+                                base00: "#343a40",
+                                base01: "#383830",
+                                base02: "#49483e",
+                                base03: "#75715e",
+                                base04: "#a59f85",
+                                base05: "#f8f8f2",
+                                base06: "#f5f4f1",
+                                base07: "#f9f8f5",
+                                base08: "#f92672",
+                                base09: "#fd971f",
+                                base0A: "#f4bf75",
+                                base0B: "#a6e22e",
+                                base0C: "#a1efe4",
+                                base0D: "#66d9ef",
+                                base0E: "#ae81ff",
+                                base0F: "#cc6633",
+                            }}
+                            invertTheme={false}
+                        />
+                    </Tab>
+                </Tabs>
+
                 <ToastContainer />
 
                 {/*<Navbar fixed="bottom"  expand="lg" bg="dark" variant="light">*/}

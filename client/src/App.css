@@ -13,6 +13,11 @@
   /*background-size: cover;*/
 }
 
+.nord-tree {
+    padding: 10px;
+    background-color: #343a40;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 
 }

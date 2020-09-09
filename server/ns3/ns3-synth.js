@@ -1,9 +1,6 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../common/converter");
-const { midi2LinearStringValue } = require("../common/converter");
-const { midi2LinearValue } = require("../common/converter");
 const { getMorphSynthOscillatorModulation } = require("./ns3-morph");
-const { getMorph2 } = require("./ns3-morph");
 const { getMorph } = require("./ns3-morph");
 const { getFilter } = require("./ns3-synth-filter");
 const { getOscControl } = require("./ns3-synth-osc-control");
@@ -120,6 +117,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >>> 1;
     const arpeggiatorMasterClock = (synthOffset80 & 0x01) !== 0;
     const synthEnabled = (synthOffset52W & 0x8000) !== 0;
+    const synthKbZone = getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11)
 
     const sampleId1 = ((synthOffsetA8W & 0x07f8) >>> 3) * Math.pow(2, 24);
     const sampleId2 = ((synthOffsetA9W & 0x07f8) >>> 3) * Math.pow(2, 16);
@@ -149,7 +147,10 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Synth Kb Zone
          */
-        kbZone: getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11),
+        kbZone: {
+            array: synthKbZone[1],
+            label: synthKbZone[0],
+        },
 
         /**
          * Offset in file: 0x52 (b2-0) and 0x53 (b7-4)

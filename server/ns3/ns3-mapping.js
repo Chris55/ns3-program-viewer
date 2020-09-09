@@ -49,19 +49,20 @@ exports.panelEnabledMap = new Map([
 
 /***
  * Keyboard Zone Values
- * @type {Map<number, string>}
+ *
+ * @type {Map<number, (string|boolean[])[]>}
  */
 exports.kbZoneMap = new Map([
-    [0, "O---"],
-    [1, "-O--"],
-    [2, "--O-"],
-    [3, "---O"],
-    [4, "OO--"],
-    [5, "-OO-"],
-    [6, "--OO"],
-    [7, "OOO-"],
-    [8, "-OOO"],
-    [9, "OOOO"],
+    [0, ["O---", [true, false, false, false]]],
+    [1, ["-O--", [false, true, false, false]]],
+    [2, ["--O-", [false, false, true, false]]],
+    [3, ["---O", [false, false, false, true]]],
+    [4, ["OO--", [true, true, false, false]]],
+    [5, ["-OO-", [false, true, true, false]]],
+    [6, ["--OO", [false, false, true, true]]],
+    [7, ["OOO-", [true, true, true, false]]],
+    [8, ["-OOO", [false, true, true, true]]],
+    [9, ["OOOO", [true, true, true, true]]],
 ]);
 
 /***

@@ -197,6 +197,8 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         organMode = mapping.organVibratoModeMap.get(organModeValue + 1);
     }
 
+    const organKbZone = getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11);
+
     return {
         /**
          * Offset in file: 0xB6 (b7)
@@ -227,8 +229,10 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Organ Kb Zone
          */
-        kbZone: getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11),
-
+        kbZone: {
+            array: organKbZone[1],
+            label: organKbZone[0],
+        },
         /**
          * Offset in file:
          *

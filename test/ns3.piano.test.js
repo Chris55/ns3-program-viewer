@@ -21,16 +21,16 @@ describe("/ns3/piano", () => {
         });
     });
 
-    test("panelA.piano.kbZone eq -O--", async () => {
-        const file = "panelA.piano.kbZone eq -O--.ns3f";
+    test("panelA.piano.kbZone.label eq -O--", async () => {
+        const file = "panelA.piano.kbZone.label eq -O--.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.piano.kbZone eq O---", async () => {
-        const file = "panelA.piano.kbZone eq O---.ns3f";
+    test("panelA.piano.kbZone.label eq O---", async () => {
+        const file = "panelA.piano.kbZone.label eq O---.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

@@ -32,6 +32,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     const pianoTimbreValues = mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3);
     const pianoTimbre = (pianoTypeValue >= 0 && pianoTypeValue < 6) ? pianoTimbreValues[pianoTypeValue]: "None"
 
+    const pianoKbZone = getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11);
 
     //const pianoNamePrefix = (pianoOffset4d & 0x30) >>> 4;
     const pianoNamePrefix = (pianoOffset49 & 0x30) >>> 4;
@@ -39,6 +40,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     const  pianoNameId =  Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
     //const  pianoNameId =  Number((pianoOffset49WW & 0x0fffffffffffffffn) >> 28n);
     const pianoName = pianoNameId.toString(16);
+
 
     const piano =  {
         debug: {
@@ -63,7 +65,10 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Kb Zone
          */
-        kbZone: getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11),
+        kbZone: {
+            array: pianoKbZone[1],
+            label: pianoKbZone[0],
+        },
 
         /**
          * Offset in file: 0x43 (b2-0), 0x44 (b7-4)
@@ -250,9 +255,15 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         stringResonance: (pianoTypeValue <= 1) && (pianoOffset4d & 0x04) !== 0,
     };
 
+    piano.morph = [];
+
+    piano.morph.push({name: "Volume", morph: piano.volume});
+
+
     if (process.env.NODE_ENV === 'production')  {
         piano.debug = undefined;
     }
+
 
     return piano;
 };

@@ -45,16 +45,16 @@ describe("/ns3/synth", () => {
         });
     });
 
-    test("panelA.synth.kbZone eq -O--", async () => {
-        const file = "panelA.synth.kbZone eq -O--.ns3f";
+    test("panelA.synth.kbZone.label eq -O--", async () => {
+        const file = "panelA.synth.kbZone.label eq -O--.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.kbZone eq O---", async () => {
-        const file = "panelA.synth.kbZone eq O---.ns3f";
+    test("panelA.synth.kbZone.label eq O---", async () => {
+        const file = "panelA.synth.kbZone.label eq O---.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

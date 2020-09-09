@@ -79,7 +79,10 @@ exports.sampleIdMap = new Map([
     [0x7ce4225b, "Mellow Upright Bdrf C130 Med 5.4"],
     [0x926c7acc, "Mellow Upright Bdrf C130 Sml 5.4"],
 
-
+    [0x68544281, "Grand Upright YaU3 XL 5.4"],
+    [0xe45f053d, "Grand Upright YaU3 Lrg 5.4"],
+    [0x0536b997, "Grand Upright YaU3 Med 5.4"],
+    [0x520c78b5, "Grand Upright YaU3 Sml 5.4"],
 
     [0xb23ac497, "Saloon Upright Baumgardt Lrg 5.3"],
     [0x413649a1, "Saloon Upright Baumgardt Med 5.3"],

@@ -44,10 +44,11 @@ exports.getKnobDualValues = function (valueRange120) {
 
 /***
  * returns Keyboard Zone
+ *
  * @param sectionEnabled
  * @param splitEnabled
  * @param value
- * @returns {string}
+ * @returns {string|(string[]|boolean[])[]|(string|boolean[])[]}
  */
 exports.getKbZone = (sectionEnabled, splitEnabled, value) => {
     if (sectionEnabled) {
@@ -55,10 +56,10 @@ exports.getKbZone = (sectionEnabled, splitEnabled, value) => {
             return mapping.kbZoneMap.get(value);
         }
         // no split, full keyboard is used
-        return "0000";
+        return [["0000"], [true, true, true, true]];
     }
     // section is not used
-    return "----";
+    return ["----", [false, false, false, false]];
 };
 
 /***

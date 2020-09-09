@@ -37,16 +37,16 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.enabled eq true and panelA.extern.kbZone eq -OO-", async () => {
-        const file = "panelA.extern.enabled eq true and panelA.extern.kbZone eq -OO-.ns3f";
+    test("panelA.extern.enabled eq true and panelA.extern.kbZone.label eq -OO-", async () => {
+        const file = "panelA.extern.enabled eq true and panelA.extern.kbZone.label eq -OO-.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.extern.enabled eq true and panelA.extern.kbZone eq 0000", async () => {
-        const file = "panelA.extern.enabled eq true and panelA.extern.kbZone eq 0000.ns3f";
+    test("panelA.extern.enabled eq true and panelA.extern.kbZone.label eq 0000", async () => {
+        const file = "panelA.extern.enabled eq true and panelA.extern.kbZone.label eq 0000.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

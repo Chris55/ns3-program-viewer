@@ -39,9 +39,12 @@ router.post("/upload", upload.single("nordFile"), async (req, res, next) => {
     await fs.unlink(req.file.path).catch(next);
 
     try {
-        const result = loadNs3fFile(buffer);
-        result.name = req.file.originalname;
-        res.send(result);
+        const result = loadNs3fFile(buffer, req.file.originalname);
+        res.send({
+            success: true,
+            error: "",
+            data: result,
+        });
     } catch (err) {
         console.error(err, err.stack);
         next(err);

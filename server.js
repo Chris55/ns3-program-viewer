@@ -1,30 +1,31 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const path = require("path");
-const https = require("https");
-const api = require('./server/routes/api.routes');
+const api = require("./server/routes/api.routes");
 
 const app = express();
 const port = process.env.PORT || 4000;
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    })
+);
 app.use(cors());
 
-app.use('/api', api);
+app.use("/api", api);
 
 //console.log("env: ", JSON.stringify(process.env, null, 2));
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
     // Serve any static files
-    app.use(express.static(path.join(__dirname, 'client/build')));
+    app.use(express.static(path.join(__dirname, "client/build")));
 
     // Handle React routing, return all requests to React app
-    app.get('*', function (req, res) {
-        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    app.get("*", function (req, res) {
+        res.sendFile(path.join(__dirname, "client/build", "index.html"));
     });
 }
 
@@ -33,14 +34,17 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use((err, req, res, next) => {
     if (res.headersSent) {
-        return next(err)
+        return next(err);
     }
     if (!err.statusCode) err.statusCode = 400;
-    res.status(err.statusCode).send(err.message);
+    res.status(err.statusCode).send({
+        success: false,
+        error: err.message,
+        data: {},
+    });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
 
 // setInterval(() => {
 //     const hour = new Date().getUTCHours();
@@ -49,6 +53,3 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 //         https.get('https://ns3-program-viewer.herokuapp.com/');
 //     }
 // }, 1740000); // 29min
-
-
-
