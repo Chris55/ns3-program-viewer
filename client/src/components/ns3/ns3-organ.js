@@ -15,7 +15,7 @@ export default class Ns3Organ extends Component {
 
                     <Ns3VolumeAndMore name={"ORGAN"} data={organ} />
 
-                    <Col sm={10} className="align-self-lg-auto">
+                    <Col sm={8} className="align-self-lg-auto">
                         <div className="nord-name">
                             {organ.type} {organ.preset1.label} / {organ.preset2.label}{" "}
                         </div>

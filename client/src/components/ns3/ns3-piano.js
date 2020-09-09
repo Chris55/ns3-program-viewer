@@ -14,7 +14,7 @@ export default class Ns3Piano extends Component {
                 <Row className={piano.enabled ? "nord-on" : "nord-off"}>
                     <Ns3VolumeAndMore name={"PIANO"} data={piano} />
 
-                    <Col sm={10} className="align-self-lg-auto">
+                    <Col sm={8} className="align-self-lg-auto">
                         <div className="nord-name">{piano.name}</div>
 
                         <div>
@@ -64,31 +64,33 @@ export default class Ns3Piano extends Component {
                                 </span>
                             </div>
                         </div>
+
+                        <div className="">
+                            <small>
+                                {piano.morph.map((m) => (
+                                    <div>
+                                        <div className={m.morph.morph.wheel.enabled ? "nord-option-on" : "d-none"}>
+                                            {m.name} Morph Wheel from {m.morph.label} to {m.morph.morph.wheel.to.label}
+                                        </div>
+                                        <div className={m.morph.morph.afterTouch.enabled ? "nord-option-on" : "d-none"}>
+                                            {m.name} Morph After Touch from {m.morph.label} to{" "}
+                                            {m.morph.morph.afterTouch.to.label}
+                                        </div>
+                                        <div
+                                            className={
+                                                m.morph.morph.controlPedal.enabled ? "nord-option-on dot-green" : "d-none"
+                                            }
+                                        >
+                                            Control Pedal {m.name} from {m.morph.label} to{" "}
+                                            {m.morph.morph.controlPedal.to.label}
+                                        </div>
+                                    </div>
+                                ))}
+                            </small>
+                        </div>
                     </Col>
 
-                    <Col className="">
-                        <small>
-                            {piano.morph.map((m) => (
-                                <div>
-                                    <div className={m.morph.morph.wheel.enabled ? "nord-option-on" : "d-none"}>
-                                        {m.name} Morph Wheel from {m.morph.label} to {m.morph.morph.wheel.to.label}
-                                    </div>
-                                    <div className={m.morph.morph.afterTouch.enabled ? "nord-option-on" : "d-none"}>
-                                        {m.name} Morph After Touch from {m.morph.label} to{" "}
-                                        {m.morph.morph.afterTouch.to.label}
-                                    </div>
-                                    <div
-                                        className={
-                                            m.morph.morph.controlPedal.enabled ? "nord-option-on dot-green" : "d-none"
-                                        }
-                                    >
-                                        Control Pedal {m.name} from {m.morph.label} to{" "}
-                                        {m.morph.morph.controlPedal.to.label}
-                                    </div>
-                                </div>
-                            ))}
-                        </small>
-                    </Col>
+
                 </Row>
             </React.Fragment>
         );

@@ -9,7 +9,7 @@ export default class Ns3VolumeAndMore extends Component {
 
         return (
             <React.Fragment>
-                <Col sm={2} className="text-center">
+                <Col sm={3} className="text-center">
                     <h6 className="font-weight-bold">{this.props.name}</h6>
 
                     <h6>{organ.volume.label}</h6>
