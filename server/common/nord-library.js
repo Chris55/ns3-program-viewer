@@ -84,11 +84,37 @@ exports.sampleIdMap = new Map([
     [0x0536b997, "Grand Upright YaU3 Med 5.4"],
     [0x520c78b5, "Grand Upright YaU3 Sml 5.4"],
 
+    [0x0c8f7165, "Queen Upright Bdorf Lrg 5.3"],
+    [0x4223afc3, "Queen Upright Bdorf Med 5.3"],
+    [0xdbbab11f, "Queen Upright Bdorf Sml 5.3"],
+
+    [0x0f4358d9, "Black Upright Petrof Lrg 5.3"],
+    [0x9dd441cf, "Black Upright Petrof Med 5.3"],
+    [0xa042b37c, "Black Upright Petrof Sml 5.3"],
+
+    [0x354a2c60, "HonkyTonkUpright      Lrg 5.3"],
+    [0x1c06f01a, "HonkyTonkUpright      Med 5.3"],
+    [0xc2a7a3a2, "HonkyTonkUpright      Sml 5.3"],
+
     [0xb23ac497, "Saloon Upright Baumgardt Lrg 5.3"],
     [0x413649a1, "Saloon Upright Baumgardt Med 5.3"],
     [0xae927c88, "Saloon Upright Baumgardt Sml 5.3"],
 
+    [0x85ab33aa, "Romantic Upright Schimmel Lrg5.3"],
+    [0xf8152ad8, "Romantic Upright Schimmel Med5.3"],
+    [0xdb4d6d36, "Romantic Upright Schimmel Sml5.3"],
 
+    [0xeb27ebc0, "BlueSwede Ostl&Alm Lrg 5.3"],
+    [0x8f625f27, "BlueSwede Ostl&Alm Med 5.3"],
+    [0x05e78e5e, "BlueSwede Ostl&Alm Sml 5.3"],
+
+    [0x18287995, "Rain Piano SvPnoFab Lrg 5.3"],
+    [0x16c44e40, "Rain Piano SvPnoFab Med 5.3"],
+    [0xbad99a1f, "Rain Piano SvPnoFab Sml 5.3"],
+
+    [0x3, "Lrg"],
+    [0x4, "Med"],
+    [0xa, "Sml"],
 
 
 ]);
