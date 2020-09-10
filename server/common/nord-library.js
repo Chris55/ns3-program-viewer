@@ -112,9 +112,27 @@ exports.sampleIdMap = new Map([
     [0x16c44e40, "Rain Piano SvPnoFab Med 5.3"],
     [0xbad99a1f, "Rain Piano SvPnoFab Sml 5.3"],
 
+    // Electric
+
+    [0x97ee3925, "EP8 Nefertiti XL 6.0"],
+    [0x99c5f748, "EP8 Nefertiti Lrg 6.0"],
+    [0xa2b9582f, "EP8 Nefertiti Sml 6.0"],
+    [0x400c59e6, "EP8 Nefertiti    Mk1 1970 Lrg5.5"],
+
+
     // Clavinet
 
     [0x1bedfa44, ["Clavinet D6 CA 5.0", "Clavinet D6 CB 5.0", "Clavinet D6 DA 5.0", "Clavinet D6 DB 5.0"]],
+
+    // Misc
+
+    [0xb7353247, "Marimba  6.1"],
+    [0xa90baba1, "Marimba mono  6.1"],
+
+    [0x7db59a7c, "Vibraphone  6.0"],
+    [0x7e48ff56, "Vibraphone mono  6.0"],
+
+
 
 
 
