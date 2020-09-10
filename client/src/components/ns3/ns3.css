@@ -1,10 +1,10 @@
 
 
 .ns3-panel {
-    position: relative;
+
     /*height: 500px;*/
     /*width: 500px;*/
-    background: #c6c5c5;
+    background: #dedbdb;
     /*top: 0px;*/
     /*left: 0px;*/
 }
@@ -12,8 +12,8 @@
 .ns3-header {
     background: #3b4047;
     color: white;
-    margin: 0;
-    padding: 10px 15px;
+    /*margin: 0;*/
+    /*padding: 10px 15px;*/
 }
 
 .ns3-header-name {
@@ -36,23 +36,33 @@
     transition: transform 1s ease-in-out;
 }
 
-.ns3-piano {
+.ns3-section {
     /*height: 150px;*/
     /*width: 700px;*/
     /* position: absolute;*/
+    /*min-width: 600px;*/
     background: whitesmoke;
     margin: 4px;
     border-radius: 45px 10px 10px 10px;
 }
 
-.ns3-organ {
+.ns3-section-fx {
     /*height: 150px;*/
     /*width: 700px;*/
     /* position: absolute;*/
     background: whitesmoke;
-    margin: 4px 4px 4px 4px;
-    border-radius: 45px 10px 10px 10px;
+    margin: 4px;
+    border-radius: 10px;
 }
+
+/*.ns3-organ {*/
+/*    !*height: 150px;*!*/
+/*    !*width: 700px;*!*/
+/*    !* position: absolute;*!*/
+/*    background: whitesmoke;*/
+/*    margin: 4px 4px 4px 4px;*/
+/*    border-radius: 45px 10px 10px 10px;*/
+/*}*/
 
 
 .nord-on {
@@ -86,8 +96,8 @@
 }
 
 .dot {
-    height: 9px;
-    width: 9px;
+    height: 10px;
+    width: 10px;
     background-color: lightgrey;
     border-style: solid;
     border-width: thin;
@@ -116,7 +126,6 @@
     font-family: "Inconsolata", monospace;
     font-size: 1rem;
 }
-
 
 
 

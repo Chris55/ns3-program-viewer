@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 
 const FileUploaderButton = props => {
     const hiddenFileInput = React.useRef(null);
@@ -15,7 +15,6 @@ const FileUploaderButton = props => {
     return (
         <>
             <Button
-                variant="primary"
                 onClick={handleClick}>
                 {props.title}
             </Button>

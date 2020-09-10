@@ -9,8 +9,6 @@ import programIcon from "./nprog.icns.svg";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Figure from "react-bootstrap/Figure";
 import JSONTree from "react-json-tree";
 import Ns3 from "./components/ns3/ns3";
@@ -88,30 +86,20 @@ class App extends Component {
                 </div>
 
                 <Container>
-                    <Row className="">
-                        <Col sm={2} className="align-self-center">
+                    <div className="row ">
+                        <div className="col-2-auto align-self-center">
                             <FileUploaderButton className="" title="Select" handleFile={this.handleFile} />
-                        </Col>
+                        </div>
 
-                        <Col sm={2} className="align-self-center">
+                        <div className="col-auto align-self-center">
                             Nord Program File (*.ns3f)
-                        </Col>
+                        </div>
 
-                        <Col sm={4} className="align-self-center">
+                        <div className="col-auto align-self-center">
                             <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
 
-                    <Row>
-
-                    </Row>
-
-                    <Row className="mt-5">
-                        <Col sm={12}>
-                            {/*defaultActiveKey="debug"*/}
-
-                        </Col>
-                    </Row>
                 </Container>
 
                 <Tabs  id="uncontrolled-tab-example">

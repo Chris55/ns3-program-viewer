@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Col from "react-bootstrap/Col";
 
 export default class Ns3VolumeAndMore extends Component {
     render() {
@@ -9,7 +8,7 @@ export default class Ns3VolumeAndMore extends Component {
 
         return (
             <React.Fragment>
-                <Col sm={3} className="text-center">
+
                     <h6 className="font-weight-bold">{this.props.name}</h6>
 
                     <h6>{organ.volume.label}</h6>
@@ -38,7 +37,7 @@ export default class Ns3VolumeAndMore extends Component {
                             <small>SUSTPED</small>
                         </span>
                     </div>
-                </Col>
+
             </React.Fragment>
         );
     }

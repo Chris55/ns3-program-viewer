@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./ns3.css";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Ns3Panel from "./ns3-panel";
+
 
 function pad(pad, str, padLeft) {
     if (typeof str === "undefined") return pad;
@@ -30,44 +29,44 @@ export default class Ns3 extends Component {
             pad("   ", data.split.high.note, true);
 
         return (
-            <React.Fragment className="ns3">
-                <Row className="ns3-header">
-                    <Col >
+            <div className="container-fluid ns3">
+                <div className="row ns3-header">
+                    <div className="col">
                         <div className="ns3-header-name">Program: {data.name}</div>
-                    </Col>
-                    <Col  className={data.name !== "None" ? "nord-option-on" : "nord-option-off"}>
+                    </div>
+                    <div className="col text-right">
                         <small>Master Clock Rate</small>
                         <br />
                         <small>{data.masterClock.rate}</small>
-                    </Col>
-                    <Col>
-                        <Row>
-                            <Col  className={data.split.enabled ? "nord-option-on text-right" : "nord-option-off"}>
+                    </div>
+                    <div className="col">
+                        <div className="row">
+                            <div  className={data.split.enabled ? "col nord-option-on text-right" : "col nord-option-off"}>
                                 <small>SPLIT </small>
-                            </Col>
-                            <Col className={data.split.enabled ? "nord-split" : "d-none"}>
+                            </div>
+                            <div className={data.split.enabled ? "col nord-split" : "col d-none"}>
                                 <small>{splitWidth}</small>
                                 <br />
                                 <small>{splitNote}</small>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
                         <div className={data.panelA.enabled ? "nord-on" : "nord-off"}>
                             <Ns3Panel name={"A"} data={data.panelA} />
                         </div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
                         <div className={data.panelB.enabled ? "nord-on" : "nord-off"}>
                             <Ns3Panel name={"B"} data={data.panelB} />
                         </div>
-                    </Col>
-                </Row>
-            </React.Fragment>
+                    </div>
+                </div>
+            </div>
         );
     }
 }

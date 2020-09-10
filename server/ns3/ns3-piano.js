@@ -1,4 +1,5 @@
 const mapping = require("./ns3-mapping");
+const {midi2LinearStringValue} = require("../common/converter");
 const {sampleIdMap} = require("../common/nord-library");
 const { getKbZone } = require("./ns3-utils");
 const { getVolumeEx } = require("./ns3-utils");
@@ -29,7 +30,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     const pianoTypeValue = (pianoOffset48 & 0x38) >>> 3;
 
     const pianoKbZone = getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11);
-
+    const pianoModel = ((pianoOffset48W & 0x07c0) >>> 6) + 1;
 
     const pianoSampleVariation = (pianoOffset49 & 0x30) >>> 4;
     const  pianoSampleId =  Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
@@ -40,6 +41,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         } else {
             pianoName = pianoName[0] + " unknown variation";
         }
+    }
+    if (!pianoName) {
+        pianoName = "unknown " + pianoModel;
     }
 
     const pianoTimbreValues = mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3);
@@ -52,12 +56,16 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
 
     const pianoTimbre = (pianoTypeValue >= 0 && pianoTypeValue < 6) ? pianoTimbreValues[pianoTypeForTimbre]: "None";
 
+    // const glideMidi = 38;
+    // const glideLabel = midi2LinearStringValue(0, 10, glideMidi, 1, "");
 
     const piano =  {
         debug: {
             sampleVariation: pianoSampleVariation,
             sampleId: pianoSampleId.toString(16),
             name: pianoName,
+            // glideMidi: glideMidi,
+            // glideLabel: glideLabel,
         },
 
         /**
@@ -160,7 +168,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Model
          */
-        model: ((pianoOffset48W & 0x07c0) >>> 6) + 1,
+        model: pianoModel,
 
         /**
          * Offset in file: 0x49 (b3-0) to 0x4D (b7-3)

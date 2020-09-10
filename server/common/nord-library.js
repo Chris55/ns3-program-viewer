@@ -57,6 +57,20 @@ exports.sampleIdMap = new Map([
     [0xb17de0c6, "ConcertGrand1Amb StwD   Med 5.3"],
     [0xce95e083, "ConcertGrand1Amb StwD   Sml 5.3"],
 
+    // Chris Maene Collection
+
+    [0x5a14bbec, "Steinway No1  XL 5.2"],
+
+    [0xd1179b3a, "Mozart FortePno A.Walter XL 5.3"],
+    [0x1083985e, "Mozart FortePno A.Walter Lrg 5.3"],
+    [0x012ad6d8, "Mozart FortePno A.Walter Med 5.3"],
+    [0x75e448a9, "Mozart FortePno A.Walter Sml 5.3"],
+
+    [0x13d61589, "Beethoven ForteP Broadwood XL5.3"],
+    [0xab2579a6, "Beethoven ForteP Broadwood Lrg5.3"],
+    [0x731cc402, "Beethoven ForteP Broadwood Med5.3"],
+    [0x478a766e, "Beethoven ForteP Broadwood Sml5.3"],
+
     // Upright Piano
 
     [0x08105835, "Baby Upright Nordiska  XL 5.4"],
@@ -162,7 +176,7 @@ exports.sampleIdMap = new Map([
 
     [0x1bedfa44, ["Clavinet D6 CA 5.0", "Clavinet D6 CB 5.0", "Clavinet D6 DA 5.0", "Clavinet D6 DB 5.0"]],
 
-    // Harpsichord
+    // Harpsichord (listed as Clav type)
 
     [0x7121ce35, "Ital Harpsich 1B Long Stri 5.0"],
     [0x9251b699, "Ital Harpsich 1D Lute 5.0"],
@@ -170,21 +184,25 @@ exports.sampleIdMap = new Map([
     [0x47964c4f, "French Harpsi 1A Lower8 5.0"],
     [0x8ae89dd1, "French Harpsi 1D Lo8 Lo4 5.0"],
 
-    // Misc
+    // Digital
+
+    [0xd4d695d4, "DigiGrand 1  Sml 5.2"],
+    [0x1af6d209, "DigiGrand 2  Sml 5.2"],
+    [0x51accddc, "DX7 FullTines  Lrg 5.4"],
+    [0x9c9a2f4b, "DX RubbaTines Lrg 5.4"],
+
+
+    // Miscellaneous
+
+    [0x97a8d177, "Ballad EP1  Sml 5.2"],
+    [0xc8bd5649, "Ballad EP2  Sml 5.2"],
+    [0x846b843d, "Hybrid EP  Sml 5.2"],
+    [0xf65e34f0, "Silver EP  Sml 5.2"],
 
     [0xb7353247, "Marimba  6.1"],
     [0xa90baba1, "Marimba mono  6.1"],
 
     [0x7db59a7c, "Vibraphone  6.0"],
     [0x7e48ff56, "Vibraphone mono  6.0"],
-
-
-
-
-
-    [0x3, "Lrg"],
-    [0x4, "Med"],
-    [0xa, "Sml"],
-
 
 ]);
