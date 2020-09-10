@@ -34,19 +34,24 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
 
     const pianoKbZone = getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11);
 
-    //const pianoNamePrefix = (pianoOffset4d & 0x30) >>> 4;
-    const pianoNamePrefix = (pianoOffset49 & 0x30) >>> 4;
 
-    const  pianoNameId =  Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
-    //const  pianoNameId =  Number((pianoOffset49WW & 0x0fffffffffffffffn) >> 28n);
-    const pianoName = pianoNameId.toString(16);
+    const pianoSampleVariation = (pianoOffset49 & 0x30) >>> 4;
+    const  pianoSampleId =  Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
+    let pianoName = sampleIdMap.get(pianoSampleId);
+    if (pianoName instanceof Array) {
+        if (pianoSampleVariation >= 0 && pianoSampleVariation < pianoName.length) {
+            pianoName = pianoName[pianoSampleVariation];
+        } else {
+            pianoName = pianoName[0] + " unknown variation";
+        }
 
+    }
 
     const piano =  {
         debug: {
-            namePrefix: pianoNamePrefix,
-            nameId: pianoNameId.toString(16),
-            name: sampleIdMap.get(pianoNameId),
+            sampleVariation: pianoSampleVariation,
+            sampleId: pianoSampleId.toString(16),
+            name: pianoName,
         },
 
         /**
@@ -159,7 +164,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Name
          */
-        name: sampleIdMap.get(pianoNameId),
+        name: pianoName,
 
         /**
          * Offset in file: 0x4E (b5-3)

@@ -84,7 +84,7 @@ Older versions, from 3.00 to 3.02 have a length of 574 bytes and a smaller heade
 | `0x0046` | `aaaapppp` | [(p) piano volume morph control pedal](api.md#piano-volume)
 | `0x0047` | `pppp-ooo` | [(o) piano octave shift](api.md#piano-octave-shift)
 | `0x0048` | `pstttmmm` | [(p) piano pitch stick](api.md#piano-pitch-stick), [(s) piano sustain pedal](api.md#piano-sustain-pedal), [(t) piano type](api.md#piano-type), [(m) piano model](api.md#piano-model)
-| `0x0049` | `mm00iiii` | [(m) piano name](api.md#piano-model)
+| `0x0049` | `mmvviiii` | [(v) piano sample variation](api.md#piano-model), [(i) piano sample name](api.md#piano-model)
 | `0x004A` | `iiiiiiii` |
 | `0x004B` | `iiiiiiii` |
 | `0x004C` | `iiiiiiii` |

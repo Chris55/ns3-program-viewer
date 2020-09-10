@@ -112,6 +112,12 @@ exports.sampleIdMap = new Map([
     [0x16c44e40, "Rain Piano SvPnoFab Med 5.3"],
     [0xbad99a1f, "Rain Piano SvPnoFab Sml 5.3"],
 
+    // Clavinet
+
+    [0x1bedfa44, ["Clavinet D6 CA 5.0", "Clavinet D6 CB 5.0", "Clavinet D6 DA 5.0", "Clavinet D6 DB 5.0"]],
+
+
+
     [0x3, "Lrg"],
     [0x4, "Med"],
     [0xa, "Sml"],
