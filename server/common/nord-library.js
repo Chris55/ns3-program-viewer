@@ -119,6 +119,36 @@ exports.sampleIdMap = new Map([
     [0xa2b9582f, "EP8 Nefertiti Sml 6.0"],
     [0x400c59e6, "EP8 Nefertiti    Mk1 1970 Lrg5.5"],
 
+    [0xc2c0e241, "EP7 Amped Tines XL 6.0"],
+    [0xc1223a3d, "EP7 Amped Tines Med 6.0"],
+    [0xb01c149d, "Epiano7 Mk1 Amped Med 5.3"],
+
+    [0x500dcbe8, "EP6 Sparkletop XL 6.0"],
+    [0x82a661b9, "EP6 Sparkletop Med 6.0"],
+    [0xb9b08058, "EP6 SparkleTop Vintage67 5.3"],
+
+    [0xe4cd184a, "EP5 BrightTines XL 6.0"],
+    [0x24450059, "EP5 BrightTines Med 6.0"],
+    [0x866a30a9, "EP5 Bright Tines CustomMod 5.3"],
+
+    [0x81a1a00a, "EP4 Mk5 80s Lrg 6.0"],
+    [0x48efb39d, "EP4 Mk5 80s Sml 6.0"],
+    [0xedd34781, "EPiano 4    Mk V ClosIdeal 5.3"],
+
+    [0x96ecd6ba, "EP3 Shallow Close Lrg 6.0"],
+    [0xe441e123, "EP3 Shallow Close Sml 6.0"],
+    [0x3e8b316a, "EPiano 3   Mk II Shallow 5.3"],
+
+    [0x026666d1, "EP2 Ideal Timbre Lrg 6.0"],
+    [0x5866310d, "EP2 Ideal Timbre Sml 6.0"],
+    [0xc8630fe2, "EPiano 2    Mk I ClosIdeal 5.3"],
+
+    [0x4e099de0, "EP1 Deep Timbre Lrg 6.0"],
+    [0xbde73dcb, "EP1 Deep Timbre Sml 6.0"],
+    [0xe4342576, "EPiano 1    Mk I Low Deep  5.3"],
+
+    [0xf4de3d37, "Wurlitzer 1 200A 5.3"],
+    [0xc8b6007d, "Wurlitzer 2 Amped XL 5.3"],
 
     // Clavinet
 
