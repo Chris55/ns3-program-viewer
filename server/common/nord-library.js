@@ -150,9 +150,25 @@ exports.sampleIdMap = new Map([
     [0xf4de3d37, "Wurlitzer 1 200A 5.3"],
     [0xc8b6007d, "Wurlitzer 2 Amped XL 5.3"],
 
+    // Electric Grands
+
+    [0x7092e6ca, "EGrand 3 Stereo CP80Amped Med5.3"],
+    [0x75e6ad52, "EGrand 3 Mono CP80Amped Sml 5.3"],
+    [0xcca6ab07, "Electric Grand 1 CP80  5.3"],
+    [0x33b747f7, "ElectricGrand 2 CustomBld 5.3"],
+
+
     // Clavinet
 
     [0x1bedfa44, ["Clavinet D6 CA 5.0", "Clavinet D6 CB 5.0", "Clavinet D6 DA 5.0", "Clavinet D6 DB 5.0"]],
+
+    // Harpsichord
+
+    [0x7121ce35, "Ital Harpsich 1B Long Stri 5.0"],
+    [0x9251b699, "Ital Harpsich 1D Lute 5.0"],
+    [0x19d67f4a, "Ital Harpsich 1A Short Str 5.0"],
+    [0x47964c4f, "French Harpsi 1A Lower8 5.0"],
+    [0x8ae89dd1, "French Harpsi 1D Lo8 Lo4 5.0"],
 
     // Misc
 

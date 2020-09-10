@@ -28,10 +28,6 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     const pianoEnabled = (pianoOffset43W & 0x8000) !== 0;
     const pianoTypeValue = (pianoOffset48 & 0x38) >>> 3;
 
-
-    const pianoTimbreValues = mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3);
-    const pianoTimbre = (pianoTypeValue >= 0 && pianoTypeValue < 6) ? pianoTimbreValues[pianoTypeValue]: "None"
-
     const pianoKbZone = getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11);
 
 
@@ -44,8 +40,18 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
         } else {
             pianoName = pianoName[0] + " unknown variation";
         }
-
     }
+
+    const pianoTimbreValues = mapping.pianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3);
+
+    // Timbre are different for each Piano type
+    // with one subtle Harpsi case:
+    // Harpsi sample are not used Clav timbre category but the default Soft/Mid/Bright
+    //
+    const pianoTypeForTimbre = pianoTypeValue === 3 && pianoName.includes("Harpsi") ? 0: pianoTypeValue;
+
+    const pianoTimbre = (pianoTypeValue >= 0 && pianoTypeValue < 6) ? pianoTimbreValues[pianoTypeForTimbre]: "None";
+
 
     const piano =  {
         debug: {
@@ -170,10 +176,11 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0x4E (b5-3)
          *
          * @example
-         * Grand, Upright, Digital, and Misc Piano:
+         * Grand, Upright, Digital, Misc Piano, and Harpsichord:
          * 0 = None
          * 1 = Soft
          * 2 = Mid
+         * 3 = Bright
          *
          * Electric Piano
          * 0 = None
