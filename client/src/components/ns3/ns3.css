@@ -5,6 +5,7 @@
 
 .ns3-header {
     background: #3b4047;
+
     color: white;
     /*margin: 0;*/
     padding: 10px;
@@ -15,7 +16,8 @@
     /*height: 500px;*/
     /*width: 500px;*/
     background: lightgrey;
-    /*top: 0px;*/
+
+    /*!*top: 0px;*!*/
     /*left: 0px;*/
 }
 
@@ -27,6 +29,7 @@
     /*font-stretch: normal;*/
     /*font-weight: bold;*/
     /*margin: 10px;*/
+
 }
 
 .outer{
@@ -43,11 +46,14 @@
 }
 
 .ns3-panel-name {
-    background-color: grey;
+    /*background-color: #3b4047;*/
+    color: white;
     border-radius: 0;
     /*width: 64px;*/
     margin: 0;
     padding: 0;
+    background-image: url("red.png");
+    background-size: auto 100%;
 }
 
 .ns3-section {
@@ -59,6 +65,9 @@
     margin: 10px;
     padding: 5px;
     border-radius: 45px 10px 10px 10px;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: medium;
 }
 
 .ns3-section-fx {
@@ -74,7 +83,13 @@
     border-style: solid;
 }
 
-
+.nord-synth-sub-feature {
+    border-radius: 10px;
+    border-width: thin;
+    border-color: #efecec;
+    border-style: solid;
+    background-color: #f6f5f5;
+}
 
 
 .nord-on {
@@ -85,7 +100,7 @@
 
 .nord-off {
     opacity: 0.23;
-    /*margin: 2px;*/
+    margin: 2px;
     /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 }
 
@@ -96,6 +111,7 @@
     margin: 2px;
     text-transform: uppercase;
     font-weight: lighter;
+    font-size: 90%;
     /*small-caps*/
     font-variant: no-common-ligatures;
 }
@@ -105,6 +121,7 @@
     margin: 2px;
     text-transform: uppercase;
     font-weight: lighter;
+    font-size: 80%;
     /*small-caps*/
     font-variant: no-common-ligatures;
 }
@@ -126,7 +143,8 @@
 }
 
 .nord-name {
-    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;
+    //font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
     font-size: 1rem;
     font-stretch: normal;
     font-weight: bold;
@@ -137,9 +155,10 @@
 }
 
 .nord-split {
-    font-family: "Inconsolata", monospace;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;
     font-size: 1rem;
 }
+
 
 
 

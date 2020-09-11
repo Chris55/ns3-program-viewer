@@ -30,11 +30,14 @@ export default class Ns3 extends Component {
 
         return (
             <div className="ns3">
-                <div className="row ns3-header">
-                    <div className="col-8 align-self-center">
-                        <h3 className="ns3-header-name">Program: {data.name}</h3>
+
+                <div className="row ns3-header justify-content-between">
+                    <div className="col align-self-center">
+                        <h3 className="ns3-header-name">{data.name}</h3>
+                        <h6 className="ns3-header-name">{data.category}</h6>
                     </div>
-                    <div className="col-2 text-right">
+
+                    <div className="col-2 text-right nord-option-on">
                         <small>Master Clock Rate</small>
                         <br />
                         <small>{data.masterClock.rate}</small>
