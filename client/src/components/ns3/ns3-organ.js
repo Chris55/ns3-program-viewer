@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3VolumeAndMore from "./ns3-volume-and-more";
+import Ns3Fx from "./ns3-fx";
 
 export default class Ns3Organ extends Component {
     render() {
@@ -63,6 +64,9 @@ export default class Ns3Organ extends Component {
                                 </div>
                             </div>
                         </div>
+
+                        <Ns3Fx className="col-auto  d-flex" data={this.props.effects} source="Organ" />
+
                     </div>
                 </div>
             </React.Fragment>

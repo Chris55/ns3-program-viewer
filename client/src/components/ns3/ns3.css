@@ -50,9 +50,13 @@
     /*height: 150px;*/
     /*width: 700px;*/
     /* position: absolute;*/
-    background: whitesmoke;
+    /*background: #515354;*/
+    /*color: white;*/
     margin: 4px;
     border-radius: 10px;
+    border-width: thin;
+    border-color: #efecec;
+    border-style: solid;
 }
 
 /*.ns3-organ {*/
