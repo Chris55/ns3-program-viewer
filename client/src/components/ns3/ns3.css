@@ -34,7 +34,7 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    margin: 0 0 0 -5px;
+    margin: 0 0 0 10px;
 }
 .inner{
     transform: rotate(180deg);
@@ -45,7 +45,7 @@
 .ns3-panel-name {
     background-color: grey;
     border-radius: 0;
-    width: 64px;
+    /*width: 64px;*/
     margin: 0;
     padding: 0;
 }
@@ -57,7 +57,7 @@
     /*min-width: 600px;*/
     background: whitesmoke;
     margin: 10px;
-
+    padding: 5px;
     border-radius: 45px 10px 10px 10px;
 }
 
@@ -67,7 +67,7 @@
     /* position: absolute;*/
     /*background: #515354;*/
     /*color: white;*/
-    margin: 4px;
+    /*margin: 4px;*/
     border-radius: 10px;
     border-width: thin;
     border-color: #efecec;
@@ -85,9 +85,11 @@
 
 .nord-off {
     opacity: 0.23;
-    margin: 2px;
+    /*margin: 2px;*/
     /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 }
+
+
 
 .nord-option-on {
     opacity: 1;

@@ -12,7 +12,7 @@ export default class Ns3FxSimAmpEq extends Component {
                 <div className={visible ? "row nord-on" : "d-none"}>
                     <div className={this.props.className}>
                         <div className="col text-center">
-                            <h7 className="font-weight-bold">AMP SIM/EQ</h7>
+                            <h6 className="font-weight-bold">AMP SIM/EQ</h6>
 
                             {/*<div className={delay.masterClock ? "nord-option-on" : "nord-option-off"}>*/}
                             {/*    <small>MST CLK</small>*/}
