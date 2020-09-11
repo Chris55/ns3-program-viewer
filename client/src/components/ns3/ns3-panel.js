@@ -11,12 +11,16 @@ export default class Ns3Panel extends Component {
         return (
             <div className="ns3-panel">
                 <div className="row">
-                    <div className="col-auto d-flex">
+
+                    <div className="col-auto d-flex ns3-panel-name">
                         <div className="outer">
-                            <div className="inner">PANEL {this.props.name}</div>
+                            <div className="inner">
+                                <h6>PANEL {this.props.name}</h6>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-10">
+
+                    <div className="col-auto">
                         <div className={data.enabled ? "nord-on" : "nord-off"}>
 
                             <div className="row">
@@ -46,11 +50,11 @@ export default class Ns3Panel extends Component {
                         </div>
                     </div>
 
-                    <div className="col-auto d-flex">
-                        <div className="outer">
-                            <div className="inner">PANEL {this.props.name}</div>
-                        </div>
-                    </div>
+                    {/*<div className="col-auto d-flex">*/}
+                    {/*    <div className="outer">*/}
+                    {/*        <div className="inner">PANEL {this.props.name}</div>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                 </div>
             </div>
         );

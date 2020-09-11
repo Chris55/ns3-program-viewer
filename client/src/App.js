@@ -13,8 +13,7 @@ import Figure from "react-bootstrap/Figure";
 import JSONTree from "react-json-tree";
 import Ns3 from "./components/ns3/ns3";
 import "./components/ns3-panel-component-jqx.css";
-import {ns3Model} from "./components/ns3/model";
-
+import { ns3Model } from "./components/ns3/model";
 
 class App extends Component {
     constructor(props) {
@@ -33,7 +32,6 @@ class App extends Component {
         } else {
             this.setState({ error: data.error });
         }
-
     };
 
     onError = (err) => {
@@ -91,23 +89,18 @@ class App extends Component {
                             <FileUploaderButton className="" title="Select" handleFile={this.handleFile} />
                         </div>
 
-                        <div className="col-auto align-self-center">
-                            Nord Program File (*.ns3f)
-                        </div>
+                        <div className="col-auto align-self-center">Nord Program File (*.ns3f)</div>
 
                         <div className="col-auto align-self-center">
                             <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
                         </div>
                     </div>
-
                 </Container>
 
-                <Tabs  id="uncontrolled-tab-example">
+                <Tabs id="uncontrolled-tab-example">
                     {/*style={{backgroundColor: 'grey'}}*/}
                     <Tab eventKey="panel" title="Panel" disabled={false}>
-                                    <pre className="text-monospace">
-                                        <Ns3 data={this.state.data}  />
-                                    </pre>
+                        <Ns3 data={this.state.data} />
                     </Tab>
 
                     <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">

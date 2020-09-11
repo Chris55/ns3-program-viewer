@@ -29,17 +29,17 @@ export default class Ns3 extends Component {
             pad("   ", data.split.high.note, true);
 
         return (
-            <div className="container-fluid ns3">
+            <div className="ns3">
                 <div className="row ns3-header">
-                    <div className="col">
-                        <div className="ns3-header-name">Program: {data.name}</div>
+                    <div className="col-8 align-self-center">
+                        <h3 className="ns3-header-name">Program: {data.name}</h3>
                     </div>
-                    <div className="col text-right">
+                    <div className="col-2 text-right">
                         <small>Master Clock Rate</small>
                         <br />
                         <small>{data.masterClock.rate}</small>
                     </div>
-                    <div className="col">
+                    <div className="col-2">
                         <div className="row">
                             <div  className={data.split.enabled ? "col nord-option-on text-right" : "col nord-option-off"}>
                                 <small>SPLIT </small>
@@ -52,17 +52,17 @@ export default class Ns3 extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col">
+                <div className="">
+                    <div className="">
                         <div className={data.panelA.enabled ? "nord-on" : "nord-off"}>
-                            <Ns3Panel name={"A"} data={data.panelA} />
+                            <Ns3Panel name="A" data={data.panelA} />
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col">
+                <div className="">
+                    <div className="">
                         <div className={data.panelB.enabled ? "nord-on" : "nord-off"}>
-                            <Ns3Panel name={"B"} data={data.panelB} />
+                            <Ns3Panel name="B" data={data.panelB} />
                         </div>
                     </div>
                 </div>

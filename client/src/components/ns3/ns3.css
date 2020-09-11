@@ -1,39 +1,53 @@
-
-
-.ns3-panel {
-
-    /*height: 500px;*/
-    /*width: 500px;*/
-    background: #dedbdb;
-    /*top: 0px;*/
-    /*left: 0px;*/
+.ns3 {
+    padding: 0;
+    margin: 0;
 }
 
 .ns3-header {
     background: #3b4047;
     color: white;
     /*margin: 0;*/
-    /*padding: 10px 15px;*/
+    padding: 10px;
 }
 
+.ns3-panel {
+
+    /*height: 500px;*/
+    /*width: 500px;*/
+    background: lightgrey;
+    /*top: 0px;*/
+    /*left: 0px;*/
+}
+
+
+
 .ns3-header-name {
-    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;
-    font-size: 1rem;
-    font-stretch: normal;
-    font-weight: bold;
+    /*font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;*/
+    /*font-size: 1rem;*/
+    /*font-stretch: normal;*/
+    /*font-weight: bold;*/
+    /*margin: 10px;*/
 }
 
 .outer{
     writing-mode: tb-rl;
     display:flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
-    background-color: grey;
-    border-radius: 0;
+    margin: 0 0 0 -5px;
 }
 .inner{
     transform: rotate(180deg);
-    transition: transform 1s ease-in-out;
+    /*transition: transform 1s ease-in-out;*/
+
+}
+
+.ns3-panel-name {
+    background-color: grey;
+    border-radius: 0;
+    width: 64px;
+    margin: 0;
+    padding: 0;
 }
 
 .ns3-section {
@@ -42,7 +56,8 @@
     /* position: absolute;*/
     /*min-width: 600px;*/
     background: whitesmoke;
-    margin: 4px;
+    margin: 10px;
+
     border-radius: 45px 10px 10px 10px;
 }
 
@@ -59,14 +74,7 @@
     border-style: solid;
 }
 
-/*.ns3-organ {*/
-/*    !*height: 150px;*!*/
-/*    !*width: 700px;*!*/
-/*    !* position: absolute;*!*/
-/*    background: whitesmoke;*/
-/*    margin: 4px 4px 4px 4px;*/
-/*    border-radius: 45px 10px 10px 10px;*/
-/*}*/
+
 
 
 .nord-on {
