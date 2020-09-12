@@ -12,7 +12,7 @@ export default class Ns3FxMulti2 extends Component {
                 <div className={visible ? "row nord-on" : "d-none"}>
                     <div className={this.props.className}>
                         <div className="col text-center">
-                            <h6 className="font-weight-bold">EFFECT 2</h6>
+                            <div className="font-weight-bold">EFFECT 2</div>
 
                             <div className="nord-option-on">
                                 <small>TYPE {fx.type}</small>

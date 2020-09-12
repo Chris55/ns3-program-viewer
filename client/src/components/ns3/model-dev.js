@@ -1,4 +1,4 @@
-exports.ns3Model = {
+exports.ns3ModelDev = {
     name: "Test 1 HUGE",
     version: "3.04",
     category: "Acoustic",

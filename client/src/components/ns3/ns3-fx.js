@@ -13,37 +13,35 @@ export default class Ns3Fx extends Component {
 
         return (
             <React.Fragment>
-                <div className={this.props.className}>
-                    <Ns3FxRotarySpeaker
-                        className="col-auto ns3-section-fx"
-                        data={data.rotarySpeaker}
-                        source={this.props.source}
-                    />
+                <Ns3FxRotarySpeaker
+                    className="col-auto nord-option-on ns3-section-fx"
+                    data={data.rotarySpeaker}
+                    source={this.props.source}
+                />
 
-                    <Ns3FxMulti1
-                        className="col-auto ns3-section-fx"
-                        data={data.effect1}
-                        source={this.props.source}
-                    />
+                <Ns3FxMulti1
+                    className="col-auto nord-option-on ns3-section-fx"
+                    data={data.effect1}
+                    source={this.props.source}
+                />
 
-                    <Ns3FxMulti2
-                        className="col-auto ns3-section-fx"
-                        data={data.effect2}
-                        source={this.props.source}
-                    />
+                <Ns3FxMulti2
+                    className="col-auto nord-option-on ns3-section-fx"
+                    data={data.effect2}
+                    source={this.props.source}
+                />
 
-                    <Ns3FxDelay
-                        className="col-auto ns3-section-fx"
-                        data={data.delay}
-                        source={this.props.source}
-                    />
+                <Ns3FxDelay
+                    className="col-auto nord-option-on ns3-section-fx"
+                    data={data.delay}
+                    source={this.props.source}
+                />
 
-                    <Ns3FxSimAmpEq
-                        className="col-auto ns3-section-fx"
-                        data={data.ampSimEq}
-                        source={this.props.source}
-                    />
-                </div>
+                <Ns3FxSimAmpEq
+                    className="col-auto nord-option-on ns3-section-fx"
+                    data={data.ampSimEq}
+                    source={this.props.source}
+                />
             </React.Fragment>
         );
     }

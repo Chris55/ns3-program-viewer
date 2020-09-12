@@ -12,7 +12,7 @@ export default class Ns3FxRotarySpeaker extends Component {
                 <div className={visible ? "row nord-on" : "d-none"}>
                     <div className={this.props.className}>
                         <div className="col text-center">
-                            <h6 className="font-weight-bold">ROTARY SPEAKER</h6>
+                            <div className="font-weight-bold">ROTARY SPEAKER</div>
 
                             <div className="nord-option-on">
                                 <small>DRIVE {fx.drive}</small>

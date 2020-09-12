@@ -1,9 +1,9 @@
-exports.ns3Model = {
+exports.ns3ModelProd = {
         name: "",
         version: "3.04",
         category: "",
         panelA: {
-            enabled: true,
+            enabled: false,
             organ: {
                 enabled: false,
                 kbZone: { array: [false, false, false, false], label: "----" },

@@ -29,12 +29,12 @@ export default class Ns3 extends Component {
             pad("   ", data.split.high.note, true);
 
         return (
-            <div className="ns3">
+            <div className={data.panelA.enabled === false && data.panelB.enabled === false ? "d-none": ""}>
 
                 <div className="row ns3-header justify-content-between">
                     <div className="col align-self-center">
                         <h3 className="ns3-header-name">{data.name}</h3>
-                        <h6 className="ns3-header-name">{data.category}</h6>
+                        <div className="nord-option-on">Category {data.category} <small className="nord-option-on">V{data.version}</small></div>
                     </div>
 
                     <div className="col-2 text-right nord-option-on">
@@ -55,15 +55,16 @@ export default class Ns3 extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="">
-                    <div className="">
+
+                <div className="row">
+                    <div className="col-12">
                         <div className={data.panelA.enabled ? "nord-on" : "nord-off"}>
                             <Ns3Panel name="A" data={data.panelA} />
                         </div>
                     </div>
                 </div>
-                <div className="">
-                    <div className="">
+                <div className="row">
+                    <div className="col-12">
                         <div className={data.panelB.enabled ? "nord-on" : "nord-off"}>
                             <Ns3Panel name="B" data={data.panelB} />
                         </div>
