@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
+import Ns3Label from "./lib/ns3-label";
+import Ns3LabelAndValue from "./lib/ns3-label-and-value";
+import Ns3ValueOnOff from "./lib/ns3-value-on-off";
+import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
 
 export default class Ns3SectionSynthArp extends Component {
     render() {
@@ -10,7 +14,6 @@ export default class Ns3SectionSynthArp extends Component {
             <React.Fragment>
                 <div className={this.props.className}>
                     <div className="justify-content-center">
-
                         <div
                             className={
                                 arp.enabled
@@ -18,42 +21,48 @@ export default class Ns3SectionSynthArp extends Component {
                                     : "col-auto nord-synth-sub-feature nord-off"
                             }
                         >
-                            <div>
-                                <strong>ARP</strong>
-                            </div>
-                            <div>
-                                <span className={arp.enabled ? "nord-option-on" : "nord-option-off"}>
-                                    <small>Run</small>
-                                </span>
+                            <div className="font-weight-bold">ARP</div>
 
-                                <span> </span>
-
-                                <span className={arp.kbSync ? "nord-option-on" : "nord-option-off"}>
-                                    <small>Kb Sync</small>
-                                </span>
-                            </div>
-                            <div>
-                                <span className={arp.masterClock ? "nord-option-on" : "nord-option-off"}>
-                                    <small>MST CLK</small>
-                                </span>
-
-                                <span> </span>
-
-                                <span className="nord-option-on">
-                                    <small>{arp.rate.label}</small>
-                                </span>
-                            </div>
-                            <div>
-                                <span className="nord-option-on">
-                                    <small>{arp.range}</small>
-                                </span>
-
-                                <span> </span>
-
-                                <span className="nord-option-on">
-                                    <small>{arp.pattern}</small>
-                                </span>
-                            </div>
+                            <table className="table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td colSpan="3">
+                                            <Ns3ValueOnOff label="Run" data={arp.enabled} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan="3">
+                                            <Ns3ValueOnOff label="Kb Sync" data={arp.kbSync} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan="3">
+                                            <Ns3ValueOnOff label="MST CLK" data={arp.masterClock} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <Ns3LabelAndValueWithMorph label="Rate" data={arp.rate} />
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <Ns3Label label="Range" />
+                                        </td>
+                                        <td />
+                                        <td>
+                                            <Ns3LabelAndValue data={arp.range} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <Ns3Label label="Pattern" />
+                                        </td>
+                                        <td />
+                                        <td>
+                                            <Ns3LabelAndValue data={arp.pattern} />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

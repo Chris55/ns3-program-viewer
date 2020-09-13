@@ -39,8 +39,9 @@ exports.getFilter = (buffer, panelOffset) => {
          *
          * @module Synth Filter Type
          */
-        type: filterType,
-
+        type: {
+            value: filterType,
+        },
         /**
          * Offset in file: 0xA5 (b5-4)
          *
@@ -52,8 +53,9 @@ exports.getFilter = (buffer, panelOffset) => {
          *
          * @module Synth Filter Kb Track
          */
-        kbTrack: mapping.synthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >>> 12),
-
+        kbTrack: {
+            value: mapping.synthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >>> 12),
+        },
         /**
          * Offset in file: 0xA5 (b3-2)
          *
@@ -65,8 +67,9 @@ exports.getFilter = (buffer, panelOffset) => {
          *
          * @module Synth Filter Drive
          */
-        drive: mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >>> 10),
-
+        drive: {
+            value: mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >>> 10),
+        },
         modulations: {
             /**
              * Offset in file: 0xA0 (b3-0) and 0xA1 (b7-5)
@@ -92,10 +95,15 @@ exports.getFilter = (buffer, panelOffset) => {
              */
             lfoAmount: {
                 midi: filterModulation1KnobMidi,
-                label: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
-                morph: getMorph(synthOffsetA1Ww >>> 5, filterModulation1KnobMidi, (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
-                }, false),
+                value: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
+                morph: getMorph(
+                    synthOffsetA1Ww >>> 5,
+                    filterModulation1KnobMidi,
+                    (x) => {
+                        return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    },
+                    false
+                ),
             },
 
             /**
@@ -112,11 +120,11 @@ exports.getFilter = (buffer, panelOffset) => {
              */
             velAmount: {
                 midi: filterModulation2Knob.leftMidi,
-                label: filterModulation2Knob.leftLabel,
+                value: filterModulation2Knob.leftLabel,
             },
             modEnvAmount: {
                 midi: filterModulation2Knob.rightMidi,
-                label: filterModulation2Knob.rightLabel,
+                value: filterModulation2Knob.rightLabel,
             },
         },
 
@@ -144,10 +152,15 @@ exports.getFilter = (buffer, panelOffset) => {
          */
         cutoffFrequency: {
             midi: filterCutoffFreqKnobMidi,
-            label: mapping.synthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
-            morph: getMorph(synthOffset99Ww >>> 3, filterCutoffFreqKnobMidi, (x) => {
-                return mapping.synthFilterCutoffFrequencyMap.get(x);
-            }, false),
+            value: mapping.synthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
+            morph: getMorph(
+                synthOffset99Ww >>> 3,
+                filterCutoffFreqKnobMidi,
+                (x) => {
+                    return mapping.synthFilterCutoffFrequencyMap.get(x);
+                },
+                false
+            ),
         },
 
         /**
@@ -166,24 +179,31 @@ exports.getFilter = (buffer, panelOffset) => {
         highPassCutoffFrequency: {
             midi: filterTypeIsLpHp ? filterResFreqHpKnobMidi : 0,
 
-            label: filterTypeIsLpHp ? mapping.synthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
+            value: filterTypeIsLpHp ? mapping.synthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
 
-            morph: getMorph(synthOffset9dWw >>> 4, filterResFreqHpKnobMidi, (x) => {
-                return filterTypeIsLpHp ? mapping.synthFilterCutoffFrequencyMap.get(x) : "none";
-            }, !filterTypeIsLpHp),
+            morph: getMorph(
+                synthOffset9dWw >>> 4,
+                filterResFreqHpKnobMidi,
+                (x) => {
+                    return filterTypeIsLpHp ? mapping.synthFilterCutoffFrequencyMap.get(x) : "none";
+                },
+                !filterTypeIsLpHp
+            ),
         },
 
         resonance: {
             midi: filterTypeIsLpHp ? 0 : filterResFreqHpKnobMidi,
 
-            label:
-                filterTypeIsLpHp
-                    ? "0.0"
-                    : converter.midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
+            value: filterTypeIsLpHp ? "0.0" : converter.midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
 
-            morph: getMorph(synthOffset9dWw >>> 4, filterResFreqHpKnobMidi, (x) => {
-                return filterTypeIsLpHp ? "none" : converter.midi2LinearStringValue(0, 10, x, 1, "");
-            }, filterTypeIsLpHp),
+            morph: getMorph(
+                synthOffset9dWw >>> 4,
+                filterResFreqHpKnobMidi,
+                (x) => {
+                    return filterTypeIsLpHp ? "none" : converter.midi2LinearStringValue(0, 10, x, 1, "");
+                },
+                filterTypeIsLpHp
+            ),
         },
     };
 };

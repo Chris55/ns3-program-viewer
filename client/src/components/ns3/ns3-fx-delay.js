@@ -5,7 +5,7 @@ import "./ns3.css";
 export default class Ns3FxDelay extends Component {
     render() {
         const fx = this.props.data;
-        const visible = fx?.enabled && fx?.source === this.props.source;
+        const visible = fx?.enabled && fx?.source.value === this.props.source;
 
         return (
             <React.Fragment>

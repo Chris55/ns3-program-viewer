@@ -127,19 +127,19 @@ const getDrawbars = function (buffer, offset, type) {
     const morphControlPedalPreset = morphControlPedal.join("");
 
     return {
-        label: preset.join(""),
+        value: preset.join(""),
         morph: {
             wheel: {
                 enabled: morphWheelPreset !== "---------",
-                label: morphWheelPreset,
+                value: morphWheelPreset,
             },
             afterTouch: {
                 enabled: morphAfterTouchPreset !== "---------",
-                label: morphAfterTouchPreset,
+                value: morphAfterTouchPreset,
             },
             controlPedal: {
                 enabled: morphControlPedalPreset !== "---------",
-                label: morphControlPedalPreset,
+                value: morphControlPedalPreset,
             },
         },
     };
@@ -172,7 +172,7 @@ const hideIfEqual = (from, to) => {
  * @param buffer
  * @param panelOffset
  * @param splitEnabled
- * @returns {{volume: {midi: *, label: string, morph: {afterTouch: {to: ({midi: *, label: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, label: string}|string), enabled: boolean}, wheel: {to: ({midi: *, label: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}}
+ * @returns {{volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}}
  */
 exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
@@ -214,7 +214,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0xB6 (b6-3)
          *
          * @example
-         * value     |      | Label
+         * value     |      | value
          * --------- | ---- | -------
          * x000 0xxx |  0   | o---
          * x000 1xxx |  1   | -o--
@@ -231,7 +231,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          */
         kbZone: {
             array: organKbZone[1],
-            label: organKbZone[0],
+            value: organKbZone[0],
         },
         /**
          * Offset in file:
@@ -270,7 +270,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Organ Octave Shift
          */
-        octaveShift: (organOffsetBa & 0x07) - 6,
+        octaveShift: {
+            value: (organOffsetBa & 0x07) - 6,
+        },
 
         /**
          * Offset in file: 0x34 (b4)
@@ -280,8 +282,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Organ Pitch Stick
          */
-        pitchStick: (organOffset34 & 0x10) !== 0,
-
+        pitchStick: {
+            enabled: (organOffset34 & 0x10) !== 0,
+        },
         /**
          * Offset in file: 0xBB (b7)
          *
@@ -290,8 +293,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Organ Sustain Pedal
          */
-        sustainPedal: (organOffsetBb & 0x80) !== 0,
-
+        sustainPedal: {
+            enabled: (organOffsetBb & 0x80) !== 0,
+        },
         /**
          * Offset in file: 0xBB (b6/5/4)
          *
@@ -304,8 +308,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Organ Type
          */
-        type: organType,
-
+        type: {
+            value: organType,
+        },
         /**
          * Offset in file: 0xBE
          *
@@ -451,8 +456,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Organ Live Mode
          */
-        live: (organOffsetBb & 0x08) !== 0,
-
+        live: {
+            enabled: (organOffsetBb & 0x08) !== 0,
+        },
         /***
          * Organ Vibrato Options
          */
@@ -485,7 +491,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Organ Vibrato Mode
              */
-            mode: organMode,
+            mode: {
+                value:organMode,
+            },
         },
 
         /***
@@ -514,8 +522,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Organ Percussion Volume Soft
              */
-            volumeSoft: organTypeIsB3 && (organOffsetD3 & 0x01) !== 0,
-
+            volumeSoft: {
+                enabled:organTypeIsB3 && (organOffsetD3 & 0x01) !== 0,
+            },
             /**
              * Offset in file: 0xD3 (b1)
              *
@@ -526,8 +535,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Organ Percussion Decay Fast
              */
-            decayFast: organTypeIsB3 && (organOffsetD3 & 0x02) !== 0,
-
+            decayFast: {
+                enabled:organTypeIsB3 && (organOffsetD3 & 0x02) !== 0,
+            },
             /**
              * Offset in file: 0xD3 (b2)
              *
@@ -538,7 +548,9 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Organ Percussion Harmonic Third
              */
-            harmonicThird: organTypeIsB3 && (organOffsetD3 & 0x04) !== 0,
+            harmonicThird: {
+                enabled:organTypeIsB3 && (organOffsetD3 & 0x04) !== 0,
+            },
         },
     };
 };

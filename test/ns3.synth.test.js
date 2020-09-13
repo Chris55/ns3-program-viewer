@@ -21,240 +21,240 @@ describe("/ns3/synth", () => {
         });
     });
 
-    test("panelA.synth.glide eq 0.0", async () => {
-        const file = "panelA.synth.glide eq 0.0.ns3f";
+    test("panelA.synth.glide.value eq 0.0", async () => {
+        const file = "panelA.synth.glide.value eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.glide eq 10.0", async () => {
-        const file = "panelA.synth.glide eq 10.0.ns3f";
+    test("panelA.synth.glide.value eq 10.0", async () => {
+        const file = "panelA.synth.glide.value eq 10.0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.glide eq 5.0", async () => {
-        const file = "panelA.synth.glide eq 5.0.ns3f";
+    test("panelA.synth.glide.value eq 5.0", async () => {
+        const file = "panelA.synth.glide.value eq 5.0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.kbZone.label eq -O--", async () => {
-        const file = "panelA.synth.kbZone.label eq -O--.ns3f";
+    test("panelA.synth.kbZone.value eq -O--", async () => {
+        const file = "panelA.synth.kbZone.value eq -O--.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.kbZone.label eq O---", async () => {
-        const file = "panelA.synth.kbZone.label eq O---.ns3f";
+    test("panelA.synth.kbZone.value eq O---", async () => {
+        const file = "panelA.synth.kbZone.value eq O---.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.keyboardHold eq false", async () => {
-        const file = "panelA.synth.keyboardHold eq false.ns3f";
+    test("panelA.synth.keyboardHold.enabled eq false", async () => {
+        const file = "panelA.synth.keyboardHold.enabled eq false.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.keyboardHold eq true", async () => {
-        const file = "panelA.synth.keyboardHold eq true.ns3f";
+    test("panelA.synth.keyboardHold.enabled eq true", async () => {
+        const file = "panelA.synth.keyboardHold.enabled eq true.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.octaveShift eq -1", async () => {
-        const file = "panelA.synth.octaveShift eq -1.ns3f";
+    test("panelA.synth.octaveShift.value eq -1", async () => {
+        const file = "panelA.synth.octaveShift.value eq -1.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.octaveShift eq 0", async () => {
-        const file = "panelA.synth.octaveShift eq 0.ns3f";
+    test("panelA.synth.octaveShift.value eq 0", async () => {
+        const file = "panelA.synth.octaveShift.value eq 0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.octaveShift eq 1", async () => {
-        const file = "panelA.synth.octaveShift eq 1.ns3f";
+    test("panelA.synth.octaveShift.value eq 1", async () => {
+        const file = "panelA.synth.octaveShift.value eq 1.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.pitchStick eq false", async () => {
-        const file = "panelA.synth.pitchStick eq false.ns3f";
+    test("panelA.synth.pitchStick.enabled eq false", async () => {
+        const file = "panelA.synth.pitchStick.enabled eq false.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.pitchStick eq true", async () => {
-        const file = "panelA.synth.pitchStick eq true.ns3f";
+    test("panelA.synth.pitchStick.enabled eq true", async () => {
+        const file = "panelA.synth.pitchStick.enabled eq true.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.sustainPedal eq false", async () => {
-        const file = "panelA.synth.sustainPedal eq false.ns3f";
+    test("panelA.synth.sustainPedal.enabled eq false", async () => {
+        const file = "panelA.synth.sustainPedal.enabled eq false.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.sustainPedal eq true", async () => {
-        const file = "panelA.synth.sustainPedal eq true.ns3f";
+    test("panelA.synth.sustainPedal.enabled eq true", async () => {
+        const file = "panelA.synth.sustainPedal.enabled eq true.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.unison eq 1", async () => {
-        const file = "panelA.synth.unison eq 1.ns3f";
+    test("panelA.synth.unison.value eq 1", async () => {
+        const file = "panelA.synth.unison.value eq 1.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.unison eq 2", async () => {
-        const file = "panelA.synth.unison eq 2.ns3f";
+    test("panelA.synth.unison.value eq 2", async () => {
+        const file = "panelA.synth.unison.value eq 2.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.unison eq 3", async () => {
-        const file = "panelA.synth.unison eq 3.ns3f";
+    test("panelA.synth.unison.value eq 3", async () => {
+        const file = "panelA.synth.unison.value eq 3.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.unison eq Off", async () => {
-        const file = "panelA.synth.unison eq Off.ns3f";
+    test("panelA.synth.unison.value eq Off", async () => {
+        const file = "panelA.synth.unison.value eq Off.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.vibrato eq After Touch", async () => {
-        const file = "panelA.synth.vibrato eq After Touch.ns3f";
+    test("panelA.synth.vibrato.value eq After Touch", async () => {
+        const file = "panelA.synth.vibrato.value eq After Touch.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.vibrato eq Delay 1", async () => {
-        const file = "panelA.synth.vibrato eq Delay 1.ns3f";
+    test("panelA.synth.vibrato.value eq Delay 1", async () => {
+        const file = "panelA.synth.vibrato.value eq Delay 1.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.vibrato eq Delay 2", async () => {
-        const file = "panelA.synth.vibrato eq Delay 2.ns3f";
+    test("panelA.synth.vibrato.value eq Delay 2", async () => {
+        const file = "panelA.synth.vibrato.value eq Delay 2.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.vibrato eq Delay 3", async () => {
-        const file = "panelA.synth.vibrato eq Delay 3.ns3f";
+    test("panelA.synth.vibrato.value eq Delay 3", async () => {
+        const file = "panelA.synth.vibrato.value eq Delay 3.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.vibrato eq Off", async () => {
-        const file = "panelA.synth.vibrato eq Off.ns3f";
+    test("panelA.synth.vibrato.value eq Off", async () => {
+        const file = "panelA.synth.vibrato.value eq Off.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.vibrato eq Wheel", async () => {
-        const file = "panelA.synth.vibrato eq Wheel.ns3f";
+    test("panelA.synth.vibrato.value eq Wheel", async () => {
+        const file = "panelA.synth.vibrato.value eq Wheel.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.voice eq Legato", async () => {
-        const file = "panelA.synth.voice eq Legato.ns3f";
+    test("panelA.synth.voice.value eq Legato", async () => {
+        const file = "panelA.synth.voice.value eq Legato.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.voice eq Mono", async () => {
-        const file = "panelA.synth.voice eq Mono.ns3f";
+    test("panelA.synth.voice.value eq Mono", async () => {
+        const file = "panelA.synth.voice.value eq Mono.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.voice eq Poly", async () => {
-        const file = "panelA.synth.voice eq Poly.ns3f";
+    test("panelA.synth.voice.value eq Poly", async () => {
+        const file = "panelA.synth.voice.value eq Poly.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.volume.label eq Off", async () => {
-        const file = "panelA.synth.volume.label eq Off.ns3f";
+    test("panelA.synth.volume.midi eq 0 and panelA.synth.volume.value eq Off", async () => {
+        const file = "panelA.synth.volume.midi eq 0 and panelA.synth.volume.value eq Off.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.volume.midi eq 0 and panelA.synth.volume.label eq Off", async () => {
-        const file = "panelA.synth.volume.midi eq 0 and panelA.synth.volume.label eq Off.ns3f";
+    test("panelA.synth.volume.midi eq 127 and panelA.synth.volume.value eq 0.0 dB", async () => {
+        const file = "panelA.synth.volume.midi eq 127 and panelA.synth.volume.value eq 0.0 dB.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.volume.midi eq 127 and panelA.synth.volume.label eq 0.0 dB", async () => {
-        const file = "panelA.synth.volume.midi eq 127 and panelA.synth.volume.label eq 0.0 dB.ns3f";
+    test("panelA.synth.volume.value eq Off", async () => {
+        const file = "panelA.synth.volume.value eq Off.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3VolumeAndMore from "./ns3-volume-and-more";
+import Ns3VolumeAndMore from "./lib/ns3-volume-and-more";
 import Ns3Fx from "./ns3-fx";
+import Ns3ValueOnOff from "./lib/ns3-value-on-off";
+import Ns3LabelAndValue from "./lib/ns3-label-and-value";
+import Ns3Label from "./lib/ns3-label";
 
 export default class Ns3SectionOrgan extends Component {
     render() {
@@ -23,56 +26,40 @@ export default class Ns3SectionOrgan extends Component {
                             <div className="row">
                                 <div className="col-auto">
                                     <div className="nord-name">
-                                        {organ.type} {organ.preset1.label} - {organ.preset2.label}{" "}
+                                        {organ.type.value} {organ.preset1.value} - {organ.preset2.value}{" "}
                                     </div>
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-auto">
-                                    <div className={organ.vibrato.enabled ? "nord-option-on" : "nord-option-off"}>
-                                        <small>{vibratoChorusTitle}</small>
-                                    </div>
+                                    <Ns3Label enabled={organ.vibrato.enabled} label={vibratoChorusTitle} />
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-auto">
-                                    <div className={organ.vibrato.enabled ? "nord-option-on" : "nord-option-off"}>
-                                        <small>Type </small>
-                                        <strong>{organ.vibrato.mode}</strong>
-                                    </div>
+                                    <Ns3Label label="Type " />
+                                    <Ns3LabelAndValue enabled={organ.vibrato.enabled} data={organ.vibrato.mode} />
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-auto">
-                                    <div className={organ.percussion.enabled ? "nord-option-on" : "nord-option-off"}>
-                                        <small>Percussion</small>
-                                    </div>
+                                    <Ns3ValueOnOff label="Percussion" data={organ.percussion} />
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-auto">
-                                    <div className={organ.percussion.volumeSoft ? "nord-option-on" : "nord-option-off"}>
-                                        <small>Volume Soft {organ.percussion.volumeSoft}</small>
-                                    </div>
+                                    <Ns3ValueOnOff label="Volume Soft" data={organ.percussion.volumeSoft} />
                                 </div>
                                 <div className="col-auto">
-                                    <div className={organ.percussion.decayFast ? "nord-option-on" : "nord-option-off"}>
-                                        <small>Decay Fast {organ.percussion.decayFast}</small>
-                                    </div>
+                                    <Ns3ValueOnOff label="Decay Fast" data={organ.percussion.decayFast} />
                                 </div>
 
                                 <div className="col-auto">
-                                    <div
-                                        className={
-                                            organ.percussion.harmonicThird ? "nord-option-on" : "nord-option-off"
-                                        }
-                                    >
-                                        <small>Harmonic Third {organ.percussion.harmonicThird}</small>
-                                    </div>
+                                    <Ns3ValueOnOff label="Harmonic Third" data={organ.percussion.harmonicThird} />
                                 </div>
                             </div>
                         </div>

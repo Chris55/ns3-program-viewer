@@ -5,9 +5,9 @@ const {round} = require("../common/converter");
  *
  * @param uint32Value 32-bit raw value, wheel expected to be in b23-16, after touch in b15-8, and control pedal in b7-0.
  * @param midiFrom 7-bit original position
- * @param labelCallBack callback method to render the label
+ * @param labelCallBack callback method to render the value
  * @param forceDisabled optional used ont dual knob to disable morph option
- * @returns {{afterTouch: {to: {midi: *, label: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, label: (*|string)}, enabled: *}, wheel: {to: {midi: *, label: (*|string)}, enabled: *}}}
+ * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
 exports.getMorph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
@@ -49,7 +49,7 @@ exports.getMorph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
              */
             to: {
                 midi: result[0].midiTo,
-                label: result[0].enabled ? labelCallBack(result[0].midiTo) : "none",
+                value: result[0].enabled ? labelCallBack(result[0].midiTo) : "none",
             },
         },
 
@@ -67,7 +67,7 @@ exports.getMorph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
              */
             to: {
                 midi: result[1].midiTo,
-                label: result[1].enabled ? labelCallBack(result[1].midiTo) : "none",
+                value: result[1].enabled ? labelCallBack(result[1].midiTo) : "none",
             },
         },
 
@@ -85,7 +85,7 @@ exports.getMorph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
              */
             to: {
                 midi: result[2].midiTo,
-                label: result[2].enabled ? labelCallBack(result[2].midiTo) : "none",
+                value: result[2].enabled ? labelCallBack(result[2].midiTo) : "none",
             },
         },
     };
@@ -97,7 +97,7 @@ exports.getMorph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
  * @param uint32Value uint32Value 32-bit raw value, wheel expected to be in b23-16, after touch in b15-8, and control pedal in b7-0.
  * @param fromValue fromValue from value (-10 / +10)
  * @param left true if called for left value
- * @returns {{afterTouch: {to: {midi: number, label: (string|string)}, enabled: *}, controlPedal: {to: {midi: number, label: (string|string)}, enabled: *}, wheel: {to: {midi: number, label: (string|string)}, enabled: *}}}
+ * @returns {{afterTouch: {to: {midi: number, value: (string|string)}, enabled: *}, controlPedal: {to: {midi: number, value: (string|string)}, enabled: *}, wheel: {to: {midi: number, value: (string|string)}, enabled: *}}}
  */
 exports.getMorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
     const rawMorphValue = [3];
@@ -142,7 +142,7 @@ exports.getMorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
              */
             to: {
                 midi: result[0].midiTo,
-                label: result[0].enabled ? result[0].labelTo : "none",
+                value: result[0].enabled ? result[0].labelTo : "none",
             },
         },
 
@@ -157,7 +157,7 @@ exports.getMorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
              */
             to: {
                 midi: result[1].midiTo,
-                label: result[1].enabled ? result[1].labelTo : "none",
+                value: result[1].enabled ? result[1].labelTo : "none",
             },
         },
 
@@ -172,7 +172,7 @@ exports.getMorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
              */
             to: {
                 midi: result[2].midiTo,
-                label: result[2].enabled ? result[2].labelTo : "none",
+                value: result[2].enabled ? result[2].labelTo : "none",
             },
         },
     };

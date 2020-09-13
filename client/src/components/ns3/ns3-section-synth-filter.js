@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
+import Ns3TableValue from "./lib/ns3-label-and-value-with-morph";
 
 export default class Ns3SectionSynthFilter extends Component {
     render() {
         const filter = this.props.data;
 
-        let velModTitle = "Vel/Mod Amt";
+        let velModTitle = "VEL/MOD AMT";
         let velModValue = "0.0";
         if (filter.modulations.velAmount.midi < 64) {
-            velModTitle = "Vel Amt";
+            velModTitle = "VEL AMT";
             velModValue = filter.modulations.velAmount.label;
         } else if (filter.modulations.modEnvAmount.midi > 64) {
-            velModTitle = "Mod Env Amt";
+            velModTitle = "MOD ENV AMT";
             velModValue = filter.modulations.modEnvAmount.label;
         }
 
@@ -34,67 +35,62 @@ export default class Ns3SectionSynthFilter extends Component {
                             <strong>FILTER</strong>
                         </div>
 
-                        <table className="table-borderless nord-option-on">
+                        <table className="table-borderless nord-option-on-no-uppercase">
                             <tbody>
                                 <tr>
-                                    <td colspan="2">
+                                    {/*colspan="2"*/}
+                                    <td>
                                         <small>TYPE </small>
+                                    </td>
+                                    <td />
+                                    <td>
                                         <strong>{filter.type}</strong>
                                     </td>
-                                    <td >
+                                    <td>
                                         <div className="nord-empty-5"></div>
                                     </td>
                                     <td>
-                                        <small>Kdb Trk</small>
+                                        <small>KB TRK</small>
                                     </td>
+                                    <td />
                                     <td>
                                         <strong>{filter.kbTrack}</strong>
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td></td>
+                                    <td></td>
                                     <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td >
                                         <div className="nord-empty-5"></div>
                                     </td>
+                                    <td />
                                     <td>
-                                        <small>Drive</small>
+                                        <small>DRIVE</small>
                                     </td>
+                                    <td />
                                     <td>
                                         <strong>{filter.drive}</strong>
                                     </td>
                                 </tr>
-                                {/*<tr>*/}
-                                {/*    <td>*/}
-                                {/*        <small>Modulation</small>*/}
-                                {/*    </td>*/}
-                                {/*</tr>*/}
                                 <tr>
+                                    <Ns3TableValue label="LFO AMT" data={filter.modulations.lfoAmount} />
+
                                     <td>
-                                        <small>LFO Amt</small>
-                                    </td>
-                                    <td>
-                                        <strong>{filter.modulations.lfoAmount.label}</strong>
-                                    </td>
-                                    <td >
                                         <div className="nord-empty-5"></div>
                                     </td>
                                     <td>
                                         <small>{velModTitle}</small>
                                     </td>
+                                    <td />
                                     <td>
                                         <strong>{velModValue}</strong>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td colspan="2">
-                                        <small>FREQ </small>
-                                        <strong>{filter.cutoffFrequency.label}</strong>
-                                    </td>
-                                    <td >
+                                    <Ns3TableValue label="FREQ" data={filter.cutoffFrequency} />
+
+                                    <td>
                                         <div className="nord-empty-5"></div>
                                     </td>
                                     <td>
@@ -104,7 +100,6 @@ export default class Ns3SectionSynthFilter extends Component {
                                         <strong>{resFreqHpValue}</strong>
                                     </td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>

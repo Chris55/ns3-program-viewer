@@ -35,7 +35,9 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          *
          * @module Rotary Speaker Source
          */
-        source: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
+        source: {
+            value: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5)
+        },
 
         /**
          * Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4)
@@ -45,7 +47,9 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          *
          * @module Rotary Speaker Drive
          */
-        drive: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >>> 4, 1, ""),
+        drive: {
+            value: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >>> 4, 1, "")
+        },
 
         /**
          * Offset in file: 0x35 (bit7)
@@ -55,7 +59,9 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          *
          * @module Rotary Speaker Stop Mode
          */
-        stopMode: !((organOffset35 & 0x80) >>> 7 !== 0),
+        stopMode: {
+            enabled :!((organOffset35 & 0x80) >>> 7 !== 0)
+        },
 
         /**
          * Offset in file: 0x34 (bit0)
@@ -90,7 +96,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          */
 
         speed: {
-            label: mapping.rotarySpeakerSpeedMap.get(organOffset34 & 0x01),
+            value: mapping.rotarySpeakerSpeedMap.get(organOffset34 & 0x01),
             morph: {
                 wheel: {
                     enabled: (organOffset35W & 0x7000) >>> 12 !== 0x03,
@@ -111,7 +117,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
  *
  * @param buffer
  * @param panelOffset
- * @returns {{amount: {midi: number, label: string}, rate: {midi: number, label: string}, masterClock: (boolean|boolean), source: string, type: unknown, enabled: boolean}}
+ * @returns {{amount: {midi: number, value: string}, rate: {midi: number, value: string}, masterClock: (boolean|boolean), source: string, type: unknown, enabled: boolean}}
  */
 exports.getEffect1 = (buffer, panelOffset) => {
     const effectOffset10b = buffer.readUInt8(0x10b + panelOffset);
@@ -147,7 +153,9 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *
          *  @module Effect 1 Source
          */
-        source: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
+        source: {
+            value: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >>> 2)
+        },
 
         /**
          *  Offset 0 in file: 0x10B (b1-0) and 0x10C (b7)
@@ -162,7 +170,9 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *
          *  @module Effect 1 Type
          */
-        type: effect1Type,
+        type: {
+            value: effect1Type
+        },
 
         /**
          * Offset in file: 0x110 (b6-0)
@@ -189,11 +199,11 @@ exports.getEffect1 = (buffer, panelOffset) => {
         amount: {
             midi: effect1AmountMidi,
 
-            label: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
+            value: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
 
             morph: getMorph(effectOffset110Ww, effect1AmountMidi, (x) => {
                 return converter.midi2LinearStringValue(0, 10, x, 1, "");
-            }),
+            }, false),
         },
 
         /**
@@ -223,7 +233,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
         rate: {
             midi: effect1RateMidi,
 
-            label: effect1MasterClockUsed
+            value: effect1MasterClockUsed
                 ? mapping.effect1MasterClockDivisionMap.get(effect1RateMidi)
                 : converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, ""),
 
@@ -242,7 +252,9 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *
          *  @module Effect 1 Master Clock
          */
-        masterClock: effect1MasterClockUsed,
+        masterClock: {
+            enabled: effect1MasterClockUsed
+        },
     };
 };
 
@@ -251,7 +263,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
  *
  * @param buffer
  * @param panelOffset
- * @returns {{amount: {midi: number, label: string}, rate: {midi: number, label: string}, source: string, type: string, enabled: boolean}}
+ * @returns {{amount: {midi: number, value: string}, rate: {midi: number, value: string}, source: string, type: string, enabled: boolean}}
  */
 exports.getEffect2 = (buffer, panelOffset) => {
     const effectOffset114 = buffer.readUInt8(0x114 + panelOffset);
@@ -281,7 +293,9 @@ exports.getEffect2 = (buffer, panelOffset) => {
          *
          *  @module Effect 2 Source
          */
-        source: mapping.effectSourceMap.get((effectOffset114 & 0x60) >>> 5),
+        source: {
+            value: mapping.effectSourceMap.get((effectOffset114 & 0x60) >>> 5)
+        },
 
         /**
          * Offset in file: 0x114 (b4-2)
@@ -296,7 +310,9 @@ exports.getEffect2 = (buffer, panelOffset) => {
          *
          * @module Effect 2 Type
          */
-        type: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2),
+        type: {
+            value: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2)
+        },
 
         /**
          * Offset in file: 0x115 (b2-0) and 0x116 (b7-4)
@@ -323,7 +339,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
         amount: {
             midi: effect2AmountMidi,
 
-            label: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
+            value: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
 
             morph: getMorph(effectOffset116Ww >>> 4, effect2AmountMidi, (x) => {
                 return converter.midi2LinearStringValue(0, 10, x, 1, "");
@@ -340,7 +356,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          */
         rate: {
             midi: effect2RateMidi,
-            label: converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, ""),
+            value: converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, ""),
         },
     };
 };

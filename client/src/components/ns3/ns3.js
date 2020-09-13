@@ -40,7 +40,7 @@ export default class Ns3 extends Component {
                     <div className="col-2 text-right nord-option-on">
                         <small>Master Clock Rate</small>
                         <br />
-                        <small>{data.masterClock.rate}</small>
+                        <small>{data.masterClock.rate.value}</small>
                     </div>
                     <div className="col-2">
                         <div className="row">

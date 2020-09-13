@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
+import Ns3TableValue from "./lib/ns3-label-and-value-with-morph";
 
 export default class Ns3SectionSynthModEnv extends Component {
     render() {
@@ -16,28 +17,13 @@ export default class Ns3SectionSynthModEnv extends Component {
                         <table className="table-borderless nord-option-on-no-uppercase">
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <small>ATTACK </small>
-                                    </td>
-                                    <td>
-                                        <strong>{env.attack.label}</strong>
-                                    </td>
+                                    <Ns3TableValue label="ATTACK" data={env.attack}/>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <small>DECAY </small>
-                                    </td>
-                                    <td>
-                                        <strong>{env.decay.label}</strong>
-                                    </td>
+                                    <Ns3TableValue label="DECAY" data={env.decay}/>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <small>RELEASE </small>
-                                    </td>
-                                    <td>
-                                        <strong>{env.release.label}</strong>
-                                    </td>
+                                    <Ns3TableValue label="RELEASE" data={env.release}/>
                                 </tr>
 
                                 <tr>

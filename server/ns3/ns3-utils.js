@@ -67,7 +67,7 @@ exports.getKbZone = (sectionEnabled, splitEnabled, value) => {
  *
  * @param buffer
  * @param offset
- * @returns {{midi: *, label: string, morph: {afterTouch: {to: ({midi: *, label: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, label: string}|string), enabled: boolean}, wheel: {to: ({midi: *, label: string}|string), enabled: boolean}}}}
+ * @returns {{midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}}
  */
 exports.getVolumeEx = (buffer, offset) => {
     const organOffsetB6W = buffer.readUInt16BE(offset); // 0xB6
@@ -88,9 +88,9 @@ exports.getVolumeEx = (buffer, offset) => {
         midi: midi,
 
         /***
-         * Volume Label
+         * Volume value
          */
-        label: mapping.dBMap.get(midi),
+        value: mapping.dBMap.get(midi),
 
         /***
          * Morphing settings

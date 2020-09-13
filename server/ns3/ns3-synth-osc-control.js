@@ -2,7 +2,7 @@ const converter = require("../common/converter");
 const { getMorph } = require("./ns3-morph");
 
 /***
- * returns Oscillator Control label
+ * returns Oscillator Control value
  *
  * @param oscConfig
  * @param oscControlMidi
@@ -63,7 +63,7 @@ const getOscControlLabel = (oscConfig, oscControlMidi) => {
  * @param buffer
  * @param offset
  * @param oscConfig
- * @returns {{midi: number, label: string, morph: {afterTouch: {to: {midi: ({midi: *, label: string}|string), label: (string)}, enabled: boolean}, controlPedal: {to: {midi: ({midi: *, label: string}|string), label: (string)}, enabled: boolean}, wheel: {to: {midi: ({midi: *, label: string}|string), label: (string)}, enabled: boolean}}}}
+ * @returns {{midi: number, value: string, morph: {afterTouch: {to: {midi: ({midi: *, value: string}|string), value: (string)}, enabled: boolean}, controlPedal: {to: {midi: ({midi: *, value: string}|string), value: (string)}, enabled: boolean}, wheel: {to: {midi: ({midi: *, value: string}|string), value: (string)}, enabled: boolean}}}}
  */
 exports.getOscControl = (buffer, offset, oscConfig) => {
     const synthOffset90W = buffer.readUInt16BE(offset); // 0x90
@@ -78,9 +78,9 @@ exports.getOscControl = (buffer, offset, oscConfig) => {
         midi: oscControlMidi,
 
         /***
-         * Synth Oscillator Control Label
+         * Synth Oscillator Control value
          */
-        label: getOscControlLabel(oscConfig, oscControlMidi),
+        value: getOscControlLabel(oscConfig, oscControlMidi),
 
         /***
          * Morphing settings

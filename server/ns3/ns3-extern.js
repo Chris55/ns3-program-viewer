@@ -10,7 +10,7 @@ const { getKbZone } = require("./ns3-utils");
  * @param buffer
  * @param panelOffset
  * @param splitEnabled
- * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, label: string, morph: {afterTouch: {to: ({midi: *, label: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, label: string}|string), enabled: boolean}, wheel: {to: ({midi: *, label: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
+ * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
  */
 exports.getExtern = (buffer, panelOffset, splitEnabled) => {
     const externOffsetF4W = buffer.readUInt16BE(0xf4 + panelOffset);
@@ -47,7 +47,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          */
         kbZone: {
             array: externKbZone[1],
-            label: externKbZone[0],
+            value: externKbZone[0],
         },
 
         /**
@@ -58,7 +58,9 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Extern Octave Shift
          */
-        octaveShift: ((externOffsetF4W & 0x0380) >>> 7) - 6,
+        octaveShift: {
+            value: ((externOffsetF4W & 0x0380) >>> 7) - 6,
+        },
 
         /**
          * Offset in file: 0xF6 (b7)
@@ -68,7 +70,9 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Extern Pitch Stick
          */
-        pitchStick: (externOffsetF6 & 0x80) !== 0,
+        pitchStick: {
+            enabled: (externOffsetF6 & 0x80) !== 0,
+        },
 
         /**
          * Offset in file: 0xF6 (b6)
@@ -78,14 +82,18 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Extern Sustain Pedal
          */
-        sustainPedal: (externOffsetF6 & 0x40) !== 0,
+        sustainPedal: {
+            enabled: (externOffsetF6 & 0x40) !== 0,
+        },
 
         /**
          * Offset in file: 0xF6 (b1-0)
          *
          * @module Extern Midi Control
          */
-        control: externControlMap.get(externOffsetF6 & 0x03),
+        control: {
+            value: externControlMap.get(externOffsetF6 & 0x03),
+        },
 
         midiCc: {
             /**
@@ -100,7 +108,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
 
             morph: getMorph(externOffsetF8Ww >>> 2, midiCc, (x) => {
                 return x;
-            }),
+            }, false),
         },
 
         program: {
@@ -116,7 +124,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
 
             morph: getMorph(externOffsetFeWw >>> 2, midiProgram, (x) => {
                 return x;
-            }),
+            }, false),
         },
 
         volume: {
@@ -132,7 +140,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
 
             morph: getMorph(externOffset102Ww >>> 2, volume, (x) => {
                 return x;
-            }),
+            }, false),
         },
     };
 };

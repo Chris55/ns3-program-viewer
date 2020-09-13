@@ -157,24 +157,24 @@ describe("/ns3/global", () => {
         });
     });
 
-    test("masterClock.rate eq 240 bpm", async () => {
-        const file = "masterClock.rate eq 240 bpm.ns3f";
+    test("masterClock.rate.value eq 240 bpm", async () => {
+        const file = "masterClock.rate.value eq 240 bpm.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("masterClock.rate eq 30 bpm", async () => {
-        const file = "masterClock.rate eq 30 bpm.ns3f";
+    test("masterClock.rate.value eq 30 bpm", async () => {
+        const file = "masterClock.rate.value eq 30 bpm.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("masterClock.rate eq 31 bpm", async () => {
-        const file = "masterClock.rate eq 31 bpm.ns3f";
+    test("masterClock.rate.value eq 31 bpm", async () => {
+        const file = "masterClock.rate.value eq 31 bpm.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -365,48 +365,48 @@ describe("/ns3/global", () => {
         });
     });
 
-    test("transpose.enabled eq true and transpose.label eq +1 semi", async () => {
-        const file = "transpose.enabled eq true and transpose.label eq +1 semi.ns3f";
+    test("transpose.enabled eq true and transpose.value eq +1 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.value eq +1 semi.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("transpose.enabled eq true and transpose.label eq +5 semi", async () => {
-        const file = "transpose.enabled eq true and transpose.label eq +5 semi.ns3f";
+    test("transpose.enabled eq true and transpose.value eq +5 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.value eq +5 semi.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("transpose.enabled eq true and transpose.label eq +6 semi", async () => {
-        const file = "transpose.enabled eq true and transpose.label eq +6 semi.ns3f";
+    test("transpose.enabled eq true and transpose.value eq +6 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.value eq +6 semi.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("transpose.enabled eq true and transpose.label eq -1 semi", async () => {
-        const file = "transpose.enabled eq true and transpose.label eq -1 semi.ns3f";
+    test("transpose.enabled eq true and transpose.value eq -1 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.value eq -1 semi.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("transpose.enabled eq true and transpose.label eq -5 semi", async () => {
-        const file = "transpose.enabled eq true and transpose.label eq -5 semi.ns3f";
+    test("transpose.enabled eq true and transpose.value eq -5 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.value eq -5 semi.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("transpose.enabled eq true and transpose.label eq -6 semi", async () => {
-        const file = "transpose.enabled eq true and transpose.label eq -6 semi.ns3f";
+    test("transpose.enabled eq true and transpose.value eq -6 semi", async () => {
+        const file = "transpose.enabled eq true and transpose.value eq -6 semi.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

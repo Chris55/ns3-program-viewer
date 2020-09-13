@@ -14,15 +14,15 @@ import JSONTree from "react-json-tree";
 import Ns3 from "./components/ns3/ns3";
 import "./components/ns3-panel-component-jqx.css";
 
-import { ns3ModelProd } from "./components/ns3/model-prod";
-import { ns3ModelDev } from "./components/ns3/model-dev";
+import { ns3ModelProd } from "./components/ns3/model/ns3-model-prod";
+import { ns3ModelDev } from "./components/ns3/model/ns3-model-dev";
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            data: process.env.NODE_ENV === "production" ? ns3ModelProd : ns3ModelDev,
+            data: process.env.NODE_ENV === "production" ? ns3ModelProd.data : ns3ModelDev.data,
             error: null,
         };
     }

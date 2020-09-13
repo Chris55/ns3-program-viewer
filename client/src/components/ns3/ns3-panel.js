@@ -33,7 +33,7 @@ export default class Ns3Panel extends Component {
 
                                 <div className="row">
                                     <Ns3SectionPiano
-                                        className="col-12 ns3-section d-flex"
+                                        className="col-12 ns3-section"
                                         data={data.piano}
                                         effects={data.effects}
                                     />
@@ -41,7 +41,7 @@ export default class Ns3Panel extends Component {
 
                                 <div className="row">
                                     <Ns3SectionSynth
-                                        className="col-12 ns3-section d-flex"
+                                        className="col-12 ns3-section"
                                         data={data.synth}
                                         effects={data.effects}
                                     />

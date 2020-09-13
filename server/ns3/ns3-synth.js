@@ -9,7 +9,7 @@ const { getKbZone } = require("./ns3-utils");
 const { getKnobDualValues } = require("./ns3-utils");
 
 /***
- * Synth Envelope Decay / Release Label
+ * Synth Envelope Decay / Release value
  * @param value
  * @param type
  * @returns {string}
@@ -41,7 +41,7 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @param buffer
  * @param panelOffset
  * @param splitEnabled
- * @returns {{voice: unknown, oscillators: {control: {midi: number, label: string}, fastAttack: boolean, pitch: {midi: number, label: (string|string)}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, label: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, label: unknown}, filter: {highPassCutoffFrequency: {midi: number, label: unknown}, cutoffFrequency: {midi: number, label: unknown}, type: unknown, drive: unknown, resonance: {midi: number, label: (string|string)}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, label: string}, velAmount: {midi: number, label: string}, modEnvAmount: {midi: number, label: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, label: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, label: unknown}, release: {midi: number, label: (string|*)}, decay: {midi: number, label: (string|*)}, velocity: unknown}}, vibrato: unknown}}
+ * @returns {{voice: unknown, oscillators: {control: {midi: number, value: string}, fastAttack: boolean, pitch: {midi: number, value: (string|string)}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, value: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, value: unknown}, filter: {highPassCutoffFrequency: {midi: number, value: unknown}, cutoffFrequency: {midi: number, value: unknown}, type: unknown, drive: unknown, resonance: {midi: number, value: (string|string)}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, value: string}, velAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, value: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: unknown}}, vibrato: unknown}}
  */
 exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     //const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
@@ -117,7 +117,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >>> 1;
     const arpeggiatorMasterClock = (synthOffset80 & 0x01) !== 0;
     const synthEnabled = (synthOffset52W & 0x8000) !== 0;
-    const synthKbZone = getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11)
+    const synthKbZone = getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11);
 
     const sampleId1 = ((synthOffsetA8W & 0x07f8) >>> 3) * Math.pow(2, 24);
     const sampleId2 = ((synthOffsetA9W & 0x07f8) >>> 3) * Math.pow(2, 16);
@@ -149,7 +149,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          */
         kbZone: {
             array: synthKbZone[1],
-            label: synthKbZone[0],
+            value: synthKbZone[0],
         },
 
         /**
@@ -183,8 +183,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Synth Octave Shift
          */
-        octaveShift: mapping.synthOctaveShiftMap.get(synthOffset56 & 0x03),
-
+        octaveShift: {
+            value: mapping.synthOctaveShiftMap.get(synthOffset56 & 0x03),
+        },
         /**
          * Offset in file: 0x57 (b7)
          *
@@ -193,8 +194,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Synth Pitch Stick
          */
-        pitchStick: (synthOffset57 & 0x80) !== 0,
-
+        pitchStick: {
+            enabled: (synthOffset57 & 0x80) !== 0,
+        },
         //pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >>> 4),
 
         /**
@@ -205,8 +207,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Synth Sustain Pedal
          */
-        sustainPedal: (synthOffset57 & 0x40) !== 0,
-
+        sustainPedal: {
+            enabled: (synthOffset57 & 0x40) !== 0,
+        },
         /**
          * Offset in file: 0x80 (b7)
          *
@@ -215,8 +218,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Synth Kb Hold
          */
-        keyboardHold: (synthOffset80 & 0x80) !== 0,
-
+        keyboardHold: {
+            enabled: (synthOffset80 & 0x80) !== 0,
+        },
         /**
          * Offset in file: 0x84 (b0) and 0x85 (b7)
          *
@@ -227,8 +231,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Synth Voice
          */
-        voice: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
-
+        voice: {
+            value: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
+        },
         /**
          * Offset in file: 0x85 (b6 to b0) 7 bits, range 0/10
          *
@@ -237,8 +242,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Synth Glide
          */
-        glide: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
-
+        glide: {
+            value: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
+        },
         /**
          * Offset in file: 0x86 (b7/6)
          *
@@ -250,8 +256,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Synth Unison
          */
-        unison: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
-
+        unison: {
+            value: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
+        },
         /**
          * Offset in file: 0x86 (b5/4/3)
          *
@@ -265,8 +272,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Synth Vibrato
          */
-        vibrato: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
-
+        vibrato: {
+            value: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
+        },
         /***
          * Synth Oscillators Definition
          */
@@ -283,8 +291,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Oscillator Type
              */
-            type: oscillatorType,
-
+            type: {
+                value: oscillatorType,
+            },
             /**
              * Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
              *
@@ -341,8 +350,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Oscillator 1 Wave Form
              */
-            waveForm1: oscillator1WaveForm,
-
+            waveForm1: {
+                value: oscillator1WaveForm,
+            },
             /**
              * Offset in file: 0x8F (b4-1)
              *
@@ -366,8 +376,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Oscillator Config
              */
-            config: oscConfig,
-
+            config: {
+                value: oscConfig,
+            },
             /**
              * Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)
              *
@@ -403,7 +414,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @example
              * Midi value = 6-bit value + b0 forced to zero to have a standard Midi 7-bit value
-             * label conversion: -12 (Sub) to +48
+             * value conversion: -12 (Sub) to +48
              *
              * @module Synth Pitch
              */
@@ -414,9 +425,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                 midi: osc2PitchMidi,
 
                 /***
-                 * Synth Pitch Label
+                 * Synth Pitch value
                  */
-                label: osc2Pitch === -12 ? "Sub" : osc2Pitch + " semi",
+                value: osc2Pitch === -12 ? "Sub" : osc2Pitch + " semi",
             },
 
             /**
@@ -437,7 +448,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  */
                 lfoAmount: {
                     midi: oscModulation.leftMidi,
-                    label: oscModulation.leftLabel,
+                    value: oscModulation.leftLabel,
                     morph: getMorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, true),
                 },
                 /**
@@ -445,7 +456,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  */
                 modEnvAmount: {
                     midi: oscModulation.rightMidi,
-                    label: oscModulation.rightLabel,
+                    value: oscModulation.rightLabel,
                     morph: getMorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, false),
                 },
             },
@@ -457,7 +468,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Fast Attack
              */
-            fastAttack: (synthOffsetAc & 0x04) !== 0,
+            fastAttack: {
+                enabled: (synthOffsetAc & 0x04) !== 0,
+            },
         },
 
         filter: getFilter(buffer, panelOffset),
@@ -474,7 +487,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  */
                 attack: {
                     midi: envModAttackMidi,
-                    label: mapping.synthEnvAttackMap.get(envModAttackMidi),
+                    value: mapping.synthEnvAttackMap.get(envModAttackMidi),
                 },
 
                 /**
@@ -487,7 +500,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  */
                 decay: {
                     midi: envModDecayMidi,
-                    label: synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
+                    value: synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
                 },
 
                 /**
@@ -500,7 +513,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  */
                 release: {
                     midi: envModReleaseMidi,
-                    label: synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
+                    value: synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
                 },
 
                 /**
@@ -511,7 +524,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  *
                  * @module Synth Mod Env Velocity
                  */
-                velocity: (synthOffset8dW & 0x0400) !== 0,
+                velocity: {
+                    enabled: (synthOffset8dW & 0x0400) !== 0,
+                },
             },
             amplifier: {
                 /**
@@ -524,7 +539,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  */
                 attack: {
                     midi: envAmpAttackMidi,
-                    label: mapping.synthEnvAttackMap.get(envAmpAttackMidi),
+                    value: mapping.synthEnvAttackMap.get(envAmpAttackMidi),
                 },
 
                 /**
@@ -537,7 +552,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  */
                 decay: {
                     midi: envAmpDecayMidi,
-                    label: synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
+                    value: synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
                 },
 
                 /**
@@ -550,7 +565,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  */
                 release: {
                     midi: envAmpReleaseMidi,
-                    label: synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
+                    value: synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
                 },
 
                 /**
@@ -564,7 +579,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
                  *
                  * @module Synth Amp Env Velocity
                  */
-                velocity: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >>> 3),
+                velocity: {
+                    value: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >>> 3),
+                },
             },
         },
         lfo: {
@@ -580,8 +597,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Lfo Wave
              */
-            wave: mapping.synthLfoWaveMap.get(synthOffset86 & 0x07),
-
+            wave: {
+                value: mapping.synthLfoWaveMap.get(synthOffset86 & 0x07),
+            },
             /**
              * Offset in file: 0x87 (b6-0)
              *
@@ -609,7 +627,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
             rate: {
                 midi: lfoRateMidi,
 
-                label: lfoRateMasterClock
+                value: lfoRateMasterClock
                     ? mapping.synthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
                     : mapping.synthLfoRateMap.get(lfoRateMidi),
 
@@ -633,7 +651,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Lfo Master Clock
              */
-            masterClock: lfoRateMasterClock,
+            masterClock: {
+                enabled: lfoRateMasterClock,
+            },
         },
         arpeggiator: {
             /**
@@ -673,7 +693,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
             rate: {
                 midi: arpeggiatorRateMidi,
 
-                label: arpeggiatorMasterClock
+                value: arpeggiatorMasterClock
                     ? mapping.synthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
                     : mapping.synthArpRateMap.get(arpeggiatorRateMidi),
 
@@ -697,8 +717,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Arp Kb Sync
              */
-            kbSync: (synthOffset80 & 0x20) !== 0,
-
+            kbSync: {
+                enabled: (synthOffset80 & 0x20) !== 0,
+            },
             /**
              * Offset in file: 0x80 (b0)
              *
@@ -707,8 +728,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Arp Master Clock
              */
-            masterClock: arpeggiatorMasterClock,
-
+            masterClock: {
+                enabled: arpeggiatorMasterClock,
+            },
             /**
              * Offset in file: 0x80 (b4-3)
              *
@@ -721,8 +743,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Arp Range
              */
-            range: mapping.arpeggiatorRangeMap.get(arpeggiatorRange),
-
+            range: {
+                value: mapping.arpeggiatorRangeMap.get(arpeggiatorRange),
+            },
             /**
              * Offset in file: 0x80 (b2-1)
              *
@@ -734,7 +757,9 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
              *
              * @module Synth Arp Pattern
              */
-            pattern: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern),
+            pattern: {
+                value: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern),
+            },
         },
     };
 

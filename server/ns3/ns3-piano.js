@@ -1,6 +1,6 @@
 const mapping = require("./ns3-mapping");
-const {midi2LinearStringValue} = require("../common/converter");
-const {sampleIdMap} = require("../common/nord-library");
+const { midi2LinearStringValue } = require("../common/converter");
+const { sampleIdMap } = require("../common/nord-library");
 const { getKbZone } = require("./ns3-utils");
 const { getVolumeEx } = require("./ns3-utils");
 
@@ -12,7 +12,7 @@ const { getVolumeEx } = require("./ns3-utils");
  * @param buffer
  * @param panelOffset
  * @param splitEnabled
- * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, label: string, morph: {afterTouch: {to: ({midi: *, label: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, label: string}|string), enabled: boolean}, wheel: {to: ({midi: *, label: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
+ * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
  */
 exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
@@ -33,7 +33,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     const pianoModel = ((pianoOffset48W & 0x07c0) >>> 6) + 1;
 
     const pianoSampleVariation = (pianoOffset49 & 0x30) >>> 4;
-    const  pianoSampleId =  Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
+    const pianoSampleId = Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
     let pianoName = sampleIdMap.get(pianoSampleId);
     if (pianoName instanceof Array) {
         if (pianoSampleVariation >= 0 && pianoSampleVariation < pianoName.length) {
@@ -52,14 +52,14 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     // with one subtle Harpsi case:
     // Harpsi sample are not used Clav timbre category but the default Soft/Mid/Bright
     //
-    const pianoTypeForTimbre = pianoTypeValue === 3 && pianoName.includes("Harpsi") ? 0: pianoTypeValue;
+    const pianoTypeForTimbre = pianoTypeValue === 3 && pianoName.includes("Harpsi") ? 0 : pianoTypeValue;
 
-    const pianoTimbre = (pianoTypeValue >= 0 && pianoTypeValue < 6) ? pianoTimbreValues[pianoTypeForTimbre]: "None";
+    const pianoTimbre = pianoTypeValue >= 0 && pianoTypeValue < 6 ? pianoTimbreValues[pianoTypeForTimbre] : "None";
 
     // const glideMidi = 38;
     // const glideLabel = midi2LinearStringValue(0, 10, glideMidi, 1, "");
 
-    const piano =  {
+    const piano = {
         debug: {
             sampleVariation: pianoSampleVariation,
             sampleId: pianoSampleId.toString(16),
@@ -86,7 +86,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          */
         kbZone: {
             array: pianoKbZone[1],
-            label: pianoKbZone[0],
+            value: pianoKbZone[0],
         },
 
         /**
@@ -120,8 +120,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Octave Shift
          */
-        octaveShift: (pianoOffset47 & 0x07) - 6,
-
+        octaveShift: {
+            value: (pianoOffset47 & 0x07) - 6,
+        },
         /**
          * Offset in file: 0x48 (b7)
          *
@@ -130,8 +131,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Pitch Stick
          */
-        pitchStick: (pianoOffset48 & 0x80) !== 0,
-
+        pitchStick: {
+            enabled: (pianoOffset48 & 0x80) !== 0,
+        },
         /**
          * Offset in file: 0x48 (b6)
          *
@@ -140,8 +142,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Sustain Pedal
          */
-        sustainPedal: (pianoOffset48 & 0x40) !== 0,
-
+        sustainPedal: {
+            enabled: (pianoOffset48 & 0x40) !== 0,
+        },
         /**
          * Offset in file: 0x48 (b5-3)
          *
@@ -155,8 +158,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Type
          */
-        type: mapping.pianoTypeMap.get(pianoTypeValue),
-
+        type: {
+            value: mapping.pianoTypeMap.get(pianoTypeValue),
+        },
         /**
          * Offset in file:  0x48 (b2-0) and 0x49 (b7-6)
          *
@@ -168,8 +172,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Model
          */
-        model: pianoModel,
-
+        model: {
+            value: pianoModel,
+        },
         /**
          * Offset in file: 0x49 (b3-0) to 0x4D (b7-3)
          *
@@ -178,8 +183,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Name
          */
-        name: pianoName,
-
+        name: {
+            value: pianoName,
+        },
         /**
          * Offset in file: 0x4E (b5-3)
          *
@@ -210,8 +216,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Timbre
          */
-        timbre: pianoTimbre,
-
+        timbre: {
+            value: pianoTimbre,
+        },
         /**
          * Offset in file: 0x4D (b0) and 0x4E (b7)
          *
@@ -223,8 +230,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano KB Touch
          */
-        kbTouch: mapping.pianoKbTouchMap.get((pianoOffset4dW & 0x0180) >>> 7),
-
+        kbTouch: {
+            value: mapping.pianoKbTouchMap.get((pianoOffset4dW & 0x0180) >>> 7),
+        },
         /**
          * Offset in file: 0x34 (b6-5)
          *
@@ -236,8 +244,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Layer Detune
          */
-        layerDetune: mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >>> 5),
-
+        layerDetune: {
+            value: mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >>> 5),
+        },
         /**
          * Offset in file: 0x4D (b4)
          *
@@ -248,8 +257,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Soft Release
          */
-        softRelease: (pianoTypeValue !== 3) && (pianoTypeValue !== 4) && (pianoOffset4d & 0x08) !== 0,
-
+        softRelease: {
+            enabled: pianoTypeValue !== 3 && pianoTypeValue !== 4 && (pianoOffset4d & 0x08) !== 0,
+        },
         /**
          * Offset in file: 0x4D (b2)
          *
@@ -260,8 +270,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano Pedal Noise
          */
-        pedalNoise: (pianoTypeValue <= 2) && (pianoOffset4d & 0x02) !== 0,
-
+        pedalNoise: {
+            enabled: pianoTypeValue <= 2 && (pianoOffset4d & 0x02) !== 0,
+        },
         /**
          * Offset in file: 0x4D (b3)
          *
@@ -272,18 +283,18 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          *
          * @module Piano String Resonance
          */
-        stringResonance: (pianoTypeValue <= 1) && (pianoOffset4d & 0x04) !== 0,
+        stringResonance: {
+            enabled: pianoTypeValue <= 1 && (pianoOffset4d & 0x04) !== 0,
+        },
     };
 
     piano.morph = [];
 
-    piano.morph.push({name: "Volume", morph: piano.volume});
+    piano.morph.push({ name: "Volume", morph: piano.volume });
 
-
-    if (process.env.NODE_ENV === 'production')  {
+    if (process.env.NODE_ENV === "production") {
         piano.debug = undefined;
     }
-
 
     return piano;
 };
