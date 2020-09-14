@@ -21,32 +21,62 @@ export default class Ns3LabelAndValueWithMorph extends Component {
                     <span className={morphing ? "dot dot-morph" : "d-none"} />
                 </td>
 
+                {/*<td className="align-top">*/}
+                {/*    <table className="table-borderless">*/}
+                {/*        <tbody>*/}
+                {/*            <tr>*/}
+                {/*                <td className="align-top">*/}
+                {/*                    <Ns3LabelAndValue data={data} />*/}
+                {/*                </td>*/}
+                {/*                <td className="align-top">*/}
+                {/*                    <ul className="list-unstyled">*/}
+                {/*                        <li className={data.morph.wheel.enabled ? "" : "d-none"}>*/}
+                {/*                            <span className="nord-morph">WHEEL</span>*/}
+                {/*                            <Ns3LabelAndValue data={data.morph.wheel.to} />*/}
+                {/*                        </li>*/}
+
+                {/*                        <li className={data.morph.afterTouch.enabled ? "" : "d-none"}>*/}
+                {/*                            <span className="nord-morph">A-TOUCH</span>*/}
+                {/*                            <Ns3LabelAndValue data={data.morph.afterTouch.to} />*/}
+                {/*                        </li>*/}
+
+                {/*                        <li className={data.morph.controlPedal.enabled ? "" : "d-none"}>*/}
+                {/*                            <span className="nord-morph">CTRLPED</span>*/}
+                {/*                            <Ns3LabelAndValue data={data.morph.controlPedal.to} />*/}
+                {/*                        </li>*/}
+                {/*                    </ul>*/}
+                {/*                </td>*/}
+                {/*            </tr>*/}
+                {/*        </tbody>*/}
+                {/*    </table>*/}
+                {/*</td>*/}
+
                 <td className="align-top">
                     <table className="table-borderless">
                         <tbody>
-                            <tr>
-                                <td className="align-top">
-                                    <Ns3LabelAndValue data={data} />
-                                </td>
-                                <td className="align-top">
-                                    <ul className="list-unstyled">
-                                        <li className={data.morph.wheel.enabled ? "" : "d-none"}>
-                                            <span className="nord-morph">WHEEL</span>
-                                            <Ns3LabelAndValue data={data.morph.wheel.to} />
-                                        </li>
+                        <tr>
+                            <td className="align-top">
+                                <Ns3LabelAndValue data={data} />
+                            </td>
+                            <td className="align-top">
+                                <ul className="list-unstyled">
+                                    <li className={data.morph.wheel.enabled ? "" : "d-none"}>
+                                        <span className="nord-morph">WHEEL</span>
+                                        <Ns3LabelAndValue data={data.morph.wheel.to} />
+                                    </li>
 
-                                        <li className={data.morph.afterTouch.enabled ? "" : "d-none"}>
-                                            <span className="nord-morph">A-TOUCH</span>
-                                            <Ns3LabelAndValue data={data.morph.afterTouch.to} />
-                                        </li>
+                                    <li className={data.morph.afterTouch.enabled ? "" : "d-none"}>
+                                        <span className="nord-morph">A-TOUCH</span>
+                                        <Ns3LabelAndValue data={data.morph.afterTouch.to} />
+                                    </li>
 
-                                        <li className={data.morph.controlPedal.enabled ? "" : "d-none"}>
-                                            <span className="nord-morph">CTRLPED</span>
-                                            <Ns3LabelAndValue data={data.morph.controlPedal.to} />
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
+                                    <li className={data.morph.controlPedal.enabled ? "" : "d-none"}>
+                                        <span className="nord-morph">CTRLPED</span>
+                                        <Ns3LabelAndValue data={data.morph.controlPedal.to} />
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </td>

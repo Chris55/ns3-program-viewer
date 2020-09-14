@@ -3,9 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3FxMulti1 from "./ns3-fx-multi-1";
 import Ns3FxMulti2 from "./ns3-fx-multi-2";
-import Ns3FxSimAmpEq from "./ns3-fx-sim-amp-eq";
 import Ns3FxRotarySpeaker from "./ns3-fx-rotary-speaker";
-import Ns3FxDelay from "./ns3-fx-delay";
 
 export default class Ns3Fx extends Component {
     render() {
@@ -13,35 +11,31 @@ export default class Ns3Fx extends Component {
 
         return (
             <React.Fragment>
-                <Ns3FxRotarySpeaker
-                    className="col-auto ns3-section-fx"
-                    data={data.rotarySpeaker}
-                    source={this.props.source}
-                />
+                <div className="col-4 d-flex" style={{background: "lightgrey"}}>
+                    <div className="d-flex flex-wrap align-items-start">
+                        <Ns3FxRotarySpeaker
+                            className="ns3-section-fx "
+                            data={data.rotarySpeaker}
+                            source={this.props.source}
+                        />
 
-                <Ns3FxMulti1
-                    className="col-auto ns3-section-fx"
-                    data={data.effect1}
-                    source={this.props.source}
-                />
+                        <Ns3FxMulti1 className="ns3-section-fx" data={data.effect1} source={this.props.source} />
 
-                <Ns3FxMulti2
-                    className="col-auto ns3-section-fx"
-                    data={data.effect2}
-                    source={this.props.source}
-                />
+                        <Ns3FxMulti2 className="ns3-section-fx" data={data.effect2} source={this.props.source} />
 
-                {/*<Ns3FxDelay*/}
-                {/*    className="col-auto nord-option-on ns3-section-fx"*/}
-                {/*    data={data.delay}*/}
-                {/*    source={this.props.source}*/}
-                {/*/>*/}
+                        {/*<Ns3FxDelay*/}
+                        {/*    className="col-auto nord-option-on ns3-section-fx"*/}
+                        {/*    data={data.delay}*/}
+                        {/*    source={this.props.source}*/}
+                        {/*/>*/}
 
-                {/*<Ns3FxSimAmpEq*/}
-                {/*    className="col-auto nord-option-on ns3-section-fx"*/}
-                {/*    data={data.ampSimEq}*/}
-                {/*    source={this.props.source}*/}
-                {/*/>*/}
+                        {/*<Ns3FxSimAmpEq*/}
+                        {/*    className="col-auto nord-option-on ns3-section-fx"*/}
+                        {/*    data={data.ampSimEq}*/}
+                        {/*    source={this.props.source}*/}
+                        {/*/>*/}
+                    </div>
+                </div>
             </React.Fragment>
         );
     }

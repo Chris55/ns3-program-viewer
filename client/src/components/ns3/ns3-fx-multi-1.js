@@ -13,9 +13,9 @@ export default class Ns3FxMulti1 extends Component {
 
         return (
             <React.Fragment>
-                <div className={visible ? "row nord-on" : "d-none"}>
+                <div className={visible ? "d-flex nord-on" : "d-none"}>
                     <div className={this.props.className}>
-                        <div className="col text-left">
+                        <div className="text-left">
                             <div className="font-weight-bold">EFFECT 1</div>
 
                             <table className="table-borderless">

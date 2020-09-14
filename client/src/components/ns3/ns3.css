@@ -14,7 +14,7 @@
 .ns3-panel {
     /*background: lightgrey;*/
     background: linear-gradient(whitesmoke 0%, lightgrey 6%);
-    margin: 2px;
+    /*margin: 2px;*/
 }
 
 
@@ -48,22 +48,24 @@
 
 .ns3-section {
     background: whitesmoke;
-    margin: 10px;
-    padding: 5px;
+    /*margin: 10px;*/
+    /*padding: 5px;*/
     border-radius: 45px 10px 10px 10px;
-    border-color: #ffffff;
+    border-color: black;
     border-style: solid;
     border-width: 2px;
 }
 
 .ns3-section-fx {
-    border-width: 0 1px 0 0;
+    border-width: 2px;
     border-color: #e32121;
+    font-size: 0.8em;
     /*#efecec;*/
     border-style: solid;
-    /*max-width: 140px!important;*/
+    /*max-width: 180px!important;*/
     background-color: #e3e2e2;
-    margin-right: 20px
+    /*margin: 20px*/
+
 }
 
 .nord-synth-sub-feature {
@@ -158,9 +160,6 @@
     font-size: 1rem;
 }
 
-.nord-empty-5 {
-    margin: 0 0 0 5px;
-}
 
 .nord-morph {
     /*background-color: #cf1212;*/

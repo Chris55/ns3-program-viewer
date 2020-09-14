@@ -12,9 +12,9 @@ export default class Ns3FxRotarySpeaker extends Component {
 
         return (
             <React.Fragment>
-                <div className={visible ? "row" : "d-none"}>
+                <div className={visible ? "d-flex nord-on" : "d-none"}>
                     <div className={this.props.className}>
-                        <div className="col text-center">
+                        <div className="text-left">
                             <div className="font-weight-bold">ROTARY SPEAKER</div>
 
                             <div className="">

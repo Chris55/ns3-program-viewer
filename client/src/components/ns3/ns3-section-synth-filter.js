@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3TableValue from "./lib/ns3-label-and-value-with-morph";
 import Ns3LabelAndValue from "./lib/ns3-label-and-value";
 import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
 
@@ -42,7 +41,7 @@ export default class Ns3SectionSynthFilter extends Component {
                                 <tr>
                                     <Ns3LabelAndValue label="Type" data={filter.type}  table={true}/>
                                     <td>
-                                        <div className="nord-empty-5"></div>
+                                        <div className="m-1"/>
                                     </td>
                                     <Ns3LabelAndValue
                                         enabled={filter.kbTrack.value !== "Off"}

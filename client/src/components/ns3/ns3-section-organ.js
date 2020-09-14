@@ -17,12 +17,12 @@ export default class Ns3SectionOrgan extends Component {
         return (
             <React.Fragment>
                 <div className={visible ? this.props.className : "d-none"}>
-                    <div className={visible ? "row nord-on" : "row nord-off"}>
-                        <div className="col-auto text-center">
+                    <div className={visible ? "row nord-on" : "nord-off"}>
+                        <div className="col-1 d-flex text-center align-items-start">
                             <Ns3VolumeAndMore name={"ORGAN"} data={organ} />
                         </div>
 
-                        <div className="col-auto">
+                        <div className="col-7 d-flex">
                             <div className="row">
                                 <div className="col-auto">
                                     <div className="nord-name">
@@ -65,6 +65,7 @@ export default class Ns3SectionOrgan extends Component {
                         </div>
 
                         <Ns3Fx data={this.props.effects} source="Organ" />
+
                     </div>
                 </div>
             </React.Fragment>
