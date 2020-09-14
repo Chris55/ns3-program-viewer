@@ -20,10 +20,10 @@ export default class Ns3SectionSynth extends Component {
         let lfoModEnvValue = "0.0";
         if (synth.oscillators.modulations.lfoAmount.midi < 64) {
             lfoModEnvTitle = "LFO Amt";
-            lfoModEnvValue = synth.oscillators.modulations.lfoAmount.label;
+            lfoModEnvValue = synth.oscillators.modulations.lfoAmount.value;
         } else if (synth.oscillators.modulations.modEnvAmount.midi > 64) {
             lfoModEnvTitle = "Mod Env Amt";
-            lfoModEnvValue = synth.oscillators.modulations.modEnvAmount.label;
+            lfoModEnvValue = synth.oscillators.modulations.modEnvAmount.value;
         }
 
         return (
@@ -43,27 +43,31 @@ export default class Ns3SectionSynth extends Component {
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <Ns3LabelAndValue
-                                                                label="Voice" data={synth.voice}/>
+                                                            <Ns3LabelAndValue label="Voice" data={synth.voice} />
                                                         </td>
                                                         <td>
                                                             <Ns3LabelAndValue
                                                                 enabled={synth.voice.value !== "Poly"}
-                                                                label="Glide Rate" data={synth.glide}/>
+                                                                label="Glide Rate"
+                                                                data={synth.glide}
+                                                            />
                                                         </td>
                                                         <td>
                                                             <Ns3LabelAndValue
                                                                 enabled={synth.unison.value !== "Off"}
-                                                                label="Unison" data={synth.unison}/>
+                                                                label="Unison"
+                                                                data={synth.unison}
+                                                            />
                                                         </td>
                                                         <td>
                                                             <Ns3LabelAndValue
                                                                 enabled={synth.vibrato.value !== "Off"}
-                                                                label="Vibrato" data={synth.vibrato}/>
+                                                                label="Vibrato"
+                                                                data={synth.vibrato}
+                                                            />
                                                         </td>
                                                         <td>
-                                                            <Ns3ValueOnOff
-                                                                label="Kb Hold" data={synth.keyboardHold}/>
+                                                            <Ns3ValueOnOff label="Kb Hold" data={synth.keyboardHold} />
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -83,75 +87,51 @@ export default class Ns3SectionSynth extends Component {
                             </div>
 
                             <div className="row">
-                                {/*<div className="col-auto">*/}
-                                {/*    <div>*/}
-                                {/*        <span className="nord-option-on">*/}
-                                {/*            <small>Type</small>*/}
-                                {/*            <strong> {synth.oscillators.type} </strong>*/}
-                                {/*        </span>*/}
+                                <div className="col-auto">
+                                    <Ns3LabelAndValue label="Type" data={synth.oscillators.type} />
+                                </div>
+                                <div className="col-auto">
+                                    <Ns3LabelAndValue label="OSC Config" data={synth.oscillators.config} />
+                                </div>
+                                <div className="col-auto">
+                                    <Ns3LabelAndValue label="OSC Control" data={synth.oscillators.control} />
+                                </div>
+                                <div className="col-auto">
+                                    <Ns3LabelAndValue label="OSC 2 Pitch" data={synth.oscillators.pitch} />
+                                </div>
 
-                                {/*        <span> </span>*/}
+                                <div className="col-auto">
+                                    <Ns3ValueOnOff label="Fast Atk" data={synth.oscillators.fastAttack} />
+                                </div>
 
-                                {/*        <span className="nord-option-on">*/}
-                                {/*            <small>OSC CONFIG</small>*/}
-                                {/*            <strong> {synth.oscillators.config} </strong>*/}
-                                {/*        </span>*/}
-                                {/*    </div>*/}
+                                <div className="col-auto">
+                                    <Ns3LabelAndValue label={lfoModEnvTitle} data={{ value: lfoModEnvValue }} />
+                                </div>
 
-                                {/*    <div>*/}
-
-                                {/*        <span className="nord-option-on">*/}
-                                {/*            <small>OSC CTRL</small>*/}
-                                {/*            <strong>{synth.oscillators.control.label}</strong>*/}
-                                {/*            <span> </span>*/}
-                                {/*            <small> OSC 2 PITCH </small>*/}
-                                {/*            <strong>{synth.oscillators.pitch.label}</strong>*/}
-                                {/*        </span>*/}
-                                {/*    </div>*/}
-
-                                {/*    <div>*/}
-                                {/*        <span*/}
-                                {/*            className={*/}
-                                {/*                synth.oscillators.fastAttack ? "nord-option-on" : "nord-option-off"*/}
-                                {/*            }*/}
-                                {/*        >*/}
-                                {/*            <small>FAST ATK</small>*/}
-                                {/*        </span>*/}
-
-                                {/*        <span> </span>*/}
-
-                                {/*        <span className="nord-option-on">*/}
-                                {/*            <small>{lfoModEnvTitle} </small>*/}
-                                {/*            <strong>{lfoModEnvValue}</strong>*/}
-                                {/*        </span>*/}
-                                {/*    </div>*/}
-                                {/*</div>*/}
                             </div>
 
                             <div className="row">
-                                {/*<Ns3SectionSynthLfo*/}
-                                {/*    className="col-auto nord-synth-sub-feature nord-option-on"*/}
-                                {/*    data={synth.lfo}*/}
-                                {/*/>*/}
+                                <Ns3SectionSynthLfo
+                                    className="col-auto nord-synth-sub-feature"
+                                    data={synth.lfo}
+                                />
 
-                                {/*<Ns3SectionSynthModEnv*/}
-                                {/*    className="col-auto  nord-synth-sub-feature nord-option-on"*/}
-                                {/*    data={synth.envelopes.modulation}*/}
-                                {/*/>*/}
+                                <Ns3SectionSynthModEnv
+                                    className="col-auto  nord-synth-sub-feature"
+                                    data={synth.envelopes.modulation}
+                                />
 
-                                {/*<Ns3SectionSynthFilter*/}
-                                {/*    className="col-auto  nord-synth-sub-feature nord-option-on"*/}
-                                {/*    data={synth.filter}*/}
-                                {/*/>*/}
+                                <Ns3SectionSynthFilter
+                                    className="col-auto  nord-synth-sub-feature"
+                                    data={synth.filter}
+                                />
 
-                                {/*<Ns3SectionSynthAmpEnv*/}
-                                {/*    className="col-auto  nord-synth-sub-feature nord-option-on"*/}
-                                {/*    data={synth.envelopes.amplifier}*/}
-                                {/*/>*/}
+                                <Ns3SectionSynthAmpEnv
+                                    className="col-auto  nord-synth-sub-feature"
+                                    data={synth.envelopes.amplifier}
+                                />
                             </div>
                         </div>
-
-
 
                         <Ns3Fx data={this.props.effects} source="Synth" />
                     </div>

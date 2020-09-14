@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
+import Ns3LabelAndValue from "./lib/ns3-label-and-value";
+import Ns3ValueOnOff from "./lib/ns3-value-on-off";
 
 export default class Ns3SectionSynthAmpEnv extends Component {
     render() {
@@ -14,42 +16,25 @@ export default class Ns3SectionSynthAmpEnv extends Component {
                             <strong>AMP Env</strong>
                         </div>
 
-                        <table className="table-borderless nord-option-on-no-uppercase">
+                        <table className="table-borderless">
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <small>ATTACK</small>
-                                    </td>
-                                    <td>
-                                        <strong>{env.attack.label}</strong>
-                                    </td>
+                                    <Ns3LabelAndValue label="Attack" data={env.attack} table={true} />
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <small>DECAY</small>
-                                    </td>
-                                    <td>
-                                        <strong>{env.decay.label}</strong>
-                                    </td>
+                                    <Ns3LabelAndValue label="Decay" data={env.decay} table={true} />
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <small>RELEASE</small>
-                                    </td>
-                                    <td>
-                                        <strong>{env.release.label}</strong>
-                                    </td>
+                                    <Ns3LabelAndValue label="Release" data={env.release} table={true} />
                                 </tr>
+
                                 <tr>
-                                    <td>
-                                        <small className={env.velocity !== "Off" ? "nord-on" : "nord-off"}>
-                                            VELOCITY
-                                        </small>
-                                    </td>
-                                    <td>
-                                        <strong className={env.velocity !== "Off" ? "nord-on" : "nord-off"}>
-                                            {env.velocity !== "Off" ? env.velocity : ""}
-                                        </strong>
+                                    <td colSpan="3">
+                                        <Ns3LabelAndValue
+                                            label="Velocity"
+                                            data={env.velocity}
+                                            enabled={env.velocity !== "Off"}
+                                        />
                                     </td>
                                 </tr>
                             </tbody>

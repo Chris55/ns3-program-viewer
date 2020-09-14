@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
 import Ns3ValueOnOff from "./lib/ns3-value-on-off";
+import Ns3LabelAndValue from "./lib/ns3-label-and-value";
 
 export default class Ns3SectionSynthLfo extends Component {
     render() {
@@ -19,14 +20,14 @@ export default class Ns3SectionSynthLfo extends Component {
                         <table className="table-borderless nord-option-on-no-uppercase">
                             <tbody>
                                 <tr>
-                                    <Ns3LabelAndValueWithMorph label="RATE" data={lfo.rate} />
+                                    <Ns3LabelAndValueWithMorph label="Rate" data={lfo.rate} />
                                 </tr>
                                 <tr>
-                                    <Ns3LabelAndValueWithMorph label="WAVE" data={lfo.wave} />
+                                    <Ns3LabelAndValue label="Wave" data={lfo.wave}  table={true}/>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
-                                        <Ns3ValueOnOff label="MST CLK" data={lfo.masterClock} />
+                                        <Ns3ValueOnOff label="Mst Clk" data={lfo.masterClock} />
                                     </td>
                                 </tr>
                             </tbody>

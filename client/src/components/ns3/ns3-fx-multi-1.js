@@ -31,7 +31,7 @@ export default class Ns3FxMulti1 extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="3">
-                                            <Ns3ValueOnOff label="MST CLK" data={fx.masterClock} />
+                                            <Ns3ValueOnOff label="Mst Clk" data={fx.masterClock} />
                                         </td>
                                     </tr>
                                     <tr>

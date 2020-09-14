@@ -2,29 +2,31 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3TableValue from "./lib/ns3-label-and-value-with-morph";
+import Ns3LabelAndValue from "./lib/ns3-label-and-value";
+import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
 
 export default class Ns3SectionSynthFilter extends Component {
     render() {
         const filter = this.props.data;
 
-        let velModTitle = "VEL/MOD AMT";
+        let velModTitle = "Vel/Mod Amt";
         let velModValue = "0.0";
         if (filter.modulations.velAmount.midi < 64) {
-            velModTitle = "VEL AMT";
-            velModValue = filter.modulations.velAmount.label;
+            velModTitle = "Vel Amt";
+            velModValue = filter.modulations.velAmount;
         } else if (filter.modulations.modEnvAmount.midi > 64) {
-            velModTitle = "MOD ENV AMT";
-            velModValue = filter.modulations.modEnvAmount.label;
+            velModTitle = "Mod Env Amt";
+            velModValue = filter.modulations.modEnvAmount;
         }
 
         let resFreqHpTitle, resFreqHpValue;
 
-        if (filter.type === "LP+HP") {
-            resFreqHpTitle = "FREQ HP";
-            resFreqHpValue = filter.highPassCutoffFrequency.label;
+        if (filter.type.value === "LP+HP") {
+            resFreqHpTitle = "Freq HP";
+            resFreqHpValue = filter.highPassCutoffFrequency;
         } else {
-            resFreqHpTitle = "RESONANCE";
-            resFreqHpValue = filter.resonance.label;
+            resFreqHpTitle = "Resonance";
+            resFreqHpValue = filter.resonance;
         }
 
         return (
@@ -38,67 +40,34 @@ export default class Ns3SectionSynthFilter extends Component {
                         <table className="table-borderless nord-option-on-no-uppercase">
                             <tbody>
                                 <tr>
-                                    {/*colspan="2"*/}
-                                    <td>
-                                        <small>TYPE </small>
-                                    </td>
-                                    <td />
-                                    <td>
-                                        <strong>{filter.type}</strong>
-                                    </td>
+                                    <Ns3LabelAndValue label="Type" data={filter.type}  table={true}/>
                                     <td>
                                         <div className="nord-empty-5"></div>
                                     </td>
-                                    <td>
-                                        <small>KB TRK</small>
-                                    </td>
-                                    <td />
-                                    <td>
-                                        <strong>{filter.kbTrack}</strong>
-                                    </td>
+                                    <Ns3LabelAndValue
+                                        enabled={filter.kbTrack.value !== "Off"}
+                                        label="Kb Trk" data={filter.kbTrack}  table={true}/>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <div className="nord-empty-5"></div>
-                                    </td>
-                                    <td />
-                                    <td>
-                                        <small>DRIVE</small>
-                                    </td>
-                                    <td />
-                                    <td>
-                                        <strong>{filter.drive}</strong>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <Ns3TableValue label="LFO AMT" data={filter.modulations.lfoAmount} />
-
-                                    <td>
-                                        <div className="nord-empty-5"></div>
-                                    </td>
-                                    <td>
-                                        <small>{velModTitle}</small>
-                                    </td>
-                                    <td />
-                                    <td>
-                                        <strong>{velModValue}</strong>
-                                    </td>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                    <Ns3LabelAndValue
+                                        enabled={filter.drive.value !== "Off"}
+                                        label="Drive" data={filter.drive}  table={true}/>
                                 </tr>
 
                                 <tr>
-                                    <Ns3TableValue label="FREQ" data={filter.cutoffFrequency} />
+                                    <Ns3LabelAndValueWithMorph label="LFO Amt" data={filter.modulations.lfoAmount} />
+                                    <td/>
+                                    <Ns3LabelAndValue label={velModTitle} data={velModValue} />
+                                </tr>
 
-                                    <td>
-                                        <div className="nord-empty-5"></div>
-                                    </td>
-                                    <td>
-                                        <small>{resFreqHpTitle}</small>
-                                    </td>
-                                    <td>
-                                        <strong>{resFreqHpValue}</strong>
-                                    </td>
+                                <tr>
+                                    <Ns3LabelAndValueWithMorph label="Freq" data={filter.cutoffFrequency} />
+                                    <td/>
+                                    <Ns3LabelAndValueWithMorph label={resFreqHpTitle} data={resFreqHpValue} />
                                 </tr>
                             </tbody>
                         </table>

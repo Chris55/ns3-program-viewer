@@ -37,7 +37,7 @@ export default class Ns3SectionSynthArp extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="3">
-                                            <Ns3ValueOnOff label="MST CLK" data={arp.masterClock} />
+                                            <Ns3ValueOnOff label="Mst Clk" data={arp.masterClock} />
                                         </td>
                                     </tr>
                                     <tr>
