@@ -48,23 +48,24 @@
 
 .ns3-section {
     background: whitesmoke;
-    /*margin: 10px;*/
+    margin: 15px;
     /*padding: 5px;*/
     border-radius: 45px 10px 10px 10px;
-    border-color: black;
+    border-color: white;
     border-style: solid;
     border-width: 2px;
 }
 
 .ns3-section-fx {
-    border-width: 2px;
-    border-color: #e32121;
-    font-size: 0.8em;
+    /*border-width: 2px;*/
+    /*border-color: #e32121;*/
+    /*font-size: 0.8em;*/
     /*#efecec;*/
-    border-style: solid;
-    /*max-width: 180px!important;*/
+    border-style: none;
+    /*max-width: 150px!important;*/
     background-color: #e3e2e2;
-    /*margin: 20px*/
+    margin: 5px 10px;
+    padding: 5px;
 
 }
 
@@ -93,33 +94,33 @@
 
 
 
-.nord-option-on {
-    opacity: 1;
-    text-transform: uppercase;
-    font-weight: normal!important;
-    font-size: 90%;
-    /*small-caps*/
-    font-variant: no-common-ligatures;
-}
+/*.nord-option-on {*/
+/*    opacity: 1;*/
+/*    text-transform: uppercase;*/
+/*    font-weight: normal!important;*/
+/*    font-size: 90%;*/
+/*    !*small-caps*!*/
+/*    font-variant: no-common-ligatures;*/
+/*}*/
 
-.nord-option-on-no-uppercase {
-    opacity: 1;
-    text-transform: none;
-    font-weight: normal;
-    font-size: 90%;
-    /*small-caps*/
-    font-variant: no-common-ligatures;
-}
+/*.nord-option-on-no-uppercase {*/
+/*    opacity: 1;*/
+/*    text-transform: none;*/
+/*    font-weight: normal;*/
+/*    font-size: 90%;*/
+/*    !*small-caps*!*/
+/*    font-variant: no-common-ligatures;*/
+/*}*/
 
-.nord-option-off {
-    opacity: 0.33;
-    margin: 2px;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 80%;
-    /*small-caps*/
-    font-variant: no-common-ligatures;
-}
+/*.nord-option-off {*/
+/*    opacity: 0.33;*/
+/*    margin: 2px;*/
+/*    text-transform: uppercase;*/
+/*    font-weight: normal;*/
+/*    font-size: 80%;*/
+/*    !*small-caps*!*/
+/*    font-variant: no-common-ligatures;*/
+/*}*/
 
 .dot {
     height: 10px;
@@ -156,7 +157,7 @@
 }
 
 .nord-split {
-    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;
+    font-family: monospace;
     font-size: 1rem;
 }
 
@@ -171,16 +172,25 @@
     border-color: black;
     font-size: 80%;
     padding: 0 1px;
+    min-width: 180px!important;
 }
 
 .nord-label {
-    color: red;
-    font-size: 0.9em;
+    /*color: blue;*/
+    font-size: 0.7em;
 }
 
 .nord-value {
-    color: blue;
-    font-size: 0.9em;
+    /*color: red;*/
+    font-size: 0.75em;
+}
+
+.nord-upper-case {
+    text-transform: uppercase;
+}
+
+.nord-no-upper-case {
+    text-transform: none;
 }
 
 

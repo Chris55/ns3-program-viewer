@@ -19,14 +19,14 @@ export default class Ns3SectionOrgan extends Component {
                 <div className={visible ? this.props.className : "d-none"}>
                     <div className={visible ? "nord-on" : "nord-off"}>
                         <div className="">
-                            <div className="row no-gutters" style={{ background: "lightgreen" }}>
+                            <div className="row no-gutters">
 
-                                <div className="d-flex  text-center ">
+                                <div className="d-flex">
                                     <Ns3VolumeAndMore name={"ORGAN"} data={organ} />
                                 </div>
 
                                 <div className="row no-gutters d-flex flex-wrap">
-                                    <div className="row no-gutters flex-column" style={{ background: "lightblue" }}>
+                                    <div className="row no-gutters flex-column m-1">
                                         <div>
                                             <div className="nord-name">
                                                 {organ.type.value} {organ.preset1.value} - {organ.preset2.value}{" "}

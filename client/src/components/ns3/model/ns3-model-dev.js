@@ -134,14 +134,14 @@ exports.ns3ModelDev = {
                     "value": "-1.9 dB",
                     "morph": {
                         "wheel": {
-                            "enabled": true,
+                            "enabled": false,
                             "to": {
                                 "midi": 89,
                                 "value": "-6.2 dB"
                             }
                         },
                         "afterTouch": {
-                            "enabled": true,
+                            "enabled": false,
                             "to": {
                                 "midi": 93,
                                 "value": "-5.4 dB"
@@ -244,21 +244,21 @@ exports.ns3ModelDev = {
                     "value": "-20.1 dB",
                     "morph": {
                         "wheel": {
-                            "enabled": true,
+                            "enabled": false,
                             "to": {
                                 "midi": 34,
                                 "value": "-22.9 dB"
                             }
                         },
                         "afterTouch": {
-                            "enabled": true,
+                            "enabled": false,
                             "to": {
                                 "midi": 65,
                                 "value": "-11.6 dB"
                             }
                         },
                         "controlPedal": {
-                            "enabled": true,
+                            "enabled": false,
                             "to": {
                                 "midi": 25,
                                 "value": "-28.2 dB"
@@ -783,14 +783,14 @@ exports.ns3ModelDev = {
                                 }
                             },
                             "afterTouch": {
-                                "enabled": true,
+                                "enabled": false,
                                 "to": {
                                     "midi": 7,
                                     "value": "0.6"
                                 }
                             },
                             "controlPedal": {
-                                "enabled": true,
+                                "enabled": false,
                                 "to": {
                                     "midi": 32,
                                     "value": "2.5"

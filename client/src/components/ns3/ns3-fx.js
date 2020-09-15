@@ -11,7 +11,7 @@ export default class Ns3Fx extends Component {
 
         return (
             <React.Fragment>
-                <div className={this.props.className} style={{background: "lightgrey"}}>
+                <div className={this.props.className}>
                     <div className="d-flex flex-wrap align-items-start">
                         <Ns3FxRotarySpeaker
                             className="ns3-section-fx "

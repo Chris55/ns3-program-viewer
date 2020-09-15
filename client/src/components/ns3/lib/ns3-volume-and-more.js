@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../ns3.css";
 import Ns3ValueOnOff from "./ns3-value-on-off";
 import Ns3LabelAndValue from "./ns3-label-and-value";
+import Ns3LabelAndValueWithMorph from "./ns3-label-and-value-with-morph";
+import Ns3Label from "./ns3-label";
 
 export default class Ns3VolumeAndMore extends Component {
     render() {
@@ -10,31 +12,41 @@ export default class Ns3VolumeAndMore extends Component {
         const octaveShift =
             (section.octaveShift.value >= 0 ? "+" + section.octaveShift.value : section.octaveShift.value) + " oct";
 
-
         return (
             <React.Fragment>
-                <div className="">
+                <div className="m-1 text-center">
                     <h6 className="font-weight-bold">{this.props.name}</h6>
 
-                    <Ns3LabelAndValue data={section.volume} />
+                    <div className="my-2">
+                        <Ns3Label label="Level" />
+                        <table  style={{ marginLeft: "auto", marginRight: "auto" }}>
+                            <tbody>
+                            <Ns3LabelAndValueWithMorph data={section.volume} upperCase={false} />
+                            </tbody>
+                        </table>
+                    </div>
+
 
                     <div className="">
-                        <span className={section.kbZone.array[0] ? "dot dot-kb-zone " : "dot"} />
-                        <span className={section.kbZone.array[1] ? "dot dot-kb-zone " : "dot"} />
-                        <span className={section.kbZone.array[2] ? "dot dot-kb-zone " : "dot"} />
-                        <span className={section.kbZone.array[3] ? "dot dot-kb-zone " : "dot"} />
+                        <Ns3Label label="Kb Zone" />
+                        <div className="">
+                            <span className={section.kbZone.array[0] ? "dot dot-kb-zone " : "dot"} />
+                            <span className={section.kbZone.array[1] ? "dot dot-kb-zone " : "dot"} />
+                            <span className={section.kbZone.array[2] ? "dot dot-kb-zone " : "dot"} />
+                            <span className={section.kbZone.array[3] ? "dot dot-kb-zone " : "dot"} />
+                        </div>
                     </div>
 
                     <div className="">
-                        <Ns3LabelAndValue data={{value: octaveShift}} />
+                        <Ns3LabelAndValue data={{ value: octaveShift }} />
                     </div>
 
                     <div>
                         <Ns3ValueOnOff label="Pstick" data={section.pitchStick} />
 
-                        <span className="m-1"/>
+                        <span className="m-1" />
 
-                        <Ns3ValueOnOff label="SUSTPED" data={section.sustainPedal} />
+                        <Ns3ValueOnOff label="SustPed" data={section.sustainPedal} />
                     </div>
                 </div>
             </React.Fragment>

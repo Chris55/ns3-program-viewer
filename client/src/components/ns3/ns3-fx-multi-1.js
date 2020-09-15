@@ -34,12 +34,11 @@ export default class Ns3FxMulti1 extends Component {
                                             <Ns3ValueOnOff label="Mst Clk" data={fx.masterClock} />
                                         </td>
                                     </tr>
-                                    <tr>
+
                                         <Ns3LabelAndValueWithMorph label="Rate" data={fx.rate} />
-                                    </tr>
-                                    <tr>
+
                                         <Ns3LabelAndValueWithMorph label="Amt" data={fx.amount} />
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
