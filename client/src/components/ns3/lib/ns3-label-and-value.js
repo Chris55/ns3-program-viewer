@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ns3.css";
-import Ns3Label from "./ns3-label";
 
 export default class Ns3LabelAndValue extends Component {
     render() {
@@ -26,13 +25,13 @@ export default class Ns3LabelAndValue extends Component {
         if (this.props.table === true) {
             result = (
                 <>
-                    <td className={"align-top " + upperCase + " " + labelClassName}>
-                        <Ns3Label label={this.props.label} />
+                    <td className={labelClassName}>
+                        <span className={labelClassName}>{this.props.label}</span>
                     </td>
 
                     <td />
 
-                    <td className={"align-top " + upperCase + " " + valueClassName}>
+                    <td className={upperCase + " " + valueClassName}>
                         <span>{this.props.data.value}</span>
                     </td>
                 </>
@@ -40,7 +39,7 @@ export default class Ns3LabelAndValue extends Component {
         } else {
             result = (
                 <>
-                    <span className={upperCase + " " + labelClassName}>{label}</span>
+                    <span className={labelClassName}>{label}</span>
                     <span className={upperCase + " " + valueClassName}>{this.props.data.value}</span>
                 </>
             );

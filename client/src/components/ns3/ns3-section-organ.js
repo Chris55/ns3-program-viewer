@@ -20,7 +20,6 @@ export default class Ns3SectionOrgan extends Component {
                     <div className={visible ? "nord-on" : "nord-off"}>
                         <div className="">
                             <div className="row no-gutters">
-
                                 <div className="d-flex">
                                     <Ns3VolumeAndMore name={"ORGAN"} data={organ} />
                                 </div>
@@ -56,15 +55,16 @@ export default class Ns3SectionOrgan extends Component {
                                             <Ns3ValueOnOff label="Decay Fast" data={organ.percussion.decayFast} />
                                             <span className="m-1" />
 
-                                            <Ns3ValueOnOff label="Harmonic Third" data={organ.percussion.harmonicThird} />
+                                            <Ns3ValueOnOff
+                                                label="Harmonic Third"
+                                                data={organ.percussion.harmonicThird}
+                                            />
                                         </div>
                                     </div>
 
                                     <Ns3Fx className="d-flex" data={this.props.effects} source="Organ" />
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>

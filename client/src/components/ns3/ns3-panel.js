@@ -3,8 +3,6 @@ import "./ns3.css";
 import Ns3SectionPiano from "./ns3-section-piano";
 import Ns3SectionOrgan from "./ns3-section-organ";
 import Ns3SectionSynth from "./ns3-section-synth";
-import Ns3FxMulti1 from "./ns3-fx-multi-1";
-import Ns3FxMulti2 from "./ns3-fx-multi-2";
 
 export default class Ns3Panel extends Component {
     render() {
@@ -14,10 +12,10 @@ export default class Ns3Panel extends Component {
         return (
             <div className={visible ? "ns3-panel" : "d-none"}>
                 <div className="row no-gutters">
-                    <div className="col-1 d-flex flex-wrap ns3-panel-name">
-                        <div className="align-items-stretch ">
+                    <div className="col-1 d-flex flex-wrap ns3-panel-name justify-content-center">
+                        <div className="" style={{marginTop: "auto", marginBottom: "auto"}}>
 
-                                <h6>{this.props.name}</h6>
+                                <h6>PANEL {this.props.name}</h6>
                                 {/*<div className="outer">*/}
                                 {/*    <div className="inner">*/}
                                 {/*        <h6>PANEL {this.props.name}</h6>*/}
@@ -29,7 +27,7 @@ export default class Ns3Panel extends Component {
                     {/*ml-n5*/}
                     <div className="col-10">
                         <div className={data.enabled ? "nord-on" : "nord-off"}>
-                            <div className="">
+                            <div>
                                 <Ns3SectionOrgan
                                     className="ns3-section"
                                     data={data.organ}
@@ -37,17 +35,17 @@ export default class Ns3Panel extends Component {
                                 />
                             </div>
 
-                            <div className="row">
+                            <div>
                                 <Ns3SectionPiano
-                                    className="col-12 ns3-section"
+                                    className="ns3-section"
                                     data={data.piano}
                                     effects={data.effects}
                                 />
                             </div>
 
-                            <div className="row">
+                            <div>
                                 <Ns3SectionSynth
-                                    className="col-12 ns3-section"
+                                    className="ns3-section"
                                     data={data.synth}
                                     effects={data.effects}
                                 />
@@ -56,10 +54,10 @@ export default class Ns3Panel extends Component {
                     </div>
 
                     <div className="col-1  d-flex flex-wrap" style={{ background: "gray" }}>
-                        <div className="d-flex flex-wrap">
-                            <Ns3FxMulti1 className="ns3-section-fx align-self-end" data={data.effects.effect1} source="Organ" />
-                            <Ns3FxMulti2 className="ns3-section-fx align-self-start" data={data.effects.effect2} source="Organ" />
-                        </div>
+                        {/*<div className="d-flex flex-wrap">*/}
+                        {/*    <Ns3FxMulti1 className="ns3-section-fx align-self-end" data={data.effects.effect1} source="Organ" />*/}
+                        {/*    <Ns3FxMulti2 className="ns3-section-fx align-self-start" data={data.effects.effect2} source="Organ" />*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>

@@ -766,7 +766,7 @@ exports.ns3ModelDev = {
                 "effect1": {
                     "enabled": true,
                     "source": {
-                        "value": "Organ"
+                        "value": "Synth"
                     },
                     "type": {
                         "value": "Tremolo"
@@ -832,7 +832,7 @@ exports.ns3ModelDev = {
                 "effect2": {
                     "enabled": true,
                     "source": {
-                        "value": "Organ"
+                        "value": "Synth"
                     },
                     "type": {
                         "value": "Phaser 1"

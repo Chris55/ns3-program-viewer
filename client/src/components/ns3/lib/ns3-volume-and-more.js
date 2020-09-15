@@ -15,7 +15,7 @@ export default class Ns3VolumeAndMore extends Component {
         return (
             <React.Fragment>
                 <div className="m-1 text-center">
-                    <h6 className="font-weight-bold">{this.props.name}</h6>
+                    <h6 className="mt-1 font-weight-bold">{this.props.name}</h6>
 
                     <div className="my-2">
                         <Ns3Label label="Level" />

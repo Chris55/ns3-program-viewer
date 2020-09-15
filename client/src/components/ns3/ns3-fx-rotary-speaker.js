@@ -14,7 +14,7 @@ export default class Ns3FxRotarySpeaker extends Component {
                 <div className={visible ? "d-flex nord-on" : "d-none"}>
                     <div className={this.props.className}>
                         <div className="text-left">
-                            <div className="font-weight-bold">ROTARY<br/>SPEAKER</div>
+                            <div className="nord-option-title">ROTARY<br/>SPEAKER</div>
 
                             <div className="">
                                 <Ns3LabelAndValue label="Drive" data={fx.drive}/>

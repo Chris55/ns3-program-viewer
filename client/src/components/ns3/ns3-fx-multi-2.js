@@ -15,31 +15,30 @@ export default class Ns3FxMulti2 extends Component {
                 <div className={visible ? "d-flex nord-on" : "d-none"}>
                     <div className={this.props.className}>
                         <div className="text-left">
-                            <div className="font-weight-bold">EFFECT 2</div>
+                            <div className="nord-option-title">EFFECT 2</div>
 
                             <table className="table-borderless">
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <Ns3Label label="Type" />
-                                    </td>
-                                    <td />
-                                    <td>
-                                        <Ns3LabelAndValue data={fx.type} />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <Ns3Label label="Rate" />
-                                    </td>
-                                    <td />
-                                    <td>
-                                        <Ns3LabelAndValue data={fx.rate} />
-                                    </td>
-                                </tr>
-                                <tr>
+                                    <tr>
+                                        <td>
+                                            <Ns3Label label="Type" />
+                                        </td>
+                                        <td />
+                                        <td>
+                                            <Ns3LabelAndValue data={fx.type} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <Ns3Label label="Rate" />
+                                        </td>
+                                        <td />
+                                        <td>
+                                            <Ns3LabelAndValue data={fx.rate} />
+                                        </td>
+                                    </tr>
+
                                     <Ns3LabelAndValueWithMorph label="Amt" data={fx.amount} />
-                                </tr>
                                 </tbody>
                             </table>
                         </div>

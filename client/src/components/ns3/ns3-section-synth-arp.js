@@ -17,11 +17,11 @@ export default class Ns3SectionSynthArp extends Component {
                         <div
                             className={
                                 arp.enabled
-                                    ? "col-auto nord-synth-sub-feature nord-on"
-                                    : "col-auto nord-synth-sub-feature nord-off"
+                                    ? "nord-synth-sub-feature nord-on"
+                                    : "nord-synth-sub-feature nord-off"
                             }
                         >
-                            <div className="font-weight-bold">ARP</div>
+                            <div className="nord-option-title">ARP</div>
 
                             <table className="table-borderless">
                                 <tbody>
@@ -40,9 +40,9 @@ export default class Ns3SectionSynthArp extends Component {
                                             <Ns3ValueOnOff label="Mst Clk" data={arp.masterClock} />
                                         </td>
                                     </tr>
-                                    <tr>
+
                                         <Ns3LabelAndValueWithMorph label="Rate" data={arp.rate} />
-                                    </tr>
+
                                     <tr>
                                         <td>
                                             <Ns3Label label="Range" />

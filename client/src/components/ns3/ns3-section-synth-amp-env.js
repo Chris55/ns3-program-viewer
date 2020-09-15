@@ -11,20 +11,18 @@ export default class Ns3SectionSynthAmpEnv extends Component {
             <React.Fragment>
                 <div className={this.props.className}>
                     <div className="justify-content-center">
-                        <div>
-                            <strong>AMP Env</strong>
-                        </div>
+                        <div className="nord-option-title">AMP ENV</div>
 
                         <table className="table-borderless">
                             <tbody>
                                 <tr>
-                                    <Ns3LabelAndValue label="Attack" data={env.attack} table={true} />
+                                    <Ns3LabelAndValue label="Attack" data={env.attack} table={true} upperCase={false}/>
                                 </tr>
                                 <tr>
-                                    <Ns3LabelAndValue label="Decay" data={env.decay} table={true} />
+                                    <Ns3LabelAndValue label="Decay" data={env.decay} table={true} upperCase={false}/>
                                 </tr>
                                 <tr>
-                                    <Ns3LabelAndValue label="Release" data={env.release} table={true} />
+                                    <Ns3LabelAndValue label="Release" data={env.release} table={true} upperCase={false}/>
                                 </tr>
 
                                 <tr>

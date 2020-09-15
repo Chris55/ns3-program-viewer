@@ -14,44 +14,40 @@ export default class Ns3LabelAndValueWithMorph extends Component {
         return (
             <React.Fragment>
                 <tr>
-                    <td className="align-top">
+                    <td className="">
                         <Ns3Label label={this.props.label} />
                     </td>
 
-                    <td className="align-top text-right">
+                    <td className=" text-right">
                         <span className={morphing ? "dot dot-morph" : "d-none"} />
-                        {/*<i><small>from</small></i>*/}
                     </td>
 
-                    <td className="align-top">
+                    <td className="">
                         <Ns3LabelAndValue data={data} upperCase={this.props.upperCase}/>
                     </td>
                 </tr>
 
-                <tr className={data.morph.wheel.enabled ? "" : "d-none"} style={{ lineHeight: 0.9 }}>
-                    <td colSpan="2" className="text-right">
+                <tr className={data.morph.wheel.enabled ? "" : "d-none"} >
+                    <td colSpan="2" className="text-right nord-morph-space">
                         <span className="nord-morph">Wheel</span>
-                        {/*<i><small>(Wheel) to</small></i>*/}
                     </td>
                     <td>
                         <Ns3LabelAndValue data={data.morph.wheel.to} upperCase={this.props.upperCase}/>
                     </td>
                 </tr>
 
-                <tr className={data.morph.afterTouch.enabled ? "" : "d-none"} style={{ lineHeight: 0.9 }}>
-                    <td colSpan="2" className="text-right">
+                <tr className={data.morph.afterTouch.enabled ? "" : "d-none"} style={{ }}>
+                    <td colSpan="2" className="text-right nord-morph-space">
                         <span className="nord-morph">A-Touch</span>
-                        {/*<i><small className="nord-morph">(A-Touch) to</small></i>*/}
                     </td>
-                    <td>
+                    <td className="nord-morph-space" >
                         <Ns3LabelAndValue data={data.morph.afterTouch.to} upperCase={this.props.upperCase}/>
                     </td>
                 </tr>
 
-                <tr className={data.morph.controlPedal.enabled ? "" : "d-none"} style={{ lineHeight: 0.9 }}>
+                <tr className={data.morph.controlPedal.enabled ? "" : "d-none"} style={{ }}>
                     <td colSpan="2" className="text-right">
                         <span className="nord-morph">CtrlPed</span>
-                        {/*<i><small>(Ctrl Ped) to</small></i>*/}
                     </td>
                     <td>
                         <Ns3LabelAndValue data={data.morph.controlPedal.to} upperCase={this.props.upperCase}/>

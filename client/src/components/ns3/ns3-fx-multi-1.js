@@ -16,7 +16,7 @@ export default class Ns3FxMulti1 extends Component {
                 <div className={visible ? "d-flex nord-on" : "d-none"}>
                     <div className={this.props.className}>
                         <div className="text-left">
-                            <div className="font-weight-bold">EFFECT 1</div>
+                            <div className="nord-option-title">EFFECT 1</div>
 
                             <table className="table-borderless">
                                 <tbody>

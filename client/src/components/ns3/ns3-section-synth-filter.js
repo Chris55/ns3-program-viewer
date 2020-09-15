@@ -9,7 +9,7 @@ export default class Ns3SectionSynthFilter extends Component {
         const filter = this.props.data;
 
         let velModTitle = "Vel/Mod Amt";
-        let velModValue = "0.0";
+        let velModValue = filter.modulations.velAmount;
         if (filter.modulations.velAmount.midi < 64) {
             velModTitle = "Vel Amt";
             velModValue = filter.modulations.velAmount;
@@ -31,42 +31,63 @@ export default class Ns3SectionSynthFilter extends Component {
         return (
             <React.Fragment>
                 <div className={this.props.className}>
-                    <div className="justify-content-center">
-                        <div>
-                            <strong>FILTER</strong>
-                        </div>
+                    <div className="">
+                        <div className="nord-option-title">FILTER</div>
 
-                        <table className="table-borderless nord-option-on-no-uppercase">
+                        <table className="table-borderless">
                             <tbody>
                                 <tr>
-                                    <Ns3LabelAndValue label="Type" data={filter.type}  table={true}/>
-                                    <td>
-                                        <div className="m-1"/>
+                                    <td className="align-text-top">
+                                        <table className="table-borderless">
+                                            <tbody>
+                                                <tr>
+                                                    <Ns3LabelAndValue label="Type" data={filter.type} table={true} />
+                                                </tr>
+
+                                                <Ns3LabelAndValueWithMorph
+                                                    label="LFO Amt"
+                                                    data={filter.modulations.lfoAmount}
+                                                />
+
+                                                <Ns3LabelAndValueWithMorph label="Freq" data={filter.cutoffFrequency} />
+                                            </tbody>
+                                        </table>
                                     </td>
-                                    <Ns3LabelAndValue
-                                        enabled={filter.kbTrack.value !== "Off"}
-                                        label="Kb Trk" data={filter.kbTrack}  table={true}/>
-                                </tr>
-                                <tr>
-                                    <td/>
-                                    <td/>
-                                    <td/>
-                                    <td/>
-                                    <Ns3LabelAndValue
-                                        enabled={filter.drive.value !== "Off"}
-                                        label="Drive" data={filter.drive}  table={true}/>
-                                </tr>
+                                    <td className="align-text-top">
+                                        <table className="table-borderless">
+                                            <tbody>
+                                                <tr>
+                                                    <Ns3LabelAndValue
+                                                        enabled={filter.kbTrack.value !== "Off"}
+                                                        label="Kb Trk"
+                                                        data={filter.kbTrack}
+                                                        table={true}
+                                                    />
+                                                </tr>
+                                                <tr>
+                                                    <Ns3LabelAndValue
+                                                        enabled={filter.drive.value !== "Off"}
+                                                        label="Drive"
+                                                        data={filter.drive}
+                                                        table={true}
+                                                    />
+                                                </tr>
 
-                                <tr>
-                                    <Ns3LabelAndValueWithMorph label="LFO Amt" data={filter.modulations.lfoAmount} />
-                                    <td/>
-                                    <Ns3LabelAndValue label={velModTitle} data={velModValue} />
-                                </tr>
+                                                <tr>
+                                                    <Ns3LabelAndValue
+                                                        label={velModTitle}
+                                                        data={velModValue}
+                                                        table={true}
+                                                    />
+                                                </tr>
 
-                                <tr>
-                                    <Ns3LabelAndValueWithMorph label="Freq" data={filter.cutoffFrequency} />
-                                    <td/>
-                                    <Ns3LabelAndValueWithMorph label={resFreqHpTitle} data={resFreqHpValue} />
+                                                <Ns3LabelAndValueWithMorph
+                                                    label={resFreqHpTitle}
+                                                    data={resFreqHpValue}
+                                                />
+                                            </tbody>
+                                        </table>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

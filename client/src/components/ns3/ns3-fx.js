@@ -4,17 +4,29 @@ import "./ns3.css";
 import Ns3FxMulti1 from "./ns3-fx-multi-1";
 import Ns3FxMulti2 from "./ns3-fx-multi-2";
 import Ns3FxRotarySpeaker from "./ns3-fx-rotary-speaker";
+import Ns3SectionSynthArp from "./ns3-section-synth-arp";
 
 export default class Ns3Fx extends Component {
     render() {
         const data = this.props.data;
 
+        let arp;
+        if (this.props.arp === undefined) {
+            arp = <> </>;
+        } else {
+            arp = <Ns3SectionSynthArp
+                className="nord-synth-sub-feature"
+                data={this.props.arp} />;
+        }
+
         return (
             <React.Fragment>
                 <div className={this.props.className}>
                     <div className="d-flex flex-wrap align-items-start">
+                        {arp}
+
                         <Ns3FxRotarySpeaker
-                            className="ns3-section-fx "
+                            className="ns3-section-fx"
                             data={data.rotarySpeaker}
                             source={this.props.source}
                         />

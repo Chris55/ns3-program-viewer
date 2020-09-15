@@ -12,21 +12,18 @@ export default class Ns3SectionSynthLfo extends Component {
         return (
             <React.Fragment>
                 <div className={this.props.className}>
-                    <div className="justify-content-center">
-                        <div>
-                            <strong>LFO</strong>
-                        </div>
+                    <div className="">
+                        <div className="nord-option-title">LFO</div>
 
-                        <table className="table-borderless nord-option-on-no-uppercase">
+                        <table className="table-borderless">
                             <tbody>
+                                <Ns3LabelAndValueWithMorph label="Rate" data={lfo.rate} />
+
                                 <tr>
-                                    <Ns3LabelAndValueWithMorph label="Rate" data={lfo.rate} />
+                                    <Ns3LabelAndValue label="Wave" data={lfo.wave} table={true} />
                                 </tr>
                                 <tr>
-                                    <Ns3LabelAndValue label="Wave" data={lfo.wave}  table={true}/>
-                                </tr>
-                                <tr>
-                                    <td colspan="3">
+                                    <td colSpan="3">
                                         <Ns3ValueOnOff label="Mst Clk" data={lfo.masterClock} />
                                     </td>
                                 </tr>

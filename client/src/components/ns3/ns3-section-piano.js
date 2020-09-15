@@ -14,70 +14,56 @@ export default class Ns3SectionPiano extends Component {
         return (
             <React.Fragment>
                 <div className={visible ? this.props.className : "d-none"}>
-                    <div className={visible ? "row nord-on" : "row nord-off"}>
-                        <div className="col-auto text-center">
-                            <Ns3VolumeAndMore name={"PIANO"} data={piano} />
-                        </div>
-
-                        <div className="col-auto">
-                            <div className="row">
-                                <div className="col-auto">
-                                    <div className="nord-name">{piano.name.value}</div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-auto">
-                                    <Ns3LabelAndValue label="Type" data={piano.type} />
+                    <div className={visible ? "nord-on" : "nord-off"}>
+                        <div className="">
+                            <div className="row no-gutters">
+                                <div className="d-flex">
+                                    <Ns3VolumeAndMore name={"PIANO"} data={piano} />
                                 </div>
 
-                                <div className="col-auto">
-                                    <Ns3LabelAndValue
-                                        enabled={piano.timbre.value !== "None"}
-                                        label="Timbre"
-                                        data={piano.timbre}
-                                    />
-                                </div>
-                            </div>
+                                <div className="row no-gutters d-flex flex-wrap">
+                                    <div className="row no-gutters flex-column m-1">
+                                        <div>
+                                            <div className="nord-name">{piano.name.value}</div>
+                                        </div>
 
-                            <div className="row">
-                                <div className="col-auto">
-                                    <Ns3LabelAndValue
-                                        enabled={piano.kbTouch.value !== "Normal"}
-                                        label="KB Touch"
-                                        data={piano.kbTouch}
-                                    />
-                                </div>
-                                <div className="col-auto">
-                                    <Ns3LabelAndValue
-                                        enabled={piano.layerDetune.value !== "Off"}
-                                        label="Layer Detune"
-                                        data={piano.layerDetune}
-                                    />
-                                </div>
-                            </div>
+                                        <div>
+                                            <Ns3LabelAndValue label="Type" data={piano.type} />
+                                            <span className="m-1" />
+                                            <Ns3LabelAndValue
+                                                enabled={piano.timbre.value !== "None"}
+                                                label="Timbre"
+                                                data={piano.timbre}
+                                            />
+                                        </div>
 
-                            <div className="row">
-                                <div className="col-auto">
-                                    <Ns3ValueOnOff
-                                        label="Soft Release"
-                                        data={piano.softRelease}/>
-                                </div>
+                                        <div>
+                                            <Ns3LabelAndValue
+                                                enabled={piano.kbTouch.value !== "Normal"}
+                                                label="KB Touch"
+                                                data={piano.kbTouch}
+                                            />
+                                            <span className="m-1" />
+                                            <Ns3LabelAndValue
+                                                enabled={piano.layerDetune.value !== "Off"}
+                                                label="Layer Detune"
+                                                data={piano.layerDetune}
+                                            />
+                                        </div>
 
-                                <div className="col-auto">
-                                    <Ns3ValueOnOff
-                                        label="String Resonance"
-                                        data={piano.stringResonance}/>
-                                </div>
+                                        <div>
+                                            <Ns3ValueOnOff label="Soft Release" data={piano.softRelease} />
+                                            <span className="m-1" />
+                                            <Ns3ValueOnOff label="String Resonance" data={piano.stringResonance} />
+                                            <span className="m-1" />
+                                            <Ns3ValueOnOff label="Pedal Noise" data={piano.pedalNoise} />
+                                        </div>
+                                    </div>
 
-                                <div className="col-auto">
-                                    <Ns3ValueOnOff
-                                        label="Pedal Noise"
-                                        data={piano.pedalNoise}/>
+                                    <Ns3Fx className="d-flex" data={this.props.effects} source="Piano" />
                                 </div>
                             </div>
                         </div>
-
-                        <Ns3Fx data={this.props.effects} source="Piano" />
                     </div>
                 </div>
             </React.Fragment>
