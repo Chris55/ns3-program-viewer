@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3Label from "./lib/ns3-label";
 import Ns3ValueOnOff from "./lib/ns3-value-on-off";
 
 export default class Ns3FxRotarySpeaker extends Component {
@@ -18,17 +17,14 @@ export default class Ns3FxRotarySpeaker extends Component {
                             <div className="font-weight-bold">ROTARY SPEAKER</div>
 
                             <div className="">
-                                <Ns3Label label="Drive "/>
-                                <Ns3LabelAndValue data={fx.drive}/>
+                                <Ns3LabelAndValue label="Drive" data={fx.drive}/>
                             </div>
 
                             <div className="">
-                                <Ns3Label label="Stop Mode "/>
-                                <Ns3ValueOnOff data={fx.stopMode}/>
+                                <Ns3ValueOnOff label="Stop Mode" data={fx.stopMode}/>
                             </div>
 
                             <div className="">
-                                {/*<Ns3Label label="Speed "/>*/}
                                 <Ns3LabelAndValue data={fx.speed}/>
                             </div>
 

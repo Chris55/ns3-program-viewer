@@ -14,24 +14,24 @@ export default class Ns3Panel extends Component {
         return (
             <div className={visible ? "ns3-panel" : "d-none"}>
                 <div className="row no-gutters">
-                    <div className="col-1 ">
-                        <div className="row no-gutters align-items-stretch ns3-panel-name">
-                            <div className="col-8">
+                    <div className="col-1 d-flex flex-wrap ns3-panel-name">
+                        <div className="align-items-stretch ">
+
                                 <h6>{this.props.name}</h6>
                                 {/*<div className="outer">*/}
                                 {/*    <div className="inner">*/}
                                 {/*        <h6>PANEL {this.props.name}</h6>*/}
                                 {/*    </div>*/}
                                 {/*</div>*/}
-                            </div>
+
                         </div>
                     </div>
                     {/*ml-n5*/}
-                    <div className="col-10 d-flex">
+                    <div className="col-10">
                         <div className={data.enabled ? "nord-on" : "nord-off"}>
-                            <div className="row">
+                            <div className="">
                                 <Ns3SectionOrgan
-                                    className="col-12 d-flex ns3-section"
+                                    className="ns3-section"
                                     data={data.organ}
                                     effects={data.effects}
                                 />
@@ -55,7 +55,7 @@ export default class Ns3Panel extends Component {
                         </div>
                     </div>
 
-                    <div className="col-1 d-flex" style={{ background: "gray" }}>
+                    <div className="col-1  d-flex flex-wrap" style={{ background: "gray" }}>
                         <div className="d-flex flex-wrap">
                             <Ns3FxMulti1 className="ns3-section-fx align-self-end" data={data.effects.effect1} source="Organ" />
                             <Ns3FxMulti2 className="ns3-section-fx align-self-start" data={data.effects.effect2} source="Organ" />

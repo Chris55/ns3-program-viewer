@@ -7,7 +7,7 @@ export default class Ns3ValueOnOff extends Component {
 
         return (
             <React.Fragment>
-                <span className={this.props.data.enabled? "nord-label-name nord-on" : "nord-label-name nord-off"}>{this.props.label}</span>
+                <span className={this.props.data.enabled? "nord-value nord-on" : "nord-value nord-off"}>{this.props.label}</span>
             </React.Fragment>
         );
     }

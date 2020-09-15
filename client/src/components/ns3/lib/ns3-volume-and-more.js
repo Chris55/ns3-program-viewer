@@ -10,13 +10,10 @@ export default class Ns3VolumeAndMore extends Component {
         const octaveShift =
             (section.octaveShift.value >= 0 ? "+" + section.octaveShift.value : section.octaveShift.value) + " oct";
 
-        const octaveShiftObj = {
-            value: octaveShift,
-        };
 
         return (
             <React.Fragment>
-                <div className="d-flex flex-wrap">
+                <div className="">
                     <h6 className="font-weight-bold">{this.props.name}</h6>
 
                     <Ns3LabelAndValue data={section.volume} />
@@ -29,13 +26,13 @@ export default class Ns3VolumeAndMore extends Component {
                     </div>
 
                     <div className="">
-                        <Ns3LabelAndValue data={octaveShiftObj} />
+                        <Ns3LabelAndValue data={{value: octaveShift}} />
                     </div>
 
                     <div>
-                        <Ns3ValueOnOff label="PSTICK" data={section.pitchStick} />
+                        <Ns3ValueOnOff label="Pstick" data={section.pitchStick} />
 
-                        <span> </span>
+                        <span className="m-1"/>
 
                         <Ns3ValueOnOff label="SUSTPED" data={section.sustainPedal} />
                     </div>

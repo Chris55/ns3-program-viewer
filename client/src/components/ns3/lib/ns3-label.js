@@ -6,10 +6,10 @@ export default class Ns3Label extends Component {
     render() {
         const className =
             this.props.enabled === undefined
-                ? "nord-label-name nord-on"
+                ? "nord-label nord-on"
                 : this.props.enabled === true
-                ? "nord-label-name nord-on"
-                : "nord-label-name nord-off";
+                ? "nord-label nord-on"
+                : "nord-label nord-off";
 
         return (
             <React.Fragment>
