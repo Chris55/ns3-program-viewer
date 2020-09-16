@@ -29,6 +29,14 @@ describe("/ns3/effects", () => {
         });
     });
 
+    test("panelA.effects.compressor.enabled eq true", async () => {
+        const file = "panelA.effects.compressor.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.effects.compressor.fast.enabled eq false", async () => {
         const file = "panelA.effects.compressor.fast.enabled eq false.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -463,6 +471,22 @@ describe("/ns3/effects", () => {
 
     test("panelA.effects.reverb.bright.enabled eq true", async () => {
         const file = "panelA.effects.reverb.bright.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.enabled eq false", async () => {
+        const file = "panelA.effects.reverb.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.enabled eq true", async () => {
+        const file = "panelA.effects.reverb.enabled eq true.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

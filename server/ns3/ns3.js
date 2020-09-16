@@ -28,12 +28,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     const offset04 = buffer.readUInt8(0x04);
     const offset10 = buffer.readUInt8(0x10);
     const offset14W = buffer.readUInt16LE(0x14);
-    const offset31 = buffer.readUInt8(0x31);
-    const offset31W = buffer.readUInt16BE(0x31);
-    const offset32W = buffer.readUInt16BE(0x32);
-    const offset33W = buffer.readUInt16BE(0x33);
-    const offset38W = buffer.readUInt16BE(0x38);
-    const offset38 = buffer.readUInt8(0x38);
+
 
     if (offset04 !== 1) {
         console.log("Offset 0x04 <> 1 !!!!!!");
@@ -63,9 +58,29 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     const minorVersion = zeroPad(offset14W - majorVersion * 100, 2);
     const version = majorVersion + "." + minorVersion;
 
-    if (version !== "3.04") {
-        throw new Error("Sorry, only v3.04 is supported... file is v" + version);
+    // if (version !== "3.04") {
+    //     throw new Error("Sorry, only v3.04 is supported... file is v" + version);
+    // }
+
+    if (majorVersion !== 3) {
+        throw new Error("Unexpected file revision, only v3 is supported... file is v" + version);
     }
+
+    if (minorVersion < 0 || minorVersion > 4) {
+        throw new Error("Unexpected file revision, only v3.00 to v3.04 are supported... file is v" + version);
+    }
+
+    let versionOffset = 0; // default all coding is done with v3.04
+    if (minorVersion < 3) {
+        versionOffset = -20;
+    }
+
+    const offset31 = buffer.readUInt8(0x31 + versionOffset);
+    const offset31W = buffer.readUInt16BE(0x31 + versionOffset);
+    const offset32W = buffer.readUInt16BE(0x32 + versionOffset);
+    const offset33W = buffer.readUInt16BE(0x33 + versionOffset);
+    const offset38W = buffer.readUInt16BE(0x38 + versionOffset);
+    const offset38 = buffer.readUInt8(0x38 + versionOffset);
 
     /**
      * Offset in file: 0x38 (b7-3)
@@ -256,9 +271,9 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         category: mapping.categoryMap.get(offset10),
         //fileId: fileId,
 
-        panelA: getPanel(buffer, 0, split.enabled),
+        panelA: getPanel(buffer, 0, split.enabled, versionOffset),
 
-        panelB: getPanel(buffer, 1, split.enabled),
+        panelB: getPanel(buffer, 1, split.enabled, versionOffset),
 
         masterClock: {
             rate: {
