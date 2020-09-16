@@ -38,7 +38,7 @@ export default class Ns3FxMulti2 extends Component {
                                         </td>
                                     </tr>
 
-                                    <Ns3LabelAndValueWithMorph label="Amt" data={fx.amount} />
+                                    <Ns3LabelAndValueWithMorph label="Amount" data={fx.amount} />
                                 </tbody>
                             </table>
                         </div>

@@ -320,9 +320,9 @@ Older versions, from 3.00 to 3.02 have a length of 574 bytes and a smaller heade
 | `0x0133` | `--------` |
 | `0x0134` | `------ot` | [(o) reverb on](api.md#reverb-on), [(t) reverb type](api.md#reverb-type)
 | `0x0135` | `ttbrrrrr` | [(o) reverb bright](api.md#reverb-bright), [(r) reverb amount](api.md#reverb-amount)
-| `0x0136` | `rrwwwwww` | [(w) effect 2 amount morph wheel](api.md#effect-2-amount)
-| `0x0137` | `wwaaaaaa` | [(a) effect 2 amount morph wheel](api.md#effect-2-amount)
-| `0x0138` | `aapppppp` | [(p) effect 2 amount morph wheel](api.md#effect-2-amount)
+| `0x0136` | `rrwwwwww` | [(w) reverb amount morph wheel](api.md#reverb-amount)
+| `0x0137` | `wwaaaaaa` | [(a) reverb amount morph after touch](api.md#reverb-amount)
+| `0x0138` | `aapppppp` | [(p) reverb amount morph control pedal](api.md#reverb-amount)
 | `0x0139` | `ppoccccc` | [(o) compressor on](api.md#compressor-on), [(c) compressor amount](api.md#compressor-amount)
 | `0x013A` | `ccf-----` | [(f) compressor fast](api.md#compressor-fast)
 | `0x013B` | `--------` | Piano Panel B, same as offset 0x34, offset from Panel A is 0x107 (263 bytes)

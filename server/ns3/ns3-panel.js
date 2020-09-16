@@ -1,3 +1,5 @@
+const {getReverb} = require("./ns3-effects");
+const {getCompressor} = require("./ns3-effects");
 const { getExtern } = require("./ns3-extern");
 const { getEffect2 } = require("./ns3-effects");
 const { getEffect1 } = require("./ns3-effects");
@@ -54,8 +56,8 @@ exports.getPanel = function (buffer, id, splitEnabled) {
             effect2: getEffect2(buffer, panelOffset),
             // delay: {},
             // ampSimEq: {},
-            // compressor: {},
-            // reverb: {}
+            compressor: getCompressor(buffer, panelOffset),
+            reverb: getReverb(buffer, panelOffset),
         },
     };
 };

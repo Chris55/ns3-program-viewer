@@ -1732,3 +1732,16 @@ exports.externControlMap = new Map([
     [1, "Program"],
     [2, "Volume"],
 ]);
+
+/***
+ * Reverb Types
+ * @type {Map<number, string>}
+ */
+exports.reverbTypeMap = new Map([
+    [0, "Room 1"],
+    [1, "Room 2"],
+    [2, "Stage 1"],
+    [3, "Stage 2"],
+    [4, "Hall 1"],
+    [5, "Hall 2"],
+]);

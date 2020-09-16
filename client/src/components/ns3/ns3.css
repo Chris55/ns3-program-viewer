@@ -67,6 +67,17 @@
     padding: 5px;
 }
 
+.ns3-section-main-fx {
+    /*border-radius: 10px;*/
+    border-style: solid;
+    border-color: #eeeded;
+    border-width: 0 0 0 1px;
+    /*max-width: 150px!important;*/
+    background-color: #f3f3f1;
+    margin: 5px 0 5px 0px;
+    padding: 5px;
+}
+
 .nord-synth-sub-feature {
     border-style: solid;
     border-color: #eeeded;
@@ -179,4 +190,20 @@
 
 
 
+
+.col-sm-0-half  {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    width: 4.1666666666%;
+}
+
+@media (min-width: 768px) {
+    .col-sm-0-half {
+        /*float: left;*/
+    }
+    .col-sm-0-half {
+        /*width: 12.5%;*/
+    }
+}
 

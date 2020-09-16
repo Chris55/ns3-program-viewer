@@ -13,16 +13,20 @@ import Figure from "react-bootstrap/Figure";
 import JSONTree from "react-json-tree";
 import Ns3 from "./components/ns3/ns3";
 import "./components/ns3-panel-component-jqx.css";
+import {ns3Model} from "./components/ns3/model/ns3-model";
 
-import { ns3ModelProd } from "./components/ns3/model/ns3-model-prod";
-import { ns3ModelDev } from "./components/ns3/model/ns3-model-dev";
+
 
 class App extends Component {
     constructor(props) {
         super(props);
 
+        if (process.env.NODE_ENV === "production") {
+            ns3Model.panelA.enabled = false;
+            ns3Model.panelB.enabled = false;
+        }
         this.state = {
-            data: process.env.NODE_ENV === "production" ? ns3ModelProd.data : ns3ModelDev.data,
+            data: ns3Model,
             error: null,
         };
     }

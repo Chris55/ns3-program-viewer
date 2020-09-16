@@ -14,10 +14,10 @@ export default class Ns3Panel extends Component {
         return (
             <div className={visible ? "ns3-panel" : "d-none"}>
                 <div className="row no-gutters">
-                    <div className="col-1 d-flex flex-wrap ns3-panel-name justify-content-center">
+                    <div className="col-sm-0-half d-flex flex-wrap ns3-panel-name justify-content-center">
                         <div className="" style={{marginTop: "auto", marginBottom: "auto"}}>
 
-                                <h6>PANEL {this.props.name}</h6>
+                                <h6>{this.props.name}</h6>
                                 {/*<div className="outer">*/}
                                 {/*    <div className="inner">*/}
                                 {/*        <h6>PANEL {this.props.name}</h6>*/}
@@ -27,7 +27,7 @@ export default class Ns3Panel extends Component {
                         </div>
                     </div>
                     {/*ml-n5*/}
-                    <div className="col-9">
+                    <div className="col-10">
                         <div className={data.enabled ? "nord-on" : "nord-off"}>
                             <div>
                                 <Ns3SectionOrgan
@@ -55,10 +55,18 @@ export default class Ns3Panel extends Component {
                         </div>
                     </div>
 
-                    <div className="col-2  d-flex flex-wrap">
+                    <div className="col d-flex flex-wrap">
                         <div className="d-flex flex-wrap">
-                            <Ns3FxCompressor className="ns3-section-fx align-self-end" data={data.effects.effect1} />
-                            <Ns3FxReverb className="ns3-section-fx align-self-start" data={data.effects.effect1} />
+                            <Ns3FxCompressor
+                                className="ns3-section-main-fx"
+                                data={data.effects.compressor}
+                                other={data.effects.reverb.enabled}
+                            />
+                            <Ns3FxReverb
+                                className="ns3-section-main-fx"
+                                data={data.effects.reverb}
+                                other={data.effects.compressor.enabled}
+                            />
                         </div>
                     </div>
                 </div>
