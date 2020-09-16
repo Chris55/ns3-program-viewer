@@ -242,6 +242,9 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
          * 2 =  2
          * 3 =  3
          *
+         * Note: This parameter is common for both Panel. Layer Detune setting cannot be different
+         * for each panel, only offset 0x34 is used.
+         *
          * @module Piano Layer Detune
          */
         layerDetune: {
@@ -287,10 +290,6 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
             enabled: pianoTypeValue <= 1 && (pianoOffset4d & 0x04) !== 0,
         },
     };
-
-    piano.morph = [];
-
-    piano.morph.push({ name: "Volume", morph: piano.volume });
 
     if (process.env.NODE_ENV === "production") {
         piano.debug = undefined;

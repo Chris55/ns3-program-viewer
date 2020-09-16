@@ -27,7 +27,7 @@ export default class Ns3SectionSynthArp extends Component {
                                 <tbody>
                                     <tr>
                                         <td colSpan="3">
-                                            <Ns3ValueOnOff label="Run" data={arp.enabled} />
+                                            <Ns3ValueOnOff label="Run" data={arp} />
                                         </td>
                                     </tr>
                                     <tr>

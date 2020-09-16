@@ -290,5 +290,10 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         //monoOut: '', // this is a global setting
     };
 
+
+    // layer detune is common for both panel !
+    // noinspection JSPrimitiveTypeWrapperUsage
+    ns3.panelB.piano.layerDetune.value = ns3.panelA.piano.layerDetune.value;
+
     return ns3;
 };

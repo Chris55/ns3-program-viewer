@@ -285,5 +285,37 @@ describe("/ns3/piano", () => {
         });
     });
 
+    test("panelB.piano.layerDetune.value eq 1", async () => {
+        const file = "panelB.piano.layerDetune.value eq 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.piano.layerDetune.value eq 2", async () => {
+        const file = "panelB.piano.layerDetune.value eq 2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.piano.layerDetune.value eq 3", async () => {
+        const file = "panelB.piano.layerDetune.value eq 3.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.piano.layerDetune.value eq Off", async () => {
+        const file = "panelB.piano.layerDetune.value eq Off.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
 });
 

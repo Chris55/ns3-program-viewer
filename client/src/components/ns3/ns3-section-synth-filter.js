@@ -49,7 +49,8 @@ export default class Ns3SectionSynthFilter extends Component {
                                                     data={filter.modulations.lfoAmount}
                                                 />
 
-                                                <Ns3LabelAndValueWithMorph label="Freq" data={filter.cutoffFrequency} />
+                                                <Ns3LabelAndValueWithMorph
+                                                    label="Freq" data={filter.cutoffFrequency} upperCase={false}/>
                                             </tbody>
                                         </table>
                                     </td>
@@ -84,6 +85,7 @@ export default class Ns3SectionSynthFilter extends Component {
                                                 <Ns3LabelAndValueWithMorph
                                                     label={resFreqHpTitle}
                                                     data={resFreqHpValue}
+                                                    upperCase={false}
                                                 />
                                             </tbody>
                                         </table>
