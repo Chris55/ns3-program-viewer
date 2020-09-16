@@ -23,7 +23,7 @@ export default class Ns3 extends Component {
                         <br />
                         <Ns3LabelAndValue data={data.masterClock.rate} />
                     </div>
-                    <div className="col-2">
+                    <div className="col-3">
                         <div className="row no-gutters ">
                             <div className="col text-right">
                                 <Ns3Label enabled={data.split.enabled} label="Split" />

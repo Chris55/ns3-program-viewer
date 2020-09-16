@@ -5,6 +5,46 @@ const { getNs3TestCase } = require("./helpers");
 const root = __dirname + "/ns3/effects/";
 
 describe("/ns3/effects", () => {
+    test("panelA.effects.compressor.amount.value eq 0.0", async () => {
+        const file = "panelA.effects.compressor.amount.value eq 0.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.compressor.amount.value eq 10.0", async () => {
+        const file = "panelA.effects.compressor.amount.value eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.compressor.amount.value eq 4.1", async () => {
+        const file = "panelA.effects.compressor.amount.value eq 4.1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.compressor.fast.enabled eq false", async () => {
+        const file = "panelA.effects.compressor.fast.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.compressor.fast.enabled eq true", async () => {
+        const file = "panelA.effects.compressor.fast.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.effects.effect1.amount.morph.afterTouch.to.value eq 7.9", async () => {
         const file = "panelA.effects.effect1.amount.morph.afterTouch.to.value eq 7.9.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -359,6 +399,118 @@ describe("/ns3/effects", () => {
 
     test("panelA.effects.effect2.rate.value eq 10.0", async () => {
         const file = "panelA.effects.effect2.rate.value eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.amount.morph.afterTouch.to.value eq 8.2", async () => {
+        const file = "panelA.effects.reverb.amount.morph.afterTouch.to.value eq 8.2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.amount.morph.controlPedal.to.value eq 9.6", async () => {
+        const file = "panelA.effects.reverb.amount.morph.controlPedal.to.value eq 9.6.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.amount.morph.wheel.to.value eq 6.9", async () => {
+        const file = "panelA.effects.reverb.amount.morph.wheel.to.value eq 6.9.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.amount.value eq 0.0", async () => {
+        const file = "panelA.effects.reverb.amount.value eq 0.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.amount.value eq 10.0", async () => {
+        const file = "panelA.effects.reverb.amount.value eq 10.0.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.amount.value eq 7.2", async () => {
+        const file = "panelA.effects.reverb.amount.value eq 7.2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.bright.enabled eq false", async () => {
+        const file = "panelA.effects.reverb.bright.enabled eq false.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.bright.enabled eq true", async () => {
+        const file = "panelA.effects.reverb.bright.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.type.value eq Hall 1", async () => {
+        const file = "panelA.effects.reverb.type.value eq Hall 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.type.value eq Hall 2", async () => {
+        const file = "panelA.effects.reverb.type.value eq Hall 2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.type.value eq Room 1", async () => {
+        const file = "panelA.effects.reverb.type.value eq Room 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.type.value eq Room 2", async () => {
+        const file = "panelA.effects.reverb.type.value eq Room 2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.type.value eq Stage 1", async () => {
+        const file = "panelA.effects.reverb.type.value eq Stage 1.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.reverb.type.value eq Stage 2", async () => {
+        const file = "panelA.effects.reverb.type.value eq Stage 2.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

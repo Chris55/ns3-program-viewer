@@ -38,5 +38,20 @@
   color: #61dafb;
 }
 
+/*
+ Geneva
+ Lucida Grande
+ */
 
+body {
 
+}
+
+.nord-font {
+    /*font-family: Geneva*/
+}
+
+.nord-font-copyright {
+    font-size: 45%;
+    vertical-align: 70%;
+}

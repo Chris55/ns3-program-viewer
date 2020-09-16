@@ -55,7 +55,7 @@ export default class Ns3Panel extends Component {
                         </div>
                     </div>
 
-                    <div className="col d-flex flex-wrap">
+                    <div className="col d-flex flex-wrap ns3-section-right">
                         <div className="d-flex flex-wrap">
                             <Ns3FxCompressor
                                 className="ns3-section-main-fx"

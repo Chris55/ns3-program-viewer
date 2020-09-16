@@ -19,6 +19,7 @@ const FileUploaderButton = props => {
                 {props.title}
             </Button>
             <input type="file"
+                   accept={props.accept}
                    ref={hiddenFileInput}
                    onChange={handleChange}
                    style={{display:'none'}}

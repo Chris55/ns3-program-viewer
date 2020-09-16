@@ -46,8 +46,9 @@ export default class Ns3SectionOrgan extends Component {
 
                                         <div>
                                             <Ns3ValueOnOff label="Percussion" data={organ.percussion} />
+                                        </div>
+                                        <div>
 
-                                            <span className="m-1" />
 
                                             <Ns3ValueOnOff label="Volume Soft" data={organ.percussion.volumeSoft} />
                                             <span className="m-1" />

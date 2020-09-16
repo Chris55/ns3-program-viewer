@@ -48,9 +48,19 @@
 
 .ns3-section {
     background: whitesmoke;
-    margin: 15px;
+    margin: 15px 15px 15px 15px;
     /*padding: 5px;*/
     border-radius: 45px 10px 10px 10px;
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.ns3-section-right {
+    background: whitesmoke;
+    margin: 15px 5px 15px 0;
+    /*padding: 5px;*/
+    border-radius: 10px 10px 10px 10px;
     border-color: white;
     border-style: solid;
     border-width: 2px;
@@ -74,7 +84,7 @@
     border-width: 0 0 0 1px;
     /*max-width: 150px!important;*/
     background-color: #f3f3f1;
-    margin: 5px 0 5px 0px;
+    margin: 5px 5px 15px 5px;
     padding: 5px;
 }
 
@@ -123,7 +133,7 @@
 
 .nord-name {
     //font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;
-    font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
+   //font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
     font-size: 1rem;
     font-stretch: normal;
     font-weight: bold;
@@ -131,8 +141,9 @@
     padding: 10px;
     background-color: #3b4047;
     color: white;
-    min-width: 340px;
-    max-width: 400px;
+    /*min-width: 340px;*/
+    /*max-width: 400px;*/
+    width: 290px;
 }
 
 .nord-split {

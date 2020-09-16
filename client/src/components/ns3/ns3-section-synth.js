@@ -28,7 +28,7 @@ export default class Ns3SectionSynth extends Component {
 
                                 <div className="row no-gutters d-flex flex-wrap">
                                     <div className="row no-gutters flex-column m-1">
-                                        <div>
+                                        <div >
                                             <Ns3LabelAndValue label="Voice" data={synth.voice} />
                                             <span className="m-1" />
                                             <Ns3LabelAndValue

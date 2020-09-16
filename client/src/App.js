@@ -13,15 +13,15 @@ import Figure from "react-bootstrap/Figure";
 import JSONTree from "react-json-tree";
 import Ns3 from "./components/ns3/ns3";
 import "./components/ns3-panel-component-jqx.css";
-import {ns3Model} from "./components/ns3/model/ns3-model";
-
-
+import { ns3Model } from "./components/ns3/model/ns3-model";
 
 class App extends Component {
     constructor(props) {
         super(props);
 
-        if (process.env.NODE_ENV === "production") {
+        this.production = process.env.NODE_ENV === "production";
+
+        if (this.production) {
             ns3Model.panelA.enabled = false;
             ns3Model.panelB.enabled = false;
         }
@@ -63,7 +63,12 @@ class App extends Component {
             <div className="app">
                 <div className="jumbotron jumbotron-fluid bg-dark text-white">
                     <Container>
-                        <h1 className="display-5">Online Nord Stage 3 Program File Viewer</h1>
+                        <h1 className="display-5">
+                            <span className="nord-font">
+                                Nord<span className="nord-font-copyright">®</span> Stage 3
+                            </span>{" "}
+                            Program File Viewer
+                        </h1>
                         <p className="lead">Simple online tool to review Nord Stage 3 program file settings.</p>
 
                         <blockquote className="blockquote">
@@ -92,7 +97,11 @@ class App extends Component {
                 <Container>
                     <div className="row ">
                         <div className="col-2-auto align-self-center">
-                            <FileUploaderButton className="" title="Select" handleFile={this.handleFile} />
+                            <FileUploaderButton
+                                className=""
+                                title="Select"
+                                accept=".ns3f"
+                                handleFile={this.handleFile} />
                         </div>
 
                         <div className="col-auto align-self-center">Nord Program File (*.ns3f)</div>
@@ -103,43 +112,48 @@ class App extends Component {
                     </div>
                 </Container>
 
-                <Tabs id="uncontrolled-tab-example">
-                    {/*style={{backgroundColor: 'grey'}}*/}
-                    <Tab eventKey="panel" title="Panel" disabled={false}>
-                        <Ns3 data={this.state.data} />
-                    </Tab>
+                <div className={this.production ? "mt-2" : "d-none"}>
+                    <Ns3 data={this.state.data} />
+                </div>
 
-                    <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
-                        <JSONTree
-                            data={this.state.data}
-                            hideRoot={true}
-                            getItemString={(type, data, itemType, itemString) => <span></span>}
-                            shouldExpandNode={(keyPath, data, level) => true}
-                            theme={{
-                                scheme: "custom",
-                                author: "wimer hazenberg (http://www.monokai.nl)",
-                                base00: "#343a40",
-                                base01: "#383830",
-                                base02: "#49483e",
-                                base03: "#75715e",
-                                base04: "#a59f85",
-                                base05: "#f8f8f2",
-                                base06: "#f5f4f1",
-                                base07: "#f9f8f5",
-                                base08: "#f92672",
-                                base09: "#fd971f",
-                                base0A: "#f4bf75",
-                                base0B: "#a6e22e",
-                                base0C: "#a1efe4",
-                                base0D: "#66d9ef",
-                                base0E: "#ae81ff",
-                                base0F: "#cc6633",
-                            }}
-                            invertTheme={false}
-                        />
-                    </Tab>
-                </Tabs>
+                <div className={this.production ? "d-none" : "mt-2"}>
+                    <Tabs id="uncontrolled-tab-example">
+                        {/*style={{backgroundColor: 'grey'}}*/}
+                        <Tab eventKey="panel" title="Panel" disabled={false}>
+                            <Ns3 data={this.state.data} />
+                        </Tab>
 
+                        <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
+                            <JSONTree
+                                data={this.state.data}
+                                hideRoot={true}
+                                getItemString={(type, data, itemType, itemString) => <span></span>}
+                                shouldExpandNode={(keyPath, data, level) => true}
+                                theme={{
+                                    scheme: "custom",
+                                    author: "wimer hazenberg (http://www.monokai.nl)",
+                                    base00: "#343a40",
+                                    base01: "#383830",
+                                    base02: "#49483e",
+                                    base03: "#75715e",
+                                    base04: "#a59f85",
+                                    base05: "#f8f8f2",
+                                    base06: "#f5f4f1",
+                                    base07: "#f9f8f5",
+                                    base08: "#f92672",
+                                    base09: "#fd971f",
+                                    base0A: "#f4bf75",
+                                    base0B: "#a6e22e",
+                                    base0C: "#a1efe4",
+                                    base0D: "#66d9ef",
+                                    base0E: "#ae81ff",
+                                    base0F: "#cc6633",
+                                }}
+                                invertTheme={false}
+                            />
+                        </Tab>
+                    </Tabs>
+                </div>
                 <ToastContainer />
 
                 {/*<Navbar fixed="bottom"  expand="lg" bg="dark" variant="light">*/}

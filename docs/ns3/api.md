@@ -49,6 +49,27 @@
 <dt><a href="#module_Effect 2 Rate">Effect 2 Rate</a></dt>
 <dd><p>Offset in file: 0x114 (b1-0) &amp;nd 0x115 (b7-3)</p>
 </dd>
+<dt><a href="#module_Compressor On">Compressor On</a></dt>
+<dd><p>Offset in file: 0x139 (b5)</p>
+</dd>
+<dt><a href="#module_Compressor Amount">Compressor Amount</a></dt>
+<dd><p>Offset in file: 0x139 (b4-0) and 0x13A (b7-6)</p>
+</dd>
+<dt><a href="#module_Compressor Fast">Compressor Fast</a></dt>
+<dd><p>Offset in file: 0x13A (b5)</p>
+</dd>
+<dt><a href="#module_Reverb On">Reverb On</a></dt>
+<dd><p>Offset in file: 0x114 (b7)</p>
+</dd>
+<dt><a href="#module_Reverb Type">Reverb Type</a></dt>
+<dd><p>Offset in file: 0x134 (b0) and 0x135 (b7-6)</p>
+</dd>
+<dt><a href="#module_Reverb Amount">Reverb Amount</a></dt>
+<dd><p>Offset in file: 0x135 (b4-0) and 0x136 (b7-6)</p>
+</dd>
+<dt><a href="#module_Reverb Bright">Reverb Bright</a></dt>
+<dd><p>Offset in file: 0x135 (b5)</p>
+</dd>
 <dt><a href="#module_Extern On">Extern On</a></dt>
 <dd><p>Offset in file: 0xF4 (b7)</p>
 </dd>
@@ -464,6 +485,70 @@ Offset in file: 0x114 (b1-0) &nd 0x115 (b7-3)
 **Example**  
 ```js
 7-bit value 0/127 = 0/10
+```
+<a name="module_Compressor On"></a>
+
+## Compressor On
+Offset in file: 0x139 (b5)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_Compressor Amount"></a>
+
+## Compressor Amount
+Offset in file: 0x139 (b4-0) and 0x13A (b7-6)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10
+```
+<a name="module_Compressor Fast"></a>
+
+## Compressor Fast
+Offset in file: 0x13A (b5)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_Reverb On"></a>
+
+## Reverb On
+Offset in file: 0x114 (b7)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_Reverb Type"></a>
+
+## Reverb Type
+Offset in file: 0x134 (b0) and 0x135 (b7-6)
+
+**Example**  
+```js
+0 = Room 11 = Room 22 = Stage 13 = Stage 24 = Hall 15 = Hall 2
+```
+<a name="module_Reverb Amount"></a>
+
+## Reverb Amount
+Offset in file: 0x135 (b4-0) and 0x136 (b7-6)
+
+**See**: [Organ Volume](api.md#organ-volume) for detailed Morph explanation.  
+**Example**  
+```js
+7-bit value 0/127 = 0/10Morph Wheel:0x136 (b5): polarity (1 = positive, 0 = negative)0x136 (b4-b0) and 0x137 (b7-6): 7-bit raw valueMorph After Touch:0x137 (b5): polarity (1 = positive, 0 = negative)0x137 (b4-b0) and 0x138 (b7-6): 7-bit raw valueMorph Control Pedal:0x138 (b5): polarity (1 = positive, 0 = negative)0x138 (b4-b0) and 0x139 (b7-6): 7-bit raw value
+```
+<a name="module_Reverb Bright"></a>
+
+## Reverb Bright
+Offset in file: 0x135 (b5)
+
+**Example**  
+```js
+O = off, 1 = on 
 ```
 <a name="module_Extern On"></a>
 
