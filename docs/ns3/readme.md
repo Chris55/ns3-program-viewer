@@ -288,9 +288,9 @@ Older versions, from 3.00 to 3.02 have a length of 574 bytes and a smaller heade
 | `0x0113` | `pppppppp` | [(p) effect 1 amount morph control pedal](api.md#effect-1-amount)
 | `0x0114` | `osstttrr` | [(o) effect 2 on](api.md#effect-2-on), [(s) effect 2 source](api.md#effect-2-source), [(t) effect 2 type](api.md#effect-2-type), [(r) effect 2 rate](api.md#effect-2-rate)
 | `0x0115` | `rrrrraaa` | [(a) effect 2 amount](api.md#effect-2-amount)
-| `0x0116` | `aaaawwww` | [(a) effect 2 amount morph wheel](api.md#effect-2-amount)
-| `0x0117` | `wwwwaaaa` | [(w) effect 2 amount after touch](api.md#effect-2-amount)
-| `0x0118` | `aaaapppp` | [(a) effect 2 amount control pedal](api.md#effect-2-amount)
+| `0x0116` | `aaaawwww` | [(w) effect 2 amount morph wheel](api.md#effect-2-amount)
+| `0x0117` | `wwwwaaaa` | [(a) effect 2 amount after touch](api.md#effect-2-amount)
+| `0x0118` | `aaaapppp` | [(p) effect 2 amount control pedal](api.md#effect-2-amount)
 | `0x0119` | `pppp----` |
 | `0x011A` | `--------` |
 | `0x011B` | `--------` |
@@ -318,52 +318,32 @@ Older versions, from 3.00 to 3.02 have a length of 574 bytes and a smaller heade
 | `0x0131` | `--------` |
 | `0x0132` | `--------` |
 | `0x0133` | `--------` |
-| `0x0134` | `--------` |
-| `0x0135` | `--------` |
-| `0x0136` | `--------` |
-| `0x0137` | `--------` | Panel B...
-| `0x0138` | `--------` |
-| `0x0139` | `--------` |
-| `0x013A` | `--------` |
-| `0x013B` | `--------` |
+| `0x0134` | `------ot` | [(o) reverb on](api.md#reverb-on), [(t) reverb type](api.md#reverb-type)
+| `0x0135` | `ttbrrrrr` | [(o) reverb bright](api.md#reverb-bright), [(r) reverb amount](api.md#reverb-amount)
+| `0x0136` | `rrwwwwww` | [(w) effect 2 amount morph wheel](api.md#effect-2-amount)
+| `0x0137` | `wwaaaaaa` | [(a) effect 2 amount morph wheel](api.md#effect-2-amount)
+| `0x0138` | `aapppppp` | [(p) effect 2 amount morph wheel](api.md#effect-2-amount)
+| `0x0139` | `ppoccccc` | [(o) compressor on](api.md#compressor-on), [(c) compressor amount](api.md#compressor-amount)
+| `0x013A` | `ccf-----` | [(f) compressor fast](api.md#compressor-fast)
+| `0x013B` | `--------` | Piano Panel B, same as offset 0x34, offset from Panel A is 0x107 (263 bytes)
 | `0x013C` | `--------` |
-| `0x013D` | `--------` |
-| `0x013E` | `--------` |
-| `0x013F` | `--------` |
-| `0x0140` | `--------` |
-| `0x0141` | `--------` |
-| `0x0142` | `--------` |
-| `0x0143` | `--------` |
-| `0x0144` | `--------` |
-| `0x0145` | `--------` |
-| `0x0146` | `--------` |
-| `0x0147` | `--------` |
-| `0x0148` | `--------` |
-| `0x0149` | `--------` |
-| `0x014A` | `--------` |
-| `0x014B` | `--------` |
-| `0x014C` | `--------` |
-| `0x014D` | `--------` |
-| `0x014E` | `--------` |
-| `0x014F` | `--------` |
 | `...`    |            |
 | `0x0240` | `--------` |
-| `0x0241` | `--------` |
-| `0x0242` | `--------` |
-| `0x0243` | `--------` |
-| `0x0244` | `--------` |
-| `0x0245` | `--------` |
-| `0x0246` | `--------` |
-| `0x0247` | `--------` |
-| `0x0248` | `--------` |
-| `0x0249` | `--------` |
-| `0x024A` | `--------` |
-| `0x024B` | `--------` |
-| `0x024C` | `--------` |
-| `0x024D` | `--------` |
-| `0x024E` | `--------` |
-| `0x024F` | `--------` |
-| `0x0250` | `--------` |
+| `0x0241` | `--------` | end of Panel B
+| `0x0242` | `--------` | 0
+| `0x0243` | `--------` | 0
+| `0x0244` | `--------` | 0
+| `0x0245` | `--------` | 0
+| `0x0246` | `--------` | 0
+| `0x0247` | `--------` | 0
+| `0x0248` | `--------` | 0
+| `0x0249` | `--------` | 0
+| `0x024A` | `--------` | 5
+| `0x024B` | `--------` | 0
+| `0x024C` | `--------` | 0
+| `0x024D` | `--------` | 0
+| `0x024E` | `--------` | 0
+| `0x024F` | `--------` | 0
 
 EOF
 

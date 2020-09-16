@@ -3,6 +3,8 @@ import "./ns3.css";
 import Ns3SectionPiano from "./ns3-section-piano";
 import Ns3SectionOrgan from "./ns3-section-organ";
 import Ns3SectionSynth from "./ns3-section-synth";
+import Ns3FxCompressor from "./ns3-fx-compressor";
+import Ns3FxReverb from "./ns3-fx-reverb";
 
 export default class Ns3Panel extends Component {
     render() {
@@ -25,7 +27,7 @@ export default class Ns3Panel extends Component {
                         </div>
                     </div>
                     {/*ml-n5*/}
-                    <div className="col-10">
+                    <div className="col-9">
                         <div className={data.enabled ? "nord-on" : "nord-off"}>
                             <div>
                                 <Ns3SectionOrgan
@@ -53,11 +55,11 @@ export default class Ns3Panel extends Component {
                         </div>
                     </div>
 
-                    <div className="col-1  d-flex flex-wrap" style={{ background: "gray" }}>
-                        {/*<div className="d-flex flex-wrap">*/}
-                        {/*    <Ns3FxMulti1 className="ns3-section-fx align-self-end" data={data.effects.effect1} source="Organ" />*/}
-                        {/*    <Ns3FxMulti2 className="ns3-section-fx align-self-start" data={data.effects.effect2} source="Organ" />*/}
-                        {/*</div>*/}
+                    <div className="col-2  d-flex flex-wrap">
+                        <div className="d-flex flex-wrap">
+                            <Ns3FxCompressor className="ns3-section-fx align-self-end" data={data.effects.effect1} />
+                            <Ns3FxReverb className="ns3-section-fx align-self-start" data={data.effects.effect1} />
+                        </div>
                     </div>
                 </div>
             </div>
