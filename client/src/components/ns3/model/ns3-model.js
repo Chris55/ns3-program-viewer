@@ -737,7 +737,7 @@ exports.ns3Model = {
                             "enabled": false
                         },
                         "controlPedal": {
-                            "enabled": false
+                            "enabled": true
                         }
                     }
                 }
