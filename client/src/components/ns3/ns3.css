@@ -199,7 +199,10 @@
     text-transform: uppercase;
 }
 
-
+.nord-font-monospace  {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-size: 0.9rem;
+}
 
 
 .col-sm-0-half  {

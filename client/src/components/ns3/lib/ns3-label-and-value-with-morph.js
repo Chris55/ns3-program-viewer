@@ -23,34 +23,50 @@ export default class Ns3LabelAndValueWithMorph extends Component {
                     </td>
 
                     <td className="">
-                        <Ns3LabelAndValue data={data} upperCase={this.props.upperCase}/>
+                        <Ns3LabelAndValue
+                            data={data}
+                            valueClass={this.props.valueClass}
+                            upperCase={this.props.upperCase}
+                        />
                     </td>
                 </tr>
 
-                <tr className={data.morph.wheel.enabled ? "" : "d-none"} >
+                <tr className={data.morph.wheel.enabled ? "" : "d-none"}>
                     <td colSpan="2" className="text-right nord-morph-space">
                         <span className="nord-morph">Wheel</span>
                     </td>
                     <td>
-                        <Ns3LabelAndValue data={data.morph.wheel.to} upperCase={this.props.upperCase}/>
+                        <Ns3LabelAndValue
+                            data={data.morph.wheel.to}
+                            upperCase={this.props.upperCase}
+                            valueClass={this.props.valueClass}
+                        />
                     </td>
                 </tr>
 
-                <tr className={data.morph.afterTouch.enabled ? "" : "d-none"} style={{ }}>
+                <tr className={data.morph.afterTouch.enabled ? "" : "d-none"}>
                     <td colSpan="2" className="text-right nord-morph-space">
                         <span className="nord-morph">A-Touch</span>
                     </td>
-                    <td className="nord-morph-space" >
-                        <Ns3LabelAndValue data={data.morph.afterTouch.to} upperCase={this.props.upperCase}/>
+                    <td className="nord-morph-space">
+                        <Ns3LabelAndValue
+                            data={data.morph.afterTouch.to}
+                            upperCase={this.props.upperCase}
+                            valueClass={this.props.valueClass}
+                        />
                     </td>
                 </tr>
 
-                <tr className={data.morph.controlPedal.enabled ? "" : "d-none"} style={{ }}>
+                <tr className={data.morph.controlPedal.enabled ? "" : "d-none"}>
                     <td colSpan="2" className="text-right">
                         <span className="nord-morph">CtrlPed</span>
                     </td>
                     <td>
-                        <Ns3LabelAndValue data={data.morph.controlPedal.to} upperCase={this.props.upperCase}/>
+                        <Ns3LabelAndValue
+                            data={data.morph.controlPedal.to}
+                            upperCase={this.props.upperCase}
+                            valueClass={this.props.valueClass}
+                        />
                     </td>
                 </tr>
             </React.Fragment>

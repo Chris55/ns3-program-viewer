@@ -6,6 +6,7 @@ import Ns3Fx from "./ns3-fx";
 import Ns3ValueOnOff from "./lib/ns3-value-on-off";
 import Ns3LabelAndValue from "./lib/ns3-label-and-value";
 import Ns3Label from "./lib/ns3-label";
+import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
 
 export default class Ns3SectionOrgan extends Component {
     render() {
@@ -27,8 +28,24 @@ export default class Ns3SectionOrgan extends Component {
                                 <div className="row no-gutters d-flex flex-wrap">
                                     <div className="row no-gutters flex-column m-1">
                                         <div>
+                                            {/*<div className="nord-name">*/}
+                                            {/*    {organ.type.value} {organ.preset1.value} - {organ.preset2.value}{" "}*/}
+                                            {/*</div>*/}
                                             <div className="nord-name">
-                                                {organ.type.value} {organ.preset1.value} - {organ.preset2.value}{" "}
+                                                <table>
+                                                    <tbody>
+                                                        <Ns3LabelAndValueWithMorph
+                                                            label="Preset I"
+                                                            data={organ.preset1}
+                                                            valueClass="nord-font-monospace"
+                                                        />
+                                                        <Ns3LabelAndValueWithMorph
+                                                            label="Preset II"
+                                                            data={organ.preset2}
+                                                            valueClass="nord-font-monospace"
+                                                        />
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
 
@@ -48,8 +65,6 @@ export default class Ns3SectionOrgan extends Component {
                                             <Ns3ValueOnOff label="Percussion" data={organ.percussion} />
                                         </div>
                                         <div>
-
-
                                             <Ns3ValueOnOff label="Volume Soft" data={organ.percussion.volumeSoft} />
                                             <span className="m-1" />
 

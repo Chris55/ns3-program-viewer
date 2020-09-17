@@ -131,15 +131,21 @@ const getDrawbars = function (buffer, offset, type) {
         morph: {
             wheel: {
                 enabled: morphWheelPreset !== "---------",
-                value: morphWheelPreset,
+                to: {
+                    value: morphWheelPreset,
+                },
             },
             afterTouch: {
                 enabled: morphAfterTouchPreset !== "---------",
-                value: morphAfterTouchPreset,
+                to: {
+                    value: morphAfterTouchPreset,
+                },
             },
             controlPedal: {
                 enabled: morphControlPedalPreset !== "---------",
-                value: morphControlPedalPreset,
+                to: {
+                    value: morphControlPedalPreset,
+                },
             },
         },
     };
@@ -492,7 +498,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * @module Organ Vibrato Mode
              */
             mode: {
-                value:organMode,
+                value: organMode,
             },
         },
 
@@ -523,7 +529,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * @module Organ Percussion Volume Soft
              */
             volumeSoft: {
-                enabled:organTypeIsB3 && (organOffsetD3 & 0x01) !== 0,
+                enabled: organTypeIsB3 && (organOffsetD3 & 0x01) !== 0,
             },
             /**
              * Offset in file: 0xD3 (b1)
@@ -536,7 +542,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * @module Organ Percussion Decay Fast
              */
             decayFast: {
-                enabled:organTypeIsB3 && (organOffsetD3 & 0x02) !== 0,
+                enabled: organTypeIsB3 && (organOffsetD3 & 0x02) !== 0,
             },
             /**
              * Offset in file: 0xD3 (b2)
@@ -549,7 +555,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
              * @module Organ Percussion Harmonic Third
              */
             harmonicThird: {
-                enabled:organTypeIsB3 && (organOffsetD3 & 0x04) !== 0,
+                enabled: organTypeIsB3 && (organOffsetD3 & 0x04) !== 0,
             },
         },
     };

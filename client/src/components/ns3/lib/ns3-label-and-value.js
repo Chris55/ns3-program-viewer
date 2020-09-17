@@ -21,6 +21,7 @@ export default class Ns3LabelAndValue extends Component {
         const upperCase = this.props.upperCase === false ? "nord-no-upper-case" : "nord-upper-case";
 
         const label = this.props.label === undefined ? "" : this.props.label + " ";
+
         let result;
         if (this.props.table === true) {
             result = (
@@ -31,7 +32,7 @@ export default class Ns3LabelAndValue extends Component {
 
                     <td />
 
-                    <td className={upperCase + " " + valueClassName}>
+                    <td className={upperCase + " " + valueClassName + " " + this.props.valueClass}>
                         <span>{this.props.data.value}</span>
                     </td>
                 </>
@@ -40,7 +41,7 @@ export default class Ns3LabelAndValue extends Component {
             result = (
                 <>
                     <span className={labelClassName}>{label}</span>
-                    <span className={upperCase + " " + valueClassName}>{this.props.data.value}</span>
+                    <span className={upperCase + " " + valueClassName + " " + this.props.valueClass}>{this.props.data.value}</span>
                 </>
             );
         }

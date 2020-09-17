@@ -213,16 +213,16 @@ describe("/ns3/organ", () => {
         });
     });
 
-    test("panelA.organ.preset1.morph.wheel.value eq 21-------", async () => {
-        const file = "panelA.organ.preset1.morph.wheel.value eq 21-------.ns3f";
+    test("panelA.organ.preset1.morph.wheel.to.value eq 21-------", async () => {
+        const file = "panelA.organ.preset1.morph.wheel.to.value eq 21-------.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.preset1.morph.wheel.value eq 864-32101", async () => {
-        const file = "panelA.organ.preset1.morph.wheel.value eq 864-32101.ns3f";
+    test("panelA.organ.preset1.morph.wheel.to.value eq 864-32101", async () => {
+        const file = "panelA.organ.preset1.morph.wheel.to.value eq 864-32101.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -277,8 +277,8 @@ describe("/ns3/organ", () => {
         });
     });
 
-    test("panelA.organ.type.value eq Farfisa and panelA.organ.preset1.morph.wheel.value eq -0-11--00", async () => {
-        const file = "panelA.organ.type.value eq Farfisa and panelA.organ.preset1.morph.wheel.value eq -0-11--00.ns3f";
+    test("panelA.organ.type.value eq Farfisa and panelA.organ.preset1.morph.wheel.to.value eq -0-11--00", async () => {
+        const file = "panelA.organ.type.value eq Farfisa and panelA.organ.preset1.morph.wheel.to.value eq -0-11--00.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -309,8 +309,8 @@ describe("/ns3/organ", () => {
         });
     });
 
-    test("panelA.organ.type.value eq Vox and panelA.organ.preset1.morph.wheel.value eq --66325-0", async () => {
-        const file = "panelA.organ.type.value eq Vox and panelA.organ.preset1.morph.wheel.value eq --66325-0.ns3f";
+    test("panelA.organ.type.value eq Vox and panelA.organ.preset1.morph.wheel.to.value eq --66325-0", async () => {
+        const file = "panelA.organ.type.value eq Vox and panelA.organ.preset1.morph.wheel.to.value eq --66325-0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -493,24 +493,24 @@ describe("/ns3/organ", () => {
         });
     });
 
-    test("panelB.organ.preset1.morph.afterTouch.value eq 012------", async () => {
-        const file = "panelB.organ.preset1.morph.afterTouch.value eq 012------.ns3f";
+    test("panelB.organ.preset1.morph.afterTouch.to.value eq 012------", async () => {
+        const file = "panelB.organ.preset1.morph.afterTouch.to.value eq 012------.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset1.morph.controlPedal.value eq 888888888", async () => {
-        const file = "panelB.organ.preset1.morph.controlPedal.value eq 888888888.ns3f";
+    test("panelB.organ.preset1.morph.controlPedal.to.value eq 888888888", async () => {
+        const file = "panelB.organ.preset1.morph.controlPedal.to.value eq 888888888.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset1.morph.wheel.value eq 887-2--54", async () => {
-        const file = "panelB.organ.preset1.morph.wheel.value eq 887-2--54.ns3f";
+    test("panelB.organ.preset1.morph.wheel.to.value eq 887-2--54", async () => {
+        const file = "panelB.organ.preset1.morph.wheel.to.value eq 887-2--54.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -525,24 +525,24 @@ describe("/ns3/organ", () => {
         });
     });
 
-    test("panelB.organ.preset2.morph.afterTouch.value eq ------76-", async () => {
-        const file = "panelB.organ.preset2.morph.afterTouch.value eq ------76-.ns3f";
+    test("panelB.organ.preset2.morph.afterTouch.to.value eq ------76-", async () => {
+        const file = "panelB.organ.preset2.morph.afterTouch.to.value eq ------76-.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset2.morph.controlPedal.value eq ---------", async () => {
-        const file = "panelB.organ.preset2.morph.controlPedal.value eq ---------.ns3f";
+    test("panelB.organ.preset2.morph.controlPedal.to.value eq ---------", async () => {
+        const file = "panelB.organ.preset2.morph.controlPedal.to.value eq ---------.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset2.morph.wheel.value eq ----64--4", async () => {
-        const file = "panelB.organ.preset2.morph.wheel.value eq ----64--4.ns3f";
+    test("panelB.organ.preset2.morph.wheel.to.value eq ----64--4", async () => {
+        const file = "panelB.organ.preset2.morph.wheel.to.value eq ----64--4.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
