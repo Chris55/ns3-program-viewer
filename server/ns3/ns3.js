@@ -29,10 +29,6 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     const offset10 = buffer.readUInt8(0x10);
     const offset14W = buffer.readUInt16LE(0x14);
 
-
-    if (offset04 !== 1) {
-        console.log("Offset 0x04 <> 1 !!!!!!");
-    }
     /**
      * Offset in file: 0x14 and 0x15
      *
@@ -43,12 +39,12 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * From {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history}
      *
      * Programs stored with OS version
-     * OS version          Program version   File size
-     * v0.92 (2017-06-15)  v3.00             574  (header type 0)
-     * v1.36 (2018-02-07)  v3.01             574  (header type 0)
-     * v1.50 (2018-10-22)  v3.02             574  (header type 0)
-     * vx.xx               v3.03             592  (header type 1)
-     * vx.xx               v3.04             592  (header type 1)
+     * OS version          Program version
+     * v0.92 (2017-06-15)  v3.00
+     * v1.36 (2018-02-07)  v3.01
+     * v1.50 (2018-10-22)  v3.02
+     * vx.xx               v3.03
+     * vx.xx               v3.04
      *
      * @module File Version
      */
@@ -70,8 +66,26 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         throw new Error("Unexpected file revision, only v3.00 to v3.04 are supported... file is v" + version);
     }
 
-    let versionOffset = 0; // default all coding is done with v3.04
-    if (minorVersion < 3) {
+    /**
+     * Offset in file: 0x04
+     *
+     * 0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
+     * 1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
+     *
+     * @module File Format
+     */
+    let versionOffset = 0; // default all coding is done as per v3.04
+    // if (minorVersion < 3) {
+    //     versionOffset = -20;
+    // }
+    // offset 0x04 defines the file format, and not the minor version as initially supposed
+    // example:
+    // https://www.norduserforum.com/nord-stage-forum-f3/doubts-about-buying-nord-stage-3-t18621-10.html?sid=bc221ba562cb5071ff9d0f1f0c3e300d
+    // the GimmeSomeLovin-W.ns3f file is v3.01 with header type 1 (and size 592 bytes)
+    // Usually 3.01 version are smaller with header type 0, but this example shows that the version
+    // is not the trigger to define the format...
+    if (offset04 !== 1) {
+        console.log("Offset 0x04 <> 1 switched to legacy mode");
         versionOffset = -20;
     }
 

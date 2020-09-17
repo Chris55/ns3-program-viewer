@@ -5,9 +5,7 @@ The mapping corresponds to the Nord Stage 3 program file (file extension ns3f).
 
 The file version used is 3.04 (generated with OS v2.54), and the file length is 592 bytes.
 
-Previous version 3.03 is similar in size.
-
-Older versions, from 3.00 to 3.02 have a length of 574 bytes and a smaller header. Byte 0x18 to 0x2B are missing (20 bytes).
+Some older versions have a length of 574 bytes and a smaller header. Offset 0x04 defines the file format.
 
 
 
@@ -17,7 +15,7 @@ Older versions, from 3.00 to 3.02 have a length of 574 bytes and a smaller heade
 | `0x0001` | `cccccccc` | ascii 'B' 0x42
 | `0x0002` | `cccccccc` | ascii 'I' 0x49
 | `0x0003` | `cccccccc` | ascii 'N' 0x4E
-| `0x0004` | `vvvvvvvv` | version 1
+| `0x0004` | `ffffffff` | [(f) file format](api.md#file-format)
 | `0x0005` | `--------` | 0
 | `0x0006` | `--------` | 0
 | `0x0007` | `--------` | 0

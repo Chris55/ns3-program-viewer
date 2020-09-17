@@ -323,6 +323,11 @@
 <dt><a href="#module_File Version">File Version</a></dt>
 <dd><p>Offset in file: 0x14 and 0x15</p>
 </dd>
+<dt><a href="#module_File Format">File Format</a></dt>
+<dd><p>Offset in file: 0x04</p>
+<p>0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
+1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).</p>
+</dd>
 <dt><a href="#module_Transpose">Transpose</a></dt>
 <dd><p>Offset in file: 0x38 (b7-3)</p>
 <p>Enabled: 0x38 (b7)
@@ -336,6 +341,14 @@ Value: 0x38 (b6-3)</p>
 </dd>
 <dt><a href="#module_Program Category">Program Category</a></dt>
 <dd><p>Offset in file: 0x10</p>
+</dd>
+</dl>
+
+## Functions
+
+<dl>
+<dt><a href="#getPanel">getPanel(buffer, id, splitEnabled, versionOffset)</a> ⇒ <code>Object</code></dt>
+<dd><p>returns a complete Panel section</p>
 </dd>
 </dl>
 
@@ -881,7 +894,7 @@ Offset in file: 0x34 (b6-5)
 
 **Example**  
 ```js
-0 =  Off1 =  12 =  23 =  3
+0 =  Off1 =  12 =  23 =  3Note: This parameter is common for both Panel. Layer Detune setting cannot be differentfor each panel, only offset 0x34 is used.
 ```
 <a name="module_Piano Soft Release"></a>
 
@@ -1298,8 +1311,13 @@ Offset in file: 0x14 and 0x15
 
 **Example**  
 ```js
-16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionOS version          Program version   File sizev0.92 (2017-06-15)  v3.00             574  (header type 0)v1.36 (2018-02-07)  v3.01             574  (header type 0)v1.50 (2018-10-22)  v3.02             574  (header type 0)vx.xx               v3.03             592  (header type 1)vx.xx               v3.04             592  (header type 1)
+16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionOS version          Program versionv0.92 (2017-06-15)  v3.00v1.36 (2018-02-07)  v3.01v1.50 (2018-10-22)  v3.02vx.xx               v3.03vx.xx               v3.04
 ```
+<a name="module_File Format"></a>
+
+## File Format
+Offset in file: 0x040 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
+
 <a name="module_Transpose"></a>
 
 ## Transpose
@@ -1331,4 +1349,18 @@ bpm = value + 30
 
 ## Program Category
 Offset in file: 0x10
+
+<a name="getPanel"></a>
+
+## getPanel(buffer, id, splitEnabled, versionOffset) ⇒ <code>Object</code>
+returns a complete Panel section
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| buffer | 
+| id | 
+| splitEnabled | 
+| versionOffset | 
 
