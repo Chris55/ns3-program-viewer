@@ -17,7 +17,7 @@ export default class Ns3SectionSynthLfo extends Component {
 
                         <table className="table-borderless">
                             <tbody>
-                                <Ns3LabelAndValueWithMorph label="Rate" data={lfo.rate} />
+                                <Ns3LabelAndValueWithMorph label="Rate" data={lfo.rate} upperCase={false}/>
 
                                 <tr>
                                     <Ns3LabelAndValue label="Wave" data={lfo.wave} table={true} />

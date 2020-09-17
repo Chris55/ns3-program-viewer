@@ -184,7 +184,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
          * @module Synth Octave Shift
          */
         octaveShift: {
-            value: mapping.synthOctaveShiftMap.get(synthOffset56 & 0x03),
+            value: (synthOffset56 & 0x07) - 6,
         },
         /**
          * Offset in file: 0x57 (b7)

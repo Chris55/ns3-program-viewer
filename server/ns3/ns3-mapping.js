@@ -479,16 +479,6 @@ exports.dBMap = new Map([
 ]);
 
 /***
- * Synth Octave Shift Values
- * @type {Map<number, string>}
- */
-exports.synthOctaveShiftMap = new Map([
-    [1, "-1"],
-    [2, "0"],
-    [3, "1"],
-]);
-
-/***
  * Synth Pitch Shift Range
  * @type {Map<number, string>}
  */

@@ -97,7 +97,7 @@ Some older versions have a length of 574 bytes and a smaller header. Offset 0x04
 | `0x0053` | `vvvvwwww` | [(w) synth volume morph wheel](api.md#synth-volume)
 | `0x0054` | `wwwwaaaa` | [(a) synth volume morph after touch](api.md#synth-volume)
 | `0x0055` | `aaaapppp` | [(p) synth volume morph control pedal](api.md#synth-volume)
-| `0x0056` | `pppp--oo` | [(o) synth octave shift](api.md#synth-octave-shift)
+| `0x0056` | `pppp-ooo` | [(o) synth octave shift](api.md#synth-octave-shift)
 | `0x0057` | `ps--xxxx` | [(p) synth pitch stick](api.md#synth-pitch-stick), [(s) synth sustain pedal](api.md#synth-sustain-pedal), (x) user sample header 1
 | `0x0058` | `xxxxxxxx` | user sample header 2
 | `0x0059` | `xxxxxxxx` | user sample name 1
