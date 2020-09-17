@@ -50,6 +50,13 @@ export default class Ns3SectionOrgan extends Component {
                                         </div>
 
                                         <div>
+                                            <Ns3LabelAndValue
+                                                label="Model"
+                                                data={organ.type}
+                                            />
+                                        </div>
+
+                                        <div>
                                             <Ns3Label enabled={organ.vibrato.enabled} label={vibratoChorusTitle} />
                                         </div>
 
