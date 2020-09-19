@@ -1,6 +1,11 @@
 exports.ns3Model = {
     "name": "GimmeSomeLovin_W-org",
     "version": "3.01",
+    "id": {
+        "bank": 0,
+        "location": 0,
+        "value": "A:11"
+    },
     "category": "Organ",
     "panelA": {
         "enabled": true,

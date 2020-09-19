@@ -85,4 +85,24 @@ exports.midi2LogValue = function (min, max, value, precision, unit) {
     return round(y, precision).toFixed(precision) + " " + unit;
 };
 
+/**
+ *
+ * @param buffer {Buffer}
+ * @param offset {number}
+ */
+exports.getVersion = (buffer, offset) => {
+    const zeroPad = (num, places) => String(num).padStart(places, "0");
+    const offset14W = buffer.readUInt16LE(offset);
+
+    const majorVersion = Math.trunc(offset14W / 100);
+    const minorVersion = zeroPad(offset14W - majorVersion * 100, 2);
+    const version = majorVersion + "." + minorVersion;
+
+    return {
+        majorVersion: majorVersion,
+        minorVersion: minorVersion,
+        version: version
+    }
+}
+
 

@@ -9,7 +9,7 @@
         "start": "NODE_ENV=production node server.js",
         "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
         "test": "jest",
-        "doc": "jsdoc2md server/*.js server/ns3/*.js > docs/ns3/api.md"
+        "doc": "jsdoc2md server/*.js server/ns3/*.js > docs/ns3/program/api.md"
     },
     "dependencies": {
         "body-parser": "^1.18.3",
@@ -27,7 +27,8 @@
         "jest": "^24.9.0",
         "jsdoc": "^3.6.5",
         "jsdoc-to-markdown": "^6.0.1",
-        "prettier": "^2.1.1"
+        "prettier": "^2.1.1",
+        "unzipper": "^0.10.11"
     },
     "keywords": [
         "Nord",
