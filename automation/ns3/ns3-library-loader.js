@@ -26,13 +26,13 @@ const loadSample = (buffer, filename) => {
             filename: sample.filename,
             version: sample.version,
             category: sample.category,
-            programLocation: -1,
+            programLocNames: [],
         };
         library.set(sample.sampleValue, lib);
         //console.log("sample: ", lib.sampleValue, lib.sampleName);
     } else {
         const lib = library.get(sample.sampleValue);
-        console.error(
+        throw new Error(
             `oops, sample number ${sample.sampleValue} detected in ${lib.sampleName} and in ${sample.sampleValue} !!!!`
         );
     }
@@ -41,49 +41,25 @@ const loadSample = (buffer, filename) => {
 const loadProgram = (id, synth, filename) => {
     if (synth.oscillators.type.value === "Sample") {
         const sampleValue = synth.oscillators.waveForm1.value;
-        const sampleName = synth.oscillators.waveForm1.name;
         const sampleId = synth.debug.sampleId;
 
-
         if (library.has(sampleValue) === false) {
+            //console.error(`sample loc${sampleValue} is not yet loaded during ${id.name} parsing...`);
+
             const lib = {
                 sampleName: "",
                 sampleId: synth.debug.sampleId,
                 sampleValue: sampleValue,
-                programLocation: id.value,
+                programLocNames: [id.name],
             };
             library.set(sampleValue, lib);
-
-            // console.log(
-            //     `ADD ${filename} (${sampleValue}) 0x${lib.sampleId} Sample Number: ${lib.sampleValue} Name: ${lib.sampleName}`
-            //);
         } else {
             const lib = library.get(sampleValue);
-            // if (sampleName >= 7 && sampleName.substr(0, 7) !== "Sample ") {
-            //     if (lib.sampleName !== sampleName) {
-            //         console.error("oops, " + lib.sampleName + " != " + sampleName);
-            //     }
-            // }
-            // if (lib.sampleId !== -1) {
-            //     if (lib.sampleId !== sampleId) {
-            //         console.error("oops, " + lib.sampleId + " != " + sampleId);
-            //     }
-            // } else {
-            //     lib.sampleId = sampleId;
-            // }
-            if (lib.programLocation === -1 || id.value < lib.programLocation) {
-                lib.sampleId = sampleId;
-                lib.programLocation = id.value;
-                console.log(
-                    `UPD ${filename} (${sampleValue}) 0x${lib.sampleId} Sample Number: ${lib.sampleValue} Name: ${lib.sampleName} Program: ${id.name}`
-                );
+            if (lib.sampleId !== -1 && lib.sampleId !== sampleId) {
+                throw new Error("multiple program are using same sample location with different sample ID !!!");
             }
-            else {
-                // console.log(
-                //     `NO UPD ${filename} (${sampleValue}) 0x${lib.sampleId} Sample Number: ${lib.sampleValue} Name: ${lib.sampleName}`
-                // );
-            }
-
+            lib.sampleId = sampleId;
+            lib.programLocNames.push(id.name);
         }
     }
 };
@@ -91,6 +67,8 @@ const loadProgram = (id, synth, filename) => {
 const run = async (backupFilename) => {
     const zip = fs.createReadStream(backupFilename).pipe(unzipper.Parse({ forceStream: true }));
     for await (const entry of zip) {
+        //console.log("loading", entry.path, "...");
+
         const ext = path.extname(entry.path);
         if (ext === ".nsmp3") {
             const buffer = await entry.buffer();
@@ -107,8 +85,8 @@ const run = async (backupFilename) => {
     }
 };
 
-// const backupFilename = homedir + "/downloads/Program Bundle Selection.ns3fb";
-const backupFilename = homedir + "/downloads/Backup 2020-09-19.ns3b";
+const backupFilename = homedir + "/downloads/Program Bundle Selection.ns3fb";
+//const backupFilename = homedir + "/downloads/Backup 2020-09-20.ns3b";
 
 run(backupFilename).then(() => {
     console.log();
@@ -124,16 +102,21 @@ run(backupFilename).then(() => {
         })
     );
 
-    console.log("Unused sample:");
-    let usedCount = 0;
+    let unusedCount = 0;
     sorted.forEach((x) => {
-        if (x.sampleId === -1) {
-            usedCount++;
-            console.info(`    [0x${x.sampleId}, "${x.sampleName}"],\`); //${x.sampleValue}`);
+        if (x.programLocNames.length === 0) {
+            unusedCount++;
+            console.error(`sample (loc ${x.sampleValue}) ${x.sampleName || "unknown"} is not used`);
+        } else {
+            console.info(
+                `sample 0x${x.sampleId} - (loc ${x.sampleValue}) ${x.sampleName || "unknown"} is used in program ${
+                    x.programLocNames
+                }`
+            );
         }
     });
     console.log();
-    console.log(usedCount, "unused sample(s) detected");
+    console.log(unusedCount, "unused sample(s) detected");
 
     console.log();
     console.log("New Library:");
@@ -142,8 +125,6 @@ run(backupFilename).then(() => {
 
     sorted.forEach((x) => {
         if (x.sampleId !== -1 && x.version !== undefined) {
-
-
             const id = Number("0x" + x.sampleId.toString());
             const pianoLib = ns3PianoLibrary.get(id);
             const sampleLib = ns3SampleLibrary.get(id);
