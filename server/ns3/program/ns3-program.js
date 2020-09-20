@@ -1,5 +1,5 @@
 const mapping = require("./ns3-mapping");
-const {getVersion} = require("../../common/converter");
+const { getVersion } = require("../../common/converter");
 const { getPanel } = require("./ns3-panel");
 
 /**
@@ -38,7 +38,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         location: locationValue,
         name: String.fromCharCode(65 + bankValue) + ":" + (locationDigit1 + locationDigit2),
         value: bankValue * 25 + locationValue,
-    }
+    };
     /**
      * Offset in file: 0x14 and 0x15
      *
@@ -59,8 +59,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * @module File Version
      */
 
-    const version =  getVersion(buffer, 0x14);
-
+    const version = getVersion(buffer, 0x14);
 
     // if (version !== "3.04") {
     //     throw new Error("Sorry, only v3.04 is supported... file is v" + version);
@@ -103,6 +102,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     const offset33W = buffer.readUInt16BE(0x33 + versionOffset);
     const offset38W = buffer.readUInt16BE(0x38 + versionOffset);
     const offset38 = buffer.readUInt8(0x38 + versionOffset);
+    const offset3a = buffer.readUInt8(0x3a + versionOffset);
 
     /**
      * Offset in file: 0x38 (b7-3)
@@ -279,6 +279,34 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      */
     const tempo = ((offset38W & 0x07f8) >>> 3) + 30;
 
+    const dualKeyboard = {
+        /**
+         * Offset in file 0x3A (b3)
+         *
+         * @example
+         * 0 = Off
+         * 1 = On
+         *
+         * Note: if Dual Keyboard is On, both panel are enabled.
+         *
+         * @module Dual Keyboard
+         */
+        enabled: (offset3a & 0x08) >>> 3 !== 0,
+        /**
+         * Offset in file 0x3A (b1-0)
+         *
+         * @example
+         * Enabled (b3):
+         * 0 = Panel
+         * 1 = Organ
+         * 2 = Piano
+         * 3 = Synth
+         *
+         * @module Dual Keyboard Style
+         */
+        value: mapping.dualKeyboardStyleMap.get(offset3a & 0x03),
+    };
+
     const ns3 = {
         // program file
         name: filename.replace(/\.[^/.]+$/, ""),
@@ -296,9 +324,9 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         category: mapping.programCategoryMap.get(offset10),
         //fileId: fileId,
 
-        panelA: getPanel(buffer, 0, split.enabled, versionOffset),
+        panelA: getPanel(buffer, 0, split.enabled, versionOffset, dualKeyboard),
 
-        panelB: getPanel(buffer, 1, split.enabled, versionOffset),
+        panelB: getPanel(buffer, 1, split.enabled, versionOffset, dualKeyboard),
 
         masterClock: {
             rate: {
@@ -308,17 +336,18 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         },
         transpose: transpose,
         split: split,
-        // dualKeyboard: {
-        //     enabled: '',
-        //     style: '',
-        // },
+        dualKeyboard: dualKeyboard,
         //monoOut: '', // this is a global setting
     };
-
 
     // layer detune is common for both panel !
     // noinspection JSPrimitiveTypeWrapperUsage
     ns3.panelB.piano.layerDetune.value = ns3.panelA.piano.layerDetune.value;
+
+    // rotary speaker settings are common for both panel
+    ns3.panelB.effects.rotarySpeaker.drive = ns3.panelA.effects.rotarySpeaker.drive;
+    ns3.panelB.effects.rotarySpeaker.stopMode = ns3.panelA.effects.rotarySpeaker.stopMode;
+    ns3.panelB.effects.rotarySpeaker.speed = ns3.panelA.effects.rotarySpeaker.speed;
 
     return ns3;
 };

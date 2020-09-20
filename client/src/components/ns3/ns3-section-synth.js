@@ -51,8 +51,9 @@ export default class Ns3SectionSynth extends Component {
                                             <span className="m-1" />
                                             <Ns3ValueOnOff label="Kb Hold" data={synth.keyboardHold} />
                                         </div>
-                                        <div>
-                                            <div className="nord-name">{synth.oscillators.waveForm1.name} <small>{synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}</small></div>
+                                        <div className="nord-name">
+                                            <div >{synth.oscillators.waveForm1.name}</div>
+                                            <div ><small>{synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}</small></div>
                                         </div>
 
                                         <div className="row no-gutters d-flex flex-wrap">

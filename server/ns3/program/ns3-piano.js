@@ -11,9 +11,11 @@ const { getVolumeEx } = require("./ns3-utils");
  * @param buffer {Buffer}
  * @param panelOffset
  * @param splitEnabled
+ * @param dualKeyboard
+ * @param id
  * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
  */
-exports.getPiano = (buffer, panelOffset, splitEnabled) => {
+exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
     const pianoOffset47 = buffer.readUInt8(0x47 + panelOffset);
@@ -26,10 +28,13 @@ exports.getPiano = (buffer, panelOffset, splitEnabled) => {
     const pianoOffset4dW = buffer.readUInt16BE(0x4d + panelOffset);
 
     const pianoEnabled = (pianoOffset43W & 0x8000) !== 0;
+    const pianoKbZoneEnabled =
+        id === 0 ? pianoEnabled : pianoEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Piano");
+
     const pianoTypeValue = (pianoOffset48 & 0x38) >>> 3;
     const pianoType = mapping.pianoTypeMap.get(pianoTypeValue);
 
-    const pianoKbZone = getKbZone(pianoEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11);
+    const pianoKbZone = getKbZone(pianoKbZoneEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11);
     const pianoModel = ((pianoOffset48W & 0x07c0) >>> 6) + 1;
 
     const pianoSampleVariation = (pianoOffset49 & 0x30) >>> 4;

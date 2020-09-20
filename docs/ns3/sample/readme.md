@@ -24,10 +24,10 @@ Mapping information only used to read the sample info (not the data)
 | `0x000D` | `--------` | 0
 | `0x000E` | `llllllll` | (l) sample location lsb
 | `0x000F` | `mmmmmmmm` | (m) sample location msb
-| `0x0010` | `--------` | category? 0 = Accordeon/Harm, 1 = Solo Wind/brass, 2 = Ens Wind/brass...
+| `0x0010` | `--------` | sub category
 | `0x0011` | `--------` | 0
-| `0x0012` | `--------` | 0x0E or 0x0C category? 1 = bass
-| `0x0013` | `--------` |0
+| `0x0012` | `--------` | category
+| `0x0013` | `--------` | 0
 | `0x0014` | `iiiiiiii` | file version
 | `0x0015` | `iiiiiiii` |
 | `0x0016` | `--------` | 0

@@ -49,6 +49,17 @@ exports.panelEnabledMap = new Map([
 ]);
 
 /***
+ * Dual Keyboard Style
+ * @type {Map<number, string>}
+ */
+exports.dualKeyboardStyleMap = new Map([
+    [0, "Panel"],
+    [1, "Organ"],
+    [2, "Piano"],
+    [3, "Synth"],
+]);
+
+/***
  * Keyboard Zone Values
  *
  * @type {Map<number, (string|boolean[])[]>}

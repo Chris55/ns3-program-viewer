@@ -1818,5 +1818,9 @@ exports.ns3Model = {
             "width": "Off",
             "note": "--"
         }
-    }
+    },
+    "dualKeyboard": {
+        "enabled": false,
+        "value": "Panel",
+    },
 };

@@ -42,9 +42,11 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @param buffer {Buffer}
  * @param panelOffset
  * @param splitEnabled
+ * @param dualKeyboard
+ * @param id
  * @returns {{voice: unknown, oscillators: {control: {midi: number, value: string}, fastAttack: boolean, pitch: {midi: number, value: (string|string)}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, value: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, value: unknown}, filter: {highPassCutoffFrequency: {midi: number, value: unknown}, cutoffFrequency: {midi: number, value: unknown}, type: unknown, drive: unknown, resonance: {midi: number, value: (string|string)}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, value: string}, velAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, value: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: unknown}}, vibrato: unknown}}
  */
-exports.getSynth = (buffer, panelOffset, splitEnabled) => {
+exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     //const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
     const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
@@ -142,8 +144,12 @@ exports.getSynth = (buffer, panelOffset, splitEnabled) => {
     const arpeggiatorPattern = (synthOffset80 & 0x06) >>> 1;
     const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >>> 1;
     const arpeggiatorMasterClock = (synthOffset80 & 0x01) !== 0;
+
     const synthEnabled = (synthOffset52W & 0x8000) !== 0;
-    const synthKbZone = getKbZone(synthEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11);
+    const synthKbZoneEnabled =
+        id === 0 ? synthEnabled : synthEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Synth");
+
+    const synthKbZone = getKbZone(synthKbZoneEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11);
 
     const synth = {
         debug: {

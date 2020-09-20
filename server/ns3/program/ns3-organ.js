@@ -178,9 +178,11 @@ const hideIfEqual = (from, to) => {
  * @param buffer {Buffer}
  * @param panelOffset
  * @param splitEnabled
+ * @param dualKeyboard
+ * @param id
  * @returns {{volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}}
  */
-exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
+exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
     const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
@@ -191,6 +193,8 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
     const organTypeIsB3 = organType === "B3";
 
     const organEnabled = (organOffsetB6W & 0x8000) !== 0;
+    const organKbZoneEnabled =
+        id === 0 ? organEnabled : organEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Organ");
 
     const organModeValue = (organOffset34 & 0x0e) >>> 1;
     let organMode = mapping.organVibratoModeMap.get(organModeValue);
@@ -203,7 +207,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled) => {
         organMode = mapping.organVibratoModeMap.get(organModeValue + 1);
     }
 
-    const organKbZone = getKbZone(organEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11);
+    const organKbZone = getKbZone(organKbZoneEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11);
 
     return {
         /**

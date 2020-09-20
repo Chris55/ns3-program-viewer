@@ -69,7 +69,7 @@ Some older versions have a length of 574 bytes and a smaller header. Offset 0x04
 | `0x0037` | `--------` |
 | `0x0038` | `tttttccc` | [(t) transpose](api.md#transpose), [(c) master clock rate](api.md#master-clock-rate)
 | `0x0039` | `cccccddd` | [(d) rotary speaker drive](api.md#rotary-speaker-drive)
-| `0x003A` | `dddd----` |
+| `0x003A` | `ddddk-ss` | [(k) dual keyboard](api.md#dual-keyboard), [(s) dual keyboard style(api.md#dual-keyboard-style)
 | `0x003B` | `--------` |
 | `0x003C` | `--------` |
 | `0x003D` | `--------` |
