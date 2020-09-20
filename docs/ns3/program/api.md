@@ -194,6 +194,34 @@
 <dt><a href="#module_Piano String Resonance">Piano String Resonance</a></dt>
 <dd><p>Offset in file: 0x4D (b3)</p>
 </dd>
+<dt><a href="#module_File Version">File Version</a></dt>
+<dd><p>Offset in file: 0x14 and 0x15</p>
+</dd>
+<dt><a href="#module_File Format">File Format</a></dt>
+<dd><p>Offset in file: 0x04</p>
+<p>0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
+1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).</p>
+</dd>
+<dt><a href="#module_Transpose">Transpose</a></dt>
+<dd><p>Offset in file: 0x38 (b7-3)</p>
+<p>Enabled: 0x38 (b7)
+Value: 0x38 (b6-3)</p>
+</dd>
+<dt><a href="#module_Split">Split</a></dt>
+<dd><p>0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)</p>
+</dd>
+<dt><a href="#module_Master Clock Rate">Master Clock Rate</a></dt>
+<dd><p>Offset in file: 0x38 (b2-0) 0x39 (b7-3)</p>
+</dd>
+<dt><a href="#module_Dual Keyboard">Dual Keyboard</a></dt>
+<dd><p>Offset in file 0x3A (b3)</p>
+</dd>
+<dt><a href="#module_Dual Keyboard Style">Dual Keyboard Style</a></dt>
+<dd><p>Offset in file 0x3A (b1-0)</p>
+</dd>
+<dt><a href="#module_Program Category">Program Category</a></dt>
+<dd><p>Offset in file: 0x10</p>
+</dd>
 <dt><a href="#module_Synth Filter Type">Synth Filter Type</a></dt>
 <dd><p>Offset in file: 0x98 (b4-2)</p>
 </dd>
@@ -320,35 +348,22 @@
 <dt><a href="#module_Synth Arp Pattern">Synth Arp Pattern</a></dt>
 <dd><p>Offset in file: 0x80 (b2-1)</p>
 </dd>
-<dt><a href="#module_File Version">File Version</a></dt>
-<dd><p>Offset in file: 0x14 and 0x15</p>
-</dd>
-<dt><a href="#module_File Format">File Format</a></dt>
-<dd><p>Offset in file: 0x04</p>
-<p>0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
-1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).</p>
-</dd>
-<dt><a href="#module_Transpose">Transpose</a></dt>
-<dd><p>Offset in file: 0x38 (b7-3)</p>
-<p>Enabled: 0x38 (b7)
-Value: 0x38 (b6-3)</p>
-</dd>
-<dt><a href="#module_Split">Split</a></dt>
-<dd><p>0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)</p>
-</dd>
-<dt><a href="#module_Master Clock Rate">Master Clock Rate</a></dt>
-<dd><p>Offset in file: 0x38 (b2-0) 0x39 (b7-3)</p>
-</dd>
-<dt><a href="#module_Program Category">Program Category</a></dt>
-<dd><p>Offset in file: 0x10</p>
-</dd>
 </dl>
 
 ## Functions
 
 <dl>
-<dt><a href="#getPanel">getPanel(buffer, id, splitEnabled, versionOffset)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#loadNs3fFile">loadNs3fFile(buffer, filename)</a> ⇒ <code>Object</code></dt>
+<dd><p>returns Nord Stage 3 file mapping</p>
+</dd>
+<dt><a href="#getPanel">getPanel(buffer, id, splitEnabled, versionOffset, dualKeyboard)</a> ⇒ <code>Object</code></dt>
 <dd><p>returns a complete Panel section</p>
+</dd>
+<dt><a href="#loadNs3ProgramFile">loadNs3ProgramFile(buffer, filename)</a> ⇒ <code>Object</code></dt>
+<dd><p>returns Nord Stage 3 program data</p>
+</dd>
+<dt><a href="#getFilter">getFilter(buffer, panelOffset)</a> ⇒ <code>Object</code></dt>
+<dd><p>return Synth Filter section</p>
 </dd>
 </dl>
 
@@ -377,7 +392,7 @@ Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4)
 
 **Example**  
 ```js
-7-bit value 0/127 converted to 0/10
+7-bit value 0/127 converted to 0/10Note: Panel A value is used for panel A & B
 ```
 <a name="module_Rotary Speaker Stop Mode"></a>
 
@@ -386,7 +401,7 @@ Offset in file: 0x35 (bit7)
 
 **Example**  
 ```js
-0 = enabled (Speed Stop), 1 = disabled (Speed Slow)
+0 = enabled (Speed Stop), 1 = disabled (Speed Slow)Note: Panel A value is used for panel A & B
 ```
 <a name="module_Rotary Speaker Speed"></a>
 
@@ -395,7 +410,7 @@ Offset in file: 0x34 (bit0)
 
 **Example**  
 ```js
-0 = Slow/Stop, 1 = FastMorph Wheel:         0x35 (b6-4)Morph After Touch:   0x35 (b3-1)Morph Control Pedal: 0x35 (b0) and 0x36 (b7-6)011 = 0x03 = morph off100 = 0x04 = morph on
+0 = Slow/Stop, 1 = FastMorph Wheel:         0x35 (b6-4)Morph After Touch:   0x35 (b3-1)Morph Control Pedal: 0x35 (b0) and 0x36 (b7-6)011 = 0x03 = morph off100 = 0x04 = morph onNote: Panel A value is used for panel A & B
 ```
 <a name="module_Effect 1 On"></a>
 
@@ -788,7 +803,7 @@ Offset in file 0x31
 
 **Example**  
 ```js
-Enabled (b5 & b6):0 = A only1 = B only2 = A & BSelected Panel (b7):A = 0, B = 1 (not used here)
+Enabled (b6-5):0 = A only1 = B only2 = A & BSelected Panel (b7):A = 0, B = 1 (not used here)Note: if Dual Keyboard is On, both panel are enabled.
 ```
 <a name="module_Piano On"></a>
 
@@ -923,6 +938,70 @@ Offset in file: 0x4D (b3)
 ```js
 O = off, 1 = onOnly on Grand and Upright piano.
 ```
+<a name="module_File Version"></a>
+
+## File Version
+Offset in file: 0x14 and 0x15
+
+**Example**  
+```js
+16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionOS version          Program versionv0.92 (2017-06-15)  v3.00v1.36 (2018-02-07)  v3.01v1.50 (2018-10-22)  v3.02vx.xx               v3.03vx.xx               v3.04
+```
+<a name="module_File Format"></a>
+
+## File Format
+Offset in file: 0x040 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
+
+<a name="module_Transpose"></a>
+
+## Transpose
+Offset in file: 0x38 (b7-3)Enabled: 0x38 (b7)Value: 0x38 (b6-3)
+
+**Example**  
+```js
+7xxx xxxx : Transpose Off/Onx654 3xxx : Transpose valueTest1:  F8 38 : Transpose OffTest2:  0D 80 : Transpose -6 semiTest3:  0D 88 : Transpose -5 semiTest4:  0D A8 : Transpose -1 semiTest5:  0D B8 : Transpose +1 semiTest6:  0D D8 : Transpose +5 semiTest7:  0D E0 : Transpose +6 semi
+```
+<a name="module_Split"></a>
+
+## Split
+0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)
+
+**Example**  
+```js
+|  0X31     |    0x32   |     0x33  |    0x34   | description| xxx4 3210 | 7654 3210 | 7654 3210 | 7xxx xxxx || xxx4 xxxx | xxxx xxxx | xxxx xxxx | xxxx xxxx | split off/on| xxxx 321x | xxxx xxxx | xxxx xxxx | xxxx xxxx | low off/on, mid off/on, high off/on| xxxx xxx0 | 765x xxxx | xxxx xxxx | xxxx xxxx | low note (0 = F2, 1 = C3, 9 = C7)| xxxx xxxx | xxx4 321x | xxxx xxxx | xxxx xxxx | mid note| xxxx xxxx | xxxx xxx0 | 765x xxxx | xxxx xxxx | high note| xxxx xxxx | xxxx xxxx | xxx5 4xxx | xxxx xxxx | low width (0 = 1, 1 = 6, 2 = 12)| xxxx xxxx | xxxx xxxx | xxxx x32x | xxxx xxxx | mid width| xxxx xxxx | xxxx xxxx | xxxx xxx0 | 7xxx xxxx | high widthTest1:  06 07 20 01 : Split OffTest2:  16 07 20 01 : Width Off 1   1                      Note  --  C4  C7Test3:  1E 07 20 01 : Width 1   1   1                      Note  F2  C4  C7Test4:  1E 07 28 01 : Width 6   1   1                      Note  F2  C4  C7Test5:  1E 07 30 01 : Width 12  1   1                      Note  F2  C4  C7Test6:  18 07 30 01 : Width 12  Off Off                      Note  F2  --  --Test7:  18 27 30 01 : Width 12  Off Off                      Note  C3  --  --Test8:  18 47 30 01 : Width 12  Off Off                      Note  F3  --  --Test9:  18 67 30 01 : Width 12  Off Off                      Note  C4  --  --Test10: 18 87 30 01 : Width 12  Off Off                      Note  F4  --  --Test11: 18 A7 30 01 : Width 12  Off Off                      Note  C5  --  --Test12: 18 C7 30 01 : Width 12  Off Off                      Note  F5  --  --Test13: 18 E7 30 01 : Width 12  Off Off                      Note  C6  --  --Test14: 19 07 30 01 : Width 12  Off Off                      Note  F6  --  --Test15: 19 27 30 01 : Width 12  Off Off                      Note  C7  --  --Test16: 1B 27 30 01 : Width 12  Off 1     ! From test 15 to 16 only High Width was changed manually !                      Note  F6  --  C7    ! Note Low in file is C7 but fixed on display to F6...Test17: 1B 27 30 81 : Width 12  Off 6                      Note  F6  --  C7Test18: 1B 27 31 01 : Width 12  Off 12                      Note  F6  --  C7Test19: 1C 23 30 01 : Width 12  1   Off                      Note  C3  F3  --   ! Note Mid in file is C3 but fixed on display to F3 !
+```
+<a name="module_Master Clock Rate"></a>
+
+## Master Clock Rate
+Offset in file: 0x38 (b2-0) 0x39 (b7-3)
+
+**Example**  
+```js
+bpm = value + 30
+```
+<a name="module_Dual Keyboard"></a>
+
+## Dual Keyboard
+Offset in file 0x3A (b3)
+
+**Example**  
+```js
+0 = Off1 = OnNote: if Dual Keyboard is On, both panel are enabled.
+```
+<a name="module_Dual Keyboard Style"></a>
+
+## Dual Keyboard Style
+Offset in file 0x3A (b1-0)
+
+**Example**  
+```js
+Enabled (b3):0 = Panel1 = Organ2 = Piano3 = Synth
+```
+<a name="module_Program Category"></a>
+
+## Program Category
+Offset in file: 0x10
+
 <a name="module_Synth Filter Type"></a>
 
 ## Synth Filter Type
@@ -1304,63 +1383,54 @@ Offset in file: 0x80 (b2-1)
 ```js
 0 = Up1 = Down2 = Up/Down3 = Random
 ```
-<a name="module_File Version"></a>
+<a name="loadNs3fFile"></a>
 
-## File Version
-Offset in file: 0x14 and 0x15
+## loadNs3fFile(buffer, filename) ⇒ <code>Object</code>
+returns Nord Stage 3 file mapping
 
-**Example**  
-```js
-16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionOS version          Program versionv0.92 (2017-06-15)  v3.00v1.36 (2018-02-07)  v3.01v1.50 (2018-10-22)  v3.02vx.xx               v3.03vx.xx               v3.04
-```
-<a name="module_File Format"></a>
+**Kind**: global function  
 
-## File Format
-Offset in file: 0x040 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
-
-<a name="module_Transpose"></a>
-
-## Transpose
-Offset in file: 0x38 (b7-3)Enabled: 0x38 (b7)Value: 0x38 (b6-3)
-
-**Example**  
-```js
-7xxx xxxx : Transpose Off/Onx654 3xxx : Transpose valueTest1:  F8 38 : Transpose OffTest2:  0D 80 : Transpose -6 semiTest3:  0D 88 : Transpose -5 semiTest4:  0D A8 : Transpose -1 semiTest5:  0D B8 : Transpose +1 semiTest6:  0D D8 : Transpose +5 semiTest7:  0D E0 : Transpose +6 semi
-```
-<a name="module_Split"></a>
-
-## Split
-0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)
-
-**Example**  
-```js
-|  0X31     |    0x32   |     0x33  |    0x34   | description| xxx4 3210 | 7654 3210 | 7654 3210 | 7xxx xxxx || xxx4 xxxx | xxxx xxxx | xxxx xxxx | xxxx xxxx | split off/on| xxxx 321x | xxxx xxxx | xxxx xxxx | xxxx xxxx | low off/on, mid off/on, high off/on| xxxx xxx0 | 765x xxxx | xxxx xxxx | xxxx xxxx | low note (0 = F2, 1 = C3, 9 = C7)| xxxx xxxx | xxx4 321x | xxxx xxxx | xxxx xxxx | mid note| xxxx xxxx | xxxx xxx0 | 765x xxxx | xxxx xxxx | high note| xxxx xxxx | xxxx xxxx | xxx5 4xxx | xxxx xxxx | low width (0 = 1, 1 = 6, 2 = 12)| xxxx xxxx | xxxx xxxx | xxxx x32x | xxxx xxxx | mid width| xxxx xxxx | xxxx xxxx | xxxx xxx0 | 7xxx xxxx | high widthTest1:  06 07 20 01 : Split OffTest2:  16 07 20 01 : Width Off 1   1                      Note  --  C4  C7Test3:  1E 07 20 01 : Width 1   1   1                      Note  F2  C4  C7Test4:  1E 07 28 01 : Width 6   1   1                      Note  F2  C4  C7Test5:  1E 07 30 01 : Width 12  1   1                      Note  F2  C4  C7Test6:  18 07 30 01 : Width 12  Off Off                      Note  F2  --  --Test7:  18 27 30 01 : Width 12  Off Off                      Note  C3  --  --Test8:  18 47 30 01 : Width 12  Off Off                      Note  F3  --  --Test9:  18 67 30 01 : Width 12  Off Off                      Note  C4  --  --Test10: 18 87 30 01 : Width 12  Off Off                      Note  F4  --  --Test11: 18 A7 30 01 : Width 12  Off Off                      Note  C5  --  --Test12: 18 C7 30 01 : Width 12  Off Off                      Note  F5  --  --Test13: 18 E7 30 01 : Width 12  Off Off                      Note  C6  --  --Test14: 19 07 30 01 : Width 12  Off Off                      Note  F6  --  --Test15: 19 27 30 01 : Width 12  Off Off                      Note  C7  --  --Test16: 1B 27 30 01 : Width 12  Off 1     ! From test 15 to 16 only High Width was changed manually !                      Note  F6  --  C7    ! Note Low in file is C7 but fixed on display to F6...Test17: 1B 27 30 81 : Width 12  Off 6                      Note  F6  --  C7Test18: 1B 27 31 01 : Width 12  Off 12                      Note  F6  --  C7Test19: 1C 23 30 01 : Width 12  1   Off                      Note  C3  F3  --   ! Note Mid in file is C3 but fixed on display to F3 !
-```
-<a name="module_Master Clock Rate"></a>
-
-## Master Clock Rate
-Offset in file: 0x38 (b2-0) 0x39 (b7-3)
-
-**Example**  
-```js
-bpm = value + 30
-```
-<a name="module_Program Category"></a>
-
-## Program Category
-Offset in file: 0x10
+| Param | Type |
+| --- | --- |
+| buffer | <code>Buffer</code> | 
+| filename |  | 
 
 <a name="getPanel"></a>
 
-## getPanel(buffer, id, splitEnabled, versionOffset) ⇒ <code>Object</code>
+## getPanel(buffer, id, splitEnabled, versionOffset, dualKeyboard) ⇒ <code>Object</code>
 returns a complete Panel section
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| buffer | <code>Buffer</code> |  |
+| id | <code>number</code> | 0 = A, 1 = B |
+| splitEnabled | <code>boolean</code> |  |
+| versionOffset | <code>number</code> |  |
+| dualKeyboard |  |  |
+
+<a name="loadNs3ProgramFile"></a>
+
+## loadNs3ProgramFile(buffer, filename) ⇒ <code>Object</code>
+returns Nord Stage 3 program data
 
 **Kind**: global function  
 
 | Param |
 | --- |
 | buffer | 
-| id | 
-| splitEnabled | 
-| versionOffset | 
+| filename | 
+
+<a name="getFilter"></a>
+
+## getFilter(buffer, panelOffset) ⇒ <code>Object</code>
+return Synth Filter section
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| buffer | <code>Buffer</code> | 
+| panelOffset |  | 
 

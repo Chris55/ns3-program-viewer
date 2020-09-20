@@ -1,6 +1,6 @@
 {
-  "short_name": "ns3-file-parser",
-  "name": "NS3 File Parser",
+  "short_name": "ns-file-parser",
+  "name": "NS File Parser",
   "icons": [
     {
       "src": "favicon.ico",
