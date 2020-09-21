@@ -19,7 +19,7 @@ export default class Ns3VolumeAndMore extends Component {
 
                     <div className="my-2">
                         <Ns3Label label="Level" />
-                        <table  style={{ marginLeft: "auto", marginRight: "auto" }}>
+                        <table className="text-left"  style={{ marginLeft: "auto", marginRight: "auto" }}>
                             <tbody>
                             <Ns3LabelAndValueWithMorph data={section.volume} upperCase={false} />
                             </tbody>
