@@ -1,14 +1,15 @@
-# Nord Stage 3 Program file mapping
-
-- [File Structure](#File Structure)
-- [Contributors](#Contributors)
-- [License](#License)
 
 This mapping corresponds to the Nord Stage 3 program file (file extension ns3f).
 
 The file version used is 3.04 (generated with OS v2.54), and the file length is 592 bytes.
 
 Some older versions have a length of 574 bytes and a smaller header. Offset 0x04 defines the file format.
+
+- [File Structure](#file-structure)
+- [Contributors](#contributors)
+- [License](#license)
+
+
 
 * * *
 
@@ -357,7 +358,7 @@ Some older versions have a length of 574 bytes and a smaller header. Offset 0x04
 ## Contributors
 - [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/)
 - [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/)
-
+- Thanks to other NUF member: @rpossemo, @cookie
 
 ## License
 This mapping is provided as-is under the MIT license. For more information see LICENSE.
