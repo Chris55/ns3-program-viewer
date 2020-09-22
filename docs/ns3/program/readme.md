@@ -1,7 +1,10 @@
 # Nord Stage 3 Program file mapping
 
+- [File Structure](#File Structure)
+- [Contributors](#Contributors)
+- [License](#License)
 
-The mapping corresponds to the Nord Stage 3 program file (file extension ns3f).
+This mapping corresponds to the Nord Stage 3 program file (file extension ns3f).
 
 The file version used is 3.04 (generated with OS v2.54), and the file length is 592 bytes.
 
@@ -9,9 +12,8 @@ Some older versions have a length of 574 bytes and a smaller header. Offset 0x04
 
 * * *
 
-## Contributors
-florence
 
+## File Structure
 
 | offset   | bits       | description
 | :---:    |   :----:   | :---
@@ -188,23 +190,23 @@ florence
 | `0x00AA` | `ssssssss` |
 | `0x00AB` | `ssssssss` |
 | `0x00AC` | `sssssf--` | [(f) synth fast attack](ns3-doc.md#synth-fast-attack)
-| `0x00AD` | `--------` | '0'
-| `0x00AE` | `--------` | '0'
-| `0x00AF` | `--------` | '0'
-| `0x00B0` | `--------` | '0'
-| `0x00B1` | `--------` | '0'
-| `0x00B2` | `--------` | '0'
-| `0x00B3` | `--------` | '0'
-| `0x00B4` | `--------` | '0'
-| `0x00B5` | `--------` | '07'
+| `0x00AD` | `--------` | 0
+| `0x00AE` | `--------` | 0
+| `0x00AF` | `--------` | 0
+| `0x00B0` | `--------` | 0
+| `0x00B1` | `--------` | 0
+| `0x00B2` | `--------` | 0
+| `0x00B3` | `--------` | 0
+| `0x00B4` | `--------` | 0
+| `0x00B5` | `--------` | 07
 | `0x00B6` | `ozzzzvvv` | [(o) organ on](ns3-doc.md#organ-on), [(z) organ kb zone](ns3-doc.md#organ-kb-zone), [(v) organ volume](ns3-doc.md#organ-volume)
 | `0x00B7` | `vvvvwwww` | [(w) organ volume morph wheel](ns3-doc.md#organ-volume)
 | `0x00B8` | `wwwwaaaa` | [(a) organ volume morph after touch](ns3-doc.md#organ-volume)
 | `0x00B9` | `aaaapppp` | [(p) organ volume morph control pedal](ns3-doc.md#organ-volume)
 | `0x00BA` | `pppp-ooo` | [(o) organ octave shift](ns3-doc.md#organ-octave-shift)
 | `0x00BB` | `stttl---` | [(s) organ sustain-pedal](ns3-doc.md#organ-sustain-pedal),[(t) organ type](ns3-doc.md#organ-type),[(l) organ live mode](ns3-doc.md#organ-live-mode)
-| `0x00BC` | `--------` | '0'
-| `0x00BD` | `--------` | '1A'
+| `0x00BC` | `--------` | 0
+| `0x00BD` | `--------` | 1A
 | `0x00BE` | `1111wwww` | [organ preset 1 drawbar (1)](ns3-doc.md#organ-drawbars-preset-1), [(w) organ preset 1 drawbar 1 morph wheel](ns3-doc.md#organ-drawbars-preset-1)
 | `0x00BF` | `waaaaapp` | [(a) organ preset 1 drawbar 1 morph after touch](ns3-doc.md#organ-drawbars-preset-1), [(p) organ preset 1 drawbar 2 morph control pedal](ns3-doc.md#organ-drawbars-preset-1)
 | `0x00C0` | `ppp2222w` | [organ preset 1 drawbar (2)](ns3-doc.md#organ-drawbars-preset-1), [(w) organ preset 1 drawbar 2 morph wheel](ns3-doc.md#organ-drawbars-preset-1)
@@ -227,11 +229,11 @@ florence
 | `0x00D1` | `9999wwww` | [organ preset 1 drawbar (9)](ns3-doc.md#organ-drawbars-preset-1), [(w) organ preset 1 drawbar 9 morph wheel](ns3-doc.md#organ-drawbars-preset-1)
 | `0x00D2` | `waaaaapp` | [(a) organ preset 1 drawbar 9 morph after touch](ns3-doc.md#organ-drawbars-preset-1), [(p) organ preset 1 drawbar 9 morph control pedal](ns3-doc.md#organ-drawbars-preset-1)
 | `0x00D3` | `pppvphds` | [(v) organ vibrato on](ns3-doc.md#organ-vibrato-on), [(p) organ percussion on](ns3-doc.md#organ-percussion-on), [(h) organ percussion harmonic third](ns3-doc.md#organ-percussion-harmonic-third), [(d) organ percussion decay fast](ns3-doc.md#organ-percussion-decay-fast), [(s) organ percussion volume soft](ns3-doc.md#organ-percussion-volume-soft)
-| `0x00D4` | `--------` | '0'
-| `0x00D5` | `--------` | '0'
-| `0x00D6` | `--------` | '0'
-| `0x00D7` | `--------` | '0'
-| `0x00D8` | `--------` | '1A'
+| `0x00D4` | `--------` | 0
+| `0x00D5` | `--------` | 0
+| `0x00D6` | `--------` | 0
+| `0x00D7` | `--------` | 0
+| `0x00D8` | `--------` | 1A
 | `0x00D9` | `1111wwww` | [organ preset 2 drawbar (1)](ns3-doc.md#organ-drawbars-preset-2), [(w) organ preset 2 drawbar 1 morph wheel](ns3-doc.md#organ-drawbars-preset-2)
 | `0x00DA` | `waaaaapp` | [(a) organ preset 2 drawbar 1 morph after touch](ns3-doc.md#organ-drawbars-preset-2), [(p) organ preset 2 drawbar 2 morph control pedal](ns3-doc.md#organ-drawbars-preset-2)
 | `0x00DB` | `ppp2222w` | [organ preset 2 drawbar (2)](ns3-doc.md#organ-drawbars-preset-2), [(w) organ preset 2 drawbar 2 morph wheel](ns3-doc.md#organ-drawbars-preset-2)
@@ -349,6 +351,15 @@ florence
 | `0x024E` | `--------` | 0
 | `0x024F` | `--------` | 0
 
-EOF
 
-```
+* * *
+
+## Contributors
+- [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/)
+- [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/)
+
+
+## License
+This mapping is provided as-is under the MIT license. For more information see LICENSE.
+
+* * *

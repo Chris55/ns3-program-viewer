@@ -43,7 +43,7 @@
         "File"
     ],
     "author": "Christian Florentz (christian.florentz@gmail.com)",
-    "license": "ISC",
+    "license": "MIT",
     "jest": {
         "modulePathIgnorePatterns": [
             "client"

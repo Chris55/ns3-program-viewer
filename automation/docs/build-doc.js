@@ -21,13 +21,17 @@ const convert = (inputFile, outputFile, remove) => {
         //console.log(line);
         const left = line.substr(0, 5);
 
+        if (left === "<a na") {
+            return;
+        }
+
         if (left === "</dl>") {
             start = true;
             return;
         }
 
         if (start === true) {
-            line = replaceAll(line, "doc.md#", "10-doc.md#");
+            line = replaceAll(line, "ns3-doc.md#", "#");
             outputStream.write(line + os.EOL, function (err) {
                 if (err) {
                     console.error(err);
