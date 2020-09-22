@@ -41,7 +41,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
 
         /**
          * Offset in file: 0xF4 (b6-3)
-         * @see {@link api.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
+         * @see {@link 10-doc.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
          * @module Extern Kb Zone
          */

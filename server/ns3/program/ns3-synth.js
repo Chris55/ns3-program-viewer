@@ -171,7 +171,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
         /**
          * Offset in file: 0x52 (b6-3)
-         * @see {@link api.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
+         * @see {@link 10-doc.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
          * @module Synth Kb Zone
          */
@@ -197,7 +197,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 0x55 (b3): polarity (1 = positive, 0 = negative)
          * 0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
          *
-         * @see {@link api.md#organ-volume Organ Volume} for Morph detailed explanation.
+         * @see {@link 10-doc.md#organ-volume Organ Volume} for Morph detailed explanation.
          *
          * @module Synth Volume
          */
@@ -429,7 +429,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 0x93 (b3): polarity (1 = positive, 0 = negative)
              * 0x93 (b2-b0), 0x94 (b7-b4): 7-bit raw value
              *
-             * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
+             * @see {@link 10-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
              *
              * @module Synth Oscillator Control
              */
@@ -646,7 +646,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 0x8A (b7): polarity (1 = positive, 0 = negative)
              * 0x8A (b6-b0): 7-bit raw value
              *
-             * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
+             * @see {@link 10-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
              *
              * @module Synth Lfo Rate
              */
@@ -712,7 +712,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 0x83 (b0): polarity (1 = positive, 0 = negative)
              * 0x84 (b7-b1): 7-bit raw value
              *
-             * @see {@link api.md#organ-volume Organ Volume} for detailed Morph explanation.
+             * @see {@link 10-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
              *
              * @module Synth Arp Rate
              */

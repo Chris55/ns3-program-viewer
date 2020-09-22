@@ -81,7 +81,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
         /**
          * Offset in file: 0x43 (b6-3)
-         * @see {@link api.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
+         * @see {@link 10-doc.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
          * @module Piano Kb Zone
          */
@@ -107,7 +107,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 0x46 (b3): polarity (1 = positive, 0 = negative)
          * 0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value
          *
-         * @see {@link api.md#organ-volume Organ Volume} for Morph detailed explanation.
+         * @see {@link 10-doc.md#organ-volume Organ Volume} for Morph detailed explanation.
          *
          * @module Piano Volume
          */
