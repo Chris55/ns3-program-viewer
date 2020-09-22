@@ -1,7 +1,7 @@
 
 ## ns3f test file naming convention
 
-This test folder contains all the ns3f test files. builder.js is browsing all sub-folders and auto-generate a test case for each file. builder.js must be rerun if you add a new ns3f file or rename one.
+This test folder contains all the ns3f test files. test-builder.js is browsing all sub-folders and auto-generate a test case for each file. test-builder.js must be rerun if you add a new ns3f file or rename one.
 
 ### example 1: testing Panel A / Synth module = On
 

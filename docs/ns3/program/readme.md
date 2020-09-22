@@ -1,4 +1,4 @@
-### Nord Stage 3 Program file mapping
+# Nord Stage 3 Program file mapping
 
 
 The mapping corresponds to the Nord Stage 3 program file (file extension ns3f).

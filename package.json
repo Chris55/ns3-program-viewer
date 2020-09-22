@@ -9,7 +9,9 @@
         "start": "NODE_ENV=production node server.js",
         "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
         "test": "jest",
-        "doc": "jsdoc2md server/*.js server/ns3/program/*.js > docs/ns3/program/ns3-doc.md"
+        "doc:1": "jsdoc2md server/*.js server/ns3/program/*.js > docs/ns3/program/ns3-doc.md",
+        "doc:2": "node ./automation/docs/build-doc.js",
+        "doc:3": "pandoc ./automation/docs/out/*.md -s -o ./automation/docs/out/ns3-mapping.html --metadata title=NS3"
     },
     "dependencies": {
         "body-parser": "^1.18.3",
@@ -27,7 +29,6 @@
         "jest": "^24.9.0",
         "jsdoc": "^3.6.5",
         "jsdoc-to-markdown": "^6.0.1",
-        "line-reader": "^0.4.0",
         "markdown-magic": "^1.0.0",
         "markdown-magic-jsdoc": "^1.0.1",
         "node-pandoc": "^0.3.0",
