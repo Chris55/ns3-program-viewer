@@ -1,10 +1,10 @@
-const {getDelay} = require("./ns3-fx-reverb");
+const {getCompressor} = require("./ns3-fx-compressor");
+const {getDelay} = require("./ns3-fx-delay");
+const {getEffect2} = require("./ns3-fx-multi-effect-2");
+const {getEffect1} = require("./ns3-fx-muli-effect-1");
+const {getRotarySpeakerEffect} = require("./ns3-fx-rotary-speaker");
 const { getReverb } = require("./ns3-fx-reverb");
-const { getCompressor } = require("./ns3-fx-reverb");
 const { getExtern } = require("./ns3-extern");
-const { getEffect2 } = require("./ns3-fx-reverb");
-const { getEffect1 } = require("./ns3-fx-reverb");
-const { getRotarySpeakerEffect } = require("./ns3-fx-reverb");
 const { getSynth } = require("./ns3-synth");
 const { getPiano } = require("./ns3-piano");
 const { getOrgan } = require("./ns3-organ");

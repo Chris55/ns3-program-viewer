@@ -83,24 +83,24 @@ exports.getDelay = (buffer, panelOffset) => {
          *
          * @module Effect 1 Rate
          */
-        tempo: {
-            midi: effect1TempoMidi,
-
-            value: delayMasterClock
-                ? mapping.effect1MasterClockDivisionMap.get(effect1TempoMidi)
-                : converter.midi2LinearStringValue(0, 10, effect1TempoMidi, 1, ""),
-
-            morph: getMorph(
-                effectOffset10dWw >>> 7,
-                effect1TempoMidi,
-                (x) => {
-                    return effect1MasterClockUsed
-                        ? mapping.effect1MasterClockDivisionMap.get(x)
-                        : converter.midi2LinearStringValue(0, 10, x, 1, "");
-                },
-                false
-            ),
-        },
+        // tempo: {
+        //     midi: effect1TempoMidi,
+        //
+        //     value: delayMasterClock
+        //         ? mapping.effect1MasterClockDivisionMap.get(effect1TempoMidi)
+        //         : converter.midi2LinearStringValue(0, 10, effect1TempoMidi, 1, ""),
+        //
+        //     morph: getMorph(
+        //         effectOffset10dWw >>> 7,
+        //         effect1TempoMidi,
+        //         (x) => {
+        //             return effect1MasterClockUsed
+        //                 ? mapping.effect1MasterClockDivisionMap.get(x)
+        //                 : converter.midi2LinearStringValue(0, 10, x, 1, "");
+        //         },
+        //         false
+        //     ),
+        // },
 
         /**
          * Offset in file: 0x110 (b6-0)
@@ -124,20 +124,20 @@ exports.getDelay = (buffer, panelOffset) => {
          *
          * @module Effect 1 Amount
          */
-        amount: {
-            midi: effect1FeedbackMidi,
-
-            value: converter.midi2LinearStringValue(0, 10, effect1FeedbackMidi, 1, ""),
-
-            morph: getMorph(
-                effectOffset110Ww,
-                effect1FeedbackMidi,
-                (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
-                },
-                false
-            ),
-        },
+        // amount: {
+        //     midi: effect1FeedbackMidi,
+        //
+        //     value: converter.midi2LinearStringValue(0, 10, effect1FeedbackMidi, 1, ""),
+        //
+        //     morph: getMorph(
+        //         effectOffset110Ww,
+        //         effect1FeedbackMidi,
+        //         (x) => {
+        //             return converter.midi2LinearStringValue(0, 10, x, 1, "");
+        //         },
+        //         false
+        //     ),
+        // },
 
 
 
