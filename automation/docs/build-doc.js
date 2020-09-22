@@ -3,6 +3,9 @@ const fs = require("fs");
 const os = require("os");
 const nodePandoc = require('node-pandoc');
 
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
 
 const convert = (inputFile, outputFile, remove) => {
     const outputStream = fs.createWriteStream(outputFile, { flags: "w" });
@@ -24,7 +27,7 @@ const convert = (inputFile, outputFile, remove) => {
         }
 
         if (start === true) {
-            line = line.replace("doc.md#", "10-doc.md#");
+            line = replaceAll(line, "doc.md#", "10-doc.md#");
             outputStream.write(line + os.EOL, function (err) {
                 if (err) {
                     console.error(err);

@@ -11,7 +11,7 @@
         "test": "jest",
         "doc:1": "jsdoc2md server/*.js server/ns3/program/*.js > docs/ns3/program/ns3-doc.md",
         "doc:2": "node ./automation/docs/build-doc.js",
-        "doc:3": "pandoc ./automation/docs/out/*.md -s -o ./automation/docs/out/ns3-mapping.html --metadata title=NS3"
+        "doc:3": "pandoc ./automation/docs/out/*.md  -o ./automation/docs/out/ns3-mapping.html --metadata title=NS3"
     },
     "dependencies": {
         "body-parser": "^1.18.3",
