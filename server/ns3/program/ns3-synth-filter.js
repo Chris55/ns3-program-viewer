@@ -4,7 +4,7 @@ const { getMorph2 } = require("./ns3-morph");
 const { getMorph } = require("./ns3-morph");
 const { getKnobDualValues } = require("./ns3-utils");
 
-/**
+/***
  * return Synth Filter section
  *
  * @param buffer {Buffer}

@@ -1,6 +1,6 @@
 const { loadNs3ProgramFile } = require("./ns3/program/ns3-program");
 
-/**
+/***
  * returns Nord Stage 3 file mapping
  *
  * @param buffer {Buffer}

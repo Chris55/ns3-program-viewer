@@ -762,7 +762,6 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * @example
              * 0 = 1 Octave
-             * 0 = 1 Octave
              * 1 = 2 Octaves
              * 2 = 3 Octaves
              * 3 = 4 Octaves

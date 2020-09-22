@@ -2,7 +2,7 @@ const mapping = require("./ns3-mapping");
 const { getVersion } = require("../../common/converter");
 const { getPanel } = require("./ns3-panel");
 
-/**
+/***
  * returns Nord Stage 3 program data
  *
  * @param buffer
