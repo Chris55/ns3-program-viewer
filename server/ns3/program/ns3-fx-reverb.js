@@ -63,7 +63,7 @@ exports.getReverb = (buffer, panelOffset) => {
          * 0x138 (b5): polarity (1 = positive, 0 = negative)
          * 0x138 (b4-b0) and 0x139 (b7-6): 7-bit raw value
          *
-         * @see {@link 10-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module Reverb Amount
          */

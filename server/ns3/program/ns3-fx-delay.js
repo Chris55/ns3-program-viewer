@@ -79,7 +79,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * 0x10F (b6): polarity (1 = positive, 0 = negative)
          * 0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
          *
-         * @see {@link 10-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module Effect 1 Rate
          */
@@ -120,7 +120,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * 0x113 (b7): polarity (1 = positive, 0 = negative)
          * 0x113 (b6-b0): 7-bit raw value
          *
-         * @see {@link 10-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module Effect 1 Amount
          */

@@ -76,7 +76,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * 0x118 (b3): polarity (1 = positive, 0 = negative)
          * 0x118 (b2-b0) and 0x119 (b7-4): 7-bit raw value
          *
-         * @see {@link 10-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module Effect 2 Amount
          */

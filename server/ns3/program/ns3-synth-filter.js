@@ -96,7 +96,7 @@ exports.getFilter = (buffer, panelOffset) => {
              * 0xA3 (b4): polarity (1 = positive, 0 = negative)
              * 0xA3 (b3-b0), 0xA4 (b7-b5): 7-bit raw value
              *
-             * @see {@link 10-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+             * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
              *
              * @module Synth Filter LFO Amount
              */
@@ -153,7 +153,7 @@ exports.getFilter = (buffer, panelOffset) => {
          * 0x9B (b2): polarity (1 = positive, 0 = negative)
          * 0x9B (b1-b0), 0x9C (b7-b3): 7-bit raw value
          *
-         * @see {@link 10-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module Synth Filter Freq
          */
