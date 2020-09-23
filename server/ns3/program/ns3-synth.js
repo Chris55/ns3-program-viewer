@@ -637,8 +637,10 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * @example
              * 0/127 value = 0.03 Hz / 523 Hz
+             * #include synthLfoRateMap
              *
              * if LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division
+             * #include synthLfoRateMasterClockDivisionMap
              *
              * Morph Wheel:
              * 0x88 (b7): polarity (1 = positive, 0 = negative)
@@ -703,8 +705,10 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * @example
              * 0/127 value = 16 bpm / Fast 5
+             * #include synthArpRateMap
              *
              * if Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division
+             * #include synthArpMasterClockDivisionMap
              *
              * Morph Wheel:
              * 0x81 (b0): polarity (1 = positive, 0 = negative)

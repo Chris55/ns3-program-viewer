@@ -1083,7 +1083,7 @@ Offset in file: 0x98 (b1-0) and 0x99 (b7-3)
 **See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-0/127 value = 14 Hz / 21 kHz* Morph Wheel:0x99 (b2): polarity (1 = positive, 0 = negative)0x99 (b1-b0), 0x9A (b7-b3): 7-bit raw valueMorph After Touch:0x9A (b2): polarity (1 = positive, 0 = negative)0x9A (b1-b0), 0x9B (b7-b3): 7-bit raw valueMorph Control Pedal:0x9B (b2): polarity (1 = positive, 0 = negative)0x9B (b1-b0), 0x9C (b7-b3): 7-bit raw value
+0/127 value = 14 Hz / 21 kHz#include synthFilterCutoffFrequencyMap* Morph Wheel:0x99 (b2): polarity (1 = positive, 0 = negative)0x99 (b1-b0), 0x9A (b7-b3): 7-bit raw valueMorph After Touch:0x9A (b2): polarity (1 = positive, 0 = negative)0x9A (b1-b0), 0x9B (b7-b3): 7-bit raw valueMorph Control Pedal:0x9B (b2): polarity (1 = positive, 0 = negative)0x9B (b1-b0), 0x9C (b7-b3): 7-bit raw value
 ```
 <a name="module_Synth Filter HP Freq Res"></a>
 
@@ -1092,7 +1092,7 @@ Offset in file: 0x9C (b2-0) and 0x9D (b7-4)
 
 **Example**  
 ```js
-for 'LP+HP' filter  => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHzfor all other filters  => Resonance:  0/127 value = 0 / 10
+for 'LP+HP' filter  => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHz#include synthFilterCutoffFrequencyMapfor all other filters  => Resonance:  0/127 value = 0 / 10
 ```
 <a name="module_Synth On"></a>
 
@@ -1344,7 +1344,7 @@ Offset in file: 0x87 (b6-0)
 **See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-0/127 value = 0.03 Hz / 523 Hzif LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock DivisionMorph Wheel:0x88 (b7): polarity (1 = positive, 0 = negative)0x88 (b6-b0): 7-bit raw valueMorph After Touch:0x89 (b7): polarity (1 = positive, 0 = negative)0x89 (b6-b0): 7-bit raw valueMorph Control Pedal:0x8A (b7): polarity (1 = positive, 0 = negative)0x8A (b6-b0): 7-bit raw value
+0/127 value = 0.03 Hz / 523 Hz#include synthLfoRateMapif LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division#include synthLfoRateMasterClockDivisionMapMorph Wheel:0x88 (b7): polarity (1 = positive, 0 = negative)0x88 (b6-b0): 7-bit raw valueMorph After Touch:0x89 (b7): polarity (1 = positive, 0 = negative)0x89 (b6-b0): 7-bit raw valueMorph Control Pedal:0x8A (b7): polarity (1 = positive, 0 = negative)0x8A (b6-b0): 7-bit raw value
 ```
 <a name="module_Synth Lfo Master Clock"></a>
 
@@ -1372,7 +1372,7 @@ Offset in file: 0x81 (b7-1)
 **See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-0/127 value = 16 bpm / Fast 5if Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock DivisionMorph Wheel:0x81 (b0): polarity (1 = positive, 0 = negative)0x82 (b7-b1): 7-bit raw valueMorph After Touch:0x82 (b0): polarity (1 = positive, 0 = negative)0x83 (b7-b1): 7-bit raw valueMorph Control Pedal:0x83 (b0): polarity (1 = positive, 0 = negative)0x84 (b7-b1): 7-bit raw value
+0/127 value = 16 bpm / Fast 5#include synthArpRateMapif Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division#include synthArpMasterClockDivisionMapMorph Wheel:0x81 (b0): polarity (1 = positive, 0 = negative)0x82 (b7-b1): 7-bit raw valueMorph After Touch:0x82 (b0): polarity (1 = positive, 0 = negative)0x83 (b7-b1): 7-bit raw valueMorph Control Pedal:0x83 (b0): polarity (1 = positive, 0 = negative)0x84 (b7-b1): 7-bit raw value
 ```
 <a name="module_Synth Arp Kb Sync"></a>
 

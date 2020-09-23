@@ -6,6 +6,7 @@ The file version used is 3.04 (generated with OS v2.54), and the file length is 
 Some older versions have a length of 574 bytes and a smaller header. Offset 0x04 defines the file format.
 
 - [File Structure](#file-structure)
+- [Disclaimer](#disclaimer)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -17,7 +18,7 @@ Some older versions have a length of 574 bytes and a smaller header. Offset 0x04
 ## File Structure
 
 | offset   | bits       | description
-| :---:    |   :----:   | :---
+| :---:    |   :----:   | :-------------------------------------------------
 | `0x0000` | `cccccccc` | ascii C - 0x43, 4-byte Clavia ID
 | `0x0001` | `cccccccc` | ascii B - 0x42
 | `0x0002` | `cccccccc` | ascii I - 0x49
@@ -355,12 +356,31 @@ Some older versions have a length of 574 bytes and a smaller header. Offset 0x04
 
 * * *
 
+
+## Disclaimer
+We are not affiliated, associated, endorsed by, or in any way officially connected with Nord Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.
+The official Nord Keyboards website can be found at https://www.nordkeyboards.com
+The names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.
+
+
 ## Contributors
-- [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/)
-- [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/)
-- Thanks to other NUF member: @rpossemo, @cookie
+- [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) (@florence)
+- [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal)
+- Thanks to other NUF member(s): @rpossemo
 
 ## License
-This mapping is provided as-is under the MIT license. For more information see LICENSE.
+This mapping is provided as-is under the MIT license.
+
+Copyright (c) 2020 Christian Florentz
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 * * *

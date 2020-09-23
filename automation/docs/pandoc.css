@@ -1,8 +1,6 @@
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 
-table colgroup col {
-    width: auto!important;
-}
+
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -426,7 +424,7 @@ body {
     margin: auto;
     padding-right: 1em;
     padding-left: 1em;
-    max-width: 44em;
+    max-width: 78em;
     color: black;
 }
 *:not("#mkdbuttons") {
@@ -997,4 +995,8 @@ sub {
 .type-csharp .highlight .s,
 .type-csharp .highlight .sc {
     color: #a31515;
+}
+
+table colgroup col {
+    width: auto!important;
 }

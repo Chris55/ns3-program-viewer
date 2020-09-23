@@ -140,6 +140,7 @@ exports.getFilter = (buffer, panelOffset) => {
          *
          * @example
          * 0/127 value = 14 Hz / 21 kHz
+         * #include synthFilterCutoffFrequencyMap
          *
          * * Morph Wheel:
          * 0x99 (b2): polarity (1 = positive, 0 = negative)
@@ -176,6 +177,7 @@ exports.getFilter = (buffer, panelOffset) => {
          * @example
          * for 'LP+HP' filter
          *   => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHz
+         * #include synthFilterCutoffFrequencyMap
          *
          * for all other filters
          *   => Resonance:  0/127 value = 0 / 10
