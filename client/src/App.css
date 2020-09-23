@@ -55,3 +55,10 @@ body {
     font-size: 45%;
     vertical-align: 70%;
 }
+
+.nord-footer {
+    text-align: center;
+    background-color: lightgrey;
+    margin: 5rem 0 0 0;
+    padding: 1rem 2rem;
+}

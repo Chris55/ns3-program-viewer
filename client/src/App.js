@@ -71,12 +71,24 @@ class App extends Component {
                         </h1>
                         <p className="lead">Simple online tool to review Nord Stage 3 program file settings.</p>
 
-                        <blockquote className="blockquote">
-                            <footer className="blockquote-footer">
-                                Handmade by NUF Members
-                                {/*<a href="https://www.norduserforum.com/portal.php">Handmade by NUF Members</a>*/}
-                            </footer>
-                        </blockquote>
+                        {/*<blockquote className="blockquote">*/}
+                        {/*    <footer className="blockquote-footer">*/}
+                        {/*        Handmade by NUF{' '}*/}
+                        {/*        <a href="https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html">*/}
+                        {/*            Members*/}
+                        {/*        </a>*/}
+                        {/*        <br />*/}
+                        {/*        We are not affiliated, associated, endorsed by, or in any way officially connected with Nord*/}
+                        {/*        Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates. The official Nord*/}
+                        {/*        Keyboards website can be found at{" "}*/}
+                        {/*        <a title="Nord Keyboards" href="https://www.nordkeyboards.com">*/}
+                        {/*            https://www.nordkeyboards.com*/}
+                        {/*        </a>*/}
+                        {/*        <br />*/}
+                        {/*        The names Nord and Clavia as well as related names, marks, emblems and images are registered*/}
+                        {/*        trademarks of their respective owners.*/}
+                        {/*    </footer>*/}
+                        {/*</blockquote>*/}
 
                         {/*<hr className="my-4"/>*/}
 
@@ -101,7 +113,8 @@ class App extends Component {
                                 className=""
                                 title="Select"
                                 accept=".ns3f"
-                                handleFile={this.handleFile} />
+                                handleFile={this.handleFile}
+                            />
                         </div>
 
                         <div className="col-auto align-self-center">Nord Program File (*.ns3f)</div>
@@ -159,6 +172,25 @@ class App extends Component {
                 {/*<Navbar fixed="bottom"  expand="lg" bg="dark" variant="light">*/}
                 {/*    Hello*/}
                 {/*</Navbar>*/}
+
+                <div className="nord-footer">
+                    <small>
+                        Handmade by NUF{' '}
+                        <a href="https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html">
+                            Members
+                        </a>
+                        <br />
+                        Disclaimer: We are not affiliated, associated, endorsed by, or in any way officially connected with Nord
+                        Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.
+                        <br />The official Nord Keyboards website can be found at{" "}
+                        <a title="Nord Keyboards" href="https://www.nordkeyboards.com">
+                            https://www.nordkeyboards.com
+                        </a>
+                        <br />
+                        The names Nord and Clavia as well as related names, marks, emblems and images are registered
+                        trademarks of their respective owners.
+                    </small>
+                </div>
             </div>
         );
     }
