@@ -249,6 +249,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * Volume:
          * 0xB6 (b2-b0), 0xB7 (b7-4): 7-bit = 0/127 range
+         * #include dBMap
          *
          * Morph Wheel:
          * 0xB7 (b3): polarity (1 = positive, 0 = negative)

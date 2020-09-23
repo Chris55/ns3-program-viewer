@@ -197,7 +197,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 0x55 (b3): polarity (1 = positive, 0 = negative)
          * 0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for Morph detailed explanation.
+         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed explanation.
          *
          * @module Synth Volume
          */
@@ -508,6 +508,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 0.5 ms / 45 s
+                 * #include synthEnvAttackMap
                  *
                  * @module Synth Mod Env Attack
                  */
@@ -521,6 +522,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 3.0 ms / 45 s (Sustain)
+                 * #include synthEnvDecayOrReleaseMap
                  *
                  * @module Synth Mod Env Decay
                  */
@@ -534,6 +536,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 3.0 ms / 45 s (Inf)
+                 * #include synthEnvDecayOrReleaseMap
                  *
                  * @module Synth Mod Env Release
                  */
@@ -560,6 +563,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 0.5 ms / 45 s
+                 * #include synthEnvAttackMap
                  *
                  * @module Synth Amp Env Attack
                  */
@@ -573,6 +577,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 3.0 ms / 45 s (Sustain)
+                 * #include synthEnvDecayOrReleaseMap
                  *
                  * @module Synth Amp Env Decay
                  */
@@ -586,6 +591,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 3.0 ms / 45 s
+                 * #include synthEnvDecayOrReleaseMap
                  *
                  * @module Synth Amp Env Release
                  */

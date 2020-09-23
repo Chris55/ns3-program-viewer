@@ -406,6 +406,10 @@ O = off, 1 = on
 ## Extern Midi Control
 Offset in file: 0xF6 (b1-0)
 
+**Example**  
+```js
+#include externControlMap
+```
 <a name="module_Extern Midi CC"></a>
 
 ## Extern Midi CC
@@ -532,7 +536,7 @@ Offset in file: 0x10C (b5-0) and 0x10D (b7)
 **See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-7-bit value 0/127 = 0/10if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32Morph Wheel:0x10D (b6): polarity (1 = positive, 0 = negative)0x10D (b5-b0) and 0x10E (b7): 7-bit raw valueMorph After Touch:0x10E (b6): polarity (1 = positive, 0 = negative)0x10E (b5-b0) and 0x10F (b7): 7-bit raw valueMorph Control Pedal:0x10F (b6): polarity (1 = positive, 0 = negative)0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
+7-bit value 0/127 = 0/10if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32#include effect1MasterClockDivisionMapMorph Wheel:0x10D (b6): polarity (1 = positive, 0 = negative)0x10D (b5-b0) and 0x10E (b7): 7-bit raw valueMorph After Touch:0x10E (b6): polarity (1 = positive, 0 = negative)0x10E (b5-b0) and 0x10F (b7): 7-bit raw valueMorph Control Pedal:0x10F (b6): polarity (1 = positive, 0 = negative)0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
 ```
 <a name="module_Effect 1 Master Clock"></a>
 
@@ -696,7 +700,7 @@ Offset in file:
 
 **Example**  
 ```js
-Volume:0xB6 (b2-b0), 0xB7 (b7-4): 7-bit = 0/127 rangeMorph Wheel:0xB7 (b3): polarity (1 = positive, 0 = negative)0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw valueMorph After Touch:0xB8 (b3): polarity (1 = positive, 0 = negative)0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw valueMorph Control Pedal:0xB9 (b3): polarity (1 = positive, 0 = negative)0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 127Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+Volume:0xB6 (b2-b0), 0xB7 (b7-4): 7-bit = 0/127 range#include dBMapMorph Wheel:0xB7 (b3): polarity (1 = positive, 0 = negative)0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw valueMorph After Touch:0xB8 (b3): polarity (1 = positive, 0 = negative)0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw valueMorph Control Pedal:0xB9 (b3): polarity (1 = positive, 0 = negative)0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 127Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 ```
 <a name="module_Organ Octave Shift"></a>
 
@@ -844,7 +848,7 @@ Offset in file: 0x43 (b6-3)
 ## Piano Volume
 Offset in file: 0x43 (b2-0), 0x44 (b7-4)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for Morph detailed explanation.  
+**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed explanation.  
 **Example**  
 ```js
 Morph Wheel:0x44 (b3): polarity (1 = positive, 0 = negative)0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw valueMorph After Touch:0x45 (b3): polarity (1 = positive, 0 = negative)0x45 (b2-b0), 0x46 (b7-b4): 7-bit raw valueMorph Control Pedal:0x46 (b3): polarity (1 = positive, 0 = negative)0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value
@@ -1014,13 +1018,17 @@ Offset in file 0x3A (b1-0)
 
 **Example**  
 ```js
-Enabled (b3):0 = Panel1 = Organ2 = Piano3 = Synth
+0 = Panel1 = Organ2 = Piano3 = Synth
 ```
 <a name="module_Program Category"></a>
 
 ## Program Category
 Offset in file: 0x10
 
+**Example**  
+```js
+#include programCategoryMap
+```
 <a name="module_Synth Filter Type"></a>
 
 ## Synth Filter Type
@@ -1106,7 +1114,7 @@ Offset in file: 0x52 (b6-3)
 ## Synth Volume
 Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for Morph detailed explanation.  
+**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed explanation.  
 **Example**  
 ```js
 Morph Wheel:0x53 (b3): polarity (1 = positive, 0 = negative)0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw valueMorph After Touch:0x54 (b3): polarity (1 = positive, 0 = negative)0x54 (b2-b0), 0x55 (b7-b4): 7-bit raw valueMorph Control Pedal:0x55 (b3): polarity (1 = positive, 0 = negative)0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
@@ -1254,7 +1262,7 @@ Offset in file: 0x8B (b7-1)
 
 **Example**  
 ```js
-0/127 value = 0.5 ms / 45 s
+0/127 value = 0.5 ms / 45 s#include synthEnvAttackMap
 ```
 <a name="module_Synth Mod Env Decay"></a>
 
@@ -1263,7 +1271,7 @@ Offset in file: 0x8B (b0) and 0x8C (b7-2)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s (Sustain)
+0/127 value = 3.0 ms / 45 s (Sustain)#include synthEnvDecayOrReleaseMap
 ```
 <a name="module_Synth Mod Env Release"></a>
 
@@ -1272,7 +1280,7 @@ Offset in file: 0x8C (b1-0) and 0x8D (b7-3)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s (Inf)
+0/127 value = 3.0 ms / 45 s (Inf)#include synthEnvDecayOrReleaseMap
 ```
 <a name="module_Synth Mod Env Velocity"></a>
 
@@ -1290,7 +1298,7 @@ Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)
 
 **Example**  
 ```js
-0/127 value = 0.5 ms / 45 s
+0/127 value = 0.5 ms / 45 s#include synthEnvAttackMap
 ```
 <a name="module_Synth Amp Env Decay"></a>
 
@@ -1299,7 +1307,7 @@ Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s (Sustain)
+0/127 value = 3.0 ms / 45 s (Sustain)#include synthEnvDecayOrReleaseMap
 ```
 <a name="module_Synth Amp Env Release"></a>
 
@@ -1308,7 +1316,7 @@ Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s
+0/127 value = 3.0 ms / 45 s#include synthEnvDecayOrReleaseMap
 ```
 <a name="module_Synth Amp Env Velocity"></a>
 

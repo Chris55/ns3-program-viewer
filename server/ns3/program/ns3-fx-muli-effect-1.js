@@ -108,6 +108,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * 7-bit value 0/127 = 0/10
          *
          * if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32
+         * #include effect1MasterClockDivisionMap
          *
          * Morph Wheel:
          * 0x10D (b6): polarity (1 = positive, 0 = negative)

@@ -107,7 +107,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 0x46 (b3): polarity (1 = positive, 0 = negative)
          * 0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for Morph detailed explanation.
+         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed explanation.
          *
          * @module Piano Volume
          */

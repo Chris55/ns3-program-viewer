@@ -89,6 +89,8 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
         /**
          * Offset in file: 0xF6 (b1-0)
          *
+         * @example
+         * #include externControlMap
          * @module Extern Midi Control
          */
         control: {

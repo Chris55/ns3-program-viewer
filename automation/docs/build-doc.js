@@ -1,13 +1,25 @@
 const readline = require("readline");
 const fs = require("fs");
 const os = require("os");
-const nodePandoc = require('node-pandoc');
+const mapping = require("../../server/ns3/program/ns3-mapping");
 
 function replaceAll(str, find, replace) {
-    return str.replace(new RegExp(find, 'g'), replace);
+    return str.replace(new RegExp(find, "g"), replace);
+}
+
+function getEnum(name) {
+    const table = mapping[name];
+    let lines = ""; //"```" + os.EOL;
+    for (const [key, value] of table) {
+        lines = lines + "  " + key + " = " + value + os.EOL;
+    }
+    //lines = lines + "```" + os.EOL;
+    return lines;
 }
 
 const convert = (inputFile, outputFile, remove) => {
+    const text = getEnum("programCategoryMap");
+
     const outputStream = fs.createWriteStream(outputFile, { flags: "w" });
     let start = !remove;
 
@@ -25,9 +37,22 @@ const convert = (inputFile, outputFile, remove) => {
             return;
         }
 
+        if (left === "**Exa") {
+            return;
+        }
+
         if (left === "</dl>") {
             start = true;
             return;
+        }
+
+        if (left === "#incl") {
+            const name = line.split(" ")[1];
+            line = getEnum(name);
+        }
+
+        if (left === "```js") {
+            line = "```";
         }
 
         if (start === true) {
@@ -41,23 +66,8 @@ const convert = (inputFile, outputFile, remove) => {
     });
 };
 
+const pathInput = __dirname + "/../../docs/ns3/program/";
+const pathOutput = __dirname + "/../../automation/docs/out/";
 
-convert("./docs/ns3/program/readme.md", "./automation/docs/out/ns3-00-readme.md", false);
-convert("./docs/ns3/program/ns3-doc.md", "./automation/docs/out/ns3-10-doc.md", true);
-
-// let src = os.homedir() + '/dev/ns3-program-viewer/automation/docs/out/ns3-00-readme.md';
-//
-// // Arguments can be either a single String or in an Array
-// let args = '-f markdown -t html5  -o ./ns3-mapping.html --metadata title=NS3';
-//
-// // Set your callback function
-// const callback = (err, result)=> {
-//
-//     if (err) console.error('Oh Nos: ',err);
-//     return result;
-// }
-//
-// console.log (process.cwd());
-//
-// // Call pandoc
-// nodePandoc(src, args, callback);
+convert(pathInput + "readme.md", pathOutput + "ns3-00-readme.md", false);
+convert(pathInput + "ns3-doc.md", pathOutput + "ns3-10-doc.md", true);

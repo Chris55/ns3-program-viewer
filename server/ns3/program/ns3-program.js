@@ -296,7 +296,6 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
          * Offset in file 0x3A (b1-0)
          *
          * @example
-         * Enabled (b3):
          * 0 = Panel
          * 1 = Organ
          * 2 = Piano
@@ -319,6 +318,8 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         /**
          * Offset in file: 0x10
          *
+         * @example
+         * #include programCategoryMap
          * @module Program Category
          */
         category: mapping.programCategoryMap.get(offset10),
