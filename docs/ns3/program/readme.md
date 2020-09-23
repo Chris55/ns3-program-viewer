@@ -1,21 +1,91 @@
+---
+title: Nord Stage 3 Program File Documentation
+author: christian.florentz@gmail.com
+header-includes: |
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhead[CO,CE]{Rev 0.1 PRELIMINARY}
+    \fancyfoot[CO,CE]{Nord Stage 3 Program File Documentation}
+    \fancyfoot[LE,RO]{\thepage}
+abstract:
+---
+
+
+## Let's get started
+
+This file documents the Nord Stage 3 program file structure. It is handmade by [NUF](https://www.norduserforum.com) users and is not officially supported by Nord Keyboards / Clavia DMI AB.
+While we certainly hope this document is useful, none of the authors or contributors place any guarantees as to the accuracy of the data.
+
+We contacted Nord Keyboards / Clavia DMI AB support about this project, and the answer was that they are fine with this project, and it can be published :)
+
+[https://ns3-program-viewer.herokuapp.com](https://ns3-program-viewer.herokuapp.com) web application is the project behind this initiative.
+Source is located here: [https://github.com/Chris55/ns3-program-viewer](https://github.com/Chris55/ns3-program-viewer)
+
+* * *
+
+### Summary
+- [Disclaimer](#disclaimer)
+- [Contributors](#contributors)
+- [License](#license)
+- [Revision](#revision)
+- [File Structure](#file-structure)
+
+
+
+
+## Disclaimer
+We are not affiliated, associated, endorsed by, or in any way officially connected with Nord Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.
+The official Nord Keyboards website can be found at https://www.nordkeyboards.com
+The names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.
+
+
+
+## Contributors
+- [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) (@florence)
+- [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal)
+- Thanks to other NUF member(s): @rpossemo
+
+## Revision
+
+| rev  | date         | description
+| :--- | :----------- | :--------------------------------------------------------------------------------
+| 0.1  | 23-Sep-2020  | Draft version
+\newpage
+
+
+## License
+This mapping is provided as-is under the MIT license.
+
+Copyright (c) 2020 Christian Florentz
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+\newpage
+## File Structure
 
 This mapping corresponds to the Nord Stage 3 program file (file extension ns3f).
 
 The file version used is 3.04 (generated with OS v2.54), and the file length is 592 bytes.
+Some older versions have a length of 574 bytes and a smaller header.
 
-Some older versions have a length of 574 bytes and a smaller header. Offset 0x04 defines the file format.
+Offset 0x04 defines the file format.
 
-- [File Structure](#file-structure)
-- [Disclaimer](#disclaimer)
-- [Contributors](#contributors)
-- [License](#license)
+Each memory offset corresponds to an 8-bit value.
 
+0x01 (hex) = 00000001 -> bit 0 is ‘1’
 
+0x84 (hex) = 10000100 -> bit 7 and 2 are ‘1’
 
-* * *
+In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 
-
-## File Structure
 
 | offset   | bits       | description
 | :---:    |   :----:   | :-------------------------------------------------
@@ -106,28 +176,28 @@ Some older versions have a length of 574 bytes and a smaller header. Offset 0x04
 | `0x0054` | `wwwwaaaa` | [(a) synth volume morph after touch](ns3-doc.md#synth-volume)
 | `0x0055` | `aaaapppp` | [(p) synth volume morph control pedal](ns3-doc.md#synth-volume)
 | `0x0056` | `pppp-ooo` | [(o) synth octave shift](ns3-doc.md#synth-octave-shift)
-| `0x0057` | `ps--xxxx` | [(p) synth pitch stick](ns3-doc.md#synth-pitch-stick), [(s) synth sustain pedal](ns3-doc.md#synth-sustain-pedal), (x) user sample header 1
-| `0x0058` | `xxxxxxxx` | user sample header 2
-| `0x0059` | `xxxxxxxx` | user sample name 1
-| `0x005A` | `xxxxxxxx` | user sample name 2
-| `0x005B` | `xxxxxxxx` | user sample name 3
-| `0x005C` | `xxxxxxxx` | user sample name 4
-| `0x005D` | `xxxxxxxx` | user sample name 5
-| `0x005E` | `xxxxxxxx` | user sample name 6
-| `0x005F` | `xxxxxxxx` | user sample name 7
-| `0x0060` | `xxxxxxxx` | user sample name 8
-| `0x0061` | `xxxxxxxx` | user sample name 9
-| `0x0062` | `xxxxxxxx` | user sample name 10
-| `0x0063` | `xxxxxxxx` | user sample name 11
-| `0x0064` | `xxxxxxxx` | user sample name 12
-| `0x0065` | `xxxxxxxx` | user sample name 13
-| `0x0066` | `xxxxxxxx` | user sample name 14
-| `0x0067` | `xxxxxxxx` | user sample name 15
-| `0x0068` | `xxxxxxxx` | user sample name 16
-| `0x0069` | `xxxxxxxx` | user sample name 17
-| `0x006A` | `xxxxxxxx` | user sample name 18
-| `0x006B` | `xxxxxxxx` | user sample name 19
-| `0x006C` | `xxxxxxxx` | user sample name 20
+| `0x0057` | `ps--xxxx` | [(p) synth pitch stick](ns3-doc.md#synth-pitch-stick), [(s) synth sustain pedal](ns3-doc.md#synth-sustain-pedal), (x) user sample name
+| `0x0058` | `xxxxxxxx` |
+| `0x0059` | `xxxxxxxx` |
+| `0x005A` | `xxxxxxxx` |
+| `0x005B` | `xxxxxxxx` |
+| `0x005C` | `xxxxxxxx` |
+| `0x005D` | `xxxxxxxx` |
+| `0x005E` | `xxxxxxxx` |
+| `0x005F` | `xxxxxxxx` |
+| `0x0060` | `xxxxxxxx` |
+| `0x0061` | `xxxxxxxx` |
+| `0x0062` | `xxxxxxxx` |
+| `0x0063` | `xxxxxxxx` |
+| `0x0064` | `xxxxxxxx` |
+| `0x0065` | `xxxxxxxx` |
+| `0x0066` | `xxxxxxxx` |
+| `0x0067` | `xxxxxxxx` |
+| `0x0068` | `xxxxxxxx` |
+| `0x0069` | `xxxxxxxx` |
+| `0x006A` | `xxxxxxxx` |
+| `0x006B` | `xxxxxxxx` |
+| `0x006C` | `xxxxxxxx` |
 | `0x006D` | `--------` |
 | `0x006E` | `--------` |
 | `0x006F` | `--------` |
@@ -354,33 +424,5 @@ Some older versions have a length of 574 bytes and a smaller header. Offset 0x04
 | `0x024F` | `--------` | 0
 
 
-* * *
+\newpage
 
-
-## Disclaimer
-We are not affiliated, associated, endorsed by, or in any way officially connected with Nord Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.
-The official Nord Keyboards website can be found at https://www.nordkeyboards.com
-The names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.
-
-
-## Contributors
-- [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) (@florence)
-- [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal)
-- Thanks to other NUF member(s): @rpossemo
-
-## License
-This mapping is provided as-is under the MIT license.
-
-Copyright (c) 2020 Christian Florentz
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-* * *
