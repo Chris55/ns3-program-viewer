@@ -969,4 +969,56 @@ exports.ns3SampleLibrary = new Map([
     [0x75c53c59, {name: "SusFlt Fairlight", info: "CMI", version: "3.0", category: "Solo Wind/Brass"}],
     [0x48677ef7, {name: "Swannee Fairlight", info: "CMI", version: "3.0", category: "Solo Wind/Brass"}],
 
+    // Nord Sample Library 3.0 Chamberlin Accordion
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/chamberlin/accordion
+
+    [0x7a7386b5, {name: "Accordion Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x457a8939, {name: "Accordion Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xc33fa7aa, {name: "Accordion UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0xc0e30602, {name: "Accordion UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Chamberlin Brass
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/chamberlin/brass
+
+    [0xaca72e93, {name: "4 Brass Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0xf82beb9f, {name: "4 Saxes Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x95d479c9, {name: "Alto Sax Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x737d7fef, {name: "AltoSax Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x82b53c31, {name: "Bass Clarinet Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x131459a4, {name: "Bassoon Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x713aa0fa, {name: "Doo-Waa Trombone Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xcadac322, {name: "Flute Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x1ba492f1, {name: "French Horn Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x6d853e2f, {name: "Muted Trombone Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x9bc971ed, {name: "Muted Trumpet  FastVib Chamberli", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xc8c2b010, {name: "Muted Trumpet Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0xa38dda2e, {name: "Oboe Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xdc3eb32f, {name: "Open Trombone Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x8666fdfa, {name: "Open Trumpet Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x38381c16, {name: "Open Trumpet Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x967d4892, {name: "Slur Trombone Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xf3c4b588, {name: "Tenor Sax Metallic Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x9a3c3af7, {name: "Trombone Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x64488f7a, {name: "WaaWaa Trumpet Chamberlin", info: "UU", version: "3.0", category: "Mellotron"}],
+
+    [0xb0913f3, {name: "4 Brass UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0xab3dc5f3, {name: "4 Saxes UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0xc98eef18, {name: "Alto Sax UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0xf8d9867a, {name: "AltoSax UL Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x4770109a, {name: "Bass Clarinet UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0x3507c51f, {name: "Bassoon UL Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xb6715e08, {name: "Doo-Waa Trombone UL Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x8ea7f690, {name: "Flute UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0xf7e81d6b, {name: "French Horn UL Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x7edd2bc2, {name: "Muted Trombone UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0x11376b8c, {name: "Muted Trumpet FastVib UL Chamber", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x245f80fb, {name: "Muted Trumpet UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0xa471edc, {name: "Oboe UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x7773d6b5, {name: "Open Trombone UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0xe097e0d7, {name: "Open Trumpet UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xbad0d927, {name: "Open Trumpet UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0xb3fcb051, {name: "Slur Trombone UL Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xb3b39128, {name: "Tenor Sax Metallic UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xac56f3b5, {name: "Trombone UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+
 ]);
