@@ -1039,5 +1039,68 @@ exports.ns3SampleLibrary = new Map([
     [0x35b00b90, {name: "Tremolo Mandolin Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
     [0x29df652b, {name: "Tremolo Mandolin Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
 
+    // Nord Sample Library 3.0 Chamberlin Misc
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/chamberlin/misc
+
+    [0x8cf1c1f1, {name: "Dixieland Rhythms Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xed35a271, {name: "Harp Long Arpeggio Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x5ea78689, {name: "Harp Short Arpeggio Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xa68a774e, {name: "Harp Solo Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x902bd6de, {name: "SFX1 Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xd0243378, {name: "SFX2 Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Chamberlin Organ
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/chamberlin/organs
+
+    [0xae9dc212, {name: "C-Organ Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xf690f0e7, {name: "C-Organ UL Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xad29460c, {name: "Flute String Organ Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x72a5f146, {name: "Flute String Organ UL Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x51684e87, {name: "Kinura Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x731a7ce6, {name: "Kinura UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xafc5ba8a, {name: "Tibia Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x4e59bc1d, {name: "Tibia UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Chamberlin Pianos and Keyboards
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/chamberlin/pianos-and-keyboards
+
+    [0xd276813b, {name: "Acoustic Harpsichord Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xb7f858eb, {name: "Electric Harpsichord Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xccef70de, {name: "Piano Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Chamberlin Strings
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/chamberlin/strings
+
+    [0xeba39b5c, {name: "3 Violins Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0xe6dcbe62, {name: "3 Violins Chamberlin", info: "MMaster UL", version: "3.0", category: "Mellotron"}],
+    [0xaf583f59, {name: "Cello Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x74dff07c, {name: "Cello UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x4e06d48d, {name: "Pizzicato Violins Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x92a5e476, {name: "Solo Violin UL Chamberlin", info: "UU", version: "3.0", category: "Mellotron"}],
+    [0x4d24313c, {name: "SoloViolin Chamberlin", info: "UU Sml mono", version: "3.1", category: "Mellotron"}],
+    [0x72af8fae, {name: "Staccato Violin Chamberlin", info: "UU", version: "3.0", category: "Mellotron"}],
+    [0xe9aad50f, {name: "Staccato Violin UL Chamberlin", info: "UU", version: "3.0", category: "Mellotron"}],
+    [0x5b407a60, {name: "Vibrato Violin Chamberlin", info: "UU", version: "3.0", category: "Mellotron"}],
+    [0x29b8b018, {name: "Vibrato Violin UL Chamberlin", info: "UU", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Chamberlin Tuned Percussion
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/chamberlin/tuned-percussion
+
+    [0x74ad884b, {name: "Glockenspiel Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xf9d1846, {name: "Marimba Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x9747aa13, {name: "Marimba UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0x5b67eb6b, {name: "Marimba UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Chamberlin Voices
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/chamberlin/voices
+
+    [0x5f59e314, {name: "Doo Vocal Chamberlin", info: "UU", version: "3.0", category: "Mellotron"}],
+    [0x19c98732, {name: "Female Solo Voice Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xe760e97e, {name: "Female Solo Voice UL Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xc34f13e1, {name: "Male Voice Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x828ac8e9, {name: "Male Voice UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0x9b333e25, {name: "Tremolo Marimba Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x209e8834, {name: "Vibraphone Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xe876d2a0, {name: "Vibraphone Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
 
 ]);
