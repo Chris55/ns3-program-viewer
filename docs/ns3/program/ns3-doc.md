@@ -116,7 +116,7 @@
 <dd><p>Offset in file:</p>
 </dd>
 <dt><a href="#module_Organ Octave Shift">Organ Octave Shift</a></dt>
-<dd><p>Offset in file: 0xBA (b2-0)</p>
+<dd><p>Offset in file: 0xBA (b3-0)</p>
 </dd>
 <dt><a href="#module_Organ Pitch Stick">Organ Pitch Stick</a></dt>
 <dd><p>Offset in file: 0x34 (b4)</p>
@@ -168,7 +168,7 @@
 <dd><p>Offset in file: 0x43 (b2-0), 0x44 (b7-4)</p>
 </dd>
 <dt><a href="#module_Piano Octave Shift">Piano Octave Shift</a></dt>
-<dd><p>Offset in file: 0x47 (b2-0)</p>
+<dd><p>Offset in file: 0x47 (b3-0)</p>
 </dd>
 <dt><a href="#module_Piano Pitch Stick">Piano Pitch Stick</a></dt>
 <dd><p>Offset in file: 0x48 (b7)</p>
@@ -262,7 +262,7 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0x52 (b2-0) and 0x53 (b7-4)</p>
 </dd>
 <dt><a href="#module_Synth Octave Shift">Synth Octave Shift</a></dt>
-<dd><p>Offset in file: 0x56 (b1-0)</p>
+<dd><p>Offset in file: 0x56 (b3-0)</p>
 </dd>
 <dt><a href="#module_Synth Pitch Stick">Synth Pitch Stick</a></dt>
 <dd><p>Offset in file: 0x57 (b7)</p>
@@ -705,7 +705,7 @@ Volume:0xB6 (b2-b0), 0xB7 (b7-4): 7-bit = 0/127 range#include dBMapMorph Whe
 <a name="module_Organ Octave Shift"></a>
 
 ## Organ Octave Shift
-Offset in file: 0xBA (b2-0)
+Offset in file: 0xBA (b3-0)
 
 **Example**  
 ```js
@@ -856,7 +856,7 @@ Morph Wheel:0x44 (b3): polarity (1 = positive, 0 = negative)0x44 (b2-b0), 0x45
 <a name="module_Piano Octave Shift"></a>
 
 ## Piano Octave Shift
-Offset in file: 0x47 (b2-0)
+Offset in file: 0x47 (b3-0)
 
 **Example**  
 ```js
@@ -1122,7 +1122,7 @@ Morph Wheel:0x53 (b3): polarity (1 = positive, 0 = negative)0x53 (b2-b0), 0x54
 <a name="module_Synth Octave Shift"></a>
 
 ## Synth Octave Shift
-Offset in file: 0x56 (b1-0)
+Offset in file: 0x56 (b3-0)
 
 **Example**  
 ```js

@@ -114,7 +114,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
         volume: getVolumeEx(buffer, 0x43 + panelOffset),
 
         /**
-         * Offset in file: 0x47 (b2-0)
+         * Offset in file: 0x47 (b3-0)
          *
          * @example
          * Octave Shift = value - 6
@@ -122,7 +122,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @module Piano Octave Shift
          */
         octaveShift: {
-            value: (pianoOffset47 & 0x07) - 6,
+            value: (pianoOffset47 & 0x0f) - 6,
         },
         /**
          * Offset in file: 0x48 (b7)

@@ -204,7 +204,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
         volume: getVolumeEx(buffer, 0x52 + panelOffset),
 
         /**
-         * Offset in file: 0x56 (b1-0)
+         * Offset in file: 0x56 (b3-0)
          *
          * @example
          * Octave Shift = value - 6
@@ -212,7 +212,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @module Synth Octave Shift
          */
         octaveShift: {
-            value: (synthOffset56 & 0x07) - 6,
+            value: (synthOffset56 & 0x0f) - 6,
         },
         /**
          * Offset in file: 0x57 (b7)

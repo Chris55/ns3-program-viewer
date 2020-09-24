@@ -147,7 +147,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0037` | `--------` |
 | `0x0038` | `tttttccc` | [(t) transpose](ns3-doc.md#transpose), [(c) master clock rate](ns3-doc.md#master-clock-rate)
 | `0x0039` | `cccccddd` | [(d) rotary speaker drive](ns3-doc.md#rotary-speaker-drive)
-| `0x003A` | `ddddk-ss` | [(k) dual keyboard](ns3-doc.md#dual-keyboard), [(s) dual keyboard style(ns3-doc.md#dual-keyboard-style)
+| `0x003A` | `ddddk-ss` | [(k) dual keyboard](ns3-doc.md#dual-keyboard), [(s) dual keyboard style](ns3-doc.md#dual-keyboard-style)
 | `0x003B` | `--------` |
 | `0x003C` | `--------` |
 | `0x003D` | `--------` |
@@ -160,7 +160,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0044` | `vvvvwwww` | [(w) piano volume morph wheel](ns3-doc.md#piano-volume)
 | `0x0045` | `wwwwaaaa` | [(a) piano volume morph after touch](ns3-doc.md#piano-volume)
 | `0x0046` | `aaaapppp` | [(p) piano volume morph control pedal](ns3-doc.md#piano-volume)
-| `0x0047` | `pppp-ooo` | [(o) piano octave shift](ns3-doc.md#piano-octave-shift)
+| `0x0047` | `ppppoooo` | [(o) piano octave shift](ns3-doc.md#piano-octave-shift)
 | `0x0048` | `pstttmmm` | [(p) piano pitch stick](ns3-doc.md#piano-pitch-stick), [(s) piano sustain pedal](ns3-doc.md#piano-sustain-pedal), [(t) piano type](ns3-doc.md#piano-type), [(m) piano model](ns3-doc.md#piano-model)
 | `0x0049` | `mmvviiii` | [(v) piano sample variation](ns3-doc.md#piano-model), [(i) piano sample name](ns3-doc.md#piano-model)
 | `0x004A` | `iiiiiiii` |
@@ -175,7 +175,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0053` | `vvvvwwww` | [(w) synth volume morph wheel](ns3-doc.md#synth-volume)
 | `0x0054` | `wwwwaaaa` | [(a) synth volume morph after touch](ns3-doc.md#synth-volume)
 | `0x0055` | `aaaapppp` | [(p) synth volume morph control pedal](ns3-doc.md#synth-volume)
-| `0x0056` | `pppp-ooo` | [(o) synth octave shift](ns3-doc.md#synth-octave-shift)
+| `0x0056` | `ppppoooo` | [(o) synth octave shift](ns3-doc.md#synth-octave-shift)
 | `0x0057` | `ps--xxxx` | [(p) synth pitch stick](ns3-doc.md#synth-pitch-stick), [(s) synth sustain pedal](ns3-doc.md#synth-sustain-pedal), (x) user sample name
 | `0x0058` | `xxxxxxxx` |
 | `0x0059` | `xxxxxxxx` |
@@ -275,7 +275,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x00B7` | `vvvvwwww` | [(w) organ volume morph wheel](ns3-doc.md#organ-volume)
 | `0x00B8` | `wwwwaaaa` | [(a) organ volume morph after touch](ns3-doc.md#organ-volume)
 | `0x00B9` | `aaaapppp` | [(p) organ volume morph control pedal](ns3-doc.md#organ-volume)
-| `0x00BA` | `pppp-ooo` | [(o) organ octave shift](ns3-doc.md#organ-octave-shift)
+| `0x00BA` | `ppppoooo` | [(o) organ octave shift](ns3-doc.md#organ-octave-shift)
 | `0x00BB` | `stttl---` | [(s) organ sustain-pedal](ns3-doc.md#organ-sustain-pedal),[(t) organ type](ns3-doc.md#organ-type),[(l) organ live mode](ns3-doc.md#organ-live-mode)
 | `0x00BC` | `--------` | 0
 | `0x00BD` | `--------` | 1A

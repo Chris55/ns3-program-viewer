@@ -274,7 +274,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
         volume: getVolumeEx(buffer, 0xb6 + panelOffset),
 
         /**
-         * Offset in file: 0xBA (b2-0)
+         * Offset in file: 0xBA (b3-0)
          *
          * @example
          * Octave Shift = value - 6
@@ -282,7 +282,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @module Organ Octave Shift
          */
         octaveShift: {
-            value: (organOffsetBa & 0x07) - 6,
+            value: (organOffsetBa & 0x0f) - 6,
         },
 
         /**
