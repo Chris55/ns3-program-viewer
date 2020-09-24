@@ -1139,4 +1139,164 @@ exports.ns3SampleLibrary = new Map([
     [0x7097ef86, {name: "Zhongyin Sheng Tremolo ChiOrch", info: "PP", version: "3.0", category: "Accordeon/Harm"}],
     [0xcd1cc47a, {name: "Zhongyin Suona ChiOrch", info: "PP", version: "3.0", category: "Solo Wind/Brass"}],
 
+    // Nord Sample Library 3.0 Mellotron Accordions
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/mellotron/accordions
+
+    [0xc88ce62c, {name: "Accordion Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xd1ae2ce2, {name: "Accordion UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xf719653e, {name: "FrAccordion Mellotron", info: "MkII", version: "3.0", category: "Mellotron"}],
+    [0x441b8fed, {name: "FrAccordion UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Mellotron Brass and Wind
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/mellotron/brass-and-wind
+
+    [0x80395d38, {name: "2 Brass Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xf45d1861, {name: "2 Brass UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xfe152896, {name: "2 Saxes Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xd9f9e3d, {name: "2 Saxes UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x73dbcb14, {name: "AltoSax Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x369fb774, {name: "AltoSax UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x2492c4af, {name: "BassFlute Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0x2ac1525e, {name: "Bassoon Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x733dd24f, {name: "Bassoon UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x2c86c0b1, {name: "Brass Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x9a173a4e, {name: "Brass UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xec7f08a8, {name: "Clarinet Mellotron", info: "MkI", version: "3.0", category: "Mellotron"}],
+    [0x21348f58, {name: "Clarinet Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0xe1e1b2bf, {name: "Clarinet UL Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0xd98ca425, {name: "Clarinet UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x6ed071d8, {name: "English Horn Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xe6674580, {name: "MutedBrass Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xa5703e64, {name: "Oboe Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x4af9f332, {name: "Recorder Mellotron", info: "M400 Sml mono", version: "3.1", category: "Mellotron"}],
+    [0x4551b728, {name: "Tenor Sax Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x423a8a6c, {name: "Tenor Sax Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x4ecfd0eb, {name: "Trombone Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x28cffb25, {name: "Trombone Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x982438ad, {name: "Trumpet Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    // [0xadb5624b, {name: "Flute Mellotron", info: "MkII Sml mono", version: "3.0", category: "Mellotron"}],
+    [0xe5b4529b, {name: "English Horn UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x77fbbb07, {name: "Flute UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xd0270e21, {name: "MutedBrass UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xdee86210, {name: "Oboe UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xf86299b9, {name: "Tenor Sax UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0xafb024d7, {name: "Tenor Sax UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x4afc1146, {name: "Trombone UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xb1eccda2, {name: "Trombone UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0xf80a07f8, {name: "Trumpet UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Mellotron Guitars
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/mellotron/guitars
+    [0xa66c038, {name: "AccGuitar Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xb06318ed, {name: "AccGuitar UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x3c591b56, {name: "Guitar UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x8103e249, {name: "Mandola Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x64d7e731, {name: "Mandola UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x7bd7112d, {name: "Mandolin Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x28bf9239, {name: "Mandolin UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x21b22a9f, {name: "Rock Guitar Mellotron", info: "MKII Sml mono", version: "3.1", category: "Mellotron"}],
+    [0xfc14b562, {name: "Rock Guitar UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    // [0x24281adb, {name: "Guitar Mellotron", info: "MKI Sml mono", version: "3.0", category: "Mellotron"}],
+
+
+    // Nord Sample Library 3.0 Mellotron Miscellaneous
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/mellotron/miscellaneous
+
+    [0x4c070b7d, {name: "HarpsBrass Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0xd2559bdf, {name: "HarpsBrass UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x51bb192a, {name: "WineGlasses Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xfd48f5c6, {name: "WineGlasses UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Mellotron Organs
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/mellotron/organs
+
+    [0x1d2b3117, {name: "ChurchOrgan Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x7a34c34c, {name: "ChurchOrgan Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0xc3e41831, {name: "ChurchOrgan UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x57130e7f, {name: "ChurchOrgan UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x4d04ddb, {name: "Hammond C3 Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xa2e04143, {name: "Hammond C3 UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xe83f8e41, {name: "Hammond Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xf9864ee4, {name: "Hammond Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x40d32fa1, {name: "Hammond UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x31172289, {name: "Hammond UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xe5532774, {name: "Organ Mellotron", info: "MkI", version: "3.0", category: "Mellotron"}],
+    [0x19a5b659, {name: "Organ Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x6667bde0, {name: "Organ UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xc9c86eee, {name: "Organ UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x71f001f9, {name: "Pipe Organ Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x5bf0bd26, {name: "Pipe Organ UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xe3a52027, {name: "RevOrgan Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x390ec1ce, {name: "RevOrgan UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x31e2abc2, {name: "Tibia Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x6257e9ff, {name: "Tibia Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x911f9115, {name: "Tibia UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xb3814492, {name: "Tibia UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Mellotron Pianos
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/mellotron/pianos
+
+    [0x85cfb508, {name: "Clavichord Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xb4784b1f, {name: "Clavichord UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xd0e86999, {name: "Harpsichord Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0xb77a378d, {name: "Harpsichord UL Mellotron", info: "MkII", version: "3.0", category: "Mellotron"}],
+    [0x6eb15c13, {name: "Piano Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x1e096e5c, {name: "Piano UL Mellotron", info: "MkII", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Mellotron Strings
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/mellotron/strings
+
+    [0x253a8c3a, {name: "16 Violin Mellotron", info: "M400 Sml Stereo", version: "3.1", category: "Mellotron"}],
+    [0x1e0908da, {name: "16 Violins UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x9bb65034, {name: "2 Violins Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0x5afce600, {name: "2 Violins UL Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0x64adc29, {name: "3 Violins Mellotron", info: "MkII Sml mono", version: "3.1", category: "Mellotron"}],
+    [0xab221791, {name: "3 Violins UL Mellotron", info: "MKII", version: "3.0", category: "Classic Synth"}],
+    [0x7ed7b94d, {name: "Solo Cello Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x62fff288, {name: "Solo Cello UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xac9ddf40, {name: "Solo String Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0x15a09acf, {name: "Solo String UL Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0x6e5aa1b, {name: "Solo Viola Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xcc00ba15, {name: "Solo Viola UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x30f90a60, {name: "Solo Violin Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0x44ebf039, {name: "Solo Violin UL Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0x4b226c18, {name: "String Section 1 Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x8c356be6, {name: "String Section 1 UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x26d5bdc1, {name: "String Section 2 Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x6d26e53c, {name: "String Section 2 UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Mellotron Tuned Perc
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/mellotron/tuned-perc
+
+    [0x2d3913dc, {name: "Celeste Mellotron", info: "M300 Sml mono", version: "3.1", category: "Mellotron"}],
+    [0x68a0ca02, {name: "Celeste Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x705bb250, {name: "Celeste UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x42bd7c96, {name: "Celeste UL Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0x152d1b0b, {name: "Marimba Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0xb9e27464, {name: "Marimba UL Mellotron", info: "MKI", version: "3.0", category: "Mellotron"}],
+    [0x33614f15, {name: "Slow Vibra Mellotron", info: "M300 Sml mono", version: "3.1", category: "Mellotron"}],
+    [0x98c6cad, {name: "Slow Vibra UL Mellotron", info: "M300", version: "3.0", category: "Mellotron"}],
+    [0xd7805210, {name: "TubularBells UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xdc631051, {name: "Vibes NoVib Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x5a3da449, {name: "Vibes NoVib UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x14fac069, {name: "Vibraphone Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    [0x7049df33, {name: "Vibraphone UL Mellotron", info: "MKII", version: "3.0", category: "Mellotron"}],
+    // [0x780dcffe, {name: "Orchestral Mellotron", info: "M400 Sml mono", version: "3.0", category: "Mellotron"}],
+
+    // Nord Sample Library 3.0 Mellotron Voices
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/mellotron/voices
+
+    [0x6f122b48, {name: "4VoiceFemChoir Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x6040d51b, {name: "4VoiceFemChoir UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x34ecdffd, {name: "4VoiceMaleChoir Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x849aa266, {name: "4VoiceMaleChoir UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xeed97a6b, {name: "8VoiceChoir Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xb897de36, {name: "8VoiceChoir UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0xe33cadb5, {name: "BoysChoir UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x30cf1e03, {name: "MaleSoloVoice Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x909cb35c, {name: "MaleSoloVoice UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    [0x94877492, {name: "MixCustChoir UL Mellotron", info: "M400", version: "3.0", category: "Mellotron"}],
+    // [0x270ee2e6, {name: "Boys Choir Mellotron", info: "M400 Sml mono", version: "3.0", category: "Mellotron"}],
+    // [0x46111967, {name: "MixCustChoirMellotron", info: "M400 Sml mono", version: "3.0", category: "Mellotron"}],
+
 ]);

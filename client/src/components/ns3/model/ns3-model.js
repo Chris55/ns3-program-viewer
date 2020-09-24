@@ -8,7 +8,7 @@ exports.ns3Model = {
     },
     "category": "Organ",
     "panelA": {
-        "enabled": true,
+        "enabled": false,
         "organ": {
             "enabled": true,
             "kbZone": {
