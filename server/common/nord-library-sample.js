@@ -1021,4 +1021,23 @@ exports.ns3SampleLibrary = new Map([
     [0xb3b39128, {name: "Tenor Sax Metallic UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
     [0xac56f3b5, {name: "Trombone UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
 
+    // Nord Sample Library 3.0 Chamberlin Guitar
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/sound-collections/chamberlin/guitars
+
+    [0xb7e4ac1b, {name: "AcGuitar Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+    [0x8411f32d, {name: "Acoustic Steel Guitar Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xf6f5ecc0, {name: "Banjo Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xe54bad34, {name: "Banjo UL Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x8825db22, {name: "Mandolin Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x9ca48200, {name: "Mandolin UL Chamberlin", info: "MMaster", version: "3.0", category: "Mellotron"}],
+    [0x3f8d9627, {name: "Mandolin UL Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xeff0234f, {name: "Slur Guitar Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0xde027e6a, {name: "Steel Guitar Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0xdea6c8e9, {name: "Tremolo Banjo Chamberlin", info: "M25", version: "3.0", category: "Mellotron"}],
+    [0x13038fce, {name: "Tremolo Guitar Chamberlin", info: "UU", version: "3.0", category: "Mellotron"}],
+    [0x16afbbdb, {name: "Tremolo Guitar UL Chamberlin", info: "UU", version: "3.0", category: "Mellotron"}],
+    [0x35b00b90, {name: "Tremolo Mandolin Chamberlin", info: "M35", version: "3.0", category: "Mellotron"}],
+    [0x29df652b, {name: "Tremolo Mandolin Chamberlin", info: "MMaster mono", version: "3.0", category: "Mellotron"}],
+
+
 ]);
