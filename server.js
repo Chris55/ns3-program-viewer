@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const api = require("./server/routes/api.routes");
+const serveIndex = require("serve-index");
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -16,6 +17,8 @@ app.use(
 app.use(cors());
 
 app.use("/api", api);
+
+app.use("/media", express.static("upload"), serveIndex("upload", { icons: true }));
 
 //console.log("env: ", JSON.stringify(process.env, null, 2));
 

@@ -33,10 +33,11 @@ router.post("/upload", upload.single("nordFile"), async (req, res, next) => {
         next(Error("Unsupported file"));
         return;
     }
-    console.log(req.file.originalname);
+    console.log(req.file.path);
 
     const buffer = await fs.readFile(req.file.path).catch(next);
-    await fs.unlink(req.file.path).catch(next);
+    // heroku free dyno restart every 24h and cleanup everything
+    // await fs.unlink(req.file.path).catch(next);
 
     try {
 

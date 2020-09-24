@@ -20,6 +20,7 @@
         "express": "^4.17.1",
         "multer": "^1.4.2",
         "nodemon": "^2.0.4",
+        "serve-index": "^1.9.1",
         "uuid": "^8.3.0"
     },
     "devDependencies": {
