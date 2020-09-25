@@ -4,7 +4,7 @@ author: christian.florentz@gmail.com
 header-includes: |
     \usepackage{fancyhdr}
     \pagestyle{fancy}
-    \fancyhead[CO,CE]{Rev 0.1 PRELIMINARY}
+    \fancyhead[CO,CE]{Rev 0.2 PRELIMINARY}
     \fancyfoot[CO,CE]{Nord Stage 3 Program File Documentation}
     \fancyfoot[LE,RO]{\thepage}
 abstract:
@@ -50,6 +50,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 | rev  | date         | description
 | :--- | :----------- | :--------------------------------------------------------------------------------
 | 0.1  | 23-Sep-2020  | Draft version
+| 0.2  | xx-xxx-2020  |
 \newpage
 
 
@@ -370,18 +371,18 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0117` | `wwwwaaaa` | [(a) effect 2 amount morph after touch](ns3-doc.md#effect-2-amount)
 | `0x0118` | `aaaapppp` | [(p) effect 2 amount morph control pedal](ns3-doc.md#effect-2-amount)
 | `0x0119` | `ppppossc` | [(o) delay on](ns3-doc.md#delay-on), [(s) delay source](ns3-doc.md#delay-source), [(m) delay master clock](ns3-doc.md#delay-master-clock)
-| `0x011A` | `ttttttt-` | [(t) delay tempo](ns3-doc.md#delay-tempo)
-| `0x011B` | `--------` |
-| `0x011C` | `--------` |
-| `0x011D` | `--------` |
-| `0x011E` | `--------` |
-| `0x011F` | `--------` |
-| `0x0120` | `--------` |
-| `0x0121` | `---mmmmm` | [(t) delay mix](ns3-doc.md#delay-mix)
+| `0x011A` | `tttttttx` | [(t) delay tempo](ns3-doc.md#delay-tempo), [(x) delay tempo lsw](ns3-doc.md#delay-tempo)
+| `0x011B` | `xxxxxxpw` | [(w) delay tempo morph wheel](ns3-doc.md#delay-tempo)
+| `0x011C` | `wwwwwwxx` | [(x) delay tempo morph wheel lsw](ns3-doc.md#delay-tempo)
+| `0x011D` | `xxxxxpaa` | [(a) delay tempo morph after touch](ns3-doc.md#delay-tempo)
+| `0x011E` | `aaaaaxxx` | [(x) delay tempo morph after touch lsw](ns3-doc.md#delay-tempo)
+| `0x011F` | `xxxxpccc` | [(c) delay tempo morph control pedal](ns3-doc.md#delay-tempo)
+| `0x0120` | `ccccxxxx` | [(x) delay tempo morph control pedal lsw](ns3-doc.md#delay-tempo)
+| `0x0121` | `xxxmmmmm` | [(t) delay mix](ns3-doc.md#delay-mix)
 | `0x0122` | `mmwwwwww` | [(w) delay mix morph wheel](ns3-doc.md#delay-mix)
 | `0x0123` | `wwaaaaaa` | [(a) delay mix morph after touch](ns3-doc.md#delay-mix)
 | `0x0124` | `aapppppp` | [(p) delay mix morph control pedal](ns3-doc.md#delay-mix)
-| `0x0125` | `ppoffbbb` | [(o) delay ping ping](ns3-doc.md#delay-ping-pong), [(f) delay filter](ns3-doc.md#delay-filter), [(b) delay feedback](ns3-doc.md#delay-feedback)
+| `0x0125` | `ppoffbbb` | [(o) delay ping pong](ns3-doc.md#delay-ping-pong), [(f) delay filter](ns3-doc.md#delay-filter), [(b) delay feedback](ns3-doc.md#delay-feedback)
 | `0x0126` | `bbbbwwww` | [(w) delay feedback morph wheel](ns3-doc.md#delay-feedback)
 | `0x0127` | `wwwwaaaa` | [(a) delay feedback morph after touch](ns3-doc.md#delay-feedback)
 | `0x0128` | `aaaapppp` | [(p) delay feedback morph control pedal](ns3-doc.md#delay-feedback)

@@ -1746,6 +1746,19 @@ exports.reverbTypeMap = new Map([
     [5, "Hall 2"],
 ]);
 
+
+
+/***
+ * Delay Filter Type
+ * @type {Map<number, string>}
+ */
+exports.delayFilterMap = new Map([
+    [0, "Bypass"],
+    [1, "LP"],
+    [2, "HP"],
+    [3, "BP"],
+]);
+
 /***
  * Delay Tempo
  * @type {Map<number, string>}

@@ -46,6 +46,15 @@
 <dt><a href="#module_Delay Master Clock">Delay Master Clock</a></dt>
 <dd><p>Offset in file: 0x119 (b0)</p>
 </dd>
+<dt><a href="#module_Delay Tempo">Delay Tempo</a></dt>
+<dd><p>Offset in file: 0x11A (b7-1)</p>
+</dd>
+<dt><a href="#module_Delay Ping Pong">Delay Ping Pong</a></dt>
+<dd><p>Offset in file: 0x125 (b5)</p>
+</dd>
+<dt><a href="#module_Delay Filter">Delay Filter</a></dt>
+<dd><p>Offset in file: 0x125 (b4-3)</p>
+</dd>
 <dt><a href="#module_Effect 1 On">Effect 1 On</a></dt>
 <dd><p>Offset in file: 0x10B (b4)</p>
 </dd>
@@ -490,6 +499,46 @@ Offset in file: 0x119 (b0)
 **Example**  
 ```js
 O = off, 1 = on 
+```
+<a name="module_Delay Tempo"></a>
+
+## Delay Tempo
+Offset in file: 0x11A (b7-1)
+
+**Example**  
+```js
+7-bit value 0/127 = 1.5 s to 20 msif 'Delay Master Clock' is enabled 7-bit value 0/127 = 1/2 to 1/64
+         // * Morph Wheel:
+         // * 0x10D (b6): polarity (1 = positive, 0 = negative)
+         // * 0x10D (b5-b0) and 0x10E (b7): 7-bit raw value
+         // *
+         // * Morph After Touch:
+         // * 0x10E (b6): polarity (1 = positive, 0 = negative)
+         // * 0x10E (b5-b0) and 0x10F (b7): 7-bit raw value
+         // *
+         // * Morph Control Pedal:
+         // * 0x10F (b6): polarity (1 = positive, 0 = negative)
+         // * 0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
+         // *
+         // * @see [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.
+```
+<a name="module_Delay Ping Pong"></a>
+
+## Delay Ping Pong
+Offset in file: 0x125 (b5)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_Delay Filter"></a>
+
+## Delay Filter
+Offset in file: 0x125 (b4-3)
+
+**Example**  
+```js
+#include delayFilterMap 
 ```
 <a name="module_Effect 1 On"></a>
 

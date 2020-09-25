@@ -2,7 +2,6 @@ const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
 const { getMorph } = require("./ns3-morph");
 
-
 /***
  * returns Delay
  *
@@ -13,16 +12,18 @@ const { getMorph } = require("./ns3-morph");
 exports.getDelay = (buffer, panelOffset) => {
     const delayOffset119 = buffer.readUInt8(0x119 + panelOffset);
     const delayOffset11a = buffer.readUInt8(0x11a + panelOffset);
-    const effectOffset10cW = buffer.readUInt16BE(0x10c + panelOffset);
-    const effectOffset10dWw = buffer.readUInt32BE(0x10d + panelOffset);
-    const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
-    const effectOffset110Ww = buffer.readUInt32BE(0x110 + panelOffset);
+    const delayOffset11aWw = buffer.readUInt32BE(0x11a + panelOffset);
+    const delayOffset121W = buffer.readUInt16BE(0x121 + panelOffset);
+    const delayOffset122dWw = buffer.readUInt32BE(0x122 + panelOffset);
+    const delayOffset125 = buffer.readUInt8(0x125 + panelOffset);
+    const delayOffset125W = buffer.readUInt16BE(0x125 + panelOffset);
+    const delayOffset126dWw = buffer.readUInt32BE(0x126 + panelOffset);
+    const delayOffset129 = buffer.readUInt8(0x129 + panelOffset);
 
-
-    const effect1FeedbackMidi = effectOffset110 & 0x7f;
     const delayTempoMidi = (delayOffset11a & 0xfe) >>> 1;
-
     const delayMasterClock = (delayOffset119 & 0x01) !== 0;
+    const delayFeedbackMidi = (delayOffset125W & 0x07f0) >>> 4;
+    const delayMixMidi = (delayOffset121W & 0x1fc0) >>> 6;
 
     return {
         /**
@@ -91,7 +92,7 @@ exports.getDelay = (buffer, panelOffset) => {
                 : mapping.delayTempoMap.get(delayTempoMidi),
 
             morph: getMorph(
-                effectOffset10dWw >>> 7,
+                delayOffset11aWw >>> 1,
                 delayTempoMidi,
                 (x) => {
                     return delayMasterClock
@@ -103,44 +104,113 @@ exports.getDelay = (buffer, panelOffset) => {
         },
 
         /**
-         * Offset in file: 0x110 (b6-0)
+         *  Offset in file: 0x125 (b5)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         *  @module Delay Ping Pong
+         */
+        pingPong: {
+            enabled: (delayOffset125 & 0x20) !== 0,
+        },
+
+        /**
+         *  Offset in file: 0x125 (b4-3)
+         *
+         * @example
+         * #include delayFilterMap
+         *
+         *  @module Delay Filter
+         */
+        filter: {
+            value: mapping.delayFilterMap.get((delayOffset125 & 0x18) >>> 3),
+        },
+
+        /**
+         *  Offset in file: 0x129 (b3)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         *  @module Delay Analog Mode
+         */
+        analogMode: {
+            enabled: (delayOffset129 & 0x08) !== 0,
+        },
+
+        /**
+         * Offset in file: 0x125 (b2-0) and 0x126 (b7-4)
          *
          * @example
          * 7-bit value 0/127 = 0/10
          *
          * Morph Wheel:
-         * 0x111 (b7): polarity (1 = positive, 0 = negative)
-         * 0x111 (b6-b0): 7-bit raw value
+         * 0x126 (b3): polarity (1 = positive, 0 = negative)
+         * 0x126 (b2-b0) and 0x127 (b7-4): 7-bit raw value
          *
          * Morph After Touch:
-         * 0x112 (b7): polarity (1 = positive, 0 = negative)
-         * 0x112 (b6-b0): 7-bit raw value
+         * 0x127 (b3): polarity (1 = positive, 0 = negative)
+         * 0x127 (b2-b0) and 0x128 (b7-4): 7-bit raw value
          *
          * Morph Control Pedal:
-         * 0x113 (b7): polarity (1 = positive, 0 = negative)
-         * 0x113 (b6-b0): 7-bit raw value
+         * 0x128 (b3): polarity (1 = positive, 0 = negative)
+         * 0x128 (b2-b0) and 0x129 (b7-4): 7-bit raw value
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Effect 1 Amount
+         * @module Delay Feedback
          */
-        // amount: {
-        //     midi: effect1FeedbackMidi,
-        //
-        //     value: converter.midi2LinearStringValue(0, 10, effect1FeedbackMidi, 1, ""),
-        //
-        //     morph: getMorph(
-        //         effectOffset110Ww,
-        //         effect1FeedbackMidi,
-        //         (x) => {
-        //             return converter.midi2LinearStringValue(0, 10, x, 1, "");
-        //         },
-        //         false
-        //     ),
-        // },
+        feedback: {
+            midi: delayFeedbackMidi,
 
+            value: converter.midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
 
+            morph: getMorph(
+                delayOffset126dWw >>> 4,
+                delayFeedbackMidi,
+                (x) => {
+                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                },
+                false
+            ),
+        },
 
+        /**
+         * Offset in file: 0x121 (b4-0) and 0x122 (b7-6)
+         *
+         * @example
+         * 7-bit value 0/127 = 0/10
+         *
+         * Morph Wheel:
+         * 0x122 (b5): polarity (1 = positive, 0 = negative)
+         * 0x122 (b4-b0) and 0x123 (b7-6): 7-bit raw value
+         *
+         * Morph After Touch:
+         * 0x123 (b5): polarity (1 = positive, 0 = negative)
+         * 0x123 (b4-b0) and 0x124 (b7-6): 7-bit raw value
+         *
+         * Morph Control Pedal:
+         * 0x124 (b5): polarity (1 = positive, 0 = negative)
+         * 0x124 (b4-b0) and 0x125 (b7-6): 7-bit raw value
+         *
+         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         *
+         * @module Delay Mix
+         */
+        mix: {
+            midi: delayMixMidi,
 
+            value: converter.midi2LinearStringValue(0, 10, delayMixMidi, 1, ""),
+
+            morph: getMorph(
+                delayOffset122dWw >>> 6,
+                delayMixMidi,
+                (x) => {
+                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                },
+                false
+            ),
+        },
     };
 };
