@@ -5,6 +5,7 @@ import Ns3FxMulti1 from "./ns3-fx-multi-1";
 import Ns3FxMulti2 from "./ns3-fx-multi-2";
 import Ns3FxRotarySpeaker from "./ns3-fx-rotary-speaker";
 import Ns3SectionSynthArp from "./ns3-section-synth-arp";
+import Ns3FxDelay from "./ns3-fx-delay";
 
 export default class Ns3Fx extends Component {
     render() {
@@ -35,11 +36,7 @@ export default class Ns3Fx extends Component {
 
                         <Ns3FxMulti2 className="ns3-section-fx" data={data.effect2} source={this.props.source} />
 
-                        {/*<Ns3FxDelay*/}
-                        {/*    className="col-auto nord-option-on ns3-section-fx"*/}
-                        {/*    data={data.delay}*/}
-                        {/*    source={this.props.source}*/}
-                        {/*/>*/}
+                        <Ns3FxDelay className="ns3-section-fx" data={data.delay} source={this.props.source} />
 
                         {/*<Ns3FxSimAmpEq*/}
                         {/*    className="col-auto nord-option-on ns3-section-fx"*/}

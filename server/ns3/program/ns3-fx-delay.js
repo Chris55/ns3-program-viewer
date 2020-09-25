@@ -11,8 +11,8 @@ const { getMorph } = require("./ns3-morph");
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
 exports.getDelay = (buffer, panelOffset) => {
-    const effectOffset119 = buffer.readUInt8(0x119 + panelOffset);
-    const effectOffset11a = buffer.readUInt8(0x11a + panelOffset);
+    const delayOffset119 = buffer.readUInt8(0x119 + panelOffset);
+    const delayOffset11a = buffer.readUInt8(0x11a + panelOffset);
     const effectOffset10cW = buffer.readUInt16BE(0x10c + panelOffset);
     const effectOffset10dWw = buffer.readUInt32BE(0x10d + panelOffset);
     const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
@@ -20,9 +20,9 @@ exports.getDelay = (buffer, panelOffset) => {
 
 
     const effect1FeedbackMidi = effectOffset110 & 0x7f;
-    const effect1TempoMidi = (effectOffset11a & 0xfe) >>> 1;
+    const delayTempoMidi = (delayOffset11a & 0xfe) >>> 1;
 
-    const delayMasterClock = (effectOffset119 & 0x01) !== 0;
+    const delayMasterClock = (delayOffset119 & 0x01) !== 0;
 
     return {
         /**
@@ -33,7 +33,7 @@ exports.getDelay = (buffer, panelOffset) => {
          *
          *  @module Delay On
          */
-        enabled: (effectOffset119 & 0x08) !== 0,
+        enabled: (delayOffset119 & 0x08) !== 0,
 
         /**
          * Offset in file: 0x119 (b2-1)
@@ -44,7 +44,7 @@ exports.getDelay = (buffer, panelOffset) => {
          *  @module Delay Source
          */
         source: {
-            value: mapping.effectSourceMap.get((effectOffset119 & 0x06) >>> 1),
+            value: mapping.effectSourceMap.get((delayOffset119 & 0x06) >>> 1),
         },
 
         /**
@@ -60,47 +60,47 @@ exports.getDelay = (buffer, panelOffset) => {
         },
 
         /**
-         * Offset in file: 0x10C (b5-0) and 0x10D (b7)
+         * Offset in file: 0x11A (b7-1)
          *
          * @example
-         * 7-bit value 0/127 = 0/10
+         * 7-bit value 0/127 = 1.5 s to 20 ms
          *
-         * if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32
+         * if 'Delay Master Clock' is enabled 7-bit value 0/127 = 1/2 to 1/64
          *
-         * Morph Wheel:
-         * 0x10D (b6): polarity (1 = positive, 0 = negative)
-         * 0x10D (b5-b0) and 0x10E (b7): 7-bit raw value
+         // * Morph Wheel:
+         // * 0x10D (b6): polarity (1 = positive, 0 = negative)
+         // * 0x10D (b5-b0) and 0x10E (b7): 7-bit raw value
+         // *
+         // * Morph After Touch:
+         // * 0x10E (b6): polarity (1 = positive, 0 = negative)
+         // * 0x10E (b5-b0) and 0x10F (b7): 7-bit raw value
+         // *
+         // * Morph Control Pedal:
+         // * 0x10F (b6): polarity (1 = positive, 0 = negative)
+         // * 0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
+         // *
+         // * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * Morph After Touch:
-         * 0x10E (b6): polarity (1 = positive, 0 = negative)
-         * 0x10E (b5-b0) and 0x10F (b7): 7-bit raw value
-         *
-         * Morph Control Pedal:
-         * 0x10F (b6): polarity (1 = positive, 0 = negative)
-         * 0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
-         *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
-         *
-         * @module Effect 1 Rate
+         * @module Delay Tempo
          */
-        // tempo: {
-        //     midi: effect1TempoMidi,
-        //
-        //     value: delayMasterClock
-        //         ? mapping.effect1MasterClockDivisionMap.get(effect1TempoMidi)
-        //         : converter.midi2LinearStringValue(0, 10, effect1TempoMidi, 1, ""),
-        //
-        //     morph: getMorph(
-        //         effectOffset10dWw >>> 7,
-        //         effect1TempoMidi,
-        //         (x) => {
-        //             return effect1MasterClockUsed
-        //                 ? mapping.effect1MasterClockDivisionMap.get(x)
-        //                 : converter.midi2LinearStringValue(0, 10, x, 1, "");
-        //         },
-        //         false
-        //     ),
-        // },
+        tempo: {
+            midi: delayTempoMidi,
+
+            value: delayMasterClock
+                ? mapping.delayTempoMasterClockDivisionMap.get(delayTempoMidi)
+                : mapping.delayTempoMap.get(delayTempoMidi),
+
+            morph: getMorph(
+                effectOffset10dWw >>> 7,
+                delayTempoMidi,
+                (x) => {
+                    return delayMasterClock
+                        ? mapping.delayTempoMasterClockDivisionMap.get(x)
+                        : mapping.delayTempoMap.get(x);
+                },
+                false
+            ),
+        },
 
         /**
          * Offset in file: 0x110 (b6-0)
