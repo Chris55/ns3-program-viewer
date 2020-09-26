@@ -1572,4 +1572,30 @@ exports.ns3SampleLibrary = new Map([
     [0x1cb7ec85, {name: "PowerSynths Venus Bass BR", info: "", version: "3.0", category: "Misc"}],
     [0xe67e3690, {name: "PowerSynths Warmest Plucks BR", info: "", version: "3.0", category: "Misc"}],
 
+    // Nord Sample Archive Roland JX-3P
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/roland-jx-3p
+
+    [0xe2c4887e, {name: "JX-3P Brass 1 PH", info: "", version: "3.0", category: "Misc"}],
+    [0x90c26015, {name: "JX-3P Brass 2 PH", info: "", version: "3.0", category: "Misc"}],
+    [0x979a496e, {name: "JX-3P Fair and Square PH", info: "", version: "3.0", category: "Misc"}],
+    [0x31ebb039, {name: "JX-3P Fat Fifth", info: "ste PH", version: "3.0", category: "Misc"}],
+    [0xf516c69b, {name: "JX-3P Fat Fifth PH", info: "", version: "3.0", category: "Misc"}],
+    [0xd708ef5b, {name: "JX-3P Filter Flow PH", info: "", version: "3.0", category: "Misc"}],
+    [0xab4daed, {name: "JX-3P High Five PH", info: "", version: "3.0", category: "Misc"}],
+    [0xa2217b96, {name: "JX-3P I Saw The Light PH", info: "", version: "3.0", category: "Misc"}],
+    [0x85a5156e, {name: "JX-3P Juicy Funk PH", info: "", version: "3.0", category: "Misc"}],
+    [0xb1b99cf, {name: "JX-3P NotePad PH", info: "", version: "3.0", category: "Misc"}],
+    [0x8b5ff278, {name: "JX-3P Organ 1", info: "ste PH", version: "3.0", category: "Misc"}],
+    [0x509eff78, {name: "JX-3P Organ 1 PH", info: "", version: "3.0", category: "Misc"}],
+    [0xa396d991, {name: "JX-3P Paddington PH", info: "", version: "3.0", category: "Misc"}],
+    [0x294020fe, {name: "JX-3P Robot Rock PH", info: "", version: "3.0", category: "Misc"}],
+    [0x2955ba7e, {name: "JX-3P Silkworm PH", info: "", version: "3.0", category: "Misc"}],
+    [0xc907f45f, {name: "JX-3P String 1", info: "ste PH", version: "3.0", category: "Misc"}],
+    [0x860cd6bc, {name: "JX-3P String 1 PH", info: "", version: "3.0", category: "Misc"}],
+    [0x1b7bf9fe, {name: "JX-3P String 2", info: "ste PH", version: "3.0", category: "Misc"}],
+    [0xcf5a13b8, {name: "JX-3P String 2 PH", info: "", version: "3.0", category: "Misc"}],
+    [0xab8d713c, {name: "JX-3P Synth Brass 1", info: "ste PH", version: "3.0", category: "Misc"}],
+    [0xc0b03aab, {name: "JX-3P Synth Brass 1 PH", info: "", version: "3.0", category: "Misc"}],
+    [0x946b605b, {name: "JX-3P Synth Brass 2 PH", info: "", version: "3.0", category: "Misc"}],
+
 ]);
