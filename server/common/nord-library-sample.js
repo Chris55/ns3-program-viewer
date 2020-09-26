@@ -1417,4 +1417,46 @@ exports.ns3SampleLibrary = new Map([
     [0x11c19f14, {name: "SymphStr XSoft Amb", info: "Project SAM", version: "3.0", category: "Ens Strings"}],
     [0xf50e3f23, {name: "SymphStr XSoft Cls", info: "Project SAM", version: "3.0", category: "Ens Strings"}],
 
+
+    // Nord Sample Archive Oberheim Matrix-12
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/oberheim-matrix-12
+
+    [0xf6a6940d, {name: "M12 2001Choir BR", info: "", version: "3.0", category: "Misc"}],
+    [0x284e1706, {name: "M12 Bamboo BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc1fda531, {name: "M12 BassnLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x84ab8528, {name: "M12 BigSyn BR", info: "", version: "3.0", category: "Misc"}],
+    [0x642d1b0f, {name: "M12 BowedVio BR", info: "", version: "3.0", category: "Misc"}],
+    [0x50624b51, {name: "M12 Brass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x25c862e1, {name: "M12 Delayer BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1594c448, {name: "M12 Ensemble BR", info: "", version: "3.0", category: "Misc"}],
+    [0xa0ff5bbc, {name: "M12 FatIntro BR", info: "", version: "3.0", category: "Misc"}],
+    [0x3f90388c, {name: "M12 Geneviv BR", info: "", version: "3.0", category: "Misc"}],
+    [0x8156c6ff, {name: "M12 HornEns BR", info: "", version: "3.0", category: "Misc"}],
+    [0x72e1426c, {name: "M12 Interval1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x8d381611, {name: "M12 PaPano BR", info: "", version: "3.0", category: "Misc"}],
+    [0xf0db20e0, {name: "M12 Resonator BR", info: "", version: "3.0", category: "Misc"}],
+    [0xdf6c8784, {name: "M12 SoftPad BR", info: "", version: "3.0", category: "Misc"}],
+    [0xff2e4117, {name: "M12 Synro BR", info: "", version: "3.0", category: "Misc"}],
+    [0xca567b55, {name: "M12 UnisonStack BR", info: "", version: "3.0", category: "Misc"}],
+    [0xd5f1adad, {name: "M12 VioGuit1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x26c5979e, {name: "M12 WhaPad BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Oberheim OB-8
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/oberheim-ob-8
+
+    [0x365c8521, {name: "OB8 Bass PWM BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc477fc0e, {name: "OB8 Bass soft BR", info: "", version: "3.0", category: "Misc"}],
+    [0xac2544f4, {name: "OB8 Bass Square BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1ebf695d, {name: "OB8 Bass Triangle BR", info: "", version: "3.0", category: "Misc"}],
+    [0x8c2234a5, {name: "OB8 Interval", info: "ste BR", version: "3.0", category: "Misc"}],
+    [0xb6b0451b, {name: "OB8 Lead Fat BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5a7f2fc2, {name: "OB8 Lead PWM", info: "ste BR", version: "3.0", category: "Misc"}],
+    [0x845e099b, {name: "OB8 Lead Saw 2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x107d37df, {name: "OB8 Lead Saw BR", info: "", version: "3.0", category: "Misc"}],
+    [0xd7dcbebb, {name: "OB8 Lead Square BR", info: "", version: "3.0", category: "Misc"}],
+    [0x657109a5, {name: "OB8 Lead Standard BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5c4a8866, {name: "OB8 Lead Sync 2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x8ca02a93, {name: "OB8 Lead Sync BR", info: "", version: "3.0", category: "Misc"}],
+    [0x150ee116, {name: "OB8 Percussive 2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xd61e3435, {name: "OB8 Percussive BR", info: "", version: "3.0", category: "Misc"}],
 ]);
