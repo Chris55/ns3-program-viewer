@@ -47,13 +47,22 @@
 <dd><p>Offset in file: 0x119 (b0)</p>
 </dd>
 <dt><a href="#module_Delay Tempo">Delay Tempo</a></dt>
-<dd><p>Offset in file: 0x11A (b7-1)</p>
+<dd><p>Offset in file:</p>
 </dd>
 <dt><a href="#module_Delay Ping Pong">Delay Ping Pong</a></dt>
 <dd><p>Offset in file: 0x125 (b5)</p>
 </dd>
 <dt><a href="#module_Delay Filter">Delay Filter</a></dt>
 <dd><p>Offset in file: 0x125 (b4-3)</p>
+</dd>
+<dt><a href="#module_Delay Analog Mode">Delay Analog Mode</a></dt>
+<dd><p>Offset in file: 0x129 (b3)</p>
+</dd>
+<dt><a href="#module_Delay Feedback">Delay Feedback</a></dt>
+<dd><p>Offset in file: 0x125 (b2-0) and 0x126 (b7-4)</p>
+</dd>
+<dt><a href="#module_Delay Mix">Delay Mix</a></dt>
+<dd><p>Offset in file: 0x121 (b4-0) and 0x122 (b7-6)</p>
 </dd>
 <dt><a href="#module_Effect 1 On">Effect 1 On</a></dt>
 <dd><p>Offset in file: 0x10B (b4)</p>
@@ -503,24 +512,11 @@ O = off, 1 = on
 <a name="module_Delay Tempo"></a>
 
 ## Delay Tempo
-Offset in file: 0x11A (b7-1)
+Offset in file:
 
 **Example**  
 ```js
-7-bit value 0/127 = 1.5 s to 20 msif 'Delay Master Clock' is enabled 7-bit value 0/127 = 1/2 to 1/64
-         // * Morph Wheel:
-         // * 0x10D (b6): polarity (1 = positive, 0 = negative)
-         // * 0x10D (b5-b0) and 0x10E (b7): 7-bit raw value
-         // *
-         // * Morph After Touch:
-         // * 0x10E (b6): polarity (1 = positive, 0 = negative)
-         // * 0x10E (b5-b0) and 0x10F (b7): 7-bit raw value
-         // *
-         // * Morph Control Pedal:
-         // * 0x10F (b6): polarity (1 = positive, 0 = negative)
-         // * 0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
-         // *
-         // * @see [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.
+tempo is using 14-bitMSW 0x11A (b7-1): 7-bit value0/127 = 1.5 s to 20 ms (same as MIDI #CC 94)LSW 0x11A (b0) and 0x11B (b7-2): 7-bit valueLSW used for more accurate tempo value (only used with Tag Tempo)When Tempo knob is used, LSW is 0, possible MSW value:#include delayTempoMapNote: When Tap Tempo is used, LSW is different from 0.Value is interpolated from the main MSW values.if 'Delay Master Clock' is enabled 7-bit value 0/127 = 1/2 to 1/64#include delayTempoMasterClockDivisionMapMorph Wheel:0x11B (b1): polarity (1 = positive, 0 = negative)0x11B (b0), 0x11C (b7-0), and 0x11D (b7-3): 14-bit raw valueMorph After Touch:0x11D (b2): polarity (1 = positive, 0 = negative)0x11D (b1-0), 0x11E (b7-0), and 0x11F (b7-4): 14-bit raw valueMorph Control Pedal:0x11F (b3): polarity (1 = positive, 0 = negative)0x11F (b2-0), 0x120 (b7-0), and 0x121 (b7-5): 14-bit raw valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 16383Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 ```
 <a name="module_Delay Ping Pong"></a>
 
@@ -539,6 +535,35 @@ Offset in file: 0x125 (b4-3)
 **Example**  
 ```js
 #include delayFilterMap 
+```
+<a name="module_Delay Analog Mode"></a>
+
+## Delay Analog Mode
+Offset in file: 0x129 (b3)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_Delay Feedback"></a>
+
+## Delay Feedback
+Offset in file: 0x125 (b2-0) and 0x126 (b7-4)
+
+**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**Example**  
+```js
+7-bit value 0/127 = 0/10Morph Wheel:0x126 (b3): polarity (1 = positive, 0 = negative)0x126 (b2-b0) and 0x127 (b7-4): 7-bit raw valueMorph After Touch:0x127 (b3): polarity (1 = positive, 0 = negative)0x127 (b2-b0) and 0x128 (b7-4): 7-bit raw valueMorph Control Pedal:0x128 (b3): polarity (1 = positive, 0 = negative)0x128 (b2-b0) and 0x129 (b7-4): 7-bit raw value
+```
+<a name="module_Delay Mix"></a>
+
+## Delay Mix
+Offset in file: 0x121 (b4-0) and 0x122 (b7-6)
+
+**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**Example**  
+```js
+7-bit value 0/127 = 0/10Morph Wheel:0x122 (b5): polarity (1 = positive, 0 = negative)0x122 (b4-b0) and 0x123 (b7-6): 7-bit raw valueMorph After Touch:0x123 (b5): polarity (1 = positive, 0 = negative)0x123 (b4-b0) and 0x124 (b7-6): 7-bit raw valueMorph Control Pedal:0x124 (b5): polarity (1 = positive, 0 = negative)0x124 (b4-b0) and 0x125 (b7-6): 7-bit raw value
 ```
 <a name="module_Effect 1 On"></a>
 
