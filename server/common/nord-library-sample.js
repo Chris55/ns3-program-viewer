@@ -1479,5 +1479,58 @@ exports.ns3SampleLibrary = new Map([
     [0x5dd00fc7, {name: "Orchest Sax BR", info: "", version: "3.0", category: "Misc"}],
     [0x7d28dd9e, {name: "Orchest Violin BR", info: "", version: "3.0", category: "Misc"}],
 
+    // Nord Sample Archive PH Synth Brass
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/ph-synth-brass
+
+    [0x646f1080, {name: "Five-Trumpets", info: "PH", version: "3.0", category: "Misc"}],
+    [0xa0813d11, {name: "HornSaw", info: "PH", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive PH Synth Strings
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/ph-synth-strings
+
+    [0xed91fcb9, {name: "CreamPad", info: "PH", version: "3.0", category: "Misc"}],
+    [0x6ec608da, {name: "Fatstring", info: "PH", version: "3.0", category: "Misc"}],
+    [0xd53bb3ec, {name: "Hugepad", info: "PH", version: "3.0", category: "Misc"}],
+    [0x5f466802, {name: "Pad1", info: "PH", version: "3.0", category: "Misc"}],
+    [0xebe1dd39, {name: "Pad2", info: "PH", version: "3.0", category: "Misc"}],
+    [0xa253909c, {name: "Sadstrings", info: "PH", version: "3.0", category: "Misc"}],
+    [0xdb4ef613, {name: "Sxpad", info: "PH", version: "3.0", category: "Misc"}],
+    [0x9c9e5da7, {name: "Synthstring", info: "PH", version: "3.0", category: "Misc"}],
+    [0xac0ac95, {name: "Warmpad", info: "PH", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive PH Synth Misc
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/ph-synths-misc
+
+    [0x21d71f17, {name: "Analogpizza", info: "PH", version: "3.0", category: "Misc"}],
+    [0x4481f077, {name: "Anothersaw", info: "PH", version: "3.0", category: "Misc"}],
+    [0xde768051, {name: "BellStack", info: "PH", version: "3.0", category: "Misc"}],
+    [0x8711524c, {name: "Bjeow", info: "PH", version: "3.0", category: "Misc"}],
+    [0xb11717bb, {name: "Bwoaowww", info: "PH", version: "3.0", category: "Misc"}],
+    [0x87b80887, {name: "Cherryblossom", info: "PH", version: "3.0", category: "Misc"}],
+    [0x6144acf3, {name: "CherryBlossomGirl", info: "PH", version: "3.0", category: "Misc"}],
+    [0xb5a9a161, {name: "Das Model", info: "PH", version: "3.0", category: "Misc"}],
+    [0x6dba087c, {name: "Deepsync", info: "PH", version: "3.0", category: "Misc"}],
+    [0x4a775d5f, {name: "Dreamkeys", info: "PH", version: "3.0", category: "Misc"}],
+    [0x542a7cce, {name: "Eurosaw", info: "PH", version: "3.0", category: "Misc"}],
+    [0x888b9e22, {name: "Floyd", info: "PH", version: "3.0", category: "Misc"}],
+    [0xc196a4fd, {name: "Hallonpuls", info: "PH", version: "3.0", category: "Misc"}],
+    [0x61c1001a, {name: "HallonSaw", info: "PH", version: "3.0", category: "Misc"}],
+    [0x54d83a79, {name: "OB8lite", info: "PH", version: "3.0", category: "Misc"}],
+    [0x4b952aca, {name: "Phantoms", info: "PH", version: "3.0", category: "Misc"}],
+    [0x194fe579, {name: "Poly800", info: "PH", version: "3.0", category: "Misc"}],
+    [0xf8cf641b, {name: "Pulse basic", info: "PH", version: "3.0", category: "Misc"}],
+    [0x501a2641, {name: "Resolead", info: "PH", version: "3.0", category: "Misc"}],
+    [0xd7bc5b5b, {name: "Reverber", info: "PH", version: "3.0", category: "Misc"}],
+    [0x1613c701, {name: "Saw basic", info: "PH", version: "3.0", category: "Misc"}],
+    [0xe9a3728e, {name: "SawSoft", info: "PH", version: "3.0", category: "Misc"}],
+    [0x297afc9f, {name: "Sineattack", info: "PH", version: "3.0", category: "Misc"}],
+    [0x57346e90, {name: "SineMountain", info: "PH", version: "3.0", category: "Misc"}],
+    [0x84d05ab0, {name: "Sinepinch", info: "PH", version: "3.0", category: "Misc"}],
+    [0x45f3a1cd, {name: "Sixth sense", info: "PH", version: "3.0", category: "Misc"}],
+    [0xd7021bbe, {name: "SlowSweep", info: "PH", version: "3.0", category: "Misc"}],
+    [0xf20e45b3, {name: "Softhorn", info: "PH", version: "3.0", category: "Misc"}],
+    [0x688d1d72, {name: "Trianglevib", info: "PH", version: "3.0", category: "Misc"}],
+    [0xa4c6772a, {name: "Ultrasaw", info: "PH", version: "3.0", category: "Misc"}],
+
 
 ]);
