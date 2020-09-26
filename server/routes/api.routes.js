@@ -36,8 +36,13 @@ router.post("/upload", upload.single("nordFile"), async (req, res, next) => {
     console.log(req.file.path);
 
     const buffer = await fs.readFile(req.file.path).catch(next);
-    // heroku free dyno restart every 24h and cleanup everything
-    // await fs.unlink(req.file.path).catch(next);
+
+    if (process.env.NODE_ENV !== "production") {
+        // in dev cleanup all files
+        // in prod: no cleanup required heroku free dyno restart every 24h and cleanup everything
+        // this allows to monitor in /media the last 24h site usage
+        await fs.unlink(req.file.path).catch(next);
+    }
 
     try {
 

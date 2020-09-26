@@ -1,5 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
+const {getMorph14Bits} = require("./ns3-morph");
 const { getMorph } = require("./ns3-morph");
 
 /***
@@ -11,8 +12,7 @@ const { getMorph } = require("./ns3-morph");
  */
 exports.getDelay = (buffer, panelOffset) => {
     const delayOffset119 = buffer.readUInt8(0x119 + panelOffset);
-    const delayOffset11a = buffer.readUInt8(0x11a + panelOffset);
-    const delayOffset11aWw = buffer.readUInt32BE(0x11a + panelOffset);
+    const delayOffset11aW = buffer.readUInt16BE(0x11a + panelOffset);
     const delayOffset121W = buffer.readUInt16BE(0x121 + panelOffset);
     const delayOffset122dWw = buffer.readUInt32BE(0x122 + panelOffset);
     const delayOffset125 = buffer.readUInt8(0x125 + panelOffset);
@@ -20,7 +20,9 @@ exports.getDelay = (buffer, panelOffset) => {
     const delayOffset126dWw = buffer.readUInt32BE(0x126 + panelOffset);
     const delayOffset129 = buffer.readUInt8(0x129 + panelOffset);
 
-    const delayTempoMidi = (delayOffset11a & 0xfe) >>> 1;
+    const delayTempoMswMidi = (delayOffset11aW & 0xfe00) >>> 9;
+    const delayTempoLswMidi = (delayOffset11aW & 0x01fc) >>> 2;
+
     const delayMasterClock = (delayOffset119 & 0x01) !== 0;
     const delayFeedbackMidi = (delayOffset125W & 0x07f0) >>> 4;
     const delayMixMidi = (delayOffset121W & 0x1fc0) >>> 6;
@@ -61,12 +63,19 @@ exports.getDelay = (buffer, panelOffset) => {
         },
 
         /**
-         * Offset in file: 0x11A (b7-1)
+         * Offset in file:
+         *
+         * tempo is using 14-bit
+         *
+         * MSW 0x11A (b7-1): 7-bit value 0/127 = 1.5 s to 20 ms (same as MIDI #CC 94)
+         * LSW 0x11A (b0) and 0x11B (b7-2): 7-bit value LSW used for more accurate tempo value when using Tag Tempo.
          *
          * @example
-         * 7-bit value 0/127 = 1.5 s to 20 ms
+         * Default MSW value:
+         * #include delayTempoMap
          *
          * if 'Delay Master Clock' is enabled 7-bit value 0/127 = 1/2 to 1/64
+         * #include delayTempoMasterClockDivisionMap
          *
          // * Morph Wheel:
          // * 0x10D (b6): polarity (1 = positive, 0 = negative)
@@ -85,15 +94,16 @@ exports.getDelay = (buffer, panelOffset) => {
          * @module Delay Tempo
          */
         tempo: {
-            midi: delayTempoMidi,
+            midi: delayTempoMswMidi,
+            lsw: delayTempoLswMidi,
 
             value: delayMasterClock
-                ? mapping.delayTempoMasterClockDivisionMap.get(delayTempoMidi)
-                : mapping.delayTempoMap.get(delayTempoMidi),
+                ? mapping.delayTempoMasterClockDivisionMap.get(delayTempoMswMidi)
+                : mapping.delayTempoMap.get(delayTempoMswMidi),
 
-            morph: getMorph(
-                delayOffset11aWw >>> 1,
-                delayTempoMidi,
+            morph: getMorph14Bits(
+                buffer,
+                0x11a + panelOffset,
                 (x) => {
                     return delayMasterClock
                         ? mapping.delayTempoMasterClockDivisionMap.get(x)
