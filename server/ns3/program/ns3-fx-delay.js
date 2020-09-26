@@ -161,7 +161,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * if polarity = 1 then Morph offset value = raw value + 1
          * if polarity = 0 then Morph offset value = raw value - 16383
          *
-         * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
+         * Final 'To' Morph value = 'From value (original tempo)' + 'Morph offset value'
          * Morph Enabled if  'From value' <> 'Morph offset value'
          *
          * @module Delay Tempo

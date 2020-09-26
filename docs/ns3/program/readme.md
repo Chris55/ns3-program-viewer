@@ -50,7 +50,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 | rev  | date         | description
 | :--- | :----------- | :--------------------------------------------------------------------------------
 | 0.1  | 23-Sep-2020  | Draft version
-| 0.2  | xx-xxx-2020  |
+| 0.2  | 26-Sep-2020  | Added Delay section
 \newpage
 
 
