@@ -1459,4 +1459,25 @@ exports.ns3SampleLibrary = new Map([
     [0x8ca02a93, {name: "OB8 Lead Sync BR", info: "", version: "3.0", category: "Misc"}],
     [0x150ee116, {name: "OB8 Percussive 2 BR", info: "", version: "3.0", category: "Misc"}],
     [0xd61e3435, {name: "OB8 Percussive BR", info: "", version: "3.0", category: "Misc"}],
+
+
+    // Nord Sample Archive Optigan & Orchestron
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/optigan-orchestron
+
+    [0xa0c6c0b1, {name: "Opt Banjo BR", info: "", version: "3.0", category: "Misc"}],
+    [0x9657fca7, {name: "Opt Choir BR", info: "", version: "3.0", category: "Misc"}],
+    [0x364e9e, {name: "Opt Guitar BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1e81ba40, {name: "Opt Organ Be3 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x86acd5d4, {name: "Opt Organ BR", info: "", version: "3.0", category: "Misc"}],
+    [0xf9230cc, {name: "Opt Strings BR", info: "", version: "3.0", category: "Misc"}],
+    [0x3a1e6041, {name: "Orchest Cello BR", info: "", version: "3.0", category: "Misc"}],
+    [0x30745156, {name: "Orchest Choir BR", info: "", version: "3.0", category: "Misc"}],
+    [0x65076941, {name: "Orchest Flute BR", info: "", version: "3.0", category: "Misc"}],
+    [0x60c44293, {name: "Orchest French Horn BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5ccecc01, {name: "Orchest Organ Hmd BR", info: "", version: "3.0", category: "Misc"}],
+    [0x73369030, {name: "Orchest Organ Pipe BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5dd00fc7, {name: "Orchest Sax BR", info: "", version: "3.0", category: "Misc"}],
+    [0x7d28dd9e, {name: "Orchest Violin BR", info: "", version: "3.0", category: "Misc"}],
+
+
 ]);
