@@ -1532,5 +1532,44 @@ exports.ns3SampleLibrary = new Map([
     [0x688d1d72, {name: "Trianglevib", info: "PH", version: "3.0", category: "Misc"}],
     [0xa4c6772a, {name: "Ultrasaw", info: "PH", version: "3.0", category: "Misc"}],
 
+    // Nord Sample Archive PPG Wave
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/ppg-wave
+
+    [0x49fc7f12, {name: "PPGWv Bellistic", info: "ste BR", version: "3.0", category: "Misc"}],
+    [0x65eb84d1, {name: "PPGWv BtTable BR", info: "", version: "3.0", category: "Misc"}],
+    [0x623b1105, {name: "PPGWv Choir BR", info: "", version: "3.0", category: "Misc"}],
+    [0xbe5337e2, {name: "PPGWv GlassyPad BR", info: "", version: "3.0", category: "Misc"}],
+    [0x29aeb50a, {name: "PPGWv HarshBass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x3ed11f40, {name: "PPGWv HollowDec BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb5f56031, {name: "PPGWv Hornbrass", info: "ste BR", version: "3.0", category: "Misc"}],
+    [0xadad7408, {name: "PPGWv NicePad BR", info: "", version: "3.0", category: "Misc"}],
+    [0x6e2d1937, {name: "PPGWv PitchaPad BR", info: "", version: "3.0", category: "Misc"}],
+    [0x8f8ba413, {name: "PPGWv ShortBass BR", info: "", version: "3.0", category: "Misc"}],
+    [0xdaf34c05, {name: "PPGWv SnapBass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x39cb567a, {name: "PPGWv SuperPoly", info: "ste BR", version: "3.0", category: "Misc"}],
+    [0xea766b20, {name: "PPGWv SynVibes BR", info: "", version: "3.0", category: "Misc"}],
+    [0x495b6b04, {name: "PPGWv WidePad", info: "ste BR", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Power Synths
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/power-synths
+
+    [0x20846791, {name: "PowerSynths Brachial Bass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x81e4fc9d, {name: "PowerSynths Brilliants BR", info: "", version: "3.0", category: "Misc"}],
+    [0x4207a012, {name: "PowerSynths Fantazee BR", info: "", version: "3.0", category: "Misc"}],
+    [0xfe023833, {name: "PowerSynths Film Strings Split B", info: "", version: "3.0", category: "Misc"}],
+    [0x2bb89d19, {name: "PowerSynths Fly High BR", info: "", version: "3.0", category: "Misc"}],
+    [0x2387388e, {name: "PowerSynths Hit Stack BR", info: "", version: "3.0", category: "Misc"}],
+    [0xa81228b7, {name: "PowerSynths Hyptronics BR", info: "", version: "3.0", category: "Misc"}],
+    [0x6fc95b48, {name: "PowerSynths Keyboard Hero BR", info: "", version: "3.0", category: "Misc"}],
+    [0x2cbce42a, {name: "PowerSynths Majestic Lead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x518f2303, {name: "PowerSynths Mighty Pad BR", info: "", version: "3.0", category: "Misc"}],
+    [0x32f8770b, {name: "PowerSynths Model Organ BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc5dca605, {name: "PowerSynths Modern EP Layer BR", info: "", version: "3.0", category: "Misc"}],
+    [0x2044d4ef, {name: "PowerSynths Modern Symphonics BR", info: "", version: "3.0", category: "Misc"}],
+    [0xcb82f94, {name: "PowerSynths Sweet Dreams Pad BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe2f13c5, {name: "PowerSynths Titanium Landing BR", info: "", version: "3.0", category: "Misc"}],
+    [0x24125b68, {name: "PowerSynths Ultra Mod BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1cb7ec85, {name: "PowerSynths Venus Bass BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe67e3690, {name: "PowerSynths Warmest Plucks BR", info: "", version: "3.0", category: "Misc"}],
 
 ]);
