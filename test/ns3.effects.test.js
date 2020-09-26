@@ -661,5 +661,69 @@ describe("/ns3/effects", () => {
         });
     });
 
+    test("panelB.effects.delay.analogMode.enabled eq true", async () => {
+        const file = "panelB.effects.delay.analogMode.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.effects.delay.enabled eq true", async () => {
+        const file = "panelB.effects.delay.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.effects.delay.feedback.value eq 7.2", async () => {
+        const file = "panelB.effects.delay.feedback.value eq 7.2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.effects.delay.filter.value eq LP", async () => {
+        const file = "panelB.effects.delay.filter.value eq LP.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.effects.delay.masterClock.enabled eq true", async () => {
+        const file = "panelB.effects.delay.masterClock.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.effects.delay.mix.value eq 1.2", async () => {
+        const file = "panelB.effects.delay.mix.value eq 1.2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.effects.delay.pingPong.enabled eq true", async () => {
+        const file = "panelB.effects.delay.pingPong.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.effects.delay.tempo.value eq 1@a8T", async () => {
+        const file = "panelB.effects.delay.tempo.value eq 1@a8T.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
 });
 

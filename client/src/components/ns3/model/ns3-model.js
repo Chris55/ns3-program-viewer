@@ -848,7 +848,7 @@ exports.ns3Model = {
                 },
                 tempo: {
                     midi: 87,
-                    value: "238 ms 126 bpm\u{2669}",
+                    value: "238 ms 126 bpm \u{266C}",
                     morph: {
                         wheel: {
                             enabled: false,

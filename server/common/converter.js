@@ -105,4 +105,17 @@ exports.getVersion = (buffer, offset) => {
     }
 }
 
+/***
+ * Simple linear interpolation
+ * @param x0 {Number}
+ * @param y0 {Number}
+ * @param x1 {Number}
+ * @param y1 {Number}
+ * @param x {Number}
+ * @returns {number}
+ */
+exports.getLinearInterpolation = (x0, y0, x1, y1, x) => {
+    return (y0 * (x1 - x) + y1 * (x - x0)) / (x1 - x0)
+}
+
 

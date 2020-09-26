@@ -10,7 +10,7 @@ export default class Ns3FxDelay extends Component {
     render() {
         const fx = this.props.data;
         const visible = fx.enabled && fx.source.value === this.props.source;
-
+        const tempoLabel = fx.tempo.lsw === 0 ? "Tempo" : "Tap Tempo";
         return (
             <React.Fragment>
                 <div className={visible ? "d-flex nord-on" : "d-none"}>
@@ -20,7 +20,11 @@ export default class Ns3FxDelay extends Component {
 
                             <table className="table-borderless">
                                 <tbody>
-                                    <Ns3LabelAndValueWithMorph label="Tempo" data={fx.tempo} upperCase={false} />
+                                    <Ns3LabelAndValueWithMorph
+                                        label={tempoLabel}
+                                        data={fx.tempo}
+                                        valueClass="nord-delay-tempo"
+                                        upperCase={false} />
                                     <tr>
                                         <td colSpan="3">
                                             <Ns3ValueOnOff label="Mst Clk" data={fx.masterClock} />

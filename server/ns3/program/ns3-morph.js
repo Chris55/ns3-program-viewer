@@ -95,7 +95,7 @@ exports.getMorph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
  * returns an array of morph settings
  *
  * @param buffer {Buffer}
- * @param offset {Number} panel A/B offset
+ * @param offset {Number} panel A/B offset, expected to start with fromValue on b7
  * @param labelCallBack callback method to render the value
  * @param forceDisabled optional used ont dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
@@ -147,7 +147,7 @@ exports.getMorph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
              */
             to: {
                 midi: result[0].midiTo,
-                value: result[0].enabled ? labelCallBack(result[0].midiTo) : "none",
+                value: result[0].enabled ? labelCallBack(result[0].midiTo, result[0].lsw) : "none",
             },
         },
 
@@ -165,7 +165,7 @@ exports.getMorph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
              */
             to: {
                 midi: result[1].midiTo,
-                value: result[1].enabled ? labelCallBack(result[1].midiTo) : "none",
+                value: result[1].enabled ? labelCallBack(result[1].midiTo, result[1].lsw) : "none",
             },
         },
 
@@ -183,7 +183,7 @@ exports.getMorph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
              */
             to: {
                 midi: result[2].midiTo,
-                value: result[2].enabled ? labelCallBack(result[2].midiTo) : "none",
+                value: result[2].enabled ? labelCallBack(result[2].midiTo, result[2].lsw) : "none",
             },
         },
     };

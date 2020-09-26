@@ -1,7 +1,70 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
-const {getMorph14Bits} = require("./ns3-morph");
+const { getLinearInterpolation } = require("../../common/converter");
+const { getMorph14Bits } = require("./ns3-morph");
 const { getMorph } = require("./ns3-morph");
+
+/***
+ * replace the note by unicode value
+ * @param value {string}
+ * @returns {string}
+ */
+const fixSignature = (value) => {
+    if (typeof value === 'string' || value instanceof String) {
+        value = value.replace("(1/4)", "\u{2669}");
+        value = value.replace("(1/8)", "\u{266A}");
+        //value = value.replace("(1/16)", "\u{266C}");
+    }
+    return value;
+};
+
+/***
+ * return the formatted tempo value
+ *
+ * @param masterClock {boolean}
+ * @param mswMidi {number}
+ * @param lswMidi {number}
+ * @returns {string|*}
+ */
+const getTempo = (masterClock, mswMidi, lswMidi) => {
+    // if master clock is used, get the tempo details from the dedicated map
+    if (masterClock) {
+        return mapping.delayTempoMasterClockDivisionMap.get(mswMidi);
+    }
+
+    // else use the default tempo mapping
+    const value = mapping.delayTempoMap.get(mswMidi);
+    if (!(value instanceof Array)) {
+        return "error";
+    }
+
+    // default case, value is from the knob (no LSW value is used)
+    if (lswMidi === 0 || mswMidi === 127) {
+        return value[1];
+    }
+
+    // special case (from tap tempo) LSW contains fine tempo adjustment
+    const y0 = mapping.delayTempoMap.get(mswMidi);
+    const y1 = mapping.delayTempoMap.get(mswMidi + 1);
+    if (!(y0 instanceof Array) || !(y1 instanceof Array)) {
+        return "error";
+    }
+
+    const fineMs = getLinearInterpolation(0, y0[0], 127, y1[0], lswMidi);
+    let bpm = (60 / fineMs) * 1000;
+    let signature = "(1/4)";
+    if (bpm > 160) {
+        bpm = bpm / 2;
+        signature = "(1/8)";
+        if (bpm > 160) {
+            bpm = bpm / 2;
+            signature = "(1/16)";
+        }
+    }
+    // "1.5 s 40 bpm (1/4)"]],
+    const fineMsString = fineMs >= 1000 ? (fineMs / 1000).toFixed(2) + "s" : Math.round(fineMs) + " ms";
+    return fineMsString + " " + Math.round(bpm) + " bpm " + signature;
+};
 
 /***
  * returns Delay
@@ -69,16 +132,16 @@ exports.getDelay = (buffer, panelOffset) => {
          * tempo is using 14-bit
          *
          * MSW 0x11A (b7-1): 7-bit value
-         * 0/127 = 1.5 s to 20 ms (same as MIDI #CC 94)
+         * 0/127 = 1.5 s to 20 ms (same as MIDI #CC 94, see table below)
          *
          * LSW 0x11A (b0) and 0x11B (b7-2): 7-bit value
-         * LSW used for more accurate tempo value (only used with Tag Tempo)
+         * LSW used for fine tempo value (only used with Tag Tempo)
          *
-         * When Tempo knob is used, LSW is 0, possible MSW value:
+         * When Tempo knob is used, LSW is always 0, possible MSW value:
          * #include delayTempoMap
          *
          * Note: When Tap Tempo is used, LSW is different from 0.
-         * Value is interpolated from the main MSW values.
+         * A linear interpolation is done to define the fine tempo value.
          *
          * if 'Delay Master Clock' is enabled 7-bit value 0/127 = 1/2 to 1/64
          * #include delayTempoMasterClockDivisionMap
@@ -107,17 +170,13 @@ exports.getDelay = (buffer, panelOffset) => {
             midi: delayTempoMswMidi,
             lsw: delayTempoLswMidi,
 
-            value: delayMasterClock
-                ? mapping.delayTempoMasterClockDivisionMap.get(delayTempoMswMidi)
-                : mapping.delayTempoMap.get(delayTempoMswMidi),
+            value: fixSignature(getTempo(delayMasterClock, delayTempoMswMidi, delayTempoLswMidi)),
 
             morph: getMorph14Bits(
                 buffer,
                 0x11a + panelOffset,
-                (x) => {
-                    return delayMasterClock
-                        ? mapping.delayTempoMasterClockDivisionMap.get(x)
-                        : mapping.delayTempoMap.get(x);
+                (msw, lsw) => {
+                    return fixSignature(getTempo(delayMasterClock, msw, lsw));
                 },
                 false
             ),
