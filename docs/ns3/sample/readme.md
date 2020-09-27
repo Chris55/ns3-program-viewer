@@ -1,7 +1,7 @@
 ### Nord Stage 3 Sample file mapping
 
 
-The mapping corresponds to the Nord Stage 3 program file (file extension nsmp3).
+The mapping corresponds to the Nord Stage 3 sample file (file extension nsmp3).
 
 Mapping information only used to read the sample info (not the data)
 
@@ -183,4 +183,4 @@ Mapping information only used to read the sample info (not the data)
 | `0x00AC` | `--------` |
 |
 
-
+. . .
