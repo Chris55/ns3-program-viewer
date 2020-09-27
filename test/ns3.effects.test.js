@@ -5,6 +5,102 @@ const { getNs3TestCase } = require("./helpers");
 const root = __dirname + "/ns3/effects/";
 
 describe("/ns3/effects", () => {
+    test("panelA.effects.ampSimEq.ampType.value eq LP24", async () => {
+        const file = "panelA.effects.ampSimEq.ampType.value eq LP24.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.ampType.value eq Twin", async () => {
+        const file = "panelA.effects.ampSimEq.ampType.value eq Twin.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.bassDryWet.value eq -0.8 dB", async () => {
+        const file = "panelA.effects.ampSimEq.bassDryWet.value eq -0.8 dB.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.bassDryWet.value eq 1.5", async () => {
+        const file = "panelA.effects.ampSimEq.bassDryWet.value eq 1.5.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.enabled eq true", async () => {
+        const file = "panelA.effects.ampSimEq.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.midFilterFreq.value eq 2.2 kHz", async () => {
+        const file = "panelA.effects.ampSimEq.midFilterFreq.value eq 2.2 kHz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.midFilterFreq.value eq 425 Hz", async () => {
+        const file = "panelA.effects.ampSimEq.midFilterFreq.value eq 425 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.midRes.value eq -5.0 dB", async () => {
+        const file = "panelA.effects.ampSimEq.midRes.value eq -5.0 dB.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.midRes.value eq 2.2", async () => {
+        const file = "panelA.effects.ampSimEq.midRes.value eq 2.2.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.overdrive.value eq 3.5", async () => {
+        const file = "panelA.effects.ampSimEq.overdrive.value eq 3.5.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.source.value eq Synth", async () => {
+        const file = "panelA.effects.ampSimEq.source.value eq Synth.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.effects.ampSimEq.treble.value eq 0.0 dB", async () => {
+        const file = "panelA.effects.ampSimEq.treble.value eq 0.0 dB.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.effects.compressor.amount.value eq 0.0", async () => {
         const file = "panelA.effects.compressor.amount.value eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);
@@ -655,6 +751,22 @@ describe("/ns3/effects", () => {
 
     test("panelA.effects.rotarySpeaker.stopMode.enabled eq true", async () => {
         const file = "panelA.effects.rotarySpeaker.stopMode.enabled eq true.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.effects.ampSimEq.midFilterFreq.morph.wheel.to.value eq 507 Hz", async () => {
+        const file = "panelB.effects.ampSimEq.midFilterFreq.morph.wheel.to.value eq 507 Hz.ns3f";
+        const sut = await getNs3TestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.effects.ampSimEq.overdrive.morph.controlPedal.to.value eq 0.0", async () => {
+        const file = "panelB.effects.ampSimEq.overdrive.morph.controlPedal.to.value eq 0.0.ns3f";
         const sut = await getNs3TestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

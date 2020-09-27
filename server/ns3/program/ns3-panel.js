@@ -1,3 +1,4 @@
+const {getAmpSimEq} = require("./ns3-fx-amp-sim-eq");
 const {getCompressor} = require("./ns3-fx-compressor");
 const {getDelay} = require("./ns3-fx-delay");
 const {getEffect2} = require("./ns3-fx-multi-effect-2");
@@ -63,7 +64,7 @@ exports.getPanel = function (buffer, id, splitEnabled, versionOffset, dualKeyboa
             effect1: getEffect1(buffer, panelOffset),
             effect2: getEffect2(buffer, panelOffset),
             delay: getDelay(buffer, panelOffset),
-            // ampSimEq: {},
+            ampSimEq: getAmpSimEq(buffer, panelOffset),
             compressor: getCompressor(buffer, panelOffset),
             reverb: getReverb(buffer, panelOffset),
         },

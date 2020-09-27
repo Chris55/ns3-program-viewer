@@ -39,6 +39,8 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 | :--- | :----------- | :--------------------------------------------------------------------------------
 | 0.1  | 23-Sep-2020  | Draft version
 | 0.2  | 26-Sep-2020  | Added Delay section
+| 1.0  | 27-Sep-2020  | Added Amp Sim / Eq section and bumped to v1.0
+
 \newpage
 
 
@@ -374,18 +376,18 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0126` | `bbbbwwww` | [(w) delay feedback morph wheel](ns3-doc.md#delay-feedback)
 | `0x0127` | `wwwwaaaa` | [(a) delay feedback morph after touch](ns3-doc.md#delay-feedback)
 | `0x0128` | `aaaapppp` | [(p) delay feedback morph control pedal](ns3-doc.md#delay-feedback)
-| `0x0129` | `ppppa---` | [(a) delay analog mode](ns3-doc.md#delay-analog-mode)
-| `0x012A` | `--------` |
-| `0x012B` | `--------` |
-| `0x012C` | `--------` |
-| `0x012D` | `--------` |
-| `0x012E` | `--------` |
-| `0x012F` | `--------` |
-| `0x0130` | `--------` |
-| `0x0131` | `--------` |
-| `0x0132` | `--------` |
-| `0x0133` | `--------` |
-| `0x0134` | `------ot` | [(o) reverb on](ns3-doc.md#reverb-on), [(t) reverb type](ns3-doc.md#reverb-type)
+| `0x0129` | `ppppaoss` | [(a) delay analog mode](ns3-doc.md#delay-analog-mode), [(o) amp sim eq on](ns3-doc.md#amp-sim-eq-on), [(s) amp sim eq source](ns3-doc.md#amp-sim-eq-source)
+| `0x012A` | `aaattttt` | [(a) amp sim eq amp type](ns3-doc.md#amp-sim-eq-amp-type), [(a) amp sim eq treble](ns3-doc.md#amp-sim-eq-treble)
+| `0x012B` | `ttmmmmmm` | [(m) amp sim eq mid res](ns3-doc.md#amp-sim-eq-mid-res)
+| `0x012C` | `mbbbbbbb` | [(m) amp sim eq bass dry wet](ns3-doc.md#amp-sim-eq-bass-dry-wet)
+| `0x012D` | `fffffffw` | [(f) amp sim eq mid flt freq](ns3-doc.md#amp-sim-eq-mid-flt-freq)
+| `0x012E` | `wwwwwwwa` | [(f) amp sim eq mid flt freq morph wheel](ns3-doc.md#amp-sim-eq-mid-flt-freq)
+| `0x012F` | `aaaaaaap` | [(f) amp sim eq mid flt freq morph after touch](ns3-doc.md#amp-sim-eq-mid-flt-freq)
+| `0x0130` | `pppppppd` | [(f) amp sim eq mid flt freq morph control pedal](ns3-doc.md#amp-sim-eq-mid-flt-freq), [(d) amp sim eq drive](ns3-doc.md#amp-sim-eq-drive)
+| `0x0131` | `ddddddww` | [(w) amp sim eq drive morph wheel](ns3-doc.md#amp-sim-eq-drive)
+| `0x0132` | `wwwwwwaa` | [(a) amp sim eq drive morph after touch](ns3-doc.md#amp-sim-eq-drive)
+| `0x0133` | `aaaaaapp` | [(p) amp sim eq drive morph control pedal](ns3-doc.md#amp-sim-eq-drive)
+| `0x0134` | `ppppppot` | [(o) reverb on](ns3-doc.md#reverb-on), [(t) reverb type](ns3-doc.md#reverb-type)
 | `0x0135` | `ttbrrrrr` | [(o) reverb bright](ns3-doc.md#reverb-bright), [(r) reverb amount](ns3-doc.md#reverb-amount)
 | `0x0136` | `rrwwwwww` | [(w) reverb amount morph wheel](ns3-doc.md#reverb-amount)
 | `0x0137` | `wwaaaaaa` | [(a) reverb amount morph after touch](ns3-doc.md#reverb-amount)

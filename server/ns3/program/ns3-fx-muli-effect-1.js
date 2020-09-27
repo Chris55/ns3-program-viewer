@@ -48,7 +48,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
         },
 
         /**
-         *  Offset 0 in file: 0x10B (b1-0) and 0x10C (b7)
+         *  Offset in file: 0x10B (b1-0) and 0x10C (b7)
          *
          * @example
          * 0 = A-Pan

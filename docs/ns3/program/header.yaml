@@ -4,7 +4,7 @@ author: christian.florentz@gmail.com
 header-includes: |
     \usepackage{fancyhdr}
     \pagestyle{fancy}
-    \fancyhead[CO,CE]{Rev 0.2 PRELIMINARY}
+    \fancyhead[CO,CE]{Rev 1.0}
     \fancyfoot[CO,CE]{Unofficial Nord Stage 3 Program File Documentation}
     \fancyfoot[LE,RO]{\thepage}
 abstract:
