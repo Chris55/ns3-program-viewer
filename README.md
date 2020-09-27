@@ -3,6 +3,9 @@
 The unofficial Nord Stage Program viewer tool.
 Online version: [https://ns3-program-viewer.herokuapp.com](https://ns3-program-viewer.herokuapp.com)
 
+Documentation:
+- [NS3 Program mapping](https://github.com/Chris55/ns3-program-viewer/tree/dev/docs/ns3/program)
+
 This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com).
 
 ## Disclaimer

@@ -1,11 +1,11 @@
 ---
-title: Nord Stage 3 Program File Documentation
+title: Unofficial Nord Stage 3 Program File Documentation
 author: christian.florentz@gmail.com
 header-includes: |
     \usepackage{fancyhdr}
     \pagestyle{fancy}
     \fancyhead[CO,CE]{Rev 0.2 PRELIMINARY}
-    \fancyfoot[CO,CE]{Nord Stage 3 Program File Documentation}
+    \fancyfoot[CO,CE]{Unofficial Nord Stage 3 Program File Documentation}
     \fancyfoot[LE,RO]{\thepage}
 abstract:
 ---
