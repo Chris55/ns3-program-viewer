@@ -7,7 +7,7 @@ const { loadNs3ProgramFile } = require("./ns3/program/ns3-program");
  * @param filename
  * @returns {{split: *, panelA: *, masterClock: {rate: {value: string}}, panelB: *, name: *, transpose: *, category: *, version: string}}
  */
-exports.loadNs3fFile = (buffer, filename) => {
+exports.loadNordFile = (buffer, filename) => {
     if (buffer.length > 16) {
         const claviaSignature = buffer.toString("utf8", 0, 4);
         if (claviaSignature !== "CBIN") {

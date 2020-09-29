@@ -1,4 +1,4 @@
-const {loadNs3fFile} = require("../server/nord-service");
+const {loadNordFile} = require("../server/nord-service");
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -19,7 +19,7 @@ exports.getNs3TestCase = async (filename) => {
 
     // load Nord File
     const buffer = await fs.readFile(filename);
-    const sut = loadNs3fFile(buffer, filename);
+    const sut = loadNordFile(buffer, filename);
 
     // decode expression from filename
 

@@ -1,4 +1,6 @@
+const path = require("path");
 const mapping = require("./ns3-mapping");
+const {nordFileExtMap} = require("../../common/nord-mapping");
 const { getVersion } = require("../../common/converter");
 const { getPanel } = require("./ns3-panel");
 
@@ -306,9 +308,14 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         value: mapping.dualKeyboardStyleMap.get(offset3a & 0x03),
     };
 
+    const ext =  path.extname(filename).substr(1);
+
     const ns3 = {
         // program file
         name: filename.replace(/\.[^/.]+$/, ""),
+        filename: filename,
+        ext: ext,
+        description: nordFileExtMap.get(ext),
 
         // program location
         id: programLocation,

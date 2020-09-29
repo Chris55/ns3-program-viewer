@@ -1,7 +1,7 @@
 let express = require("express"),
     multer = require("multer"),
     router = express.Router();
-const { loadNs3fFile } = require("../nord-service");
+const { loadNordFile } = require("../nord-service");
 const fs = require("fs").promises;
 
 const DIR = "./upload/";
@@ -49,7 +49,7 @@ router.post("/upload", upload.single("nordFile"), async (req, res, next) => {
         const response = {
             success: true,
             error: "",
-            data: loadNs3fFile(buffer, req.file.originalname),
+            data: loadNordFile(buffer, req.file.originalname),
         };
         res.send(response);
 
