@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3Label from "./lib/ns3-label";
 import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
 import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
 
 export default class Ns3FxAmpSimEq extends Component {

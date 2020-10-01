@@ -1,0 +1,257 @@
+PIANO ENABLE
+Offset in file 0x48 (b7)
+0 = OFF
+1 = ON
+
+PIANO SLOT DETUNE
+Offset in file 0x3b (b7-5)
+0 = OFF
+1 = Slot Detune 1
+2 = Slot Detune 2
+3 = Slot Detune 3
+4 = Slot Detune 4
+
+PIANO VOLUME
+Offset in file 0x4b (b6-0)
+0 = OFF 
+1 = -84.2 dB 
+2 = -72.1 dB 
+3 = -65.1 dB 
+4 = -60.1 dB 
+5 = -56.2 dB 
+6 = -53.0 dB 
+7 = -50.3 dB 
+8 = -48.0 dB 
+9 = -46.0 dB 
+10 = -44.2 dB 
+11 = -42.5 dB 
+12 = -41.0 dB 
+13 = -39.6 dB 
+14 = -38.3 dB 
+15 = -37.1 dB 
+16 = -36.0 dB 
+17 = -34.9 dB 
+18 = -33.9 dB 
+19 = -33.0 dB 
+20 = -32.1 dB 
+21 = -31.3 dB 
+22 = -30.5 dB 
+23 = -29.7 dB 
+24 = -28.9 dB 
+25 = -28.2 dB 
+26 = -27.6 dB 
+27 = -26.9 dB 
+28 = -26.3 dB 
+29 = -25.7 dB 
+30 = -25.1 dB 
+31 = -24.5 dB 
+32 = -23.9 dB 
+33 = -23.4 dB 
+34 = -22.9 dB 
+35 = -22.4 dB 
+36 = -21.9 dB 
+37 = -21.4 dB 
+38 = -21.0 dB 
+39 = -20.5 dB 
+40 = -20.1 dB 
+41 = -19.6 dB 
+42 = -19.2 dB 
+43 = -18.8 dB 
+44 = -18.4 dB 
+45 = -18.0 dB 
+46 = -17.6 dB 
+47 = -17.3 dB 
+48 = -16.9 dB 
+49 = -16.5 dB 
+50 = -16.2 dB 
+51 = -15.8 dB 
+52 = -15.5 dB 
+53 = -15.2 dB 
+54 = -14.9 dB 
+55 = -14.5 dB 
+56 = -14.2 dB 
+57 = -13.9 dB 
+58 = -13.6 dB 
+59 = -13.3 dB 
+60 = -13.0 dB 
+61 = -12.7 dB 
+62 = -12.5 dB 
+63 = -12.2 dB 
+64 = -11.9 dB 
+65 = -11.6 dB 
+66 = -11.4 dB 
+67 = -11.1 dB 
+68 = -10.9 dB 
+69 = -10.6 dB 
+70 = -10.3 dB 
+71 = -10.1 dB 
+72 = -9.9 dB 
+73 = -9.6 dB 
+74 = -9.4 dB 
+75 = -9.1 dB 
+76 = -8.9 dB 
+77 = -8.7 dB 
+78 = -8.5 dB 
+79 = -8.2 dB 
+80 = -8.0 dB 
+81 = -7.8 dB 
+82 = -7.6 dB 
+83 = -7.4 dB 
+84 = -7.2 dB 
+85 = -7.0 dB 
+86 = -6.8 dB 
+87 = -6.6 dB 
+88 = -6.4 dB 
+89 = -6.2 dB 
+90 = -6.0 dB 
+91 = -5.8 dB 
+92 = -5.6 dB 
+93 = -5.4 dB 
+94 = -5.2 dB 
+95 = -5.0 dB 
+96 = -4.9 dB 
+97 = -4.7 dB 
+98 = -4.5 dB 
+99 = -4.3 dB 
+100 = -4.2 dB 
+101 = -4.0 dB 
+102 = -3.8 dB 
+103 = -3.6 dB 
+104 = -3.5 dB 
+105 = -3.3 dB 
+106 = -3.1 dB 
+107 = -3.0 dB 
+108 = -2.8 dB 
+109 = -2.7 dB 
+110 = -2.5 dB 
+111 = -2.3 dB 
+112 = -2.2 dB 
+113 = -2.0 dB 
+114 = -1.9 dB 
+115 = -1.7 dB 
+116 = -1.6 dB 
+117 = -1.4 dB 
+118 = -1.3 dB 
+119 = -1.1 dB 
+120 = -1.0 dB 
+121 = -0.8 dB 
+122 = -0.7 dB 
+123 = -0.6 dB 
+124 = -0.4 dB 
+125 = -0.3 dB 
+126 = -0.1 dB 
+127 = 0.0 dB 
+
+PIANO VOLUME Morph WHEEL
+offset in file 0x48 (b6-0) and 0x49 (b7)
+
+PIANO VOLUME Morph AT
+offset in file 0x49 (b6-0) and 0x4a (b7)
+
+PIANO VOLUME Morph CONTROL PEDAL
+offset in file 0x4a (b6-0) and 0x4b (b7)
+
+PIANO SPLIT ZONES
+Offset in file 0x4c (b7-5)
+0 = LO 
+1 = LO UP 
+2 = UP 
+3 = UP HI 
+4 = HI 
+5 = LO UP HI 
+6 = UNDEF 
+7 = UNDEF 
+
+PIANO OCTAVE SHIFT
+Offset in file 0x4c(b4-1)
+0 = -7
+1 = -6
+2 = -5
+3 = -4
+4 = -3
+5 = -2
+6 = -1
+7 = 0
+8 = 1
+9 = 2
+10 = 3
+11 = 4
+12 = 5
+13 = 6
+14 = UNDEF
+15 = UNDEF
+
+PIANO PITCHSTICK
+Offset in file 0x4c(b0)
+0 = OFF
+1 = ON
+
+PIANO SUSTAIN
+Offset in file 0x4d(b7)
+0 = OFF
+1 = ON
+
+PIANO LATCH PEDAL
+Offset in file 0x5a (b7)
+0 = OFF
+1 = ON
+
+PIANO KB GATE
+Offset in file 0x5a (b6)
+0 = OFF
+1 = ON
+
+PIANO TYPE
+Offset in file 0xcd (b7-5)
+0 = Grand
+1 = Upright
+2 = Epiano1
+3 = Epiano2
+4 = Clavinet
+5 = Harps
+
+PIANO CLAVINET MODEL
+Offset in file 0xce (b0) and 0xcf (b7)
+0 = CA
+1 = CB
+2 = DA
+3 = DB
+
+PIANO LONG RELEASE
+Offset in file 0xcf (b6)
+0 = OFF
+1 = ON
+
+PIANO STRING RESONANCE
+Offset in file 0xcf (b5)
+0 = OFF
+1 = ON
+
+PIANO PEDAL NOISE
+Offset in file 0xcf (b4)
+0 = OFF
+1 = ON
+
+PIANO DYNAMICS
+Offset in file 0xcf (b3-2)
+0 = Dyn0
+1 = Dyn1
+2 = Dyn2
+3 = Dyn3
+
+PIANO CLAV EQ HI
+Offset in file 0xcf (b1-0)
+0 = OFF
+1 = Treble
+2 = Brilliant
+3 = Treble+Brilliant
+
+PIANO CLAV EQ
+Offset in file 0xd0 (b7-6)
+0 = OFF
+1 = Soft
+2 = Medium
+
+PIANO NORD SAMPLE ID
+Offset in file 0xd0 (b5-0) 0xd1 (b7-0) 0xd2 (b7-0) 0xd3 (b7-0) 0xd4 (b7-6)
+TODO :-(

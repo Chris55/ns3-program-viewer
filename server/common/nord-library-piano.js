@@ -1,9 +1,10 @@
+/***
+ * Nord Piano Library
+ * https://www.nordkeyboards.com/sound-libraries/nord-piano-library
+ *
+ * @type {Map<number, string>}
+ */
 exports.ns3PianoLibrary = new Map([
-    //
-    // Nord Piano Library
-    //
-    // https://www.nordkeyboards.com/sound-libraries/nord-piano-library
-    //
 
     // Grand Piano
     // https://www.nordkeyboards.com/sound-libraries/nord-piano-library/grand-pianos/white-grand
@@ -208,116 +209,5 @@ exports.ns3PianoLibrary = new Map([
 
     [0x7db59a7c, "Vibraphone  6.0"],
     [0x7e48ff56, "Vibraphone mono  6.0"],
-
-    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/oberheim-matrix-12
-    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/voices/choirs-and-voices
-
-    // Synth samples
-
-    // [0xf1ceff8f, "Kalimba_KG mono 3.0"],
-    // [0xcd9c86fd, "Xylophone_KG mono 3.0"],
-    //
-    // [0xc3fbe722, "10-Celli Legato_SO 3.1"],
-    // [0x873e47dd, "12 String Guitar1_DV mono 3.0"],
-    // [0xf27ec467, "16 Violin Mellotron_M400 Sml Stereo 3.0"],
-    // [0x9de6472c, "16-Celli Legato Vibrato_SR 3.0"],
-    // [0xe2b772d5, "16-Violins Pizzicato_SO 3.0"],
-    // [0xa8b48be4, "22-Violins Leg LoVib_SR 3.0"],
-    // [0xe9bed1bd, "3 Violins Chamberlin_MMaster Sml mono 3.0"],
-    // [0x7fbd7a2f, "3-Bassoons Legato_SO 3.0"],
-    // [0x9eb3b684, "Acoustic Piano 3_KG mono 3.0"],
-    // [0x378fb16c, "All Winds Legato_SR 3.0"],
-    // [0x7495f6c8, "Alphorn_BR mono 3.0"],
-    // [0x43ee42d2, "Angelic Choir6 Oh_PS 3.0"],
-    // [0x1e2a1954, "Bass Trombone_SO 3.0"],
-    // [0xb758f2e4, "BassClarinet Chamberlin_MMaster Sml mono 3.0"],
-    // [0x616f2227, "Bassoon Chamberlin_M25 Sml mono 3.0"],
-    // [0x7d05aef1, "Belltower Gefle_PS 3.0"],
-    // [0x489f58b1, "Big Choir_SO 3.0"],
-    // [0x57bfcf71, "Bolivian Panpipe_PS mono 3.1"],
-    // [0x270ee2e6, "Boys Choir Mellotron_M400 Sml mono 3.0"],
-    // [0xcb2bd760, "Boys Choir Vib_KH 3.0"],
-    // [0x917feac7, "Brass Ensemble 2_KG 3.1"],
-    // [0x7481221e, "Brass Section Pop 2_BR 3.0"],
-    // [0x546292eb, "BrassSection Double 2_CL 3.0"],
-    // [0x675e1d1c, "Cathedral Organ 3_SR 3.0"],
-    // [0x2bf7e2b, "Celeste_ST mono 3.0"],
-    // [0xa06ccdb1, "Celtic Whistle_PS mono 3.0"],
-    // [0x5f958d09, "ChamberStr Leg HiVib_KH 3.0"],
-    // [0x77203b04, "ChamberStr Leg Vib_KH 3.0"],
-    // [0xf1f9237a, "ChamberStr Legato_KH 3.0"],
-    // [0xe6f27a33, "Choir Mixed Soft_SR 3.0"],
-    // [0xdd7562bf, "Cimbalom Hard_PS 3.0"],
-    // [0xcbe0a3c1, "Cimbalom Harm_PS 3.0"],
-    // [0x67ec809a, "Contra Bass Finger_BS mono 3.1"],
-    // [0x3f17d5e2, "Contra Bass Plucked_ST mono 3.1"],
-    // [0x60829089, "Double Bass Chamberlin_UU Sml mono 3.0"],
-    // [0xe6d3b8c2, "Duo Strings Vibrato_SR 3.0"],
-    // [0x5a7679f9, "Eminent 310 Str FullReg_PH mono 3.0"],
-    // [0x72e9ebcc, "Farf Polychrome Str 8+4_BR mono 3.0"],
-    // [0xe53f963, "Fend Jazz Fing Preamp_ST mono 3.0"],
-    // [0xf6b621c9, "Fend Prec Direct_ST mono 3.0"],
-    // [0x1ed53d55, "Fend Prec Preamp_ST mono 3.0"],
-    // [0xc2c5d63b, "Finnish Kantele_PS 3.1"],
-    // [0xadb5624b, "Flute Mellotron_MkII Sml mono 3.0"],
-    // [0x61296b3a, "Flute_ 3.0"],
-    // [0x2c9df931, "Flutes + Clarinets Leg_SR 3.1"],
-    // [0xb667ce49, "Flutes + Oboe Legato_SR 3.1"],
-    // [0x24281adb, "Guitar Mellotron_MKI Sml mono 3.0"],
-    // [0x4aade459, "Harmonica_DV mono 3.1"],
-    // [0x9d1f3a47, "Hohn StrMelody2_BR mono 3.0"],
-    // [0xfa6263e0, "Indian Santoor_PS 3.0"],
-    // [0x4263d630, "Indian Surmantal_PS 3.0"],
-    // [0xf1ceff8f, "Kalimba_KG mono 3.0"],
-    // [0x803a04dd, "Koto_BR mono 3.0"],
-    // [0x9e87ac05, "Les Paul Neck-mic_SW mono 3.0"],
-    // [0x1f8a4522, "Logan Str Melody 8+4_PH mono 3.0"],
-    // [0xfa519625, "Lute Harp Soft_PS 3.0"],
-    // [0x6bf3234, "Mbira_PS 3.0"],
-    // [0x4ee35aa8, "Melodica Fast_PS mono 3.1"],
-    // [0x994057e8, "Metallophone_DV 3.0"],
-    // [0x46111967, "MixCustChoirMellotron_M400 Sml mono 3.0"],
-    // [0xf6d7e87, "Muted Trumpet 2_ST mono 3.1"],
-    // [0xd4ef7e60, "NyckelHarpa_PS 3.1"],
-    // [0xd10b5316, "Nylon Guitar_DV mono 3.0"],
-    // [0xc467fab2, "OpenTrumpet Chamberlin_M35 Sml mono 3.0"],
-    // [0x2fb7651, "Orchestral Brass_SR 3.0"],
-    // [0xe2691536, "OrchStrings Legato_KH 3.0"],
-    // [0x3cd7a8e7, "OrchStrings Pizzicato_KH 3.0"],
-    // [0xc0cdff5f, "Organ Flute 1_DV 3.0"],
-    // [0x9c3aee90, "Organ Flute 3_DV 3.0"],
-    // [0xbac3ead, "Overland Guitar_PS mono 3.0"],
-    // [0x2538f6e5, "Privilege Flute Vibrato_PS mono 3.0"],
-    // [0x95e6c5f9, "Privilege Flute_PS mono 3.0"],
-    // [0x5071c998, "Quena Latin Flute_BR mono 3.0"],
-    // [0xd6122e6f, "Recorder Mellotron_M400 Sml mono 3.0"],
-    // [0x48fc1d54, "Rock Guitar Mellotron_MKII Sml mono 3.0"],
-    // [0x33614f15, "Slow Vibra Mellotron_M300 Sml mono 3.1"],
-    // [0xee107ea, "Small Bells_SO 3.0"],
-    // [0x598a9e11, "Small Chimes_ST 3.0"],
-    // [0x4f03a269, "Small Choir Fem ah Soft_CL 3.0"],
-    // [0xaf6b4377, "Small Choir Fem oh Soft_CL 3.0"],
-    // [0xeb56e159, "Small Choir Fem oh_CL 3.0"],
-    // [0x527caa16, "Small Choir Male ah Soft_CL 3.0"],
-    // [0x3f0835e2, "Small Choir Male oh_CL 3.0"],
-    // [0x5014be93, "Soft Strings Legato_SR 3.0"],
-    // [0x601e9e40, "Solo Cello 1 Vibrato_SR mono 3.0"],
-    // [0xb2bdbb44, "Solo Cello 2 Vibrato_SR 3.0"],
-    // [0x16dd0408, "Solo Violin 1 Vibrato_SR mono 3.0"],
-    // [0xb133f99, "Soul Horn Trio_CL 3.1"],
-    // [0x81d4102, "Steel Guitar_DV mono 3.0"],
-    // [0x2b21f8f6, "String Quartet Leg Vib_SR mono 3.0"],
-    // [0x77474166, "StudioStrings Marc Vib_KH 3.0"],
-    // [0x26639e90, "StudioStrings Pizzicato_KH 3.0"],
-    // [0x5ac8aa49, "Tenor Saxophone_KG mono 3.0"],
-    // [0x675270d1, "Toy Piano_DV stereo 3.0"],
-    // [0xeb4549c4, "Trombone Chamberlin_MMaster Sml mono 3.0"],
-    // [0x89284b17, "Trombones Legato_KH 3.0"],
-    // [0xa0ab9bcc, "Trumpets Legato_KH 3.0"],
-    // [0xf739deaa, "Ukrainian Bandura_PS mono 3.1"],
-    // [0xdab5d910, "Vibes_DV mono 3.0"],
-    // [0x6b0930a9, "Victorini Accordion 1_PS 3.1"],
-    // [0x4a3dde09, "Victorini Accordion 2_PS 3.0"],
-    // [0x8a8bbc87, "Wind-String-Brass_SR 3.0"],
 
 ]);

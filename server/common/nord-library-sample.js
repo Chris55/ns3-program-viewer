@@ -1598,4 +1598,115 @@ exports.ns3SampleLibrary = new Map([
     [0xc0b03aab, {name: "JX-3P Synth Brass 1 PH", info: "", version: "3.0", category: "Misc"}],
     [0x946b605b, {name: "JX-3P Synth Brass 2 PH", info: "", version: "3.0", category: "Misc"}],
 
+    // Nord Sample Archive Roland Jupiter-4
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/roland-jupiter-4
+
+    [0x89f5b773, {name: "JP4 Bass Square BR", info: "", version: "3.0", category: "Misc"}],
+    [0xded71b52, {name: "JP4 Brass BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe4ab5b78, {name: "JP4 Decay Syn BR", info: "", version: "3.0", category: "Misc"}],
+    [0x42953112, {name: "JP4 Evolve BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5845a1f7, {name: "JP4 Fat Lead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x9ab8fff4, {name: "JP4 Filter Wah BR", info: "", version: "3.0", category: "Misc"}],
+    [0xa313636e, {name: "JP4 Flimmer BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc06c97e7, {name: "JP4 Perc Lead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x8210f6, {name: "JP4 Polysyn BR", info: "", version: "3.0", category: "Misc"}],
+    [0x403709f0, {name: "JP4 Seq Drop BR", info: "", version: "3.0", category: "Misc"}],
+    [0x66a81d82, {name: "JP4 Strings 1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xfdc70783, {name: "JP4 Strings 2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xdab4e8b0, {name: "JP4 Studiobass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x393c8cd0, {name: "JP4 Superlead BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb14c0580, {name: "JP4 SynPiano BR", info: "", version: "3.0", category: "Misc"}],
+    [0x600c582b, {name: "JP4 Trumpet BR", info: "", version: "3.0", category: "Misc"}],
+    [0x70b77df5, {name: "JP4 Voice BR", info: "", version: "3.0", category: "Misc"}],
+    [0x4ad89c2e, {name: "JP4 Zipper BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Roland Jupiter-8
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/roland-jupiter-8
+
+    [0x7b5ebffe, {name: "RJp8 BassLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x23e5fba0, {name: "RJp8 BrightPad BR", info: "", version: "3.0", category: "Misc"}],
+    [0x81ae656, {name: "RJp8 FattyPoly BR", info: "", version: "3.0", category: "Misc"}],
+    [0x9260c1fe, {name: "RJp8 FiltVoice BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe8f9814a, {name: "RJp8 HeavyWthr BR", info: "", version: "3.0", category: "Misc"}],
+    [0x4ce937b5, {name: "RJp8 Lead1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xcf7b80fc, {name: "RJp8 NiceLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x7dabed6b, {name: "RJp8 PercoPad BR", info: "", version: "3.0", category: "Misc"}],
+    [0x840ea695, {name: "RJp8 PowerPad BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb1e10879, {name: "RJp8 Stratosphr BR", info: "", version: "3.0", category: "Misc"}],
+    [0x9b208916, {name: "RJp8 Stringer BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb2ad2cf, {name: "RJp8 Superpoly BR", info: "", version: "3.0", category: "Misc"}],
+    [0x9bee288, {name: "RJp8 SynBrass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x83ec4ad9, {name: "RJp8 SynOrgan BR", info: "", version: "3.0", category: "Misc"}],
+    [0xd34d761c, {name: "RJp8 Unison BR", info: "", version: "3.0", category: "Misc"}],
+    [0x3631c13b, {name: "RJp8 WhaPad BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Sequential Circuits Prophet-5
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/sequential-circuits-prophet-5
+
+    [0x6a2105d8, {name: "P5 BeatItWave BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc1324f87, {name: "P5 Click Organ BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe40f90d9, {name: "P5 Crazy Singer BR", info: "", version: "3.0", category: "Misc"}],
+    [0xefbb23af, {name: "P5 Fatty Brass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x623d98ce, {name: "P5 Funkesizer BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5ed5ef46, {name: "P5 Lead Unison BR", info: "", version: "3.0", category: "Misc"}],
+    [0xbfed2fab, {name: "P5 Luckiness BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe2f05370, {name: "P5 Muted Synth BR", info: "", version: "3.0", category: "Misc"}],
+    [0x20e5b45f, {name: "P5 PitchaPoly BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1fbe2a, {name: "P5 PPG Lead BR", info: "", version: "3.0", category: "Misc"}],
+    [0xfa9afa66, {name: "P5 Saga Synth BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc5535ff3, {name: "P5 Saw Unison BR", info: "", version: "3.0", category: "Misc"}],
+    [0xf52e963e, {name: "P5 Spit Brass BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc0ecc3a9, {name: "P5 Square Lead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x7a6e2e1d, {name: "P5 SuperLeadUnison BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Yamaha CS-80
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/yamaha-cs-80
+
+    [0xa8878705, {name: "CS80 Bass 1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe3f0d15e, {name: "CS80 Brass 1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x640aaa7e, {name: "CS80 Clavichord BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1c850544, {name: "CS80 Electric Piano BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb6328aff, {name: "CS80 Fat Panel 2", info: "", version: "3.0", category: "Misc"}],
+    [0xbc65c291, {name: "CS80 Filter HP LP BR", info: "", version: "3.0", category: "Misc"}],
+    [0xebcec6da, {name: "CS80 Flute BR", info: "", version: "3.0", category: "Misc"}],
+    [0x7dcfdcdd, {name: "CS80 Guitar BR", info: "", version: "3.0", category: "Misc"}],
+    [0x82980ea6, {name: "CS80 Harpsichord BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc76af23f, {name: "CS80 Powerbass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x616b467c, {name: "CS80 Resonator BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1846692c, {name: "CS80 String 1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5a42f39c, {name: "CS80 Stringpad BR", info: "", version: "3.0", category: "Misc"}],
+    [0x97d2311e, {name: "CS80 Strings 2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x996847f5, {name: "CS80 Ultrasweep Ringmod 2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb64fc146, {name: "CS80 Ultrasweep Ringmod BR", info: "", version: "3.0", category: "Misc"}],
+    [0xcc6f3431, {name: "CS80 Vangelian 1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xcffb9632, {name: "CS80 Vangelian 2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe21739c2, {name: "CS80 Vangelian 3 BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Yamaha DX7 mk II
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/yamaha-dx7-mk-ii
+
+    [0x1ec8f2cc, {name: "DX7IIC AnaStrings BR", info: "", version: "3.0", category: "Misc"}],
+    [0x346b340d, {name: "DX7IIC Bell Ensemble BR", info: "", version: "3.0", category: "Misc"}],
+    [0x36be96d0, {name: "DX7IIC Chiptglass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x2bc4327d, {name: "DX7IIC Crystal BR", info: "", version: "3.0", category: "Misc"}],
+    [0x7d73f923, {name: "DX7IIC E Guitar BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc6961cd7, {name: "DX7IIC Eddie BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5a861807, {name: "DX7IIC Fine Tines", info: "ste BR", version: "3.0", category: "Misc"}],
+    [0x42232d77, {name: "DX7IIC Fine Tines BR", info: "", version: "3.0", category: "Misc"}],
+    [0xcc791245, {name: "DX7IIC FM Fretless BR", info: "", version: "3.0", category: "Misc"}],
+    [0x12798099, {name: "DX7IIC FM Powerbass", info: "ste BR", version: "3.0", category: "Misc"}],
+    [0x20a80d39, {name: "DX7IIC FM Powerbass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x93e577df, {name: "DX7IIC Harp BR", info: "", version: "3.0", category: "Misc"}],
+    [0x338dc10e, {name: "DX7IIC Jazz Guitar", info: "ste BR", version: "3.0", category: "Misc"}],
+    [0x2463489d, {name: "DX7IIC Satin Hyptronics BR", info: "", version: "3.0", category: "Misc"}],
+    [0x763e07f0, {name: "DX7IIC Slapper BR", info: "", version: "3.0", category: "Misc"}],
+    [0x4f910662, {name: "DX7IIC Special Stuff BR", info: "", version: "3.0", category: "Misc"}],
+    [0xafaba99a, {name: "DX7IIC Sustain Glasses BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe9edca44, {name: "DX7IIC Touch Perco BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb00483b0, {name: "DX7IIC Ulla BR", info: "", version: "3.0", category: "Misc"}],
+    [0x882239d1, {name: "DX7IIC Wet Synth", info: "ste BR", version: "3.0", category: "Misc"}],
+    [0xe2790cf4, {name: "DX7IIC Wet Synth2", info: "ste BR", version: "3.0", category: "Misc"}],
+
+
+
 ]);
