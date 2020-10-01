@@ -1418,6 +1418,50 @@ exports.ns3SampleLibrary = new Map([
     [0xf50e3f23, {name: "SymphStr XSoft Cls", info: "Project SAM", version: "3.0", category: "Ens Strings"}],
 
 
+
+
+
+    // Nord Sample Archive ARP Odyssey
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/arp-odyssey
+
+    [0xe07afbaf, {name: "Ody AggroLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x833b23c2, {name: "Ody Bass 1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x39123a66, {name: "Ody Bass 2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc42171a7, {name: "Ody FltDetuner BR", info: "", version: "3.0", category: "Misc"}],
+    [0x85647819, {name: "Ody FM PWM Dec BR", info: "", version: "3.0", category: "Misc"}],
+    [0x204a72d8, {name: "Ody FunkyWha BR", info: "", version: "3.0", category: "Misc"}],
+    [0xa573e54d, {name: "Ody HP ResoLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x692de9e2, {name: "Ody IntervalLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0xd517274c, {name: "Ody Octaver BR", info: "", version: "3.0", category: "Misc"}],
+    [0x943e1f23, {name: "Ody PortaLead1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1702b895, {name: "Ody PortaLead2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x9c3c6ad4, {name: "Ody PWM BR", info: "", version: "3.0", category: "Misc"}],
+    [0x390d0e94, {name: "Ody ResoLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x4de6c46a, {name: "Ody SquareLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0xd76f8410, {name: "Ody Sync1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xdceb52a0, {name: "Ody Sync3 BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive ARP Quadra
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/arp-quadra
+
+    [0x249fa9b8, {name: "QD BassLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0xf2dc7f7f, {name: "QD Combi10 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xdde48694, {name: "QD Combi2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xbdbd5b7a, {name: "QD Combi4 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xf2712b98, {name: "QD Combi5 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x726e76f2, {name: "QD Combi6 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xda0507d0, {name: "QD Combi8 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb3ed0675, {name: "QD IntervaLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x345bd800, {name: "QD PadCombi BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe31f5bf3, {name: "QD PortaBassLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x920548e5, {name: "QD Split1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe4555383, {name: "QD Split2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc3217a05, {name: "QD Split3 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x25dd59fe, {name: "QD Strings 8 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x38ab07ba, {name: "QD Strings 84 1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x3a431fd, {name: "QD Strings 84 2 BR", info: "", version: "3.0", category: "Misc"}],
+
+
     // Nord Sample Archive Oberheim Matrix-12
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/oberheim-matrix-12
 
