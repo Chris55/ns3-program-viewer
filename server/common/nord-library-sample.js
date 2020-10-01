@@ -1461,6 +1461,224 @@ exports.ns3SampleLibrary = new Map([
     [0x38ab07ba, {name: "QD Strings 84 1 BR", info: "", version: "3.0", category: "Misc"}],
     [0x3a431fd, {name: "QD Strings 84 2 BR", info: "", version: "3.0", category: "Misc"}],
 
+    // Nord Sample Archive Chroma
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/chroma
+
+    [0x9993cd5a, {name: "RChrom FatClav BR", info: "", version: "3.0", category: "Misc"}],
+    [0x161039fe, {name: "RChrom Hapsie BR", info: "", version: "3.0", category: "Misc"}],
+    [0xa225a4a8, {name: "RChrom HarpStrng BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc46e9d9c, {name: "RChrom HonkLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x4fee7853, {name: "RChrom Jarrism BR", info: "", version: "3.0", category: "Misc"}],
+    [0x6f577cf8, {name: "RChrom LeadPop BR", info: "", version: "3.0", category: "Misc"}],
+    [0xd37fe29a, {name: "RChrom Piano BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe60d9801, {name: "RChrom Spacey BR", info: "", version: "3.0", category: "Misc"}],
+    [0xc4745ff7, {name: "RChrom SprVibes BR", info: "", version: "3.0", category: "Misc"}],
+    [0x55cab7f4, {name: "RChrom StringsDc BR", info: "", version: "3.0", category: "Misc"}],
+    [0x734faefd, {name: "RChrom Sweeper BR", info: "", version: "3.0", category: "Misc"}],
+    [0x70c75791, {name: "RChrom WoodSwp BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Cirko Electronics The Hound
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/cirko-electronics-hound
+
+    [0x9d60ba61, {name: "Brassy Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0x3f5c6245, {name: "Brassy Hound", info: "", version: "3.0", category: "Misc"}],
+    [0xcdbd5426, {name: "Funky Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0xb706e208, {name: "Funky Hound", info: "", version: "3.0", category: "Misc"}],
+    [0xee74f5c9, {name: "Gray Hound", info: "", version: "3.0", category: "Misc"}],
+    [0x5207454d, {name: "Gray Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0x839c9565, {name: "Hound Dog", info: "ste", version: "3.0", category: "Misc"}],
+    [0x70433c39, {name: "Hound Dog", info: "", version: "3.0", category: "Misc"}],
+    [0x5ffac5d8, {name: "Jumping Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0xd85b0d8c, {name: "Jumping Hound", info: "", version: "3.0", category: "Misc"}],
+    [0xd897bf59, {name: "Mellow Hound", info: "", version: "3.0", category: "Misc"}],
+    [0xf3974031, {name: "Mellow Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0x36dd4b23, {name: "Padlayer Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0xdf08fe51, {name: "Power Hound", info: "", version: "3.0", category: "Misc"}],
+    [0x1ed8e3c7, {name: "Power Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0x6d8206e5, {name: "Reso Hound", info: "", version: "3.0", category: "Misc"}],
+    [0x746e5376, {name: "Reso Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0xfcec6bbe, {name: "Royal Hound", info: "", version: "3.0", category: "Misc"}],
+    [0x11315790, {name: "Royal Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0xb37f26d9, {name: "Wind Hound", info: "ste", version: "3.0", category: "Misc"}],
+    [0x74e2314d, {name: "Wind Hound", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Classic FM Synths
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/classic-fm-synths
+
+    [0x52bb1523, {name: "CE20 Electric Bass 2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x14311f55, {name: "CE20 Electric Piano BR", info: "", version: "3.0", category: "Misc"}],
+    [0x2684c4a9, {name: "CE20 Horn BR", info: "", version: "3.0", category: "Misc"}],
+    [0xa7a195f3, {name: "CE20 Organ BR", info: "", version: "3.0", category: "Misc"}],
+    [0x95debbfa, {name: "CE20 Strings BR", info: "", version: "3.0", category: "Misc"}],
+    [0x49854e21, {name: "CE25 OrchStrings BR", info: "", version: "3.0", category: "Misc"}],
+    [0xdb73651b, {name: "GS1 Chime BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1309988f, {name: "GS1 Chime Ens BR", info: "", version: "3.0", category: "Misc"}],
+    [0xd8edf79d, {name: "GS1 Dancer BR", info: "", version: "3.0", category: "Misc"}],
+    [0x134d97a9, {name: "GS1 Double Ens BR", info: "", version: "3.0", category: "Misc"}],
+    [0x97379a9c, {name: "GS1 PolyEnsemble BR", info: "", version: "3.0", category: "Misc"}],
+    [0x17c267cf, {name: "GS1 String BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Dance
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/dance
+
+    [0xa33fff3a, {name: "70sIntLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0xdec15a26, {name: "AcidBass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x55bc3424, {name: "BigMnBass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x919c85c0, {name: "BPInterval BR", info: "", version: "3.0", category: "Misc"}],
+    [0x7e0d51c4, {name: "Charger BR", info: "", version: "3.0", category: "Misc"}],
+    [0x211c361c, {name: "Disto1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe76986c1, {name: "Disto4 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xbadfb9e3, {name: "Disto5 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x24f42b8d, {name: "DizzHarmo BR", info: "", version: "3.0", category: "Misc"}],
+    [0x2ebeb38d, {name: "EmPano BR", info: "", version: "3.0", category: "Misc"}],
+    [0x62b192e9, {name: "GrittyChord BR", info: "", version: "3.0", category: "Misc"}],
+    [0x77f43497, {name: "HookIntvl BR", info: "", version: "3.0", category: "Misc"}],
+    [0x16bcb8bb, {name: "MatriChord BR", info: "", version: "3.0", category: "Misc"}],
+    [0xcc761a8b, {name: "MayTrixChd BR", info: "", version: "3.0", category: "Misc"}],
+    [0x2422829f, {name: "MoLead BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5683e202, {name: "MuscIntvl BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb253513c, {name: "NitroCrisp BR", info: "", version: "3.0", category: "Misc"}],
+    [0xadb27a60, {name: "OilCan BR", info: "", version: "3.0", category: "Misc"}],
+    [0x7b5a95fe, {name: "PitchaBee BR", info: "", version: "3.0", category: "Misc"}],
+    [0xeff5b2c0, {name: "Pizzi BR", info: "", version: "3.0", category: "Misc"}],
+    [0xee88c516, {name: "Polyscan BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe46116e1, {name: "Sirene BR", info: "", version: "3.0", category: "Misc"}],
+    [0x85d8ba5, {name: "Sonaris BR", info: "", version: "3.0", category: "Misc"}],
+    [0x295fd8ac, {name: "Sonaris2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x65d25a9f, {name: "StFlutter BR", info: "", version: "3.0", category: "Misc"}],
+    [0x8eca1f93, {name: "Staircase BR", info: "", version: "3.0", category: "Misc"}],
+    [0x6181b0a5, {name: "SuperSync BR", info: "", version: "3.0", category: "Misc"}],
+    [0xd1fa33d1, {name: "TB1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x4e8cc06, {name: "TB2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x220f1f9f, {name: "TB3 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x6e9231ae, {name: "TKit1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb04fd3eb, {name: "TKit2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xbdb92d7a, {name: "TKit3 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x76fdc496, {name: "TKit4 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x3be77f1, {name: "TKit5 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x7fa3d65d, {name: "TKit6 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x13cfe018, {name: "TubeWay BR", info: "", version: "3.0", category: "Misc"}],
+    [0x87736d3b, {name: "VibHarmS BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Elka Synthex
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/elka-synthex
+
+    [0x3121054d, {name: "EStx Brassy BR", info: "", version: "3.0", category: "Misc"}],
+    [0x4acbbc87, {name: "EStx BString BR", info: "", version: "3.0", category: "Misc"}],
+    [0x2b9f8aca, {name: "EStx DSync BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb32d97be, {name: "EStx Filtrsk BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5a263373, {name: "EStx LeadBass BR", info: "", version: "3.0", category: "Misc"}],
+    [0x89b17c7e, {name: "EStx MaleVox BR", info: "", version: "3.0", category: "Misc"}],
+    [0x8ca6a094, {name: "EStx MtlStrng BR", info: "", version: "3.0", category: "Misc"}],
+    [0x4a8f4012, {name: "EStx OctStack BR", info: "", version: "3.0", category: "Misc"}],
+    [0x332b0da5, {name: "EStx PolyPowr BR", info: "", version: "3.0", category: "Misc"}],
+    [0x1914fdd5, {name: "EStx Softie BR", info: "", version: "3.0", category: "Misc"}],
+    [0x195ba3fa, {name: "EStx StaBrass BR", info: "", version: "3.0", category: "Misc"}],
+    [0xe18d308a, {name: "EStx StrgPoly BR", info: "", version: "3.0", category: "Misc"}],
+    [0xb68fe3d6, {name: "EStx Strings BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5c16e6e8, {name: "EStx Sweeper BR", info: "", version: "3.0", category: "Misc"}],
+    [0x6f2f702d, {name: "EStx Sync BR", info: "", version: "3.0", category: "Misc"}],
+    [0x9d3ac951, {name: "EStx SynClavi BR", info: "", version: "3.0", category: "Misc"}],
+    [0xbf3c98e6, {name: "EStx SynOrgan BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Farfisa Polychrome
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/farfisa-polychrome
+
+    [0x127fcadf, {name: "PolyC Choir1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x9e4d09bc, {name: "PolyC Choir2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x6f152ccb, {name: "PolyC Combi1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x18578d11, {name: "PolyC Combi2 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x571f2d63, {name: "PolyC Combi3 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xfb8fde09, {name: "PolyC Combi4 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x5d72aa91, {name: "PolyC Combi5 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x88777e0a, {name: "PolyC Combi6 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x192ac99d, {name: "PolyC Combi7 BR", info: "", version: "3.0", category: "Misc"}],
+    [0x73b413a5, {name: "PolyC HonkyT BR", info: "", version: "3.0", category: "Misc"}],
+    [0x6b15623a, {name: "PolyC Piano BR", info: "", version: "3.0", category: "Misc"}],
+    [0x75e46a0f, {name: "PolyC String1 BR", info: "", version: "3.0", category: "Misc"}],
+    [0xce7246b, {name: "PolyC String2 BR", info: "", version: "3.0", category: "Misc"}],
+
+    // Nord Sample Archive Moog Memorymoog
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/moog-memorymoog
+
+    // Nord Sample Archive Moog Minimoog
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/moog-minimoog
+
+    // Nord Sample Archive Moog Polymoog Keyboard
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/moog-polymoog-keyboard
+
+    // Nord Sample Archive Nord Lead 2X Bass
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-2x/nord-lead-2x-bass
+
+    // Nord Sample Archive Nord Lead 2X Lead
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-2x/nord-lead-2x-lead
+
+    // Nord Sample Archive Nord Lead 2X Pads 1
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-2x/nord-lead-2x-pads-1
+
+    // Nord Sample Archive Nord Lead 2X Pads 2
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-2x/nord-lead-2x-pads-2
+
+    // Nord Sample Archive Nord Lead 2X Synth 1
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-2x/nord-lead-2x-synth-1
+
+    // Nord Sample Archive Nord Lead 2X Synth 2
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-2x/nord-lead-2x-synth-2
+
+    // Nord Sample Archive Nord Lead 3 Acoustic
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-3/nord-lead-3-acoustic
+
+    // Nord Sample Archive Nord Lead 3 Bass
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-3/nord-lead-3-bass
+
+    // Nord Sample Archive Nord Lead 3 Classic
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-3/nord-lead-3-classic
+
+    // Nord Sample Archive Nord Lead 3 Lead
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-3/nord-lead-3-lead
+
+    // Nord Sample Archive Nord Lead 3 Organ
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-3/nord-lead-3-organ
+
+    // Nord Sample Archive Nord Lead 3 Pads
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-3/nord-lead-3-pads
+
+    // Nord Sample Archive Nord Lead 3 Piano
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-3/nord-lead-3-piano
+
+    // Nord Sample Archive Nord Lead 3 Synth
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-lead-3/nord-lead-3-synth
+
+    // Nord Sample Archive Nord Modular G2X Acoustic
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-acoustic
+
+    // Nord Sample Archive Nord Modular G2X Bass
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-bass
+
+    // Nord Sample Archive Nord Modular G2X Classic
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-classic
+
+    // Nord Sample Archive Nord Modular G2X Synth Classics
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-synth
+
+    // Nord Sample Archive Nord Modular G2X Fantasy
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-fantasy
+
+    // Nord Sample Archive Nord Modular G2X Lead
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-lead
+
+    // Nord Sample Archive Nord Modular G2X Pad
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-pads
+
+    // Nord Sample Archive Nord Modular G2X Synth
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-synth-0
+
+
+
+
+
+
+
 
     // Nord Sample Archive Oberheim Matrix-12
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/oberheim-matrix-12
