@@ -1,29 +1,30 @@
 const path = require("path");
-const mapping = require("./ns3-mapping");
+const mapping = require("../../ns3/program/ns3-mapping");
+const {getPanel} = require("../../ns3/program/ns3-panel");
 const {nordFileExtMap} = require("../../common/nord-mapping");
 const { getVersion } = require("../../common/converter");
-const { getPanel } = require("./ns3-panel");
+
 
 /***
  * returns Nord Stage 3 program data
  *
  * @param buffer {Buffer}
- * @param filename
+ * @param filename {string}
  * @returns {{split: *, panelA: *, masterClock: {rate: {value: string}}, panelB: *, name: *, transpose: *, category: *, version: string}}
  */
-exports.loadNs3ProgramFile = (buffer, filename) => {
+exports.loadNs2ProgramFile = (buffer, filename) => {
     if (buffer.length > 16) {
         const claviaSignature = buffer.toString("utf8", 0, 4);
         if (claviaSignature !== "CBIN") {
             throw new Error("Invalid Nord file");
         }
         const fileExt = buffer.toString("utf8", 8, 12);
-        if (fileExt !== "ns3f") {
-            throw new Error(fileExt + " file are not supported, select a valid ns3f file");
+        if (fileExt !== "ns2p") {
+            throw new Error(fileExt + " file are not supported, select a valid ns2p file");
         }
     }
 
-    if (buffer.length !== 592 && buffer.length !== 574) {
+    if (buffer.length !== 565 && buffer.length !== 547) {
         throw new Error("Invalid file, unexpected file length");
     }
 
@@ -63,16 +64,13 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
 
     const version = getVersion(buffer, 0x14);
 
-    // if (version !== "3.04") {
-    //     throw new Error("Sorry, only v3.04 is supported... file is v" + version);
-    // }
 
     if (version.majorVersion !== 3) {
-        throw new Error("Unexpected file revision, only v3 is supported... file is v" + version.version);
+        //throw new Error("Unexpected file revision, only v3 is supported... file is v" + version.version);
     }
 
     if (version.minorVersion < 0 || version.minorVersion > 4) {
-        throw new Error("Unexpected file revision, only v3.00 to v3.04 are supported... file is v" + version.version);
+        //throw new Error("Unexpected file revision, only v3.00 to v3.04 are supported... file is v" + version.version);
     }
 
     /**
@@ -310,7 +308,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
 
     const ext =  path.extname(filename).substr(1);
 
-    const ns3 = {
+    const ns2 = {
         // program file
         name: filename.replace(/\.[^/.]+$/, ""),
         filename: filename,
@@ -334,28 +332,28 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
 
         panelA: getPanel(buffer, 0, split.enabled, versionOffset, dualKeyboard),
 
-        panelB: getPanel(buffer, 1, split.enabled, versionOffset, dualKeyboard),
-
-        masterClock: {
-            rate: {
-                value: tempo + " bpm",
-            },
-            //keyboardSync: '' // this is a global setting
-        },
-        transpose: transpose,
-        split: split,
-        dualKeyboard: dualKeyboard,
+        // panelB: getPanel(buffer, 1, split.enabled, versionOffset, dualKeyboard),
+        //
+        // masterClock: {
+        //     rate: {
+        //         value: tempo + " bpm",
+        //     },
+        //     //keyboardSync: '' // this is a global setting
+        // },
+        // transpose: transpose,
+        // split: split,
+        // dualKeyboard: dualKeyboard,
         //monoOut: '', // this is a global setting
     };
 
-    // layer detune is common for both panel !
-    // noinspection JSPrimitiveTypeWrapperUsage
-    ns3.panelB.piano.layerDetune.value = ns3.panelA.piano.layerDetune.value;
+    // // layer detune is common for both panel !
+    // // noinspection JSPrimitiveTypeWrapperUsage
+    // ns2.panelB.piano.layerDetune.value = ns2.panelA.piano.layerDetune.value;
+    //
+    // // rotary speaker settings are common for both panel
+    // ns2.panelB.effects.rotarySpeaker.drive = ns2.panelA.effects.rotarySpeaker.drive;
+    // ns2.panelB.effects.rotarySpeaker.stopMode = ns2.panelA.effects.rotarySpeaker.stopMode;
+    // ns2.panelB.effects.rotarySpeaker.speed = ns2.panelA.effects.rotarySpeaker.speed;
 
-    // rotary speaker settings are common for both panel
-    ns3.panelB.effects.rotarySpeaker.drive = ns3.panelA.effects.rotarySpeaker.drive;
-    ns3.panelB.effects.rotarySpeaker.stopMode = ns3.panelA.effects.rotarySpeaker.stopMode;
-    ns3.panelB.effects.rotarySpeaker.speed = ns3.panelA.effects.rotarySpeaker.speed;
-
-    return ns3;
+    return ns2;
 };

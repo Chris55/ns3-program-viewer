@@ -12,9 +12,9 @@ export default class Ns3Label extends Component {
                 : "nord-label nord-off";
 
         return (
-            <React.Fragment>
+            <>
                 <span className={className}>{this.props.label}</span>
-            </React.Fragment>
+            </>
         );
     }
 }

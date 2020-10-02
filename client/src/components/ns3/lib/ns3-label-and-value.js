@@ -22,29 +22,29 @@ export default class Ns3LabelAndValue extends Component {
 
         const label = this.props.label === undefined ? "" : this.props.label + " ";
 
-        let result;
         if (this.props.table === true) {
-            result = (
+            return (
                 <>
                     <td className={labelClassName}>
-                        <span className={labelClassName}>{this.props.label}</span>
+                        {this.props.label}
                     </td>
 
                     <td />
 
                     <td className={upperCase + " " + valueClassName + " " + this.props.valueClass}>
-                        <span>{this.props.data.value}</span>
+                       {this.props.data.value}
                     </td>
                 </>
             );
-        } else {
-            result = (
-                <>
-                    <span className={labelClassName}>{label}</span>
-                    <span className={upperCase + " " + valueClassName + " " + this.props.valueClass}>{this.props.data.value}</span>
-                </>
-            );
         }
-        return <React.Fragment>{result}</React.Fragment>;
+
+        return (
+            <>
+                <span className={labelClassName}>{label}</span>
+                <span className={upperCase + " " + valueClassName + " " + this.props.valueClass}>
+                    {this.props.data.value}
+                </span>
+            </>
+        );
     }
 }

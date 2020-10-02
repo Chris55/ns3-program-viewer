@@ -10,9 +10,9 @@ export default class Ns3ValueOnOff extends Component {
         const upperCase = this.props.upperCase === false ? "nord-no-upper-case" : "nord-upper-case";
 
         return (
-            <React.Fragment>
+            <>
                 <span className={className + " " + upperCase}>{this.props.label}</span>
-            </React.Fragment>
+            </>
         );
     }
 }

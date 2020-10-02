@@ -1,7 +1,8 @@
+const {loadNs2ProgramFile} = require("./ns2/program/ns2-program");
 const { loadNs3ProgramFile } = require("./ns3/program/ns3-program");
 
 /***
- * returns Nord Stage 3 file mapping
+ * returns Nord file mapping object
  *
  * @param buffer {Buffer}
  * @param filename
@@ -21,6 +22,9 @@ exports.loadNordFile = (buffer, filename) => {
     switch (fileExt) {
         case "ns3f": {
             return loadNs3ProgramFile(buffer, filename);
+        }
+        case "ns2p": {
+            return loadNs2ProgramFile(buffer, filename);
         }
     }
 

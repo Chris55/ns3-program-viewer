@@ -12,7 +12,7 @@ export default class Ns3LabelAndValueWithMorph extends Component {
             (data.morph.wheel.enabled || data.morph.afterTouch.enabled || data.morph.controlPedal.enabled);
 
         return (
-            <React.Fragment>
+            <>
                 <tr>
                     <td className="">
                         <Ns3Label label={this.props.label} />
@@ -69,7 +69,7 @@ export default class Ns3LabelAndValueWithMorph extends Component {
                         />
                     </td>
                 </tr>
-            </React.Fragment>
+            </>
         );
     }
 }

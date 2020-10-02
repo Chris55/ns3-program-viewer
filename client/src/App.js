@@ -6,14 +6,11 @@ import "./App.css";
 import FileUploaderButton from "./components/file-uploader-button";
 import axios from "axios";
 import programIcon from "./nprog.icns.svg";
-import Tabs from "react-bootstrap/Tabs";
-import Tab from "react-bootstrap/Tab";
 import Container from "react-bootstrap/Container";
 import Figure from "react-bootstrap/Figure";
-import JSONTree from "react-json-tree";
-import Ns3 from "./components/ns3/ns3";
 import "./components/ns3-panel-component-jqx.css";
 import { ns3Model } from "./components/ns3/model/ns3-model";
+import NordDevice from "./components/nord-device";
 
 class App extends Component {
     constructor(props) {
@@ -67,11 +64,11 @@ class App extends Component {
                             <Container>
                                 <h1 className="display-5">
                                     <span className="nord-font">
-                                        Nord<span className="nord-font-copyright">®</span> Stage 3
+                                        Nord<span className="nord-font-copyright">®</span> Stage
                                     </span>{" "}
                                     Program File Viewer
                                 </h1>
-                                <p className="lead">Simple online tool to review Nord Stage 3 program file settings.</p>
+                                <p className="lead">Online tool to review Nord Stage program file settings.</p>
 
                                 <blockquote className="blockquote">
                                     <footer className="blockquote-footer">
@@ -114,7 +111,7 @@ class App extends Component {
                                     <FileUploaderButton
                                         className=""
                                         title="Select"
-                                        accept=".ns3f"
+                                        accept=".ns3f,.ns2p"
                                         handleFile={this.handleFile}
                                     />
                                 </div>
@@ -127,48 +124,51 @@ class App extends Component {
                             </div>
                         </Container>
 
-                        <div className={this.production ? "mt-2" : "d-none"}>
-                            <Ns3 data={this.state.data} />
-                        </div>
+                        <NordDevice data={this.state.data} production={this.production}/>
+                        {/*<div className={this.state.data.ext === "ns3f" ? "" : "d-none"}>*/}
+                        {/*    <div className={this.production ? "mt-2" : "d-none"}>*/}
+                        {/*        <Ns3 data={this.state.data} />*/}
+                        {/*    </div>*/}
 
-                        <div className={this.production ? "d-none" : "mt-2"}>
-                            <Tabs id="uncontrolled-tab-example">
-                                {/*style={{backgroundColor: 'grey'}}*/}
-                                <Tab eventKey="panel" title="Panel" disabled={false}>
-                                    <Ns3 data={this.state.data} />
-                                </Tab>
+                        {/*    <div className={this.production ? "d-none" : "mt-2"}>*/}
+                        {/*        <Tabs id="uncontrolled-tab-example">*/}
+                        {/*            /!*style={{backgroundColor: 'grey'}}*!/*/}
+                        {/*            <Tab eventKey="panel" title="Panel" disabled={false}>*/}
+                        {/*                <Ns3 data={this.state.data} />*/}
+                        {/*            </Tab>*/}
 
-                                <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
-                                    <JSONTree
-                                        data={this.state.data}
-                                        hideRoot={true}
-                                        getItemString={(type, data, itemType, itemString) => <span></span>}
-                                        shouldExpandNode={(keyPath, data, level) => true}
-                                        theme={{
-                                            scheme: "custom",
-                                            author: "wimer hazenberg (http://www.monokai.nl)",
-                                            base00: "#343a40",
-                                            base01: "#383830",
-                                            base02: "#49483e",
-                                            base03: "#75715e",
-                                            base04: "#a59f85",
-                                            base05: "#f8f8f2",
-                                            base06: "#f5f4f1",
-                                            base07: "#f9f8f5",
-                                            base08: "#f92672",
-                                            base09: "#fd971f",
-                                            base0A: "#f4bf75",
-                                            base0B: "#a6e22e",
-                                            base0C: "#a1efe4",
-                                            base0D: "#66d9ef",
-                                            base0E: "#ae81ff",
-                                            base0F: "#cc6633",
-                                        }}
-                                        invertTheme={false}
-                                    />
-                                </Tab>
-                            </Tabs>
-                        </div>
+                        {/*            <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">*/}
+                        {/*                <JSONTree*/}
+                        {/*                    data={this.state.data}*/}
+                        {/*                    hideRoot={true}*/}
+                        {/*                    getItemString={(type, data, itemType, itemString) => <span></span>}*/}
+                        {/*                    shouldExpandNode={(keyPath, data, level) => true}*/}
+                        {/*                    theme={{*/}
+                        {/*                        scheme: "custom",*/}
+                        {/*                        author: "wimer hazenberg (http://www.monokai.nl)",*/}
+                        {/*                        base00: "#343a40",*/}
+                        {/*                        base01: "#383830",*/}
+                        {/*                        base02: "#49483e",*/}
+                        {/*                        base03: "#75715e",*/}
+                        {/*                        base04: "#a59f85",*/}
+                        {/*                        base05: "#f8f8f2",*/}
+                        {/*                        base06: "#f5f4f1",*/}
+                        {/*                        base07: "#f9f8f5",*/}
+                        {/*                        base08: "#f92672",*/}
+                        {/*                        base09: "#fd971f",*/}
+                        {/*                        base0A: "#f4bf75",*/}
+                        {/*                        base0B: "#a6e22e",*/}
+                        {/*                        base0C: "#a1efe4",*/}
+                        {/*                        base0D: "#66d9ef",*/}
+                        {/*                        base0E: "#ae81ff",*/}
+                        {/*                        base0F: "#cc6633",*/}
+                        {/*                    }}*/}
+                        {/*                    invertTheme={false}*/}
+                        {/*                />*/}
+                        {/*            </Tab>*/}
+                        {/*        </Tabs>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
 
                     <div className="nord-footer">

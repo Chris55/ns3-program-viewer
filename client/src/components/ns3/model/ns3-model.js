@@ -1,5 +1,8 @@
 exports.ns3Model = {
     name: "Eq 1",
+    filename: "filename",
+    ext: "ns3f",
+    description: "desc",
     id: {
         bank: 11,
         location: 2,
@@ -370,10 +373,10 @@ exports.ns3Model = {
                     value: "LP12",
                 },
                 kbTrack: {
-                    value: "Off",
+                    value: "1/3",
                 },
                 drive: {
-                    value: "Off",
+                    value: "2",
                 },
                 modulations: {
                     lfoAmount: {

@@ -43,17 +43,20 @@ export default class Ns3SectionSynthFilter extends Component {
                                                 <tr>
                                                     <Ns3LabelAndValue label="Type" data={filter.type} table={true} />
                                                 </tr>
-
                                                 <Ns3LabelAndValueWithMorph
                                                     label="LFO Amt"
                                                     data={filter.modulations.lfoAmount}
                                                 />
 
                                                 <Ns3LabelAndValueWithMorph
-                                                    label="Freq" data={filter.cutoffFrequency} upperCase={false}/>
+                                                    label="Freq"
+                                                    data={filter.cutoffFrequency}
+                                                    upperCase={false}
+                                                />
                                             </tbody>
                                         </table>
                                     </td>
+                                    <td/>
                                     <td className="align-text-top">
                                         <table className="table-borderless">
                                             <tbody>

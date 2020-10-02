@@ -8,8 +8,7 @@ export default class Ns3FxCompressor extends Component {
     render() {
         const fx = this.props.data;
         const visible = fx.enabled;
-        const align = this.props.other === true ? "align-self-end": "align-self-center";
-;
+        const align = this.props.other === true ? "align-self-end" : "align-self-center";
         return (
             <React.Fragment>
                 <div className={visible ? "d-flex nord-on " + align : "d-none"}>
@@ -19,7 +18,9 @@ export default class Ns3FxCompressor extends Component {
 
                             <table className="table-borderless">
                                 <tbody>
-                                    <Ns3LabelAndValue label="Amount" data={fx.amount} table={true} />
+                                    <tr>
+                                        <Ns3LabelAndValue label="Amount" data={fx.amount} table={true} />
+                                    </tr>
                                     <tr>
                                         <td colSpan="3">
                                             <Ns3ValueOnOff label="Fast" data={fx.fast} />
