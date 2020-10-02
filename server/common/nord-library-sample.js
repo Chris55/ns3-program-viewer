@@ -2098,33 +2098,98 @@ exports.ns3SampleLibrary = new Map([
     // Nord Sample Archive Nord Modular G2X Acoustic
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-acoustic
 
+    [0xf7084db1, {name: "G2X ClongsWooden ste PH", info: "v2", version: "3.2", category: "Misc", size: 1774444, filename: "G2X ClongsWooden_ste PH_v2", ext: "nsmp3" }],
+    [0x3d98cbec, {name: "G2X G2-Plucks ste PH", info: "V2", version: "3.2", category: "Misc", size: 965996, filename: "G2X G2-Plucks_ste PH_V2", ext: "nsmp3" }],
+    [0x9df4181b, {name: "G2X HornModel PH", info: "v2", version: "3.2", category: "Misc", size: 1825388, filename: "G2X HornModel PH_v2", ext: "nsmp3" }],
+    [0x7713d860, {name: "G2X Warm Brass Dark ste PH", info: "v2", version: "3.2", category: "Misc", size: 2232556, filename: "G2X Warm Brass Dark_ste PH_v2", ext: "nsmp3" }],
+    [0x768d7ec0, {name: "G2X Warm Brass ste PH", info: "v2", version: "3.2", category: "Misc", size: 2245740, filename: "G2X Warm Brass_ste PH_v2", ext: "nsmp3" }],
+
     // Nord Sample Archive Nord Modular G2X Bass
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-bass
+
+    [0x1b394a7d, {name: "G2X ARPMod NL3 ste PH", info: "v2", version: "3.2", category: "Misc", size: 1312108, filename: "G2X ARPMod NL3_ste PH_v2", ext: "nsmp3" }],
+    [0x36dcc733, {name: "G2X BassVaria PH", info: "v2", version: "3.2", category: "Misc", size: 685036, filename: "G2X BassVaria PH_v2", ext: "nsmp3" }],
+    [0x183e171f, {name: "G2X CleanTheHouse PH", info: "v2", version: "3.2", category: "Misc", size: 368492, filename: "G2X CleanTheHouse PH_v2", ext: "nsmp3" }],
 
     // Nord Sample Archive Nord Modular G2X Classic
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-classic
 
+    [0x95ad4447, {name: "G2X MicroKid Bass PH", info: "v2", version: "3.2", category: "Misc", size: 799212, filename: "G2X MicroKid Bass PH_v2", ext: "nsmp3" }],
+    [0x6ff6352, {name: "G2X MicroKid NL3 PH", info: "v2", version: "3.2", category: "Misc", size: 2372972, filename: "G2X MicroKid NL3 PH_v2", ext: "nsmp3" }],
+    [0xc1d4fe4e, {name: "G2X MicroKid Poly PH", info: "v2", version: "3.2", category: "Misc", size: 994028, filename: "G2X MicroKid Poly PH_v2", ext: "nsmp3" }],
+    [0xdccede50, {name: "G2X MicroKid Reso PH", info: "v2", version: "3.2", category: "Misc", size: 789484, filename: "G2X MicroKid Reso PH_v2", ext: "nsmp3" }],
+    [0xb952a8af, {name: "G2X Stage Keyboarder PH", info: "v2", version: "3.2", category: "Misc", size: 1149548, filename: "G2X Stage Keyboarder PH_v2", ext: "nsmp3" }],
+    [0x96aa27d1, {name: "G2X StereoEighties Brass ste PH", info: "v2", version: "3.2", category: "Misc", size: 1873644, filename: "G2X StereoEighties Brass_ste PH_v2", ext: "nsmp3" }],
+    [0x2afd29c3, {name: "G2X StereoEighties Reed ste PH", info: "v2", version: "3.2", category: "Misc", size: 1976684, filename: "G2X StereoEighties Reed_ste PH_v2", ext: "nsmp3" }],
+    [0x2c7941fa, {name: "G2X StereoEighties ste PH", info: "v2", version: "3.2", category: "Misc", size: 2137580, filename: "G2X StereoEighties_ste PH_v2", ext: "nsmp3" }],
+
     // Nord Sample Archive Nord Modular G2X Synth Classics
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-synth
+
+    [0x8458caf, {name: "G2X AnaClassic 1", info: "ste CL", version: "3.4", category: "Misc", size: 1577836, filename: "G2X AnaClassic 1__ste CLv4", ext: "nsmp3" }],
+    [0x99a63357, {name: "G2X Bells", info: "ste CL", version: "3.4", category: "Misc", size: 1741932, filename: "G2X Bells__ste CLv4", ext: "nsmp3" }],
+    [0xf85db35c, {name: "G2X Bwana Bass", info: "ste CL", version: "3.4", category: "Misc", size: 351084, filename: "G2X Bwana Bass__ste CLv4", ext: "nsmp3" }],
+    [0x6134fea6, {name: "G2X Ecochoir", info: "ste CL", version: "3.4", category: "Misc", size: 922604, filename: "G2X Ecochoir__ste CLv4", ext: "nsmp3" }],
+    [0x8e7261d9, {name: "G2X Eighties", info: "ste CL", version: "3.4", category: "Misc", size: 1817196, filename: "G2X Eighties__ste CLv4", ext: "nsmp3" }],
+    [0x3cd718fd, {name: "G2X Stage Key", info: "ste CL", version: "3.4", category: "Misc", size: 1055852, filename: "G2X Stage Key__ste CLv4", ext: "nsmp3" }],
+    [0x7ebc468b, {name: "G2X Stargate", info: "ste CL", version: "3.4", category: "Misc", size: 5642220, filename: "G2X Stargate__ste CLv4", ext: "nsmp3" }],
+    [0x36947f69, {name: "G2X StereoPad", info: "ste CL", version: "3.4", category: "Misc", size: 2400748, filename: "G2X StereoPad__ste CLv4", ext: "nsmp3" }],
+    [0x46ea68fb, {name: "G2X VA Strings", info: "ste CL", version: "3.4", category: "Misc", size: 2862572, filename: "G2X VA Strings__ste CLv4", ext: "nsmp3" }],
+    [0xd7785427, {name: "SynthPad1", info: "ste CL", version: "3.4", category: "Misc", size: 1450476, filename: "SynthPad1__ste CLv4", ext: "nsmp3" }],
+    [0x7d09d3ba, {name: "SynthPad2", info: "ste CL", version: "3.4", category: "Misc", size: 1779308, filename: "SynthPad2__ste CLv4", ext: "nsmp3" }],
 
     // Nord Sample Archive Nord Modular G2X Fantasy
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-fantasy
 
+    [0x99371db6, {name: "G2X Flamchimes1 ste PH", info: "v2", version: "3.2", category: "Misc", size: 1970412, filename: "G2X Flamchimes1_ste PH_v2", ext: "nsmp3" }],
+    [0x52679000, {name: "G2X Flamchimes1 v2 ste PH", info: "v2", version: "3.2", category: "Misc", size: 1961708, filename: "G2X Flamchimes1 v2_ste PH_v2", ext: "nsmp3" }],
+    [0xf3814e6a, {name: "G2X Granuloos Shine ste PH", info: "v2", version: "3.2", category: "Misc", size: 2105324, filename: "G2X Granuloos Shine_ste PH_v2", ext: "nsmp3" }],
+    [0x63d111cc, {name: "G2X Granuloos ste PH", info: "v2", version: "3.2", category: "Misc", size: 2062828, filename: "G2X Granuloos_ste PH_v2", ext: "nsmp3" }],
+    [0x19e272ed, {name: "G2X Iceland Water ste PH", info: "v2", version: "3.2", category: "Misc", size: 2096492, filename: "G2X Iceland Water_ste PH_v2", ext: "nsmp3" }],
+    [0xdf8e96c5, {name: "G2x MeloGrandCru`78 Brite ste PH", info: "v2", version: "3.2", category: "Misc", size: 1640556, filename: "G2x MeloGrandCru`78 Brite_ste PH_v2", ext: "nsmp3" }],
+    [0xcb24a53e, {name: "G2x MeloGrandCru`78 Long ste PH", info: "v2", version: "3.2", category: "Misc", size: 2155372, filename: "G2x MeloGrandCru`78 Long_ste PH_v2", ext: "nsmp3" }],
+    [0x3a68fb05, {name: "G2x MeloGrandCru`78 Pluck ste PH", info: "v2", version: "3.2", category: "Misc", size: 1968620, filename: "G2x MeloGrandCru`78 Pluck_ste PH_v2", ext: "nsmp3" }],
+    [0xc1ef11c2, {name: "G2x MeloGrandCru`78 ste PH", info: "v2", version: "3.2", category: "Misc", size: 1187180, filename: "G2x MeloGrandCru`78_ste PH_v2", ext: "nsmp3" }],
+    [0xdd9a2368, {name: "G2X Pixies Long PH", info: "v2", version: "3.2", category: "Misc", size: 2062060, filename: "G2X Pixies Long PH_v2", ext: "nsmp3" }],
+    [0xa6729472, {name: "G2X Pixies PH", info: "v2", version: "3.2", category: "Misc", size: 245868, filename: "G2X Pixies PH_v2", ext: "nsmp3" }],
+
     // Nord Sample Archive Nord Modular G2X Lead
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-lead
+
+    [0x54c39805, {name: "G2X BackTo71 Hollow PH", info: "v2", version: "3.2", category: "Misc", size: 643180, filename: "G2X BackTo71 Hollow PH_v2", ext: "nsmp3" }],
+    [0x41eb6e72, {name: "G2X BackTo71 PH", info: "v2", version: "3.2", category: "Misc", size: 1003116, filename: "G2X BackTo71 PH_v2", ext: "nsmp3" }],
+    [0xa2469720, {name: "G2X FMLead FM4 ste PH", info: "v2", version: "3.2", category: "Misc", size: 2063468, filename: "G2X FMLead FM4_ste PH_v2", ext: "nsmp3" }],
+    [0x1383bdee, {name: "G2X Lead  NL3 ste PH", info: "v2", version: "3.2", category: "Misc", size: 2111596, filename: "G2X Lead  NL3_ste PH_v2", ext: "nsmp3" }],
+    [0xf2c64e70, {name: "G2X TeknoPlukk Dark ste PH", info: "v2", version: "3.2", category: "Misc", size: 2121196, filename: "G2X TeknoPlukk Dark_ste PH_v2", ext: "nsmp3" }],
+    [0x7df2cc6e, {name: "G2X TeknoPlukk ste PH", info: "v2", version: "3.2", category: "Misc", size: 2266988, filename: "G2X TeknoPlukk_ste PH_v2", ext: "nsmp3" }],
 
     // Nord Sample Archive Nord Modular G2X Pad
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-pads
 
+    [0xdde0920c, {name: "G2X Antem ste PH", info: "v2", version: "3.2", category: "Misc", size: 2179436, filename: "G2X Antem_ste PH_v2", ext: "nsmp3" }],
+    [0x9e6ea34e, {name: "G2X BigSweepPad1 ste PH", info: "v2", version: "3.2", category: "Misc", size: 2133356, filename: "G2X BigSweepPad1_ste PH_v2", ext: "nsmp3" }],
+    [0xeef0b0ac, {name: "G2X Interlude ste PH", info: "v2", version: "3.2", category: "Misc", size: 2173804, filename: "G2X Interlude_ste PH_v2", ext: "nsmp3" }],
+    [0x708a2c11, {name: "G2X KlangPad ste PH", info: "v2", version: "3.2", category: "Misc", size: 1957228, filename: "G2X KlangPad_ste PH_v2", ext: "nsmp3" }],
+    [0x34401845, {name: "G2X LushModular Reso ste PH", info: "v2", version: "3.2", category: "Misc", size: 2135404, filename: "G2X LushModular Reso_ste PH_v2", ext: "nsmp3" }],
+    [0xc0cbb282, {name: "G2X LushModular ste PH", info: "v2", version: "3.2", category: "Misc", size: 2008940, filename: "G2X LushModular_ste PH_v2", ext: "nsmp3" }],
+    [0x58bc6c41, {name: "G2X Mellow&Icy Ice ste PH", info: "v2", version: "3.2", category: "Misc", size: 2209900, filename: "G2X Mellow&Icy Ice_ste PH_v2", ext: "nsmp3" }],
+    [0x817f47d, {name: "G2X Mellow&Icy ste PH", info: "v2", version: "3.2", category: "Misc", size: 2123116, filename: "G2X Mellow&Icy_ste PH_v2", ext: "nsmp3" }],
+    [0x4303683f, {name: "G2X Murk Strings", info: "ste PH", version: "3.0", category: "Misc", size: 2168940, filename: "G2X Murk Strings_ste PH", ext: "nsmp3" }],
+    [0x93ff7825, {name: "G2X Padding Dark ste PH", info: "v2", version: "3.2", category: "Misc", size: 1982444, filename: "G2X Padding Dark_ste PH_v2", ext: "nsmp3" }],
+    [0x29b586ef, {name: "G2X Padding Res ste PH", info: "v2", version: "3.2", category: "Misc", size: 2163436, filename: "G2X Padding Res_ste PH_v2", ext: "nsmp3" }],
+    [0x9a594ff5, {name: "G2X Padding Smooth ste PH", info: "v2", version: "3.2", category: "Misc", size: 1916140, filename: "G2X Padding Smooth_ste PH_v2", ext: "nsmp3" }],
+    [0x44546845, {name: "G2X Padding ste PH", info: "v2", version: "3.2", category: "Misc", size: 1993964, filename: "G2X Padding_ste PH_v2", ext: "nsmp3" }],
+    [0x39bb3bac, {name: "G2X Padding VelCity ste PH", info: "v2", version: "3.2", category: "Misc", size: 2223084, filename: "G2X Padding VelCity_ste PH_v2", ext: "nsmp3" }],
+
     // Nord Sample Archive Nord Modular G2X Synth
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/nord-modular-g2/nord-modular-g2x-synth-0
 
-
-
-
-
-
-
+    [0x53984796, {name: "G2X Addi-bells DeTuned ste PH", info: "v2", version: "3.2", category: "Misc", size: 2088428, filename: "G2X Addi-bells DeTuned_ste PH_v2", ext: "nsmp3" }],
+    [0x5bc4bc85, {name: "G2X Addi-bells ste PH", info: "v2", version: "3.2", category: "Misc", size: 1948652, filename: "G2X Addi-bells_ste PH_v2", ext: "nsmp3" }],
+    [0x509445eb, {name: "G2X DualSawModel1 ste PH", info: "v2", version: "3.2", category: "Misc", size: 2025708, filename: "G2X DualSawModel1_ste PH_v2", ext: "nsmp3" }],
+    [0x26ad2318, {name: "G2X FilterSpitModel ste PH", info: "v2", version: "3.2", category: "Misc", size: 2174956, filename: "G2X FilterSpitModel_ste PH_v2", ext: "nsmp3" }],
+    [0x328014ce, {name: "G2X MelodyClub ste PH", info: "v2", version: "3.2", category: "Misc", size: 2094444, filename: "G2X MelodyClub_ste PH_v2", ext: "nsmp3" }],
+    [0x688f0fc2, {name: "G2X Sonoma ste PH", info: "v2", version: "3.2", category: "Misc", size: 2071404, filename: "G2X Sonoma_ste PH_v2", ext: "nsmp3" }],
 
     // Nord Sample Archive Oberheim Matrix-12
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/synthesizers/oberheim-matrix-12
