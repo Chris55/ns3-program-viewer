@@ -19,14 +19,9 @@ const loadSample = (buffer, filename) => {
 
     if (library.has(sample.sampleValue) === false) {
         const lib = {
-            sampleName: sample.name,
             sampleId: -1,
-            sampleValue: sample.sampleValue,
-            info: sample.info,
-            filename: sample.filename,
-            version: sample.version,
-            category: sample.category,
             programLocNames: [],
+            ...sample,
         };
         library.set(sample.sampleValue, lib);
         //console.log("sample: ", lib.sampleValue, lib.sampleName);
@@ -95,7 +90,7 @@ run(backupFilename).then(() => {
         [...library].sort((a, b) => {
             // Some sort function comparing keys with a[0] b[0] or values with a[1] b[1]
             // Be sure to return -1 if lower and, if comparing values, return 0 if equal
-            // if (typeof a.sampleName === 'undefined') {
+            // if (typeof a[1].sampleName === 'undefined') {
             //     console.log(a);
             // }
             return a[1].sampleName.localeCompare(b[1].sampleName);
@@ -132,8 +127,9 @@ run(backupFilename).then(() => {
                 alreadyInLibrary.push(x);
             } else {
                 sampleCount++;
+                const test = BigInt(x.offset18) - BigInt(id);
                 console.info(
-                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.info}", version: "${x.version}", category: "${x.category}"}],`
+                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],`  // ${x.offset18.toString("16")} ${test.toString("16")}`
                 );
             }
         }
