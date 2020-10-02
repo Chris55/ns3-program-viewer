@@ -216,7 +216,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Organ On
+         * @module NS3 Organ On
          */
         enabled: organEnabled,
 
@@ -237,7 +237,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * x100 0xxx |  8   | -ooo
          * x100 1xxx |  9   | oooo
          *
-         * @module Organ Kb Zone
+         * @module NS3 Organ Kb Zone
          */
         kbZone: {
             array: organKbZone[1],
@@ -269,7 +269,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
          * Morph Enabled if  'From value' <> 'Morph offset value'
          *
-         * @module Organ Volume
+         * @module NS3 Organ Volume
          */
         volume: getVolumeEx(buffer, 0xb6 + panelOffset),
 
@@ -279,7 +279,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * Octave Shift = value - 6
          *
-         * @module Organ Octave Shift
+         * @module NS3 Organ Octave Shift
          */
         octaveShift: {
             value: (organOffsetBa & 0x0f) - 6,
@@ -291,7 +291,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Organ Pitch Stick
+         * @module NS3 Organ Pitch Stick
          */
         pitchStick: {
             enabled: (organOffset34 & 0x10) !== 0,
@@ -302,7 +302,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Organ Sustain Pedal
+         * @module NS3 Organ Sustain Pedal
          */
         sustainPedal: {
             enabled: (organOffsetBb & 0x80) !== 0,
@@ -317,7 +317,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 3 = Pipe1
          * 4 = Pipe2
          *
-         * @module Organ Type
+         * @module NS3 Organ Type
          */
         type: {
             value: organType,
@@ -386,7 +386,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
          * Morph Enabled if  'From value' <> 'Morph offset value'
          *
-         * @module Organ Drawbars Preset 1
+         * @module NS3 Organ Drawbars Preset 1
          */
         preset1: getDrawbars(buffer, 0xbe + panelOffset, organType),
 
@@ -454,7 +454,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
          * Morph Enabled if  'From value' <> 'Morph offset value'
          *
-         * @module Organ Drawbars Preset 2
+         * @module NS3 Organ Drawbars Preset 2
          */
         preset2: getDrawbars(buffer, 0xd9 + panelOffset, organType),
 
@@ -465,7 +465,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Organ Live Mode
+         * @module NS3 Organ Live Mode
          */
         live: {
             enabled: (organOffsetBb & 0x08) !== 0,
@@ -480,7 +480,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * @example
              * O = off, 1 = on
              *
-             * @module Organ Vibrato On
+             * @module NS3 Organ Vibrato On
              */
             enabled: (organOffsetD3 & 0x10) !== 0,
 
@@ -500,7 +500,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * if Organ type is Vox, mode C1/C2/C3 are not available
              * if Organ type is B3, all mode are available
              *
-             * @module Organ Vibrato Mode
+             * @module NS3 Organ Vibrato Mode
              */
             mode: {
                 value: organMode,
@@ -519,7 +519,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * only if Organ type is B3
              *
-             * @module Organ Percussion On
+             * @module NS3 Organ Percussion On
              */
             enabled: organTypeIsB3 && (organOffsetD3 & 0x08) !== 0,
 
@@ -531,7 +531,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * only if Organ type is B3
              *
-             * @module Organ Percussion Volume Soft
+             * @module NS3 Organ Percussion Volume Soft
              */
             volumeSoft: {
                 enabled: organTypeIsB3 && (organOffsetD3 & 0x01) !== 0,
@@ -544,7 +544,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * only if Organ type is B3
              *
-             * @module Organ Percussion Decay Fast
+             * @module NS3 Organ Percussion Decay Fast
              */
             decayFast: {
                 enabled: organTypeIsB3 && (organOffsetD3 & 0x02) !== 0,
@@ -557,7 +557,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * only if Organ type is B3
              *
-             * @module Organ Percussion Harmonic Third
+             * @module NS3 Organ Percussion Harmonic Third
              */
             harmonicThird: {
                 enabled: organTypeIsB3 && (organOffsetD3 & 0x04) !== 0,

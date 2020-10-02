@@ -75,7 +75,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Piano On
+         * @module NS3 Piano On
          */
         enabled: pianoEnabled,
 
@@ -83,7 +83,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * Offset in file: 0x43 (b6-3)
          * @see {@link ns3-doc.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
-         * @module Piano Kb Zone
+         * @module NS3 Piano Kb Zone
          */
         kbZone: {
             array: pianoKbZone[1],
@@ -109,7 +109,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed explanation.
          *
-         * @module Piano Volume
+         * @module NS3 Piano Volume
          */
         volume: getVolumeEx(buffer, 0x43 + panelOffset),
 
@@ -119,7 +119,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * Octave Shift = value - 6
          *
-         * @module Piano Octave Shift
+         * @module NS3 Piano Octave Shift
          */
         octaveShift: {
             value: (pianoOffset47 & 0x0f) - 6,
@@ -130,7 +130,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Piano Pitch Stick
+         * @module NS3 Piano Pitch Stick
          */
         pitchStick: {
             enabled: (pianoOffset48 & 0x80) !== 0,
@@ -141,7 +141,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Piano Sustain Pedal
+         * @module NS3 Piano Sustain Pedal
          */
         sustainPedal: {
             enabled: (pianoOffset48 & 0x40) !== 0,
@@ -157,7 +157,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 4 = Digital
          * 5 = Misc
          *
-         * @module Piano Type
+         * @module NS3 Piano Type
          */
         type: {
             value: pianoType,
@@ -171,7 +171,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * .. and so on
          * 0x02 0x01: model 10
          *
-         * @module Piano Model
+         * @module NS3 Piano Model
          */
         model: {
             value: pianoModel,
@@ -182,7 +182,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * 32-bit Nord Sample ID
          *
-         * @module Piano Name
+         * @module NS3 Piano Name
          */
         name: {
             value: pianoName,
@@ -215,7 +215,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 6 = Treble+Brill
          * 7 = Soft+Trb+Brill
          *
-         * @module Piano Timbre
+         * @module NS3 Piano Timbre
          */
         timbre: {
             value: pianoTimbre,
@@ -229,7 +229,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 2 = Touch 2
          * 3 = Touch 3
          *
-         * @module Piano KB Touch
+         * @module NS3 Piano KB Touch
          */
         kbTouch: {
             value: mapping.pianoKbTouchMap.get((pianoOffset4dW & 0x0180) >>> 7),
@@ -246,7 +246,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * Note: This parameter is common for both Panel. Layer Detune setting cannot be different
          * for each panel, only offset 0x34 is used.
          *
-         * @module Piano Layer Detune
+         * @module NS3 Piano Layer Detune
          */
         layerDetune: {
             value: mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >>> 5),
@@ -259,7 +259,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          *
          * Not available on Clavinet and Digital Piano
          *
-         * @module Piano Soft Release
+         * @module NS3 Piano Soft Release
          */
         softRelease: {
             enabled: pianoTypeValue !== 3 && pianoTypeValue !== 4 && (pianoOffset4d & 0x08) !== 0,
@@ -272,7 +272,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          *
          * Only on Grand, Upright, and Electric piano.
          *
-         * @module Piano Pedal Noise
+         * @module NS3 Piano Pedal Noise
          */
         pedalNoise: {
             enabled: pianoTypeValue <= 2 && (pianoOffset4d & 0x02) !== 0,
@@ -285,7 +285,7 @@ exports.getPiano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          *
          * Only on Grand and Upright piano.
          *
-         * @module Piano String Resonance
+         * @module NS3 Piano String Resonance
          */
         stringResonance: {
             enabled: pianoTypeValue <= 1 && (pianoOffset4d & 0x04) !== 0,

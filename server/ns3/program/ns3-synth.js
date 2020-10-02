@@ -165,7 +165,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Synth On
+         * @module NS3 Synth On
          */
         enabled: synthEnabled,
 
@@ -173,7 +173,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * Offset in file: 0x52 (b6-3)
          * @see {@link ns3-doc.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
-         * @module Synth Kb Zone
+         * @module NS3 Synth Kb Zone
          */
         kbZone: {
             array: synthKbZone[1],
@@ -199,7 +199,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed explanation.
          *
-         * @module Synth Volume
+         * @module NS3 Synth Volume
          */
         volume: getVolumeEx(buffer, 0x52 + panelOffset),
 
@@ -209,7 +209,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * Octave Shift = value - 6
          *
-         * @module Synth Octave Shift
+         * @module NS3 Synth Octave Shift
          */
         octaveShift: {
             value: (synthOffset56 & 0x0f) - 6,
@@ -220,7 +220,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Synth Pitch Stick
+         * @module NS3 Synth Pitch Stick
          */
         pitchStick: {
             enabled: (synthOffset57 & 0x80) !== 0,
@@ -233,7 +233,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Synth Sustain Pedal
+         * @module NS3 Synth Sustain Pedal
          */
         sustainPedal: {
             enabled: (synthOffset57 & 0x40) !== 0,
@@ -244,7 +244,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Synth Kb Hold
+         * @module NS3 Synth Kb Hold
          */
         keyboardHold: {
             enabled: (synthOffset80 & 0x80) !== 0,
@@ -257,7 +257,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 1 = Legato
          * 2 = Mono
          *
-         * @module Synth Voice
+         * @module NS3 Synth Voice
          */
         voice: {
             value: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
@@ -268,7 +268,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @example
          * 0/127 value = 0 / 10
          *
-         * @module Synth Glide
+         * @module NS3 Synth Glide
          */
         glide: {
             value: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
@@ -282,7 +282,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 2 = 2
          * 3 = 3
          *
-         * @module Synth Unison
+         * @module NS3 Synth Unison
          */
         unison: {
             value: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
@@ -298,7 +298,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 4 = Wheel
          * 5 = After Touch
          *
-         * @module Synth Vibrato
+         * @module NS3 Synth Vibrato
          */
         vibrato: {
             value: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
@@ -317,7 +317,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 3 = Super
              * 4 = Sample
              *
-             * @module Synth Oscillator Type
+             * @module NS3 Synth Oscillator Type
              */
             type: {
                 value: oscillatorType,
@@ -376,7 +376,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 44 |          | Wave Marimba       |
              * 45 |          | Wave Tubular Bells |
              *
-             * @module Synth Oscillator 1 Wave Form
+             * @module NS3 Synth Oscillator 1 Wave Form
              */
             waveForm1: waveForm1,
             /**
@@ -400,7 +400,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 13 = FM2
              * 14 = RM
              *
-             * @module Synth Oscillator Config
+             * @module NS3 Synth Oscillator Config
              */
             config: {
                 value: oscConfig,
@@ -431,7 +431,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
              *
-             * @module Synth Oscillator Control
+             * @module NS3 Synth Oscillator Control
              */
             control: getOscControl(buffer, 0x90 + panelOffset, oscConfig),
 
@@ -442,7 +442,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * Midi value = 6-bit value + b0 forced to zero to have a standard Midi 7-bit value
              * value conversion: -12 (Sub) to +48
              *
-             * @module Synth Pitch
+             * @module NS3 Synth Pitch
              */
             pitch: {
                 /***
@@ -466,7 +466,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 60  = 0.0 for both values
              * 120 = 10.0 (100% right value) 'Mod Env Amount'
              *
-             * @module Synth LFO Mod Env
+             * @module NS3 Synth LFO Mod Env
              */
             modulations: {
                 /**
@@ -492,7 +492,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * @example
              * O = off, 1 = on
              *
-             * @module Synth Fast Attack
+             * @module NS3 Synth Fast Attack
              */
             fastAttack: {
                 enabled: (synthOffsetAc & 0x04) !== 0,
@@ -510,7 +510,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  * 0/127 value = 0.5 ms / 45 s
                  * #include synthEnvAttackMap
                  *
-                 * @module Synth Mod Env Attack
+                 * @module NS3 Synth Mod Env Attack
                  */
                 attack: {
                     midi: envModAttackMidi,
@@ -524,7 +524,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  * 0/127 value = 3.0 ms / 45 s (Sustain)
                  * #include synthEnvDecayOrReleaseMap
                  *
-                 * @module Synth Mod Env Decay
+                 * @module NS3 Synth Mod Env Decay
                  */
                 decay: {
                     midi: envModDecayMidi,
@@ -538,7 +538,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  * 0/127 value = 3.0 ms / 45 s (Inf)
                  * #include synthEnvDecayOrReleaseMap
                  *
-                 * @module Synth Mod Env Release
+                 * @module NS3 Synth Mod Env Release
                  */
                 release: {
                     midi: envModReleaseMidi,
@@ -551,7 +551,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  * @example
                  * O = off, 1 = on
                  *
-                 * @module Synth Mod Env Velocity
+                 * @module NS3 Synth Mod Env Velocity
                  */
                 velocity: {
                     enabled: (synthOffset8dW & 0x0400) !== 0,
@@ -565,7 +565,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  * 0/127 value = 0.5 ms / 45 s
                  * #include synthEnvAttackMap
                  *
-                 * @module Synth Amp Env Attack
+                 * @module NS3 Synth Amp Env Attack
                  */
                 attack: {
                     midi: envAmpAttackMidi,
@@ -579,7 +579,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  * 0/127 value = 3.0 ms / 45 s (Sustain)
                  * #include synthEnvDecayOrReleaseMap
                  *
-                 * @module Synth Amp Env Decay
+                 * @module NS3 Synth Amp Env Decay
                  */
                 decay: {
                     midi: envAmpDecayMidi,
@@ -593,7 +593,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  * 0/127 value = 3.0 ms / 45 s
                  * #include synthEnvDecayOrReleaseMap
                  *
-                 * @module Synth Amp Env Release
+                 * @module NS3 Synth Amp Env Release
                  */
                 release: {
                     midi: envAmpReleaseMidi,
@@ -609,7 +609,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  * 2 = 2
                  * 3 = 3
                  *
-                 * @module Synth Amp Env Velocity
+                 * @module NS3 Synth Amp Env Velocity
                  */
                 velocity: {
                     value: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >>> 3),
@@ -627,7 +627,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 3 = Square
              * 4 = S/H
              *
-             * @module Synth Lfo Wave
+             * @module NS3 Synth Lfo Wave
              */
             wave: {
                 value: mapping.synthLfoWaveMap.get(synthOffset86 & 0x07),
@@ -656,7 +656,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
              *
-             * @module Synth Lfo Rate
+             * @module NS3 Synth Lfo Rate
              */
             rate: {
                 midi: lfoRateMidi,
@@ -683,7 +683,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * @example
              * O = off, 1 = on
              *
-             * @module Synth Lfo Master Clock
+             * @module NS3 Synth Lfo Master Clock
              */
             masterClock: {
                 enabled: lfoRateMasterClock,
@@ -696,7 +696,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * @example
              * O = off, 1 = on
              *
-             * @module Synth Arp On
+             * @module NS3 Synth Arp On
              */
             enabled: (synthOffset80 & 0x40) !== 0,
 
@@ -724,7 +724,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
              *
-             * @module Synth Arp Rate
+             * @module NS3 Synth Arp Rate
              */
             rate: {
                 midi: arpeggiatorRateMidi,
@@ -751,7 +751,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * @example
              * O = off, 1 = on
              *
-             * @module Synth Arp Kb Sync
+             * @module NS3 Synth Arp Kb Sync
              */
             kbSync: {
                 enabled: (synthOffset80 & 0x20) !== 0,
@@ -762,7 +762,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * @example
              * O = off, 1 = on
              *
-             * @module Synth Arp Master Clock
+             * @module NS3 Synth Arp Master Clock
              */
             masterClock: {
                 enabled: arpeggiatorMasterClock,
@@ -776,7 +776,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 2 = 3 Octaves
              * 3 = 4 Octaves
              *
-             * @module Synth Arp Range
+             * @module NS3 Synth Arp Range
              */
             range: {
                 value: mapping.arpeggiatorRangeMap.get(arpeggiatorRange),
@@ -790,7 +790,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 2 = Up/Down
              * 3 = Random
              *
-             * @module Synth Arp Pattern
+             * @module NS3 Synth Arp Pattern
              */
             pattern: {
                 value: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern),

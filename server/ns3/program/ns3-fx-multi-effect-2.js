@@ -25,7 +25,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Effect 2 On
+         *  @module NS3 Effect 2 On
          */
         enabled: (effectOffset114 & 0x80) !== 0,
 
@@ -35,7 +35,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * @example
          * 0 = Organ, 1, Piano, 2 = Synth
          *
-         *  @module Effect 2 Source
+         *  @module NS3 Effect 2 Source
          */
         source: {
             value: mapping.effectSourceMap.get((effectOffset114 & 0x60) >>> 5),
@@ -52,7 +52,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * 4 = CHOR1
          * 5 = CHOR2
          *
-         * @module Effect 2 Type
+         * @module NS3 Effect 2 Type
          */
         type: {
             value: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2),
@@ -78,7 +78,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Effect 2 Amount
+         * @module NS3 Effect 2 Amount
          */
         amount: {
             midi: effect2AmountMidi,
@@ -101,7 +101,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * @example
          * 7-bit value 0/127 = 0/10
          *
-         * @module Effect 2 Rate
+         * @module NS3 Effect 2 Rate
          */
         rate: {
             midi: effect2RateMidi,

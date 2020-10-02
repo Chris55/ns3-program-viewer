@@ -9,6 +9,9 @@ function replaceAll(str, find, replace) {
 
 function getEnum(name) {
     const table = mapping[name];
+    if (!table) {
+        throw new Error("Typo error somewhere the mapping " + name + " is not available!");
+    }
     let lines = ""; //"```" + os.EOL;
     for (const [key, value] of table) {
         lines = lines + "  " + key + " = " + value + os.EOL;

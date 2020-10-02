@@ -22,7 +22,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Rotary Speaker On
+         * @module NS3 Rotary Speaker On
          */
         enabled: (rotarySpeakerOffset10B & 0x80) !== 0,
 
@@ -32,7 +32,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * @example
          * 0 = Organ, 1, Piano, 2 = Synth
          *
-         * @module Rotary Speaker Source
+         * @module NS3 Rotary Speaker Source
          */
         source: {
             value: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
@@ -46,7 +46,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          *
          * Note: Panel A value is used for panel A & B
          *
-         * @module Rotary Speaker Drive
+         * @module NS3 Rotary Speaker Drive
          */
         drive: {
             value: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >>> 4, 1, ""),
@@ -60,7 +60,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          *
          * Note: Panel A value is used for panel A & B
          *
-         * @module Rotary Speaker Stop Mode
+         * @module NS3 Rotary Speaker Stop Mode
          */
         stopMode: {
             enabled: !((organOffset35 & 0x80) >>> 7 !== 0),
@@ -81,7 +81,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          *
          * Note: Panel A value is used for panel A & B
          *
-         * @module Rotary Speaker Speed
+         * @module NS3 Rotary Speaker Speed
          */
 
         /***

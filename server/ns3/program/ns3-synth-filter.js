@@ -44,7 +44,7 @@ exports.getFilter = (buffer, panelOffset) => {
          * 4 = BP24
          * 5 = HP24
          *
-         * @module Synth Filter Type
+         * @module NS3 Synth Filter Type
          */
         type: {
             value: filterType,
@@ -58,7 +58,7 @@ exports.getFilter = (buffer, panelOffset) => {
          * 2 = 2/3
          * 3 = 1
          *
-         * @module Synth Filter Kb Track
+         * @module NS3 Synth Filter Kb Track
          */
         kbTrack: {
             value: mapping.synthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >>> 12),
@@ -72,7 +72,7 @@ exports.getFilter = (buffer, panelOffset) => {
          * 2 = 2
          * 3 = 3
          *
-         * @module Synth Filter Drive
+         * @module NS3 Synth Filter Drive
          */
         drive: {
             value: mapping.synthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >>> 10),
@@ -98,7 +98,7 @@ exports.getFilter = (buffer, panelOffset) => {
              *
              * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
              *
-             * @module Synth Filter LFO Amount
+             * @module NS3 Synth Filter LFO Amount
              */
             lfoAmount: {
                 midi: filterModulation1KnobMidi,
@@ -123,7 +123,7 @@ exports.getFilter = (buffer, panelOffset) => {
              * 60  = 0.0 for both values
              * 120 = 10.0 (100% right value) 'Mod Env Amount'
              *
-             * @module Synth Filter Vel Mod Env Amount
+             * @module NS3 Synth Filter Vel Mod Env Amount
              */
             velAmount: {
                 midi: filterModulation2Knob.leftMidi,
@@ -156,7 +156,7 @@ exports.getFilter = (buffer, panelOffset) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Synth Filter Freq
+         * @module NS3 Synth Filter Freq
          */
         cutoffFrequency: {
             midi: filterCutoffFreqKnobMidi,
@@ -182,7 +182,7 @@ exports.getFilter = (buffer, panelOffset) => {
          * for all other filters
          *   => Resonance:  0/127 value = 0 / 10
          *
-         * @module Synth Filter HP Freq Res
+         * @module NS3 Synth Filter HP Freq Res
          */
 
         highPassCutoffFrequency: {

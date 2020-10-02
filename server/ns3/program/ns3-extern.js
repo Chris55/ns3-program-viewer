@@ -35,7 +35,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Extern On
+         * @module NS3 Extern On
          */
         enabled: externEnabled,
 
@@ -43,7 +43,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          * Offset in file: 0xF4 (b6-3)
          * @see {@link ns3-doc.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
-         * @module Extern Kb Zone
+         * @module NS3 Extern Kb Zone
          */
         kbZone: {
             array: externKbZone[1],
@@ -56,7 +56,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          * @example
          * Octave Shift = value - 6
          *
-         * @module Extern Octave Shift
+         * @module NS3 Extern Octave Shift
          */
         octaveShift: {
             value: ((externOffsetF4W & 0x0380) >>> 7) - 6,
@@ -68,7 +68,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Extern Pitch Stick
+         * @module NS3 Extern Pitch Stick
          */
         pitchStick: {
             enabled: (externOffsetF6 & 0x80) !== 0,
@@ -80,7 +80,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          * @example
          * O = off, 1 = on
          *
-         * @module Extern Sustain Pedal
+         * @module NS3 Extern Sustain Pedal
          */
         sustainPedal: {
             enabled: (externOffsetF6 & 0x40) !== 0,
@@ -91,7 +91,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
          *
          * @example
          * #include externControlMap
-         * @module Extern Midi Control
+         * @module NS3 Extern Midi Control
          */
         control: {
             value: externControlMap.get(externOffsetF6 & 0x03),
@@ -104,7 +104,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
              * @example
              * O7-bit value = 0/127
              *
-             * @module Extern Midi CC
+             * @module NS3 Extern Midi CC
              */
             midi: midiCc,
 
@@ -120,7 +120,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
              * @example
              * O7-bit value = 0/127
              *
-             * @module Extern Midi Program
+             * @module NS3 Extern Midi Program
              */
             midi: midiProgram,
 
@@ -136,7 +136,7 @@ exports.getExtern = (buffer, panelOffset, splitEnabled) => {
              * @example
              * O7-bit value = 0/127
              *
-             * @module Extern Volume
+             * @module NS3 Extern Volume
              */
             midi: volume,
 

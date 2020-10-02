@@ -31,7 +31,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Effect 1 On
+         *  @module NS3 Effect 1 On
          */
         enabled: (effectOffset10b & 0x10) !== 0,
 
@@ -41,7 +41,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * @example
          * 0 = Organ, 1, Piano, 2 = Synth
          *
-         *  @module Effect 1 Source
+         *  @module NS3 Effect 1 Source
          */
         source: {
             value: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
@@ -58,7 +58,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * 4 = A-WA1
          * 5 = A-WA2
          *
-         *  @module Effect 1 Type
+         *  @module NS3 Effect 1 Type
          */
         type: {
             value: effect1Type,
@@ -84,7 +84,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Effect 1 Amount
+         * @module NS3 Effect 1 Amount
          */
         amount: {
             midi: effect1AmountMidi,
@@ -124,7 +124,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Effect 1 Rate
+         * @module NS3 Effect 1 Rate
          */
         rate: {
             midi: effect1RateMidi,
@@ -151,7 +151,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Effect 1 Master Clock
+         *  @module NS3 Effect 1 Master Clock
          */
         masterClock: {
             enabled: effect1MasterClockUsed,

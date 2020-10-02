@@ -24,7 +24,7 @@ exports.getReverb = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Reverb On
+         *  @module NS3 Reverb On
          */
         enabled: (reverbOffset134 & 0x02) !== 0,
 
@@ -39,7 +39,7 @@ exports.getReverb = (buffer, panelOffset) => {
          * 4 = Hall 1
          * 5 = Hall 2
          *
-         * @module Reverb Type
+         * @module NS3 Reverb Type
          */
         type: {
             value: mapping.reverbTypeMap.get((reverbOffset134W & 0x01c0) >>> 6),
@@ -65,7 +65,7 @@ exports.getReverb = (buffer, panelOffset) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Reverb Amount
+         * @module NS3 Reverb Amount
          */
         amount: {
             midi: reverbAmountMidi,
@@ -88,7 +88,7 @@ exports.getReverb = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Reverb Bright
+         *  @module NS3 Reverb Bright
          */
         bright: {
             enabled: (reverbOffset134W & 0x0020) !== 0,

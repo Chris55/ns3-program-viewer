@@ -38,7 +38,7 @@ exports.getPanel = function (buffer, id, splitEnabled, versionOffset, dualKeyboa
      *
      * Note: if Dual Keyboard is On, both panel are enabled.
      *
-     * @module Panel Enabled And Selection
+     * @module NS3 Panel Enabled And Selection
      */
 
     const panelEnabledFlag = (panelOffset31 & 0x60) >>> 5;

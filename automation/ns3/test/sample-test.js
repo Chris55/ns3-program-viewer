@@ -13,8 +13,8 @@ const run = async () => {
     let sampleFiles = await fs.readdir(sampleFolder);
 
     // remove hidden / junk files
-    programFiles = programFiles.filter((item) => !/(^|\/)\.[^\/\.]/g.test(item));
-    sampleFiles = sampleFiles.filter((item) => !/(^|\/)\.[^\/\.]/g.test(item));
+    programFiles = programFiles.filter((item) => !/(^|\/)\.[^\/.]/g.test(item));
+    sampleFiles = sampleFiles.filter((item) => !/(^|\/)\.[^\/.]/g.test(item));
 
     programFiles.sort();
     sampleFiles.sort();

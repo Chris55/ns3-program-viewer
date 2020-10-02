@@ -97,7 +97,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Delay On
+         *  @module NS3 Delay On
          */
         enabled: (delayOffset119 & 0x08) !== 0,
 
@@ -107,7 +107,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * @example
          * 0 = Organ, 1, Piano, 2 = Synth
          *
-         *  @module Delay Source
+         *  @module NS3 Delay Source
          */
         source: {
             value: mapping.effectSourceMap.get((delayOffset119 & 0x06) >>> 1),
@@ -119,7 +119,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Delay Master Clock
+         *  @module NS3 Delay Master Clock
          */
         masterClock: {
             enabled: delayMasterClock,
@@ -164,7 +164,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * Final 'To' Morph value = 'From value (original tempo)' + 'Morph offset value'
          * Morph Enabled if  'From value' <> 'Morph offset value'
          *
-         * @module Delay Tempo
+         * @module NS3 Delay Tempo
          */
         tempo: {
             midi: delayTempoMswMidi,
@@ -188,7 +188,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Delay Ping Pong
+         *  @module NS3 Delay Ping Pong
          */
         pingPong: {
             enabled: (delayOffset125 & 0x20) !== 0,
@@ -200,7 +200,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * @example
          * #include delayFilterMap
          *
-         *  @module Delay Filter
+         *  @module NS3 Delay Filter
          */
         filter: {
             value: mapping.delayFilterMap.get((delayOffset125 & 0x18) >>> 3),
@@ -212,7 +212,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Delay Analog Mode
+         *  @module NS3 Delay Analog Mode
          */
         analogMode: {
             enabled: (delayOffset129 & 0x08) !== 0,
@@ -238,7 +238,7 @@ exports.getDelay = (buffer, panelOffset) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Delay Feedback
+         * @module NS3 Delay Feedback
          */
         feedback: {
             midi: delayFeedbackMidi,
@@ -275,7 +275,7 @@ exports.getDelay = (buffer, panelOffset) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Delay Mix
+         * @module NS3 Delay Mix
          */
         mix: {
             midi: delayMixMidi,

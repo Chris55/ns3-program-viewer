@@ -41,7 +41,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Amp Sim Eq On
+         *  @module NS3 Amp Sim Eq On
          */
         enabled: (eqOffset129 & 0x04) !== 0,
 
@@ -51,7 +51,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * @example
          * 0 = Organ, 1, Piano, 2 = Synth
          *
-         *  @module Amp Sim Eq Source
+         *  @module NS3 Amp Sim Eq Source
          */
         source: {
             value: mapping.effectSourceMap.get(eqOffset129 & 0x03),
@@ -68,7 +68,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * 4 = LP24
          * 5 = HP24
          *
-         *  @module Amp Sim Eq Amp Type
+         *  @module NS3 Amp Sim Eq Amp Type
          */
         ampType: {
             value: ampSimType,
@@ -82,7 +82,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * treble (fixed 4 kHz) frequency boost/cut table:
          * #include ampSimEqdBMap
          *
-         * @module Amp Sim Eq Treble
+         * @module NS3 Amp Sim Eq Treble
          */
         treble: {
             midi: midi2LinearValue(0, 127, trebleRawValue, 0, 0, 120),
@@ -98,7 +98,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * else middle frequency boost/cut table:
          * #include ampSimEqdBMap
          *
-         * @module Amp Sim Eq Mid Res
+         * @module NS3 Amp Sim Eq Mid Res
          */
         midRes: {
             midi: midResMidi,
@@ -117,7 +117,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * else bass (fixed 100 Hz) frequency boost/cut table:
          * #include ampSimEqdBMap
          *
-         * @module Amp Sim Eq Bass Dry Wet
+         * @module NS3 Amp Sim Eq Bass Dry Wet
          */
         bassDryWet: {
             midi: bassDryWetMidi,
@@ -150,7 +150,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Amp Sim Eq Mid Flt Freq
+         * @module NS3 Amp Sim Eq Mid Flt Freq
          */
         midFilterFreq: {
             midi: midFilterFreqMidi,
@@ -187,7 +187,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          *
          * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
          *
-         * @module Amp Sim Eq Drive
+         * @module NS3 Amp Sim Eq Drive
          */
         overdrive: {
             midi: drive,

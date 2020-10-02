@@ -20,7 +20,7 @@ exports.getCompressor = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Compressor On
+         *  @module NS3 Compressor On
          */
         enabled: (effectOffset139 & 0x20) !== 0,
 
@@ -30,7 +30,7 @@ exports.getCompressor = (buffer, panelOffset) => {
          * @example
          * 7-bit value 0/127 = 0/10
          *
-         * @module Compressor Amount
+         * @module NS3 Compressor Amount
          */
         amount: {
             midi: compressorAmountMidi,
@@ -44,7 +44,7 @@ exports.getCompressor = (buffer, panelOffset) => {
          * @example
          * O = off, 1 = on
          *
-         *  @module Compressor Fast
+         *  @module NS3 Compressor Fast
          */
         fast: {
             enabled: (effectOffset139W & 0x0020) !== 0,

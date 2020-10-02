@@ -58,7 +58,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * vx.xx               v3.03
      * vx.xx               v3.04
      *
-     * @module File Version
+     * @module NS3 File Version
      */
 
     const version = getVersion(buffer, 0x14);
@@ -81,7 +81,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * 0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
      * 1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
      *
-     * @module File Format
+     * @module NS3 File Format
      */
     let versionOffset = 0; // default all coding is done as per v3.04
     // if (minorVersion < 3) {
@@ -124,7 +124,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * Test6:  0D D8 : Transpose +5 semi
      * Test7:  0D E0 : Transpose +6 semi
      *
-     * @module Transpose
+     * @module NS3 Transpose
      */
 
     const transposeEnabled = (offset38 & 0x80) !== 0;
@@ -205,7 +205,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * Test19: 1C 23 30 01 : Width 12  1   Off
      *                       Note  C3  F3  --   ! Note Mid in file is C3 but fixed on display to F3 !
      *
-     * @module Split
+     * @module NS3 Split
      */
 
     const splitLowEnabled = (offset31 & 0x08) !== 0;
@@ -277,7 +277,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * @example
      * bpm = value + 30
      *
-     * @module Master Clock Rate
+     * @module NS3 Master Clock Rate
      */
     const tempo = ((offset38W & 0x07f8) >>> 3) + 30;
 
@@ -291,7 +291,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
          *
          * Note: if Dual Keyboard is On, both panel are enabled.
          *
-         * @module Dual Keyboard
+         * @module NS3 Dual Keyboard
          */
         enabled: (offset3a & 0x08) >>> 3 !== 0,
         /**
@@ -303,7 +303,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
          * 2 = Piano
          * 3 = Synth
          *
-         * @module Dual Keyboard Style
+         * @module NS3 Dual Keyboard Style
          */
         value: mapping.dualKeyboardStyleMap.get(offset3a & 0x03),
     };
@@ -327,7 +327,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
          *
          * @example
          * #include programCategoryMap
-         * @module Program Category
+         * @module NS3 Program Category
          */
         category: mapping.programCategoryMap.get(offset10),
         //fileId: fileId,
