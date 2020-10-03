@@ -1,13 +1,13 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
 const { ns3SampleLibrary } = require("../../common/nord-library-sample");
-const { getMorphSynthOscillatorModulation } = require("./ns3-morph");
-const { getMorph } = require("./ns3-morph");
-const { getFilter } = require("./ns3-synth-filter");
-const { getOscControl } = require("./ns3-synth-osc-control");
-const { getVolumeEx } = require("./ns3-utils");
-const { getKbZone } = require("./ns3-utils");
-const { getKnobDualValues } = require("./ns3-utils");
+const { ns3MorphSynthOscillatorModulation } = require("./ns3-morph");
+const { ns3Morph } = require("./ns3-morph");
+const { ns3Filter } = require("./ns3-synth-filter");
+const { ns3OscControl } = require("./ns3-synth-osc-control");
+const { ns3VolumeEx } = require("./ns3-utils");
+const { ns3KbZone } = require("./ns3-utils");
+const { ns3KnobDualValues } = require("./ns3-utils");
 
 /***
  * Synth Envelope Decay / Release value
@@ -19,18 +19,18 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
     switch (type) {
         case "mod.decay": {
             if (value === 127) return "Sustain";
-            else return mapping.synthEnvDecayOrReleaseMap.get(value);
+            else return mapping.ns3SynthEnvDecayOrReleaseMap.get(value);
         }
         case "mod.release": {
             if (value === 127) return "Inf";
-            else return mapping.synthEnvDecayOrReleaseMap.get(value);
+            else return mapping.ns3SynthEnvDecayOrReleaseMap.get(value);
         }
         case "amp.decay": {
             if (value === 127) return "Sustain";
-            else return mapping.synthEnvDecayOrReleaseMap.get(value);
+            else return mapping.ns3SynthEnvDecayOrReleaseMap.get(value);
         }
         case "amp.release": {
-            return mapping.synthEnvDecayOrReleaseMap.get(value);
+            return mapping.ns3SynthEnvDecayOrReleaseMap.get(value);
         }
     }
     return "";
@@ -46,7 +46,7 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @param id
  * @returns {{voice: unknown, oscillators: {control: {midi: number, value: string}, fastAttack: boolean, pitch: {midi: number, value: (string|string)}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, value: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, value: unknown}, filter: {highPassCutoffFrequency: {midi: number, value: unknown}, cutoffFrequency: {midi: number, value: unknown}, type: unknown, drive: unknown, resonance: {midi: number, value: (string|string)}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, value: string}, velAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, value: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: unknown}}, vibrato: unknown}}
  */
-exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
+exports.ns3Synth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     //const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
     const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
@@ -83,7 +83,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     const sampleId4 = (synthOffsetAbW & 0x07f8) >>> 3;
     const sampleId = sampleId1 + sampleId2 + sampleId3 + sampleId4;
 
-    const oscillatorType = mapping.synthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >>> 7);
+    const oscillatorType = mapping.ns3SynthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >>> 7);
 
     const waveForm1 = {
         name: "",
@@ -94,19 +94,19 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     switch (oscillatorType) {
         case "Classic":
             waveForm1.value = (synthOffset8eW & 0x01c0) >>> 6;
-            waveForm1.name = mapping.synthOscillator1ClassicWaveTypeMap.get(waveForm1.value);
+            waveForm1.name = mapping.ns3SynthOscillator1ClassicWaveTypeMap.get(waveForm1.value);
             break;
         case "Wave":
             waveForm1.value = (synthOffset8eW & 0x0fc0) >>> 6;
-            waveForm1.name = mapping.synthOscillator1WaveWaveTypeMap.get(waveForm1.value);
+            waveForm1.name = mapping.ns3SynthOscillator1WaveWaveTypeMap.get(waveForm1.value);
             break;
         case "Formant":
             waveForm1.value = (synthOffset8eW & 0x03c0) >>> 6;
-            waveForm1.name = mapping.synthOscillator1FormantWaveTypeMap.get(waveForm1.value);
+            waveForm1.name = mapping.ns3SynthOscillator1FormantWaveTypeMap.get(waveForm1.value);
             break;
         case "Super":
             waveForm1.value = (synthOffset8eW & 0x01c0) >>> 6;
-            waveForm1.name = mapping.synthOscillator1SuperWaveTypeMap.get(waveForm1.value);
+            waveForm1.name = mapping.ns3SynthOscillator1SuperWaveTypeMap.get(waveForm1.value);
             break;
         case "Sample":
             waveForm1.value = (synthOffset8eW & 0x7fc0) >>> 6;
@@ -122,12 +122,12 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
             break;
     }
 
-    const oscConfig = mapping.synthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >>> 1);
+    const oscConfig = mapping.ns3SynthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >>> 1);
 
     const osc2Pitch = ((synthOffset8fW & 0x01f8) >>> 3) - 12;
     const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127) / (48 + 12));
 
-    const oscModulation = getKnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
+    const oscModulation = ns3KnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
 
     const lfoRateMidi = synthOffset87 & 0x7f;
     const lfoRateMasterClock = (synthOffset87 & 0x80) !== 0;
@@ -149,7 +149,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     const synthKbZoneEnabled =
         id === 0 ? synthEnabled : synthEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Synth");
 
-    const synthKbZone = getKbZone(synthKbZoneEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11);
+    const synthKbZone = ns3KbZone(synthKbZoneEnabled, splitEnabled, (synthOffset52W & 0x7800) >>> 11);
 
     const synth = {
         debug: {
@@ -171,7 +171,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
         /**
          * Offset in file: 0x52 (b6-3)
-         * @see {@link ns3-doc.md#organ-kb-zone Organ Kb Zone} for detailed explanation.
+         * @see {@link ns3-doc.md#ns3-organ-kb-zone Organ Kb Zone} for detailed explanation.
          *
          * @module NS3 Synth Kb Zone
          */
@@ -197,11 +197,11 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * 0x55 (b3): polarity (1 = positive, 0 = negative)
          * 0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed explanation.
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed explanation.
          *
          * @module NS3 Synth Volume
          */
-        volume: getVolumeEx(buffer, 0x52 + panelOffset),
+        volume: ns3VolumeEx(buffer, 0x52 + panelOffset),
 
         /**
          * Offset in file: 0x56 (b3-0)
@@ -260,7 +260,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @module NS3 Synth Voice
          */
         voice: {
-            value: mapping.synthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
+            value: mapping.ns3SynthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
         },
         /**
          * Offset in file: 0x85 (b6 to b0) 7 bits, range 0/10
@@ -285,7 +285,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @module NS3 Synth Unison
          */
         unison: {
-            value: mapping.synthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
+            value: mapping.ns3SynthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
         },
         /**
          * Offset in file: 0x86 (b5/4/3)
@@ -301,7 +301,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @module NS3 Synth Vibrato
          */
         vibrato: {
-            value: mapping.synthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
+            value: mapping.ns3SynthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
         },
         /***
          * Synth Oscillators Definition
@@ -429,11 +429,11 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 0x93 (b3): polarity (1 = positive, 0 = negative)
              * 0x93 (b2-b0), 0x94 (b7-b4): 7-bit raw value
              *
-             * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+             * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
              *
              * @module NS3 Synth Oscillator Control
              */
-            control: getOscControl(buffer, 0x90 + panelOffset, oscConfig),
+            control: ns3OscControl(buffer, 0x90 + panelOffset, oscConfig),
 
             /**
              * Offset in file: 0x8f (b0) and 0x90 (b7-3)
@@ -475,7 +475,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                 lfoAmount: {
                     midi: oscModulation.leftMidi,
                     value: oscModulation.leftLabel,
-                    morph: getMorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, true),
+                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, true),
                 },
                 /**
                  * Env Mod Amount
@@ -483,7 +483,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                 modEnvAmount: {
                     midi: oscModulation.rightMidi,
                     value: oscModulation.rightLabel,
-                    morph: getMorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, false),
+                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, false),
                 },
             },
             /**
@@ -499,7 +499,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
             },
         },
 
-        filter: getFilter(buffer, panelOffset),
+        filter: ns3Filter(buffer, panelOffset),
 
         envelopes: {
             modulation: {
@@ -508,13 +508,13 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 0.5 ms / 45 s
-                 * #include synthEnvAttackMap
+                 * #include ns3SynthEnvAttackMap
                  *
                  * @module NS3 Synth Mod Env Attack
                  */
                 attack: {
                     midi: envModAttackMidi,
-                    value: mapping.synthEnvAttackMap.get(envModAttackMidi),
+                    value: mapping.ns3SynthEnvAttackMap.get(envModAttackMidi),
                 },
 
                 /**
@@ -522,7 +522,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 3.0 ms / 45 s (Sustain)
-                 * #include synthEnvDecayOrReleaseMap
+                 * #include ns3SynthEnvDecayOrReleaseMap
                  *
                  * @module NS3 Synth Mod Env Decay
                  */
@@ -536,7 +536,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 3.0 ms / 45 s (Inf)
-                 * #include synthEnvDecayOrReleaseMap
+                 * #include ns3SynthEnvDecayOrReleaseMap
                  *
                  * @module NS3 Synth Mod Env Release
                  */
@@ -563,13 +563,13 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 0.5 ms / 45 s
-                 * #include synthEnvAttackMap
+                 * #include ns3SynthEnvAttackMap
                  *
                  * @module NS3 Synth Amp Env Attack
                  */
                 attack: {
                     midi: envAmpAttackMidi,
-                    value: mapping.synthEnvAttackMap.get(envAmpAttackMidi),
+                    value: mapping.ns3SynthEnvAttackMap.get(envAmpAttackMidi),
                 },
 
                 /**
@@ -577,7 +577,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 3.0 ms / 45 s (Sustain)
-                 * #include synthEnvDecayOrReleaseMap
+                 * #include ns3SynthEnvDecayOrReleaseMap
                  *
                  * @module NS3 Synth Amp Env Decay
                  */
@@ -591,7 +591,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  *
                  * @example
                  * 0/127 value = 3.0 ms / 45 s
-                 * #include synthEnvDecayOrReleaseMap
+                 * #include ns3SynthEnvDecayOrReleaseMap
                  *
                  * @module NS3 Synth Amp Env Release
                  */
@@ -612,7 +612,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                  * @module NS3 Synth Amp Env Velocity
                  */
                 velocity: {
-                    value: mapping.synthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >>> 3),
+                    value: mapping.ns3SynthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >>> 3),
                 },
             },
         },
@@ -630,17 +630,17 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * @module NS3 Synth Lfo Wave
              */
             wave: {
-                value: mapping.synthLfoWaveMap.get(synthOffset86 & 0x07),
+                value: mapping.ns3SynthLfoWaveMap.get(synthOffset86 & 0x07),
             },
             /**
              * Offset in file: 0x87 (b6-0)
              *
              * @example
              * 0/127 value = 0.03 Hz / 523 Hz
-             * #include synthLfoRateMap
+             * #include ns3SynthLfoRateMap
              *
              * if LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division
-             * #include synthLfoRateMasterClockDivisionMap
+             * #include ns3SynthLfoRateMasterClockDivisionMap
              *
              * Morph Wheel:
              * 0x88 (b7): polarity (1 = positive, 0 = negative)
@@ -654,7 +654,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 0x8A (b7): polarity (1 = positive, 0 = negative)
              * 0x8A (b6-b0): 7-bit raw value
              *
-             * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+             * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
              *
              * @module NS3 Synth Lfo Rate
              */
@@ -662,16 +662,16 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                 midi: lfoRateMidi,
 
                 value: lfoRateMasterClock
-                    ? mapping.synthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
-                    : mapping.synthLfoRateMap.get(lfoRateMidi),
+                    ? mapping.ns3SynthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
+                    : mapping.ns3SynthLfoRateMap.get(lfoRateMidi),
 
-                morph: getMorph(
+                morph: ns3Morph(
                     synthOffset87Ww,
                     lfoRateMidi,
                     (x) => {
                         return lfoRateMasterClock
-                            ? mapping.synthLfoRateMasterClockDivisionMap.get(x)
-                            : mapping.synthLfoRateMap.get(x);
+                            ? mapping.ns3SynthLfoRateMasterClockDivisionMap.get(x)
+                            : mapping.ns3SynthLfoRateMap.get(x);
                     },
                     false
                 ),
@@ -705,10 +705,10 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              *
              * @example
              * 0/127 value = 16 bpm / Fast 5
-             * #include synthArpRateMap
+             * #include ns3SynthArpRateMap
              *
              * if Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division
-             * #include synthArpMasterClockDivisionMap
+             * #include ns3SynthArpMasterClockDivisionMap
              *
              * Morph Wheel:
              * 0x81 (b0): polarity (1 = positive, 0 = negative)
@@ -722,7 +722,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * 0x83 (b0): polarity (1 = positive, 0 = negative)
              * 0x84 (b7-b1): 7-bit raw value
              *
-             * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+             * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
              *
              * @module NS3 Synth Arp Rate
              */
@@ -730,16 +730,16 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
                 midi: arpeggiatorRateMidi,
 
                 value: arpeggiatorMasterClock
-                    ? mapping.synthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
-                    : mapping.synthArpRateMap.get(arpeggiatorRateMidi),
+                    ? mapping.ns3SynthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
+                    : mapping.ns3SynthArpRateMap.get(arpeggiatorRateMidi),
 
-                morph: getMorph(
+                morph: ns3Morph(
                     synthOffset81Ww >>> 1,
                     arpeggiatorRateMidi,
                     (x) => {
                         return arpeggiatorMasterClock
-                            ? mapping.synthArpMasterClockDivisionMap.get(x)
-                            : mapping.synthArpRateMap.get(x);
+                            ? mapping.ns3SynthArpMasterClockDivisionMap.get(x)
+                            : mapping.ns3SynthArpRateMap.get(x);
                     },
                     false
                 ),
@@ -779,7 +779,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * @module NS3 Synth Arp Range
              */
             range: {
-                value: mapping.arpeggiatorRangeMap.get(arpeggiatorRange),
+                value: mapping.ns3ArpeggiatorRangeMap.get(arpeggiatorRange),
             },
             /**
              * Offset in file: 0x80 (b2-1)
@@ -793,7 +793,7 @@ exports.getSynth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
              * @module NS3 Synth Arp Pattern
              */
             pattern: {
-                value: mapping.arpeggiatorPatternMap.get(arpeggiatorPattern),
+                value: mapping.ns3ArpeggiatorPatternMap.get(arpeggiatorPattern),
             },
         },
     };

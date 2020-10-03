@@ -1,7 +1,8 @@
-const mapping = require("./ns3-mapping");
+const mapping = require("./ns2-mapping");
+
+const { ns2VolumeEx } = require("./ns2-utils");
+const { ns2KbZone } = require("./ns2-utils");
 const { ns3PianoLibrary } = require("../../common/nord-library-piano");
-const { ns3KbZone } = require("./ns3-utils");
-const { ns3VolumeEx } = require("./ns3-utils");
 
 /***
  * returns Piano section
@@ -15,75 +16,64 @@ const { ns3VolumeEx } = require("./ns3-utils");
  * @param id
  * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
  */
-exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
-    const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
+exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
+    const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
+    const pianoOffset48Ww = buffer.readUInt32BE(0x48 + panelOffset);
+    const pianoOffset4b = buffer.readUInt8(0x4b + panelOffset);
+    const pianoOffset4c = buffer.readUInt8(0x4c + panelOffset);
+    const pianoOffset4d = buffer.readUInt8(0x4d + panelOffset);
+    const pianoOffsetCd = buffer.readUInt8(0xcd + panelOffset);
+
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
     const pianoOffset47 = buffer.readUInt8(0x47 + panelOffset);
-    const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
     const pianoOffset49 = buffer.readUInt8(0x49 + panelOffset);
-    const pianoOffset49WW = buffer.readBigUInt64BE(0x49 + panelOffset);
-    const pianoOffset48W = buffer.readUInt16BE(0x48 + panelOffset);
+    const pianoOffsetCdWW = buffer.readBigUInt64BE(0xcd + panelOffset);
     const pianoOffset4e = buffer.readUInt8(0x4e + panelOffset);
-    const pianoOffset4d = buffer.readUInt8(0x4d + panelOffset);
     const pianoOffset4dW = buffer.readUInt16BE(0x4d + panelOffset);
 
-    const pianoEnabled = (pianoOffset43W & 0x8000) !== 0;
+    const pianoEnabled = (pianoOffset48 & 0x80) !== 0;
     const pianoKbZoneEnabled =
         id === 0 ? pianoEnabled : pianoEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Piano");
 
-    const pianoTypeValue = (pianoOffset48 & 0x38) >>> 3;
-    const pianoType = mapping.ns3PianoTypeMap.get(pianoTypeValue);
+    const pianoTypeValue = (pianoOffsetCd & 0xe0) >>> 5;
+    const pianoType = mapping.ns2PianoTypeMap.get(pianoTypeValue);
 
-    const pianoKbZone = ns3KbZone(pianoKbZoneEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11);
-    const pianoModel = ((pianoOffset48W & 0x07c0) >>> 6) + 1;
+    const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, splitEnabled, (pianoOffset4c & 0xe0) >>> 5);
 
-    const pianoSampleVariation = (pianoOffset49 & 0x30) >>> 4;
-    const pianoSampleId = Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
+    const pianoSampleId = Number((pianoOffsetCdWW & 0x0000003fffffffc0n) >> 6n);
     let pianoName = ns3PianoLibrary.get(pianoSampleId);
     if (pianoName instanceof Array) {
-        if (pianoSampleVariation >= 0 && pianoSampleVariation < pianoName.length) {
-            pianoName = pianoName[pianoSampleVariation];
-        } else {
-            pianoName = pianoName[0] + " unknown variation";
-        }
+        pianoName = pianoName[0];
     }
-    if (!pianoName) {
-        // fallback if piano name is unknown
-        pianoName = "Unknown (Loc " + pianoModel + ")";
-    }
-
-    const pianoTimbreValues = mapping.ns3PianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3);
-
-    // Timbre are different for each Piano type
-    // with one subtle Harpsi case:
-    // Harpsi sample are not used Clav timbre category but the default Soft/Mid/Bright
-    //
-    const pianoTypeForTimbre = pianoTypeValue === 3 && pianoName.includes("Harpsi") ? 0 : pianoTypeValue;
-
-    const pianoTimbre = pianoTypeValue >= 0 && pianoTypeValue < 6 ? pianoTimbreValues[pianoTypeForTimbre] : "None";
 
     const piano = {
-        debug: {
-            sampleVariation: pianoSampleVariation,
-            sampleId: pianoSampleId.toString(16),
-            name: pianoName,
-        },
+        // debug: {
+        //     sampleId: pianoSampleId.toString(16),
+        //     name: pianoName,
+        // },
 
         /**
-         * Offset in file: 0x43 (b7)
+         * Offset in file: 0x48 (b7)
          *
          * @example
          * O = off, 1 = on
          *
-         * @module NS3 Piano On
+         * @module NS2 Piano On
          */
         enabled: pianoEnabled,
 
         /**
-         * Offset in file: 0x43 (b6-3)
-         * @see {@link ns3-doc.md#ns3-organ-kb-zone Organ Kb Zone} for detailed explanation.
+         * Offset in file: 0x4C (b7-5)
          *
-         * @module NS3 Piano Kb Zone
+         * @example
+         * 0 = LO
+         * 1 = LO UP
+         * 2 = UP
+         * 3 = UP HI
+         * 4 = HI
+         * 5 = LO UP HI
+         *
+         * @module NS2 Piano Kb Zone
          */
         kbZone: {
             array: pianoKbZone[1],
@@ -91,98 +81,88 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
         },
 
         /**
-         * Offset in file: 0x43 (b2-0), 0x44 (b7-4)
+         * Offset in file: 0x4B (b6-0)
          *
          * @example
          *
          * Morph Wheel:
-         * 0x44 (b3): polarity (1 = positive, 0 = negative)
-         * 0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw value
+         * 0x48 (b6): polarity (1 = positive, 0 = negative)
+         * 0x48 (b5-b0), 0x49 (b7): 7-bit raw value
          *
          * Morph After Touch:
-         * 0x45 (b3): polarity (1 = positive, 0 = negative)
-         * 0x45 (b2-b0), 0x46 (b7-b4): 7-bit raw value
+         * 0x49 (b6): polarity (1 = positive, 0 = negative)
+         * 0x49 (b5-b0), 0x4A (b7): 7-bit raw value
          *
          * Morph Control Pedal:
-         * 0x46 (b3): polarity (1 = positive, 0 = negative)
-         * 0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value
+         * 0x4A (b6): polarity (1 = positive, 0 = negative)
+         * 0x4A (b5-b0), 0x4B (b7): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed explanation.
+         * if polarity = 1 then Morph offset value = raw value
+         * if polarity = 0 then Morph offset value = 128 - raw value
          *
-         * @module NS3 Piano Volume
+         * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
+         * Morph Enabled if  'From value' <> 'Morph offset value'
+         *
+         * @module NS2 Piano Volume
          */
-        volume: ns3VolumeEx(buffer, 0x43 + panelOffset),
+        volume: ns2VolumeEx(buffer, pianoOffset4b & 0x7f, pianoOffset48Ww >>> 7),
 
         /**
-         * Offset in file: 0x47 (b3-0)
+         * Offset in file: 0x4C (b4-1)
          *
          * @example
-         * Octave Shift = value - 6
+         * Octave Shift = value - 7
          *
-         * @module NS3 Piano Octave Shift
+         * @module NS2 Piano Octave Shift
          */
         octaveShift: {
-            value: (pianoOffset47 & 0x0f) - 6,
+            value: ((pianoOffset4c & 0x1e) >>> 1) - 7,
         },
         /**
-         * Offset in file: 0x48 (b7)
+         * Offset in file: 0x4C (b0)
          *
          * @example
          * O = off, 1 = on
          *
-         * @module NS3 Piano Pitch Stick
+         * @module NS2 Piano Pitch Stick
          */
         pitchStick: {
-            enabled: (pianoOffset48 & 0x80) !== 0,
+            enabled: (pianoOffset4c & 0x01) !== 0,
         },
         /**
-         * Offset in file: 0x48 (b6)
+         * Offset in file: 0x4D (b7)
          *
          * @example
          * O = off, 1 = on
          *
-         * @module NS3 Piano Sustain Pedal
+         * @module NS2 Piano Sustain Pedal
          */
         sustainPedal: {
-            enabled: (pianoOffset48 & 0x40) !== 0,
+            enabled: (pianoOffset4d & 0x80) !== 0,
         },
         /**
-         * Offset in file: 0x48 (b5-3)
+         * Offset in file: 0xCD (b7-5)
          *
          * @example
          * 0 = Grand
          * 1 = Upright
-         * 2 = Electric
-         * 3 = Clav
-         * 4 = Digital
-         * 5 = Misc
+         * 2 = E Piano 1
+         * 3 = E Piano 2
+         * 4 = Clavinet
+         * 5 = Harpsi
          *
-         * @module NS3 Piano Type
+         * @module NS2 Piano Type
          */
         type: {
             value: pianoType,
         },
         /**
-         * Offset in file:  0x48 (b2-0) and 0x49 (b7-6)
-         *
-         * @example
-         * 0x00 0x00: model 1
-         * 0x00 0x01: model 2
-         * .. and so on
-         * 0x02 0x01: model 10
-         *
-         * @module NS3 Piano Model
-         */
-        model: {
-            value: pianoModel,
-        },
-        /**
-         * Offset in file: 0x49 (b3-0) to 0x4D (b7-3)
+         * Offset in file: 0xD0 (b5-0), 0xD1/0xD3 (b7-0), and 0xD4 (b7-6)
          *
          * @example
          * 32-bit Nord Sample ID
          *
-         * @module NS3 Piano Name
+         * @module NS2 Piano Sample ID
          */
         name: {
             value: pianoName,
@@ -217,23 +197,9 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          *
          * @module NS3 Piano Timbre
          */
-        timbre: {
-            value: pianoTimbre,
-        },
-        /**
-         * Offset in file: 0x4D (b0) and 0x4E (b7)
-         *
-         * @example
-         * 0 = Normal
-         * 1 = KB Touch 1
-         * 2 = Touch 2
-         * 3 = Touch 3
-         *
-         * @module NS3 Piano KB Touch
-         */
-        kbTouch: {
-            value: mapping.ns3PianoKbTouchMap.get((pianoOffset4dW & 0x0180) >>> 7),
-        },
+        // timbre: {
+        //     value: pianoTimbre,
+        // },
         /**
          * Offset in file: 0x34 (b6-5)
          *
@@ -249,7 +215,7 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @module NS3 Piano Layer Detune
          */
         layerDetune: {
-            value: mapping.ns3PianoLayerDetuneMap.get((pianoOffset34 & 0x60) >>> 5),
+            value: 0, //mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >>> 5),
         },
         /**
          * Offset in file: 0x4D (b4)

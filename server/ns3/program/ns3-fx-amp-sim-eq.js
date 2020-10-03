@@ -1,7 +1,7 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
 const { midi2LinearValue } = require("../../common/converter");
-const { getMorph } = require("./ns3-morph");
+const { ns3Morph } = require("./ns3-morph");
 
 /***
  * returns Amp Sim / Eq
@@ -10,7 +10,7 @@ const { getMorph } = require("./ns3-morph");
  * @param panelOffset {Number}
  * @returns {{source: {value: string}, type: {value: unknown}, treble: {midi: number, value: string}, drive: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, bassDryWet: {midi: number, value: string}, fltFreq: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, enabled: boolean, midRes: {midi: number, value: string}}}
  */
-exports.getAmpSimEq = (buffer, panelOffset) => {
+exports.ns3AmpSimEq = (buffer, panelOffset) => {
     const eqOffset129 = buffer.readUInt8(0x129 + panelOffset);
     const eqOffset12a = buffer.readUInt8(0x12a + panelOffset);
     const eqOffset12aW = buffer.readUInt16BE(0x12a + panelOffset);
@@ -21,7 +21,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
     const eqOffset130W = buffer.readUInt16BE(0x130 + panelOffset);
     const eqOffset131Ww = buffer.readUInt32BE(0x131 + panelOffset);
 
-    const ampSimType = mapping.ampSimTypeMap.get((eqOffset12a & 0xe0) >>> 5);
+    const ampSimType = mapping.ns3AmpSimTypeMap.get((eqOffset12a & 0xe0) >>> 5);
     const redOptions = (ampSimType === "LP24") || (ampSimType === "HP24");
 
     const trebleRawValue = (eqOffset12aW & 0x1fc0) >> 6;
@@ -54,7 +54,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          *  @module NS3 Amp Sim Eq Source
          */
         source: {
-            value: mapping.effectSourceMap.get(eqOffset129 & 0x03),
+            value: mapping.ns3EffectSourceMap.get(eqOffset129 & 0x03),
         },
 
         /**
@@ -80,14 +80,14 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          *
          * @example
          * treble (fixed 4 kHz) frequency boost/cut table:
-         * #include ampSimEqdBMap
+         * #include ns3AmpSimEqdBMap
          *
          * @module NS3 Amp Sim Eq Treble
          */
         treble: {
             midi: midi2LinearValue(0, 127, trebleRawValue, 0, 0, 120),
 
-            value: mapping.ampSimEqdBMap.get(trebleRawValue),
+            value: mapping.ns3AmpSimEqdBMap.get(trebleRawValue),
         },
 
         /**
@@ -96,7 +96,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * @example
          * if Amp Type is LP24 or HP24 filter resonance = 0 to 10
          * else middle frequency boost/cut table:
-         * #include ampSimEqdBMap
+         * #include ns3AmpSimEqdBMap
          *
          * @module NS3 Amp Sim Eq Mid Res
          */
@@ -106,7 +106,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
             value:
                 redOptions === true
                     ? converter.midi2LinearStringValue(0, 10, midResMidi, 1, "")
-                    : mapping.ampSimEqdBMap.get(midResRawValue),
+                    : mapping.ns3AmpSimEqdBMap.get(midResRawValue),
         },
 
         /**
@@ -115,7 +115,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * @example
          * if Amp Type is LP24 or HP24 filter dry / wet = 0 to 10
          * else bass (fixed 100 Hz) frequency boost/cut table:
-         * #include ampSimEqdBMap
+         * #include ns3AmpSimEqdBMap
          *
          * @module NS3 Amp Sim Eq Bass Dry Wet
          */
@@ -125,7 +125,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
             value:
                 redOptions === true
                     ? converter.midi2LinearStringValue(0, 10, bassDryWetMidi, 1, "")
-                    : mapping.ampSimEqdBMap.get(bassDryWetRawValue),
+                    : mapping.ns3AmpSimEqdBMap.get(bassDryWetRawValue),
         },
 
         /**
@@ -134,7 +134,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * @example
          * 7-bit value 0/127 = 200 Hz to 8.0 kHz
          *
-         * #include ampSimEqMidFilterFreqMap
+         * #include ns3AmpSimEqMidFilterFreqMap
          *
          * Morph Wheel:
          * 0x12D (b0): polarity (1 = positive, 0 = negative)
@@ -148,20 +148,20 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * 0x12F (b0): polarity (1 = positive, 0 = negative)
          * 0x130 (b7-b1): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module NS3 Amp Sim Eq Mid Flt Freq
          */
         midFilterFreq: {
             midi: midFilterFreqMidi,
 
-            value: mapping.ampSimEqMidFilterFreqMap.get(midFilterFreqMidi),
+            value: mapping.ns3AmpSimEqMidFilterFreqMap.get(midFilterFreqMidi),
 
-            morph: getMorph(
+            morph: ns3Morph(
                 eqOffset12dWw >>> 1,
                 midFilterFreqMidi,
                 (x) => {
-                    return mapping.ampSimEqMidFilterFreqMap.get(x);
+                    return mapping.ns3AmpSimEqMidFilterFreqMap.get(x);
                 },
                 false
             ),
@@ -185,7 +185,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
          * 0x133 (b1): polarity (1 = positive, 0 = negative)
          * 0x133 (b0) and 0x134 (b7-2): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module NS3 Amp Sim Eq Drive
          */
@@ -194,7 +194,7 @@ exports.getAmpSimEq = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, drive, 1, ""),
 
-            morph: getMorph(
+            morph: ns3Morph(
                 eqOffset131Ww >>> 2,
                 drive,
                 (x) => {

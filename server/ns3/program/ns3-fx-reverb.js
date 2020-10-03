@@ -1,6 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
-const { getMorph } = require("./ns3-morph");
+const { ns3Morph } = require("./ns3-morph");
 
 /***
  * returns Reverb
@@ -9,7 +9,7 @@ const { getMorph } = require("./ns3-morph");
  * @param panelOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.getReverb = (buffer, panelOffset) => {
+exports.ns3Reverb = (buffer, panelOffset) => {
     const reverbOffset134 = buffer.readUInt8(0x134 + panelOffset);
     const reverbOffset134W = buffer.readUInt16BE(0x134 + panelOffset);
     const reverbOffset135W = buffer.readUInt16BE(0x135 + panelOffset);
@@ -42,7 +42,7 @@ exports.getReverb = (buffer, panelOffset) => {
          * @module NS3 Reverb Type
          */
         type: {
-            value: mapping.reverbTypeMap.get((reverbOffset134W & 0x01c0) >>> 6),
+            value: mapping.ns3ReverbTypeMap.get((reverbOffset134W & 0x01c0) >>> 6),
         },
 
         /**
@@ -63,7 +63,7 @@ exports.getReverb = (buffer, panelOffset) => {
          * 0x138 (b5): polarity (1 = positive, 0 = negative)
          * 0x138 (b4-b0) and 0x139 (b7-6): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module NS3 Reverb Amount
          */
@@ -72,7 +72,7 @@ exports.getReverb = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, reverbAmountMidi, 1, ""),
 
-            morph: getMorph(
+            morph: ns3Morph(
                 reverbOffset136Ww >>> 6,
                 reverbAmountMidi,
                 (x) => {

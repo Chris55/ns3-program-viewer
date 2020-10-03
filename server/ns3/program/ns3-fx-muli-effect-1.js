@@ -1,6 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
-const { getMorph } = require("./ns3-morph");
+const { ns3Morph } = require("./ns3-morph");
 
 /***
  * returns Effect 1
@@ -9,7 +9,7 @@ const { getMorph } = require("./ns3-morph");
  * @param panelOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, masterClock: {enabled: (boolean|boolean)}, source: {value: string}, type: {value: unknown}, enabled: boolean}}
  */
-exports.getEffect1 = (buffer, panelOffset) => {
+exports.ns3Effect1 = (buffer, panelOffset) => {
     const effectOffset10b = buffer.readUInt8(0x10b + panelOffset);
     const effectOffset10bW = buffer.readUInt16BE(0x10b + panelOffset);
     const effectOffset10cW = buffer.readUInt16BE(0x10c + panelOffset);
@@ -17,7 +17,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
     const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
     const effectOffset110Ww = buffer.readUInt32BE(0x110 + panelOffset);
 
-    const effect1Type = mapping.effect1TypeMap.get((effectOffset10bW & 0x0380) >>> 7);
+    const effect1Type = mapping.ns3Effect1TypeMap.get((effectOffset10bW & 0x0380) >>> 7);
     const effect1AmountMidi = effectOffset110 & 0x7f;
     const effect1RateMidi = (effectOffset10cW & 0x3f80) >>> 7;
 
@@ -44,7 +44,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          *  @module NS3 Effect 1 Source
          */
         source: {
-            value: mapping.effectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
+            value: mapping.ns3EffectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
         },
 
         /**
@@ -82,7 +82,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * 0x113 (b7): polarity (1 = positive, 0 = negative)
          * 0x113 (b6-b0): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module NS3 Effect 1 Amount
          */
@@ -91,7 +91,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
 
-            morph: getMorph(
+            morph: ns3Morph(
                 effectOffset110Ww,
                 effect1AmountMidi,
                 (x) => {
@@ -108,7 +108,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * 7-bit value 0/127 = 0/10
          *
          * if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32
-         * #include effect1MasterClockDivisionMap
+         * #include ns3Effect1MasterClockDivisionMap
          *
          * Morph Wheel:
          * 0x10D (b6): polarity (1 = positive, 0 = negative)
@@ -122,7 +122,7 @@ exports.getEffect1 = (buffer, panelOffset) => {
          * 0x10F (b6): polarity (1 = positive, 0 = negative)
          * 0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module NS3 Effect 1 Rate
          */
@@ -130,15 +130,15 @@ exports.getEffect1 = (buffer, panelOffset) => {
             midi: effect1RateMidi,
 
             value: effect1MasterClockUsed
-                ? mapping.effect1MasterClockDivisionMap.get(effect1RateMidi)
+                ? mapping.ns3Effect1MasterClockDivisionMap.get(effect1RateMidi)
                 : converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, ""),
 
-            morph: getMorph(
+            morph: ns3Morph(
                 effectOffset10dWw >>> 7,
                 effect1RateMidi,
                 (x) => {
                     return effect1MasterClockUsed
-                        ? mapping.effect1MasterClockDivisionMap.get(x)
+                        ? mapping.ns3Effect1MasterClockDivisionMap.get(x)
                         : converter.midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 false

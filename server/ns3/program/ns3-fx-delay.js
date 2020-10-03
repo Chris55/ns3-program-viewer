@@ -1,8 +1,8 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
 const { getLinearInterpolation } = require("../../common/converter");
-const { getMorph14Bits } = require("./ns3-morph");
-const { getMorph } = require("./ns3-morph");
+const { ns3Morph14Bits } = require("./ns3-morph");
+const { ns3Morph } = require("./ns3-morph");
 
 /***
  * replace the note by unicode value
@@ -29,11 +29,11 @@ const fixSignature = (value) => {
 const getTempo = (masterClock, mswMidi, lswMidi) => {
     // if master clock is used, get the tempo details from the dedicated map
     if (masterClock) {
-        return mapping.delayTempoMasterClockDivisionMap.get(mswMidi);
+        return mapping.ns3DelayTempoMasterClockDivisionMap.get(mswMidi);
     }
 
     // else use the default tempo mapping
-    const value = mapping.delayTempoMap.get(mswMidi);
+    const value = mapping.ns3DelayTempoMap.get(mswMidi);
     if (!(value instanceof Array)) {
         return "error";
     }
@@ -44,8 +44,8 @@ const getTempo = (masterClock, mswMidi, lswMidi) => {
     }
 
     // special case (from tap tempo) LSW contains fine tempo adjustment
-    const y0 = mapping.delayTempoMap.get(mswMidi);
-    const y1 = mapping.delayTempoMap.get(mswMidi + 1);
+    const y0 = mapping.ns3DelayTempoMap.get(mswMidi);
+    const y1 = mapping.ns3DelayTempoMap.get(mswMidi + 1);
     if (!(y0 instanceof Array) || !(y1 instanceof Array)) {
         return "error";
     }
@@ -73,7 +73,7 @@ const getTempo = (masterClock, mswMidi, lswMidi) => {
  * @param panelOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.getDelay = (buffer, panelOffset) => {
+exports.ns3Delay = (buffer, panelOffset) => {
     const delayOffset119 = buffer.readUInt8(0x119 + panelOffset);
     const delayOffset11aW = buffer.readUInt16BE(0x11a + panelOffset);
     const delayOffset121W = buffer.readUInt16BE(0x121 + panelOffset);
@@ -110,7 +110,7 @@ exports.getDelay = (buffer, panelOffset) => {
          *  @module NS3 Delay Source
          */
         source: {
-            value: mapping.effectSourceMap.get((delayOffset119 & 0x06) >>> 1),
+            value: mapping.ns3EffectSourceMap.get((delayOffset119 & 0x06) >>> 1),
         },
 
         /**
@@ -138,13 +138,13 @@ exports.getDelay = (buffer, panelOffset) => {
          * LSW used for fine tempo value (only used with Tag Tempo)
          *
          * When Tempo knob is used, LSW is always 0, possible MSW value:
-         * #include delayTempoMap
+         * #include ns3DelayTempoMap
          *
          * Note: When Tap Tempo is used, LSW is different from 0.
          * A linear interpolation is done to define the fine tempo value.
          *
          * if 'Delay Master Clock' is enabled 7-bit value 0/127 = 1/2 to 1/64
-         * #include delayTempoMasterClockDivisionMap
+         * #include ns3DelayTempoMasterClockDivisionMap
          *
          * Morph Wheel:
          * 0x11B (b1): polarity (1 = positive, 0 = negative)
@@ -172,7 +172,7 @@ exports.getDelay = (buffer, panelOffset) => {
 
             value: fixSignature(getTempo(delayMasterClock, delayTempoMswMidi, delayTempoLswMidi)),
 
-            morph: getMorph14Bits(
+            morph: ns3Morph14Bits(
                 buffer,
                 0x11a + panelOffset,
                 (msw, lsw) => {
@@ -198,12 +198,12 @@ exports.getDelay = (buffer, panelOffset) => {
          *  Offset in file: 0x125 (b4-3)
          *
          * @example
-         * #include delayFilterMap
+         * #include ns3DelayFilterMap
          *
          *  @module NS3 Delay Filter
          */
         filter: {
-            value: mapping.delayFilterMap.get((delayOffset125 & 0x18) >>> 3),
+            value: mapping.ns3DelayFilterMap.get((delayOffset125 & 0x18) >>> 3),
         },
 
         /**
@@ -236,7 +236,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * 0x128 (b3): polarity (1 = positive, 0 = negative)
          * 0x128 (b2-b0) and 0x129 (b7-4): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module NS3 Delay Feedback
          */
@@ -245,7 +245,7 @@ exports.getDelay = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
 
-            morph: getMorph(
+            morph: ns3Morph(
                 delayOffset126dWw >>> 4,
                 delayFeedbackMidi,
                 (x) => {
@@ -273,7 +273,7 @@ exports.getDelay = (buffer, panelOffset) => {
          * 0x124 (b5): polarity (1 = positive, 0 = negative)
          * 0x124 (b4-b0) and 0x125 (b7-6): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module NS3 Delay Mix
          */
@@ -282,7 +282,7 @@ exports.getDelay = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, delayMixMidi, 1, ""),
 
-            morph: getMorph(
+            morph: ns3Morph(
                 delayOffset122dWw >>> 6,
                 delayMixMidi,
                 (x) => {

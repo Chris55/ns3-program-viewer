@@ -59,7 +59,7 @@ export default class NordDevice extends Component {
             } else if (data && data.ext === "ns2p") {
                 result = (
                     <>
-                        <div className={this.props.production ? "d-none" : "mt-2"}>
+                        <div className={this.props.production ? "mt-2" : "mt-2"}>
                             <Tabs id="uncontrolled-tab-example" defaultActiveKey="debug">
 
                                 <Tab eventKey="panel" title="Panel" disabled={true}>

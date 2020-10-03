@@ -415,7 +415,7 @@ O = off, 1 = on
 ## NS3 Extern Kb Zone
 Offset in file: 0xF4 (b6-3)
 
-**See**: [Organ Kb Zone](ns3-doc.md#organ-kb-zone) for detailed explanation.  
+**See**: [Organ Kb Zone](ns3-doc.md#ns3-organ-kb-zone) for detailed explanation.  
 <a name="module_NS3 Extern Octave Shift"></a>
 
 ## NS3 Extern Octave Shift
@@ -450,7 +450,7 @@ Offset in file: 0xF6 (b1-0)
 
 **Example**  
 ```js
-#include externControlMap
+#include ns3ExternControlMap
 ```
 <a name="module_NS3 Extern Midi CC"></a>
 
@@ -513,7 +513,7 @@ Offset in file: 0x12A (b4-0) and 0x12B (b7-6)
 
 **Example**  
 ```js
-treble (fixed 4 kHz) frequency boost/cut table:#include ampSimEqdBMap
+treble (fixed 4 kHz) frequency boost/cut table:#include ns3AmpSimEqdBMap
 ```
 <a name="module_NS3 Amp Sim Eq Mid Res"></a>
 
@@ -522,7 +522,7 @@ Offset in file: 0x12B (b5-0) and 0x12C (b7)
 
 **Example**  
 ```js
-if Amp Type is LP24 or HP24 filter resonance = 0 to 10else middle frequency boost/cut table:#include ampSimEqdBMap
+if Amp Type is LP24 or HP24 filter resonance = 0 to 10else middle frequency boost/cut table:#include ns3AmpSimEqdBMap
 ```
 <a name="module_NS3 Amp Sim Eq Bass Dry Wet"></a>
 
@@ -531,24 +531,24 @@ Offset in file: 0x12C (b6-0)
 
 **Example**  
 ```js
-if Amp Type is LP24 or HP24 filter dry / wet = 0 to 10else bass (fixed 100 Hz) frequency boost/cut table:#include ampSimEqdBMap
+if Amp Type is LP24 or HP24 filter dry / wet = 0 to 10else bass (fixed 100 Hz) frequency boost/cut table:#include ns3AmpSimEqdBMap
 ```
 <a name="module_NS3 Amp Sim Eq Mid Flt Freq"></a>
 
 ## NS3 Amp Sim Eq Mid Flt Freq
 Offset in file: 0x12D (b7-1)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-7-bit value 0/127 = 200 Hz to 8.0 kHz#include ampSimEqMidFilterFreqMapMorph Wheel:0x12D (b0): polarity (1 = positive, 0 = negative)0x12E (b7-b1): 7-bit raw valueMorph After Touch:0x12E (b0): polarity (1 = positive, 0 = negative)0x12F (b7-b1): 7-bit raw valueMorph Control Pedal:0x12F (b0): polarity (1 = positive, 0 = negative)0x130 (b7-b1): 7-bit raw value
+7-bit value 0/127 = 200 Hz to 8.0 kHz#include ns3AmpSimEqMidFilterFreqMapMorph Wheel:0x12D (b0): polarity (1 = positive, 0 = negative)0x12E (b7-b1): 7-bit raw valueMorph After Touch:0x12E (b0): polarity (1 = positive, 0 = negative)0x12F (b7-b1): 7-bit raw valueMorph Control Pedal:0x12F (b0): polarity (1 = positive, 0 = negative)0x130 (b7-b1): 7-bit raw value
 ```
 <a name="module_NS3 Amp Sim Eq Drive"></a>
 
 ## NS3 Amp Sim Eq Drive
 Offset in file: 0x130 (b0) and 0x131 (b7-2)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
 7-bit value 0/127 = 0 to 10.0Morph Wheel:0x131 (b1): polarity (1 = positive, 0 = negative)0x131 (b0) and 0x132 (b7-2): 7-bit raw valueMorph After Touch:0x132 (b1): polarity (1 = positive, 0 = negative)0x132 (b0) and 0x133 (b7-2): 7-bit raw valueMorph Control Pedal:0x133 (b1): polarity (1 = positive, 0 = negative)0x133 (b0) and 0x134 (b7-2): 7-bit raw value
@@ -614,7 +614,7 @@ Offset in file:
 
 **Example**  
 ```js
-tempo is using 14-bitMSW 0x11A (b7-1): 7-bit value0/127 = 1.5 s to 20 ms (same as MIDI #CC 94, see table below)LSW 0x11A (b0) and 0x11B (b7-2): 7-bit valueLSW used for fine tempo value (only used with Tag Tempo)When Tempo knob is used, LSW is always 0, possible MSW value:#include delayTempoMapNote: When Tap Tempo is used, LSW is different from 0.A linear interpolation is done to define the fine tempo value.if 'Delay Master Clock' is enabled 7-bit value 0/127 = 1/2 to 1/64#include delayTempoMasterClockDivisionMapMorph Wheel:0x11B (b1): polarity (1 = positive, 0 = negative)0x11B (b0), 0x11C (b7-0), and 0x11D (b7-3): 14-bit raw valueMorph After Touch:0x11D (b2): polarity (1 = positive, 0 = negative)0x11D (b1-0), 0x11E (b7-0), and 0x11F (b7-4): 14-bit raw valueMorph Control Pedal:0x11F (b3): polarity (1 = positive, 0 = negative)0x11F (b2-0), 0x120 (b7-0), and 0x121 (b7-5): 14-bit raw valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 16383Final 'To' Morph value = 'From value (original tempo)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+tempo is using 14-bitMSW 0x11A (b7-1): 7-bit value0/127 = 1.5 s to 20 ms (same as MIDI #CC 94, see table below)LSW 0x11A (b0) and 0x11B (b7-2): 7-bit valueLSW used for fine tempo value (only used with Tag Tempo)When Tempo knob is used, LSW is always 0, possible MSW value:#include ns3DelayTempoMapNote: When Tap Tempo is used, LSW is different from 0.A linear interpolation is done to define the fine tempo value.if 'Delay Master Clock' is enabled 7-bit value 0/127 = 1/2 to 1/64#include ns3DelayTempoMasterClockDivisionMapMorph Wheel:0x11B (b1): polarity (1 = positive, 0 = negative)0x11B (b0), 0x11C (b7-0), and 0x11D (b7-3): 14-bit raw valueMorph After Touch:0x11D (b2): polarity (1 = positive, 0 = negative)0x11D (b1-0), 0x11E (b7-0), and 0x11F (b7-4): 14-bit raw valueMorph Control Pedal:0x11F (b3): polarity (1 = positive, 0 = negative)0x11F (b2-0), 0x120 (b7-0), and 0x121 (b7-5): 14-bit raw valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 16383Final 'To' Morph value = 'From value (original tempo)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 ```
 <a name="module_NS3 Delay Ping Pong"></a>
 
@@ -632,7 +632,7 @@ Offset in file: 0x125 (b4-3)
 
 **Example**  
 ```js
-#include delayFilterMap 
+#include ns3DelayFilterMap 
 ```
 <a name="module_NS3 Delay Analog Mode"></a>
 
@@ -648,7 +648,7 @@ O = off, 1 = on
 ## NS3 Delay Feedback
 Offset in file: 0x125 (b2-0) and 0x126 (b7-4)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
 7-bit value 0/127 = 0/10Morph Wheel:0x126 (b3): polarity (1 = positive, 0 = negative)0x126 (b2-b0) and 0x127 (b7-4): 7-bit raw valueMorph After Touch:0x127 (b3): polarity (1 = positive, 0 = negative)0x127 (b2-b0) and 0x128 (b7-4): 7-bit raw valueMorph Control Pedal:0x128 (b3): polarity (1 = positive, 0 = negative)0x128 (b2-b0) and 0x129 (b7-4): 7-bit raw value
@@ -658,7 +658,7 @@ Offset in file: 0x125 (b2-0) and 0x126 (b7-4)
 ## NS3 Delay Mix
 Offset in file: 0x121 (b4-0) and 0x122 (b7-6)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
 7-bit value 0/127 = 0/10Morph Wheel:0x122 (b5): polarity (1 = positive, 0 = negative)0x122 (b4-b0) and 0x123 (b7-6): 7-bit raw valueMorph After Touch:0x123 (b5): polarity (1 = positive, 0 = negative)0x123 (b4-b0) and 0x124 (b7-6): 7-bit raw valueMorph Control Pedal:0x124 (b5): polarity (1 = positive, 0 = negative)0x124 (b4-b0) and 0x125 (b7-6): 7-bit raw value
@@ -695,7 +695,7 @@ Offset in file: 0x10B (b1-0) and 0x10C (b7)
 ## NS3 Effect 1 Amount
 Offset in file: 0x110 (b6-0)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
 7-bit value 0/127 = 0/10Morph Wheel:0x111 (b7): polarity (1 = positive, 0 = negative)0x111 (b6-b0): 7-bit raw valueMorph After Touch:0x112 (b7): polarity (1 = positive, 0 = negative)0x112 (b6-b0): 7-bit raw valueMorph Control Pedal:0x113 (b7): polarity (1 = positive, 0 = negative)0x113 (b6-b0): 7-bit raw value
@@ -705,10 +705,10 @@ Offset in file: 0x110 (b6-0)
 ## NS3 Effect 1 Rate
 Offset in file: 0x10C (b5-0) and 0x10D (b7)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-7-bit value 0/127 = 0/10if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32#include effect1MasterClockDivisionMapMorph Wheel:0x10D (b6): polarity (1 = positive, 0 = negative)0x10D (b5-b0) and 0x10E (b7): 7-bit raw valueMorph After Touch:0x10E (b6): polarity (1 = positive, 0 = negative)0x10E (b5-b0) and 0x10F (b7): 7-bit raw valueMorph Control Pedal:0x10F (b6): polarity (1 = positive, 0 = negative)0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
+7-bit value 0/127 = 0/10if 'Effect 1 Master Clock' is enabled 7-bit value 0/127 = 4/1 to 1/32#include ns3Effect1MasterClockDivisionMapMorph Wheel:0x10D (b6): polarity (1 = positive, 0 = negative)0x10D (b5-b0) and 0x10E (b7): 7-bit raw valueMorph After Touch:0x10E (b6): polarity (1 = positive, 0 = negative)0x10E (b5-b0) and 0x10F (b7): 7-bit raw valueMorph Control Pedal:0x10F (b6): polarity (1 = positive, 0 = negative)0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
 ```
 <a name="module_NS3 Effect 1 Master Clock"></a>
 
@@ -751,7 +751,7 @@ Offset in file: 0x114 (b4-2)
 ## NS3 Effect 2 Amount
 Offset in file: 0x115 (b2-0) and 0x116 (b7-4)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
 7-bit value 0/127 = 0/10Morph Wheel:0x116 (b3): polarity (1 = positive, 0 = negative)0x116 (b2-b0) and 0x117 (b7-4): 7-bit raw valueMorph After Touch:0x117 (b3): polarity (1 = positive, 0 = negative)0x117 (b2-b0) and 0x118 (b7-4): 7-bit raw valueMorph Control Pedal:0x118 (b3): polarity (1 = positive, 0 = negative)0x118 (b2-b0) and 0x119 (b7-4): 7-bit raw value
@@ -788,7 +788,7 @@ Offset in file: 0x134 (b0) and 0x135 (b7-6)
 ## NS3 Reverb Amount
 Offset in file: 0x135 (b4-0) and 0x136 (b7-6)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
 7-bit value 0/127 = 0/10Morph Wheel:0x136 (b5): polarity (1 = positive, 0 = negative)0x136 (b4-b0) and 0x137 (b7-6): 7-bit raw valueMorph After Touch:0x137 (b5): polarity (1 = positive, 0 = negative)0x137 (b4-b0) and 0x138 (b7-6): 7-bit raw valueMorph Control Pedal:0x138 (b5): polarity (1 = positive, 0 = negative)0x138 (b4-b0) and 0x139 (b7-6): 7-bit raw value
@@ -863,7 +863,7 @@ Offset in file: 0xB6 (b6-3)
 
 **Example**  
 ```js
-value     |      | value--------- | ---- | -------x000 0xxx |  0   | o---x000 1xxx |  1   | -o--x001 0xxx |  2   | --o-x001 1xxx |  3   | ---ox010 0xxx |  4   | oo--x010 1xxx |  5   | -oo-x011 0xxx |  6   | --oox011 1xxx |  7   | ooo-x100 0xxx |  8   | -ooox100 1xxx |  9   | oooo
+0 = "o---"1 = "-o--"2 = "--o-"3 = "---o"4 = "oo--"5 = "-oo-"6 = "--oo"7 = "ooo-"8 = "-ooo"9 = "oooo"
 ```
 <a name="module_NS3 Organ Volume"></a>
 
@@ -1014,13 +1014,13 @@ O = off, 1 = on
 ## NS3 Piano Kb Zone
 Offset in file: 0x43 (b6-3)
 
-**See**: [Organ Kb Zone](ns3-doc.md#organ-kb-zone) for detailed explanation.  
+**See**: [Organ Kb Zone](ns3-doc.md#ns3-organ-kb-zone) for detailed explanation.  
 <a name="module_NS3 Piano Volume"></a>
 
 ## NS3 Piano Volume
 Offset in file: 0x43 (b2-0), 0x44 (b7-4)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed explanation.  
 **Example**  
 ```js
 Morph Wheel:0x44 (b3): polarity (1 = positive, 0 = negative)0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw valueMorph After Touch:0x45 (b3): polarity (1 = positive, 0 = negative)0x45 (b2-b0), 0x46 (b7-b4): 7-bit raw valueMorph Control Pedal:0x46 (b3): polarity (1 = positive, 0 = negative)0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value
@@ -1199,7 +1199,7 @@ Offset in file: 0x10
 
 **Example**  
 ```js
-#include programCategoryMap
+#include ns3ProgramCategoryMap
 ```
 <a name="module_NS3 Synth Filter Type"></a>
 
@@ -1233,7 +1233,7 @@ Offset in file: 0xA5 (b3-2)
 ## NS3 Synth Filter LFO Amount
 Offset in file: 0xA0 (b3-0) and 0xA1 (b7-5)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
 0/127 value = 0 / 10Morph Wheel:0xA1 (b4): polarity (1 = positive, 0 = negative)0xA1 (b3-b0), 0xA2 (b7-b5): 7-bit raw valueMorph After Touch:0xA2 (b4): polarity (1 = positive, 0 = negative)0xA2 (b3-b0), 0xA3 (b7-b5): 7-bit raw valueMorph Control Pedal:0xA3 (b4): polarity (1 = positive, 0 = negative)0xA3 (b3-b0), 0xA4 (b7-b5): 7-bit raw value
@@ -1252,10 +1252,10 @@ Filter modulation (vel/env mod) is using this single 7-bit value to define two s
 ## NS3 Synth Filter Freq
 Offset in file: 0x98 (b1-0) and 0x99 (b7-3)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-0/127 value = 14 Hz / 21 kHz#include synthFilterCutoffFrequencyMap* Morph Wheel:0x99 (b2): polarity (1 = positive, 0 = negative)0x99 (b1-b0), 0x9A (b7-b3): 7-bit raw valueMorph After Touch:0x9A (b2): polarity (1 = positive, 0 = negative)0x9A (b1-b0), 0x9B (b7-b3): 7-bit raw valueMorph Control Pedal:0x9B (b2): polarity (1 = positive, 0 = negative)0x9B (b1-b0), 0x9C (b7-b3): 7-bit raw value
+0/127 value = 14 Hz / 21 kHz#include ns3SynthFilterCutoffFrequencyMap* Morph Wheel:0x99 (b2): polarity (1 = positive, 0 = negative)0x99 (b1-b0), 0x9A (b7-b3): 7-bit raw valueMorph After Touch:0x9A (b2): polarity (1 = positive, 0 = negative)0x9A (b1-b0), 0x9B (b7-b3): 7-bit raw valueMorph Control Pedal:0x9B (b2): polarity (1 = positive, 0 = negative)0x9B (b1-b0), 0x9C (b7-b3): 7-bit raw value
 ```
 <a name="module_NS3 Synth Filter HP Freq Res"></a>
 
@@ -1264,7 +1264,7 @@ Offset in file: 0x9C (b2-0) and 0x9D (b7-4)
 
 **Example**  
 ```js
-for 'LP+HP' filter  => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHz#include synthFilterCutoffFrequencyMapfor all other filters  => Resonance:  0/127 value = 0 / 10
+for 'LP+HP' filter  => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHz#include ns3SynthFilterCutoffFrequencyMapfor all other filters  => Resonance:  0/127 value = 0 / 10
 ```
 <a name="module_NS3 Synth On"></a>
 
@@ -1280,13 +1280,13 @@ O = off, 1 = on
 ## NS3 Synth Kb Zone
 Offset in file: 0x52 (b6-3)
 
-**See**: [Organ Kb Zone](ns3-doc.md#organ-kb-zone) for detailed explanation.  
+**See**: [Organ Kb Zone](ns3-doc.md#ns3-organ-kb-zone) for detailed explanation.  
 <a name="module_NS3 Synth Volume"></a>
 
 ## NS3 Synth Volume
 Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed explanation.  
 **Example**  
 ```js
 Morph Wheel:0x53 (b3): polarity (1 = positive, 0 = negative)0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw valueMorph After Touch:0x54 (b3): polarity (1 = positive, 0 = negative)0x54 (b2-b0), 0x55 (b7-b4): 7-bit raw valueMorph Control Pedal:0x55 (b3): polarity (1 = positive, 0 = negative)0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
@@ -1395,7 +1395,7 @@ Offset in file: 0x8F (b4-1)
 ## NS3 Synth Oscillator Control
 Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
 Type                  Midi value conversionPitch (1)             0/127 => 0/24Shape (2)             0/127 => 0/100 %Sync (3)              0/127 => 0/10Detune (4)            0/127 => 0/4Mix* (5 to 11)        0/127 => 100/0 to 0/100FM & RM (12 to 14)    0/127 => 0/100 %Morph Wheel:0x91 (b3): polarity (1 = positive, 0 = negative)0x91 (b2-b0), 0x92 (b7-b4): 7-bit raw valueMorph After Touch:0x92 (b3): polarity (1 = positive, 0 = negative)0x92 (b2-b0), 0x93 (b7-b4): 7-bit raw valueMorph Control Pedal:0x93 (b3): polarity (1 = positive, 0 = negative)0x93 (b2-b0), 0x94 (b7-b4): 7-bit raw value
@@ -1434,7 +1434,7 @@ Offset in file: 0x8B (b7-1)
 
 **Example**  
 ```js
-0/127 value = 0.5 ms / 45 s#include synthEnvAttackMap
+0/127 value = 0.5 ms / 45 s#include ns3SynthEnvAttackMap
 ```
 <a name="module_NS3 Synth Mod Env Decay"></a>
 
@@ -1443,7 +1443,7 @@ Offset in file: 0x8B (b0) and 0x8C (b7-2)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s (Sustain)#include synthEnvDecayOrReleaseMap
+0/127 value = 3.0 ms / 45 s (Sustain)#include ns3SynthEnvDecayOrReleaseMap
 ```
 <a name="module_NS3 Synth Mod Env Release"></a>
 
@@ -1452,7 +1452,7 @@ Offset in file: 0x8C (b1-0) and 0x8D (b7-3)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s (Inf)#include synthEnvDecayOrReleaseMap
+0/127 value = 3.0 ms / 45 s (Inf)#include ns3SynthEnvDecayOrReleaseMap
 ```
 <a name="module_NS3 Synth Mod Env Velocity"></a>
 
@@ -1470,7 +1470,7 @@ Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)
 
 **Example**  
 ```js
-0/127 value = 0.5 ms / 45 s#include synthEnvAttackMap
+0/127 value = 0.5 ms / 45 s#include ns3SynthEnvAttackMap
 ```
 <a name="module_NS3 Synth Amp Env Decay"></a>
 
@@ -1479,7 +1479,7 @@ Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s (Sustain)#include synthEnvDecayOrReleaseMap
+0/127 value = 3.0 ms / 45 s (Sustain)#include ns3SynthEnvDecayOrReleaseMap
 ```
 <a name="module_NS3 Synth Amp Env Release"></a>
 
@@ -1488,7 +1488,7 @@ Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s#include synthEnvDecayOrReleaseMap
+0/127 value = 3.0 ms / 45 s#include ns3SynthEnvDecayOrReleaseMap
 ```
 <a name="module_NS3 Synth Amp Env Velocity"></a>
 
@@ -1513,10 +1513,10 @@ Offset in file: 0x86 (b2-0)
 ## NS3 Synth Lfo Rate
 Offset in file: 0x87 (b6-0)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-0/127 value = 0.03 Hz / 523 Hz#include synthLfoRateMapif LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division#include synthLfoRateMasterClockDivisionMapMorph Wheel:0x88 (b7): polarity (1 = positive, 0 = negative)0x88 (b6-b0): 7-bit raw valueMorph After Touch:0x89 (b7): polarity (1 = positive, 0 = negative)0x89 (b6-b0): 7-bit raw valueMorph Control Pedal:0x8A (b7): polarity (1 = positive, 0 = negative)0x8A (b6-b0): 7-bit raw value
+0/127 value = 0.03 Hz / 523 Hz#include ns3SynthLfoRateMapif LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division#include ns3SynthLfoRateMasterClockDivisionMapMorph Wheel:0x88 (b7): polarity (1 = positive, 0 = negative)0x88 (b6-b0): 7-bit raw valueMorph After Touch:0x89 (b7): polarity (1 = positive, 0 = negative)0x89 (b6-b0): 7-bit raw valueMorph Control Pedal:0x8A (b7): polarity (1 = positive, 0 = negative)0x8A (b6-b0): 7-bit raw value
 ```
 <a name="module_NS3 Synth Lfo Master Clock"></a>
 
@@ -1541,10 +1541,10 @@ O = off, 1 = on
 ## NS3 Synth Arp Rate
 Offset in file: 0x81 (b7-1)
 
-**See**: [Organ Volume](ns3-doc.md#organ-volume) for detailed Morph explanation.  
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-0/127 value = 16 bpm / Fast 5#include synthArpRateMapif Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division#include synthArpMasterClockDivisionMapMorph Wheel:0x81 (b0): polarity (1 = positive, 0 = negative)0x82 (b7-b1): 7-bit raw valueMorph After Touch:0x82 (b0): polarity (1 = positive, 0 = negative)0x83 (b7-b1): 7-bit raw valueMorph Control Pedal:0x83 (b0): polarity (1 = positive, 0 = negative)0x84 (b7-b1): 7-bit raw value
+0/127 value = 16 bpm / Fast 5#include ns3SynthArpRateMapif Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division#include ns3SynthArpMasterClockDivisionMapMorph Wheel:0x81 (b0): polarity (1 = positive, 0 = negative)0x82 (b7-b1): 7-bit raw valueMorph After Touch:0x82 (b0): polarity (1 = positive, 0 = negative)0x83 (b7-b1): 7-bit raw valueMorph Control Pedal:0x83 (b0): polarity (1 = positive, 0 = negative)0x84 (b7-b1): 7-bit raw value
 ```
 <a name="module_NS3 Synth Arp Kb Sync"></a>
 

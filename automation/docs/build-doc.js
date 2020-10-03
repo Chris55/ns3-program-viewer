@@ -1,17 +1,22 @@
 const readline = require("readline");
 const fs = require("fs");
 const os = require("os");
-const mapping = require("../../server/ns3/program/ns3-mapping");
+const ns3Mapping = require("../../server/ns3/program/ns3-mapping");
+const commonMapping = require("../../server/common/nord-mapping");
 
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, "g"), replace);
 }
 
 function getEnum(name) {
-    const table = mapping[name];
+    let table = commonMapping[name];
     if (!table) {
-        throw new Error("Typo error somewhere the mapping " + name + " is not available!");
+        table = ns3Mapping[name];
+        if (!table) {
+            throw new Error("Typo error somewhere the mapping " + name + " is not available!");
+        }
     }
+
     let lines = ""; //"```" + os.EOL;
     for (const [key, value] of table) {
         lines = lines + "  " + key + " = " + value + os.EOL;
@@ -21,8 +26,6 @@ function getEnum(name) {
 }
 
 const convert = (inputFile, outputFile, remove) => {
-    const text = getEnum("programCategoryMap");
-
     const outputStream = fs.createWriteStream(outputFile, { flags: "w" });
     let start = !remove;
 

@@ -7,7 +7,7 @@ const converter = require("../../common/converter");
  * @param panelOffset
  * @returns {{amount: {midi: number, value: string}, fast: {value: boolean}, enabled: boolean}}
  */
-exports.getCompressor = (buffer, panelOffset) => {
+exports.ns3Compressor = (buffer, panelOffset) => {
     const effectOffset139 = buffer.readUInt8(0x139 + panelOffset);
     const effectOffset139W = buffer.readUInt16BE(0x139 + panelOffset);
 

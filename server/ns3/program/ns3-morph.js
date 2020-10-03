@@ -6,10 +6,10 @@ const {round} = require("../../common/converter");
  * @param uint32Value 32-bit raw value, wheel expected to be in b23-16, after touch in b15-8, and control pedal in b7-0.
  * @param midiFrom 7-bit original position
  * @param labelCallBack callback method to render the value
- * @param forceDisabled optional used ont dual knob to disable morph option
+ * @param forceDisabled optional used on dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.getMorph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
+exports.ns3Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -100,7 +100,7 @@ exports.getMorph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
  * @param forceDisabled optional used ont dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.getMorph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
+exports.ns3Morph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -197,7 +197,7 @@ exports.getMorph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
  * @param left true if called for left value
  * @returns {{afterTouch: {to: {midi: number, value: (string|string)}, enabled: *}, controlPedal: {to: {midi: number, value: (string|string)}, enabled: *}, wheel: {to: {midi: number, value: (string|string)}, enabled: *}}}
  */
-exports.getMorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
+exports.ns3MorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -284,7 +284,7 @@ exports.getMorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
  * @param midiFrom 7-bit original position
  * @returns {{afterTouch: number, controlPedal: number, wheel: number}}
  */
-exports.getMorphOrganDrawbar = (uint32Value, midiFrom) => {
+exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
     const rawMorphValue = [3];
     const result = [];
 

@@ -1,6 +1,6 @@
 const path = require("path");
 const mapping = require("../../ns3/program/ns3-mapping");
-const {getPanel} = require("../../ns3/program/ns3-panel");
+const {ns2Slot} = require("./ns2-slot");
 const {nordFileExtMap} = require("../../common/nord-mapping");
 const { getVersion } = require("../../common/converter");
 
@@ -129,7 +129,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const transposeValue = (offset38 & 0x78) >>> 3;
     const transpose = {
         enabled: transposeEnabled,
-        value: transposeEnabled ? mapping.transposeMap.get(transposeValue) : "",
+        value: transposeEnabled ? mapping.ns3TransposeMap.get(transposeValue) : "",
     };
 
     /**
@@ -252,20 +252,20 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         // }
     }
 
-    const splitEnabled = (offset31 & 0x10) !== 0;
+    const splitEnabled = true; //(offset31 & 0x10) !== 0;
     const split = {
         enabled: splitEnabled,
         low: {
-            width: splitEnabled && splitLowEnabled ? mapping.splitWidthMap.get((offset33W & 0x1800) >>> 11) : "Off",
-            note: splitEnabled && splitLowEnabled ? mapping.splitNoteMap.get(splitLowNote) : "--",
+            width: splitEnabled && splitLowEnabled ? mapping.ns3SplitWidthMap.get((offset33W & 0x1800) >>> 11) : "Off",
+            note: splitEnabled && splitLowEnabled ? mapping.ns3SplitNoteMap.get(splitLowNote) : "--",
         },
         mid: {
-            width: splitEnabled && splitMidEnabled ? mapping.splitWidthMap.get((offset33W & 0x0600) >>> 9) : "Off",
-            note: splitEnabled && splitMidEnabled ? mapping.splitNoteMap.get(splitMidNote) : "--",
+            width: splitEnabled && splitMidEnabled ? mapping.ns3SplitWidthMap.get((offset33W & 0x0600) >>> 9) : "Off",
+            note: splitEnabled && splitMidEnabled ? mapping.ns3SplitNoteMap.get(splitMidNote) : "--",
         },
         high: {
-            width: splitEnabled && splitHighEnabled ? mapping.splitWidthMap.get((offset33W & 0x0180) >>> 7) : "Off",
-            note: splitEnabled && splitHighEnabled ? mapping.splitNoteMap.get(splitHighNote) : "--",
+            width: splitEnabled && splitHighEnabled ? mapping.ns3SplitWidthMap.get((offset33W & 0x0180) >>> 7) : "Off",
+            note: splitEnabled && splitHighEnabled ? mapping.ns3SplitNoteMap.get(splitHighNote) : "--",
         },
     };
 
@@ -301,9 +301,9 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
          * 2 = Piano
          * 3 = Synth
          *
-         * @module NS3 Dual Keyboard Style
+         * @module NS2 Dual Keyboard Style
          */
-        value: mapping.dualKeyboardStyleMap.get(offset3a & 0x03),
+        value: mapping.ns3DualKeyboardStyleMap.get(offset3a & 0x03),
     };
 
     const ext =  path.extname(filename).substr(1);
@@ -316,21 +316,20 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         description: nordFileExtMap.get(ext),
 
         // program location
-        id: programLocation,
+        //id: programLocation,
 
         version: version.version,
 
-        /**
-         * Offset in file: 0x10
-         *
-         * @example
-         * #include programCategoryMap
-         * @module NS3 Program Category
-         */
-        category: mapping.programCategoryMap.get(offset10),
-        //fileId: fileId,
+        // /**
+        //  * Offset in file: 0x10
+        //  *
+        //  * @example
+        //  * #include ns2programCategoryMap
+        //  * @module NS2 Program Category
+        //  */
+        //category: mapping.programCategoryMap.get(offset10),
 
-        panelA: getPanel(buffer, 0, split.enabled, versionOffset, dualKeyboard),
+        slotA: ns2Slot(buffer, 0, split.enabled, versionOffset, dualKeyboard),
 
         // panelB: getPanel(buffer, 1, split.enabled, versionOffset, dualKeyboard),
         //

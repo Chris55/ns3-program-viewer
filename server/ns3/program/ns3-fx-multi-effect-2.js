@@ -1,6 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
-const { getMorph } = require("./ns3-morph");
+const { ns3Morph } = require("./ns3-morph");
 
 /***
  * returns Effect 2
@@ -9,7 +9,7 @@ const { getMorph } = require("./ns3-morph");
  * @param panelOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.getEffect2 = (buffer, panelOffset) => {
+exports.ns3Effect2 = (buffer, panelOffset) => {
     const effectOffset114 = buffer.readUInt8(0x114 + panelOffset);
     const effectOffset114W = buffer.readUInt16BE(0x114 + panelOffset);
     const effectOffset115W = buffer.readUInt16BE(0x115 + panelOffset);
@@ -38,7 +38,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          *  @module NS3 Effect 2 Source
          */
         source: {
-            value: mapping.effectSourceMap.get((effectOffset114 & 0x60) >>> 5),
+            value: mapping.ns3EffectSourceMap.get((effectOffset114 & 0x60) >>> 5),
         },
 
         /**
@@ -55,7 +55,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * @module NS3 Effect 2 Type
          */
         type: {
-            value: mapping.effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2),
+            value: mapping.ns3Effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2),
         },
 
         /**
@@ -76,7 +76,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
          * 0x118 (b3): polarity (1 = positive, 0 = negative)
          * 0x118 (b2-b0) and 0x119 (b7-4): 7-bit raw value
          *
-         * @see {@link ns3-doc.md#organ-volume Organ Volume} for detailed Morph explanation.
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
          * @module NS3 Effect 2 Amount
          */
@@ -85,7 +85,7 @@ exports.getEffect2 = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
 
-            morph: getMorph(
+            morph: ns3Morph(
                 effectOffset116Ww >>> 4,
                 effect2AmountMidi,
                 (x) => {

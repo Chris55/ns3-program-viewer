@@ -1,5 +1,5 @@
 const converter = require("../../common/converter");
-const { getMorph } = require("./ns3-morph");
+const { ns3Morph } = require("./ns3-morph");
 
 /***
  * returns Oscillator Control value
@@ -65,7 +65,7 @@ const getOscControlLabel = (oscConfig, oscControlMidi) => {
  * @param oscConfig
  * @returns {{midi: number, value: string, morph: {afterTouch: {to: {midi: ({midi: *, value: string}|string), value: (string)}, enabled: boolean}, controlPedal: {to: {midi: ({midi: *, value: string}|string), value: (string)}, enabled: boolean}, wheel: {to: {midi: ({midi: *, value: string}|string), value: (string)}, enabled: boolean}}}}
  */
-exports.getOscControl = (buffer, offset, oscConfig) => {
+exports.ns3OscControl = (buffer, offset, oscConfig) => {
     const synthOffset90W = buffer.readUInt16BE(offset); // 0x90
     const synthOffset91Ww = buffer.readUInt32BE(offset + 1); // 0x91
 
@@ -85,7 +85,7 @@ exports.getOscControl = (buffer, offset, oscConfig) => {
         /***
          * Morphing settings
          */
-        morph: getMorph(synthOffset91Ww >>> 4, oscControlMidi, (x) => {
+        morph: ns3Morph(synthOffset91Ww >>> 4, oscControlMidi, (x) => {
             return getOscControlLabel(oscConfig, x);
         }, false),
     };

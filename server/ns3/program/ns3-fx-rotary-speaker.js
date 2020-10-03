@@ -8,7 +8,7 @@ const mapping = require("./ns3-mapping");
  * @param panelOffset
  * @returns {{stopMode: {enabled: boolean}, source: {value: string}, drive: {value: string}, enabled: boolean, speed: {morph: {afterTouch: {enabled: boolean}, controlPedal: {enabled: boolean}, wheel: {enabled: boolean}}, value: string}}}
  */
-exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
+exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffset35 = buffer.readUInt8(0x35 + panelOffset);
     const organOffset35W = buffer.readUInt16BE(0x35 + panelOffset);
@@ -35,7 +35,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          * @module NS3 Rotary Speaker Source
          */
         source: {
-            value: mapping.effectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
+            value: mapping.ns3EffectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
         },
 
         /**
@@ -101,7 +101,7 @@ exports.getRotarySpeakerEffect = (buffer, panelOffset) => {
          */
 
         speed: {
-            value: mapping.rotarySpeakerSpeedMap.get(organOffset34 & 0x01),
+            value: mapping.ns3RotarySpeakerSpeedMap.get(organOffset34 & 0x01),
             morph: {
                 wheel: {
                     enabled: (organOffset35W & 0x7000) >>> 12 !== 0x03,

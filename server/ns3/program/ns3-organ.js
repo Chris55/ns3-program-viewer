@@ -1,7 +1,7 @@
 const mapping = require("./ns3-mapping");
-const { getMorphOrganDrawbar } = require("./ns3-morph");
-const { getKbZone } = require("./ns3-utils");
-const { getVolumeEx } = require("./ns3-utils");
+const { ns3MorphOrganDrawbar } = require("./ns3-morph");
+const { ns3KbZone } = require("./ns3-utils");
+const { ns3VolumeEx } = require("./ns3-utils");
 
 /***
  * return Drawbars Preset and Morph
@@ -74,15 +74,15 @@ const getDrawbars = function (buffer, offset, type) {
     const morphOffset8 = buffer.readUInt32BE(offset8 - 1);
     const morphOffset9 = buffer.readUInt32BE(offset9 - 1);
 
-    const m1 = getMorphOrganDrawbar(morphOffset1 >>> 5, d1);
-    const m2 = getMorphOrganDrawbar(morphOffset2 >>> 2, d2);
-    const m3 = getMorphOrganDrawbar(morphOffset3 >>> 7, d3);
-    const m4 = getMorphOrganDrawbar(morphOffset4 >>> 4, d4);
-    const m5 = getMorphOrganDrawbar(morphOffset5 >>> 1, d5);
-    const m6 = getMorphOrganDrawbar(morphOffset6 >>> 6, d6);
-    const m7 = getMorphOrganDrawbar(morphOffset7 >>> 3, d7);
-    const m8 = getMorphOrganDrawbar(morphOffset8, d8);
-    const m9 = getMorphOrganDrawbar(morphOffset9 >>> 5, d9);
+    const m1 = ns3MorphOrganDrawbar(morphOffset1 >>> 5, d1);
+    const m2 = ns3MorphOrganDrawbar(morphOffset2 >>> 2, d2);
+    const m3 = ns3MorphOrganDrawbar(morphOffset3 >>> 7, d3);
+    const m4 = ns3MorphOrganDrawbar(morphOffset4 >>> 4, d4);
+    const m5 = ns3MorphOrganDrawbar(morphOffset5 >>> 1, d5);
+    const m6 = ns3MorphOrganDrawbar(morphOffset6 >>> 6, d6);
+    const m7 = ns3MorphOrganDrawbar(morphOffset7 >>> 3, d7);
+    const m8 = ns3MorphOrganDrawbar(morphOffset8, d8);
+    const m9 = ns3MorphOrganDrawbar(morphOffset9 >>> 5, d9);
 
     const morphWheel = fixVoxAndFarfisa(
         [m1.wheel, m2.wheel, m3.wheel, m4.wheel, m5.wheel, m6.wheel, m7.wheel, m8.wheel, m9.wheel],
@@ -182,14 +182,14 @@ const hideIfEqual = (from, to) => {
  * @param id
  * @returns {{volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}}
  */
-exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
+exports.ns3Organ = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
     const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
     const organOffsetBb = buffer.readUInt8(0xbb + panelOffset);
     const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
 
-    const organType = mapping.organTypeMap.get((organOffsetBb & 0x70) >>> 4);
+    const organType = mapping.ns3OrganTypeMap.get((organOffsetBb & 0x70) >>> 4);
     const organTypeIsB3 = organType === "B3";
 
     const organEnabled = (organOffsetB6W & 0x8000) !== 0;
@@ -197,17 +197,17 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
         id === 0 ? organEnabled : organEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Organ");
 
     const organModeValue = (organOffset34 & 0x0e) >>> 1;
-    let organMode = mapping.organVibratoModeMap.get(organModeValue);
+    let organMode = mapping.ns3OrganVibratoModeMap.get(organModeValue);
 
     if (organType === "Pipe1" || organType === "Pipe2") {
         organMode = "C1";
     } else if (organType === "Farfisa" && (organMode === "C1" || organMode === "V3")) {
-        organMode = mapping.organVibratoModeMap.get(organModeValue + 1);
+        organMode = mapping.ns3OrganVibratoModeMap.get(organModeValue + 1);
     } else if (organType === "Vox" && (organMode === "C1" || organMode === "C2" || organMode === "C3")) {
-        organMode = mapping.organVibratoModeMap.get(organModeValue + 1);
+        organMode = mapping.ns3OrganVibratoModeMap.get(organModeValue + 1);
     }
 
-    const organKbZone = getKbZone(organKbZoneEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11);
+    const organKbZone = ns3KbZone(organKbZoneEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11);
 
     return {
         /**
@@ -224,18 +224,16 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * Offset in file: 0xB6 (b6-3)
          *
          * @example
-         * value     |      | value
-         * --------- | ---- | -------
-         * x000 0xxx |  0   | o---
-         * x000 1xxx |  1   | -o--
-         * x001 0xxx |  2   | --o-
-         * x001 1xxx |  3   | ---o
-         * x010 0xxx |  4   | oo--
-         * x010 1xxx |  5   | -oo-
-         * x011 0xxx |  6   | --oo
-         * x011 1xxx |  7   | ooo-
-         * x100 0xxx |  8   | -ooo
-         * x100 1xxx |  9   | oooo
+         * 0 = "o---"
+         * 1 = "-o--"
+         * 2 = "--o-"
+         * 3 = "---o"
+         * 4 = "oo--"
+         * 5 = "-oo-"
+         * 6 = "--oo"
+         * 7 = "ooo-"
+         * 8 = "-ooo"
+         * 9 = "oooo"
          *
          * @module NS3 Organ Kb Zone
          */
@@ -271,7 +269,7 @@ exports.getOrgan = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          *
          * @module NS3 Organ Volume
          */
-        volume: getVolumeEx(buffer, 0xb6 + panelOffset),
+        volume: ns3VolumeEx(buffer, 0xb6 + panelOffset),
 
         /**
          * Offset in file: 0xBA (b3-0)

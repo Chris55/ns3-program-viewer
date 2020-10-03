@@ -38,7 +38,9 @@ export default class Ns3VolumeAndMore extends Component {
                     </div>
 
                     <div className="">
-                        <Ns3LabelAndValue data={{ value: octaveShift }} />
+                        <Ns3LabelAndValue
+                            enabled={section.octaveShift.value !== 0}
+                            data={{ value: octaveShift }} />
                     </div>
 
                     <div>

@@ -1,6 +1,7 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
-const { getMorph } = require("./ns3-morph");
+const { dBMap } = require("../../common/nord-mapping");
+const { ns3Morph } = require("./ns3-morph");
 
 /***
  * Returns two values from a single knob (and equivalent midi value).
@@ -16,7 +17,7 @@ const { getMorph } = require("./ns3-morph");
  * @param valueRange120
  * @returns {{leftMidi: number, leftValue: string, rightValue: string, rightMidi: number}}
  */
-exports.getKnobDualValues = function (valueRange120) {
+exports.ns3KnobDualValues = function (valueRange120) {
     const valueRange127 = Math.ceil((valueRange120 * 127) / 120);
     const value = converter.midi2LinearValue(-10, 10, valueRange120, 1, 0, 120);
     let leftLabel = "0.0";
@@ -50,13 +51,13 @@ exports.getKnobDualValues = function (valueRange120) {
  * @param value
  * @returns {string|(string[]|boolean[])[]|(string|boolean[])[]}
  */
-exports.getKbZone = (sectionEnabled, splitEnabled, value) => {
+exports.ns3KbZone = (sectionEnabled, splitEnabled, value) => {
     if (sectionEnabled) {
         if (splitEnabled) {
-            return mapping.kbZoneMap.get(value);
+            return mapping.ns3KbZoneMap.get(value);
         }
         // no split, full keyboard is used
-        return [["0000"], [true, true, true, true]];
+        return ["0000", [true, true, true, true]];
     }
     // section is not used
     return ["----", [false, false, false, false]];
@@ -69,7 +70,7 @@ exports.getKbZone = (sectionEnabled, splitEnabled, value) => {
  * @param offset
  * @returns {{midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}}
  */
-exports.getVolumeEx = (buffer, offset) => {
+exports.ns3VolumeEx = (buffer, offset) => {
     const organOffsetB6W = buffer.readUInt16BE(offset); // 0xB6
     const morphOffsetB7Ww = buffer.readUInt32BE(offset + 1); // 0xB7
 
@@ -77,9 +78,14 @@ exports.getVolumeEx = (buffer, offset) => {
     const midi = (organOffsetB6W & 0x07f0) >>> 4;
 
     // To values
-    const morph = getMorph(morphOffsetB7Ww >>> 4, midi, (x) => {
-        return mapping.dBMap.get(x);
-    }, false);
+    const morph = ns3Morph(
+        morphOffsetB7Ww >>> 4,
+        midi,
+        (x) => {
+            return dBMap.get(x);
+        },
+        false
+    );
 
     return {
         /***
@@ -90,7 +96,7 @@ exports.getVolumeEx = (buffer, offset) => {
         /***
          * Volume value
          */
-        value: mapping.dBMap.get(midi),
+        value: dBMap.get(midi),
 
         /***
          * Morphing settings
