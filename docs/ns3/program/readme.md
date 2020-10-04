@@ -1,7 +1,7 @@
 
 ## Let's get started
 
-This file documents the Nord Stage 3 program file structure. It is handmade by [NUF](https://www.norduserforum.com) users and is not officially supported by Nord Keyboards / Clavia DMI AB.
+This file documents the Nord Stage program file structure. It is handmade by [NUF](https://www.norduserforum.com) users and is not officially supported by Nord Keyboards / Clavia DMI AB.
 While we certainly hope this document is useful, none of the authors or contributors place any guarantees as to the accuracy of the data.
 
 We contacted Nord Keyboards / Clavia DMI AB support about this project, and the answer was that they are fine with this project, and it can be published :)
@@ -16,7 +16,8 @@ Source is located here: [https://github.com/Chris55/ns3-program-viewer](https://
 - [Contributors](#contributors)
 - [License](#license)
 - [Revision](#revision)
-- [File Structure](#file-structure)
+- [Nord Stage 2 File Structure](#nord-stage-2-file-structure)
+- [Nord Stage 3 File Structure](#nord-stage-3-file-structure)
 
 
 
@@ -31,7 +32,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 ## Contributors
 - [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) (@florence)
 - [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal)
-- Thanks to other NUF member(s): @rpossemo
+- Thanks to other NUF member(s): @cookie, @gordon, @rpossemo
 
 ## Revision
 
@@ -40,6 +41,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 | 0.1  | 23-Sep-2020  | Draft version
 | 0.2  | 26-Sep-2020  | Added Delay section
 | 1.0  | 27-Sep-2020  | Added Amp Sim / Eq section and bumped to v1.0
+| 1.x  | xx-xxx-2020  | Draft added Stage 2
 
 \newpage
 
@@ -60,7 +62,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTH
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 \newpage
-## File Structure
+## Nord Stage 3 File Structure
 
 This mapping corresponds to the Nord Stage 3 program file (file extension ns3f).
 

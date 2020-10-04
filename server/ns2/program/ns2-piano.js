@@ -17,19 +17,20 @@ const { ns3PianoLibrary } = require("../../common/nord-library-piano");
  * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
  */
 exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
+    const pianoOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
     const pianoOffset48Ww = buffer.readUInt32BE(0x48 + panelOffset);
     const pianoOffset4b = buffer.readUInt8(0x4b + panelOffset);
     const pianoOffset4c = buffer.readUInt8(0x4c + panelOffset);
     const pianoOffset4d = buffer.readUInt8(0x4d + panelOffset);
+    const pianoOffset5a = buffer.readUInt8(0x5a + panelOffset);
     const pianoOffsetCd = buffer.readUInt8(0xcd + panelOffset);
+    const pianoOffsetCeW = buffer.readUInt16BE(0xce + panelOffset);
+    const pianoOffsetCf = buffer.readUInt8(0xcf + panelOffset);
+    const pianoOffsetD0 = buffer.readUInt8(0xd0 + panelOffset);
 
-    const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
-    const pianoOffset47 = buffer.readUInt8(0x47 + panelOffset);
-    const pianoOffset49 = buffer.readUInt8(0x49 + panelOffset);
-    const pianoOffsetCdWW = buffer.readBigUInt64BE(0xcd + panelOffset);
-    const pianoOffset4e = buffer.readUInt8(0x4e + panelOffset);
-    const pianoOffset4dW = buffer.readUInt16BE(0x4d + panelOffset);
+    const pianoOffsetCdWww = buffer.readBigUInt64BE(0xcd + panelOffset);
+
 
     const pianoEnabled = (pianoOffset48 & 0x80) !== 0;
     const pianoKbZoneEnabled =
@@ -37,20 +38,21 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
     const pianoTypeValue = (pianoOffsetCd & 0xe0) >>> 5;
     const pianoType = mapping.ns2PianoTypeMap.get(pianoTypeValue);
+    const clavinetEnabled =  pianoType === "Clavinet";
 
     const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, splitEnabled, (pianoOffset4c & 0xe0) >>> 5);
 
-    const pianoSampleId = Number((pianoOffsetCdWW & 0x0000003fffffffc0n) >> 6n);
+    const pianoSampleId = Number((pianoOffsetCdWww & 0x0000003fffffffc0n) >> 6n);
     let pianoName = ns3PianoLibrary.get(pianoSampleId);
     if (pianoName instanceof Array) {
         pianoName = pianoName[0];
     }
 
     const piano = {
-        // debug: {
-        //     sampleId: pianoSampleId.toString(16),
-        //     name: pianoName,
-        // },
+        debug: {
+            sampleId: pianoSampleId.toString(16),
+            name: pianoName,
+        },
 
         /**
          * Offset in file: 0x48 (b7)
@@ -141,15 +143,32 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
             enabled: (pianoOffset4d & 0x80) !== 0,
         },
         /**
+         * Offset in file: 0x5A (b7)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS2 Piano Latch Pedal
+         */
+        latchPedal: {
+            enabled: (pianoOffset5a & 0x80) !== 0,
+        },
+        /**
+         * Offset in file: 0x5A (b6)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS2 Piano Kb Gate
+         */
+        kbGate: {
+            enabled: (pianoOffset5a & 0x40) !== 0,
+        },
+        /**
          * Offset in file: 0xCD (b7-5)
          *
          * @example
-         * 0 = Grand
-         * 1 = Upright
-         * 2 = E Piano 1
-         * 3 = E Piano 2
-         * 4 = Clavinet
-         * 5 = Harpsi
+         * #include ns2PianoTypeMap
          *
          * @module NS2 Piano Type
          */
@@ -168,93 +187,99 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
             value: pianoName,
         },
         /**
-         * Offset in file: 0x4E (b5-3)
+         * Offset in file: 0x3B (b7-5)
          *
          * @example
-         * Grand, Upright, Digital, Misc Piano, and Harpsichord:
-         * 0 = None
-         * 1 = Soft
-         * 2 = Mid
-         * 3 = Bright
+         * #include ns2PianoSlotDetuneMap
          *
-         * Electric Piano
-         * 0 = None
-         * 1 = Soft
-         * 2 = Mid
-         * 3 = Bright
-         * 4 = Dyno1
-         * 5 = Dyno2
-         *
-         * Clavinet
-         * 0 = None
-         * 1 = Soft
-         * 2 = Treble
-         * 3 = Soft+Treble
-         * 4 = Brilliant
-         * 5 = Soft+Brill
-         * 6 = Treble+Brill
-         * 7 = Soft+Trb+Brill
-         *
-         * @module NS3 Piano Timbre
+         * @module NS2 Piano Slot Detune
          */
-        // timbre: {
-        //     value: pianoTimbre,
-        // },
-        /**
-         * Offset in file: 0x34 (b6-5)
-         *
-         * @example
-         * 0 =  Off
-         * 1 =  1
-         * 2 =  2
-         * 3 =  3
-         *
-         * Note: This parameter is common for both Panel. Layer Detune setting cannot be different
-         * for each panel, only offset 0x34 is used.
-         *
-         * @module NS3 Piano Layer Detune
-         */
-        layerDetune: {
-            value: 0, //mapping.pianoLayerDetuneMap.get((pianoOffset34 & 0x60) >>> 5),
+        slotDetune: {
+            value: mapping.ns2PianoSlotDetuneMap.get((pianoOffset3b & 0xe0) >>> 5),
         },
         /**
-         * Offset in file: 0x4D (b4)
+         * Offset in file: 0xCF (b6)
          *
          * @example
          * O = off, 1 = on
          *
-         * Not available on Clavinet and Digital Piano
-         *
-         * @module NS3 Piano Soft Release
+         * @module NS2 Piano Long Release
          */
-        softRelease: {
-            enabled: pianoTypeValue !== 3 && pianoTypeValue !== 4 && (pianoOffset4d & 0x08) !== 0,
+        longRelease: {
+            enabled: (pianoOffsetCf & 0x40) !== 0,
         },
         /**
-         * Offset in file: 0x4D (b2)
+         * Offset in file: 0xCF (b5)
          *
          * @example
          * O = off, 1 = on
          *
-         * Only on Grand, Upright, and Electric piano.
+         * Only on Acoustic Grand or Upright Piano
          *
-         * @module NS3 Piano Pedal Noise
-         */
-        pedalNoise: {
-            enabled: pianoTypeValue <= 2 && (pianoOffset4d & 0x02) !== 0,
-        },
-        /**
-         * Offset in file: 0x4D (b3)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * Only on Grand and Upright piano.
-         *
-         * @module NS3 Piano String Resonance
+         * @module NS2 Piano String Resonance
          */
         stringResonance: {
-            enabled: pianoTypeValue <= 1 && (pianoOffset4d & 0x04) !== 0,
+            enabled: (pianoOffsetCf & 0x20) !== 0,
+        },
+        /**
+         * Offset in file: 0xCF (b4)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * Only on Acoustic and Electric piano.
+         *
+         * @module NS2 Piano Pedal Noise
+         */
+        pedalNoise: {
+            enabled: (pianoOffsetCf & 0x10) !== 0,
+        },
+        /**
+         * Offset in file: 0xCF (b3-2)
+         *
+         * @example
+         * #include ns2PianoDynamicsMap
+         *
+         * @module NS2 Piano Dynamics
+         */
+        dynamics: {
+            value: mapping.ns2PianoDynamicsMap.get((pianoOffsetCf & 0x0c) >>> 2),
+        },
+        /**
+         * Offset in file: 0xCE (b0) and 0xCF (b7)
+         *
+         * @example
+         * #include ns2PianoClavinetModelMap
+         *
+         * @module NS2 Piano Clavinet Model
+         */
+        clavinetModel: {
+            enabled: clavinetEnabled,
+            value: mapping.ns2PianoClavinetModelMap.get((pianoOffsetCeW & 0x0180) >>> 7),
+        },
+        /**
+         * Offset in file: 0xCF (b1-0)
+         *
+         * @example
+         * #include ns2PianoClavinetEqHiMap
+         *
+         * @module NS2 Piano Clavinet Eq Hi
+         */
+        clavinetEqHi: {
+            enabled: clavinetEnabled,
+            value: mapping.ns2PianoClavinetEqHiMap.get(pianoOffsetCf & 0x03),
+        },
+        /**
+         * Offset in file: 0xD0 (b7-6)
+         *
+         * @example
+         * #include ns2PianoClavinetEqMap
+         *
+         * @module NS2 Piano Clavinet Eq
+         */
+        clavinetEq: {
+            enabled: clavinetEnabled,
+            value: mapping.ns2PianoClavinetEqMap.get((pianoOffsetD0 & 0xc0) >>> 6),
         },
     };
 

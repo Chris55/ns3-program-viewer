@@ -1,6 +1,7 @@
 const readline = require("readline");
 const fs = require("fs");
 const os = require("os");
+const ns2Mapping = require("../../server/ns2/program/ns2-mapping");
 const ns3Mapping = require("../../server/ns3/program/ns3-mapping");
 const commonMapping = require("../../server/common/nord-mapping");
 
@@ -9,12 +10,10 @@ function replaceAll(str, find, replace) {
 }
 
 function getEnum(name) {
-    let table = commonMapping[name];
+    let table = commonMapping[name] || ns2Mapping[name] || ns3Mapping[name];
+
     if (!table) {
-        table = ns3Mapping[name];
-        if (!table) {
-            throw new Error("Typo error somewhere the mapping " + name + " is not available!");
-        }
+        throw new Error("Typo error somewhere the mapping " + name + " is not available!");
     }
 
     let lines = ""; //"```" + os.EOL;
@@ -25,7 +24,7 @@ function getEnum(name) {
     return lines;
 }
 
-const convert = (inputFile, outputFile, remove) => {
+const convert = (model, inputFile, outputFile, remove) => {
     const outputStream = fs.createWriteStream(outputFile, { flags: "w" });
     let start = !remove;
 
@@ -62,7 +61,7 @@ const convert = (inputFile, outputFile, remove) => {
         }
 
         if (start === true) {
-            line = replaceAll(line, "ns3-doc.md#", "#");
+            line = replaceAll(line, model + "-doc.md#", "#");
             outputStream.write(line + os.EOL, function (err) {
                 if (err) {
                     console.error(err);
@@ -72,8 +71,14 @@ const convert = (inputFile, outputFile, remove) => {
     });
 };
 
-const pathInput = __dirname + "/../../docs/ns3/program/";
 const pathOutput = __dirname + "/../../automation/docs/out/";
+const pathInputNs2 = __dirname + "/../../docs/ns2/program/";
+const pathInputNs3 = __dirname + "/../../docs/ns3/program/";
 
-convert(pathInput + "readme.md", pathOutput + "ns3-00-readme.md", false);
-convert(pathInput + "ns3-doc.md", pathOutput + "ns3-10-doc.md", true);
+convert("ns3", pathInputNs3 + "readme.md", pathOutput + "00-readme.md", false);
+convert("ns3", pathInputNs3 + "ns3-doc.md", pathOutput + "10-doc.md", true);
+
+
+convert("ns2", pathInputNs2 + "readme.md", pathOutput + "20-readme.md", false);
+convert("ns2", pathInputNs2 + "ns2-doc.md", pathOutput + "30-doc.md", true);
+

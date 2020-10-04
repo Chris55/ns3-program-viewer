@@ -15,7 +15,7 @@ const getNestedObject = (nestedObj, pathArr) => {
     throw new Error('something wrong with the api, actual value of ' + pathArr.join('.') + ' is undefined !!');
 }
 
-exports.getNs3TestCase = async (filename) => {
+exports.loadTestCase = async (filename) => {
 
     // load Nord File
     const buffer = await fs.readFile(filename);

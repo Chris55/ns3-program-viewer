@@ -8,7 +8,7 @@ const build = async(folder, testFilename) => {
     const filenames = await fs.readdir(ns3Folder);
 
     let file = "// this file is auto-generated with builder.js" + os.EOL + os.EOL;
-    file += 'const { getNs3TestCase } = require("./helpers");' + os.EOL;
+    file += 'const { loadTestCase } = require("./helpers");' + os.EOL;
     file += os.EOL;
 
     file += 'const root = __dirname + "' + folder + '/";' + os.EOL + os.EOL;
@@ -17,13 +17,14 @@ const build = async(folder, testFilename) => {
 
     for (let filename of filenames) {
 
-        if (path.extname(filename) === '.ns3f')  {
+        const ext = path.extname(filename);
+        if (ext === '.ns3f' || ext === '.ns2p')  {
 
             const description = path.parse(filename).name;
 
             file += '    test("' + description + '", async () => {' + os.EOL;
             file += '        const file = "' + filename + '";' + os.EOL;
-            file += '        const sut = await getNs3TestCase(root + file);' + os.EOL;
+            file += '        const sut = await loadTestCase(root + file);' + os.EOL;
             file += '        sut.data.forEach((d) => {' + os.EOL;
             file += '            expect(d.actual).toEqual(d.expected);' + os.EOL;
             file += '        });' + os.EOL;
@@ -37,6 +38,8 @@ const build = async(folder, testFilename) => {
 }
 
 const buildAll = async() => {
+    await build("/ns2/piano", "ns2.piano.test.js");
+
     await build("/ns3/effects", "ns3.effects.test.js");
     await build("/ns3/global", "ns3.global.test.js");
     await build("/ns3/organ", "ns3.organ.test.js");
