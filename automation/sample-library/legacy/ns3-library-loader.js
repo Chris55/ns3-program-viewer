@@ -1,13 +1,23 @@
+//
+// This older version works only with NS3 bundle
+// It is not using the meta.xml but link the sample location stored in each program and sample files.
+// This requires that they are no duplicate entries in the sample location...
+// (this happens is an older sample is no more linked to a program and contains a wrong location...)
+// This method is safe only on a bundle with unique prg/sample assignment...
+// (not clear? I know... :)
+//
+
 const unzipper = require("unzipper");
 const fs = require("fs");
 const path = require("path");
-const { ns3PianoLibrary } = require("../../server/common/nord-library-piano");
-const { ns3SampleLibrary } = require("../../server/common/nord-library-sample");
-const { loadNs3SampleFile } = require("../../server/ns3/sample/ns3-sample");
-const { loadNs3ProgramFile } = require("../../server/ns3/program/ns3-program");
+const { ns3PianoLibrary } = require("../../../server/ns3/library/ns3-library-piano");
+const { ns3SampleLibrary } = require("../../../server/ns3/library/ns3-library-sample");
+const { loadNs3SampleFile } = require("../../../server/ns3/sample/ns3-sample");
+const { loadNs3ProgramFile } = require("../../../server/ns3/program/ns3-program");
 const homedir = require("os").homedir();
 
 const library = new Map();
+
 
 /**
  *

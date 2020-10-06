@@ -9,6 +9,18 @@ export default class Ns3ValueOnOff extends Component {
 
         const upperCase = this.props.upperCase === false ? "nord-no-upper-case" : "nord-upper-case";
 
+
+
+        if (this.props.table === true) {
+            return (
+                <>
+                    <td colSpan="3" className={className + " " + upperCase}>
+                        <span>{this.props.label}</span>
+                    </td>
+                </>
+            );
+        }
+
         return (
             <>
                 <span className={className + " " + upperCase}>{this.props.label}</span>

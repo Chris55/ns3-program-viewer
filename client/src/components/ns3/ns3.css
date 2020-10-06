@@ -176,7 +176,7 @@
 
 .nord-label {
     /*color: blue;*/
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
 }
 
@@ -223,4 +223,18 @@
     }
 }
 
+/*table tr {*/
+/*    padding: 0;*/
+/*    margin: 0;*/
 
+/*    overflow: hidden;*/
+/*    height: 18px!important;*/
+/*    vertical-align: top;*/
+/*    white-space: nowrap;*/
+/*}*/
+
+
+
+td > * {
+    vertical-align: top;
+}

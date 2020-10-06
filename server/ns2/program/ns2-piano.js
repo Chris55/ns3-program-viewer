@@ -2,7 +2,7 @@ const mapping = require("./ns2-mapping");
 
 const { ns2VolumeEx } = require("./ns2-utils");
 const { ns2KbZone } = require("./ns2-utils");
-const { ns3PianoLibrary } = require("../../common/nord-library-piano");
+const { ns3PianoLibrary } = require("../../ns3/library/ns3-library-piano");
 
 /***
  * returns Piano section

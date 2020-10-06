@@ -117,6 +117,13 @@ const sampleCategoryMap = new Map([
             ]),
         },
     ],
+    [
+        255,
+        {
+            category: "None",
+            subCategory: new Map([[255, ""]]),
+        },
+    ],
 ]);
 
 /**
@@ -137,6 +144,17 @@ const getString = (buffer, offset) => {
 };
 
 exports.loadNs3SampleFile = (buffer, filename) => {
+    if (buffer.length > 16) {
+        const claviaSignature = buffer.toString("utf8", 0, 4);
+        if (claviaSignature !== "CBIN") {
+            throw new Error("Invalid Nord file");
+        }
+        const fileExt = buffer.toString("utf8", 8, 12);
+        if (fileExt !== "npno" && fileExt !== "nsmp" && fileExt !== "nsmp3") {
+            throw new Error(fileExt + " file are not supported, select a valid npno/nsmp/nsmp3 file");
+        }
+    }
+
     const offset04 = buffer.readUInt8(0x04);
     const offset18 = buffer.readUInt32BE(0x018);
 
@@ -167,10 +185,13 @@ exports.loadNs3SampleFile = (buffer, filename) => {
 
     const category = `${sampleSubCategory ? sampleSubCategory + " " : ""}${sampleCategory.category}`;
 
-    let sampleName = getString(buffer, 0x52 + versionOffset);
+    const fileExt = path.extname(filename);
+    const nameOffset = fileExt === ".npno" ? 0x48 : 0x52;
+
+    let sampleName = getString(buffer, nameOffset + versionOffset);
     let sampleInfo = getString(buffer, 0x94 + versionOffset);
 
-    const fileExt = path.extname(filename);
+
     const sampleFileName = path.basename(filename, fileExt);
 
     if (!sampleInfo) {

@@ -1,5 +1,5 @@
 const mapping = require("./ns3-mapping");
-const { ns3PianoLibrary } = require("../../common/nord-library-piano");
+const { ns3PianoLibrary } = require("../library/ns3-library-piano");
 const { ns3KbZone } = require("./ns3-utils");
 const { ns3VolumeEx } = require("./ns3-utils");
 

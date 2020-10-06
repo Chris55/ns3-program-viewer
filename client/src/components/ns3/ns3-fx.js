@@ -6,7 +6,7 @@ import Ns3FxMulti2 from "./ns3-fx-multi-2";
 import Ns3FxRotarySpeaker from "./ns3-fx-rotary-speaker";
 import Ns3SectionSynthArp from "./ns3-section-synth-arp";
 import Ns3FxDelay from "./ns3-fx-delay";
-import Ns3FxAmpSimEq from "./ns3-fx-sim-amp-eq";
+import Ns3FxAmpSimEq from "./ns3-fx-amp-sim-eq";
 
 export default class Ns3Fx extends Component {
     render() {

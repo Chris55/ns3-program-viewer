@@ -1,7 +1,11 @@
 ### Nord Stage 3 Sample file mapping
 
 
-The mapping corresponds to the Nord Stage 3 sample file (file extension nsmp3).
+The mapping corresponds to the Nord Stage 3 sample file
+
+ - file extension npno for Piano sample.
+ - file extension nsmp or nsmp3 for Synth sample.
+
 
 Mapping information only used to read the sample info (not the data)
 
@@ -16,11 +20,11 @@ Mapping information only used to read the sample info (not the data)
 | `0x0005` | `--------` | 0
 | `0x0006` | `--------` | 0
 | `0x0007` | `--------` | 0
-| `0x0008` | `cccccccc` | ascii 'n' 0x6E, 4-byte NS3 Sample file ID
-| `0x0009` | `cccccccc` | ascii 's' 0x73,
-| `0x000A` | `cccccccc` | ascii 'm' 0x33,
-| `0x000B` | `cccccccc` | ascii 'p' 0x66,
-| `0x000C` | `--------` | 0
+| `0x0008` | `cccccccc` | ascii 'nsmp' or 'npno' 4-byte NS3 Sample file ID
+| `0x0009` | `cccccccc` |
+| `0x000A` | `cccccccc` |
+| `0x000B` | `cccccccc` |
+| `0x000C` | `--------` | type (piano only)
 | `0x000D` | `--------` | 0
 | `0x000E` | `llllllll` | (l) sample location lsb
 | `0x000F` | `mmmmmmmm` | (m) sample location msb
@@ -80,7 +84,7 @@ Mapping information only used to read the sample info (not the data)
 | `0x0045` | `--------` |
 | `0x0046` | `--------` |
 | `0x0047` | `--------` |
-| `0x0048` | `--------` |
+| `0x0048` | `--------` | Piano Sample name C-Style string
 | `0x0049` | `--------` |
 | `0x004A` | `--------` |
 | `0x004B` | `--------` |
@@ -90,7 +94,7 @@ Mapping information only used to read the sample info (not the data)
 | `0x004F` | `--------` |
 | `0x0050` | `--------` |
 | `0x0051` | `--------` |
-| `0x0052` | `nnnnnnnn` | Sample name C-Style string  (offset 0x3E in version 0) (20 bytes)
+| `0x0052` | `nnnnnnnn` | Synth Sample name C-Style string  (offset 0x3E in version 0) (20 bytes)
 | `0x0053` | `--------` |
 | `0x0054` | `--------` |
 | `0x0055` | `--------` |
@@ -144,7 +148,7 @@ Mapping information only used to read the sample info (not the data)
 | `0x0085` | `--------` |
 | `0x0086` | `--------` |
 | `0x0087` | `--------` |
-| `0x0088` | `--------` |
+| `0x0088` | `--------` | Piano Sample addition notes C-Style string (not visible in NSM)
 | `0x0089` | `--------` |
 | `0x008A` | `--------` |
 | `0x008B` | `--------` |
@@ -156,7 +160,7 @@ Mapping information only used to read the sample info (not the data)
 | `0x0091` | `--------` |
 | `0x0092` | `--------` |
 | `0x0093` | `--------` |
-| `0x0094` | `nnnnnnnn` | Sample info C-Style string
+| `0x0094` | `nnnnnnnn` | Synth Sample info C-Style string
 | `0x0095` | `--------` |
 | `0x0096` | `--------` |
 | `0x0097` | `--------` |

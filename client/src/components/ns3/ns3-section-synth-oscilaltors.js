@@ -32,15 +32,13 @@ export default class Ns3SectionSynthOscillators extends Component {
                                         <Ns3LabelAndValue label="Type" data={osc.type} table={true} />
                                     </tr>
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Fast Atk" data={osc.fastAttack} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Fast Atk" data={osc.fastAttack} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3LabelAndValue label="Osc Config" data={osc.config} table={true} />
+                                        <Ns3LabelAndValue label="Config" data={osc.config} table={true} />
                                     </tr>
 
-                                    <Ns3LabelAndValueWithMorph label="Osc Ctrl" data={osc.control} />
+                                    <Ns3LabelAndValueWithMorph label="Ctrl" data={osc.control} />
                                     <tr>
                                         <Ns3LabelAndValue label="OSC 2 Pitch" data={osc.pitch} table={true} />
                                     </tr>

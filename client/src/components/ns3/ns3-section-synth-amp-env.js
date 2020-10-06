@@ -16,23 +16,27 @@ export default class Ns3SectionSynthAmpEnv extends Component {
                         <table className="table-borderless">
                             <tbody>
                                 <tr>
-                                    <Ns3LabelAndValue label="Attack" data={env.attack} table={true} upperCase={false}/>
+                                    <Ns3LabelAndValue label="Attack" data={env.attack} table={true} upperCase={false} />
                                 </tr>
                                 <tr>
-                                    <Ns3LabelAndValue label="Decay" data={env.decay} table={true} upperCase={false}/>
+                                    <Ns3LabelAndValue label="Decay" data={env.decay} table={true} upperCase={false} />
                                 </tr>
                                 <tr>
-                                    <Ns3LabelAndValue label="Release" data={env.release} table={true} upperCase={false}/>
+                                    <Ns3LabelAndValue
+                                        label="Release"
+                                        data={env.release}
+                                        table={true}
+                                        upperCase={false}
+                                    />
                                 </tr>
 
                                 <tr>
-                                    <td colSpan="3">
-                                        <Ns3LabelAndValue
-                                            label="Velocity"
-                                            data={env.velocity}
-                                            enabled={env.velocity !== "Off"}
-                                        />
-                                    </td>
+                                    <Ns3LabelAndValue
+                                        label="Velocity"
+                                        data={env.velocity}
+                                        enabled={env.velocity.value !== "Off"}
+                                        table={true}
+                                    />
                                 </tr>
                             </tbody>
                         </table>

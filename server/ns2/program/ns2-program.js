@@ -1,9 +1,8 @@
 const path = require("path");
 const mapping = require("../../ns3/program/ns3-mapping");
-const {ns2Slot} = require("./ns2-slot");
-const {nordFileExtMap} = require("../../common/nord-mapping");
+const { ns2Slot } = require("./ns2-slot");
+const { nordFileExtMap } = require("../../common/nord-mapping");
 const { getVersion } = require("../../common/converter");
-
 
 /***
  * returns Nord Stage 3 program data
@@ -31,6 +30,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     // const fileId = buffer.readUInt16BE(0x0e);
     const offset04 = buffer.readUInt8(0x04);
     const offset10 = buffer.readUInt8(0x10);
+    const offset14W = buffer.readUInt16LE(0x14);
 
     const bankValue = buffer.readUInt8(0x0c);
     const locationValue = buffer.readUInt8(0x0e);
@@ -46,32 +46,13 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
      * Offset in file: 0x14 and 0x15
      *
      * @example
-     * 16-bit integer value in Little Endian format, ex 304 = v3.04
+     * 16-bit integer value in Little Endian format
+     * current supported version are 2 to 7
      *
-     * Notes:
-     * From {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history}
-     *
-     * Programs stored with OS version
-     * OS version          Program version
-     * v0.92 (2017-06-15)  v3.00
-     * v1.36 (2018-02-07)  v3.01
-     * v1.50 (2018-10-22)  v3.02
-     * vx.xx               v3.03
-     * vx.xx               v3.04
-     *
-     * @module NS3 File Version
+     * @module NS2 File Version
      */
 
-    const version = getVersion(buffer, 0x14);
-
-
-    if (version.majorVersion !== 3) {
-        //throw new Error("Unexpected file revision, only v3 is supported... file is v" + version.version);
-    }
-
-    if (version.minorVersion < 0 || version.minorVersion > 4) {
-        //throw new Error("Unexpected file revision, only v3.00 to v3.04 are supported... file is v" + version.version);
-    }
+    const version = offset14W;
 
     /**
      * Offset in file: 0x04
@@ -79,7 +60,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
      * 0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
      * 1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
      *
-     * @module NS3 File Format
+     * @module NS2 File Format
      */
     let versionOffset = 0; // default all coding is done as per v3.04
     // if (minorVersion < 3) {
@@ -306,7 +287,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         value: mapping.ns3DualKeyboardStyleMap.get(offset3a & 0x03),
     };
 
-    const ext =  path.extname(filename).substr(1);
+    const ext = path.extname(filename).substr(1);
 
     const ns2 = {
         // program file
@@ -318,7 +299,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         // program location
         //id: programLocation,
 
-        version: version.version,
+        version: version,
 
         // /**
         //  * Offset in file: 0x10
@@ -330,8 +311,8 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         //category: mapping.programCategoryMap.get(offset10),
 
         slotA: ns2Slot(buffer, 0, split.enabled, versionOffset, dualKeyboard),
+        slotB: ns2Slot(buffer, 1, split.enabled, versionOffset, dualKeyboard),
 
-        // panelB: getPanel(buffer, 1, split.enabled, versionOffset, dualKeyboard),
         //
         // masterClock: {
         //     rate: {

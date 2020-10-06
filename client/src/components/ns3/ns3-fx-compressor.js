@@ -22,9 +22,7 @@ export default class Ns3FxCompressor extends Component {
                                         <Ns3LabelAndValue label="Amount" data={fx.amount} table={true} />
                                     </tr>
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Fast" data={fx.fast} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Fast" data={fx.fast} table={true} />
                                     </tr>
                                 </tbody>
                             </table>

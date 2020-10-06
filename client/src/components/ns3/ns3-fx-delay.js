@@ -24,30 +24,19 @@ export default class Ns3FxDelay extends Component {
                                         label={tempoLabel}
                                         data={fx.tempo}
                                         valueClass="nord-delay-tempo"
-                                        upperCase={false} />
+                                        upperCase={false}
+                                    />
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Mst Clk" data={fx.masterClock} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Mst Clk" data={fx.masterClock} table={true} />
                                     </tr>
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Ping Pong" data={fx.pingPong} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Ping Pong" data={fx.pingPong} table={true} />
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <Ns3Label label="Filter" />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={fx.filter} />
-                                        </td>
+                                        <Ns3LabelAndValue label="Filter" data={fx.filter} table={true} />
                                     </tr>
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Analog Mode" data={fx.analogMode} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Analog Mode" data={fx.analogMode} table={true} />
                                     </tr>
                                     <Ns3LabelAndValueWithMorph label="Feedback" data={fx.feedback} />
                                     <Ns3LabelAndValueWithMorph label="Mix" data={fx.mix} />

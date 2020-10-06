@@ -14,15 +14,15 @@ export default class Ns3LabelAndValueWithMorph extends Component {
         return (
             <>
                 <tr>
-                    <td className="">
+                    <td className="nord-label">
                         <Ns3Label label={this.props.label} />
                     </td>
 
-                    <td className=" text-right">
+                    <td className="nord-label text-right">
                         <span className={morphing ? "dot dot-morph" : "d-none"} />
                     </td>
 
-                    <td className="">
+                    <td className="nord-value">
                         <Ns3LabelAndValue
                             data={data}
                             valueClass={this.props.valueClass}

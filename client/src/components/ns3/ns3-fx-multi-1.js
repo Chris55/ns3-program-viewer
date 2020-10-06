@@ -21,24 +21,15 @@ export default class Ns3FxMulti1 extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <Ns3Label label="Type" />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={fx.type} />
-                                        </td>
+                                        <Ns3LabelAndValue label="Type" data={fx.type} table={true} />
                                     </tr>
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Mst Clk" data={fx.masterClock} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Mst Clk" data={fx.masterClock} table={true} />
                                     </tr>
 
-                                        <Ns3LabelAndValueWithMorph label="Rate" data={fx.rate} />
+                                    <Ns3LabelAndValueWithMorph label="Rate" data={fx.rate} />
 
-                                        <Ns3LabelAndValueWithMorph label="Amount" data={fx.amount} />
-
+                                    <Ns3LabelAndValueWithMorph label="Amount" data={fx.amount} />
                                 </tbody>
                             </table>
                         </div>

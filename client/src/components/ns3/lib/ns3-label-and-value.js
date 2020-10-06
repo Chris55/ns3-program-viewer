@@ -18,6 +18,8 @@ export default class Ns3LabelAndValue extends Component {
                 ? "nord-value nord-on"
                 : "nord-value nord-off";
 
+        const customValueClassName = this.props.valueClass || "";
+
         const upperCase = this.props.upperCase === false ? "nord-no-upper-case" : "nord-upper-case";
 
         const label = this.props.label === undefined ? "" : this.props.label + " ";
@@ -31,7 +33,7 @@ export default class Ns3LabelAndValue extends Component {
 
                     <td />
 
-                    <td className={upperCase + " " + valueClassName + " " + this.props.valueClass}>
+                    <td className={upperCase + " " + valueClassName + " " + customValueClassName}>
                        {this.props.data.value}
                     </td>
                 </>
@@ -41,7 +43,7 @@ export default class Ns3LabelAndValue extends Component {
         return (
             <>
                 <span className={labelClassName}>{label}</span>
-                <span className={upperCase + " " + valueClassName + " " + this.props.valueClass}>
+                <span className={upperCase + " " + valueClassName + " " + customValueClassName}>
                     {this.props.data.value}
                 </span>
             </>

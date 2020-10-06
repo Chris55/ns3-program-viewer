@@ -13,53 +13,29 @@ export default class Ns3SectionSynthArp extends Component {
         return (
             <React.Fragment>
                 <div className={this.props.className}>
-                    <div className="justify-content-center">
-                        <div
-                            className={
-                                arp.enabled
-                                    ? "nord-synth-sub-feature nord-on"
-                                    : "nord-synth-sub-feature nord-off"
-                            }
-                        >
+                    <div className="text-left">
+                        <div className={arp.enabled ? "nord-on" : "nord-off"}>
                             <div className="nord-option-title">ARP</div>
 
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Run" data={arp} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Run" data={arp} table={true} />
                                     </tr>
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Kb Sync" data={arp.kbSync} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Kb Sync" data={arp.kbSync} table={true} />
                                     </tr>
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Mst Clk" data={arp.masterClock} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Mst Clk" data={arp.masterClock} table={true} />
                                     </tr>
 
-                                        <Ns3LabelAndValueWithMorph label="Rate" data={arp.rate} />
+                                    <Ns3LabelAndValueWithMorph label="Rate" data={arp.rate} />
 
                                     <tr>
-                                        <td>
-                                            <Ns3Label label="Range" />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={arp.range} />
-                                        </td>
+                                        <Ns3LabelAndValue label="Range" data={arp.range} table={true} />
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <Ns3Label label="Pattern" />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={arp.pattern} />
-                                        </td>
+                                        <Ns3LabelAndValue label="Pattern" data={arp.pattern} table={true} />
                                     </tr>
                                 </tbody>
                             </table>

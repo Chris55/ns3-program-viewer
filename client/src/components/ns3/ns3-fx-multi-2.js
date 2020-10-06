@@ -20,22 +20,10 @@ export default class Ns3FxMulti2 extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <Ns3Label label="Type" />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={fx.type} />
-                                        </td>
+                                        <Ns3LabelAndValue label="Type" data={fx.type} table={true} />
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <Ns3Label label="Rate" />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={fx.rate} />
-                                        </td>
+                                        <Ns3LabelAndValue label="Rate" data={fx.rate} table={true} />
                                     </tr>
 
                                     <Ns3LabelAndValueWithMorph label="Amount" data={fx.amount} />

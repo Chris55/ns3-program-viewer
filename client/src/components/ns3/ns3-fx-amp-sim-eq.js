@@ -19,32 +19,24 @@ export default class Ns3FxAmpSimEq extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <Ns3Label label="Amp Type" />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={fx.ampType} />
-                                        </td>
+                                        <Ns3LabelAndValue label="Amp Type" data={fx.ampType} table={true} />
                                     </tr>
                                     <Ns3LabelAndValueWithMorph label="Drive" data={fx.overdrive} />
                                     <tr>
-                                        <td>
-                                            <Ns3Label label="Treble" />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={fx.treble} upperCase={false} />
-                                        </td>
+                                        <Ns3LabelAndValue
+                                            label="Treble"
+                                            data={fx.treble}
+                                            upperCase={false}
+                                            table={true}
+                                        />
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <Ns3Label label={fx.ampType.redOptions === true ? "Flt Res" : "Middle"} />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={fx.midRes} upperCase={false} />
-                                        </td>
+                                        <Ns3LabelAndValue
+                                            label={fx.ampType.redOptions === true ? "Flt Res" : "Middle"}
+                                            data={fx.midRes}
+                                            upperCase={false}
+                                            table={true}
+                                        />
                                     </tr>
 
                                     <Ns3LabelAndValueWithMorph
@@ -54,13 +46,12 @@ export default class Ns3FxAmpSimEq extends Component {
                                     />
 
                                     <tr>
-                                        <td>
-                                            <Ns3Label label={fx.ampType.redOptions === true ? "Dry/Wet" : "Bass"} />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={fx.bassDryWet} upperCase={false} />
-                                        </td>
+                                        <Ns3LabelAndValue
+                                            label={fx.ampType.redOptions === true ? "Dry/Wet" : "Bass"}
+                                            data={fx.bassDryWet}
+                                            upperCase={false}
+                                            table={true}
+                                        />
                                     </tr>
                                 </tbody>
                             </table>

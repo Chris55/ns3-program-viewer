@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3LabelAndValue from "./lib/ns3-label-and-value";
 import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
+import Ns3Label from "./lib/ns3-label";
 
 export default class Ns3SectionSynthFilter extends Component {
     render() {
@@ -43,6 +44,7 @@ export default class Ns3SectionSynthFilter extends Component {
                                                 <tr>
                                                     <Ns3LabelAndValue label="Type" data={filter.type} table={true} />
                                                 </tr>
+
                                                 <Ns3LabelAndValueWithMorph
                                                     label="LFO Amt"
                                                     data={filter.modulations.lfoAmount}
@@ -56,7 +58,8 @@ export default class Ns3SectionSynthFilter extends Component {
                                             </tbody>
                                         </table>
                                     </td>
-                                    <td/>
+                                    <td />
+                                    <td />
                                     <td className="align-text-top">
                                         <table className="table-borderless">
                                             <tbody>

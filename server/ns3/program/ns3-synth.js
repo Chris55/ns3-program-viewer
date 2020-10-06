@@ -1,6 +1,6 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
-const { ns3SampleLibrary } = require("../../common/nord-library-sample");
+const { ns3SampleLibrary } = require("../library/ns3-library-sample");
 const { ns3MorphSynthOscillatorModulation } = require("./ns3-morph");
 const { ns3Morph } = require("./ns3-morph");
 const { ns3Filter } = require("./ns3-synth-filter");

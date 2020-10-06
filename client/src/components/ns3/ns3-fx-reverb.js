@@ -10,7 +10,7 @@ export default class Ns3FxReverb extends Component {
     render() {
         const fx = this.props.data;
         const visible = fx.enabled;
-        const align = this.props.other === true ? "align-self-start": "align-self-center";
+        const align = this.props.other === true ? "align-self-start" : "align-self-center";
 
         return (
             <React.Fragment>
@@ -22,19 +22,11 @@ export default class Ns3FxReverb extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <Ns3Label label="Type" />
-                                        </td>
-                                        <td />
-                                        <td>
-                                            <Ns3LabelAndValue data={fx.type} />
-                                        </td>
+                                        <Ns3LabelAndValue label="Type" data={fx.type} table={true} />
                                     </tr>
                                     <Ns3LabelAndValueWithMorph label="Amount" data={fx.amount} />
                                     <tr>
-                                        <td colSpan="3">
-                                            <Ns3ValueOnOff label="Bright" data={fx.bright} />
-                                        </td>
+                                        <Ns3ValueOnOff label="Bright" data={fx.bright} table={true} />
                                     </tr>
                                 </tbody>
                             </table>
