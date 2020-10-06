@@ -7,14 +7,14 @@ const fs = require("fs");
 const path = require("path");
 const { ns3PianoLibrary } = require("../../server/ns3/library/ns3-library-piano");
 const { ns3SampleLibrary } = require("../../server/ns3/library/ns3-library-sample");
-const { loadNs3SampleFile } = require("../../server/ns3/sample/ns3-sample");
+const { loadNs3SampleFile } = require("../../server/common/nord-sample");
 const { loadNs3ProgramFile } = require("../../server/ns3/program/ns3-program");
 const homedir = require("os").homedir();
 const convert = require("xml-js");
 const {loadNs2ProgramFile} = require("../../server/ns2/program/ns2-program");
 
-//const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
-const inputFile = homedir + "/downloads/Fred Original Piano setup.ns2pb";
+const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
+//const inputFile = homedir + "/downloads/Fred Original Piano setup.ns2pb";
 
 const samplesByFilename = new Map(); // key is the sample file name as defined in meta.xml file
 const programsByFileName = new Map(); // key is the program file name  as defined in meta.xml file

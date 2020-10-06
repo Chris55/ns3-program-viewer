@@ -24,7 +24,11 @@ export default class Ns3SectionPiano extends Component {
                                 <div className="row no-gutters d-flex flex-wrap">
                                     <div className="row no-gutters flex-column m-1">
                                         <div>
-                                            <div className="nord-name">{piano.name.value}</div>
+                                            {/*<div className="nord-name">{piano.name.value}</div>*/}
+                                            <div className="nord-name">
+                                                <div >{piano.name.value}</div>
+                                                <div ><small>{piano.name.info} {piano.name.version}</small></div>
+                                            </div>
                                         </div>
 
                                         <div>

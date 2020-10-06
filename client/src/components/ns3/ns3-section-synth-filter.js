@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3LabelAndValue from "./lib/ns3-label-and-value";
 import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
-import Ns3Label from "./lib/ns3-label";
 
 export default class Ns3SectionSynthFilter extends Component {
     render() {

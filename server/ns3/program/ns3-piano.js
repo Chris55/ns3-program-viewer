@@ -40,12 +40,21 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     const pianoSampleVariation = (pianoOffset49 & 0x30) >>> 4;
     const pianoSampleId = Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
     let pianoName = ns3PianoLibrary.get(pianoSampleId);
+    let pianoInfo = "";
+    let pianoVersion = "";
+
+    // special clavinet multi sample case...
     if (pianoName instanceof Array) {
         if (pianoSampleVariation >= 0 && pianoSampleVariation < pianoName.length) {
             pianoName = pianoName[pianoSampleVariation];
         } else {
             pianoName = pianoName[0] + " unknown variation";
         }
+        // this is required as all piano library entries are not yet converted to the new format
+    } else if (pianoName.name) {
+        pianoVersion = pianoName.version ? ("v" + pianoName.version) : "";
+        pianoInfo = pianoName.info;
+        pianoName = pianoName.name;
     }
     if (!pianoName) {
         // fallback if piano name is unknown
@@ -67,6 +76,8 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
             sampleVariation: pianoSampleVariation,
             sampleId: pianoSampleId.toString(16),
             name: pianoName,
+            info: pianoInfo,
+            version: pianoVersion,
         },
 
         /**
@@ -186,6 +197,8 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          */
         name: {
             value: pianoName,
+            info: pianoInfo,
+            version: pianoVersion,
         },
         /**
          * Offset in file: 0x4E (b5-3)

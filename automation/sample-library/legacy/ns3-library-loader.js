@@ -12,7 +12,7 @@ const fs = require("fs");
 const path = require("path");
 const { ns3PianoLibrary } = require("../../../server/ns3/library/ns3-library-piano");
 const { ns3SampleLibrary } = require("../../../server/ns3/library/ns3-library-sample");
-const { loadNs3SampleFile } = require("../../../server/ns3/sample/ns3-sample");
+const { loadNs3SampleFile } = require("../../../server/common/nord-sample");
 const { loadNs3ProgramFile } = require("../../../server/ns3/program/ns3-program");
 const homedir = require("os").homedir();
 

@@ -114,7 +114,7 @@ exports.ns3Synth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
             if (lib) {
                 waveForm1.name = lib.name;
                 waveForm1.info = lib.info;
-                waveForm1.version = lib.version;
+                waveForm1.version = lib.version ? ("v" + lib.version) : "";
             }
             if (!waveForm1.name) {
                 waveForm1.name = "Sample " + (waveForm1.value + 1);

@@ -1,5 +1,5 @@
 const path = require("path");
-const { getVersion } = require("../../common/converter");
+const { getVersion } = require("./converter");
 const CryptoJS = require("crypto-js");
 
 const sampleCategoryMap = new Map([
@@ -144,6 +144,8 @@ const getString = (buffer, offset) => {
 };
 
 exports.loadNs3SampleFile = (buffer, filename) => {
+    let isPiano = false;
+
     if (buffer.length > 16) {
         const claviaSignature = buffer.toString("utf8", 0, 4);
         if (claviaSignature !== "CBIN") {
@@ -153,7 +155,9 @@ exports.loadNs3SampleFile = (buffer, filename) => {
         if (fileExt !== "npno" && fileExt !== "nsmp" && fileExt !== "nsmp3") {
             throw new Error(fileExt + " file are not supported, select a valid npno/nsmp/nsmp3 file");
         }
+        isPiano = fileExt === "npno";
     }
+
 
     const offset04 = buffer.readUInt8(0x04);
     const offset18 = buffer.readUInt32BE(0x018);
@@ -186,16 +190,21 @@ exports.loadNs3SampleFile = (buffer, filename) => {
     const category = `${sampleSubCategory ? sampleSubCategory + " " : ""}${sampleCategory.category}`;
 
     const fileExt = path.extname(filename);
-    const nameOffset = fileExt === ".npno" ? 0x48 : 0x52;
+    const nameOffset = isPiano ? 0x48 : 0x52;
 
     let sampleName = getString(buffer, nameOffset + versionOffset);
-    let sampleInfo = getString(buffer, 0x94 + versionOffset);
+    let sampleNameV6 = (isPiano && sampleVersion.majorVersion) >= 6 ? getString(buffer, 0x68 + versionOffset): "";
+
+    const sampleInfoOffset = (isPiano && sampleVersion.majorVersion) >= 6 ? 0x88: 0x94;
+    let sampleInfo = getString(buffer, sampleInfoOffset + versionOffset);
 
 
     const sampleFileName = path.basename(filename, fileExt);
 
+    // some synth sample (v2) have no information property
+    // reading the value from the filename
     if (!sampleInfo) {
-        const details = sampleFileName.split("_");
+        const details = Array.from(new Set(sampleFileName.split("_")));
         if (details.length > 1) {
             sampleInfo = details[details.length - 1];
         }
@@ -205,6 +214,29 @@ exports.loadNs3SampleFile = (buffer, filename) => {
                 sampleName += ` ${moreDetails}`;
             }
         }
+    }
+
+    // on piano sample file, the name and information details are mixed
+    // in the same string...
+    // ex: "Studio Grand 2 #YaC7     Lrg"
+    // final name is "Studio Grand 2 Lrg" and info is "YaC7"...
+
+    const namePos = sampleName.indexOf("#");
+    if (namePos > -1) {
+        const items = sampleName.split(" ");
+        const size = items.pop();
+        const info = items.pop().replace("#", "");
+        sampleName = sampleName.substr(0, namePos) + (size ? " " + size: "");
+        if (!sampleInfo) {
+            sampleInfo = info;
+        }
+    }
+
+    // Piano sample v6 are using offset 0x68 to define the name...
+    if (sampleNameV6) {
+        const items = sampleName.split(" ");
+        const size = items.pop();
+        sampleName = sampleNameV6 + (size ? " " + size: "");
     }
 
 

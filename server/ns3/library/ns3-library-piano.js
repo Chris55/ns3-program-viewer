@@ -210,4 +210,18 @@ exports.ns3PianoLibrary = new Map([
     [0x7db59a7c, "Vibraphone  6.0"],
     [0x7e48ff56, "Vibraphone mono  6.0"],
 
+
+    // https://www.norduserforum.com/nord-user-samples-nsmp-samples-f14/gospel-keys-npno-t15312.html
+    // Gospel Keys
+
+    [0xc8fdca06, {name: "JD800 E.Piano    Lrg", info: "Crystal", version: "5.1", category: "None", size: 22271276, filename: "JD800_E.Piano____Crystal__Lrg5.1", ext: "npno" }],
+    [0x52cd5e9b, {name: "MK80 A.Piano1 Lrg", info: "", version: "5.1", category: "None", size: 28312318, filename: "MK80_A.Piano1__Lrg_5.1", ext: "npno" }],
+    [0x84f8d2ab, {name: "MK80 E.Piano1 Lrg", info: "Contemp", version: "5.1", category: "None", size: 17251212, filename: "MK80_E.Piano1_Contemp_Lrg_5.1", ext: "npno" }],
+    [0xd35905b4, {name: "MK80 E.Piano2 Lrg", info: "Classic", version: "5.1", category: "None", size: 18000338, filename: "MK80_E.Piano2_Classic_Lrg_5.1", ext: "npno" }],
+    [0x8ca7e8b1, {name: "MK80 E.Piano3 Lrg", info: "Blend", version: "5.1", category: "None", size: 18368258, filename: "MK80_E.Piano3_Blend_Lrg_5.1", ext: "npno" }],
+    [0x82ca3db5, {name: "MKS20 A.Piano1 Lrg", info: "", version: "5.1", category: "None", size: 28856022, filename: "MKS20_A.Piano1__Lrg_5.1", ext: "npno" }],
+    [0x95cc49f5, {name: "MKS20 A.Piano2 Lrg", info: "", version: "5.1", category: "None", size: 30444210, filename: "MKS20_A.Piano2__Lrg_5.1", ext: "npno" }],
+    [0x3b5822dd, {name: "MKS20 A.Piano3 Lrg", info: "ElecGrand", version: "5.1", category: "None", size: 28792658, filename: "MKS20_A.Piano3_ElecGrand_Lrg_5.1", ext: "npno" }],
+    [0xb646b1fd, {name: "MKS20 E.Piano1 Lrg", info: "", version: "5.1", category: "None", size: 19380038, filename: "MKS20_E.Piano1__Lrg_5.1", ext: "npno" }],
+    [0xa5096c48, {name: "MKS20 E.Piano2 Lrg", info: "", version: "5.1", category: "None", size: 12646080, filename: "MKS20_E.Piano2__Lrg_5.1", ext: "npno" }],
 ]);

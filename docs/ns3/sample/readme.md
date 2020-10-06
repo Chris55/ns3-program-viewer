@@ -84,7 +84,7 @@ Mapping information only used to read the sample info (not the data)
 | `0x0045` | `--------` |
 | `0x0046` | `--------` |
 | `0x0047` | `--------` |
-| `0x0048` | `--------` | Piano Sample name C-Style string
+| `0x0048` | `--------` | Piano Sample name C-Style string (if version < 6.0)
 | `0x0049` | `--------` |
 | `0x004A` | `--------` |
 | `0x004B` | `--------` |
@@ -116,7 +116,7 @@ Mapping information only used to read the sample info (not the data)
 | `0x0065` | `--------` |
 | `0x0066` | `--------` |
 | `0x0067` | `--------` |
-| `0x0068` | `--------` |
+| `0x0068` | `--------` | Piano Sample name C-Style string (if version >= 6.0)
 | `0x0069` | `--------` |
 | `0x006A` | `--------` |
 | `0x006B` | `--------` |
@@ -148,7 +148,7 @@ Mapping information only used to read the sample info (not the data)
 | `0x0085` | `--------` |
 | `0x0086` | `--------` |
 | `0x0087` | `--------` |
-| `0x0088` | `--------` | Piano Sample addition notes C-Style string (not visible in NSM)
+| `0x0088` | `--------` | Sample info C-Style string (if version >= 6.0)
 | `0x0089` | `--------` |
 | `0x008A` | `--------` |
 | `0x008B` | `--------` |
@@ -160,7 +160,7 @@ Mapping information only used to read the sample info (not the data)
 | `0x0091` | `--------` |
 | `0x0092` | `--------` |
 | `0x0093` | `--------` |
-| `0x0094` | `nnnnnnnn` | Synth Sample info C-Style string
+| `0x0094` | `nnnnnnnn` | Sample info C-Style string (if version < 6.0)
 | `0x0095` | `--------` |
 | `0x0096` | `--------` |
 | `0x0097` | `--------` |
