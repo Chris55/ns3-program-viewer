@@ -1,0 +1,635 @@
+ORGAN ENABLE
+Offset in file 0x43 (b7)
+0 = OFF
+1 = ON
+
+ORGAN VOLUME
+Offset in file 0x46 (b6-0)
+0 = OFF 
+1 = -84.2 dB 
+2 = -72.1 dB 
+3 = -65.1 dB 
+4 = -60.1 dB 
+5 = -56.2 dB 
+6 = -53.0 dB 
+7 = -50.3 dB 
+8 = -48.0 dB 
+9 = -46.0 dB 
+10 = -44.2 dB 
+11 = -42.5 dB 
+12 = -41.0 dB 
+13 = -39.6 dB 
+14 = -38.3 dB 
+15 = -37.1 dB 
+16 = -36.0 dB 
+17 = -34.9 dB 
+18 = -33.9 dB 
+19 = -33.0 dB 
+20 = -32.1 dB 
+21 = -31.3 dB 
+22 = -30.5 dB 
+23 = -29.7 dB 
+24 = -28.9 dB 
+25 = -28.2 dB 
+26 = -27.6 dB 
+27 = -26.9 dB 
+28 = -26.3 dB 
+29 = -25.7 dB 
+30 = -25.1 dB 
+31 = -24.5 dB 
+32 = -23.9 dB 
+33 = -23.4 dB 
+34 = -22.9 dB 
+35 = -22.4 dB 
+36 = -21.9 dB 
+37 = -21.4 dB 
+38 = -21.0 dB 
+39 = -20.5 dB 
+40 = -20.1 dB 
+41 = -19.6 dB 
+42 = -19.2 dB 
+43 = -18.8 dB 
+44 = -18.4 dB 
+45 = -18.0 dB 
+46 = -17.6 dB 
+47 = -17.3 dB 
+48 = -16.9 dB 
+49 = -16.5 dB 
+50 = -16.2 dB 
+51 = -15.8 dB 
+52 = -15.5 dB 
+53 = -15.2 dB 
+54 = -14.9 dB 
+55 = -14.5 dB 
+56 = -14.2 dB 
+57 = -13.9 dB 
+58 = -13.6 dB 
+59 = -13.3 dB 
+60 = -13.0 dB 
+61 = -12.7 dB 
+62 = -12.5 dB 
+63 = -12.2 dB 
+64 = -11.9 dB 
+65 = -11.6 dB 
+66 = -11.4 dB 
+67 = -11.1 dB 
+68 = -10.9 dB 
+69 = -10.6 dB 
+70 = -10.3 dB 
+71 = -10.1 dB 
+72 = -9.9 dB 
+73 = -9.6 dB 
+74 = -9.4 dB 
+75 = -9.1 dB 
+76 = -8.9 dB 
+77 = -8.7 dB 
+78 = -8.5 dB 
+79 = -8.2 dB 
+80 = -8.0 dB 
+81 = -7.8 dB 
+82 = -7.6 dB 
+83 = -7.4 dB 
+84 = -7.2 dB 
+85 = -7.0 dB 
+86 = -6.8 dB 
+87 = -6.6 dB 
+88 = -6.4 dB 
+89 = -6.2 dB 
+90 = -6.0 dB 
+91 = -5.8 dB 
+92 = -5.6 dB 
+93 = -5.4 dB 
+94 = -5.2 dB 
+95 = -5.0 dB 
+96 = -4.9 dB 
+97 = -4.7 dB 
+98 = -4.5 dB 
+99 = -4.3 dB 
+100 = -4.2 dB 
+101 = -4.0 dB 
+102 = -3.8 dB 
+103 = -3.6 dB 
+104 = -3.5 dB 
+105 = -3.3 dB 
+106 = -3.1 dB 
+107 = -3.0 dB 
+108 = -2.8 dB 
+109 = -2.7 dB 
+110 = -2.5 dB 
+111 = -2.3 dB 
+112 = -2.2 dB 
+113 = -2.0 dB 
+114 = -1.9 dB 
+115 = -1.7 dB 
+116 = -1.6 dB 
+117 = -1.4 dB 
+118 = -1.3 dB 
+119 = -1.1 dB 
+120 = -1.0 dB 
+121 = -0.8 dB 
+122 = -0.7 dB 
+123 = -0.6 dB 
+124 = -0.4 dB 
+125 = -0.3 dB 
+126 = -0.1 dB 
+127 = 0.0 dB 
+
+ORGAN VOLUME Morph WHEEL
+offset in file 0x43 (b6-0) and 0x44 (b7)
+
+ORGAN VOLUME Morph AT
+offset in file 0x44 (b6-0) and 0x45 (b7)
+
+ORGAN VOLUME Morph CONTROL PEDAL
+offset in file 0x45 (b6-0) and 0x46 (b7)
+ 
+ORGAN SPLIT ZONES
+Offset in file 0x47 (b7-5)
+0 = LO 
+1 = LO UP 
+2 = UP 
+3 = UP HI 
+4 = HI 
+5 = LO UP HI 
+6 = UNDEF 
+7 = UNDEF 
+
+ORGAN OCTAVE SHIFT
+Offset in file 0x47(b4-1)
+0 = -7
+1 = -6
+2 = -5
+3 = -4
+4 = -3
+5 = -2
+6 = -1
+7 = 0
+8 = 1
+9 = 2
+10 = 3
+11 = 4
+12 = 5
+13 = 6
+14 = UNDEF
+15 = UNDEF
+
+ORGAN SUSTAIN
+Offset in file 0x47(b0)
+0 = OFF
+1 = ON
+
+ORGAN MODEL
+Offset in file 0x34 (b7-6)
+0 = B3
+1 = VOX 
+2 = FARF
+3 = UNDEF 
+
+ORGAN B3 VIBRATO MODE
+Offset in file 0x35 (b7-5)
+0 = V1  
+1 = C1  
+2 = V2  
+3 = C2  
+4 = V3  
+5 = C3  
+
+ORGAN VOX VIBRATO MODE
+Offset in file 0x37 (b6-5)
+0 = Less
+1 = More 
+2 = Original
+
+ORGAN FARFISA VIBRATO MODE
+Offset in file 0x39 (b6-5)
+0 = Light/Slow
+1 = Light/Fast
+2 = Heavy/Slow 
+3 = Heavy/Fast
+ 
+ORGAN HARMONIC THIRD (B3 only)
+Offset in file 0x35(b4)
+0 = OFF
+1 = ON
+
+ORGAN DECAY FAST (B3 only)
+Offset in file 0x35(b3)
+0 = OFF
+1 = ON
+
+ORGAN VOLUME SOFT (B3 only)
+Offset in file 0x35(b2)
+0 = ON
+1 = OFF
+
+PITCH STICK
+Offset in file 0x30(b6)
+0 = OFF
+1 = ON
+
+VOX VIBRATO ON
+Offset in file 0x37(b4)
+0 = OFF
+1 = ON
+
+FARFISA VIBRATO ON
+Offset in file 0x39(b4)
+0 = OFF
+1 = ON
+
+LATCH PEDAL
+Offset in file 0x59 (b1)
+0 = OFF
+1 = ON
+
+KB GATE
+Offset in file 0x59 (b0)
+0 = OFF
+1 = ON
+
+ORGAN B3 PRESET II
+Offset in file 0x5c (b7)
+0 = OFF
+1 = ON
+
+ORGAN VOX PRESET II
+Offset in file 0x5d (b7)
+0 = OFF
+1 = ON
+
+ORGAN FARFISA PRESET II
+Offset in file 0x5e (b7)
+0 = OFF
+1 = ON
+
+
+*********     PRESET I     *********************
+
+ORGAN B3 DRAWBARS Preset I
+all B3 Drawbars are 4-Bit fields, values from 0 - 8
+
+Organ B3 Sub
+offset in file 0x60 (b0) and 0x61 (b7-5)
+	Morph Wheel offset in file 0x5f (b7-3)
+	Morph AT    offset in file 0x5f (b2-0) and 0x60 (b7-6)
+	Morph Pedal offset in file 0x60 (b5-1)
+
+Organ B3 Sub3
+offset in file 0x63 (b5-2)
+    Morph Wheel offset in file 0x61 (b4-0)
+	Morph AT    offset in file 0x62 (b7-3)
+	Morph Pedal offset in file 0x62 (b2-0) and 0x63 (b7-6)
+	
+Organ B3 Fund
+offset in file 0x65 (b2-0) and 0x66 (b7)
+	Morph Wheel offset in file 0x63 (b1-0) and 0x64 (b7-5)
+	Morph AT    offset in file 0x64 (b4-0)
+	Morph Pedal offset in file 0x65 (b7-3)
+	
+Organ B3 2nd
+offset in file 0x68 (b7-4)
+	Morph Wheel offset in file 0x66 (b6-2)
+	Morph AT    offset in file 0x66 (b1-0) and 0x67 (b7-5)
+	Morph Pedal offset in file 0x67 (b4-0)
+	
+Organ B3 3rd
+offset in file 0x6a (b4-1)
+	Morph Wheel offset in file 0x68 (b3-0) and 0x69 (b7)
+	Morph AT    offset in file 0x69 (b6-2)
+	Morph Pedal offset in file 0x69 (b1-0) and 0x6a (b7-5)
+	
+Organ B3 4th
+offset in file 0x6c (b1-0) and 0x6d (b7-6)
+	Morph Wheel offset in file 0x6a (b0) and 0x6b (b7-4)
+	Morph AT    offset in file 0x6b (b3-0) and 0x6c (b7)
+	Morph Pedal offset in file 0x6c (b6-2)
+	
+Organ B3 5th
+offset in file 0x6f (b6-3)
+	Morph Wheel offset in file 0x6d (b5-1)
+	Morph AT    offset in file 0x6d (b0) and 0x6e (b7-4)
+	Morph Pedal offset in file 0x6e (b3-0) and 0x6f (b7)
+	
+Organ B3 6th
+offset in file 0x71 (b3-0)
+	Morph Wheel offset in file 0x6f (b2-0) and 0x70 (b7-6)
+	Morph AT    offset in file 0x70 (b5-1)
+	Morph Pedal offset in file 0x70 (b0) and 0x71 (b7-4)
+	
+Organ B3 8th
+offset in file 0x73 (b0) and 0x74 (b7-5)
+	Morph Wheel offset in file 0x72 (b7-3)
+	Morph AT    offset in file 0x72 (b2-0) and 0x73 (b7-6)
+	Morph Pedal offset in file 0x73 (b5-1)
+
+Organ B3 Preset I Vibrato / Chorus
+Offset in file 0x74 (b4)
+0 = OFF
+1 = ON
+
+Organ B3 Preset I Percussion
+Offset in file 0x74 (b3)
+0 = OFF
+1 = ON
+
+ORGAN VOX DRAWBARS Preset I
+
+Organ Vox 16'
+offset in file 0x77 (b0) and 0x78 (b7-5)
+	Morph Wheel offset in file 0x76 (b7-3)
+	Morph AT    offset in file 0x76 (b2-0) and 0x77 (b7-6)
+	Morph Pedal offset in file 0x77 (b6-1)
+	
+Organ Vox 8'
+offset in file 0x7a (b5-2)
+	Morph Wheel offset in file 0x78 (b4-0)
+	Morph AT    offset in file 0x79 (b7-3)
+	Morph Pedal offset in file 0x79 (b2-0) and 0x7a (b7-6)
+	
+Organ Vox 4'
+offset in file 0x7c (b2-0) and 0x7d (b7)
+	Morph Wheel offset in file 0x7a (b1-0) and 0x7b (b7-5)
+	Morph AT    offset in file 0x7b (b4-0)
+	Morph Pedal offset in file 0x7c (b7-3)
+	
+Organ Vox 2'
+offset in file 0x7f (b7-4)
+	Morph Wheel offset in file 0x7d (b6-2)
+	Morph AT    offset in file 0x7d (b1-0) and 0x7e (b7-5)
+	Morph Pedal offset in file 0x7e (b4-0)
+	
+Organ Vox II
+offset in file 0x81 (b4-1)
+	Morph Wheel offset in file 0x7f (b3-0) and 0x80 (b7)
+	Morph AT    offset in file 0x80 (b6-2)
+	Morph Pedal offset in file 0x80 (b1-0) and 0x81 (b7-5)
+	
+Organ Vox III
+offset in file 0x83 (b1-0) and 0x84 (b7-6)
+	Morph Wheel offset in file 0x81 (b0) and 0x82 (b7-4)
+	Morph AT    offset in file 0x82 (b3-0) and 0x83 (b7)
+	Morph Pedal offset in file 0x83 (b6-2)
+	
+Organ Vox IV
+offset in file 0x86 (b6-3)
+	Morph Wheel offset in file 0x84 (b5-1)
+	Morph AT    offset in file 0x84 (b0) and 0x85 (b7-4)
+	Morph Pedal offset in file 0x85 (b3-0) and 0x86 (b7)
+	
+Organ Vox SIN
+offset in file 0x88 (b3-0)
+	Morph Wheel offset in file 0x86 (b2-0) and 0x87 (b7-6)
+	Morph AT    offset in file 0x87 (b5-1)
+	Morph Pedal offset in file 0x87 (b0) and 0x88 (b7-4)
+	
+Organ Vox TRI
+offset in file 0x8a (b0) and 0x8b (b7-5)
+	Morph Wheel offset in file 0x89 (b7-3)
+	Morph AT    offset in file 0x89 (b2-0) and 0x8a (b7-6)
+	Morph Pedal offset in file 0x8a (b5-1)
+	
+ORGAN FARFISA DRAWBARS Preset I
+Farfisa drawbars are 1-Bit values, ON or OFF
+
+Organ Farfisa Bass16
+offset in file 0x8d (b1)
+	Morph Wheel offset in file 0x8d (b7-6)
+	Morph AT    offset in file 0x8d (b5-4)
+	Morph Pedal offset in file 0x8d (b3-2)
+
+Organ Farfisa Str16
+offset in file 0x8e (b2)
+	Morph Wheel offset in file 0x8d (b0) and 0x8e (b7)
+	Morph AT    offset in file 0x8e (b6-5)
+	Morph Pedal offset in file 0x8e (b4-3)
+	
+Organ Farfisa Flu8
+offset in file 0x8f (b3)
+	Morph Wheel offset in file 0x8e (b1-0)
+	Morph AT    offset in file 0x8f (b7-6)
+	Morph Pedal offset in file 0x8f (b5-4)
+	
+Organ Farfisa Oboe8
+offset in file 0x90 (b4)
+	Morph Wheel offset in file 0x8f (b2-1)
+	Morph AT    offset in file 0x8f (b0) and 0x90 (b7)
+	Morph Pedal offset in file 0x90 (b6-5)
+	
+Organ Farfisa Trump8
+offset in file 0x91 (b5)
+	Morph Wheel offset in file 0x90 (b3-2)
+	Morph AT    offset in file 0x90 (b1-0)
+	Morph Pedal offset in file 0x91 (b7-6)
+	
+Organ Farfisa Str8
+offset in file 0x92 (b6)
+	Morph Wheel offset in file 0x91 (b4-3)
+	Morph AT    offset in file 0x91 (b2-1)
+	Morph Pedal offset in file 0x91 (b0) and 0x92 (b7)
+	
+Organ Farfisa Flu4
+offset in file 0x93 (b7)
+	Morph Wheel offset in file 0x92 (b5-4)
+	Morph AT    offset in file 0x92 (b3-2)
+	Morph Pedal offset in file 0x92 (b1-0)
+	
+Organ Farfisa Str4
+offset in file 0x93 (b0)
+	Morph Wheel offset in file 0x93 (b6-5)
+	Morph AT    offset in file 0x93 (b4-3)
+	Morph Pedal offset in file 0x93 (b2-1)
+	
+Organ Farfisa 2 2/3
+offset in file 0x94 (b1)
+	Morph Wheel offset in file 0x94 (b7-6)
+	Morph AT    offset in file 0x94 (b5-4)
+	Morph Pedal offset in file 0x94 (b3-2)
+	
+*********   End Preset I    *********************
+
+
+*********     PRESET II     *********************
+
+ORGAN B3 DRAWBARS Preset II
+all B3 Drawbars are 4-Bit fields, values from 0 - 8
+
+Organ B3 Sub
+offset in file 0x97 (b0) and 0x98 (b7-5)
+	Morph Wheel offset in file 0x96 (b7-3)
+	Morph AT    offset in file 0x96 (b2-0) and 0x97 (b7-6)
+	Morph Pedal offset in file 0x97 (b5-1)
+
+Organ B3 Sub3
+offset in file 0x9a (b5-2)
+    Morph Wheel offset in file 0x98 (b4-0)
+	Morph AT    offset in file 0x99 (b7-3)
+	Morph Pedal offset in file 0x99 (b2-0) and 0x9a (b7-6)
+	
+Organ B3 Fund
+offset in file 0x9c (b2-0) and 0x9d (b7)
+	Morph Wheel offset in file 0x9a (b1-0) and 0x9b (b7-5)
+	Morph AT    offset in file 0x9b (b4-0)
+	Morph Pedal offset in file 0x9c (b7-3)
+	
+Organ B3 2nd
+offset in file 0x9f (b7-4)
+	Morph Wheel offset in file 0x9d (b6-2)
+	Morph AT    offset in file 0x9d (b1-0) and 0x9e (b7-5)
+	Morph Pedal offset in file 0x9e (b4-0)
+	
+Organ B3 3rd
+offset in file 0xa1 (b4-1)
+	Morph Wheel offset in file 0x9f (b3-0) and 0xa0 (b7)
+	Morph AT    offset in file 0xa0 (b6-2)
+	Morph Pedal offset in file 0xa0 (b1-0) and 0xa1 (b7-5)
+	
+Organ B3 4th
+offset in file 0xa3 (b1-0) and 0xa4 (b7-6)
+	Morph Wheel offset in file 0xa1 (b0) and 0xa2 (b7-4)
+	Morph AT    offset in file 0xa2 (b3-0) and 0xa3 (b7)
+	Morph Pedal offset in file 0xa3 (b6-2)
+	
+Organ B3 5th
+offset in file 0xa6 (b6-3)
+	Morph Wheel offset in file 0xa4 (b5-1)
+	Morph AT    offset in file 0xa4 (b0) and 0xa5 (b7-4)
+	Morph Pedal offset in file 0xa5 (b3-0) and 0xa6 (b7)
+	
+Organ B3 6th
+offset in file 0xa8 (b3-0)
+	Morph Wheel offset in file 0xa6 (b2-0) and 0xa7 (b7-6)
+	Morph AT    offset in file 0xa7 (b5-1)
+	Morph Pedal offset in file 0xa7 (b0) and 0xa8 (b7-4)
+	
+Organ B3 8th
+offset in file 0xaa (b0) and 0xab (b7-5)
+	Morph Wheel offset in file 0xa9 (b7-3)
+	Morph AT    offset in file 0xa9 (b2-0) and 0xaa (b7-6)
+	Morph Pedal offset in file 0xaa (b5-1)
+
+Organ B3 Preset II Vibrato / Chorus
+Offset in file 0xab (b4)
+0 = OFF
+1 = ON
+
+Organ B3 Preset II Percussion
+Offset in file 0xab (b3)
+0 = OFF
+1 = ON
+
+ORGAN VOX DRAWBARS Preset II
+
+Organ Vox 16'
+offset in file 0xae (b0) and 0xaf (b7-5)
+	Morph Wheel offset in file 0xad (b7-3)
+	Morph AT    offset in file 0xad (b2-0) and 0xae (b7-6)
+	Morph Pedal offset in file 0xae (b6-1)
+	
+Organ Vox 8'
+offset in file 0xb1 (b5-2)
+	Morph Wheel offset in file 0xaf (b4-0)
+	Morph AT    offset in file 0xb0 (b7-3)
+	Morph Pedal offset in file 0xb0 (b2-0) and 0xb1 (b7-6)
+	
+Organ Vox 4'
+offset in file 0xb3 (b2-0) and 0xb4 (b7)
+	Morph Wheel offset in file 0xb1 (b1-0) and 0xb2 (b7-5)
+	Morph AT    offset in file 0xb2 (b4-0)
+	Morph Pedal offset in file 0xb3 (b7-3)
+	
+Organ Vox 2'
+offset in file 0xb6 (b7-4)
+	Morph Wheel offset in file 0xb4 (b6-2)
+	Morph AT    offset in file 0xb4 (b1-0) and 0xb5 (b7-5)
+	Morph Pedal offset in file 0xb5 (b4-0)
+	
+Organ Vox II
+offset in file 0xb8 (b4-1)
+	Morph Wheel offset in file 0xb6 (b3-0) and 0xb7 (b7)
+	Morph AT    offset in file 0xb7 (b6-2)
+	Morph Pedal offset in file 0xb7 (b1-0) and 0xb8 (b7-5)
+	
+Organ Vox III
+offset in file 0xba (b1-0) and 0xbb (b7-6)
+	Morph Wheel offset in file 0xb8 (b0) and 0xb9 (b7-4)
+	Morph AT    offset in file 0xb9 (b3-0) and 0xba (b7)
+	Morph Pedal offset in file 0xba (b6-2)
+	
+Organ Vox IV
+offset in file 0xbd (b6-3)
+	Morph Wheel offset in file 0xbb (b5-1)
+	Morph AT    offset in file 0xbb (b0) and 0xbc (b7-4)
+	Morph Pedal offset in file 0xbc (b3-0) and 0xbd (b7)
+	
+Organ Vox SIN
+offset in file 0xbf (b3-0)
+	Morph Wheel offset in file 0xbd (b2-0) and 0xbe (b7-6)
+	Morph AT    offset in file 0xbe (b5-1)
+	Morph Pedal offset in file 0xbe (b0) and 0xbf (b7-4)
+	
+Organ Vox TRI
+offset in file 0xc1 (b0) and 0xc2 (b7-5)
+	Morph Wheel offset in file 0xc0 (b7-3)
+	Morph AT    offset in file 0xc0 (b2-0) and 0xc1 (b7-6)
+	Morph Pedal offset in file 0xc1 (b5-1)
+	
+ORGAN FARFISA DRAWBARS Preset II
+Farfisa drawbars are 1-Bit values, ON or OFF
+
+Organ Farfisa Bass16
+offset in file 0xc4 (b1)
+	Morph Wheel offset in file 0xc4 (b7-6)
+	Morph AT    offset in file 0xc4 (b5-4)
+	Morph Pedal offset in file 0xc4 (b3-2)
+
+Organ Farfisa Str16
+offset in file 0xc5 (b2)
+	Morph Wheel offset in file 0xc4 (b0) and 0xc5 (b7)
+	Morph AT    offset in file 0xc5 (b6-5)
+	Morph Pedal offset in file 0xc5 (b4-3)
+	
+Organ Farfisa Flu8
+offset in file 0xc6 (b3)
+	Morph Wheel offset in file 0xc5 (b1-0)
+	Morph AT    offset in file 0xc6 (b7-6)
+	Morph Pedal offset in file 0xc6 (b5-4)
+	
+Organ Farfisa Oboe8
+offset in file 0xc7 (b4)
+	Morph Wheel offset in file 0xc6 (b2-1)
+	Morph AT    offset in file 0xc6 (b0) and 0xc7 (b7)
+	Morph Pedal offset in file 0xc7 (b6-5)
+	
+Organ Farfisa Trump8
+offset in file 0xc8 (b5)
+	Morph Wheel offset in file 0xc7 (b3-2)
+	Morph AT    offset in file 0xc7 (b1-0)
+	Morph Pedal offset in file 0xc8 (b7-6)
+	
+Organ Farfisa Str8
+offset in file 0xc9 (b6)
+	Morph Wheel offset in file 0xc8 (b4-3)
+	Morph AT    offset in file 0xc8 (b2-1)
+	Morph Pedal offset in file 0xc8 (b0) and 0xc9 (b7)
+	
+Organ Farfisa Flu4
+offset in file 0xca (b7)
+	Morph Wheel offset in file 0xc9 (b5-4)
+	Morph AT    offset in file 0xc9 (b3-2)
+	Morph Pedal offset in file 0xc9 (b1-0)
+	
+Organ Farfisa Str4
+offset in file 0xca (b0)
+	Morph Wheel offset in file 0xca (b6-5)
+	Morph AT    offset in file 0xca (b4-3)
+	Morph Pedal offset in file 0xca (b2-1)
+	
+Organ Farfisa 2 2/3
+offset in file 0xcb (b1)
+	Morph Wheel offset in file 0xcb (b7-6)
+	Morph AT    offset in file 0xcb (b5-4)
+	Morph Pedal offset in file 0xcb (b3-2)
+
+
+*********     END PRESET II     *********************
+

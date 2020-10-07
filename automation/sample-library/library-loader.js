@@ -11,10 +11,12 @@ const { loadNs3SampleFile } = require("../../server/common/nord-sample");
 const { loadNs3ProgramFile } = require("../../server/ns3/program/ns3-program");
 const homedir = require("os").homedir();
 const convert = require("xml-js");
+const {ns2PianoLibrary} = require("../../server/ns2/library/ns2-library-piano");
 const {loadNs2ProgramFile} = require("../../server/ns2/program/ns2-program");
 
-const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
+//const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
 //const inputFile = homedir + "/downloads/Fred Original Piano setup.ns2pb";
+const inputFile = homedir + "/downloads/Michael Bereal Signature Sound Bank Bundle.ns3fb";
 
 const samplesByFilename = new Map(); // key is the sample file name as defined in meta.xml file
 const programsByFileName = new Map(); // key is the program file name  as defined in meta.xml file
@@ -103,7 +105,7 @@ const getProgramDetails = (filename) => {
         };
         programsByFileName.set(filename, data);
     }
-    return programsByFileName.get(filename);;
+    return programsByFileName.get(filename);
 };
 
 const run = async (backupFilename) => {
@@ -184,10 +186,11 @@ run(inputFile).then(() => {
 
     metadata.forEach((x, filename) => {
         const program = programsByFileName.get(filename);
+
         const pianoSampleFilename1 = x.piano.shift();
         if (pianoSampleFilename1) {
             const sample = samplesByFilename.get(pianoSampleFilename1);
-            if (sample && program.pianoA !== "0") {
+            if (sample && program.pianoA !== 0) {
                 if (sample.sampleId && sample.sampleId !== program.pianoA) {
                     throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
                 }
@@ -197,11 +200,32 @@ run(inputFile).then(() => {
         const pianoSampleFilename2 = x.piano.shift() || pianoSampleFilename1;
         if (pianoSampleFilename2) {
             const sample = samplesByFilename.get(pianoSampleFilename2);
-            if (sample && program.pianoB !== "0") {
+            if (sample && program.pianoB !== 0) {
                 if (sample.sampleId && sample.sampleId !== program.pianoB) {
                     throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
                 }
                 sample.sampleId = program.pianoB;
+            }
+        }
+
+        const synthSampleFilename1 = x.synth.shift();
+        if (synthSampleFilename1) {
+            const sample = samplesByFilename.get(synthSampleFilename1);
+            if (sample && program.synthA !== 0) {
+                if (sample.sampleId && sample.sampleId !== program.synthA) {
+                    throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
+                }
+                sample.sampleId = program.synthA;
+            }
+        }
+        const synthSampleFilename2 = x.synth.shift() || synthSampleFilename1;
+        if (synthSampleFilename2) {
+            const sample = samplesByFilename.get(synthSampleFilename2);
+            if (sample && program.synthB !== 0) {
+                if (sample.sampleId && sample.sampleId !== program.synthB) {
+                    throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
+                }
+                sample.sampleId = program.synthB;
             }
         }
 
@@ -228,13 +252,14 @@ run(inputFile).then(() => {
     sortedSamplesByFilename.forEach((x) => {
         if (x.sampleId && x.version !== undefined) {
             const id = Number("0x" + x.sampleId.toString());
-            const pianoLib = ns3PianoLibrary.get(id);
-            const sampleLib = ns3SampleLibrary.get(id);
-            if (pianoLib || sampleLib) {
+            const ns2PianoLib = ns2PianoLibrary.get(id);
+            const ns3PianoLib = ns3PianoLibrary.get(id);
+            const ns3SampleLib = ns3SampleLibrary.get(id);
+            if (ns2PianoLib || ns3PianoLib || ns3SampleLib) {
                 alreadyInLibrary.push(x);
             } else {
                 sampleCount++;
-                const test = BigInt(x.offset18) - BigInt(id);
+                //const test = BigInt(x.offset18) - BigInt(id);
                 console.info(
                     `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],` // ${x.offset18.toString("16")} ${test.toString("16")}`
                 );

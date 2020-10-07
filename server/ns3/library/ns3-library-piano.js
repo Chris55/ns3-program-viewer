@@ -139,6 +139,9 @@ exports.ns3PianoLibrary = new Map([
     [0x99c5f748, "EP8 Nefertiti Lrg 6.0"],
     [0xa2b9582f, "EP8 Nefertiti Sml 6.0"],
     [0x400c59e6, "EP8 Nefertiti    Mk1 1970 Lrg5.5"],
+    // from Brandon Coleman Signature Sound Bank
+    [0x1016b332, {name: "EP8 Nefertiti    Lrg", info: "Mk1 1970", version: "5.3", category: "None", size: 21239038, filename: "EP8 Nefertiti    Mk1 1970 Lrg5.3", ext: "npno" }],
+
 
     [0xc2c0e241, "EP7 Amped Tines XL 6.0"],
     [0xc1223a3d, "EP7 Amped Tines Med 6.0"],

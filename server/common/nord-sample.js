@@ -1,6 +1,5 @@
 const path = require("path");
 const { getVersion } = require("./converter");
-const CryptoJS = require("crypto-js");
 
 const sampleCategoryMap = new Map([
     [
@@ -158,7 +157,6 @@ exports.loadNs3SampleFile = (buffer, filename) => {
         isPiano = fileExt === "npno";
     }
 
-
     const offset04 = buffer.readUInt8(0x04);
     const offset18 = buffer.readUInt32BE(0x018);
 
@@ -193,28 +191,27 @@ exports.loadNs3SampleFile = (buffer, filename) => {
     const nameOffset = isPiano ? 0x48 : 0x52;
 
     let sampleName = getString(buffer, nameOffset + versionOffset);
-    let sampleNameV6 = (isPiano && sampleVersion.majorVersion) >= 6 ? getString(buffer, 0x68 + versionOffset): "";
+    let sampleNameV6 = (isPiano && sampleVersion.majorVersion) >= 6 ? getString(buffer, 0x68 + versionOffset) : "";
 
-    const sampleInfoOffset = (isPiano && sampleVersion.majorVersion) >= 6 ? 0x88: 0x94;
-    let sampleInfo = getString(buffer, sampleInfoOffset + versionOffset);
-
+    const sampleInfoOffset = (isPiano && sampleVersion.majorVersion) >= 6 ? 0x88 : 0x94;
+    let sampleInfo = getString(buffer, sampleInfoOffset + versionOffset).trim();
 
     const sampleFileName = path.basename(filename, fileExt);
 
     // some synth sample (v2) have no information property
     // reading the value from the filename
-    if (!sampleInfo) {
-        const details = Array.from(new Set(sampleFileName.split("_")));
-        if (details.length > 1) {
-            sampleInfo = details[details.length - 1];
-        }
-        if (details.length > 2) {
-            const moreDetails = details[details.length - 2];
-            if (!sampleName.includes(moreDetails)) {
-                sampleName += ` ${moreDetails}`;
-            }
-        }
-    }
+    // if (!sampleInfo) {
+    //     const details = Array.from(new Set(sampleFileName.split("_")));
+    //     if (details.length > 1) {
+    //         sampleInfo = details[details.length - 1];
+    //     }
+    //     if (details.length > 2) {
+    //         const moreDetails = details[details.length - 2];
+    //         if (!sampleName.includes(moreDetails)) {
+    //             sampleName += ` ${moreDetails}`;
+    //         }
+    //     }
+    // }
 
     // on piano sample file, the name and information details are mixed
     // in the same string...
@@ -223,12 +220,13 @@ exports.loadNs3SampleFile = (buffer, filename) => {
 
     const namePos = sampleName.indexOf("#");
     if (namePos > -1) {
-        const items = sampleName.split(" ");
-        const size = items.pop();
-        const info = items.pop().replace("#", "");
-        sampleName = sampleName.substr(0, namePos) + (size ? " " + size: "");
+        const right = sampleName.slice(-(sampleName.length - namePos - 1));
+        const items = Array.from(new Set(right.split(" ")));
+        const size = items.pop().trim();
+        const info = items.join(" ").trim();
+        sampleName = sampleName.substr(0, namePos) + (size ? " " + size : "");
         if (!sampleInfo) {
-            sampleInfo = info;
+            sampleInfo += info;
         }
     }
 
@@ -236,9 +234,8 @@ exports.loadNs3SampleFile = (buffer, filename) => {
     if (sampleNameV6) {
         const items = sampleName.split(" ");
         const size = items.pop();
-        sampleName = sampleNameV6 + (size ? " " + size: "");
+        sampleName = sampleNameV6 + (size ? " " + size : "");
     }
-
 
     //var len = buffer.length;
 

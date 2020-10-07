@@ -1,8 +1,8 @@
 const mapping = require("./ns2-mapping");
-
 const { ns2VolumeEx } = require("./ns2-utils");
 const { ns2KbZone } = require("./ns2-utils");
-const { ns3PianoLibrary } = require("../../ns3/library/ns3-library-piano");
+const byteSize = require("byte-size");
+const { ns2PianoLibrary } = require("../library/ns2-library-piano");
 
 /***
  * returns Piano section
@@ -31,27 +31,31 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
     const pianoOffsetCdWww = buffer.readBigUInt64BE(0xcd + panelOffset);
 
-
     const pianoEnabled = (pianoOffset48 & 0x80) !== 0;
     const pianoKbZoneEnabled =
         id === 0 ? pianoEnabled : pianoEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Piano");
 
     const pianoTypeValue = (pianoOffsetCd & 0xe0) >>> 5;
     const pianoType = mapping.ns2PianoTypeMap.get(pianoTypeValue);
-    const clavinetEnabled =  pianoType === "Clavinet";
+    const clavinetEnabled = pianoType === "Clavinet";
 
     const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, splitEnabled, (pianoOffset4c & 0xe0) >>> 5);
 
     const pianoSampleId = Number((pianoOffsetCdWww & 0x0000003fffffffc0n) >> 6n);
-    let pianoName = ns3PianoLibrary.get(pianoSampleId);
-    if (pianoName instanceof Array) {
-        pianoName = pianoName[0];
+    let pianoLib = ns2PianoLibrary.get(pianoSampleId);
+    if (!pianoLib) {
+        pianoLib = {
+            name: "unknown",
+            info: "",
+            version: "",
+            size: 0,
+        };
     }
 
     const piano = {
         debug: {
             sampleId: pianoSampleId.toString(16),
-            name: pianoName,
+            name: pianoLib.name,
         },
 
         /**
@@ -184,7 +188,10 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          * @module NS2 Piano Sample ID
          */
         name: {
-            value: pianoName,
+            value: pianoLib.name,
+            info: pianoLib.info,
+            version: pianoLib.version,
+            size: byteSize(pianoLib.size).toString(),
         },
         /**
          * Offset in file: 0x3B (b7-5)

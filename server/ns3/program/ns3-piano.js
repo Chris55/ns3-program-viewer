@@ -51,7 +51,7 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
             pianoName = pianoName[0] + " unknown variation";
         }
         // this is required as all piano library entries are not yet converted to the new format
-    } else if (pianoName.name) {
+    } else if (pianoName && pianoName.name) {
         pianoVersion = pianoName.version ? ("v" + pianoName.version) : "";
         pianoInfo = pianoName.info;
         pianoName = pianoName.name;
