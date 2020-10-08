@@ -14,9 +14,10 @@ const convert = require("xml-js");
 const {ns2PianoLibrary} = require("../../server/ns2/library/ns2-library-piano");
 const {loadNs2ProgramFile} = require("../../server/ns2/program/ns2-program");
 
+const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
 //const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
 //const inputFile = homedir + "/downloads/Fred Original Piano setup.ns2pb";
-const inputFile = homedir + "/downloads/Michael Bereal Signature Sound Bank Bundle.ns3fb";
+//const inputFile = homedir + "/downloads/Michael Bereal Signature Sound Bank Bundle.ns3fb";
 
 const samplesByFilename = new Map(); // key is the sample file name as defined in meta.xml file
 const programsByFileName = new Map(); // key is the program file name  as defined in meta.xml file
@@ -98,10 +99,10 @@ const getProgramDetails = (filename) => {
     let data = programsByFileName.get(filename);
     if (!data) {
         const data = {
-            pianoA: 0,
-            pianoB: 0,
-            synthA: 0,
-            synthB: 0,
+            pianoA: "0",
+            pianoB: "0",
+            synthA: "0",
+            synthB: "0",
         };
         programsByFileName.set(filename, data);
     }
@@ -190,7 +191,7 @@ run(inputFile).then(() => {
         const pianoSampleFilename1 = x.piano.shift();
         if (pianoSampleFilename1) {
             const sample = samplesByFilename.get(pianoSampleFilename1);
-            if (sample && program.pianoA !== 0) {
+            if (sample && program.pianoA !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.pianoA) {
                     throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
                 }
@@ -200,7 +201,7 @@ run(inputFile).then(() => {
         const pianoSampleFilename2 = x.piano.shift() || pianoSampleFilename1;
         if (pianoSampleFilename2) {
             const sample = samplesByFilename.get(pianoSampleFilename2);
-            if (sample && program.pianoB !== 0) {
+            if (sample && program.pianoB !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.pianoB) {
                     throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
                 }
@@ -211,7 +212,7 @@ run(inputFile).then(() => {
         const synthSampleFilename1 = x.synth.shift();
         if (synthSampleFilename1) {
             const sample = samplesByFilename.get(synthSampleFilename1);
-            if (sample && program.synthA !== 0) {
+            if (sample && program.synthA !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.synthA) {
                     throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
                 }
@@ -221,7 +222,7 @@ run(inputFile).then(() => {
         const synthSampleFilename2 = x.synth.shift() || synthSampleFilename1;
         if (synthSampleFilename2) {
             const sample = samplesByFilename.get(synthSampleFilename2);
-            if (sample && program.synthB !== 0) {
+            if (sample && program.synthB !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.synthB) {
                     throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
                 }
