@@ -2,8 +2,8 @@ const mapping = require("./ns2-mapping");
 const { ns2VolumeEx } = require("./ns2-utils");
 const { ns2KbZone } = require("./ns2-utils");
 const byteSize = require("byte-size");
-const { ns2PianoLibrary } = require("../library/ns2-library-piano");
-
+const {getSample} = require("../../ns3/library/ns3-library");
+const {ns3PianoLibrary} = require("../../ns3/library/ns3-library-piano");
 /***
  * returns Piano section
  *
@@ -41,21 +41,27 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
     const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, splitEnabled, (pianoOffset4c & 0xe0) >>> 5);
 
-    const pianoSampleId = Number((pianoOffsetCdWww & 0x0000003fffffffc0n) >> 6n);
-    let pianoLib = ns2PianoLibrary.get(pianoSampleId);
-    if (!pianoLib) {
-        pianoLib = {
-            name: "unknown",
-            info: "",
-            version: "",
-            size: 0,
-        };
-    }
+    const ns2PianoSampleId = BigInt((pianoOffsetCdWww & 0x0000003fffffffc0n) >> 6n);
+    // convert the sampleId to NS3 format:
+    // b31 is inverted then value is decremented
+    // example:
+    //  | NS2 Hash   | NS3 Hash   | Name
+    //  | ---------- | ---------- | --------------------------
+    //  | 0x3f61a640 | 0xbf61a63f | Italian Grand Faz Sml 5.3
+    //  | 0x9fef7497 | 0x1fef7496 | Italian Grand Faz Lrg 5.3
+    //  | 0x01a1a00b | 0x81a1a00a | EP4 Mk5 80s Lrg
+    //
+    // not working:
+    //  | 0x4720431d | 0xc8b6007d | Wurlitzer 2 Amped XL 5.3
+
+    const pianoSampleId = Number(ns2PianoSampleId ^ 0x80000000n) - 1;
+
+    let pianoLib = getSample(pianoSampleId);
 
     const piano = {
         debug: {
-            sampleId: pianoSampleId.toString(16),
-            name: pianoLib.name,
+            sampleId: ns2PianoSampleId.toString(16),
+            name: pianoLib.value,
         },
 
         /**
@@ -187,12 +193,7 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          *
          * @module NS2 Piano Sample ID
          */
-        name: {
-            value: pianoLib.name,
-            info: pianoLib.info,
-            version: pianoLib.version,
-            size: byteSize(pianoLib.size).toString(),
-        },
+        name: pianoLib,
         /**
          * Offset in file: 0x3B (b7-5)
          *

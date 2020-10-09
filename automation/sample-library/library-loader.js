@@ -14,9 +14,16 @@ const convert = require("xml-js");
 const {ns2PianoLibrary} = require("../../server/ns2/library/ns2-library-piano");
 const {loadNs2ProgramFile} = require("../../server/ns2/program/ns2-program");
 
-const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
-//const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
-//const inputFile = homedir + "/downloads/Fred Original Piano setup.ns2pb";
+// Bandoneon 0x9c02b3f7
+// a  0x12685f5d
+// aa 0x975d9225
+// b  0x06b7b9f3
+// c  0xacf62648
+// d  0x7822f205
+
+//const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
+const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
+//const inputFile = homedir + "/downloads/Italian Grand Faz Bundle.ns2pb";
 //const inputFile = homedir + "/downloads/Michael Bereal Signature Sound Bank Bundle.ns3fb";
 
 const samplesByFilename = new Map(); // key is the sample file name as defined in meta.xml file
@@ -262,7 +269,7 @@ run(inputFile).then(() => {
                 sampleCount++;
                 //const test = BigInt(x.offset18) - BigInt(id);
                 console.info(
-                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],` // ${x.offset18.toString("16")} ${test.toString("16")}`
+                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],`  // ${x.hashId.toString("16")}`
                 );
             }
         }

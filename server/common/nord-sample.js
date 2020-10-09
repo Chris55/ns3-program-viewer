@@ -1,5 +1,7 @@
 const path = require("path");
 const { getVersion } = require("./converter");
+const CryptoJS = require("crypto-js");
+const xxh = require("xxhashjs");
 
 const sampleCategoryMap = new Map([
     [
@@ -237,42 +239,10 @@ exports.loadNs3SampleFile = (buffer, filename) => {
         sampleName = sampleNameV6 + (size ? " " + size : "");
     }
 
-    //var len = buffer.length;
+    const hash =xxh.h32(filename, 0x4342).toString(16);  // CryptoJS.SHA3(filename);
 
-    // if (len % 4 !== 0) {
-    //     console.log("size !!!!");
-    // }
+    const hashId = hash.toString();
 
-    let hash = 0; //BigInt(0);
-    //var words = [];
-    // let i = 0;
-    // do {
-    //     let word = BigInt(0);
-    //     for (let j = 0; j < 4 && i < len; i++, j++) {
-    //         const shift = BigInt(24 - (j % 4) * 8);
-    //         word |= BigInt(buffer[i]) << shift;
-    //     }
-    //     const temp = word.toString("16");
-    //     hash ^= BigInt(word);
-    //
-    //     //words[i >>> 2] |= buffer[i] << (24 - (i % 4) * 8);
-    //     //words[i >>> 1] |= buffer[i] << (8 - (i % 2) * 8);
-    // } while(i < len);
-
-    //hash &= 0xffffffffn;
-    // const hash = words.reduce((total, x) => {
-    //     const res = total + x;
-    //     return res & 0xffffffff;
-    // });
-    //const wordArray = CryptoJS.lib.WordArray.create(buffer);
-    // const hash = wordArray.words.reduce((total, x) => {
-    //     const res = total + x;
-    //     return res & 0xffffffff;
-    // });
-    //CryptoJS.MD5(wordArray);
-    const hashId = hash.toString("16");
-
-    //const hashId = hash.toString(CryptoJS.enc.Hex);
 
     return {
         version: sampleVersion.version,

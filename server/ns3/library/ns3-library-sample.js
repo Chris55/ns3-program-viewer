@@ -2528,4 +2528,104 @@ exports.ns3SampleLibrary = new Map([
     // Ondre J Signature EPs
     // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/ondre-j-signature-eps
     // no additional sample
+
+
+    // Nord Sample Library Archive Chamberlin Accordion
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/chamberlin/chamberlin-accordion
+
+    [0x1f6157ad, {name: "Accordion MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 8521708, filename: "Accordion MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x8804ea2c, {name: "M Accordion", info: "Chamberlin", version: "3.0", category: "Misc", size: 6820076, filename: "M Accordion_Chamberlin", ext: "nsmp3" }],
+
+    // Nord Sample Library Archive Chamberlin Brass
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/chamberlin/chamberlin-brass
+
+    [0x5487ecc3, {name: "4 Brass MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 5214316, filename: "4 Brass MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x6a053329, {name: "4 Saxes MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 5490156, filename: "4 Saxes MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x197027b3, {name: "Alto Sax MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 6043756, filename: "Alto Sax MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x63ead536, {name: "Bass Clarinet MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 5723244, filename: "Bass Clarinet MMaster_Chamberlin", ext: "nsmp3" }],
+    [0xac3e8180, {name: "Flute MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 6158188, filename: "Flute MMaster_Chamberlin", ext: "nsmp3" }],
+    [0xefead38b, {name: "M AltoSax", info: "Chamberlin", version: "3.0", category: "Misc", size: 5793900, filename: "M AltoSax_Chamberlin", ext: "nsmp3" }],
+    [0x6deec636, {name: "M Basson", info: "Chamberlin", version: "3.0", category: "Misc", size: 5146860, filename: "M Basson_Chamberlin", ext: "nsmp3" }],
+    [0x9d6da3d6, {name: "M Doo-Waa Trombone", info: "Chamberlin", version: "3.0", category: "Misc", size: 4883820, filename: "M Doo-Waa Trombone_Chamberlin", ext: "nsmp3" }],
+    [0xd4499d36, {name: "M French Horn", info: "Chamberlin", version: "3.0", category: "Misc", size: 4655212, filename: "M French Horn_Chamberlin", ext: "nsmp3" }],
+    [0xec2fcf45, {name: "M Muted Trumped FastVib", info: "Chamberlin", version: "3.0", category: "Misc", size: 4271724, filename: "M Muted Trumped FastVib_Chamberlin", ext: "nsmp3" }],
+    [0x53ac30fd, {name: "M Oboe", info: "Chamberlin", version: "3.0", category: "Misc", size: 6468076, filename: "M Oboe_Chamberlin", ext: "nsmp3" }],
+    [0x47f4c841, {name: "M Open Trumpet", info: "Chamberlin", version: "3.0", category: "Misc", size: 6397292, filename: "M Open Trumpet_Chamberlin", ext: "nsmp3" }],
+    [0x10d681b0, {name: "M Slur Trombone", info: "Chamberlin", version: "3.0", category: "Misc", size: 5049324, filename: "M Slur Trombone_Chamberlin", ext: "nsmp3" }],
+    [0x50d81e9a, {name: "M Tenor Sax Metallic", info: "Chamberlin", version: "3.0", category: "Misc", size: 6670316, filename: "M Tenor Sax Metallic_Chamberlin", ext: "nsmp3" }],
+    [0xc35f0362, {name: "M Trombone", info: "Chamberlin", version: "3.0", category: "Misc", size: 5532652, filename: "M Trombone_Chamberlin", ext: "nsmp3" }],
+    [0x2ca11e09, {name: "Muted Trombone MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 5962476, filename: "Muted Trombone MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x6f524781, {name: "Muted Trumpet MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 6259308, filename: "Muted Trumpet MMaster_Chamberlin", ext: "nsmp3" }],
+    [0xcf067a04, {name: "Open Trombone MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 5080556, filename: "Open Trombone MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x8e1bd6dc, {name: "Open Trumpet MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 6598764, filename: "Open Trumpet MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x83d11ca, {name: "WaaWaa Trumpet", info: "Chamberlin", version: "3.0", category: "Misc", size: 5858028, filename: "WaaWaa Trumpet_Chamberlin", ext: "nsmp3" }],
+
+    // Nord Sample Library Archive Chamberlin Guitars
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/chamberlin/chamberlin-guitars
+
+    [0x78992256, {name: "Acoustic Guitar MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 5645292, filename: "Acoustic Guitar MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x9ce2dbdf, {name: "M Acoustic Steel Guitar", info: "Chamberlin", version: "3.0", category: "Misc", size: 4083948, filename: "M Acoustic Steel Guitar_Chamberlin", ext: "nsmp3" }],
+    [0x56933ac6, {name: "M Banjo", info: "Chamberlin", version: "3.0", category: "Misc", size: 4299116, filename: "M Banjo_Chamberlin", ext: "nsmp3" }],
+    [0x9315cde4, {name: "M Mandolin", info: "Chamberlin", version: "3.0", category: "Misc", size: 6450796, filename: "M Mandolin_Chamberlin", ext: "nsmp3" }],
+    [0x69de053e, {name: "M Slur Guitar", info: "Chamberlin", version: "3.0", category: "Misc", size: 5677420, filename: "M Slur Guitar_Chamberlin", ext: "nsmp3" }],
+    [0x7b714bff, {name: "M Steel guitar", info: "Chamberlin", version: "3.0", category: "Misc", size: 6226540, filename: "M Steel guitar_Chamberlin", ext: "nsmp3" }],
+    [0xadc85a6f, {name: "Mandolin MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 6783596, filename: "Mandolin MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x6fb687b6, {name: "Tremolo Guitar", info: "Chamberlin", version: "3.0", category: "Misc", size: 6991340, filename: "Tremolo Guitar_Chamberlin", ext: "nsmp3" }],
+
+    // Nord Sample Library Archive Chamberlin Misc
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/chamberlin/chamberlin-misc
+
+    [0xe16955ec, {name: "M Dixieland Rythms", info: "Chamberlin", version: "3.0", category: "Misc", size: 3861740, filename: "M Dixieland Rythms_Chamberlin", ext: "nsmp3" }],
+    [0x5495d0d3, {name: "M Harp Long Arpeggio", info: "Chamberlin", version: "3.0", category: "Misc", size: 7289580, filename: "M Harp Long Arpeggio_Chamberlin", ext: "nsmp3" }],
+    [0x18998016, {name: "M Harp Short Arpeggio", info: "Chamberlin", version: "3.0", category: "Misc", size: 8739436, filename: "M Harp Short Arpeggio_Chamberlin", ext: "nsmp3" }],
+    [0x16cc2100, {name: "M Harp Solo", info: "Chamberlin", version: "3.0", category: "Misc", size: 1933036, filename: "M Harp Solo_Chamberlin", ext: "nsmp3" }],
+    [0x39baf31d, {name: "M SFX1", info: "Chamberlin", version: "3.0", category: "Misc", size: 6370924, filename: "M SFX1_Chamberlin", ext: "nsmp3" }],
+    [0x15008923, {name: "M SFX2", info: "Chamberlin", version: "3.0", category: "Misc", size: 4740460, filename: "M SFX2_Chamberlin", ext: "nsmp3" }],
+
+    // Nord Sample Library Archive Chamberlin Organs
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/chamberlin/chamberlin-organs
+
+    [0x4ff3e338, {name: "M C-Organ", info: "Chamberlin", version: "3.0", category: "Misc", size: 3309932, filename: "M C-Organ_Chamberlin", ext: "nsmp3" }],
+    [0x261c2d39, {name: "M Flute String Organ", info: "Chamberlin", version: "3.0", category: "Misc", size: 4986476, filename: "M Flute String Organ_Chamberlin", ext: "nsmp3" }],
+    [0xe6897bad, {name: "M Kinura", info: "Chamberlin", version: "3.0", category: "Misc", size: 5103596, filename: "M Kinura_Chamberlin", ext: "nsmp3" }],
+    [0xf55c9e6a, {name: "M Tibia", info: "Chamberlin", version: "3.0", category: "Misc", size: 3859180, filename: "M Tibia_Chamberlin", ext: "nsmp3" }],
+
+    // Nord Sample Library Archive Chamberlin Pianos and Keyboards
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/chamberlin/chamberlin-pianos-and-keyboards
+
+    [0xf65d456c, {name: "M Acoustic Harpsicord", info: "Chamberlin", version: "3.0", category: "Misc", size: 7986796, filename: "M Acoustic Harpsicord_Chamberlin", ext: "nsmp3" }],
+    [0xcb333840, {name: "M Electric Harpsicord", info: "Chamberlin", version: "3.0", category: "Misc", size: 7290988, filename: "M Electric Harpsicord_Chamberlin", ext: "nsmp3" }],
+    [0x5e01a951, {name: "Piano MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 9284204, filename: "Piano MMaster_Chamberlin", ext: "nsmp3" }],
+
+    // Nord Sample Library Archive Chamberlin Strings
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/chamberlin/chamberlin-strings
+
+    [0x71ce0664, {name: "3 Violins MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 4901868, filename: "3 Violins MMaster_Chamberlin", ext: "nsmp3" }],
+    [0xa65fd653, {name: "M Cello", info: "Chamberlin", version: "3.0", category: "Misc", size: 6532076, filename: "M Cello_Chamberlin", ext: "nsmp3" }],
+    [0xe6b8e9eb, {name: "Pizzicato Bass", info: "Chamberlin", version: "3.0", category: "Misc", size: 4030956, filename: "Pizzicato Bass_Chamberlin", ext: "nsmp3" }],
+    [0x5bb40ec4, {name: "Pizzicato Violins MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 1919980, filename: "Pizzicato Violins MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x8a4afb57, {name: "Solo Violin", info: "Chamberlin", version: "3.0", category: "Misc", size: 5354860, filename: "Solo Violin_Chamberlin", ext: "nsmp3" }],
+    [0x60926a20, {name: "Staccato Violin", info: "Chamberlin", version: "3.0", category: "Misc", size: 5574636, filename: "Staccato Violin_Chamberlin", ext: "nsmp3" }],
+    [0xca3c285c, {name: "Vibrato Violin", info: "Chamberlin", version: "3.0", category: "Misc", size: 6264940, filename: "Vibrato Violin_Chamberlin", ext: "nsmp3" }],
+
+    // Nord Sample Library Archive Chamberlin Tuned Percussion
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/chamberlin/chamberlin-tuned-percussion
+
+    [0xabdf9938, {name: "M Glockenspiel", info: "Chamberlin", version: "3.0", category: "Misc", size: 3185388, filename: "M Glockenspiel_Chamberlin", ext: "nsmp3" }],
+    [0xff42e3b3, {name: "M Marimba", info: "Chamberlin", version: "3.0", category: "Misc", size: 4521324, filename: "M Marimba_Chamberlin", ext: "nsmp3" }],
+    [0xc1c7211a, {name: "M Vibraphone", info: "Chamberlin", version: "3.0", category: "Misc", size: 9727340, filename: "M Vibraphone_Chamberlin", ext: "nsmp3" }],
+    [0x5499b75d, {name: "Marimba MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 5479916, filename: "Marimba MMaster_Chamberlin", ext: "nsmp3" }],
+    [0x8669f5c8, {name: "Vibraphone MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 8266604, filename: "Vibraphone MMaster_Chamberlin", ext: "nsmp3" }],
+
+    // Nord Sample Library Archive Chamberlin Voices
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/chamberlin/chamberlin-voices
+
+    [0xa9ed31ce, {name: "Doo Vocal", info: "Chamberlin", version: "3.0", category: "Misc", size: 4252140, filename: "Doo Vocal_Chamberlin", ext: "nsmp3" }],
+    [0xe5f18fe4, {name: "M Female Solo Voice", info: "Chamberlin", version: "3.0", category: "Misc", size: 4147052, filename: "M Female Solo Voice_Chamberlin", ext: "nsmp3" }],
+    [0xb469398f, {name: "Male Voice MMaster", info: "Chamberlin", version: "3.0", category: "Misc", size: 6138988, filename: "Male Voice MMaster_Chamberlin", ext: "nsmp3" }],
+
+
+
+
+
 ]);

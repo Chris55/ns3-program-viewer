@@ -41,7 +41,8 @@
         "prettier": "^2.1.1",
         "showdown": "^1.9.1",
         "unzipper": "^0.10.11",
-        "xml-js": "^1.6.11"
+        "xml-js": "^1.6.11",
+        "xxhashjs": "^0.2.2"
     },
     "keywords": [
         "Nord",

@@ -80,7 +80,7 @@ exports.ns3PianoLibrary = new Map([
 
     // Upright Piano
 
-    [0x08105835, "Baby Upright Nordiska  XL 5.4"],
+    [0x8105835a, {name: "Baby Upright XL", info: "Nordiska", version: "5.4", category: "None", size: 129742752, filename: "Baby Upright Nordiska  XL 5.4", ext: "npno" }],
     [0x9123351c, "Baby Upright Nordiska  Lrg 5.4"],
     [0x4c459568, "Baby Upright Nordiska  Med 5.4"],
     [0xd4be9234, "Baby Upright Nordiska  Sml 5.4"],

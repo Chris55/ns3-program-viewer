@@ -33,56 +33,12 @@ exports.ns2PianoLibrary = new Map([
     [0x933315ff, {name: "White Grand Med", info: "Stw B", version: "6.1", category: "None", size: 115590096, filename: "White Grand Med 6.1", ext: "npno" }],
     [0x2042b37d, {name: "Black Upright Sml", info: "Petrof", version: "5.3", category: "None", size: 34157136, filename: "Black Upright Petrof Sml 5.3", ext: "npno" }],
 
-    // Andreas bundle 1
+    // Fred
 
-    [0xd2cd5e9c, {name: "MK80 A.Piano1 Lrg", info: "", version: "5.1", category: "None", size: 28312318, filename: "MK80_A.Piano1__Lrg_5.1", ext: "npno" }],
-    [0x4f8d2ac, {name: "MK80 E.Piano1 Lrg", info: "Contemp", version: "5.1", category: "None", size: 17251212, filename: "MK80_E.Piano1_Contemp_Lrg_5.1", ext: "npno" }],
-    [0xca7e8b2, {name: "MK80 E.Piano3 Lrg", info: "Blend", version: "5.1", category: "None", size: 18368258, filename: "MK80_E.Piano3_Blend_Lrg_5.1", ext: "npno" }],
-    [0x2ca3db6, {name: "MKS20 A.Piano1 Lrg", info: "", version: "5.1", category: "None", size: 28856022, filename: "MKS20_A.Piano1__Lrg_5.1", ext: "npno" }],
-    [0x15cc49f6, {name: "MKS20 A.Piano2 Lrg", info: "", version: "5.1", category: "None", size: 30444210, filename: "MKS20_A.Piano2__Lrg_5.1", ext: "npno" }],
-    [0xbb5822de, {name: "MKS20 A.Piano3 Lrg", info: "ElecGrand", version: "5.1", category: "None", size: 28792658, filename: "MKS20_A.Piano3_ElecGrand_Lrg_5.1", ext: "npno" }],
-    [0x3646b1fe, {name: "MKS20 E.Piano1 Lrg", info: "", version: "5.1", category: "None", size: 19380038, filename: "MKS20_E.Piano1__Lrg_5.1", ext: "npno" }],
-    [0x25096c49, {name: "MKS20 E.Piano2 Lrg", info: "", version: "5.1", category: "None", size: 12646080, filename: "MKS20_E.Piano2__Lrg_5.1", ext: "npno" }],
-    [0x71011535, {name: "Amber Upright Lrg", info: "GrSt 132", version: "5.3", category: "None", size: 104640388, filename: "Amber Upright GrSt 132 Lrg 5.3", ext: "npno" }],
-    [0x4080a3de, {name: "Baby Upright Lrg", info: "Nordiska", version: "5.4", category: "None", size: 90686000, filename: "Baby Upright Nordiska Lrg 5.4", ext: "npno" }],
-    [0xc9896eef, {name: "Baby Upright Med", info: "Nordiska", version: "5.4", category: "None", size: 79472616, filename: "Baby Upright Nordiska Med 5.4", ext: "npno" }],
-    [0xf758250e, {name: "Baby Upright Sml", info: "Nordiska", version: "5.4", category: "None", size: 47845804, filename: "Baby Upright Nordiska Sml 5.4", ext: "npno" }],
-    [0x8d72d81a, {name: "Baby Upright XL", info: "Nordiska", version: "5.4", category: "None", size: 129742752, filename: "Baby Upright Nordiska XL 5.4", ext: "npno" }],
-    [0xdadcf04d, {name: "Bambino Upright Lrg", info: "Baldwin", version: "5.4", category: "None", size: 101192160, filename: "Bambino Upright Baldwin Lrg 5.4", ext: "npno" }],
-    [0xf907604, {name: "Bambino Upright Med", info: "Baldwin", version: "5.4", category: "None", size: 85408392, filename: "Bambino Upright Baldwin Med 5.4", ext: "npno" }],
-    [0x51d04936, {name: "Bambino Upright Sml", info: "Baldwin", version: "5.4", category: "None", size: 54376384, filename: "Bambino Upright Baldwin Sml 5.4", ext: "npno" }],
-    [0x65dd43cf, {name: "Bambino Upright XL", info: "Baldwin", version: "5.4", category: "None", size: 130911920, filename: "Bambino Upright Baldwin XL 5.4", ext: "npno" }],
+    [0x1123351d, {name: "Baby Upright Lrg", info: "Nordiska", version: "5.4", category: "None", size: 90686000, filename: "Baby Upright Nordiska  Lrg 5.4", ext: "npno" }], // 914dde6f
+    [0xcc459569, {name: "Baby Upright Med", info: "Nordiska", version: "5.4", category: "None", size: 79472616, filename: "Baby Upright Nordiska  Med 5.4", ext: "npno" }], // f7ae588
+    [0x54be9235, {name: "Baby Upright Sml", info: "Nordiska", version: "5.4", category: "None", size: 47845804, filename: "Baby Upright Nordiska  Sml 5.4", ext: "npno" }], // 34754e48
+    [0x105835b, {name: "Baby Upright XL", info: "Nordiska", version: "5.4", category: "None", size: 129742752, filename: "Baby Upright Nordiska  XL 5.4", ext: "npno" }], // 86d12b0c
 
-    // Grand Piano
-    // https://www.nordkeyboards.com/sound-libraries/nord-piano-library/grand-pianos/white-grand
-
-
-
-    // Chris Maene Collection
-
-
-
-    // Upright Piano
-
-
-
-    // Electric
-
-
-    // Electric Grands
-
-
-
-    // Clavinet
-
-    // Harpsichord (listed as Clav type)
-
-
-
-    // Digital
-
-
-
-    // Miscellaneous
 
 ]);
