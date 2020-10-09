@@ -44,10 +44,10 @@ exports.ns2PianoSlotDetuneMap = new Map([
  * @type {Map<number, string>}
  */
 exports.ns2PianoClavinetModelMap = new Map([
-    [0, "CA"],
-    [1, "CB"],
-    [2, "DA"],
-    [3, "DB"],
+    [0, "A"],
+    [1, "B"],
+    [2, "C"],
+    [3, "D"],
 ]);
 
 /***

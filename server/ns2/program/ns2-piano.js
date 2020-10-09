@@ -1,9 +1,8 @@
 const mapping = require("./ns2-mapping");
 const { ns2VolumeEx } = require("./ns2-utils");
 const { ns2KbZone } = require("./ns2-utils");
-const byteSize = require("byte-size");
 const {getSample} = require("../../ns3/library/ns3-library");
-const {ns3PianoLibrary} = require("../../ns3/library/ns3-library-piano");
+
 /***
  * returns Piano section
  *
@@ -40,6 +39,8 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     const clavinetEnabled = pianoType === "Clavinet";
 
     const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, splitEnabled, (pianoOffset4c & 0xe0) >>> 5);
+    const clavinetVariation = (pianoOffsetCeW & 0x0180) >>> 7;
+    const clavinetModel = mapping.ns2PianoClavinetModelMap.get(clavinetVariation);
 
     const ns2PianoSampleId = BigInt((pianoOffsetCdWww & 0x0000003fffffffc0n) >> 6n);
     // convert the sampleId to NS3 format:
@@ -50,13 +51,10 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     //  | 0x3f61a640 | 0xbf61a63f | Italian Grand Faz Sml 5.3
     //  | 0x9fef7497 | 0x1fef7496 | Italian Grand Faz Lrg 5.3
     //  | 0x01a1a00b | 0x81a1a00a | EP4 Mk5 80s Lrg
-    //
-    // not working:
-    //  | 0x4720431d | 0xc8b6007d | Wurlitzer 2 Amped XL 5.3
 
     const pianoSampleId = Number(ns2PianoSampleId ^ 0x80000000n) - 1;
 
-    let pianoLib = getSample(pianoSampleId);
+    let pianoLib = getSample(pianoSampleId, clavinetVariation);
 
     const piano = {
         debug: {
@@ -263,7 +261,7 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          */
         clavinetModel: {
             enabled: clavinetEnabled,
-            value: mapping.ns2PianoClavinetModelMap.get((pianoOffsetCeW & 0x0180) >>> 7),
+            value: clavinetModel,
         },
         /**
          * Offset in file: 0xCF (b1-0)

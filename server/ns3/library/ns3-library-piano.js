@@ -39,10 +39,11 @@ exports.ns3PianoLibrary = new Map([
     [0xfa8ace45, "Bright Grand YaS4  Med 5.3"],
     [0x610087f7, "Bright Grand YaS4  Sml 5.3"],
 
-    [0xe45554ef, "Grand Imperial Bdorf XL 5.3"],
-    [0x2dc42571, "Grand Imperial Bdorf Lrg 5.3"],
-    [0xd50fbb65, "Grand Imperial Bdorf Med 5.3"],
-    [0xe1b8094f, "Grand Imperial Bdorf Sml 5.3"],
+    [0x2dc42571, {name: "Grand Imperial Lrg", info: "Bdorf", version: "5.3", category: "None", size: 93533292, filename: "Grand Imperial Bdorf Lrg 5.3", ext: "npno" }],
+    [0xd50fbb65, {name: "Grand Imperial Med", info: "Bdorf", version: "5.3", category: "None", size: 77512420, filename: "Grand Imperial Bdorf Med 5.3", ext: "npno" }],
+    [0xe1b8094f, {name: "Grand Imperial Sml", info: "Bdorf", version: "5.3", category: "None", size: 45683252, filename: "Grand Imperial Bdorf Sml 5.3", ext: "npno" }],
+    [0xe45554ef, {name: "Grand Imperial XL", info: "Bdorf", version: "5.3", category: "None", size: 206464292, filename: "Grand Imperial Bdorf XL 5.3", ext: "npno" }],
+
 
     [0x5f256d93, "Grand Lady D   Stw D  Lrg 5.3"],
     [0x6114dad6, "Grand Lady D   Stw D  Med 5.3"],

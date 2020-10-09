@@ -1,7 +1,15 @@
 const {ns3SampleLibrary} = require("./ns3-library-sample");
 const { ns3PianoLibrary } = require("./ns3-library-piano");
 
-exports.getSample = (sampleId, location, pianoSampleVariation) => {
+/***
+ * returns sample library object
+ *
+ * @param sampleId
+ * @param clavinetModel
+ * @param location
+ * @returns {{size: (string|string), value: (string|*), version: string, info: string}}
+ */
+exports.getSample = (sampleId, clavinetModel, location, ) => {
     let sampleLib = ns3PianoLibrary.get(sampleId) || ns3SampleLibrary.get(sampleId);
     let sampleInfo = "";
     let sampleVersion = "";
@@ -9,8 +17,8 @@ exports.getSample = (sampleId, location, pianoSampleVariation) => {
 
     // special clavinet multi sample case...
     if (sampleLib instanceof Array) {
-        if (pianoSampleVariation >= 0 && pianoSampleVariation < sampleLib.length) {
-            sampleLib = sampleLib[pianoSampleVariation];
+        if (clavinetModel >= 0 && clavinetModel < sampleLib.length) {
+            sampleLib = sampleLib[clavinetModel];
         } else {
             sampleLib = sampleLib[0] + " unknown variation";
         }
