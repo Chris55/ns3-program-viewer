@@ -141,8 +141,14 @@ const run = async (backupFilename) => {
                     const program = loadNs2ProgramFile(buffer, entry.path);
 
                     let data = getProgramDetails(entry.path);
-                    data.pianoA = program.slotA.piano.debug.sampleId;
-                    data.pianoB = program.slotB.piano.debug.sampleId;
+
+                    if (program.slotA.piano.enabled) {
+                        data.pianoA = program.slotA.piano.debug.sampleId;
+                    }
+
+                    if (program.slotB.piano.enabled) {
+                        data.pianoB = program.slotB.piano.debug.sampleId;
+                    }
 
                     // if (program.panelA.synth.oscillators.type.value === "Sample") {
                     //     updateSampleId(program.panelA.synth.debug.sampleId, entry.path);
@@ -159,14 +165,19 @@ const run = async (backupFilename) => {
                     const program = loadNs3ProgramFile(buffer, entry.path);
 
                     const data = getProgramDetails(entry.path);
-                    data.pianoA = program.panelA.piano.debug.sampleId;
-                    data.pianoB = program.panelB.piano.debug.sampleId;
 
-                    if (program.panelA.synth.oscillators.type.value === "Sample") {
+                    if (program.panelA.piano.enabled) {
+                        data.pianoA = program.panelA.piano.debug.sampleId;
+                    }
+                    if (program.panelB.piano.enabled) {
+                        data.pianoB = program.panelB.piano.debug.sampleId;
+                    }
+
+                    if (program.panelA.synth.enabled && program.panelA.synth.oscillators.type.value === "Sample") {
                         data.synthA = program.panelA.synth.debug.sampleId;
                     }
 
-                    if (program.panelB.synth.oscillators.type.value === "Sample") {
+                    if (program.panelB.synth.enabled && program.panelB.synth.oscillators.type.value === "Sample") {
                         data.synthB = program.panelB.synth.debug.sampleId;
                     }
 
@@ -210,7 +221,7 @@ run(inputFile).then(() => {
             const sample = samplesByFilename.get(pianoSampleFilename2);
             if (sample && program.pianoB !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.pianoB) {
-                    throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
+                    throw new Error(pianoSampleFilename2 + " try to assign sampleId multiple time !")
                 }
                 sample.sampleId = program.pianoB;
             }
@@ -221,7 +232,7 @@ run(inputFile).then(() => {
             const sample = samplesByFilename.get(synthSampleFilename1);
             if (sample && program.synthA !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.synthA) {
-                    throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
+                    throw new Error(synthSampleFilename1 + " try to assign sampleId multiple time !")
                 }
                 sample.sampleId = program.synthA;
             }
@@ -231,7 +242,7 @@ run(inputFile).then(() => {
             const sample = samplesByFilename.get(synthSampleFilename2);
             if (sample && program.synthB !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.synthB) {
-                    throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
+                    throw new Error(synthSampleFilename2 + " try to assign sampleId multiple time !")
                 }
                 sample.sampleId = program.synthB;
             }

@@ -9,20 +9,20 @@ exports.ns3PianoLibrary = new Map([
     // Grand Piano
     // https://www.nordkeyboards.com/sound-libraries/nord-piano-library/grand-pianos/white-grand
 
-    [0xcf174f4a, "White Grand XL 6.1"],
-    [0xf04da306, "White Grand Lrg 6.1"],
-    [0x133315fe, "White Grand Med 6.1"],
-    [0xddceebc3, "White Grand Sml 6.1"],
+    [0xf04da306, {name: "White Grand Lrg", info: "Stw B", version: "6.1", category: "None", size: 162665460, filename: "White Grand Lrg 6.1", ext: "npno" }],
+    [0x133315fe, {name: "White Grand Med", info: "Stw B", version: "6.1", category: "None", size: 115590096, filename: "White Grand Med 6.1", ext: "npno" }],
+    [0xddceebc3, {name: "White Grand Sml", info: "Stw B", version: "6.1", category: "None", size: 70517852, filename: "White Grand Sml 6.1", ext: "npno" }],
+    [0xcf174f4a, {name: "White Grand XL", info: "Stw B", version: "6.1", category: "None", size: 256842760, filename: "White Grand XL 6.1", ext: "npno" }],
 
-    [0x5303b5f1, "Royal Grand 3D YaS6 XL 5.4"],
-    [0x2d577b5a, "Royal Grand 3D YaS6 Lrg 5.4"],
-    [0xd30a6ca6, "Royal Grand 3D YaS6 Med 5.4"],
-    [0x34799bd8, "Royal Grand 3D YaS6 Sml 5.4"],
+    [0x2d577b5a, {name: "Royal Grand 3D Lrg", info: "YaS6", version: "5.4", category: "None", size: 103471220, filename: "Royal Grand 3D YaS6 Lrg 5.4", ext: "npno" }],
+    [0xd30a6ca6, {name: "Royal Grand 3D Med", info: "YaS6", version: "5.4", category: "None", size: 85790620, filename: "Royal Grand 3D YaS6 Med 5.4", ext: "npno" }],
+    [0x34799bd8, {name: "Royal Grand 3D Sml", info: "YaS6", version: "5.4", category: "None", size: 53885824, filename: "Royal Grand 3D YaS6 Sml 5.4", ext: "npno" }],
+    [0x5303b5f1, {name: "Royal Grand 3D XL", info: "YaS6", version: "5.4", category: "None", size: 209565040, filename: "Royal Grand 3D YaS6 XL 5.4", ext: "npno" }],
 
-    [0xb75c012b, "Velvet Grand Model1 XL 5.3"],
-    [0xd78ad52d, "Velvet Grand Model1 Lrg 5.3"],
-    [0x0a536dd4, "Velvet Grand Model1 Med 5.3"],
-    [0x0eca16f2, "Velvet Grand Model1 Sml 5.3"],
+    [0xd78ad52d, {name: "Velvet Grand Lrg", info: "Model1", version: "5.3", category: "None", size: 111238420, filename: "Velvet Grand Model1 Lrg 5.3", ext: "npno" }],
+    [0xa536dd4, {name: "Velvet Grand Med", info: "Model1", version: "5.3", category: "None", size: 91487248, filename: "Velvet Grand Model1 Med 5.3", ext: "npno" }],
+    [0xeca16f2, {name: "Velvet Grand Sml", info: "Model1", version: "5.3", category: "None", size: 60350996, filename: "Velvet Grand Model1 Sml 5.3", ext: "npno" }],
+    [0xb75c012b, {name: "Velvet Grand XL", info: "Model1", version: "5.3", category: "None", size: 199522868, filename: "Velvet Grand Model1 XL 5.3", ext: "npno" }],
 
     [0x6465e569, "Silver Grand SK7  XL 5.3"],
     [0xfca6327e, "Silver Grand SK7  Lrg 5.3"],
