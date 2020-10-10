@@ -55,10 +55,10 @@
 <dt><a href="#module_NS2 Piano Clavinet Eq">NS2 Piano Clavinet Eq</a></dt>
 <dd><p>Offset in file: 0xD0 (b7-6)</p>
 </dd>
-<dt><a href="#module_NS3 File Version">NS3 File Version</a></dt>
+<dt><a href="#module_NS2 File Version">NS2 File Version</a></dt>
 <dd><p>Offset in file: 0x14 and 0x15</p>
 </dd>
-<dt><a href="#module_NS3 File Format">NS3 File Format</a></dt>
+<dt><a href="#module_NS2 File Format">NS2 File Format</a></dt>
 <dd><p>Offset in file: 0x04</p>
 <p>0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
 1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).</p>
@@ -247,18 +247,18 @@ Offset in file: 0xD0 (b7-6)
 ```js
 #include ns2PianoClavinetEqMap
 ```
-<a name="module_NS3 File Version"></a>
+<a name="module_NS2 File Version"></a>
 
-## NS3 File Version
+## NS2 File Version
 Offset in file: 0x14 and 0x15
 
 **Example**  
 ```js
-16-bit integer value in Little Endian format, ex 304 = v3.04Notes:From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)Programs stored with OS versionOS version          Program versionv0.92 (2017-06-15)  v3.00v1.36 (2018-02-07)  v3.01v1.50 (2018-10-22)  v3.02vx.xx               v3.03vx.xx               v3.04
+16-bit integer value in Little Endian formatcurrent supported version are 2 to 7
 ```
-<a name="module_NS3 File Format"></a>
+<a name="module_NS2 File Format"></a>
 
-## NS3 File Format
+## NS2 File Format
 Offset in file: 0x040 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
 
 <a name="module_NS3 Transpose"></a>

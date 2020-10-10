@@ -41,7 +41,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 | 0.1  | 23-Sep-2020  | Draft version
 | 0.2  | 26-Sep-2020  | Added Delay section
 | 1.0  | 27-Sep-2020  | Added Amp Sim / Eq section and bumped to v1.0
-| 1.x  | xx-xxx-2020  | Draft added Stage 2
+| 1.1  | xx-xxx-2020  | Draft added Stage 2
 
 \newpage
 
