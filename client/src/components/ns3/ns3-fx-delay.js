@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
-import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
+import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordValueOnOff from "./lib/nord-value-on-off";
+import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
 
 export default class Ns3FxDelay extends Component {
     render() {
@@ -19,26 +19,26 @@ export default class Ns3FxDelay extends Component {
 
                             <table className="table-borderless">
                                 <tbody>
-                                    <Ns3LabelAndValueWithMorph
+                                    <NordLabelAndValueWithMorph
                                         label={tempoLabel}
                                         data={fx.tempo}
                                         valueClass="nord-delay-tempo"
                                         upperCase={false}
                                     />
                                     <tr>
-                                        <Ns3ValueOnOff label="Mst Clk" data={fx.masterClock} table={true} />
+                                        <NordValueOnOff label="Mst Clk" data={fx.masterClock} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3ValueOnOff label="Ping Pong" data={fx.pingPong} table={true} />
+                                        <NordValueOnOff label="Ping Pong" data={fx.pingPong} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3LabelAndValue label="Filter" data={fx.filter} table={true} />
+                                        <NordLabelAndValue label="Filter" data={fx.filter} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3ValueOnOff label="Analog Mode" data={fx.analogMode} table={true} />
+                                        <NordValueOnOff label="Analog Mode" data={fx.analogMode} table={true} />
                                     </tr>
-                                    <Ns3LabelAndValueWithMorph label="Feedback" data={fx.feedback} />
-                                    <Ns3LabelAndValueWithMorph label="Mix" data={fx.mix} />
+                                    <NordLabelAndValueWithMorph label="Feedback" data={fx.feedback} />
+                                    <NordLabelAndValueWithMorph label="Mix" data={fx.mix} />
                                 </tbody>
                             </table>
                         </div>

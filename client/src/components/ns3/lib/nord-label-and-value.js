@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ns3.css";
 
-export default class Ns3LabelAndValue extends Component {
+export default class NordLabelAndValue extends Component {
     render() {
         const labelClassName =
             this.props.enabled === undefined

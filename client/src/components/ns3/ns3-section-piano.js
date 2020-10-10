@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3VolumeAndMore from "./lib/ns3-volume-and-more";
 import Ns3Fx from "./ns3-fx";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
+import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordValueOnOff from "./lib/nord-value-on-off";
 
 export default class Ns3SectionPiano extends Component {
     render() {
@@ -32,9 +32,9 @@ export default class Ns3SectionPiano extends Component {
                                         </div>
 
                                         <div>
-                                            <Ns3LabelAndValue label="Type" data={piano.type} />
+                                            <NordLabelAndValue label="Type" data={piano.type} />
                                             <span className="m-1" />
-                                            <Ns3LabelAndValue
+                                            <NordLabelAndValue
                                                 enabled={piano.timbre.value !== "None"}
                                                 label="Timbre"
                                                 data={piano.timbre}
@@ -42,13 +42,13 @@ export default class Ns3SectionPiano extends Component {
                                         </div>
 
                                         <div>
-                                            <Ns3LabelAndValue
+                                            <NordLabelAndValue
                                                 enabled={piano.kbTouch.value !== "Normal"}
                                                 label="KB Touch"
                                                 data={piano.kbTouch}
                                             />
                                             <span className="m-1" />
-                                            <Ns3LabelAndValue
+                                            <NordLabelAndValue
                                                 enabled={piano.layerDetune.value !== "Off"}
                                                 label="Layer Detune"
                                                 data={piano.layerDetune}
@@ -56,11 +56,11 @@ export default class Ns3SectionPiano extends Component {
                                         </div>
 
                                         <div>
-                                            <Ns3ValueOnOff label="Soft Release" data={piano.softRelease} />
+                                            <NordValueOnOff label="Soft Release" data={piano.softRelease} />
                                             <span className="m-1" />
-                                            <Ns3ValueOnOff label="String Resonance" data={piano.stringResonance} />
+                                            <NordValueOnOff label="String Resonance" data={piano.stringResonance} />
                                             <span className="m-1" />
-                                            <Ns3ValueOnOff label="Pedal Noise" data={piano.pedalNoise} />
+                                            <NordValueOnOff label="Pedal Noise" data={piano.pedalNoise} />
                                         </div>
                                     </div>
 

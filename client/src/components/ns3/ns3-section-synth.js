@@ -7,8 +7,8 @@ import Ns3SectionSynthAmpEnv from "./ns3-section-synth-amp-env";
 import Ns3SectionSynthFilter from "./ns3-section-synth-filter";
 import Ns3SectionSynthModEnv from "./ns3-section-synth-mod-env";
 import Ns3SectionSynthLfo from "./ns3-section-synth-lfo";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
+import NordValueOnOff from "./lib/nord-value-on-off";
+import NordLabelAndValue from "./lib/nord-label-and-value";
 import Ns3SectionSynthOscillators from "./ns3-section-synth-oscilaltors";
 
 export default class Ns3SectionSynth extends Component {
@@ -29,27 +29,27 @@ export default class Ns3SectionSynth extends Component {
                                 <div className="row no-gutters d-flex flex-wrap">
                                     <div className="row no-gutters flex-column m-1">
                                         <div >
-                                            <Ns3LabelAndValue label="Voice" data={synth.voice} />
+                                            <NordLabelAndValue label="Voice" data={synth.voice} />
                                             <span className="m-1" />
-                                            <Ns3LabelAndValue
+                                            <NordLabelAndValue
                                                 enabled={synth.voice.value !== "Poly"}
                                                 label="Glide Rate"
                                                 data={synth.glide}
                                             />
                                             <span className="m-1" />
-                                            <Ns3LabelAndValue
+                                            <NordLabelAndValue
                                                 enabled={synth.unison.value !== "Off"}
                                                 label="Unison"
                                                 data={synth.unison}
                                             />
                                             <span className="m-1" />
-                                            <Ns3LabelAndValue
+                                            <NordLabelAndValue
                                                 enabled={synth.vibrato.value !== "Off"}
                                                 label="Vibrato"
                                                 data={synth.vibrato}
                                             />
                                             <span className="m-1" />
-                                            <Ns3ValueOnOff label="Kb Hold" data={synth.keyboardHold} />
+                                            <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />
                                         </div>
                                         <div className="nord-name">
                                             <div >{synth.oscillators.waveForm1.name}</div>

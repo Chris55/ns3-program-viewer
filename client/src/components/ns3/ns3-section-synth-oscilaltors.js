@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
+import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
+import NordValueOnOff from "./lib/nord-value-on-off";
+import NordLabelAndValue from "./lib/nord-label-and-value";
 
 export default class Ns3SectionSynthOscillators extends Component {
     render() {
@@ -29,20 +29,20 @@ export default class Ns3SectionSynthOscillators extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <Ns3LabelAndValue label="Type" data={osc.type} table={true} />
+                                        <NordLabelAndValue label="Type" data={osc.type} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3ValueOnOff label="Fast Atk" data={osc.fastAttack} table={true} />
+                                        <NordValueOnOff label="Fast Atk" data={osc.fastAttack} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3LabelAndValue label="Config" data={osc.config} table={true} />
+                                        <NordLabelAndValue label="Config" data={osc.config} table={true} />
                                     </tr>
 
-                                    <Ns3LabelAndValueWithMorph label="Ctrl" data={osc.control} />
+                                    <NordLabelAndValueWithMorph label="Ctrl" data={osc.control} />
                                     <tr>
-                                        <Ns3LabelAndValue label="OSC 2 Pitch" data={osc.pitch} table={true} />
+                                        <NordLabelAndValue label="OSC 2 Pitch" data={osc.pitch} table={true} />
                                     </tr>
-                                    <Ns3LabelAndValueWithMorph label={lfoModEnvTitle} data={lfoModEnvValue} />
+                                    <NordLabelAndValueWithMorph label={lfoModEnvTitle} data={lfoModEnvValue} />
                                 </tbody>
                             </table>
                         </div>

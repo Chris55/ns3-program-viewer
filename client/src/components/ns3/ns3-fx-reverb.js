@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
-import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
+import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordValueOnOff from "./lib/nord-value-on-off";
+import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
 
 export default class Ns3FxReverb extends Component {
     render() {
@@ -21,11 +21,11 @@ export default class Ns3FxReverb extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <Ns3LabelAndValue label="Type" data={fx.type} table={true} />
+                                        <NordLabelAndValue label="Type" data={fx.type} table={true} />
                                     </tr>
-                                    <Ns3LabelAndValueWithMorph label="Amount" data={fx.amount} />
+                                    <NordLabelAndValueWithMorph label="Amount" data={fx.amount} />
                                     <tr>
-                                        <Ns3ValueOnOff label="Bright" data={fx.bright} table={true} />
+                                        <NordValueOnOff label="Bright" data={fx.bright} table={true} />
                                     </tr>
                                 </tbody>
                             </table>

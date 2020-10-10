@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ns3.css";
-import Ns3Label from "./ns3-label";
-import Ns3LabelAndValue from "./ns3-label-and-value";
+import NordLabel from "./nord-label";
+import NordLabelAndValue from "./nord-label-and-value";
 
-export default class Ns3LabelAndValueWithMorph extends Component {
+export default class NordLabelAndValueWithMorph extends Component {
     render() {
         const data = this.props.data;
         const morphing =
@@ -15,7 +15,7 @@ export default class Ns3LabelAndValueWithMorph extends Component {
             <>
                 <tr>
                     <td className="nord-label">
-                        <Ns3Label label={this.props.label} />
+                        <NordLabel label={this.props.label} />
                     </td>
 
                     <td className="nord-label text-right">
@@ -23,7 +23,7 @@ export default class Ns3LabelAndValueWithMorph extends Component {
                     </td>
 
                     <td className="nord-value">
-                        <Ns3LabelAndValue
+                        <NordLabelAndValue
                             data={data}
                             valueClass={this.props.valueClass}
                             upperCase={this.props.upperCase}
@@ -36,7 +36,7 @@ export default class Ns3LabelAndValueWithMorph extends Component {
                         <span className="nord-morph">Wheel</span>
                     </td>
                     <td>
-                        <Ns3LabelAndValue
+                        <NordLabelAndValue
                             data={data.morph.wheel.to}
                             upperCase={this.props.upperCase}
                             valueClass={this.props.valueClass}
@@ -49,7 +49,7 @@ export default class Ns3LabelAndValueWithMorph extends Component {
                         <span className="nord-morph">A-Touch</span>
                     </td>
                     <td className="nord-morph-space">
-                        <Ns3LabelAndValue
+                        <NordLabelAndValue
                             data={data.morph.afterTouch.to}
                             upperCase={this.props.upperCase}
                             valueClass={this.props.valueClass}
@@ -62,7 +62,7 @@ export default class Ns3LabelAndValueWithMorph extends Component {
                         <span className="nord-morph">CtrlPed</span>
                     </td>
                     <td>
-                        <Ns3LabelAndValue
+                        <NordLabelAndValue
                             data={data.morph.controlPedal.to}
                             upperCase={this.props.upperCase}
                             valueClass={this.props.valueClass}

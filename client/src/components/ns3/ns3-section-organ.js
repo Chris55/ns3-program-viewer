@@ -3,10 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import Ns3VolumeAndMore from "./lib/ns3-volume-and-more";
 import Ns3Fx from "./ns3-fx";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3Label from "./lib/ns3-label";
-import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
+import NordValueOnOff from "./lib/nord-value-on-off";
+import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordLabel from "./lib/nord-label";
+import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
 
 export default class Ns3SectionOrgan extends Component {
     render() {
@@ -34,12 +34,12 @@ export default class Ns3SectionOrgan extends Component {
                                             <div className="nord-name">
                                                 <table>
                                                     <tbody>
-                                                        <Ns3LabelAndValueWithMorph
+                                                        <NordLabelAndValueWithMorph
                                                             label="Preset I"
                                                             data={organ.preset1}
                                                             valueClass="nord-font-monospace"
                                                         />
-                                                        <Ns3LabelAndValueWithMorph
+                                                        <NordLabelAndValueWithMorph
                                                             label="Preset II"
                                                             data={organ.preset2}
                                                             valueClass="nord-font-monospace"
@@ -50,18 +50,18 @@ export default class Ns3SectionOrgan extends Component {
                                         </div>
 
                                         <div>
-                                            <Ns3LabelAndValue
+                                            <NordLabelAndValue
                                                 label="Model"
                                                 data={organ.type}
                                             />
                                         </div>
 
                                         <div>
-                                            <Ns3Label enabled={organ.vibrato.enabled} label={vibratoChorusTitle} />
+                                            <NordLabel enabled={organ.vibrato.enabled} label={vibratoChorusTitle} />
                                         </div>
 
                                         <div>
-                                            <Ns3LabelAndValue
+                                            <NordLabelAndValue
                                                 label="Type"
                                                 enabled={organ.vibrato.enabled}
                                                 data={organ.vibrato.mode}
@@ -69,16 +69,16 @@ export default class Ns3SectionOrgan extends Component {
                                         </div>
 
                                         <div>
-                                            <Ns3ValueOnOff label="Percussion" data={organ.percussion} />
+                                            <NordValueOnOff label="Percussion" data={organ.percussion} />
                                         </div>
                                         <div>
-                                            <Ns3ValueOnOff label="Volume Soft" data={organ.percussion.volumeSoft} />
+                                            <NordValueOnOff label="Volume Soft" data={organ.percussion.volumeSoft} />
                                             <span className="m-1" />
 
-                                            <Ns3ValueOnOff label="Decay Fast" data={organ.percussion.decayFast} />
+                                            <NordValueOnOff label="Decay Fast" data={organ.percussion.decayFast} />
                                             <span className="m-1" />
 
-                                            <Ns3ValueOnOff
+                                            <NordValueOnOff
                                                 label="Harmonic Third"
                                                 data={organ.percussion.harmonicThird}
                                             />

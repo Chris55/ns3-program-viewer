@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./ns3.css";
 import Ns3Panel from "./ns3-panel";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3Label from "./lib/ns3-label";
+import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordLabel from "./lib/nord-label";
 
 export default class Ns3 extends Component {
     render() {
@@ -21,12 +21,12 @@ export default class Ns3 extends Component {
                     </div>
 
                     <div className="col-2 text-right nord-option-on">
-                        <Ns3Label label="Master Clock Rate" />
+                        <NordLabel label="Master Clock Rate" />
                         <br />
-                        <Ns3LabelAndValue data={data.masterClock.rate} />
+                        <NordLabelAndValue data={data.masterClock.rate} />
                     </div>
                     <div className={data.split.enabled ? "col-1 text-right mr-1" : "col-1 text-right mr-1"  }>
-                        <Ns3Label enabled={data.split.enabled} label="Split" />
+                        <NordLabel enabled={data.split.enabled} label="Split" />
                     </div>
                     <div className={data.split.enabled ? "col-1" : "d-none"}>
                         <table>
@@ -57,9 +57,9 @@ export default class Ns3 extends Component {
                         </table>
                     </div>
                     <div className="col-1 text-right nord-option-on">
-                        <Ns3Label enabled={data.dualKeyboard.enabled} label="Dual KB" />
+                        <NordLabel enabled={data.dualKeyboard.enabled} label="Dual KB" />
                         <br />
-                        <Ns3LabelAndValue enabled={data.dualKeyboard.enabled} data={data.dualKeyboard} />
+                        <NordLabelAndValue enabled={data.dualKeyboard.enabled} data={data.dualKeyboard} />
                     </div>
                 </div>
 

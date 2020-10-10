@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
+import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
 
 export default class Ns3SectionSynthFilter extends Component {
     render() {
@@ -41,15 +41,15 @@ export default class Ns3SectionSynthFilter extends Component {
                                         <table className="table-borderless">
                                             <tbody>
                                                 <tr>
-                                                    <Ns3LabelAndValue label="Type" data={filter.type} table={true} />
+                                                    <NordLabelAndValue label="Type" data={filter.type} table={true} />
                                                 </tr>
 
-                                                <Ns3LabelAndValueWithMorph
+                                                <NordLabelAndValueWithMorph
                                                     label="LFO Amt"
                                                     data={filter.modulations.lfoAmount}
                                                 />
 
-                                                <Ns3LabelAndValueWithMorph
+                                                <NordLabelAndValueWithMorph
                                                     label="Freq"
                                                     data={filter.cutoffFrequency}
                                                     upperCase={false}
@@ -63,7 +63,7 @@ export default class Ns3SectionSynthFilter extends Component {
                                         <table className="table-borderless">
                                             <tbody>
                                                 <tr>
-                                                    <Ns3LabelAndValue
+                                                    <NordLabelAndValue
                                                         enabled={filter.kbTrack.value !== "Off"}
                                                         label="Kb Trk"
                                                         data={filter.kbTrack}
@@ -71,7 +71,7 @@ export default class Ns3SectionSynthFilter extends Component {
                                                     />
                                                 </tr>
                                                 <tr>
-                                                    <Ns3LabelAndValue
+                                                    <NordLabelAndValue
                                                         enabled={filter.drive.value !== "Off"}
                                                         label="Drive"
                                                         data={filter.drive}
@@ -80,14 +80,14 @@ export default class Ns3SectionSynthFilter extends Component {
                                                 </tr>
 
                                                 <tr>
-                                                    <Ns3LabelAndValue
+                                                    <NordLabelAndValue
                                                         label={velModTitle}
                                                         data={velModValue}
                                                         table={true}
                                                     />
                                                 </tr>
 
-                                                <Ns3LabelAndValueWithMorph
+                                                <NordLabelAndValueWithMorph
                                                     label={resFreqHpTitle}
                                                     data={resFreqHpValue}
                                                     upperCase={false}

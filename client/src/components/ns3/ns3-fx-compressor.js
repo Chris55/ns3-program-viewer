@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
+import NordValueOnOff from "./lib/nord-value-on-off";
+import NordLabelAndValue from "./lib/nord-label-and-value";
 
 export default class Ns3FxCompressor extends Component {
     render() {
@@ -19,10 +19,10 @@ export default class Ns3FxCompressor extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <Ns3LabelAndValue label="Amount" data={fx.amount} table={true} />
+                                        <NordLabelAndValue label="Amount" data={fx.amount} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3ValueOnOff label="Fast" data={fx.fast} table={true} />
+                                        <NordValueOnOff label="Fast" data={fx.fast} table={true} />
                                     </tr>
                                 </tbody>
                             </table>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
+import NordLabelAndValue from "./lib/nord-label-and-value";
 
 export default class Ns3SectionSynthAmpEnv extends Component {
     render() {
@@ -16,13 +16,13 @@ export default class Ns3SectionSynthAmpEnv extends Component {
                         <table className="table-borderless">
                             <tbody>
                                 <tr>
-                                    <Ns3LabelAndValue label="Attack" data={env.attack} table={true} upperCase={false} />
+                                    <NordLabelAndValue label="Attack" data={env.attack} table={true} upperCase={false} />
                                 </tr>
                                 <tr>
-                                    <Ns3LabelAndValue label="Decay" data={env.decay} table={true} upperCase={false} />
+                                    <NordLabelAndValue label="Decay" data={env.decay} table={true} upperCase={false} />
                                 </tr>
                                 <tr>
-                                    <Ns3LabelAndValue
+                                    <NordLabelAndValue
                                         label="Release"
                                         data={env.release}
                                         table={true}
@@ -31,7 +31,7 @@ export default class Ns3SectionSynthAmpEnv extends Component {
                                 </tr>
 
                                 <tr>
-                                    <Ns3LabelAndValue
+                                    <NordLabelAndValue
                                         label="Velocity"
                                         data={env.velocity}
                                         enabled={env.velocity.value !== "Off"}

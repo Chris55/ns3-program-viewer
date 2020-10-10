@@ -53,32 +53,32 @@ describe("/ns2/piano", () => {
         });
     });
 
-    test("slotA.piano.clavinetModel.value eq CA", async () => {
-        const file = "slotA.piano.clavinetModel.value eq CA.ns2p";
+    test("slotA.piano.clavinetModel.value eq A", async () => {
+        const file = "slotA.piano.clavinetModel.value eq A.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.clavinetModel.value eq CB", async () => {
-        const file = "slotA.piano.clavinetModel.value eq CB.ns2p";
+    test("slotA.piano.clavinetModel.value eq B", async () => {
+        const file = "slotA.piano.clavinetModel.value eq B.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.clavinetModel.value eq DA", async () => {
-        const file = "slotA.piano.clavinetModel.value eq DA.ns2p";
+    test("slotA.piano.clavinetModel.value eq C", async () => {
+        const file = "slotA.piano.clavinetModel.value eq C.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.clavinetModel.value eq DB", async () => {
-        const file = "slotA.piano.clavinetModel.value eq DB.ns2p";
+    test("slotA.piano.clavinetModel.value eq D", async () => {
+        const file = "slotA.piano.clavinetModel.value eq D.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

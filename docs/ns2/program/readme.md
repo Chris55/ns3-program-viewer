@@ -7,11 +7,11 @@
 | `0x0001` | `cccccccc` | ascii B - 0x42
 | `0x0002` | `cccccccc` | ascii I - 0x49
 | `0x0003` | `cccccccc` | ascii N - 0x4E
-| `0x0004` | `ffffffff` | [(f) file format](ns3-doc.md#ns3-file-format)
+| `0x0004` | `ffffffff` | [(f) file format](ns2-doc.md#ns2-file-format)
 | `0x0005` | `--------` | 0
 | `0x0006` | `--------` | 0
 | `0x0007` | `--------` | 0
-| `0x0008` | `cccccccc` | ascii n - 0x6E, 4-byte NS3 Program file ID
+| `0x0008` | `cccccccc` | ascii n - 0x6E, 4-byte NS2 Program file ID
 | `0x0009` | `cccccccc` | ascii s - 0x73,
 | `0x000A` | `cccccccc` | ascii 2 - 0x32,
 | `0x000B` | `cccccccc` | ascii p - 0x70,
@@ -51,16 +51,16 @@
 | `0x002D` | `--------` |
 | `0x002E` | `--------` |
 | `0x002F` | `--------` |
-| `0x0030` | `--------` |
+| `0x0030` | `-p------` | [(p) organ pitch stick](ns2-doc.md#ns2-organ-pitch-stick)
 | `0x0031` | `--------` |
 | `0x0032` | `--------` |
 | `0x0033` | `--------` |
-| `0x0034` | `--------` |
-| `0x0035` | `--------` |
+| `0x0034` | `mm------` | [(m) organ model](ns2-doc.md#ns2-organ-model)
+| `0x0035` | `vvvhds--` | [(v) organ b3 vibrato mode](ns2-doc.md#ns2-organ-b3-vibrato-mode), [(h) organ b3 harmonic third](ns2-doc.md#ns2-organ-b3-harmonic-third), [(d) organ b3 decay fast](ns2-doc.md#ns2-organ-b3-decay-fast), [(s) organ b3 volume soft](ns2-doc.md#ns2-organ-b3-volume-soft)
 | `0x0036` | `--------` |
-| `0x0037` | `--------` |
+| `0x0037` | `-vvo----` | [(v) organ vox vibrato mode](ns2-doc.md#ns2-organ-vox-vibrato-mode), [(o) organ vox vibrato on](ns2-doc.md#ns2-organ-vox-vibrato-on)
 | `0x0038` | `--------` |
-| `0x0039` | `--------` |
+| `0x0039` | `-vvo----` | [(v) organ farfisa vibrato mode](ns2-doc.md#ns2-organ-farfisa-vibrato-mode), [(o) organ farfisa vibrato on](ns2-doc.md#ns2-organ-farfisa-vibrato-on)
 | `0x003A` | `--------` |
 | `0x003B` | `ddd-----` | [(o) piano slot detune](ns2-doc.md#ns2-piano-slot-detune)
 | `0x003C` | `--------` |
@@ -70,11 +70,11 @@
 | `0x0040` | `--------` |
 | `0x0041` | `--------` |
 | `0x0042` | `--------` |
-| `0x0043` | `--------` |
-| `0x0044` | `--------` |
-| `0x0045` | `--------` |
-| `0x0046` | `--------` |
-| `0x0047` | `--------` |
+| `0x0043` | `owwwwwww` | [(o) organ on](ns2-doc.md#ns2-organ-on), [(w) organ volume morph wheel](ns2-doc.md#ns2-organ-volume)
+| `0x0044` | `waaaaaaa` | [(a) organ volume morph after touch](ns2-doc.md#ns2-organ-volume)
+| `0x0045` | `accccccc` | [(c) organ volume morph control pedal](ns2-doc.md#ns2-organ-volume)
+| `0x0046` | `cvvvvvvv` | [(v) organ volume](ns2-doc.md#ns2-organ-volume)
+| `0x0047` | `zzzoooos` | [(z) organ split zones](ns2-doc.md#ns2-organ-split-zones), [(o) organ octave shift](ns2-doc.md#ns2-organ-octave-shift), [(s) organ sustain](ns2-doc.md#ns2-organ-sustain)
 | `0x0048` | `owwwwwww` | [(o) piano on](ns2-doc.md#ns2-piano-on), [(w) piano volume morph wheel](ns2-doc.md#ns2-piano-volume)
 | `0x0049` | `waaaaaaa` | [(a) piano volume morph after touch](ns2-doc.md#ns2-piano-volume)
 | `0x004A` | `accccccc` | [(c) piano volume morph control pedal](ns2-doc.md#ns2-piano-volume)
@@ -92,17 +92,17 @@
 | `0x0056` | `--------` |
 | `0x0057` | `--------` |
 | `0x0058` | `--------` |
-| `0x0059` | `--------` |
+| `0x0059` | `------lg` | [(l) organ latch pedal](ns2-doc.md#ns2-organ-latch-pedal), [(g) organ kb gate](ns2-doc.md#ns2-organ-kb-gate)
 | `0x005A` | `lg------` | [(l) piano latch pedal](ns2-doc.md#ns2-piano-latch-pedal), [(g) piano kb gate](ns2-doc.md#ns2-piano-kb-gate)
 | `0x005B` | `--------` |
-| `0x005C` | `--------` |
-| `0x005D` | `--------` |
-| `0x005E` | `--------` |
-| `0x005F` | `--------` |
-| `0x0060` | `--------` |
-| `0x0061` | `--------` |
-| `0x0062` | `--------` |
-| `0x0063` | `--------` |
+| `0x005C` | `b-------` | [(b) organ b3 preset II](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x005D` | `b-------` | [(b) organ vox vox II](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x005E` | `b-------` | [(b) organ farfisa preset II](ns2-doc.md#ns2-organ-farfisa-preset-II)
+| `0x005F` | `wwwwwaaa` | [(w) organ b3 preset I drawbar 1 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I), [(a) organ b3 preset I drawbar 1 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0060` | `aappppp1` | [(p) organ b3 preset I drawbar 1 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I), [(1) organ b3 preset I drawbar 1](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0061` | `111wwwww` | [(w) organ b3 preset I drawbar 2 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0062` | `aaaaappp` | [(a) organ b3 preset I drawbar 1 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I), [(w) organ b3 preset I drawbar 1 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0063` | `pp2222--` | [(w) organ b3 preset I drawbar 2](ns2-doc.md#ns2-organ-b3-preset-I)
 | `0x0064` | `--------` |
 | `0x0065` | `--------` |
 | `0x0066` | `--------` |

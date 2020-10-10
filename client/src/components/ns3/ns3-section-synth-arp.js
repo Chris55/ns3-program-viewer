@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
-import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
+import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordValueOnOff from "./lib/nord-value-on-off";
+import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
 
 export default class Ns3SectionSynthArp extends Component {
     render() {
@@ -19,22 +19,22 @@ export default class Ns3SectionSynthArp extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <Ns3ValueOnOff label="Run" data={arp} table={true} />
+                                        <NordValueOnOff label="Run" data={arp} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3ValueOnOff label="Kb Sync" data={arp.kbSync} table={true} />
+                                        <NordValueOnOff label="Kb Sync" data={arp.kbSync} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3ValueOnOff label="Mst Clk" data={arp.masterClock} table={true} />
+                                        <NordValueOnOff label="Mst Clk" data={arp.masterClock} table={true} />
                                     </tr>
 
-                                    <Ns3LabelAndValueWithMorph label="Rate" data={arp.rate} />
+                                    <NordLabelAndValueWithMorph label="Rate" data={arp.rate} />
 
                                     <tr>
-                                        <Ns3LabelAndValue label="Range" data={arp.range} table={true} />
+                                        <NordLabelAndValue label="Range" data={arp.range} table={true} />
                                     </tr>
                                     <tr>
-                                        <Ns3LabelAndValue label="Pattern" data={arp.pattern} table={true} />
+                                        <NordLabelAndValue label="Pattern" data={arp.pattern} table={true} />
                                     </tr>
                                 </tbody>
                             </table>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3ValueOnOff from "./lib/ns3-value-on-off";
+import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordValueOnOff from "./lib/nord-value-on-off";
 
 export default class Ns3FxRotarySpeaker extends Component {
     render() {
@@ -24,18 +24,18 @@ export default class Ns3FxRotarySpeaker extends Component {
                             </div>
 
                             <div className="">
-                                <Ns3LabelAndValue label="Drive" data={fx.drive} />
+                                <NordLabelAndValue label="Drive" data={fx.drive} />
                             </div>
 
                             <div className="">
-                                <Ns3ValueOnOff label="Stop Mode" data={fx.stopMode} />
+                                <NordValueOnOff label="Stop Mode" data={fx.stopMode} />
                             </div>
 
                             <div className="">
                                 <div className="">
                                     <span className={speedMorph ? "dot dot-morph" : "d-none"} />
 
-                                    <Ns3LabelAndValue data={fx.speed} />
+                                    <NordLabelAndValue data={fx.speed} />
                                 </div>
                                 <div className={fx.speed.morph.wheel.enabled ? "" : "d-none"}>
                                     <span className="nord-morph">Wheel</span>

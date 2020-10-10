@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import Ns3LabelAndValue from "./lib/ns3-label-and-value";
-import Ns3LabelAndValueWithMorph from "./lib/ns3-label-and-value-with-morph";
+import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
 
 export default class Ns3FxAmpSimEq extends Component {
     render() {
@@ -18,11 +18,11 @@ export default class Ns3FxAmpSimEq extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <Ns3LabelAndValue label="Amp Type" data={fx.ampType} table={true} />
+                                        <NordLabelAndValue label="Amp Type" data={fx.ampType} table={true} />
                                     </tr>
-                                    <Ns3LabelAndValueWithMorph label="Drive" data={fx.overdrive} />
+                                    <NordLabelAndValueWithMorph label="Drive" data={fx.overdrive} />
                                     <tr>
-                                        <Ns3LabelAndValue
+                                        <NordLabelAndValue
                                             label="Treble"
                                             data={fx.treble}
                                             upperCase={false}
@@ -30,7 +30,7 @@ export default class Ns3FxAmpSimEq extends Component {
                                         />
                                     </tr>
                                     <tr>
-                                        <Ns3LabelAndValue
+                                        <NordLabelAndValue
                                             label={fx.ampType.redOptions === true ? "Flt Res" : "Middle"}
                                             data={fx.midRes}
                                             upperCase={false}
@@ -38,14 +38,14 @@ export default class Ns3FxAmpSimEq extends Component {
                                         />
                                     </tr>
 
-                                    <Ns3LabelAndValueWithMorph
+                                    <NordLabelAndValueWithMorph
                                         label={fx.ampType.redOptions === true ? "Flt Freq" : "Mid Freq"}
                                         data={fx.midFilterFreq}
                                         upperCase={false}
                                     />
 
                                     <tr>
-                                        <Ns3LabelAndValue
+                                        <NordLabelAndValue
                                             label={fx.ampType.redOptions === true ? "Dry/Wet" : "Bass"}
                                             data={fx.bassDryWet}
                                             upperCase={false}
