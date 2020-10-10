@@ -1,5 +1,6 @@
-const {ns3SampleLibrary} = require("./ns3-library-sample");
+const { ns3SampleLibrary } = require("./ns3-library-sample");
 const { ns3PianoLibrary } = require("./ns3-library-piano");
+const byteSize = require("byte-size");
 
 /***
  * returns sample library object
@@ -9,38 +10,36 @@ const { ns3PianoLibrary } = require("./ns3-library-piano");
  * @param location
  * @returns {{size: (string|string), value: (string|*), version: string, info: string}}
  */
-exports.getSample = (sampleId, clavinetModel, location, ) => {
+exports.getSample = (sampleId, clavinetModel, location) => {
     let sampleLib = ns3PianoLibrary.get(sampleId) || ns3SampleLibrary.get(sampleId);
-    let sampleInfo = "";
-    let sampleVersion = "";
-    let sampleSize = "";
+    const sample = {
+        value: "",
+        info: "",
+        version: "",
+        size: "",
+    };
 
     // special clavinet multi sample case...
     if (sampleLib instanceof Array) {
         if (clavinetModel >= 0 && clavinetModel < sampleLib.length) {
-            sampleLib = sampleLib[clavinetModel];
+            sample.value = sampleLib[clavinetModel];
         } else {
-            sampleLib = sampleLib[0] + " unknown variation";
+            sample.value = sampleLib[0] + " unknown variation";
         }
-        // this is required as all piano library entries are not yet converted to the new format
     } else if (sampleLib && sampleLib.name) {
-        sampleVersion = sampleLib.version ? "v" + sampleLib.version : "";
-        sampleInfo = sampleLib.info;
-        sampleLib = sampleLib.name;
-        sampleSize = sampleLib.size;
+        sample.value = sampleLib.name;
+        sample.version = sampleLib.version ? "v" + sampleLib.version : "";
+        sample.info = sampleLib.info;
+        sample.size = sampleLib.size ? byteSize(sampleLib.size).toString() : "";
     }
     if (!sampleLib) {
         // fallback if piano name is unknown
         if (location) {
-            sampleLib = "Unknown (Loc " + location + ")";
-        } else { // on NS2 the location is not available in the program !
-            sampleLib = "Unknown";
+            sample.value = "Unknown (Loc " + location + ")";
+        } else {
+            // on NS2 the location is not available in the program !
+            sample.value = "Unknown";
         }
     }
-    return {
-        value: sampleLib,
-        info: sampleInfo,
-        version: sampleVersion,
-        size: sampleSize ? byteSize(sampleSize).toString() : "",
-    };
+    return sample;
 };
