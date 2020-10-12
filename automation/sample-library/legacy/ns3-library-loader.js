@@ -10,8 +10,8 @@
 const unzipper = require("unzipper");
 const fs = require("fs");
 const path = require("path");
-const { ns3PianoLibrary } = require("../../../server/ns3/library/ns3-library-piano");
-const { ns3SampleLibrary } = require("../../../server/ns3/library/ns3-library-sample");
+const { ns3NordPianoLibrary } = require("../../../server/library/ns3-nord-piano-library");
+const { ns3SampleLibraryLegacy } = require("../../../server/library/ns3-library-sample-legacy");
 const { loadNs3SampleFile } = require("../../../server/common/nord-sample");
 const { loadNs3ProgramFile } = require("../../../server/ns3/program/ns3-program");
 const homedir = require("os").homedir();
@@ -131,8 +131,8 @@ run(backupFilename).then(() => {
     sorted.forEach((x) => {
         if (x.sampleId !== -1 && x.version !== undefined) {
             const id = Number("0x" + x.sampleId.toString());
-            const pianoLib = ns3PianoLibrary.get(id);
-            const sampleLib = ns3SampleLibrary.get(id);
+            const pianoLib = ns3NordPianoLibrary.get(id);
+            const sampleLib = ns3SampleLibraryLegacy.get(id);
             if (pianoLib || sampleLib) {
                 alreadyInLibrary.push(x);
             } else {

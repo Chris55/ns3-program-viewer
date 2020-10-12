@@ -285,64 +285,64 @@ describe("/ns3/synth/oscillators", () => {
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq ESaw", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq ESaw.ns3f";
+    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq ESaw", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq ESaw.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq ESquare", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq ESquare.ns3f";
+    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq ESquare", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq ESquare.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Pulse 10", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Pulse 10.ns3f";
+    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Pulse 10", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Pulse 10.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Pulse 33", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Pulse 33.ns3f";
+    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Pulse 33", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Pulse 33.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Saw", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Saw.ns3f";
+    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Saw", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Saw.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Sine", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Sine.ns3f";
+    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Sine", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Sine.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Square", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Square.ns3f";
+    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Square", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Square.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Triangle", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.name eq Triangle.ns3f";
+    test("panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Triangle", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Classic and panelA.synth.oscillators.waveForm1.value eq Triangle.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -357,24 +357,24 @@ describe("/ns3/synth/oscillators", () => {
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.name eq Format Wave Aaa", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.name eq Format Wave Aaa.ns3f";
+    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave Aaa", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave Aaa.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.name eq Format Wave Eee", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.name eq Format Wave Eee.ns3f";
+    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave Eee", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave Eee.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.name eq Format Wave OE", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.name eq Format Wave OE.ns3f";
+    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave OE", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave OE.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -397,24 +397,24 @@ describe("/ns3/synth/oscillators", () => {
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.name eq Super Wave Organ", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.name eq Super Wave Organ.ns3f";
+    test("panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.value eq Super Wave Organ", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.value eq Super Wave Organ.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.name eq Super Wave Saw 2", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.name eq Super Wave Saw 2.ns3f";
+    test("panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.value eq Super Wave Saw 2", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.value eq Super Wave Saw 2.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.name eq Super Wave Saw", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.name eq Super Wave Saw.ns3f";
+    test("panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.value eq Super Wave Saw", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Super and panelA.synth.oscillators.waveForm1.value eq Super Wave Saw.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -429,32 +429,32 @@ describe("/ns3/synth/oscillators", () => {
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.name eq Wave 2nd Harm", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.name eq Wave 2nd Harm.ns3f";
+    test("panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.value eq Wave 2nd Harm", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.value eq Wave 2nd Harm.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.name eq Wave 3rd Harm", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.name eq Wave 3rd Harm.ns3f";
+    test("panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.value eq Wave 3rd Harm", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.value eq Wave 3rd Harm.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.name eq Wave Organ 1", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.name eq Wave Organ 1.ns3f";
+    test("panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.value eq Wave Organ 1", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.value eq Wave Organ 1.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.name eq Wave Tubular Bells", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.name eq Wave Tubular Bells.ns3f";
+    test("panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.value eq Wave Tubular Bells", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Wave and panelA.synth.oscillators.waveForm1.value eq Wave Tubular Bells.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

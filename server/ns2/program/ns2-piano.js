@@ -1,7 +1,7 @@
 const mapping = require("./ns2-mapping");
 const { ns2VolumeEx } = require("./ns2-utils");
 const { ns2KbZone } = require("./ns2-utils");
-const {getSample} = require("../../ns3/library/ns3-library");
+const { getSample } = require("../../library/ns3-library-service");
 
 /***
  * returns Piano section
@@ -59,7 +59,7 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     const piano = {
         debug: {
             sampleId: ns2PianoSampleId.toString(16),
-            name: pianoLib.value,
+            lib: pianoLib,
         },
 
         /**

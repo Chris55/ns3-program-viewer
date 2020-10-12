@@ -5,13 +5,11 @@
 const unzipper = require("unzipper");
 const fs = require("fs");
 const path = require("path");
-const { ns3PianoLibrary } = require("../../server/ns3/library/ns3-library-piano");
-const { ns3SampleLibrary } = require("../../server/ns3/library/ns3-library-sample");
+const { getSample } = require("../../server/library/ns3-library-service");
 const { loadNs3SampleFile } = require("../../server/common/nord-sample");
 const { loadNs3ProgramFile } = require("../../server/ns3/program/ns3-program");
 const homedir = require("os").homedir();
 const convert = require("xml-js");
-const {ns2PianoLibrary} = require("../../server/ns2/library/ns2-library-piano");
 const {loadNs2ProgramFile} = require("../../server/ns2/program/ns2-program");
 
 // Bandoneon 0x9c02b3f7
@@ -248,6 +246,7 @@ run(inputFile).then(() => {
             }
         }
 
+        // TODO
         // if (x.sampleId !== -1 && x.version !== undefined) {
         //     const id = Number("0x" + x.sampleId.toString());
         //     const pianoLib = ns3PianoLibrary.get(id);
@@ -271,10 +270,8 @@ run(inputFile).then(() => {
     sortedSamplesByFilename.forEach((x) => {
         if (x.sampleId && x.version !== undefined) {
             const id = Number("0x" + x.sampleId.toString());
-            const ns2PianoLib = ns2PianoLibrary.get(id);
-            const ns3PianoLib = ns3PianoLibrary.get(id);
-            const ns3SampleLib = ns3SampleLibrary.get(id);
-            if (ns2PianoLib || ns3PianoLib || ns3SampleLib) {
+            const lib = getSample(id);
+            if (lib) {
                 alreadyInLibrary.push(x);
             } else {
                 sampleCount++;

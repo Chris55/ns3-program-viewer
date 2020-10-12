@@ -52,7 +52,7 @@ export default class Ns3SectionSynth extends Component {
                                             <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />
                                         </div>
                                         <div className="nord-name">
-                                            <div >{synth.oscillators.waveForm1.name}</div>
+                                            <div >{synth.oscillators.waveForm1.value}</div>
                                             <div ><small>{synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}</small></div>
                                         </div>
 

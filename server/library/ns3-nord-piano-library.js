@@ -4,7 +4,7 @@
  *
  * @type {Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>}
  */
-exports.ns3PianoLibrary = new Map([
+exports.ns3NordPianoLibrary = new Map([
 
     // Grand Piano
     // https://www.nordkeyboards.com/sound-libraries/nord-piano-library/grand-pianos/white-grand
@@ -178,6 +178,7 @@ exports.ns3PianoLibrary = new Map([
     // Electric Grands
 
     [0x75e6ad52, {name: "EGrand 3 Mono Sml", info: "CP80Amped", version: "5.3", category: "None", size: 32898032, filename: "EGrand 3 Mono CP80Amped Sml 5.3", ext: "npno" }],
+    [0x1406bcb3, {name: "EGrand 3 Amped Sml", info: "CP80 mono", version: "5.3", category: "None", size: 21806266, filename: "EGrand 3 Amped CP80 mono Sml 5.3", ext: "npno" }],
     [0x7092e6ca, {name: "EGrand 3 Stereo Med", info: "CP80Amped", version: "5.3", category: "None", size: 65767596, filename: "EGrand 3 Stereo CP80Amped Med5.3", ext: "npno" }],
     [0xcca6ab07, {name: "Electric Grand 1", info: "CP80", version: "5.3", category: "None", size: 8880010, filename: "Electric Grand 1 CP80  5.3", ext: "npno" }],
     [0x33b747f7, {name: "ElectricGrand 2 CustomBld", info: "", version: "5.3", category: "None", size: 6643874, filename: "ElectricGrand 2 CustomBld 5.3", ext: "npno" }],

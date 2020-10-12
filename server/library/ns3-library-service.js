@@ -1,6 +1,8 @@
-const { ns3SampleLibrary } = require("./ns3-library-sample");
-const { ns3PianoLibrary } = require("./ns3-library-piano");
 const byteSize = require("byte-size");
+const { ns3NordSampleLibrary3 } = require("./ns3-nord-sample-library-3");
+const { ns3NordPianoLibrary } = require("./ns3-nord-piano-library");
+const { ns3ProductLibraries } = require("./ns3-product-libraries");
+const { ns3NordSampleLibraryArchive } = require("./ns3-nord-sample-library-archive");
 
 /***
  * returns sample library object
@@ -11,12 +13,18 @@ const byteSize = require("byte-size");
  * @returns {{size: (string|string), value: (string|*), version: string, info: string}}
  */
 exports.getSample = (sampleId, clavinetModel, location) => {
-    let sampleLib = ns3PianoLibrary.get(sampleId) || ns3SampleLibrary.get(sampleId);
+    let sampleLib =
+        ns3NordPianoLibrary.get(sampleId) ||
+        ns3NordSampleLibrary3.get(sampleId) ||
+        ns3NordSampleLibraryArchive.get(sampleId) ||
+        ns3ProductLibraries.get(sampleId);
+
     const sample = {
         value: "",
         info: "",
         version: "",
         size: "",
+        location: location ? location: 0,
     };
 
     // special clavinet multi sample case...

@@ -1,6 +1,6 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
-const { ns3SampleLibrary } = require("../library/ns3-library-sample");
+const { getSample } = require("../../library/ns3-library-service");
 const { ns3MorphSynthOscillatorModulation } = require("./ns3-morph");
 const { ns3Morph } = require("./ns3-morph");
 const { ns3Filter } = require("./ns3-synth-filter");
@@ -85,40 +85,32 @@ exports.ns3Synth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
     const oscillatorType = mapping.ns3SynthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >>> 7);
 
-    const waveForm1 = {
-        name: "",
+    let waveForm1 = {
+        value: "",
         info: "",
         version: "",
-        value: 0,
+        location: 0,
     };
     switch (oscillatorType) {
         case "Classic":
-            waveForm1.value = (synthOffset8eW & 0x01c0) >>> 6;
-            waveForm1.name = mapping.ns3SynthOscillator1ClassicWaveTypeMap.get(waveForm1.value);
+            waveForm1.location = (synthOffset8eW & 0x01c0) >>> 6;
+            waveForm1.value = mapping.ns3SynthOscillator1ClassicWaveTypeMap.get(waveForm1.location);
             break;
         case "Wave":
-            waveForm1.value = (synthOffset8eW & 0x0fc0) >>> 6;
-            waveForm1.name = mapping.ns3SynthOscillator1WaveWaveTypeMap.get(waveForm1.value);
+            waveForm1.location = (synthOffset8eW & 0x0fc0) >>> 6;
+            waveForm1.value = mapping.ns3SynthOscillator1WaveWaveTypeMap.get(waveForm1.location);
             break;
         case "Formant":
-            waveForm1.value = (synthOffset8eW & 0x03c0) >>> 6;
-            waveForm1.name = mapping.ns3SynthOscillator1FormantWaveTypeMap.get(waveForm1.value);
+            waveForm1.location = (synthOffset8eW & 0x03c0) >>> 6;
+            waveForm1.value = mapping.ns3SynthOscillator1FormantWaveTypeMap.get(waveForm1.location);
             break;
         case "Super":
-            waveForm1.value = (synthOffset8eW & 0x01c0) >>> 6;
-            waveForm1.name = mapping.ns3SynthOscillator1SuperWaveTypeMap.get(waveForm1.value);
+            waveForm1.location = (synthOffset8eW & 0x01c0) >>> 6;
+            waveForm1.value = mapping.ns3SynthOscillator1SuperWaveTypeMap.get(waveForm1.location);
             break;
         case "Sample":
-            waveForm1.value = (synthOffset8eW & 0x7fc0) >>> 6;
-            const lib = ns3SampleLibrary.get(sampleId);
-            if (lib) {
-                waveForm1.name = lib.name;
-                waveForm1.info = lib.info;
-                waveForm1.version = lib.version ? ("v" + lib.version) : "";
-            }
-            if (!waveForm1.name) {
-                waveForm1.name = "Sample " + (waveForm1.value + 1);
-            }
+            const location = (synthOffset8eW & 0x7fc0) >>> 6;
+            waveForm1 = getSample(sampleId, 0, location);
             break;
     }
 
@@ -154,9 +146,7 @@ exports.ns3Synth = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     const synth = {
         debug: {
             sampleId: sampleId.toString(16),
-            name: waveForm1.name,
-            info: waveForm1.info,
-            version: waveForm1.version,
+            lib: waveForm1,
         },
 
         /**

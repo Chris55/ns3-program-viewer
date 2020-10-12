@@ -1,5 +1,5 @@
 const mapping = require("./ns3-mapping");
-const { ns3PianoLibrary } = require("../library/ns3-library-piano");
+const { getSample } = require("../../library/ns3-library-service");
 const { ns3KbZone } = require("./ns3-utils");
 const { ns3VolumeEx } = require("./ns3-utils");
 
@@ -39,27 +39,7 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
     const pianoSampleVariation = (pianoOffset49 & 0x30) >>> 4;
     const pianoSampleId = Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
-    let pianoName = ns3PianoLibrary.get(pianoSampleId);
-    let pianoInfo = "";
-    let pianoVersion = "";
-
-    // special clavinet multi sample case...
-    if (pianoName instanceof Array) {
-        if (pianoSampleVariation >= 0 && pianoSampleVariation < pianoName.length) {
-            pianoName = pianoName[pianoSampleVariation];
-        } else {
-            pianoName = pianoName[0] + " unknown variation";
-        }
-        // this is required as all piano library entries are not yet converted to the new format
-    } else if (pianoName && pianoName.name) {
-        pianoVersion = pianoName.version ? ("v" + pianoName.version) : "";
-        pianoInfo = pianoName.info;
-        pianoName = pianoName.name;
-    }
-    if (!pianoName) {
-        // fallback if piano name is unknown
-        pianoName = "Unknown (Loc " + pianoModel + ")";
-    }
+    const pianoLib = getSample(pianoSampleId, pianoSampleVariation, pianoModel);
 
     const pianoTimbreValues = mapping.ns3PianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3);
 
@@ -67,7 +47,7 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     // with one subtle Harpsi case:
     // Harpsi sample are not used Clav timbre category but the default Soft/Mid/Bright
     //
-    const pianoTypeForTimbre = pianoTypeValue === 3 && pianoName.includes("Harpsi") ? 0 : pianoTypeValue;
+    const pianoTypeForTimbre = pianoTypeValue === 3 && pianoLib.value.includes("Harpsi") ? 0 : pianoTypeValue;
 
     const pianoTimbre = pianoTypeValue >= 0 && pianoTypeValue < 6 ? pianoTimbreValues[pianoTypeForTimbre] : "None";
 
@@ -75,9 +55,7 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
         debug: {
             sampleVariation: pianoSampleVariation,
             sampleId: pianoSampleId.toString(16),
-            name: pianoName,
-            info: pianoInfo,
-            version: pianoVersion,
+            lib: pianoLib,
         },
 
         /**
@@ -195,11 +173,7 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
          *
          * @module NS3 Piano Name
          */
-        name: {
-            value: pianoName,
-            info: pianoInfo,
-            version: pianoVersion,
-        },
+        name: pianoLib,
         /**
          * Offset in file: 0x4E (b5-3)
          *

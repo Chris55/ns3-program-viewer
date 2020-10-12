@@ -292,7 +292,7 @@ exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
     rawMorphValue[1] = (uint32Value & 0x03e0) >>> 5; // after touch
     rawMorphValue[2] = uint32Value & 0x008f; // control pedal
 
-    // console.log("midiFrom", midiFrom, "wheel", rawMorphValue[0].toString(16), "after touch", rawMorphValue[1].toString(16), "control pedal", rawMorphValue[2].toString(16));
+    //console.log("midiFrom", midiFrom, "wheel", rawMorphValue[0].toString(16), "after touch", rawMorphValue[1].toString(16), "control pedal", rawMorphValue[2].toString(16));
 
     rawMorphValue.forEach((rawValue) => {
         const rawOffsetValue = rawValue & 0x0f;
