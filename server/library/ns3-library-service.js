@@ -7,7 +7,7 @@ const { ns3NordSampleLibraryArchive } = require("./ns3-nord-sample-library-archi
 /***
  * returns sample library object
  *
- * @param sampleId
+ * @param sampleId hash code needs to be in v3 format
  * @param clavinetModel
  * @param location
  * @returns {{size: (string|string), value: (string|*), version: string, info: string}}
@@ -43,7 +43,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     if (!sampleLib) {
         // fallback if piano name is unknown
         if (location) {
-            sample.value = "Unknown (Loc " + location + ")";
+            sample.value = "Unknown (Sample " + (location + 1) + ")";
         } else {
             // on NS2 the location is not available in the program !
             sample.value = "Unknown";
