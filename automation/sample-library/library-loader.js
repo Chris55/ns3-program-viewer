@@ -21,7 +21,7 @@ const {loadNs2ProgramFile} = require("../../server/ns2/program/ns2-program");
 
 //const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
 const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
-//const inputFile = homedir + "/downloads/Italian Grand Faz Bundle.ns2pb";
+//const inputFile = homedir + "/downloads/RubbaRhodes and EG3_Maptest bundle.ns2pb";
 //const inputFile = homedir + "/downloads/Michael Bereal Signature Sound Bank Bundle.ns3fb";
 
 const samplesByFilename = new Map(); // key is the sample file name as defined in meta.xml file
@@ -270,8 +270,8 @@ run(inputFile).then(() => {
     sortedSamplesByFilename.forEach((x) => {
         if (x.sampleId && x.version !== undefined) {
             const id = Number("0x" + x.sampleId.toString());
-            const lib = getSample(id);
-            if (lib) {
+            const lib = getSample(id, 0);
+            if (lib.valid) {
                 alreadyInLibrary.push(x);
             } else {
                 sampleCount++;

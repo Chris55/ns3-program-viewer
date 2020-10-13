@@ -64,6 +64,7 @@ exports.ns3NordPianoLibrary = new Map([
     [0xb17de0c6, {name: "ConcertGrand1Amb Med", info: "StwD", version: "5.3", category: "None", size: 45912180, filename: "ConcertGrand1Amb StwD   Med 5.3", ext: "npno" }],
     [0xce95e083, {name: "ConcertGrand1Amb Sml", info: "StwD", version: "5.3", category: "None", size: 30175424, filename: "ConcertGrand1Amb StwD   Sml 5.3", ext: "npno" }],
 
+
     // Chris Maene Collection
 
     [0x5a14bbec, {name: "Steinway No1 XL", info: "", version: "5.2", category: "None", size: 138356168, filename: "Steinway No1  XL 5.2", ext: "npno" }],
@@ -183,6 +184,9 @@ exports.ns3NordPianoLibrary = new Map([
     [0xcca6ab07, {name: "Electric Grand 1", info: "CP80", version: "5.3", category: "None", size: 8880010, filename: "Electric Grand 1 CP80  5.3", ext: "npno" }],
     [0x33b747f7, {name: "ElectricGrand 2 CustomBld", info: "", version: "5.3", category: "None", size: 6643874, filename: "ElectricGrand 2 CustomBld 5.3", ext: "npno" }],
 
+    [0xb016145b, {name: "EGrand 3 Mono Sml", info: "MapTest", version: "5.3", category: "None", size: 19784750, filename: "EGrand_3_Mono_MapTest_Sml_5.3", ext: "npno" }],
+
+
     // Clavinet
 
     //  [0x1bedfa44, {name: "Clavinet D6", info: "", version: "5.0", category: "None", size: 5894748, filename: "Clavinet D6  5.0", ext: "npno" }],
@@ -208,6 +212,7 @@ exports.ns3NordPianoLibrary = new Map([
     [0x1af6d209, {name: "DigiGrand 2 Sml", info: "", version: "5.2", category: "None", size: 9979682, filename: "DigiGrand 2  Sml 5.2", ext: "npno" }],
     [0x9c9a2f4b, {name: "DX7 RubbaTines Lrg", info: "", version: "5.4", category: "None", size: 9001628, filename: "DX RubbaTines Lrg 5.4", ext: "npno" }],
     [0x51accddc, {name: "DX7 FullTines Lrg", info: "", version: "5.4", category: "None", size: 11773292, filename: "DX7 FullTines  Lrg 5.4", ext: "npno" }],
+    [0xb38628a9, {name: "DX7 RubbaRhodes Lrg", info: "", version: "5.4", category: "None", size: 9001628, filename: "DX7 RubbaRhodes  Lrg 5.4", ext: "npno" }],
 
     // Miscellaneous
 

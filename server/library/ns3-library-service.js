@@ -20,6 +20,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         ns3ProductLibraries.get(sampleId);
 
     const sample = {
+        valid: false,
         value: "",
         info: "",
         version: "",
@@ -31,10 +32,12 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     if (sampleLib instanceof Array) {
         if (clavinetModel >= 0 && clavinetModel < sampleLib.length) {
             sample.value = sampleLib[clavinetModel];
+            sample.valid = true;
         } else {
             sample.value = sampleLib[0] + " unknown variation";
         }
     } else if (sampleLib && sampleLib.name) {
+        sample.valid = true;
         sample.value = sampleLib.name;
         sample.version = sampleLib.version ? "v" + sampleLib.version : "";
         sample.info = sampleLib.info;
