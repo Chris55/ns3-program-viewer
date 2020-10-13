@@ -176,13 +176,12 @@ const hideIfEqual = (from, to) => {
  * @class
  * @ignore
  * @param buffer {Buffer}
- * @param panelOffset
- * @param splitEnabled
- * @param dualKeyboard
- * @param id
+ * @param id {number}
+ * @param panelOffset {number}
+ * @param global
  * @returns {{volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}}
  */
-exports.ns3Organ = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
+exports.ns3Organ = (buffer, id, panelOffset, global) => {
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
     const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
@@ -194,7 +193,9 @@ exports.ns3Organ = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
     const organEnabled = (organOffsetB6W & 0x8000) !== 0;
     const organKbZoneEnabled =
-        id === 0 ? organEnabled : organEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Organ");
+        id === 0
+            ? organEnabled
+            : organEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Organ");
 
     const organModeValue = (organOffset34 & 0x0e) >>> 1;
     let organMode = mapping.ns3OrganVibratoModeMap.get(organModeValue);
@@ -207,7 +208,7 @@ exports.ns3Organ = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
         organMode = mapping.ns3OrganVibratoModeMap.get(organModeValue + 1);
     }
 
-    const organKbZone = ns3KbZone(organKbZoneEnabled, splitEnabled, (organOffsetB6W & 0x7800) >>> 11);
+    const organKbZone = ns3KbZone(organKbZoneEnabled, global, (organOffsetB6W & 0x7800) >>> 11);
 
     return {
         /**

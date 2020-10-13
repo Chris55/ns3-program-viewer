@@ -9,13 +9,12 @@ const { ns3VolumeEx } = require("./ns3-utils");
  * @class
  * @ignore
  * @param buffer {Buffer}
- * @param panelOffset
- * @param splitEnabled
- * @param dualKeyboard
- * @param id
+ * @param id {number}
+ * @param panelOffset {number}
+ * @param global
  * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
  */
-exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
+exports.ns3Piano = (buffer, id, panelOffset, global) => {
     const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
     const pianoOffset47 = buffer.readUInt8(0x47 + panelOffset);
@@ -29,12 +28,14 @@ exports.ns3Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
     const pianoEnabled = (pianoOffset43W & 0x8000) !== 0;
     const pianoKbZoneEnabled =
-        id === 0 ? pianoEnabled : pianoEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Piano");
+        id === 0
+            ? pianoEnabled
+            : pianoEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Piano");
 
     const pianoTypeValue = (pianoOffset48 & 0x38) >>> 3;
     const pianoType = mapping.ns3PianoTypeMap.get(pianoTypeValue);
 
-    const pianoKbZone = ns3KbZone(pianoKbZoneEnabled, splitEnabled, (pianoOffset43W & 0x7800) >>> 11);
+    const pianoKbZone = ns3KbZone(pianoKbZoneEnabled, global, (pianoOffset43W & 0x7800) >>> 11);
     const pianoModel = ((pianoOffset48W & 0x07c0) >>> 6) + 1;
 
     const pianoSampleVariation = (pianoOffset49 & 0x30) >>> 4;

@@ -310,6 +310,19 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
 
     const ext =  path.extname(filename).substr(1);
 
+    const global = {
+        masterClock: {
+            rate: {
+                value: tempo + " bpm",
+            },
+            //keyboardSync: '' // this is a global setting
+        },
+        transpose: transpose,
+        split: split,
+        dualKeyboard: dualKeyboard,
+        //monoOut: '', // this is a global setting
+    };
+
     const ns3 = {
         // program file
         name: filename.replace(/\.[^/.]+$/, ""),
@@ -332,20 +345,11 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         category: mapping.ns3ProgramCategoryMap.get(offset10),
         //fileId: fileId,
 
-        panelA: ns3Panel(buffer, 0, split.enabled, versionOffset, dualKeyboard),
+        panelA: ns3Panel(buffer, 0, versionOffset, global),
 
-        panelB: ns3Panel(buffer, 1, split.enabled, versionOffset, dualKeyboard),
+        panelB: ns3Panel(buffer, 1, versionOffset, global),
 
-        masterClock: {
-            rate: {
-                value: tempo + " bpm",
-            },
-            //keyboardSync: '' // this is a global setting
-        },
-        transpose: transpose,
-        split: split,
-        dualKeyboard: dualKeyboard,
-        //monoOut: '', // this is a global setting
+        ...global,
     };
 
     // layer detune is common for both panel !

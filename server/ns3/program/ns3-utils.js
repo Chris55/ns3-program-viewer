@@ -47,14 +47,26 @@ exports.ns3KnobDualValues = function (valueRange120) {
  * returns Keyboard Zone
  *
  * @param sectionEnabled
- * @param splitEnabled
+ * @param global
  * @param value
  * @returns {string|(string[]|boolean[])[]|(string|boolean[])[]}
  */
-exports.ns3KbZone = (sectionEnabled, splitEnabled, value) => {
+exports.ns3KbZone = (sectionEnabled, global, value) => {
     if (sectionEnabled) {
-        if (splitEnabled) {
-            return mapping.ns3KbZoneMap.get(value);
+        if (global.split.enabled) {
+            let result = mapping.ns3KbZoneMap.get(value);
+            if (!result) {
+                result = ["----", [false, false, false, false]];
+            }
+            const zones =
+                (global.split.low.width === "Off" ? 0 : 1) +
+                (global.split.mid.width === "Off" ? 0 : 1) +
+                (global.split.high.width === "Off" ? 0 : 1);
+
+            if (zones === 1) {
+
+            }
+            return result;
         }
         // no split, full keyboard is used
         return ["0000", [true, true, true, true]];
