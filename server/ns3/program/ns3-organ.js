@@ -187,6 +187,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
     const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
     const organOffsetBb = buffer.readUInt8(0xbb + panelOffset);
     const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
+    const organOffsetEe = buffer.readUInt8(0xee + panelOffset);
 
     const organType = mapping.ns3OrganTypeMap.get((organOffsetBb & 0x70) >>> 4);
     const organTypeIsB3 = organType === "B3";
@@ -209,6 +210,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
     }
 
     const organKbZone = ns3KbZone(organKbZoneEnabled, global, (organOffsetB6W & 0x7800) >>> 11);
+    const organPreset2Enabled = (organOffsetBb & 0x04) !== 0;
 
     return {
         /**
@@ -321,141 +323,318 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
         type: {
             value: organType,
         },
-        /**
-         * Offset in file: 0xBE
-         *
-         * @example
-         *
-         * Drawbar value range is 0/8.
-         * For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1
-         * For Farfisa Organ drawbar 8 is not used and forced to 0
-         *
-         * Drawbar 1: 0xBE (b7-4)
-         *            Morph Wheel:         0xBE (b3-0) and 0xBF (b7)
-         *            Morph After Touch:   0xBF (b6-2)
-         *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
-         *
-         * Drawbar 2: 0xC0 (b4-1)
-         *            Morph Wheel:         0xC0 (b0) and 0xC1 (b7-4)
-         *            Morph After Touch:   0xC1 (b3-0) and 0xC2 (b7)
-         *            Morph Control Pedal: 0xC2 (b6-2)
-         *
-         * Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)
-         *            Morph Wheel:         0xC3 (b5-1)
-         *            Morph After Touch:   0xC3 (b0) and 0xC4 (b7-4)
-         *            Morph Control Pedal: 0xC4 (b3-0) and 0xC5 (b7)
-         *
-         * Drawbar 4: 0xC5 (b6-3)
-         *            Morph Wheel:         0xC5 (b2-0) and 0xC6 (b7-6)
-         *            Morph After Touch:   0xC6 (b5-b1)
-         *            Morph Control Pedal: 0xC6 (b0) and 0xC7 (b7-4)
-         *
-         * Drawbar 5: 0xC7 (b3-0)
-         *            Morph Wheel:         0xC8 (b7-3)
-         *            Morph After Touch:   0xC8 (b2-0) and 0xC9 (b7-6)
-         *            Morph Control Pedal: 0xC9 (b5-1)
-         *
-         * Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)
-         *            Morph Wheel:         0xCA (b4-0)
-         *            Morph After Touch:   0xCB (b7-3)
-         *            Morph Control Pedal: 0xCB (b2-0) and 0xCC (b7-6)
-         *
-         * Drawbar 7: 0xCC (b5-2)
-         *            Morph Wheel:         0xCC (b1-0) and 0xCD (b7-5)
-         *            Morph After Touch:   0xCD (b4-0)
-         *            Morph Control Pedal: 0xCE (b7-3)
-         *
-         * Drawbar 8: 0xCE (b2-0) and 0xCF (b7)
-         *            Morph Wheel:         0xCF (b6-2)
-         *            Morph After Touch:   0xCF (b1-0) and 0xD0 (b7-5)
-         *            Morph Control Pedal: 0xD0 (b4-0)
-         *
-         * Drawbar 9: 0xD1 (b7-4)
-         *            Morph Wheel:         0xD1 (b3-0) and 0xBF (b7)
-         *            Morph After Touch:   0xD2 (b6-2)
-         *            Morph Control Pedal: 0xD2 (b1-0) and 0xD3 (b7-5)
-         *
-         * Morph value is on 5-bit
-         * b4 is polarity
-         * b3-0 is raw 4-bit value
-         *
-         * if polarity = 1 then Morph offset value = raw value + 1
-         * if polarity = 0 then Morph offset value = raw value - 8
-         *
-         * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
-         * Morph Enabled if  'From value' <> 'Morph offset value'
-         *
-         * @module NS3 Organ Drawbars Preset 1
-         */
-        preset1: getDrawbars(buffer, 0xbe + panelOffset, organType),
 
-        /**
-         * Offset in file: 0xD9
-         *
-         * @example
-         *
-         * Drawbar value range is 0/8.
-         * For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1
-         * For Farfisa Organ drawbar 8 is not used and forced to 0
-         *
-         * Drawbar 1: 0xD9 (b7-4)
-         *            Morph Wheel:         0xD9 (b3-0) and 0xDA (b7)
-         *            Morph After Touch:   0xDA (b6-2)
-         *            Morph Control Pedal: 0xDA (b1-0) and 0xDB (b7-5)
-         *
-         * Drawbar 2: 0xDB (b4-1)
-         *            Morph Wheel:         0xDB (b0) and 0xDC (b7-4)
-         *            Morph After Touch:   0xDC (b3-0) and 0xDD (b7)
-         *            Morph Control Pedal: 0xDD (b6-2)
-         *
-         * Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)
-         *            Morph Wheel:         0xDE (b5-1)
-         *            Morph After Touch:   0xDE (b0) and 0xDF (b7-4)
-         *            Morph Control Pedal: 0xDF (b3-0) and 0xE0 (b7)
-         *
-         * Drawbar 4: 0xE0 (b6-3)
-         *            Morph Wheel:         0xE0 (b2-0) and 0xE1 (b7-6)
-         *            Morph After Touch:   0xE1 (b5-b1)
-         *            Morph Control Pedal: 0xE1 (b0) and 0xE2 (b7-4)
-         *
-         * Drawbar 5: 0xE2 (b3-0)
-         *            Morph Wheel:         0xE3 (b7-3)
-         *            Morph After Touch:   0xE3 (b2-0) and 0xE4 (b7-6)
-         *            Morph Control Pedal: 0xE4 (b5-1)
-         *
-         * Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)
-         *            Morph Wheel:         0xE5 (b4-0)
-         *            Morph After Touch:   0xE6 (b7-3)
-         *            Morph Control Pedal: 0xE6 (b2-0) and 0xE7 (b7-6)
-         *
-         * Drawbar 7: 0xE7 (b5-2)
-         *            Morph Wheel:         0xE7 (b1-0) and 0xE8 (b7-5)
-         *            Morph After Touch:   0xE8 (b4-0)
-         *            Morph Control Pedal: 0xE9 (b7-3)
-         *
-         * Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)
-         *            Morph Wheel:         0xEA (b6-2)
-         *            Morph After Touch:   0xEA (b1-0) and 0xEB (b7-5)
-         *            Morph Control Pedal: 0xEB (b4-0)
-         *
-         * Drawbar 9: 0xEC (b7-4)
-         *            Morph Wheel:         0xEC (b3-0) and 0xED (b7)
-         *            Morph After Touch:   0xED (b6-2)
-         *            Morph Control Pedal: 0xED (b1-0) and 0xEF (b7-5)
-         *
-         * Morph value is on 5-bit
-         * b4 is polarity
-         * b3-0 is raw 4-bit value
-         *
-         * if polarity = 1 then Morph offset value = raw value + 1
-         * if polarity = 0 then Morph offset value = raw value - 8
-         *
-         * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
-         * Morph Enabled if  'From value' <> 'Morph offset value'
-         *
-         * @module NS3 Organ Drawbars Preset 2
-         */
-        preset2: getDrawbars(buffer, 0xd9 + panelOffset, organType),
+        preset1: {
+            enabled: !organPreset2Enabled,
+
+            /**
+             * Offset in file: 0xBE
+             *
+             * @example
+             *
+             * Drawbar value range is 0/8.
+             * For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1
+             * For Farfisa Organ drawbar 8 is not used and forced to 0
+             *
+             * Drawbar 1: 0xBE (b7-4)
+             *            Morph Wheel:         0xBE (b3-0) and 0xBF (b7)
+             *            Morph After Touch:   0xBF (b6-2)
+             *            Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)
+             *
+             * Drawbar 2: 0xC0 (b4-1)
+             *            Morph Wheel:         0xC0 (b0) and 0xC1 (b7-4)
+             *            Morph After Touch:   0xC1 (b3-0) and 0xC2 (b7)
+             *            Morph Control Pedal: 0xC2 (b6-2)
+             *
+             * Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)
+             *            Morph Wheel:         0xC3 (b5-1)
+             *            Morph After Touch:   0xC3 (b0) and 0xC4 (b7-4)
+             *            Morph Control Pedal: 0xC4 (b3-0) and 0xC5 (b7)
+             *
+             * Drawbar 4: 0xC5 (b6-3)
+             *            Morph Wheel:         0xC5 (b2-0) and 0xC6 (b7-6)
+             *            Morph After Touch:   0xC6 (b5-b1)
+             *            Morph Control Pedal: 0xC6 (b0) and 0xC7 (b7-4)
+             *
+             * Drawbar 5: 0xC7 (b3-0)
+             *            Morph Wheel:         0xC8 (b7-3)
+             *            Morph After Touch:   0xC8 (b2-0) and 0xC9 (b7-6)
+             *            Morph Control Pedal: 0xC9 (b5-1)
+             *
+             * Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)
+             *            Morph Wheel:         0xCA (b4-0)
+             *            Morph After Touch:   0xCB (b7-3)
+             *            Morph Control Pedal: 0xCB (b2-0) and 0xCC (b7-6)
+             *
+             * Drawbar 7: 0xCC (b5-2)
+             *            Morph Wheel:         0xCC (b1-0) and 0xCD (b7-5)
+             *            Morph After Touch:   0xCD (b4-0)
+             *            Morph Control Pedal: 0xCE (b7-3)
+             *
+             * Drawbar 8: 0xCE (b2-0) and 0xCF (b7)
+             *            Morph Wheel:         0xCF (b6-2)
+             *            Morph After Touch:   0xCF (b1-0) and 0xD0 (b7-5)
+             *            Morph Control Pedal: 0xD0 (b4-0)
+             *
+             * Drawbar 9: 0xD1 (b7-4)
+             *            Morph Wheel:         0xD1 (b3-0) and 0xBF (b7)
+             *            Morph After Touch:   0xD2 (b6-2)
+             *            Morph Control Pedal: 0xD2 (b1-0) and 0xD3 (b7-5)
+             *
+             * Morph value is on 5-bit
+             * b4 is polarity
+             * b3-0 is raw 4-bit value
+             *
+             * if polarity = 1 then Morph offset value = raw value + 1
+             * if polarity = 0 then Morph offset value = raw value - 8
+             *
+             * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
+             * Morph Enabled if  'From value' <> 'Morph offset value'
+             *
+             * @module NS3 Organ Drawbars Preset 1
+             */
+
+            drawbars: getDrawbars(buffer, 0xbe + panelOffset, organType),
+
+            vibrato: {
+                /**
+                 * Offset in file: 0xD3 (b4)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * @module NS3 Organ Vibrato On
+                 */
+                enabled: (organOffsetD3 & 0x10) !== 0,
+
+                /**
+                 * Offset in file: 0x34 (b3-1)
+                 *
+                 * @example
+                 * 0 = V1
+                 * 1 = C1
+                 * 2 = V2
+                 * 3 = C2
+                 * 4 = V3
+                 * 5 = C3
+                 *
+                 * if Organ type is Pipe1 or Pipe2, only C1 is allowed
+                 * if Organ type is Farfisa, mode C1/V3 are not available
+                 * if Organ type is Vox, mode C1/C2/C3 are not available
+                 * if Organ type is B3, all mode are available
+                 *
+                 * @module NS3 Organ Vibrato Mode
+                 */
+                mode: {
+                    value: organMode,
+                },
+            },
+
+            /***
+             * Organ Percussion Options
+             */
+            percussion: {
+                /**
+                 * Offset in file: 0xD3 (b3)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * only if Organ type is B3
+                 *
+                 * @module NS3 Organ Percussion On
+                 */
+                enabled: organTypeIsB3 && (organOffsetD3 & 0x08) !== 0,
+
+                /**
+                 * Offset in file: 0xD3 (b0)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * only if Organ type is B3
+                 *
+                 * @module NS3 Organ Percussion Volume Soft
+                 */
+                volumeSoft: {
+                    enabled: organTypeIsB3 && (organOffsetD3 & 0x01) !== 0,
+                },
+                /**
+                 * Offset in file: 0xD3 (b1)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * only if Organ type is B3
+                 *
+                 * @module NS3 Organ Percussion Decay Fast
+                 */
+                decayFast: {
+                    enabled: organTypeIsB3 && (organOffsetD3 & 0x02) !== 0,
+                },
+                /**
+                 * Offset in file: 0xD3 (b2)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * only if Organ type is B3
+                 *
+                 * @module NS3 Organ Percussion Harmonic Third
+                 */
+                harmonicThird: {
+                    enabled: organTypeIsB3 && (organOffsetD3 & 0x04) !== 0,
+                },
+            },
+        },
+        preset2: {
+            /**
+             * Offset in file: 0xBB (b2)
+             *
+             * @example
+             * O = off, 1 = on
+             *
+             * @module NS3 Organ Preset 2 On
+             */
+            enabled: organPreset2Enabled,
+
+            /**
+             * Offset in file: 0xD9
+             *
+             * @example
+             *
+             * Drawbar value range is 0/8.
+             * For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1
+             * For Farfisa Organ drawbar 8 is not used and forced to 0
+             *
+             * Drawbar 1: 0xD9 (b7-4)
+             *            Morph Wheel:         0xD9 (b3-0) and 0xDA (b7)
+             *            Morph After Touch:   0xDA (b6-2)
+             *            Morph Control Pedal: 0xDA (b1-0) and 0xDB (b7-5)
+             *
+             * Drawbar 2: 0xDB (b4-1)
+             *            Morph Wheel:         0xDB (b0) and 0xDC (b7-4)
+             *            Morph After Touch:   0xDC (b3-0) and 0xDD (b7)
+             *            Morph Control Pedal: 0xDD (b6-2)
+             *
+             * Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)
+             *            Morph Wheel:         0xDE (b5-1)
+             *            Morph After Touch:   0xDE (b0) and 0xDF (b7-4)
+             *            Morph Control Pedal: 0xDF (b3-0) and 0xE0 (b7)
+             *
+             * Drawbar 4: 0xE0 (b6-3)
+             *            Morph Wheel:         0xE0 (b2-0) and 0xE1 (b7-6)
+             *            Morph After Touch:   0xE1 (b5-b1)
+             *            Morph Control Pedal: 0xE1 (b0) and 0xE2 (b7-4)
+             *
+             * Drawbar 5: 0xE2 (b3-0)
+             *            Morph Wheel:         0xE3 (b7-3)
+             *            Morph After Touch:   0xE3 (b2-0) and 0xE4 (b7-6)
+             *            Morph Control Pedal: 0xE4 (b5-1)
+             *
+             * Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)
+             *            Morph Wheel:         0xE5 (b4-0)
+             *            Morph After Touch:   0xE6 (b7-3)
+             *            Morph Control Pedal: 0xE6 (b2-0) and 0xE7 (b7-6)
+             *
+             * Drawbar 7: 0xE7 (b5-2)
+             *            Morph Wheel:         0xE7 (b1-0) and 0xE8 (b7-5)
+             *            Morph After Touch:   0xE8 (b4-0)
+             *            Morph Control Pedal: 0xE9 (b7-3)
+             *
+             * Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)
+             *            Morph Wheel:         0xEA (b6-2)
+             *            Morph After Touch:   0xEA (b1-0) and 0xEB (b7-5)
+             *            Morph Control Pedal: 0xEB (b4-0)
+             *
+             * Drawbar 9: 0xEC (b7-4)
+             *            Morph Wheel:         0xEC (b3-0) and 0xED (b7)
+             *            Morph After Touch:   0xED (b6-2)
+             *            Morph Control Pedal: 0xED (b1-0) and 0xEE (b7-5)
+             *
+             * Morph value is on 5-bit
+             * b4 is polarity
+             * b3-0 is raw 4-bit value
+             *
+             * if polarity = 1 then Morph offset value = raw value + 1
+             * if polarity = 0 then Morph offset value = raw value - 8
+             *
+             * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
+             * Morph Enabled if  'From value' <> 'Morph offset value'
+             *
+             * @module NS3 Organ Preset 2 Drawbars
+             */
+            drawbars: getDrawbars(buffer, 0xd9 + panelOffset, organType),
+
+            vibrato: {
+                /**
+                 * Offset in file: 0xEE (b4)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * @module NS3 Organ Preset 2 Vibrato On
+                 */
+                enabled: (organOffsetEe & 0x10) !== 0,
+            },
+
+            /***
+             * Organ Percussion Options
+             */
+            percussion: {
+                /**
+                 * Offset in file: 0xEE (b3)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * only if Organ type is B3
+                 *
+                 * @module NS3 Organ Preset 2 Percussion On
+                 */
+                enabled: organTypeIsB3 && (organOffsetEe & 0x08) !== 0,
+
+                /**
+                 * Offset in file: 0xEE (b0)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * only if Organ type is B3
+                 *
+                 * @module NS3 Organ Preset 2 Percussion Volume Soft
+                 */
+                volumeSoft: {
+                    enabled: organTypeIsB3 && (organOffsetEe & 0x01) !== 0,
+                },
+                /**
+                 * Offset in file: 0xEE (b1)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * only if Organ type is B3
+                 *
+                 * @module NS3 Organ Preset 2 Percussion Decay Fast
+                 */
+                decayFast: {
+                    enabled: organTypeIsB3 && (organOffsetEe & 0x02) !== 0,
+                },
+                /**
+                 * Offset in file: 0xEE (b2)
+                 *
+                 * @example
+                 * O = off, 1 = on
+                 *
+                 * only if Organ type is B3
+                 *
+                 * @module NS3 Organ Preset 2 Percussion Harmonic Third
+                 */
+                harmonicThird: {
+                    enabled: organTypeIsB3 && (organOffsetEe & 0x04) !== 0,
+                },
+            },
+        },
 
         /**
          * Offset in file: 0xBB (b3)
@@ -468,99 +647,6 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
          */
         live: {
             enabled: (organOffsetBb & 0x08) !== 0,
-        },
-        /***
-         * Organ Vibrato Options
-         */
-        vibrato: {
-            /**
-             * Offset in file: 0xD3 (b4)
-             *
-             * @example
-             * O = off, 1 = on
-             *
-             * @module NS3 Organ Vibrato On
-             */
-            enabled: (organOffsetD3 & 0x10) !== 0,
-
-            /**
-             * Offset in file: 0x34 (b3-1)
-             *
-             * @example
-             * 0 = V1
-             * 1 = C1
-             * 2 = V2
-             * 3 = C2
-             * 4 = V3
-             * 5 = C3
-             *
-             * if Organ type is Pipe1 or Pipe2, only C1 is allowed
-             * if Organ type is Farfisa, mode C1/V3 are not available
-             * if Organ type is Vox, mode C1/C2/C3 are not available
-             * if Organ type is B3, all mode are available
-             *
-             * @module NS3 Organ Vibrato Mode
-             */
-            mode: {
-                value: organMode,
-            },
-        },
-
-        /***
-         * Organ Percussion Options
-         */
-        percussion: {
-            /**
-             * Offset in file: 0xD3 (b3)
-             *
-             * @example
-             * O = off, 1 = on
-             *
-             * only if Organ type is B3
-             *
-             * @module NS3 Organ Percussion On
-             */
-            enabled: organTypeIsB3 && (organOffsetD3 & 0x08) !== 0,
-
-            /**
-             * Offset in file: 0xD3 (b0)
-             *
-             * @example
-             * O = off, 1 = on
-             *
-             * only if Organ type is B3
-             *
-             * @module NS3 Organ Percussion Volume Soft
-             */
-            volumeSoft: {
-                enabled: organTypeIsB3 && (organOffsetD3 & 0x01) !== 0,
-            },
-            /**
-             * Offset in file: 0xD3 (b1)
-             *
-             * @example
-             * O = off, 1 = on
-             *
-             * only if Organ type is B3
-             *
-             * @module NS3 Organ Percussion Decay Fast
-             */
-            decayFast: {
-                enabled: organTypeIsB3 && (organOffsetD3 & 0x02) !== 0,
-            },
-            /**
-             * Offset in file: 0xD3 (b2)
-             *
-             * @example
-             * O = off, 1 = on
-             *
-             * only if Organ type is B3
-             *
-             * @module NS3 Organ Percussion Harmonic Third
-             */
-            harmonicThird: {
-                enabled: organTypeIsB3 && (organOffsetD3 & 0x04) !== 0,
-            },
         },
     };
 };

@@ -52,27 +52,37 @@ exports.ns3KnobDualValues = function (valueRange120) {
  * @returns {string|(string[]|boolean[])[]|(string|boolean[])[]}
  */
 exports.ns3KbZone = (sectionEnabled, global, value) => {
-    if (sectionEnabled) {
-        if (global.split.enabled) {
-            let result = mapping.ns3KbZoneMap.get(value);
-            if (!result) {
-                result = ["----", [false, false, false, false]];
-            }
-            const zones =
-                (global.split.low.width === "Off" ? 0 : 1) +
-                (global.split.mid.width === "Off" ? 0 : 1) +
-                (global.split.high.width === "Off" ? 0 : 1);
+    if (!sectionEnabled) {
+        return ["----", [false, false, false, false]];
+    }
 
-            if (zones === 1) {
-
-            }
-            return result;
-        }
-        // no split, full keyboard is used
+    if (!global.split.enabled) {
         return ["0000", [true, true, true, true]];
     }
+
+    let result = mapping.ns3KbZoneMap.get(value);
+
+    // on some program value contains an unexpected value
+    // example:
+    // https://www.norduserforum.com/post132371.html?hilit=os%20older%20version#p132371
+    // Eye_Without_Face.ns3f
+    // kb zone value is 10 !
+
+    if (!result) {
+        result = ["----", [false, false, false, false]];
+    }
+    const zones =
+        (global.split.low.width === "Off" ? 0 : 1) +
+        (global.split.mid.width === "Off" ? 0 : 1) +
+        (global.split.high.width === "Off" ? 0 : 1);
+
+    if (zones === 1) {
+
+    }
+    return result;
+    // no split, full keyboard is used
+
     // section is not used
-    return ["----", [false, false, false, false]];
 };
 
 /***

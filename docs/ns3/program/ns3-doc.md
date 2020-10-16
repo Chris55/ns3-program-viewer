@@ -172,13 +172,6 @@
 <dt><a href="#module_NS3 Organ Drawbars Preset 1">NS3 Organ Drawbars Preset 1</a></dt>
 <dd><p>Offset in file: 0xBE</p>
 </dd>
-<dt><a href="#module_NS3 Organ Drawbars Preset 2">NS3 Organ Drawbars Preset 2</a></dt>
-<dd><p>Offset in file: 0xD9</p>
-</dd>
-<dt><a href="#module_NS3 Organ Live Mode">NS3 Organ Live Mode</a></dt>
-<dd><p>Offset in file: 0xBB (b3)
-(NS3 Compact model only)</p>
-</dd>
 <dt><a href="#module_NS3 Organ Vibrato On">NS3 Organ Vibrato On</a></dt>
 <dd><p>Offset in file: 0xD3 (b4)</p>
 </dd>
@@ -196,6 +189,31 @@
 </dd>
 <dt><a href="#module_NS3 Organ Percussion Harmonic Third">NS3 Organ Percussion Harmonic Third</a></dt>
 <dd><p>Offset in file: 0xD3 (b2)</p>
+</dd>
+<dt><a href="#module_NS3 Organ Preset 2 On">NS3 Organ Preset 2 On</a></dt>
+<dd><p>Offset in file: 0xBB (b2)</p>
+</dd>
+<dt><a href="#module_NS3 Organ Preset 2 Drawbars">NS3 Organ Preset 2 Drawbars</a></dt>
+<dd><p>Offset in file: 0xD9</p>
+</dd>
+<dt><a href="#module_NS3 Organ Preset 2 Vibrato On">NS3 Organ Preset 2 Vibrato On</a></dt>
+<dd><p>Offset in file: 0xEE (b4)</p>
+</dd>
+<dt><a href="#module_NS3 Organ Preset 2 Percussion On">NS3 Organ Preset 2 Percussion On</a></dt>
+<dd><p>Offset in file: 0xEE (b3)</p>
+</dd>
+<dt><a href="#module_NS3 Organ Preset 2 Percussion Volume Soft">NS3 Organ Preset 2 Percussion Volume Soft</a></dt>
+<dd><p>Offset in file: 0xEE (b0)</p>
+</dd>
+<dt><a href="#module_NS3 Organ Preset 2 Percussion Decay Fast">NS3 Organ Preset 2 Percussion Decay Fast</a></dt>
+<dd><p>Offset in file: 0xEE (b1)</p>
+</dd>
+<dt><a href="#module_NS3 Organ Preset 2 Percussion Harmonic Third">NS3 Organ Preset 2 Percussion Harmonic Third</a></dt>
+<dd><p>Offset in file: 0xEE (b2)</p>
+</dd>
+<dt><a href="#module_NS3 Organ Live Mode">NS3 Organ Live Mode</a></dt>
+<dd><p>Offset in file: 0xBB (b3)
+(NS3 Compact model only)</p>
 </dd>
 <dt><a href="#module_NS3 Panel Enabled And Selection">NS3 Panel Enabled And Selection</a></dt>
 <dd><p>Offset in file 0x31</p>
@@ -919,24 +937,6 @@ Offset in file: 0xBE
 ```js
 Drawbar value range is 0/8.For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1For Farfisa Organ drawbar 8 is not used and forced to 0Drawbar 1: 0xBE (b7-4)           Morph Wheel:         0xBE (b3-0) and 0xBF (b7)           Morph After Touch:   0xBF (b6-2)           Morph Control Pedal: 0xBF (b1-0) and 0xC0 (b7-5)Drawbar 2: 0xC0 (b4-1)           Morph Wheel:         0xC0 (b0) and 0xC1 (b7-4)           Morph After Touch:   0xC1 (b3-0) and 0xC2 (b7)           Morph Control Pedal: 0xC2 (b6-2)Drawbar 3: 0xC2 (b1-0) and 0xC3 (b7-6)           Morph Wheel:         0xC3 (b5-1)           Morph After Touch:   0xC3 (b0) and 0xC4 (b7-4)           Morph Control Pedal: 0xC4 (b3-0) and 0xC5 (b7)Drawbar 4: 0xC5 (b6-3)           Morph Wheel:         0xC5 (b2-0) and 0xC6 (b7-6)           Morph After Touch:   0xC6 (b5-b1)           Morph Control Pedal: 0xC6 (b0) and 0xC7 (b7-4)Drawbar 5: 0xC7 (b3-0)           Morph Wheel:         0xC8 (b7-3)           Morph After Touch:   0xC8 (b2-0) and 0xC9 (b7-6)           Morph Control Pedal: 0xC9 (b5-1)Drawbar 6: 0xC9 (b0) and 0xCA (b7-5)           Morph Wheel:         0xCA (b4-0)           Morph After Touch:   0xCB (b7-3)           Morph Control Pedal: 0xCB (b2-0) and 0xCC (b7-6)Drawbar 7: 0xCC (b5-2)           Morph Wheel:         0xCC (b1-0) and 0xCD (b7-5)           Morph After Touch:   0xCD (b4-0)           Morph Control Pedal: 0xCE (b7-3)Drawbar 8: 0xCE (b2-0) and 0xCF (b7)           Morph Wheel:         0xCF (b6-2)           Morph After Touch:   0xCF (b1-0) and 0xD0 (b7-5)           Morph Control Pedal: 0xD0 (b4-0)Drawbar 9: 0xD1 (b7-4)           Morph Wheel:         0xD1 (b3-0) and 0xBF (b7)           Morph After Touch:   0xD2 (b6-2)           Morph Control Pedal: 0xD2 (b1-0) and 0xD3 (b7-5)Morph value is on 5-bitb4 is polarityb3-0 is raw 4-bit valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 8Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 ```
-<a name="module_NS3 Organ Drawbars Preset 2"></a>
-
-## NS3 Organ Drawbars Preset 2
-Offset in file: 0xD9
-
-**Example**  
-```js
-Drawbar value range is 0/8.For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1For Farfisa Organ drawbar 8 is not used and forced to 0Drawbar 1: 0xD9 (b7-4)           Morph Wheel:         0xD9 (b3-0) and 0xDA (b7)           Morph After Touch:   0xDA (b6-2)           Morph Control Pedal: 0xDA (b1-0) and 0xDB (b7-5)Drawbar 2: 0xDB (b4-1)           Morph Wheel:         0xDB (b0) and 0xDC (b7-4)           Morph After Touch:   0xDC (b3-0) and 0xDD (b7)           Morph Control Pedal: 0xDD (b6-2)Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)           Morph Wheel:         0xDE (b5-1)           Morph After Touch:   0xDE (b0) and 0xDF (b7-4)           Morph Control Pedal: 0xDF (b3-0) and 0xE0 (b7)Drawbar 4: 0xE0 (b6-3)           Morph Wheel:         0xE0 (b2-0) and 0xE1 (b7-6)           Morph After Touch:   0xE1 (b5-b1)           Morph Control Pedal: 0xE1 (b0) and 0xE2 (b7-4)Drawbar 5: 0xE2 (b3-0)           Morph Wheel:         0xE3 (b7-3)           Morph After Touch:   0xE3 (b2-0) and 0xE4 (b7-6)           Morph Control Pedal: 0xE4 (b5-1)Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)           Morph Wheel:         0xE5 (b4-0)           Morph After Touch:   0xE6 (b7-3)           Morph Control Pedal: 0xE6 (b2-0) and 0xE7 (b7-6)Drawbar 7: 0xE7 (b5-2)           Morph Wheel:         0xE7 (b1-0) and 0xE8 (b7-5)           Morph After Touch:   0xE8 (b4-0)           Morph Control Pedal: 0xE9 (b7-3)Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)           Morph Wheel:         0xEA (b6-2)           Morph After Touch:   0xEA (b1-0) and 0xEB (b7-5)           Morph Control Pedal: 0xEB (b4-0)Drawbar 9: 0xEC (b7-4)           Morph Wheel:         0xEC (b3-0) and 0xED (b7)           Morph After Touch:   0xED (b6-2)           Morph Control Pedal: 0xED (b1-0) and 0xEF (b7-5)Morph value is on 5-bitb4 is polarityb3-0 is raw 4-bit valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 8Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
-```
-<a name="module_NS3 Organ Live Mode"></a>
-
-## NS3 Organ Live Mode
-Offset in file: 0xBB (b3)(NS3 Compact model only)
-
-**Example**  
-```js
-O = off, 1 = on
-```
 <a name="module_NS3 Organ Vibrato On"></a>
 
 ## NS3 Organ Vibrato On
@@ -990,6 +990,78 @@ Offset in file: 0xD3 (b2)
 **Example**  
 ```js
 O = off, 1 = ononly if Organ type is B3
+```
+<a name="module_NS3 Organ Preset 2 On"></a>
+
+## NS3 Organ Preset 2 On
+Offset in file: 0xBB (b2)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Organ Preset 2 Drawbars"></a>
+
+## NS3 Organ Preset 2 Drawbars
+Offset in file: 0xD9
+
+**Example**  
+```js
+Drawbar value range is 0/8.For Vox Organ each value is converted to 0/1: 0 (if value < 4) else 1For Farfisa Organ drawbar 8 is not used and forced to 0Drawbar 1: 0xD9 (b7-4)           Morph Wheel:         0xD9 (b3-0) and 0xDA (b7)           Morph After Touch:   0xDA (b6-2)           Morph Control Pedal: 0xDA (b1-0) and 0xDB (b7-5)Drawbar 2: 0xDB (b4-1)           Morph Wheel:         0xDB (b0) and 0xDC (b7-4)           Morph After Touch:   0xDC (b3-0) and 0xDD (b7)           Morph Control Pedal: 0xDD (b6-2)Drawbar 3: 0xDD (b1-0) and 0xDE (b7-6)           Morph Wheel:         0xDE (b5-1)           Morph After Touch:   0xDE (b0) and 0xDF (b7-4)           Morph Control Pedal: 0xDF (b3-0) and 0xE0 (b7)Drawbar 4: 0xE0 (b6-3)           Morph Wheel:         0xE0 (b2-0) and 0xE1 (b7-6)           Morph After Touch:   0xE1 (b5-b1)           Morph Control Pedal: 0xE1 (b0) and 0xE2 (b7-4)Drawbar 5: 0xE2 (b3-0)           Morph Wheel:         0xE3 (b7-3)           Morph After Touch:   0xE3 (b2-0) and 0xE4 (b7-6)           Morph Control Pedal: 0xE4 (b5-1)Drawbar 6: 0xE4 (b0) and 0xE5 (b7-5)           Morph Wheel:         0xE5 (b4-0)           Morph After Touch:   0xE6 (b7-3)           Morph Control Pedal: 0xE6 (b2-0) and 0xE7 (b7-6)Drawbar 7: 0xE7 (b5-2)           Morph Wheel:         0xE7 (b1-0) and 0xE8 (b7-5)           Morph After Touch:   0xE8 (b4-0)           Morph Control Pedal: 0xE9 (b7-3)Drawbar 8: 0xE9 (b2-0) and 0xEA (b7)           Morph Wheel:         0xEA (b6-2)           Morph After Touch:   0xEA (b1-0) and 0xEB (b7-5)           Morph Control Pedal: 0xEB (b4-0)Drawbar 9: 0xEC (b7-4)           Morph Wheel:         0xEC (b3-0) and 0xED (b7)           Morph After Touch:   0xED (b6-2)           Morph Control Pedal: 0xED (b1-0) and 0xEE (b7-5)Morph value is on 5-bitb4 is polarityb3-0 is raw 4-bit valueif polarity = 1 then Morph offset value = raw value + 1if polarity = 0 then Morph offset value = raw value - 8Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+```
+<a name="module_NS3 Organ Preset 2 Vibrato On"></a>
+
+## NS3 Organ Preset 2 Vibrato On
+Offset in file: 0xEE (b4)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Organ Preset 2 Percussion On"></a>
+
+## NS3 Organ Preset 2 Percussion On
+Offset in file: 0xEE (b3)
+
+**Example**  
+```js
+O = off, 1 = ononly if Organ type is B3
+```
+<a name="module_NS3 Organ Preset 2 Percussion Volume Soft"></a>
+
+## NS3 Organ Preset 2 Percussion Volume Soft
+Offset in file: 0xEE (b0)
+
+**Example**  
+```js
+O = off, 1 = ononly if Organ type is B3
+```
+<a name="module_NS3 Organ Preset 2 Percussion Decay Fast"></a>
+
+## NS3 Organ Preset 2 Percussion Decay Fast
+Offset in file: 0xEE (b1)
+
+**Example**  
+```js
+O = off, 1 = ononly if Organ type is B3
+```
+<a name="module_NS3 Organ Preset 2 Percussion Harmonic Third"></a>
+
+## NS3 Organ Preset 2 Percussion Harmonic Third
+Offset in file: 0xEE (b2)
+
+**Example**  
+```js
+O = off, 1 = ononly if Organ type is B3
+```
+<a name="module_NS3 Organ Live Mode"></a>
+
+## NS3 Organ Live Mode
+Offset in file: 0xBB (b3)(NS3 Compact model only)
+
+**Example**  
+```js
+O = off, 1 = on
 ```
 <a name="module_NS3 Panel Enabled And Selection"></a>
 
