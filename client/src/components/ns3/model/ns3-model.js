@@ -128,15 +128,15 @@ exports.ns3Model = {
                     },
                 },
                 vibrato: {
-                    enabled: false,
+                    enabled: true,
                 },
                 percussion: {
                     enabled: true,
                     volumeSoft: {
-                        enabled: true,
+                        enabled: false,
                     },
                     decayFast: {
-                        enabled: false,
+                        enabled: true,
                     },
                     harmonicThird: {
                         enabled: false,
