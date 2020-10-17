@@ -25,7 +25,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         info: "",
         version: "",
         size: "",
-        location: location ? location: 0,
+        location: location ? location : 0,
     };
 
     // special clavinet multi sample case...
@@ -43,9 +43,12 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         sample.info = sampleLib.info;
         sample.size = sampleLib.size ? byteSize(sampleLib.size).toString() : "";
     }
+    // fallback if piano name is unknown
+    // special case is if sampleId = 0 (this happens when program init is used and new piano not saved...)
     if (!sampleLib) {
-        // fallback if piano name is unknown
-        if (location) {
+        if (sampleId === 0) {
+            sample.value = "Sample 1 (Program Init)";
+        } else if (location) {
             sample.value = "Unknown (Sample " + (location + 1) + ")";
         } else {
             // on NS2 the location is not available in the program !

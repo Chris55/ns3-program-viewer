@@ -51,8 +51,9 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
     //  | 0x3f61a640 | 0xbf61a63f | Italian Grand Faz Sml 5.3
     //  | 0x9fef7497 | 0x1fef7496 | Italian Grand Faz Lrg 5.3
     //  | 0x01a1a00b | 0x81a1a00a | EP4 Mk5 80s Lrg
-
-    const pianoSampleId = Number(ns2PianoSampleId ^ 0x80000000n) - 1;
+    //
+    // 0 if program init.
+    const pianoSampleId = ns2PianoSampleId === 0n ? Number(0) : Number(ns2PianoSampleId ^ 0x80000000n) - 1;
 
     let pianoLib = getSample(pianoSampleId, clavinetVariation);
 
