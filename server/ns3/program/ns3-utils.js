@@ -52,10 +52,13 @@ exports.ns3KnobDualValues = function (valueRange120) {
  * @returns {string|(string[]|boolean[])[]|(string|boolean[])[]}
  */
 exports.ns3KbZone = (sectionEnabled, global, value) => {
+
+    // section is not used
     if (!sectionEnabled) {
         return ["----", [false, false, false, false]];
     }
 
+    // no split, full keyboard is used
     if (!global.split.enabled) {
         return ["0000", [true, true, true, true]];
     }
@@ -66,24 +69,53 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
     // example:
     // https://www.norduserforum.com/post132371.html?hilit=os%20older%20version#p132371
     // Eye_Without_Face.ns3f
-    // kb zone value is 10 !
+    // extern kb zone value is 10 !
 
     if (!result) {
-        result = ["----", [false, false, false, false]];
+        return ["----", [false, false, false, false]];
     }
-    const zones =
-        (global.split.low.width === "Off" ? 0 : 1) +
-        (global.split.mid.width === "Off" ? 0 : 1) +
-        (global.split.high.width === "Off" ? 0 : 1);
 
-    if (zones === 1) {
+    const zones = {
+        low: global.split.enabled && global.split.low.width !== "Off",
+        mid: global.split.enabled && global.split.mid.width !== "Off",
+        high: global.split.enabled && global.split.high.width !== "Off",
+    };
 
+    if (zones.low && !zones.mid && zones.high) {
+        // when only low and high split are enabled, the middle zone corresponds to two LEDs
+        // "-O--" or "--O-" are invalid zones, forced to "-OO-"
+        // some programs have this issue, example:
+        // https://www.norduserforum.com/post132371.html?hilit=os%20older%20version#p132371
+        // Eye_Without_Face.ns3f (Piano Panel A)
+        if (value === 1 || value === 2) {
+            result = mapping.ns3KbZoneMap.get(5);
+        }
+    } else if (!zones.low && zones.mid && !zones.high) {
+        // when only middle zone is enabled, "O---", "-O--, "--O-", and "---O" are invalid zones.
+        // value is forced to "OO--" (or "--OO")
+        // some programs have this issue, example:
+        // https://www.norduserforum.com/viewtopic.php?t=14414
+        // uptown_funk.ns3f (Synth Panel A&B)
+        if (value === 0 || value === 1) {
+            result = mapping.ns3KbZoneMap.get(4); // "OO--"
+        } else if (value === 2 || value === 3) {
+            result = mapping.ns3KbZoneMap.get(6); // "--OO"
+        }
+    } else if (zones.low && !zones.mid && !zones.high) {
+        // when only low zone is enabled, only "O---", "-OOO", and "OOOO" are valid zones.
+        if (value !== 0 && value !== 9) {
+            result = mapping.ns3KbZoneMap.get(8); // "-OOO"
+        }
+    } else if (!zones.low && !zones.mid && zones.high) {
+        // when only high zone is enabled, only "---O", "OOO-", and "OOOO" are valid zones.
+        if (value !== 3 && value !== 9) {
+            result = mapping.ns3KbZoneMap.get(7); // "OOO-"
+        }
     }
     return result;
-    // no split, full keyboard is used
-
-    // section is not used
 };
+
+
 
 /***
  * returns Volume settings with Morph options
