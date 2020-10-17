@@ -385,10 +385,12 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
              * b4 is polarity
              * b3-0 is raw 4-bit value
              *
-             * if polarity = 1 then Morph offset value = raw value + 1
+             * if polarity = 1 then Morph offset value = 8 - raw value
              * if polarity = 0 then Morph offset value = raw value - 8
              *
-             * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
+             * Final 'To' Morph value =
+             * 'From value (original volume)' + 'Morph offset value' (0/8 range)
+             *
              * Morph Enabled if  'From value' <> 'Morph offset value'
              *
              * @module NS3 Organ Drawbars Preset 1
@@ -560,7 +562,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
              * if polarity = 0 then Morph offset value = raw value - 8
              *
              * Final 'To' Morph value =
-             * 'From value (original volume)' + 'Morph offset value' (in 0-8 range)
+             * 'From value (original volume)' + 'Morph offset value' (0/8 range)
              *
              * Morph Enabled if  'From value' <> 'Morph offset value'
              *
