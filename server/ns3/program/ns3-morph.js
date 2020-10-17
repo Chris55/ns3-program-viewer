@@ -1,4 +1,4 @@
-const {round} = require("../../common/converter");
+const { round } = require("../../common/converter");
 
 /***
  * returns an array of morph settings
@@ -19,8 +19,8 @@ exports.ns3Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
 
     rawMorphValue.forEach((rawValue) => {
         const rawOffsetValue = rawValue & 0x7f;
-        const positive = (rawValue & 0x80) !== 0;
-        const offset = positive ? rawOffsetValue + 1 : rawOffsetValue - 127;
+        const polarity = (rawValue & 0x80) !== 0;
+        const offset = polarity ? rawOffsetValue + 1 : rawOffsetValue - 127;
         let midiTo = midiFrom + offset;
         if (midiTo < 0) {
             midiTo = 0;
@@ -29,7 +29,7 @@ exports.ns3Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
         }
 
         result.push({
-            enabled: forceDisabled ? false: offset !== 0,
+            enabled: forceDisabled ? false : offset !== 0,
             midiTo: midiTo,
         });
     });
@@ -116,8 +116,8 @@ exports.ns3Morph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
 
     rawMorphValue.forEach((rawValue) => {
         const rawOffsetValue = rawValue & 0x3fff;
-        const positive = (rawValue & 0x4000) !== 0;
-        const offset = positive ? rawOffsetValue + 1 : rawOffsetValue - 16383; // 2^14 - 1
+        const polarity = (rawValue & 0x4000) !== 0;
+        const offset = polarity ? rawOffsetValue + 1 : rawOffsetValue - 16383; // 2^14 - 1
         let midiTo = midi14From + offset;
         if (midiTo < 0) {
             midiTo = 0;
@@ -126,7 +126,7 @@ exports.ns3Morph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
         }
 
         result.push({
-            enabled: forceDisabled ? false: offset !== 0,
+            enabled: forceDisabled ? false : offset !== 0,
             midiTo: midiTo >>> 7,
             lsw: midiTo & 0x007f,
         });
@@ -208,9 +208,9 @@ exports.ns3MorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
     const labelFrom = Math.abs(fromValue).toFixed(1);
 
     rawMorphValue.forEach((rawValue) => {
-        const offset = Math.trunc(((rawValue - 120) / 6) * 10) / 10;  // 0 / 10
+        const offset = Math.trunc(((rawValue - 120) / 6) * 10) / 10; // 0 / 10
         const valueTo = fromValue + offset;
-        let midiTo = round((valueTo + 10) * 127 / 20, 0);
+        let midiTo = round(((valueTo + 10) * 127) / 20, 0);
         if (midiTo < 0) {
             midiTo = 0;
         } else if (midiTo > 127) {
@@ -218,11 +218,11 @@ exports.ns3MorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
         }
 
         const labelTo = Math.abs(valueTo).toFixed(1);
-        const showed = left === (fromValue < 0);
-        const enabled = showed && (labelTo !== labelFrom);
+        const showed = left === fromValue < 0;
+        const enabled = showed && labelTo !== labelFrom;
 
         result.push({
-            enabled:  enabled,
+            enabled: enabled,
             midiTo: midiTo,
             labelTo: enabled ? labelTo : "none",
         });
@@ -292,15 +292,32 @@ exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
     rawMorphValue[1] = (uint32Value & 0x03e0) >>> 5; // after touch
     rawMorphValue[2] = uint32Value & 0x008f; // control pedal
 
-    //console.log("midiFrom", midiFrom, "wheel", rawMorphValue[0].toString(16), "after touch", rawMorphValue[1].toString(16), "control pedal", rawMorphValue[2].toString(16));
+    // console.log(
+    //     "midiFrom",
+    //     midiFrom,
+    //     "wheel",
+    //     rawMorphValue[0].toString(16),
+    //     "after touch",
+    //     rawMorphValue[1].toString(16),
+    //     "control pedal",
+    //     rawMorphValue[2].toString(16)
+    // );
 
     rawMorphValue.forEach((rawValue) => {
         const rawOffsetValue = rawValue & 0x0f;
-        const positive = (rawValue & 0x10) !== 0;
-        const offset = positive ? rawOffsetValue + 1 : rawOffsetValue - 8;
+        const polarity = (rawValue & 0x10) !== 0;
+        // console.log("   ", "polarity", polarity, "value", rawOffsetValue);
+        const offset = polarity ? 8 - rawOffsetValue : rawOffsetValue - 8;
+        let value = midiFrom + offset;
+        if (value < 0) {
+            value = 0;
+        } else if (value > 8) {
+            value = 8;
+        }
+
         result.push({
             enabled: offset !== 0,
-            midiTo: midiFrom + offset,
+            midiTo: value,
         });
     });
 

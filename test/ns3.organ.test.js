@@ -173,6 +173,22 @@ describe("/ns3/organ", () => {
         });
     });
 
+    test("panelA.organ.preset1.drawbars.value eq 808643338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6-046-08-", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 808643338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6-046-08-.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.preset1.drawbars.value eq 888600000 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq ---888887", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 888600000 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq ---888887.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.organ.preset1.percussion.decayFast.enabled eq false", async () => {
         const file = "panelA.organ.preset1.percussion.decayFast.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
