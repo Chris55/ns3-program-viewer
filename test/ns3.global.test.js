@@ -157,6 +157,62 @@ describe("/ns3/global", () => {
         });
     });
 
+    test("id.name eq A@c11", async () => {
+        const file = "id.name eq A@c11.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("id.name eq A@c12", async () => {
+        const file = "id.name eq A@c12.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("id.name eq A@c21", async () => {
+        const file = "id.name eq A@c21.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("id.name eq A@c55", async () => {
+        const file = "id.name eq A@c55.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("id.name eq B@c11", async () => {
+        const file = "id.name eq B@c11.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("id.name eq B@c51", async () => {
+        const file = "id.name eq B@c51.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("id.name eq P@c55", async () => {
+        const file = "id.name eq P@c55.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("masterClock.rate.value eq 240 bpm", async () => {
         const file = "masterClock.rate.value eq 240 bpm.ns3f";
         const sut = await loadTestCase(root + file);

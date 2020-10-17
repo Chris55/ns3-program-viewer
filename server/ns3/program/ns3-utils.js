@@ -126,3 +126,28 @@ exports.ns3VolumeEx = (buffer, offset) => {
         morph: morph,
     };
 };
+
+/***
+ * returns NS3 program location
+ *
+ * @param bankValue {number}
+ * @param locationValue {number}
+ * @returns {{bank: number, name: string, location: number, value: number}}
+ */
+exports.ns3ProgramLocation = (bankValue, locationValue) => {
+    // bankValue should be between 0 and 15 (A...P)
+    // locationValue should be between 0 and 24 (11,12...,54,55)
+    // but on older program coding was maybe different
+    // example in v3.00
+    // https://www.norduserforum.com/viewtopic.php?t=14414
+    // Uptown_Funk.ns3f location value = 45 !!!
+    const valid = bankValue <= 15 && locationValue <= 24;
+    const locationDigit1 = (Math.trunc(locationValue / 5) + 1) * 10;
+    const locationDigit2 = (locationValue % 5) + 1;
+    return {
+        bank: bankValue,
+        location: locationValue,
+        name: valid ? (String.fromCharCode(65 + bankValue) + ":" + (locationDigit1 + locationDigit2)) : "",
+        value: bankValue * 25 + locationValue,
+    };
+}

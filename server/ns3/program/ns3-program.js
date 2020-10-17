@@ -1,6 +1,7 @@
 const path = require("path");
 const mapping = require("./ns3-mapping");
-const {nordFileExtMap} = require("../../common/nord-mapping");
+const { ns3ProgramLocation } = require("./ns3-utils");
+const { nordFileExtMap } = require("../../common/nord-mapping");
 const { getVersion } = require("../../common/converter");
 const { ns3Panel } = require("./ns3-panel");
 
@@ -33,14 +34,8 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
 
     const bankValue = buffer.readUInt8(0x0c);
     const locationValue = buffer.readUInt8(0x0e);
-    const locationDigit1 = (Math.trunc(locationValue / 5) + 1) * 10;
-    const locationDigit2 = (locationValue % 5) + 1;
-    const programLocation = {
-        bank: bankValue,
-        location: locationValue,
-        name: String.fromCharCode(65 + bankValue) + ":" + (locationDigit1 + locationDigit2),
-        value: bankValue * 25 + locationValue,
-    };
+    const programLocation = ns3ProgramLocation(bankValue, locationValue);
+
     /**
      * Offset in file: 0x14 and 0x15
      *
@@ -308,7 +303,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         value: mapping.ns3DualKeyboardStyleMap.get(offset3a & 0x03),
     };
 
-    const ext =  path.extname(filename).substr(1);
+    const ext = path.extname(filename).substr(1);
 
     const global = {
         masterClock: {

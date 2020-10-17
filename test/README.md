@@ -22,4 +22,5 @@ The API should return:
 - "/" is replaced by @s
 - "±" is replaced by @=
 - "+" is replaced by @p
+- ":" is replaced by @c
 
