@@ -121,10 +121,14 @@ class App extends Component {
                                 <div className="col-auto align-self-center">
                                     <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
                                 </div>
+
+                                <div className="col-auto align-self-center">
+
+                                </div>
                             </div>
                         </Container>
 
-                        <NordDevice data={this.state.data} production={this.production}/>
+                        <NordDevice data={this.state.data} production={this.production} />
                         {/*<div className={this.state.data.ext === "ns3f" ? "" : "d-none"}>*/}
                         {/*    <div className={this.production ? "mt-2" : "d-none"}>*/}
                         {/*        <Ns3 data={this.state.data} />*/}

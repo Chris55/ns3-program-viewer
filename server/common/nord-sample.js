@@ -234,15 +234,18 @@ exports.loadNs3SampleFile = (buffer, filename) => {
 
     // Piano sample v6 are using offset 0x68 to define the name...
     if (sampleNameV6) {
+        sampleName = sampleNameV6
+
         const items = sampleName.split(" ");
-        const size = items.pop();
-        sampleName = sampleNameV6 + (size ? " " + size : "");
+        let size = items.pop();
+        if (size === "Sml" || size === "Med" || size === "XL" || size === "Lrg") {
+            sampleName += " " + size;
+        }
     }
 
-    const hash =xxh.h32(filename, 0x4342).toString(16);  // CryptoJS.SHA3(filename);
+    const hash = xxh.h32(filename, 0x4342).toString(16); // CryptoJS.SHA3(filename);
 
     const hashId = hash.toString();
-
 
     return {
         version: sampleVersion.version,

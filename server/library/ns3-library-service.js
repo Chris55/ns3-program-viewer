@@ -49,7 +49,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         if (sampleId === 0) {
             sample.value = "Sample 1 (Program Init)";
         } else if (location) {
-            sample.value = "Unknown (Sample " + (location + 1) + ")";
+            sample.value = "Sample " + (location + 1);
         } else {
             // on NS2 the location is not available in the program !
             sample.value = "Unknown";

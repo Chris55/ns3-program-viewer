@@ -221,10 +221,11 @@ exports.ns3NordPianoLibrary = new Map([
     [0x846b843d, {name: "Hybrid EP Sml", info: "", version: "5.2", category: "None", size: 9380790, filename: "Hybrid EP  Sml 5.2", ext: "npno" }],
     [0xf65e34f0, {name: "Silver EP Sml", info: "", version: "5.2", category: "None", size: 24153800, filename: "Silver EP  Sml 5.2", ext: "npno" }],
 
-    [0xb7353247, {name: "Marimba Marimba", info: "Classic 4 1/2 octave", version: "6.1", category: "None", size: 15716168, filename: "Marimba  6.1", ext: "npno" }],
-    [0xa90baba1, {name: "Marimba mono mono", info: "Classic 4 1/2 octave", version: "6.1", category: "None", size: 8117598, filename: "Marimba mono  6.1", ext: "npno" }],
-    [0x7db59a7c, {name: "Vibraphone Vibraphone", info: "YV3710", version: "6.0", category: "None", size: 28803900, filename: "Vibraphone  6.0", ext: "npno" }],
-    [0x7e48ff56, {name: "Vibraphone mono mono", info: "YV3710", version: "6.0", category: "None", size: 14604232, filename: "Vibraphone mono  6.0", ext: "npno" }],
+    [0xb7353247, {name: "Marimba", info: "Classic 4 1/2 octave", version: "6.1", category: "None", size: 15716168, filename: "Marimba  6.1", ext: "npno" }],
+    [0xa90baba1, {name: "Marimba mono", info: "Classic 4 1/2 octave", version: "6.1", category: "None", size: 8117598, filename: "Marimba mono  6.1", ext: "npno" }],
+
+    [0x7db59a7c, {name: "Vibraphone", info: "YV3710", version: "6.0", category: "None", size: 28803900, filename: "Vibraphone  6.0", ext: "npno" }],
+    [0x7e48ff56, {name: "Vibraphone mono", info: "YV3710", version: "6.0", category: "None", size: 14604232, filename: "Vibraphone mono  6.0", ext: "npno" }],
 
     // https://www.norduserforum.com/nord-user-samples-nsmp-samples-f14/gospel-keys-npno-t15312.html
     // Gospel Keys
