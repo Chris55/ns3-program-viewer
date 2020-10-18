@@ -44,6 +44,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 | 1.1  | xx-xxx-2020  | Fixed NS3 Organ mapping (0x00DB was missing)
 |      |              | Added NS3 missing Organ Preset II options
 |      |              | Fixed NS3 Organ Morph implementation
+|      |              | Added NS3 Synth Preset
 |      |              | Draft added Stage 2
 
 
@@ -173,30 +174,30 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0054` | `wwwwaaaa` | [(a) synth volume morph after touch](ns3-doc.md#ns3-synth-volume)
 | `0x0055` | `aaaapppp` | [(p) synth volume morph control pedal](ns3-doc.md#ns3-synth-volume)
 | `0x0056` | `ppppoooo` | [(o) synth octave shift](ns3-doc.md#ns3-synth-octave-shift)
-| `0x0057` | `ps--xxxx` | [(p) synth pitch stick](ns3-doc.md#ns3-synth-pitch-stick), [(s) synth sustain pedal](ns3-doc.md#ns3-synth-sustain-pedal), (x) user sample name
-| `0x0058` | `xxxxxxxx` |
-| `0x0059` | `xxxxxxxx` |
-| `0x005A` | `xxxxxxxx` |
-| `0x005B` | `xxxxxxxx` |
-| `0x005C` | `xxxxxxxx` |
-| `0x005D` | `xxxxxxxx` |
-| `0x005E` | `xxxxxxxx` |
-| `0x005F` | `xxxxxxxx` |
-| `0x0060` | `xxxxxxxx` |
-| `0x0061` | `xxxxxxxx` |
-| `0x0062` | `xxxxxxxx` |
-| `0x0063` | `xxxxxxxx` |
-| `0x0064` | `xxxxxxxx` |
-| `0x0065` | `xxxxxxxx` |
-| `0x0066` | `xxxxxxxx` |
-| `0x0067` | `xxxxxxxx` |
-| `0x0068` | `xxxxxxxx` |
-| `0x0069` | `xxxxxxxx` |
-| `0x006A` | `xxxxxxxx` |
-| `0x006B` | `xxxxxxxx` |
-| `0x006C` | `xxxxxxxx` |
-| `0x006D` | `--------` |
-| `0x006E` | `--------` |
+| `0x0057` | `psiiiiii` | [(p) synth pitch stick](ns3-doc.md#ns3-synth-pitch-stick), [(s) synth sustain pedal](ns3-doc.md#ns3-synth-sustain-pedal), [(i) synth preset location](ns3-doc.md#ns3-synth-preset-location)
+| `0x0058` | `iiiicccc` | [(c) synth preset name](ns3-doc.md#ns3-synth-preset-name)
+| `0x0059` | `cccccccc` |
+| `0x005A` | `cccccccc` |
+| `0x005B` | `cccccccc` |
+| `0x005C` | `cccccccc` |
+| `0x005D` | `cccccccc` |
+| `0x005E` | `cccccccc` |
+| `0x005F` | `cccccccc` |
+| `0x0060` | `cccccccc` |
+| `0x0061` | `cccccccc` |
+| `0x0062` | `cccccccc` |
+| `0x0063` | `cccccccc` |
+| `0x0064` | `cccccccc` |
+| `0x0065` | `cccccccc` |
+| `0x0066` | `cccccccc` |
+| `0x0067` | `cccccccc` |
+| `0x0068` | `cccccccc` |
+| `0x0069` | `cccccccc` |
+| `0x006A` | `cccccccc` |
+| `0x006B` | `cccccccc` |
+| `0x006C` | `cccccccc` |
+| `0x006D` | `cccccccc` |
+| `0x006E` | `cccc----` |
 | `0x006F` | `--------` |
 | `0x0070` | `--------` |
 | `0x0071` | `--------` |

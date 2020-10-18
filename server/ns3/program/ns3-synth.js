@@ -1,5 +1,6 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
+const {ns3SynthPreset} = require("./ns3-utils");
 const { getSample } = require("../../library/ns3-library-service");
 const { ns3MorphSynthOscillatorModulation } = require("./ns3-morph");
 const { ns3Morph } = require("./ns3-morph");
@@ -143,11 +144,13 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
 
     const synthKbZoneValue = (synthOffset52W & 0x7800) >>> 11;
     const synthKbZone = ns3KbZone(synthKbZoneEnabled, global, synthKbZoneValue);
+    const preset = ns3SynthPreset(buffer, 0x57 + panelOffset);
 
     const synth = {
         debug: {
             sampleId: sampleId.toString(16),
             lib: waveForm1,
+            preset: preset,
         },
 
         /**
@@ -254,7 +257,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
             value: mapping.ns3SynthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
         },
         /**
-         * Offset in file: 0x85 (b6 to b0) 7 bits, range 0/10
+         * Offset in file: 0x85 (b6-0) 7 bits, range 0/10
          *
          * @example
          * 0/127 value = 0 / 10
@@ -265,7 +268,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
             value: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
         },
         /**
-         * Offset in file: 0x86 (b7/6)
+         * Offset in file: 0x86 (b7-6)
          *
          * @example
          * 0 = Off
@@ -279,7 +282,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
             value: mapping.ns3SynthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
         },
         /**
-         * Offset in file: 0x86 (b5/4/3)
+         * Offset in file: 0x86 (b5-3)
          *
          * @example
          * 0 = Off
@@ -295,11 +298,15 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
             value: mapping.ns3SynthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
         },
         /***
+         * Synth Preset
+         */
+        preset: preset,
+        /***
          * Synth Oscillators Definition
          */
         oscillators: {
             /**
-             * Offset in file: 0x8D (b1/0) and 0x8E (b7)
+             * Offset in file: 0x8D (b1-0) and 0x8E (b7)
              *
              * @example
              * 0 = Classic
@@ -397,7 +404,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
                 value: oscConfig,
             },
             /**
-             * Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)
+             * Offset in file: 0x90 (b2-0) and 0x91 (b7-4)
              *
              * @example
              * Type                  Midi value conversion

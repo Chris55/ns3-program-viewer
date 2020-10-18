@@ -1487,4 +1487,49 @@ exports.ns3NordSampleLibraryArchive = new Map([
     [0xf79c18ed, {name: "FL Swannee", info: "", version: "3.0", category: "Misc", size: 605164, filename: "FL Swannee", ext: "nsmp3" }],
     [0x31b665a1, {name: "FL TnSaxC3", info: "", version: "3.0", category: "Misc", size: 478700, filename: "FL TnSaxC3", ext: "nsmp3" }],
 
+    // Nord Sample Library Archive Lead Sounds M300/M400
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/mellotron/mellotron-master-tapes/lead-sounds-m300m400
+
+    [0x882a522e, {name: "2Violins UL", info: "Mellotron M400", version: "3.0", category: "Misc", size: 15353836, filename: "2Violins UL_Mellotron M400", ext: "nsmp3" }],
+    [0xbc73b409, {name: "2Violins", info: "Mellotron M400", version: "3.0", category: "Misc", size: 4446572, filename: "2Violins_Mellotron M400", ext: "nsmp3" }],
+    [0x727e3f7b, {name: "Flute UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 13420396, filename: "Flute UL_Mellotron M300", ext: "nsmp3" }],
+    [0x5356e8bb, {name: "Flute", info: "Mellotron M300", version: "3.0", category: "Misc", size: 4854636, filename: "Flute_Mellotron M300", ext: "nsmp3" }],
+    [0x9cf5cf04, {name: "Hammond UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 12195052, filename: "Hammond UL_Mellotron M300", ext: "nsmp3" }],
+    [0x4dae640c, {name: "Hammond", info: "Mellotron M300", version: "3.0", category: "Misc", size: 3978988, filename: "Hammond_Mellotron M300", ext: "nsmp3" }],
+    [0x6d1a2206, {name: "Harpsichord UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 9107820, filename: "Harpsichord UL_Mellotron M300", ext: "nsmp3" }],
+    [0xee2ac477, {name: "Harpsichord", info: "Mellotron M300", version: "3.0", category: "Misc", size: 1803884, filename: "Harpsichord_Mellotron M300", ext: "nsmp3" }],
+    [0x44825156, {name: "Organ UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 12803948, filename: "Organ UL_Mellotron M300", ext: "nsmp3" }],
+    [0x3a3d0d2, {name: "Organ", info: "Mellotron M300", version: "3.0", category: "Misc", size: 935916, filename: "Organ_Mellotron M300", ext: "nsmp3" }],
+    [0xa2d0b37b, {name: "Organ2 UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 12782444, filename: "Organ2 UL_Mellotron M300", ext: "nsmp3" }],
+    [0x65b86d08, {name: "Organ2", info: "Mellotron M300", version: "3.0", category: "Misc", size: 976108, filename: "Organ2_Mellotron M300", ext: "nsmp3" }],
+    [0x459c71f3, {name: "Piano 61 UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 11421676, filename: "Piano 61 UL_Mellotron M300", ext: "nsmp3" }],
+    [0x6fd233ad, {name: "Piano 61", info: "Mellotron M300", version: "3.0", category: "Misc", size: 6297068, filename: "Piano 61_Mellotron M300", ext: "nsmp3" }],
+    [0x8b82f37a, {name: "Sax UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 13398892, filename: "Sax UL_Mellotron M300", ext: "nsmp3" }],
+    [0x939de7e5, {name: "Sax", info: "Mellotron M300", version: "3.0", category: "Misc", size: 3471212, filename: "Sax_Mellotron M300", ext: "nsmp3" }],
+    [0xf4a24d0, {name: "SpanishGuitar UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 3882604, filename: "SpanishGuitar UL_Mellotron M300", ext: "nsmp3" }],
+    [0xe3e5c0e2, {name: "SpanishGuitar", info: "Mellotron M300", version: "3.0", category: "Misc", size: 1812204, filename: "SpanishGuitar_Mellotron M300", ext: "nsmp3" }],
+    [0xf7b41c5c, {name: "Trombone1 UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 10429676, filename: "Trombone1 UL_Mellotron M300", ext: "nsmp3" }],
+    [0x27448b23, {name: "Trombone1", info: "Mellotron M300", version: "3.0", category: "Misc", size: 3209452, filename: "Trombone1_Mellotron M300", ext: "nsmp3" }],
+    [0x9d8ae7b8, {name: "Trombone2 UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 10352364, filename: "Trombone2 UL_Mellotron M300", ext: "nsmp3" }],
+    [0xea15deeb, {name: "Trombone2", info: "Mellotron M300", version: "3.0", category: "Misc", size: 2147564, filename: "Trombone2_Mellotron M300", ext: "nsmp3" }],
+    [0xa0e988ef, {name: "VibesNoVibrato UL", info: "Mellotron M300", version: "3.0", category: "Misc", size: 8644076, filename: "VibesNoVibrato UL_Mellotron M300", ext: "nsmp3" }],
+    [0xd317329c, {name: "VibesNoVibrato", info: "Mellotron M300", version: "3.0", category: "Misc", size: 4671468, filename: "VibesNoVibrato_Mellotron M300", ext: "nsmp3" }],
+
+    [0x84f52779, {name: "AfroCuban Organ UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 11987820, filename: "AfroCuban Organ UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0xf005b8da, {name: "Dixie TromboneMel UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 11119340, filename: "Dixie TromboneMel UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0xbaaf8eac, {name: "FastJazzBass SFX2 UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 11477228, filename: "FastJazzBass SFX2 UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0xfcd37a59, {name: "Foxtrot SwFlutes2 UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 10355308, filename: "Foxtrot SwFlutes2 UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0xcbff4226, {name: "Foxtrot2 MovPiano UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 9775212, filename: "Foxtrot2 MovPiano UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0x3743748, {name: "JazzFox Piano UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 11341932, filename: "JazzFox Piano UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0x98179f5, {name: "MovBass MovStr UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 13610092, filename: "MovBass MovStr UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0x9ea30ad1, {name: "ReverbOrgan UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 10344812, filename: "ReverbOrgan UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0x496aaeb, {name: "Rumba Guitar UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 9424364, filename: "Rumba Guitar UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0x64560c86, {name: "Samba ElOrgan UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 13423980, filename: "Samba ElOrgan UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0xf2932df8, {name: "SlowFox Woodwinds UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 10786540, filename: "SlowFox Woodwinds UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0xc749130e, {name: "SlowWaltz Celeste UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 9805676, filename: "SlowWaltz Celeste UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0x5c365dc8, {name: "Tango SFX1 UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 9840236, filename: "Tango SFX1 UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+    [0x28387fb1, {name: "VienWaltz Marimba UL", info: "RyFi Mellotron MKI", version: "3.0", category: "Misc", size: 10003308, filename: "VienWaltz Marimba UL_RyFi Mellotron MKI", ext: "nsmp3" }],
+
+
+
 ]);

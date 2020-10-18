@@ -15,6 +15,7 @@ export default class Ns3SectionSynth extends Component {
     render() {
         const synth = this.props.data;
         const visible = synth.enabled;
+        const presetName = synth.preset?.presetName !== synth.oscillators.waveForm1.value ? synth.preset?.presetName: "";
 
         return (
             <React.Fragment>
@@ -52,6 +53,9 @@ export default class Ns3SectionSynth extends Component {
                                             <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />
                                         </div>
                                         <div className="nord-name">
+                                            <div className={presetName !== "" ? "": "d-none"}>
+                                                <small>{presetName}</small>
+                                            </div>
                                             <div >{synth.oscillators.waveForm1.value}</div>
                                             <div ><small>{synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}</small></div>
                                         </div>

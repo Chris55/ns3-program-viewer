@@ -337,16 +337,16 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0x84 (b0) and 0x85 (b7)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Glide">NS3 Synth Glide</a></dt>
-<dd><p>Offset in file: 0x85 (b6 to b0) 7 bits, range 0/10</p>
+<dd><p>Offset in file: 0x85 (b6-0) 7 bits, range 0/10</p>
 </dd>
 <dt><a href="#module_NS3 Synth Unison">NS3 Synth Unison</a></dt>
-<dd><p>Offset in file: 0x86 (b7/6)</p>
+<dd><p>Offset in file: 0x86 (b7-6)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Vibrato">NS3 Synth Vibrato</a></dt>
-<dd><p>Offset in file: 0x86 (b5/4/3)</p>
+<dd><p>Offset in file: 0x86 (b5-3)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Oscillator Type">NS3 Synth Oscillator Type</a></dt>
-<dd><p>Offset in file: 0x8D (b1/0) and 0x8E (b7)</p>
+<dd><p>Offset in file: 0x8D (b1-0) and 0x8E (b7)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Oscillator 1 Wave Form">NS3 Synth Oscillator 1 Wave Form</a></dt>
 <dd><p>Offset in file: 0x8E (b3-0) and 0x8F (b7/6)</p>
@@ -355,7 +355,7 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file: 0x8F (b4-1)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Oscillator Control">NS3 Synth Oscillator Control</a></dt>
-<dd><p>Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)</p>
+<dd><p>Offset in file: 0x90 (b2-0) and 0x91 (b7-4)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Pitch">NS3 Synth Pitch</a></dt>
 <dd><p>Offset in file: 0x8f (b0) and 0x90 (b7-3)</p>
@@ -416,6 +416,12 @@ Value: 0x38 (b6-3)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Arp Pattern">NS3 Synth Arp Pattern</a></dt>
 <dd><p>Offset in file: 0x80 (b2-1)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Preset Location">NS3 Synth Preset Location</a></dt>
+<dd><p>Offset in file: 0x57 (b5-0) and 0x58 (b7-4)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Preset Name">NS3 Synth Preset Name</a></dt>
+<dd><p>Offset in file: 0x58 (b3-0) to 0x6E (b7-4)</p>
 </dd>
 </dl>
 
@@ -1411,7 +1417,7 @@ Offset in file: 0x84 (b0) and 0x85 (b7)
 <a name="module_NS3 Synth Glide"></a>
 
 ## NS3 Synth Glide
-Offset in file: 0x85 (b6 to b0) 7 bits, range 0/10
+Offset in file: 0x85 (b6-0) 7 bits, range 0/10
 
 **Example**  
 ```js
@@ -1420,7 +1426,7 @@ Offset in file: 0x85 (b6 to b0) 7 bits, range 0/10
 <a name="module_NS3 Synth Unison"></a>
 
 ## NS3 Synth Unison
-Offset in file: 0x86 (b7/6)
+Offset in file: 0x86 (b7-6)
 
 **Example**  
 ```js
@@ -1429,7 +1435,7 @@ Offset in file: 0x86 (b7/6)
 <a name="module_NS3 Synth Vibrato"></a>
 
 ## NS3 Synth Vibrato
-Offset in file: 0x86 (b5/4/3)
+Offset in file: 0x86 (b5-3)
 
 **Example**  
 ```js
@@ -1438,7 +1444,7 @@ Offset in file: 0x86 (b5/4/3)
 <a name="module_NS3 Synth Oscillator Type"></a>
 
 ## NS3 Synth Oscillator Type
-Offset in file: 0x8D (b1/0) and 0x8E (b7)
+Offset in file: 0x8D (b1-0) and 0x8E (b7)
 
 **Example**  
 ```js
@@ -1465,7 +1471,7 @@ Offset in file: 0x8F (b4-1)
 <a name="module_NS3 Synth Oscillator Control"></a>
 
 ## NS3 Synth Oscillator Control
-Offset in file: 0x90 (b2/1/0) and 0x91 (b7/6/5/4)
+Offset in file: 0x90 (b2-0) and 0x91 (b7-4)
 
 **See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
@@ -1653,4 +1659,22 @@ Offset in file: 0x80 (b2-1)
 **Example**  
 ```js
 0 = Up1 = Down2 = Up/Down3 = Random
+```
+<a name="module_NS3 Synth Preset Location"></a>
+
+## NS3 Synth Preset Location
+Offset in file: 0x57 (b5-0) and 0x58 (b7-4)
+
+**Example**  
+```js
+Preset location:0-399:   user preset400-799: sample preset
+```
+<a name="module_NS3 Synth Preset Name"></a>
+
+## NS3 Synth Preset Name
+Offset in file: 0x58 (b3-0) to 0x6E (b7-4)
+
+**Example**  
+```js
+User Preset names are limited to 16 characters,Sample Preset name are up to 22 characters.character 1: (offset + 3) & 0x7fcharacter 2: (offset + 2) & 0xffcharacter 3: (offset + 1) & 0xffcharacter 4: ((offset + 0) & 0xff) + 1character 5: (offset + 3 + 4) & 0x7fcharacter 6: (offset + 2 + 4) & 0xff. . .
 ```

@@ -1,5 +1,6 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
+const {zeroPad} = require("../../common/converter");
 const { dBMap } = require("../../common/nord-mapping");
 const { ns3Morph } = require("./ns3-morph");
 
@@ -52,7 +53,6 @@ exports.ns3KnobDualValues = function (valueRange120) {
  * @returns {string|(string[]|boolean[])[]|(string|boolean[])[]}
  */
 exports.ns3KbZone = (sectionEnabled, global, value) => {
-
     // section is not used
     if (!sectionEnabled) {
         return ["----", [false, false, false, false]];
@@ -114,8 +114,6 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
     }
     return result;
 };
-
-
 
 /***
  * returns Volume settings with Morph options
@@ -179,7 +177,102 @@ exports.ns3ProgramLocation = (bankValue, locationValue) => {
     return {
         bank: bankValue,
         location: locationValue,
-        name: valid ? (String.fromCharCode(65 + bankValue) + ":" + (locationDigit1 + locationDigit2)) : "",
+        name: valid ? String.fromCharCode(65 + bankValue) + ":" + (locationDigit1 + locationDigit2) : "",
         value: bankValue * 25 + locationValue,
     };
-}
+};
+
+/***
+ * returns Synth Preset details
+ *
+ * @param buffer {Buffer}
+ * @param offset {number}
+ * @returns {{userPresetLocation: number, samplePresetLocation: number, presetName: string}}
+ */
+exports.ns3SynthPreset = (buffer, offset) => {
+
+    const offset57W = buffer.readUInt16BE(offset);
+    const location = (offset57W & 0x3ff0) >>> 4;
+
+    const userPreset = location < 400;
+    const userPresetLocationValue = location >= 400 ? 0: location;
+    const userPresetLocationBank = Math.trunc(userPresetLocationValue / 50) + 1;
+    const userPresetLocationLoc = (userPresetLocationValue % 50) + 1;
+    const userPresetLocationName = userPresetLocationBank + ":" + zeroPad(userPresetLocationLoc, 2);
+
+    const samplePresetLocationValue = location >= 400 ? location - 400: 0;
+    const samplePresetLocationName = (samplePresetLocationValue + 1).toString();
+
+    //
+    // " abcdefghijklmno"
+    // 58 59 5a 5b 5c 5d 5e 5f 60 61 62 63 64 65 66 67 68 69 6a 6b 6c
+    // 0E 36 26 11 FE 76 66 56 3E B6 A6 96 7E F6 E6 D6 B7 FF FF FF F7
+
+    // "abcdefghijklmnop"
+    // 58 59 5a 5b 5c 5d 5e 5f 60 61 62 63 64 65 66 67 68 69 6a 6b 6c
+    // 0E 46 36 26 0E 86 76 66 4E C6 B6 A6 8F 06 F6 E6 C7 FF FF FF F7
+    //   d  c  b  a
+
+    let name = "";
+    for (let i = 0; i < 22; i++) {
+        const four = Math.trunc(i / 4) * 4;
+        const pos = four + 3 - (i % 4);
+        const value = buffer.readUInt16BE(offset + 1 + pos);
+        let ch;
+        switch (i % 4) {
+            case 0:
+                ch = ((value & 0x0ff0) >>> 4) + 1;
+                break;
+            case 1:
+            case 2:
+                ch = (value & 0x0ff0) >>> 4;
+                break;
+            case 3:
+                ch = (value & 0x07f0) >>> 4;
+                break;
+        }
+        if (ch === 0) {
+            break;
+        }
+        if (ch < 255 && ch !== 127) {
+            name += String.fromCharCode(ch);
+        }
+    }
+
+    return {
+        /**
+         * Offset in file: 0x57 (b5-0) and 0x58 (b7-4)
+         *
+         * @example
+         * Preset location:
+         * 0-399:   user preset
+         * 400-799: sample preset
+         *
+         * @module NS3 Synth Preset Location
+         */
+        location: location,
+        userPreset: userPreset,
+        userPresetLocationValue: userPresetLocationValue,
+        userPresetLocationName: userPresetLocationName,
+        samplePresetLocationValue: samplePresetLocationValue,
+        samplePresetLocationName: samplePresetLocationName,
+        /**
+         * Offset in file: 0x58 (b3-0) to 0x6E (b7-4)
+         *
+         * @example
+         * User Preset names are limited to 16 characters,
+         * Sample Preset name are up to 22 characters.
+         *
+         * character 1: (offset + 3) & 0x7f
+         * character 2: (offset + 2) & 0xff
+         * character 3: (offset + 1) & 0xff
+         * character 4: ((offset + 0) & 0xff) + 1
+         * character 5: (offset + 3 + 4) & 0x7f
+         * character 6: (offset + 2 + 4) & 0xff
+         * . . .
+         *
+         * @module NS3 Synth Preset Name
+         */
+        presetName: name.trim(),
+    };
+};
