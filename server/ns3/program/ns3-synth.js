@@ -85,6 +85,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
     const oscillatorType = mapping.ns3SynthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >>> 7);
 
     let waveForm1 = {
+        valid: false,
         value: "",
         info: "",
         version: "",
@@ -94,18 +95,22 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
         case "Classic":
             waveForm1.location = (synthOffset8eW & 0x01c0) >>> 6;
             waveForm1.value = mapping.ns3SynthOscillator1ClassicWaveTypeMap.get(waveForm1.location);
+            waveForm1.valid = waveForm1.value !== undefined;
             break;
         case "Wave":
             waveForm1.location = (synthOffset8eW & 0x0fc0) >>> 6;
             waveForm1.value = mapping.ns3SynthOscillator1WaveWaveTypeMap.get(waveForm1.location);
+            waveForm1.valid = waveForm1.value !== undefined;
             break;
         case "Formant":
             waveForm1.location = (synthOffset8eW & 0x03c0) >>> 6;
             waveForm1.value = mapping.ns3SynthOscillator1FormantWaveTypeMap.get(waveForm1.location);
+            waveForm1.valid = waveForm1.value !== undefined;
             break;
         case "Super":
             waveForm1.location = (synthOffset8eW & 0x01c0) >>> 6;
             waveForm1.value = mapping.ns3SynthOscillator1SuperWaveTypeMap.get(waveForm1.location);
+            waveForm1.valid = waveForm1.value !== undefined;
             break;
         case "Sample":
             const location = (synthOffset8eW & 0x7fc0) >>> 6;

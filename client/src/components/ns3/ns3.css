@@ -238,3 +238,10 @@
 td > * {
     vertical-align: top;
 }
+
+.nord-font-small  {
+    font-size: small;
+    font-weight: lighter;
+}
+
+

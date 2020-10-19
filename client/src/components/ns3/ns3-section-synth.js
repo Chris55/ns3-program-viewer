@@ -54,9 +54,12 @@ export default class Ns3SectionSynth extends Component {
                                         </div>
                                         <div className="nord-name">
                                             <div className={presetName !== "" ? "": "d-none"}>
-                                                <small>{presetName}</small>
+                                                <div className={synth.oscillators.waveForm1.valid ? "nord-font-small": ""}>
+                                                    {presetName}
+                                                </div>
                                             </div>
-                                            <div >{synth.oscillators.waveForm1.value}</div>
+                                            <div className={synth.oscillators.waveForm1.valid ? "": "nord-font-small"}>{
+                                                synth.oscillators.waveForm1.value}</div>
                                             <div ><small>{synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}</small></div>
                                         </div>
 
