@@ -170,7 +170,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * Offset in file: 0x49 (b3-0) to 0x4D (b7-3)
          *
          * @example
-         * 32-bit Nord Sample ID
+         * 32-bit piano sample hash code
          *
          * @module NS3 Piano Name
          */

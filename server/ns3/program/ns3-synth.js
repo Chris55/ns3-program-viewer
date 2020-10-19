@@ -44,7 +44,7 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @param id {number}
  * @param panelOffset {number}
  * @param global
- * @returns {{voice: unknown, oscillators: {control: {midi: number, value: string}, fastAttack: boolean, pitch: {midi: number, value: (string|string)}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, value: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, value: unknown}, filter: {highPassCutoffFrequency: {midi: number, value: unknown}, cutoffFrequency: {midi: number, value: unknown}, type: unknown, drive: unknown, resonance: {midi: number, value: (string|string)}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, value: string}, velAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, value: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: unknown}}, vibrato: unknown}}
+ * @returns {{voice: {value: *}, oscillators: {control: *, fastAttack: {enabled: boolean}, pitch: {midi: *, value: (string|string)}, type: {value: *}, waveForm1: *, config: {value: *}, modulations: {lfoAmount: {midi: *, morph: *, value: *}, modEnvAmount: {midi: *, morph: *, value: *}}}, debug: {lib: {valid: boolean, location: number, value: string, version: string, info: string}, sampleId: string, preset: {userPresetLocation: number, samplePresetLocation: number, presetName: string}}, unison: {value: *}, arpeggiator: {kbSync: {enabled: boolean}, rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, pattern: {value: *}, range: {value: *}, enabled: boolean}, kbZone: {array: string | string[] | boolean[], value: string | string[] | boolean[]}, sustainPedal: {enabled: boolean}, keyboardHold: {enabled: boolean}, preset: *, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: *, pitchStick: {enabled: boolean}, lfo: {rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, wave: {value: *}}, glide: {value: *}, envelopes: {modulation: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {enabled: boolean}}, amplifier: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {value: *}}}, vibrato: {value: *}}}
  */
 exports.ns3Synth = (buffer, id, panelOffset, global) => {
     const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
@@ -66,21 +66,22 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
     const synthOffset94W = buffer.readUInt16BE(0x94 + panelOffset);
     const synthOffset95Ww = buffer.readUInt32BE(0x95 + panelOffset);
 
+    const synthOffsetA5WW = buffer.readBigUInt64BE(0xa5 + panelOffset);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
     const synthOffsetA6W = buffer.readUInt16BE(0xa6 + panelOffset);
     const synthOffsetA7W = buffer.readUInt16BE(0xa7 + panelOffset);
     const synthOffsetA8 = buffer.readUInt8(0xa8 + panelOffset);
-    const synthOffsetA8W = buffer.readUInt16BE(0xa8 + panelOffset);
-    const synthOffsetA9W = buffer.readUInt16BE(0xa9 + panelOffset);
-    const synthOffsetAaW = buffer.readUInt16BE(0xaa + panelOffset);
-    const synthOffsetAbW = buffer.readUInt16BE(0xab + panelOffset);
     const synthOffsetAc = buffer.readUInt8(0xac + panelOffset);
 
-    const sampleId1 = ((synthOffsetA8W & 0x07f8) >>> 3) * Math.pow(2, 24);
-    const sampleId2 = ((synthOffsetA9W & 0x07f8) >>> 3) * Math.pow(2, 16);
-    const sampleId3 = ((synthOffsetAaW & 0x07f8) >>> 3) * Math.pow(2, 8);
-    const sampleId4 = (synthOffsetAbW & 0x07f8) >>> 3;
-    const sampleId = sampleId1 + sampleId2 + sampleId3 + sampleId4;
+    /**
+     * Offset in file: 0xA8 (b2-0) to 0xAC (b7-b3)
+     *
+     *  @example
+     *  32-bit synth sample hash code.
+     *
+     * @module NS3 Synth Sample ID
+     */
+    const sampleId = Number((synthOffsetA5WW & 0x07fffffff8n) >> 3n);
 
     const oscillatorType = mapping.ns3SynthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >>> 7);
 

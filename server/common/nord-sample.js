@@ -1,7 +1,5 @@
 const path = require("path");
 const { getVersion } = require("./converter");
-const CryptoJS = require("crypto-js");
-const xxh = require("xxhashjs");
 
 const sampleCategoryMap = new Map([
     [
@@ -243,10 +241,6 @@ exports.loadNs3SampleFile = (buffer, filename) => {
         }
     }
 
-    const hash = xxh.h32(filename, 0x4342).toString(16); // CryptoJS.SHA3(filename);
-
-    const hashId = hash.toString();
-
     return {
         version: sampleVersion.version,
 
@@ -258,7 +252,6 @@ exports.loadNs3SampleFile = (buffer, filename) => {
         fileExt: fileExt.replace(".", ""),
         fileSize: buffer.length,
         category: category,
-        hashId: hashId,
         offset18: offset18,
     };
 };

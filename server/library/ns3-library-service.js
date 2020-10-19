@@ -1,4 +1,5 @@
 const byteSize = require("byte-size");
+const { ns3NordSampleLibrary2 } = require("./ns3-nord-sample-library-2");
 const { ns3NordSampleLibrary3 } = require("./ns3-nord-sample-library-3");
 const { ns3NordPianoLibrary } = require("./ns3-nord-piano-library");
 const { ns3ProductLibraries } = require("./ns3-product-libraries");
@@ -16,6 +17,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     let sampleLib =
         ns3NordPianoLibrary.get(sampleId) ||
         ns3NordSampleLibrary3.get(sampleId) ||
+        ns3NordSampleLibrary2.get(sampleId) ||
         ns3NordSampleLibraryArchive.get(sampleId) ||
         ns3ProductLibraries.get(sampleId);
 

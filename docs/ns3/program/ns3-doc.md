@@ -312,6 +312,9 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_NS3 Synth Filter HP Freq Res">NS3 Synth Filter HP Freq Res</a></dt>
 <dd><p>Offset in file: 0x9C (b2-0) and 0x9D (b7-4)</p>
 </dd>
+<dt><a href="#module_NS3 Synth Sample ID">NS3 Synth Sample ID</a></dt>
+<dd><p>Offset in file: 0xA8 (b2-0) to 0xAC (b7-b3)</p>
+</dd>
 <dt><a href="#module_NS3 Synth On">NS3 Synth On</a></dt>
 <dd><p>Offset in file: 0x52 (b7)</p>
 </dd>
@@ -1155,7 +1158,7 @@ Offset in file: 0x49 (b3-0) to 0x4D (b7-3)
 
 **Example**  
 ```js
-32-bit Nord Sample ID
+32-bit piano sample hash code
 ```
 <a name="module_NS3 Piano Timbre"></a>
 
@@ -1343,6 +1346,15 @@ Offset in file: 0x9C (b2-0) and 0x9D (b7-4)
 **Example**  
 ```js
 for 'LP+HP' filter  => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHz#include ns3SynthFilterCutoffFrequencyMapfor all other filters  => Resonance:  0/127 value = 0 / 10
+```
+<a name="module_NS3 Synth Sample ID"></a>
+
+## NS3 Synth Sample ID
+Offset in file: 0xA8 (b2-0) to 0xAC (b7-b3)
+
+**Example**  
+```js
+32-bit synth sample hash code.
 ```
 <a name="module_NS3 Synth On"></a>
 

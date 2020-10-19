@@ -10,14 +10,7 @@ const { loadNs3SampleFile } = require("../../server/common/nord-sample");
 const { loadNs3ProgramFile } = require("../../server/ns3/program/ns3-program");
 const homedir = require("os").homedir();
 const convert = require("xml-js");
-const {loadNs2ProgramFile} = require("../../server/ns2/program/ns2-program");
-
-// Bandoneon 0x9c02b3f7
-// a  0x12685f5d
-// aa 0x975d9225
-// b  0x06b7b9f3
-// c  0xacf62648
-// d  0x7822f205
+const { loadNs2ProgramFile } = require("../../server/ns2/program/ns2-program");
 
 //const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
 const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
@@ -209,7 +202,7 @@ run(inputFile).then(() => {
             const sample = samplesByFilename.get(pianoSampleFilename1);
             if (sample && program.pianoA !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.pianoA) {
-                    throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !")
+                    throw new Error(pianoSampleFilename1 + " try to assign sampleId multiple time !");
                 }
                 sample.sampleId = program.pianoA;
             }
@@ -219,7 +212,7 @@ run(inputFile).then(() => {
             const sample = samplesByFilename.get(pianoSampleFilename2);
             if (sample && program.pianoB !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.pianoB) {
-                    throw new Error(pianoSampleFilename2 + " try to assign sampleId multiple time !")
+                    throw new Error(pianoSampleFilename2 + " try to assign sampleId multiple time !");
                 }
                 sample.sampleId = program.pianoB;
             }
@@ -230,7 +223,7 @@ run(inputFile).then(() => {
             const sample = samplesByFilename.get(synthSampleFilename1);
             if (sample && program.synthA !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.synthA) {
-                    throw new Error(synthSampleFilename1 + " try to assign sampleId multiple time !")
+                    throw new Error(synthSampleFilename1 + " try to assign sampleId multiple time !");
                 }
                 sample.sampleId = program.synthA;
             }
@@ -240,7 +233,7 @@ run(inputFile).then(() => {
             const sample = samplesByFilename.get(synthSampleFilename2);
             if (sample && program.synthB !== "0") {
                 if (sample.sampleId && sample.sampleId !== program.synthB) {
-                    throw new Error(synthSampleFilename2 + " try to assign sampleId multiple time !")
+                    throw new Error(synthSampleFilename2 + " try to assign sampleId multiple time !");
                 }
                 sample.sampleId = program.synthB;
             }
@@ -256,10 +249,9 @@ run(inputFile).then(() => {
         //     } else {
         //         sampleCount++;
         //         const test = BigInt(x.offset18) - BigInt(id);
-                // console.info(
-                //     `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],` // ${x.offset18.toString("16")} ${test.toString("16")}`
-                // );
-
+        // console.info(
+        //     `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],` // ${x.offset18.toString("16")} ${test.toString("16")}`
+        // );
     });
 
     console.log();
@@ -277,7 +269,7 @@ run(inputFile).then(() => {
                 sampleCount++;
                 //const test = BigInt(x.offset18) - BigInt(id);
                 console.info(
-                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],`  // ${x.hashId.toString("16")}`
+                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],` // ${x.hashId.toString("16")}`
                 );
             }
         }

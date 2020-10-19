@@ -1,3 +1,9 @@
+/***
+ * Nord Product Sample Libraries
+ * This includes some sample from Nord Ser Forum
+ * Hash code done as per v3
+ * @type {Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>}
+ */
 exports.ns3ProductLibraries = new Map([
 
     // Michael Bereal Signature Sound Bank
