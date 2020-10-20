@@ -67,6 +67,7 @@ const sampleCategoryMap = new Map([
         {
             category: "Synth",
             subCategory: new Map([
+                [0, "Misc"],
                 [1, "Pad"],
                 [2, "Ens"],
                 [3, "Bass"],
@@ -93,9 +94,23 @@ const sampleCategoryMap = new Map([
         },
     ],
     [
+        13,
+        {
+            category: "Orchestral",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
         14,
         {
             category: "Misc",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        15,
+        {
+            category: "User",
             subCategory: new Map([[0, ""]]),
         },
     ],
