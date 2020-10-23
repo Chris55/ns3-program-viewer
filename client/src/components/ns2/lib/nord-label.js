@@ -1,0 +1,20 @@
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../ns2.css";
+
+export default class NordLabel extends Component {
+    render() {
+        const className =
+            this.props.enabled === undefined
+                ? "nord-label nord-on"
+                : this.props.enabled === true
+                ? "nord-label nord-on"
+                : "nord-label nord-off";
+
+        return (
+            <>
+                <span className={className}>{this.props.label}</span>
+            </>
+        );
+    }
+}

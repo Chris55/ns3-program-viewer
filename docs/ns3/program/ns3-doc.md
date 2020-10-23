@@ -167,7 +167,7 @@
 <dd><p>Offset in file: 0xBB (b7)</p>
 </dd>
 <dt><a href="#module_NS3 Organ Type">NS3 Organ Type</a></dt>
-<dd><p>Offset in file: 0xBB (b6/5/4)</p>
+<dd><p>Offset in file: 0xBB (b6-4)</p>
 </dd>
 <dt><a href="#module_NS3 Organ Drawbars Preset 1">NS3 Organ Drawbars Preset 1</a></dt>
 <dd><p>Offset in file: 0xBE</p>
@@ -931,7 +931,7 @@ O = off, 1 = on
 <a name="module_NS3 Organ Type"></a>
 
 ## NS3 Organ Type
-Offset in file: 0xBB (b6/5/4)
+Offset in file: 0xBB (b6-4)
 
 **Example**  
 ```js

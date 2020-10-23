@@ -179,11 +179,11 @@ exports.ns3PianoLayerDetuneMap = new Map([
  * @type {Map<number, string>}
  */
 exports.ns3OrganTypeMap = new Map([
-    [0x00, "B3"],
-    [0x01, "Vox"],
-    [0x02, "Farfisa"],
-    [0x03, "Pipe1"],
-    [0x04, "Pipe2"],
+    [0, "B3"],
+    [1, "Vox"],
+    [2, "Farfisa"],
+    [3, "Pipe1"],
+    [4, "Pipe2"],
 ]);
 
 /***

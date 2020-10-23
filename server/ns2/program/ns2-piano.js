@@ -6,16 +6,13 @@ const { getSample } = require("../../library/ns3-library-service");
 /***
  * returns Piano section
  *
- * @class
- * @ignore
  * @param buffer {Buffer}
- * @param panelOffset
- * @param splitEnabled
- * @param dualKeyboard
  * @param id
- * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
+ * @param panelOffset
+ * @param global
+ * @returns {{debug: {lib: {size: string, value: (string|*), version: string, info: string}, sampleId: string}, kbZone: {array: string | string[] | boolean[], value: string | string[] | boolean[]}, longRelease: {enabled: boolean}, sustainPedal: {enabled: boolean}, type: {value: *}, clavinetEqHi: {value: *, enabled: *}, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, dynamics: {value: *}, pitchStick: {enabled: boolean}, slotDetune: {value: *}, stringResonance: {enabled: boolean}, name: *, pedalNoise: {enabled: boolean}, clavinetModel: {value: *, enabled: *}, latchPedal: {enabled: boolean}, kbGate: {enabled: boolean}, clavinetEq: {value: *, enabled: *}}}
  */
-exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
+exports.ns2Piano = (buffer, id, panelOffset, global) => {
     const pianoOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
     const pianoOffset48Ww = buffer.readUInt32BE(0x48 + panelOffset);
@@ -32,13 +29,13 @@ exports.ns2Piano = (buffer, panelOffset, splitEnabled, dualKeyboard, id) => {
 
     const pianoEnabled = (pianoOffset48 & 0x80) !== 0;
     const pianoKbZoneEnabled =
-        id === 0 ? pianoEnabled : pianoEnabled && (dualKeyboard.enabled === false || dualKeyboard.value !== "Piano");
+        id === 0 ? pianoEnabled : pianoEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Piano");
 
     const pianoTypeValue = (pianoOffsetCd & 0xe0) >>> 5;
     const pianoType = mapping.ns2PianoTypeMap.get(pianoTypeValue);
     const clavinetEnabled = pianoType === "Clavinet";
 
-    const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, splitEnabled, (pianoOffset4c & 0xe0) >>> 5);
+    const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, global.split.enabled, (pianoOffset4c & 0xe0) >>> 5);
     const clavinetVariation = (pianoOffsetCeW & 0x0180) >>> 7;
     const clavinetModel = mapping.ns2PianoClavinetModelMap.get(clavinetVariation);
 

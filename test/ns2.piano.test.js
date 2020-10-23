@@ -85,32 +85,32 @@ describe("/ns2/piano", () => {
         });
     });
 
-    test("slotA.piano.dynamics.value eq Dyn0", async () => {
-        const file = "slotA.piano.dynamics.value eq Dyn0.ns2p";
+    test("slotA.piano.dynamics.value eq 0", async () => {
+        const file = "slotA.piano.dynamics.value eq 0.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.dynamics.value eq Dyn1", async () => {
-        const file = "slotA.piano.dynamics.value eq Dyn1.ns2p";
+    test("slotA.piano.dynamics.value eq 1", async () => {
+        const file = "slotA.piano.dynamics.value eq 1.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.dynamics.value eq Dyn2", async () => {
-        const file = "slotA.piano.dynamics.value eq Dyn2.ns2p";
+    test("slotA.piano.dynamics.value eq 2", async () => {
+        const file = "slotA.piano.dynamics.value eq 2.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.dynamics.value eq Dyn3", async () => {
-        const file = "slotA.piano.dynamics.value eq Dyn3.ns2p";
+    test("slotA.piano.dynamics.value eq 3", async () => {
+        const file = "slotA.piano.dynamics.value eq 3.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -285,32 +285,32 @@ describe("/ns2/piano", () => {
         });
     });
 
-    test("slotA.piano.slotDetune.value eq Slot Detune 1", async () => {
-        const file = "slotA.piano.slotDetune.value eq Slot Detune 1.ns2p";
+    test("slotA.piano.slotDetune.value eq 1", async () => {
+        const file = "slotA.piano.slotDetune.value eq 1.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.slotDetune.value eq Slot Detune 2", async () => {
-        const file = "slotA.piano.slotDetune.value eq Slot Detune 2.ns2p";
+    test("slotA.piano.slotDetune.value eq 2", async () => {
+        const file = "slotA.piano.slotDetune.value eq 2.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.slotDetune.value eq Slot Detune 3", async () => {
-        const file = "slotA.piano.slotDetune.value eq Slot Detune 3.ns2p";
+    test("slotA.piano.slotDetune.value eq 3", async () => {
+        const file = "slotA.piano.slotDetune.value eq 3.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.slotDetune.value eq Slot Detune 4", async () => {
-        const file = "slotA.piano.slotDetune.value eq Slot Detune 4.ns2p";
+    test("slotA.piano.slotDetune.value eq 4", async () => {
+        const file = "slotA.piano.slotDetune.value eq 4.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

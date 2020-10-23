@@ -48,20 +48,6 @@ const getDrawbars = function (buffer, offset, type) {
     let d8 = (organDrawbar8FlagW & 0b0000011110000000) >>> 7;
     let d9 = (organDrawbar9Flag & 0xf0) >>> 4;
 
-    // if (type === "Vox") {
-    //     d8 = 0;
-    // } else if (type === "Farfisa") {
-    //     d1 = d1 < 4 ? 0 : 1;
-    //     d2 = d2 < 4 ? 0 : 1;
-    //     d3 = d3 < 4 ? 0 : 1;
-    //     d4 = d4 < 4 ? 0 : 1;
-    //     d5 = d5 < 4 ? 0 : 1;
-    //     d6 = d6 < 4 ? 0 : 1;
-    //     d7 = d7 < 4 ? 0 : 1;
-    //     d8 = d8 < 4 ? 0 : 1;
-    //     d9 = d9 < 4 ? 0 : 1;
-    // }
-
     const preset = fixVoxAndFarfisa([d1, d2, d3, d4, d5, d6, d7, d8, d9], type);
 
     const morphOffset1 = buffer.readUInt32BE(offset1 - 1);
@@ -309,7 +295,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
             enabled: (organOffsetBb & 0x80) !== 0,
         },
         /**
-         * Offset in file: 0xBB (b6/5/4)
+         * Offset in file: 0xBB (b6-4)
          *
          * @example
          * 0 = B3

@@ -101,112 +101,112 @@
 | `0x005F` | `wwwwwaaa` | [(w) organ b3 preset I drawbar 1 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I), [(a) organ b3 preset I drawbar 1 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I)
 | `0x0060` | `aappppp1` | [(p) organ b3 preset I drawbar 1 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I), [(1) organ b3 preset I drawbar 1](ns2-doc.md#ns2-organ-b3-preset-I)
 | `0x0061` | `111wwwww` | [(w) organ b3 preset I drawbar 2 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I)
-| `0x0062` | `aaaaappp` | [(a) organ b3 preset I drawbar 1 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I), [(w) organ b3 preset I drawbar 1 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I)
-| `0x0063` | `pp2222--` | [(w) organ b3 preset I drawbar 2](ns2-doc.md#ns2-organ-b3-preset-I)
-| `0x0064` | `--------` |
-| `0x0065` | `--------` |
-| `0x0066` | `--------` |
-| `0x0067` | `--------` |
-| `0x0068` | `--------` |
-| `0x0069` | `--------` |
-| `0x006A` | `--------` |
-| `0x006B` | `--------` |
-| `0x006C` | `--------` |
-| `0x006D` | `--------` |
-| `0x006E` | `--------` |
-| `0x006F` | `--------` |
-| `0x0070` | `--------` |
-| `0x0071` | `--------` |
-| `0x0072` | `--------` |
-| `0x0073` | `--------` |
-| `0x0074` | `--------` |
+| `0x0062` | `aaaaappp` | [(a) organ b3 preset I drawbar 2 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I), [(p) organ b3 preset I drawbar 2 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0063` | `pp2222ww` | [(2) organ b3 preset I drawbar 2](ns2-doc.md#ns2-organ-b3-preset-I), [(w) organ b3 preset I drawbar 3 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0064` | `wwwaaaaa` | [(a) organ b3 preset I drawbar 3 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0065` | `ppppp333` | [(p) organ b3 preset I drawbar 3 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I), [(3) organ b3 preset I drawbar 3](ns2-doc.md#ns2-organ-b3-preset-I),
+| `0x0066` | `3wwwwwaa` | [(w) organ b3 preset I drawbar 4 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I), [(a) organ b3 preset I drawbar 4 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0067` | `aaappppp` | [(p) organ b3 preset I drawbar 4 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0068` | `4444wwww` | [(4) organ b3 preset I drawbar 4](ns2-doc.md#ns2-organ-b3-preset-I), [(w) organ b3 preset I drawbar 5 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0069` | `waaaaapp` | [(a) organ b3 preset I drawbar 5 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I), [(p) organ b3 preset I drawbar 5 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x006A` | `ppp5555w` | [(5) organ b3 preset I drawbar 5](ns2-doc.md#ns2-organ-b3-preset-I), [(w) organ b3 preset I drawbar 6 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x006B` | `wwwwaaaa` | [(a) organ b3 preset I drawbar 6 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x006C` | `appppp66` | [(p) organ b3 preset I drawbar 6 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I), [(6) organ b3 preset I drawbar 6](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x006D` | `66wwwwwa` | [(w) organ b3 preset I drawbar 7 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I), [(a) organ b3 preset I drawbar 7 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x006E` | `aaaapppp` | [(p) organ b3 preset I drawbar 7 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x006F` | `p7777www` | [(7) organ b3 preset I drawbar 7](ns2-doc.md#ns2-organ-b3-preset-I), [(w) organ b3 preset I drawbar 8 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0070` | `wwaaaaap` | [(a) organ b3 preset I drawbar 8 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I), [(p) organ b3 preset I drawbar 8 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0071` | `pppp8888` | [(8) organ b3 preset I drawbar 8](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0072` | `wwwwwaaa` | [(w) organ b3 preset I drawbar 9 morph wheel](ns2-doc.md#ns2-organ-b3-preset-I), [(a) organ b3 preset I drawbar 9 morph after touch](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0073` | `aappppp9` | [(p) organ b3 preset I drawbar 9 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-I), [(9) organ b3 preset I drawbar 9](ns2-doc.md#ns2-organ-b3-preset-I)
+| `0x0074` | `999vp---` | [(v) organ b3 preset I vibrato chorus](ns2-doc.md#ns2-organ-b3-preset-I-vibrato-chorus), [(p) organ b3 preset I percussion](ns2-doc.md#ns2-organ-b3-preset-I-percussion)
 | `0x0075` | `--------` |
-| `0x0076` | `--------` |
-| `0x0077` | `--------` |
-| `0x0078` | `--------` |
-| `0x0079` | `--------` |
-| `0x007A` | `--------` |
-| `0x007B` | `--------` |
-| `0x007C` | `--------` |
-| `0x007D` | `--------` |
-| `0x007E` | `--------` |
-| `0x007F` | `--------` |
-| `0x0080` | `--------` |
-| `0x0081` | `--------` |
-| `0x0082` | `--------` |
-| `0x0083` | `--------` |
-| `0x0084` | `--------` |
-| `0x0085` | `--------` |
-| `0x0086` | `--------` |
-| `0x0087` | `--------` |
-| `0x0088` | `--------` |
-| `0x0089` | `--------` |
-| `0x008A` | `--------` |
-| `0x008B` | `--------` |
+| `0x0076` | `wwwwwaaa` | [(w) organ vox preset I drawbar 1 morph wheel](ns2-doc.md#ns2-organ-vox-preset-I), [(a) organ vox preset I drawbar 1 morph after touch](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0077` | `aappppp1` | [(p) organ vox preset I drawbar 1 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-I), [(1) organ vox preset I drawbar 1](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0078` | `111wwwww` | [(w) organ vox preset I drawbar 2 morph wheel](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0079` | `aaaaappp` | [(a) organ vox preset I drawbar 2 morph after touch](ns2-doc.md#ns2-organ-vox-preset-I), [(p) organ vox preset I drawbar 2 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x007A` | `pp2222ww` | [(2) organ vox preset I drawbar 2](ns2-doc.md#ns2-organ-vox-preset-I), [(w) organ vox preset I drawbar 3 morph wheel](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x007B` | `wwwaaaaa` | [(a) organ vox preset I drawbar 3 morph after touch](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x007C` | `ppppp333` | [(p) organ vox preset I drawbar 3 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-I), [(3) organ vox preset I drawbar 3](ns2-doc.md#ns2-organ-vox-preset-I),
+| `0x007D` | `3wwwwwaa` | [(w) organ vox preset I drawbar 4 morph wheel](ns2-doc.md#ns2-organ-vox-preset-I), [(a) organ vox preset I drawbar 4 morph after touch](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x007E` | `aaappppp` | [(p) organ vox preset I drawbar 4 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x007F` | `4444wwww` | [(4) organ vox preset I drawbar 4](ns2-doc.md#ns2-organ-vox-preset-I), [(w) organ vox preset I drawbar 5 morph wheel](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0080` | `waaaaapp` | [(a) organ vox preset I drawbar 5 morph after touch](ns2-doc.md#ns2-organ-vox-preset-I), [(p) organ vox preset I drawbar 5 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0081` | `ppp5555w` | [(5) organ vox preset I drawbar 5](ns2-doc.md#ns2-organ-vox-preset-I), [(w) organ vox preset I drawbar 6 morph wheel](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0082` | `wwwwaaaa` | [(a) organ vox preset I drawbar 6 morph after touch](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0083` | `appppp66` | [(p) organ vox preset I drawbar 6 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-I), [(6) organ vox preset I drawbar 6](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0084` | `66wwwwwa` | [(w) organ vox preset I drawbar 7 morph wheel](ns2-doc.md#ns2-organ-vox-preset-I), [(a) organ vox preset I drawbar 7 morph after touch](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0085` | `aaaapppp` | [(p) organ vox preset I drawbar 7 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0086` | `p7777www` | [(7) organ vox preset I drawbar 7](ns2-doc.md#ns2-organ-vox-preset-I), [(w) organ vox preset I drawbar 8 morph wheel](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0087` | `wwaaaaap` | [(a) organ vox preset I drawbar 8 morph after touch](ns2-doc.md#ns2-organ-vox-preset-I), [(p) organ vox preset I drawbar 8 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0088` | `pppp8888` | [(8) organ vox preset I drawbar 8](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x0089` | `wwwwwaaa` | [(w) organ vox preset I drawbar 9 morph wheel](ns2-doc.md#ns2-organ-vox-preset-I), [(a) organ vox preset I drawbar 9 morph after touch](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x008A` | `aappppp9` | [(p) organ vox preset I drawbar 9 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-I), [(9) organ vox preset I drawbar 9](ns2-doc.md#ns2-organ-vox-preset-I)
+| `0x008B` | `999-----` | [(v) organ vox preset I vibrato chorus](ns2-doc.md#ns2-organ-vox-preset-I-vibrato-chorus), [(p) organ vox preset I percussion](ns2-doc.md#ns2-organ-vox-preset-I-percussion)
 | `0x008C` | `--------` |
-| `0x008D` | `--------` |
-| `0x008E` | `--------` |
-| `0x008F` | `--------` |
-| `0x0090` | `--------` |
-| `0x0091` | `--------` |
-| `0x0092` | `--------` |
-| `0x0093` | `--------` |
-| `0x0094` | `--------` |
+| `0x008D` | `wwaapp1h` | [(w,a,p,1) organ farfisa preset I drawbar 1](ns2-doc.md#ns2-organ-farfisa-preset-I), [(h,a,p,2) organ farfisa preset I drawbar 2](ns2-doc.md#ns2-organ-farfisa-preset-I)
+| `0x008E` | `haapp2ww` | [(w,a,p,3) organ farfisa preset I drawbar 3](ns2-doc.md#ns2-organ-farfisa-preset-I)
+| `0x008F` | `aapp3wwa` | [(w,a,p,4) organ farfisa preset I drawbar 4](ns2-doc.md#ns2-organ-farfisa-preset-I), [(w,a,p,3) organ farfisa preset I drawbar 4](ns2-doc.md#ns2-organ-farfisa-preset-I)
+| `0x0090` | `app4wwaa` | [(w,a,p,5) organ farfisa preset I drawbar 5](ns2-doc.md#ns2-organ-farfisa-preset-I)
+| `0x0091` | `pp5wwaad` | [(w,a,d,6) organ farfisa preset I drawbar 6](ns2-doc.md#ns2-organ-farfisa-preset-I)
+| `0x0092` | `d6wwaapp` | [(w,a,p,7) organ farfisa preset I drawbar 7](ns2-doc.md#ns2-organ-farfisa-preset-I)
+| `0x0093` | `7wwaapp8` | [(w,a,p,8) organ farfisa preset I drawbar 8](ns2-doc.md#ns2-organ-farfisa-preset-I)
+| `0x0094` | `wwaapp9-` | [(w,a,p,9) organ farfisa preset I drawbar 9](ns2-doc.md#ns2-organ-farfisa-preset-I)
 | `0x0095` | `--------` |
-| `0x0096` | `--------` |
-| `0x0097` | `--------` |
-| `0x0098` | `--------` |
-| `0x0099` | `--------` |
-| `0x009A` | `--------` |
-| `0x009B` | `--------` |
-| `0x009C` | `--------` |
-| `0x009D` | `--------` |
-| `0x009E` | `--------` |
-| `0x009F` | `--------` |
-| `0x00A0` | `--------` |
-| `0x00A1` | `--------` |
-| `0x00A2` | `--------` |
-| `0x00A3` | `--------` |
-| `0x00A4` | `--------` |
-| `0x00A5` | `--------` |
-| `0x00A6` | `--------` |
-| `0x00A7` | `--------` |
-| `0x00A8` | `--------` |
-| `0x00A9` | `--------` |
-| `0x00AA` | `--------` |
-| `0x00AB` | `--------` |
+| `0x0096` | `wwwwwaaa` | [(w) organ b3 preset II drawbar 1 morph wheel](ns2-doc.md#ns2-organ-b3-preset-II), [(a) organ b3 preset II drawbar 1 morph after touch](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x0097` | `aappppp1` | [(p) organ b3 preset II drawbar 1 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-II), [(1) organ b3 preset II drawbar 1](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x0098` | `111wwwww` | [(w) organ b3 preset II drawbar 2 morph wheel](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x0099` | `aaaaappp` | [(a) organ b3 preset II drawbar 2 morph after touch](ns2-doc.md#ns2-organ-b3-preset-II), [(p) organ b3 preset II drawbar 2 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x009A` | `pp2222ww` | [(2) organ b3 preset II drawbar 2](ns2-doc.md#ns2-organ-b3-preset-II), [(w) organ b3 preset II drawbar 3 morph wheel](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x009B` | `wwwaaaaa` | [(a) organ b3 preset II drawbar 3 morph after touch](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x009C` | `ppppp333` | [(p) organ b3 preset II drawbar 3 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-II), [(3) organ b3 preset II drawbar 3](ns2-doc.md#ns2-organ-b3-preset-II),
+| `0x009D` | `3wwwwwaa` | [(w) organ b3 preset II drawbar 4 morph wheel](ns2-doc.md#ns2-organ-b3-preset-II), [(a) organ b3 preset II drawbar 4 morph after touch](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x009E` | `aaappppp` | [(p) organ b3 preset II drawbar 4 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x009F` | `4444wwww` | [(4) organ b3 preset II drawbar 4](ns2-doc.md#ns2-organ-b3-preset-II), [(w) organ b3 preset II drawbar 5 morph wheel](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A0` | `waaaaapp` | [(a) organ b3 preset II drawbar 5 morph after touch](ns2-doc.md#ns2-organ-b3-preset-II), [(p) organ b3 preset II drawbar 5 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A1` | `ppp5555w` | [(5) organ b3 preset II drawbar 5](ns2-doc.md#ns2-organ-b3-preset-II), [(w) organ b3 preset II drawbar 6 morph wheel](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A2` | `wwwwaaaa` | [(a) organ b3 preset II drawbar 6 morph after touch](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A3` | `appppp66` | [(p) organ b3 preset II drawbar 6 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-II), [(6) organ b3 preset II drawbar 6](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A4` | `66wwwwwa` | [(w) organ b3 preset II drawbar 7 morph wheel](ns2-doc.md#ns2-organ-b3-preset-II), [(a) organ b3 preset II drawbar 7 morph after touch](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A5` | `aaaapppp` | [(p) organ b3 preset II drawbar 7 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A6` | `p7777www` | [(7) organ b3 preset II drawbar 7](ns2-doc.md#ns2-organ-b3-preset-II), [(w) organ b3 preset II drawbar 8 morph wheel](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A7` | `wwaaaaap` | [(a) organ b3 preset II drawbar 8 morph after touch](ns2-doc.md#ns2-organ-b3-preset-II), [(p) organ b3 preset II drawbar 8 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A8` | `pppp8888` | [(8) organ b3 preset II drawbar 8](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00A9` | `wwwwwaaa` | [(w) organ b3 preset II drawbar 9 morph wheel](ns2-doc.md#ns2-organ-b3-preset-II), [(a) organ b3 preset II drawbar 9 morph after touch](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00AA` | `aappppp9` | [(p) organ b3 preset II drawbar 9 morph control pedal](ns2-doc.md#ns2-organ-b3-preset-II), [(9) organ b3 preset II drawbar 9](ns2-doc.md#ns2-organ-b3-preset-II)
+| `0x00AB` | `999vp---` | [(v) organ b3 preset II vibrato chorus](ns2-doc.md#ns2-organ-b3-preset-II-vibrato-chorus), [(p) organ b3 preset II percussion](ns2-doc.md#ns2-organ-b3-preset-II-percussion)
 | `0x00AC` | `--------` |
-| `0x00AD` | `--------` |
-| `0x00AE` | `--------` |
-| `0x00AF` | `--------` |
-| `0x00B0` | `--------` |
-| `0x00B1` | `--------` |
-| `0x00B2` | `--------` |
-| `0x00B3` | `--------` |
-| `0x00B4` | `--------` |
-| `0x00B5` | `--------` |
-| `0x00B6` | `--------` |
-| `0x00B7` | `--------` |
-| `0x00B8` | `--------` |
-| `0x00B9` | `--------` |
-| `0x00BA` | `--------` |
-| `0x00BB` | `--------` |
-| `0x00BC` | `--------` |
-| `0x00BD` | `--------` |
-| `0x00BE` | `--------` |
-| `0x00BF` | `--------` |
-| `0x00C0` | `--------` |
-| `0x00C1` | `--------` |
-| `0x00C2` | `--------` |
+| `0x00AD` | `wwwwwaaa` | [(w) organ vox preset II drawbar 1 morph wheel](ns2-doc.md#ns2-organ-vox-preset-II), [(a) organ vox preset II drawbar 1 morph after touch](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00AE` | `aappppp1` | [(p) organ vox preset II drawbar 1 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-II), [(1) organ vox preset II drawbar 1](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00AF` | `111wwwww` | [(w) organ vox preset II drawbar 2 morph wheel](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00B0` | `aaaaappp` | [(a) organ vox preset II drawbar 2 morph after touch](ns2-doc.md#ns2-organ-vox-preset-II), [(p) organ vox preset II drawbar 2 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00B1` | `pp2222ww` | [(2) organ vox preset II drawbar 2](ns2-doc.md#ns2-organ-vox-preset-II), [(w) organ vox preset II drawbar 3 morph wheel](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00B2` | `wwwaaaaa` | [(a) organ vox preset II drawbar 3 morph after touch](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00B3` | `ppppp333` | [(p) organ vox preset II drawbar 3 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-II), [(3) organ vox preset II drawbar 3](ns2-doc.md#ns2-organ-vox-preset-II),
+| `0x00B4` | `3wwwwwaa` | [(w) organ vox preset II drawbar 4 morph wheel](ns2-doc.md#ns2-organ-vox-preset-II), [(a) organ vox preset II drawbar 4 morph after touch](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00B5` | `aaappppp` | [(p) organ vox preset II drawbar 4 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00B6` | `4444wwww` | [(4) organ vox preset II drawbar 4](ns2-doc.md#ns2-organ-vox-preset-II), [(w) organ vox preset II drawbar 5 morph wheel](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00B7` | `waaaaapp` | [(a) organ vox preset II drawbar 5 morph after touch](ns2-doc.md#ns2-organ-vox-preset-II), [(p) organ vox preset II drawbar 5 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00B8` | `ppp5555w` | [(5) organ vox preset II drawbar 5](ns2-doc.md#ns2-organ-vox-preset-II), [(w) organ vox preset II drawbar 6 morph wheel](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00B9` | `wwwwaaaa` | [(a) organ vox preset II drawbar 6 morph after touch](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00BA` | `appppp66` | [(p) organ vox preset II drawbar 6 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-II), [(6) organ vox preset II drawbar 6](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00BB` | `66wwwwwa` | [(w) organ vox preset II drawbar 7 morph wheel](ns2-doc.md#ns2-organ-vox-preset-II), [(a) organ vox preset II drawbar 7 morph after touch](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00BC` | `aaaapppp` | [(p) organ vox preset II drawbar 7 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00BD` | `p7777www` | [(7) organ vox preset II drawbar 7](ns2-doc.md#ns2-organ-vox-preset-II), [(w) organ vox preset II drawbar 8 morph wheel](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00BE` | `wwaaaaap` | [(a) organ vox preset II drawbar 8 morph after touch](ns2-doc.md#ns2-organ-vox-preset-II), [(p) organ vox preset II drawbar 8 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00BF` | `pppp8888` | [(8) organ vox preset II drawbar 8](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00C0` | `wwwwwaaa` | [(w) organ vox preset II drawbar 9 morph wheel](ns2-doc.md#ns2-organ-vox-preset-II), [(a) organ vox preset II drawbar 9 morph after touch](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00C1` | `aappppp9` | [(p) organ vox preset II drawbar 9 morph control pedal](ns2-doc.md#ns2-organ-vox-preset-II), [(9) organ vox preset II drawbar 9](ns2-doc.md#ns2-organ-vox-preset-II)
+| `0x00C2` | `999-----` | [(v) organ vox preset II vibrato chorus](ns2-doc.md#ns2-organ-vox-preset-II-vibrato-chorus), [(p) organ vox preset II percussion](ns2-doc.md#ns2-organ-vox-preset-II-percussion)
 | `0x00C3` | `--------` |
-| `0x00C4` | `--------` |
-| `0x00C5` | `--------` |
-| `0x00C6` | `--------` |
-| `0x00C7` | `--------` |
-| `0x00C8` | `--------` |
-| `0x00C9` | `--------` |
-| `0x00CA` | `--------` |
-| `0x00CB` | `--------` |
+| `0x00C4` | `wwaapp1h` | [(w,a,p,1) organ farfisa preset II drawbar 1](ns2-doc.md#ns2-organ-farfisa-preset-II), [(h,a,p,2) organ farfisa preset II drawbar 2](ns2-doc.md#ns2-organ-farfisa-preset-II)
+| `0x00C5` | `haapp2ww` | [(w,a,p,3) organ farfisa preset II drawbar 3](ns2-doc.md#ns2-organ-farfisa-preset-II)
+| `0x00C6` | `aapp3wwa` | [(w,a,p,4) organ farfisa preset II drawbar 4](ns2-doc.md#ns2-organ-farfisa-preset-II), [(w,a,p,3) organ farfisa preset II drawbar 4](ns2-doc.md#ns2-organ-farfisa-preset-II)
+| `0x00C7` | `app4wwaa` | [(w,a,p,5) organ farfisa preset II drawbar 5](ns2-doc.md#ns2-organ-farfisa-preset-II)
+| `0x00C8` | `pp5wwaad` | [(w,a,d,6) organ farfisa preset II drawbar 6](ns2-doc.md#ns2-organ-farfisa-preset-II)
+| `0x00C9` | `d6wwaapp` | [(w,a,p,7) organ farfisa preset II drawbar 7](ns2-doc.md#ns2-organ-farfisa-preset-II)
+| `0x00CA` | `7wwaapp8` | [(w,a,p,8) organ farfisa preset II drawbar 8](ns2-doc.md#ns2-organ-farfisa-preset-II)
+| `0x00CB` | `wwaapp9-` | [(w,a,p,9) organ farfisa preset II drawbar 9](ns2-doc.md#ns2-organ-farfisa-preset-II)
 | `0x00CC` | `--------` |
 | `0x00CD` | `ttt-----` | [(t) piano type](ns2-doc.md#ns2-piano-type)
 | `0x00CE` | `-------c` | [(c) piano clavinet model](ns2-doc.md#ns2-piano-clavinet-model)
@@ -224,6 +224,7 @@
 | `0x00DA` | `--------` |
 | `0x00DB` | `--------` |
 | `0x00DC` | `--------` |
+| `0x00DD` | `--------` |
 | `0x00DE` | `--------` |
 | `0x00DF` | `--------` |
 | `0x00E0` | `--------` |

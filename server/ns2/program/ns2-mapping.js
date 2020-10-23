@@ -33,10 +33,10 @@ exports.ns2PianoTypeMap = new Map([
  */
 exports.ns2PianoSlotDetuneMap = new Map([
     [0, "Off"],
-    [1, "Slot Detune 1"],
-    [2, "Slot Detune 2"],
-    [3, "Slot Detune 3"],
-    [4, "Slot Detune 4"],
+    [1, "1"],
+    [2, "2"],
+    [3, "3"],
+    [4, "4"],
 ]);
 
 /***
@@ -77,8 +77,52 @@ exports.ns2PianoClavinetEqHiMap = new Map([
  * @type {Map<number, string>}
  */
 exports.ns2PianoDynamicsMap = new Map([
-    [0, "Dyn0"],
-    [1, "Dyn1"],
-    [2, "Dyn2"],
-    [3, "Dyn3"],
+    [0, "0"],
+    [1, "1"],
+    [2, "2"],
+    [3, "3"],
+]);
+
+/***
+ * Organ Types
+ * @type {Map<number, string>}
+ */
+exports.ns2OrganTypeMap = new Map([
+    [0, "B3"],
+    [1, "Vox"],
+    [2, "Farfisa"],
+]);
+
+/***
+ * Organ B3 Vibrato Modes
+ * @type {Map<number, string>}
+ */
+exports.ns2OrganB3VibratoModeMap = new Map([
+    [0, "V1"],
+    [1, "C1"],
+    [2, "V2"],
+    [3, "C2"],
+    [4, "V3"],
+    [5, "C3"],
+]);
+
+/***
+ * Organ Vox Vibrato Modes
+ * @type {Map<number, string>}
+ */
+exports.ns2OrganVoxVibratoModeMap = new Map([
+    [0, "Less (V1)"],
+    [1, "More (V2)"],
+    [2, "Original (V3)"],
+]);
+
+/***
+ * Organ Farfisa Vibrato Modes
+ * @type {Map<number, string>}
+ */
+exports.ns2OrganFarfisaVibratoModeMap = new Map([
+    [0, "Light/Slow (V1)"],
+    [1, "Light/Fast (V2)"],
+    [2, "Heavy/Slow (C2)"],
+    [3, "Heavy/Fast (C3)"],
 ]);

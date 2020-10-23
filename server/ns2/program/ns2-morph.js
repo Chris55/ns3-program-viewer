@@ -88,3 +88,55 @@ exports.ns2Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
         },
     };
 };
+
+/***
+ * returns an array of morph organ settings
+ * ---- ----   ---- ----   -www wwaa   aaap pppp
+ *
+ * @param uint32Value 32-bit value, wheel expected to be in b14-10, after touch in b9-5, and control pedal in b4-0.
+ * @param midiFrom 7-bit original position
+ * @returns {{afterTouch: number, controlPedal: number, wheel: number}}
+ */
+exports.ns2MorphOrganDrawbar = (uint32Value, midiFrom) => {
+    const rawMorphValue = [3];
+    const result = [];
+
+    rawMorphValue[0] = (uint32Value & 0x7c00) >>> 10; // wheel
+    rawMorphValue[1] = (uint32Value & 0x03e0) >>> 5; // after touch
+    rawMorphValue[2] = uint32Value & 0x008f; // control pedal
+
+    // console.log(
+    //     "midiFrom",
+    //     midiFrom,
+    //     "wheel",
+    //     rawMorphValue[0].toString(16),
+    //     "after touch",
+    //     rawMorphValue[1].toString(16),
+    //     "control pedal",
+    //     rawMorphValue[2].toString(16)
+    // );
+
+    rawMorphValue.forEach((rawValue) => {
+        const rawOffsetValue = rawValue & 0x0f;
+        const polarity = (rawValue & 0x10) !== 0;
+        // console.log("   ", "polarity", polarity, "value", rawOffsetValue);
+        const offset = polarity ? 8 - rawOffsetValue : rawOffsetValue - 8;
+        let value = midiFrom + offset;
+        if (value < 0) {
+            value = 0;
+        } else if (value > 8) {
+            value = 8;
+        }
+
+        result.push({
+            enabled: offset !== 0,
+            midiTo: value,
+        });
+    });
+
+    return {
+        wheel: result[0].midiTo,
+        afterTouch: result[1].midiTo,
+        controlPedal: result[2].midiTo,
+    };
+};

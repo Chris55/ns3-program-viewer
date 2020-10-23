@@ -289,6 +289,19 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
 
     const ext = path.extname(filename).substr(1);
 
+    const global = {
+        masterClock: {
+            rate: {
+                value: tempo + " bpm",
+            },
+            //keyboardSync: '' // this is a global setting
+        },
+        transpose: transpose,
+        split: split,
+        dualKeyboard: dualKeyboard,
+        //monoOut: '', // this is a global setting
+    };
+
     const ns2 = {
         // program file
         name: filename.replace(/\.[^/.]+$/, ""),
@@ -297,7 +310,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         description: nordFileExtMap.get(ext),
 
         // program location
-        //id: programLocation,
+        id: programLocation,
 
         version: version,
 
@@ -310,26 +323,16 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         //  */
         //category: mapping.programCategoryMap.get(offset10),
 
-        slotA: ns2Slot(buffer, 0, split.enabled, versionOffset, dualKeyboard),
-        slotB: ns2Slot(buffer, 1, split.enabled, versionOffset, dualKeyboard),
+        slotA: ns2Slot(buffer, 0, versionOffset, global),
+        slotB: ns2Slot(buffer, 1, versionOffset, global),
 
-        //
-        // masterClock: {
-        //     rate: {
-        //         value: tempo + " bpm",
-        //     },
-        //     //keyboardSync: '' // this is a global setting
-        // },
-        // transpose: transpose,
-        // split: split,
-        // dualKeyboard: dualKeyboard,
-        //monoOut: '', // this is a global setting
+        ...global,
     };
 
-    // // layer detune is common for both panel !
-    // // noinspection JSPrimitiveTypeWrapperUsage
-    // ns2.panelB.piano.layerDetune.value = ns2.panelA.piano.layerDetune.value;
-    //
+    // layer detune is common for both panel !
+    // noinspection JSPrimitiveTypeWrapperUsage
+    ns2.slotB.piano.slotDetune.value = ns2.slotA.piano.slotDetune.value;
+
     // // rotary speaker settings are common for both panel
     // ns2.panelB.effects.rotarySpeaker.drive = ns2.panelA.effects.rotarySpeaker.drive;
     // ns2.panelB.effects.rotarySpeaker.stopMode = ns2.panelA.effects.rotarySpeaker.stopMode;

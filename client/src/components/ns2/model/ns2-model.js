@@ -1,0 +1,3 @@
+exports.ns2Model = {
+
+};

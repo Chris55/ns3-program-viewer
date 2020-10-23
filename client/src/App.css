@@ -64,3 +64,28 @@
     vertical-align: 70%;
 }
 
+.work-complete {
+    height: 10px;
+    width: 10px;
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 50%;
+    border-color: grey;
+    display: inline-block;
+    margin: 2px;
+    background-color: #a9d40f;
+}
+
+.work-in-progress {
+    height: 10px;
+    width: 10px;
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 50%;
+    border-color: grey;
+    display: inline-block;
+    margin: 2px;
+    background-color: orange;
+}
