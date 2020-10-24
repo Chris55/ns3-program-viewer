@@ -9,7 +9,12 @@ export default class Ns3 extends Component {
         const data = this.props.data;
 
         return (
-            <div className={data.panelA.enabled === false && data.panelB.enabled === false ? "d-none" : ""}>
+            <div
+                className={data.panelA.enabled === false && data.panelB.enabled === false
+                        ? "d-none"
+                        : ""
+                }
+            >
                 <div className="row no-gutters ns3-header justify-content-between d-flex flex-wrap">
                     <div className="col align-self-center">
                         <h3 className="ns3-header-name">
@@ -25,7 +30,7 @@ export default class Ns3 extends Component {
                         <br />
                         <NordLabelAndValue data={data.masterClock.rate} />
                     </div>
-                    <div className={data.split.enabled ? "col-1 text-right mr-1" : "col-1 text-right mr-1"  }>
+                    <div className={data.split.enabled ? "col-1 text-right mr-1" : "col-1 text-right mr-1"}>
                         <NordLabel enabled={data.split.enabled} label="Split" />
                     </div>
                     <div className={data.split.enabled ? "col-1 mt-1" : "d-none"}>

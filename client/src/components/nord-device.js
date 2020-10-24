@@ -21,7 +21,7 @@ export default class NordDevice extends Component {
                         <Tabs id="uncontrolled-tab-example">
 
                             <Tab eventKey="panel" title="Panel" disabled={false}>
-                                <Ns3 data={data} />
+                                <Ns3 data={data}/>
                             </Tab>
 
                             <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
@@ -37,7 +37,7 @@ export default class NordDevice extends Component {
                     <div className={this.props.production ? "mt-2" : "mt-2"}>
                         <Tabs id="uncontrolled-tab-example" defaultActiveKey="panel">
                             <Tab eventKey="panel" title="Panel" disabled={false}>
-                                <Ns2 data={data} />
+                                <Ns2 data={data}/>
                             </Tab>
 
                             <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">

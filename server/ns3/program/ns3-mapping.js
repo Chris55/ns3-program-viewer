@@ -190,7 +190,7 @@ exports.ns3OrganTypeMap = new Map([
  * Organ Vibrato Modes
  * @type {Map<number, string>}
  */
-exports.ns3OrganVibratoModeMap = new Map([
+exports.ns3OrganVibratoChorusModeShortNameMap = new Map([
     [0, "V1"],
     [1, "C1"],
     [2, "V2"],

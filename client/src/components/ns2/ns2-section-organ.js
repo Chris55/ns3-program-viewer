@@ -12,14 +12,9 @@ export default class Ns2SectionOrgan extends Component {
     render() {
         const organ = this.props.data;
         const visible = organ.enabled;
-        const vibratoChorusTitle =
-            organ.preset1.vibrato.mode.length > 1 && organ.preset1.vibrato.mode.charAt(0) === "V" ? "Vibrato" : "Chorus";
 
         const optionsEqual = organ.preset1.vibrato.enabled === organ.preset2.vibrato.enabled &&
             organ.preset1.percussion.enabled === organ.preset2.percussion.enabled;
-            //organ.preset1.percussion.volumeSoft.enabled === organ.preset2.percussion.volumeSoft.enabled &&
-            //organ.preset1.percussion.decayFast.enabled === organ.preset2.percussion.decayFast.enabled &&
-            //organ.preset1.percussion.harmonicThird.enabled === organ.preset2.percussion.harmonicThird.enabled;
 
         return (
             <React.Fragment>
@@ -66,7 +61,7 @@ export default class Ns2SectionOrgan extends Component {
 
 
                                         <div>
-                                            <NordLabel enabled={organ.preset1.vibrato.enabled} label={vibratoChorusTitle} />
+                                            <NordLabel enabled={organ.preset1.vibrato.enabled} label={organ.preset1.vibrato.mode.label} />
                                             <span className="m-1" />
                                             <NordLabelAndValue
                                                 label="Type"
@@ -96,7 +91,7 @@ export default class Ns2SectionOrgan extends Component {
                                             <div className="nord-label">Preset II</div>
 
                                             <div>
-                                                <NordLabel enabled={organ.preset2.vibrato.enabled} label={vibratoChorusTitle} />
+                                                <NordLabel enabled={organ.preset2.vibrato.enabled} label={organ.preset1.vibrato.mode.label} />
                                                 <span className="m-1" />
                                                 <NordLabelAndValue
                                                     label="Type"
@@ -107,18 +102,6 @@ export default class Ns2SectionOrgan extends Component {
 
                                             <div>
                                                 <NordValueOnOff label="Percussion" data={organ.preset2.percussion} />
-                                            </div>
-                                            <div>
-                                                <NordValueOnOff label="Volume Soft" data={organ.preset2.percussion.volumeSoft} />
-                                                <span className="m-1" />
-
-                                                <NordValueOnOff label="Decay Fast" data={organ.preset2.percussion.decayFast} />
-                                                <span className="m-1" />
-
-                                                <NordValueOnOff
-                                                    label="Harmonic Third"
-                                                    data={organ.preset2.percussion.harmonicThird}
-                                                />
                                             </div>
                                         </div>
                                     </div>

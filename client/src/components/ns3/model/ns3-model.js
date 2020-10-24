@@ -87,6 +87,7 @@ exports.ns3Model = {
                     enabled: false,
                     mode: {
                         value: "V1",
+                        label: "Vibrato"
                     },
                 },
                 percussion: {
@@ -1199,6 +1200,7 @@ exports.ns3Model = {
                     enabled: false,
                     mode: {
                         value: "V1",
+                        label: "Vibrato"
                     },
                 },
                 percussion: {

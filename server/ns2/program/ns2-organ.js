@@ -155,6 +155,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
 
     let organVibratoModeValue;
     let organVibratoMode;
+    let vibratoChorusModeLabel = "Vibrato";
 
     let drawbars1;
     let drawbars2;
@@ -215,6 +216,8 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          */
         organVibratoModeValue = (organOffset35 & 0xe0) >>> 5;
         organVibratoMode = mapping.ns2OrganB3VibratoModeMap.get(organVibratoModeValue);
+        vibratoChorusModeLabel =
+            organVibratoMode.length > 1 && organVibratoMode.charAt(0) === "V" ? "Vibrato" : "Chorus";
 
         drawbars1 = getB3AndVoxDrawbars(buffer, 0x5f + panelOffset);
         drawbars2 = getB3AndVoxDrawbars(buffer, 0x96 + panelOffset);
@@ -287,6 +290,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
         drawbars1 = getB3AndVoxDrawbars(buffer, 0x76 + panelOffset);
         drawbars2 = getB3AndVoxDrawbars(buffer, 0xad + panelOffset);
     }
+
 
     const organEnabled = (organOffset43 & 0x80) !== 0;
     const organKbZoneEnabled =
@@ -599,6 +603,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
 
                 mode: {
                     value: organVibratoMode,
+                    label: vibratoChorusModeLabel,
                 },
             },
 

@@ -24,11 +24,11 @@ export default class Ns2Panel extends Component {
                     <div className="col-10">
                         <div className={data.enabled ? "nord-on" : "nord-off"}>
                             <div>
-                                {/*<Ns2SectionOrgan*/}
-                                {/*    className="ns3-section"*/}
-                                {/*    data={data.organ}*/}
-                                {/*    effects={data.effects}*/}
-                                {/*/>*/}
+                                <Ns2SectionOrgan
+                                    className="ns3-section"
+                                    data={data.organ}
+                                    effects={data.effects}
+                                />
                             </div>
 
                             <div>

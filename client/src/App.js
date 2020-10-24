@@ -8,9 +8,10 @@ import axios from "axios";
 import programIcon from "./nprog.icns.svg";
 import Container from "react-bootstrap/Container";
 import Figure from "react-bootstrap/Figure";
-import "./components/ns3-panel-component-jqx.css";
 import { ns3Model } from "./components/ns3/model/ns3-model";
 import NordDevice from "./components/nord-device";
+import Button from "react-bootstrap/Button";
+const clonedeep = require('lodash.clonedeep');
 
 class App extends Component {
     constructor(props) {
@@ -24,14 +25,16 @@ class App extends Component {
         }
         this.state = {
             data: ns3Model,
+            originalData: clonedeep(ns3Model),
             error: null,
+            showAll: false,
         };
     }
 
     onSuccess = (data) => {
         //console.log("success: ", data);
         if (data.success) {
-            this.setState({ data: data.data, error: null });
+            this.setState({ data: data.data, originalData: clonedeep(data.data), error: null });
         } else {
             this.setState({ error: data.error });
         }
@@ -53,6 +56,30 @@ class App extends Component {
             .catch((err) => {
                 this.onError(err.response.data);
             });
+    };
+
+    handleShowAll = () => {
+
+        if (!this.state.showAll) {
+            const newData = clonedeep(this.state.data);
+            newData.panelA.enabled = true;
+            newData.panelA.organ.enabled = true;
+            newData.panelA.piano.enabled = true;
+            newData.panelA.synth.enabled = true;
+            newData.panelB.enabled = true;
+            newData.panelB.organ.enabled = true;
+            newData.panelB.piano.enabled = true;
+            newData.panelB.synth.enabled = true;
+            this.setState((prevState) => ({
+                showAll: true,
+                data: newData,
+            }));
+        } else {
+            this.setState((prevState) => ({
+                showAll: false,
+                data: clonedeep(prevState.originalData),
+            }));
+        }
     };
 
     render() {
@@ -92,19 +119,30 @@ class App extends Component {
                                     />
                                 </div>
 
-                                <div className="col-auto align-self-center">Nord Stage 3 Program File (ns3f) <span className="work-complete"></span> (100% decoded)<br/>Nord Stage 2 Program File (ns2p) <span className="work-in-progress"></span> (in progress) </div>
+                                <div className="col-auto align-self-center">
+                                    Nord Stage 3 Program File (ns3f) <span className="work-complete" /> (100% decoded)
+                                    <br />
+                                    Nord Stage 2 Program File (ns2p) <span className="work-in-progress" /> (in progress){" "}
+                                </div>
 
                                 <div className="col-auto align-self-center">
                                     <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
                                 </div>
 
+                                <div className="col-auto align-self-center"></div>
                                 <div className="col-auto align-self-center">
-
+                                    <Button
+                                        type="button"
+                                        className={this.state.showAll ? "active" : "disabled"}
+                                        onClick={this.handleShowAll}
+                                    >
+                                        Show All
+                                    </Button>
                                 </div>
                             </div>
                         </Container>
 
-                        <NordDevice data={this.state.data} production={this.production} />
+                        <NordDevice data={this.state.data} showAll={this.state.showAll} production={this.production} />
                     </div>
 
                     <div className="nord-footer">

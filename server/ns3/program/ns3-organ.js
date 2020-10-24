@@ -185,15 +185,44 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
             : organEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Organ");
 
     const organModeValue = (organOffset34 & 0x0e) >>> 1;
-    let organMode = mapping.ns3OrganVibratoModeMap.get(organModeValue);
+    let vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue) || "";
+    let vibratoChorusModeLabel = "";
 
-    if (organType === "Pipe1" || organType === "Pipe2") {
-        organMode = "C1";
-    } else if (organType === "Farfisa" && (organMode === "C1" || organMode === "V3")) {
-        organMode = mapping.ns3OrganVibratoModeMap.get(organModeValue + 1);
-    } else if (organType === "Vox" && (organMode === "C1" || organMode === "C2" || organMode === "C3")) {
-        organMode = mapping.ns3OrganVibratoModeMap.get(organModeValue + 1);
+    switch (organType) {
+        case "B3":
+            vibratoChorusModeLabel =
+                vibratoChorusModeShortName.length > 1 && vibratoChorusModeShortName.charAt(0) === "V"
+                    ? "Vibrato"
+                    : "Chorus";
+            break;
+
+        case "Vox":
+            vibratoChorusModeLabel = "Vibrato";
+            if (vibratoChorusModeShortName === "C1" ||
+                vibratoChorusModeShortName === "C2" ||
+                vibratoChorusModeShortName === "C3"
+            ) {
+                vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue + 1);
+            }
+            break;
+
+        case "Farfisa":
+            vibratoChorusModeLabel = "Vibrato";
+            if (vibratoChorusModeShortName === "C1" || vibratoChorusModeShortName === "V3") {
+                vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue + 1);
+            }
+            break;
+
+        case "Pipe1":
+        case "Pipe2":
+            vibratoChorusModeLabel = "Chorus";
+            vibratoChorusModeShortName = "C1";
+            break;
+
+        default:
+            vibratoChorusModeLabel = "Unknown Organ Type";
     }
+
 
     const organKbZone = ns3KbZone(organKbZoneEnabled, global, (organOffsetB6W & 0x7800) >>> 11);
     const organPreset2Enabled = (organOffsetBb & 0x04) !== 0;
@@ -414,7 +443,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  * @module NS3 Organ Vibrato Mode
                  */
                 mode: {
-                    value: organMode,
+                    value: vibratoChorusModeShortName,
+                    label: vibratoChorusModeLabel,
                 },
             },
 
