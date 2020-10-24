@@ -6,7 +6,7 @@ import Ns2SectionSynth from "./ns2-section-synth";
 import Ns2FxCompressor from "./ns2-fx-compressor";
 import Ns2FxReverb from "./ns2-fx-reverb";
 
-export default class Ns2Panel extends Component {
+export default class Ns2Slot extends Component {
     render() {
         const data = this.props.data;
         const visible = data.organ.enabled || data.piano.enabled || data.synth.enabled;
@@ -23,13 +23,13 @@ export default class Ns2Panel extends Component {
                     {/*ml-n5*/}
                     <div className="col-10">
                         <div className={data.enabled ? "nord-on" : "nord-off"}>
-                            <div>
-                                <Ns2SectionOrgan
-                                    className="ns3-section"
-                                    data={data.organ}
-                                    effects={data.effects}
-                                />
-                            </div>
+                            {/*<div>*/}
+                            {/*    <Ns2SectionOrgan*/}
+                            {/*        className="ns3-section"*/}
+                            {/*        data={data.organ}*/}
+                            {/*        effects={data.effects}*/}
+                            {/*    />*/}
+                            {/*</div>*/}
 
                             <div>
                                 <Ns2SectionPiano

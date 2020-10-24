@@ -200,6 +200,27 @@ exports.ns3OrganVibratoChorusModeShortNameMap = new Map([
 ]);
 
 /***
+ * Organ Vox Vibrato Modes
+ * @type {Map<string, string>}
+ */
+exports.ns3OrganVoxVibratoModeMap = new Map([
+    ["V1", "Less"],
+    ["V2", "More"],
+    ["V3", "Original"],
+]);
+
+/***
+ * Organ Farfisa Vibrato Modes
+ * @type {Map<string, string>}
+ */
+exports.ns3OrganFarfisaVibratoModeMap = new Map([
+    ["V1", "Light/Slow"],
+    ["V2", "Light/Fast"],
+    ["C2", "Heavy/Slow"],
+    ["C3", "Heavy/Fast"],
+]);
+
+/***
  * Effect Source Values
  * @type {Map<number, string>}
  */

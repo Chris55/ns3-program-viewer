@@ -186,6 +186,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
 
     const organModeValue = (organOffset34 & 0x0e) >>> 1;
     let vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue) || "";
+    let vibratoChorusModeLongName = "";
     let vibratoChorusModeLabel = "";
 
     switch (organType) {
@@ -204,6 +205,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
             ) {
                 vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue + 1);
             }
+            vibratoChorusModeLongName = " - " + mapping.ns3OrganVoxVibratoModeMap.get(vibratoChorusModeShortName) || "";
             break;
 
         case "Farfisa":
@@ -211,6 +213,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
             if (vibratoChorusModeShortName === "C1" || vibratoChorusModeShortName === "V3") {
                 vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue + 1);
             }
+            vibratoChorusModeLongName = " - " + mapping.ns3OrganFarfisaVibratoModeMap.get(vibratoChorusModeShortName) || "";
             break;
 
         case "Pipe1":
@@ -443,7 +446,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  * @module NS3 Organ Vibrato Mode
                  */
                 mode: {
-                    value: vibratoChorusModeShortName,
+                    value: vibratoChorusModeShortName + vibratoChorusModeLongName,
                     label: vibratoChorusModeLabel,
                 },
             },

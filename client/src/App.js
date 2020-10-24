@@ -24,6 +24,7 @@ class App extends Component {
             ns3Model.panelB.enabled = false;
         }
         this.state = {
+            loaded: false,
             data: ns3Model,
             originalData: clonedeep(ns3Model),
             error: null,
@@ -34,18 +35,26 @@ class App extends Component {
     onSuccess = (data) => {
         //console.log("success: ", data);
         if (data.success) {
-            this.setState({ data: data.data, originalData: clonedeep(data.data), error: null });
+            this.setState({
+                loaded: true,
+                data: data.data,
+                originalData: clonedeep(data.data),
+                error: null,
+                showAll: false,
+            });
         } else {
-            this.setState({ error: data.error });
+            this.setState({ loaded: false, error: data.error, showAll: false });
         }
     };
 
     onError = (err) => {
-        this.setState({ error: err.error });
+        this.setState({ loaded: false, error: err.error, showAll: false });
         toast.error(this.state.error);
     };
 
     handleFile = async (filename) => {
+        if (!filename) return;
+
         const formData = new FormData();
         formData.append("nordFile", filename);
         await axios
@@ -62,6 +71,7 @@ class App extends Component {
         if (!this.state.showAll) {
             const newData = clonedeep(this.state.data);
             if (newData.panelA) {
+                newData.name += " - (All Instruments Visible)";
                 newData.panelA.enabled = true;
                 newData.panelA.organ.enabled = true;
                 newData.panelA.piano.enabled = true;
@@ -139,15 +149,29 @@ class App extends Component {
                                     <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
                                 </div>
 
-                                <div className="col-auto align-self-center"></div>
+                                <div className="col-auto align-self-center"/>
+
                                 <div className="col-auto align-self-center">
-                                    <Button
-                                        type="button"
-                                        className={this.state.showAll ? "active" : "disabled"}
-                                        onClick={this.handleShowAll}
-                                    >
-                                        Show All
-                                    </Button>
+                                    <div className={this.state.loaded ? "" : "d-none"}>
+                                        <span className="mr-2">Show All Instruments</span>
+
+                                        <Button
+                                            type="button"
+                                            variant="primary"
+                                            className={this.state.showAll ? "mr-1 active" : "mr-1 disabled"}
+                                            onClick={this.handleShowAll}
+                                        >
+                                            On
+                                        </Button>
+                                        <Button
+                                            type="button"
+                                            variant="primary"
+                                            className={this.state.showAll ? "mr-1 disabled" : "mr-1 active"}
+                                            onClick={this.handleShowAll}
+                                        >
+                                            Off
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         </Container>

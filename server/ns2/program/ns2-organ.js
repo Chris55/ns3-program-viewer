@@ -215,7 +215,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * @module NS2 Organ B3 Vibrato Mode
          */
         organVibratoModeValue = (organOffset35 & 0xe0) >>> 5;
-        organVibratoMode = mapping.ns2OrganB3VibratoModeMap.get(organVibratoModeValue);
+        organVibratoMode = mapping.ns2OrganB3VibratoModeMap.get(organVibratoModeValue) || "";
         vibratoChorusModeLabel =
             organVibratoMode.length > 1 && organVibratoMode.charAt(0) === "V" ? "Vibrato" : "Chorus";
 

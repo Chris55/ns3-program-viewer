@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./ns2.css";
-import Ns2Panel from "./ns2-panel";
+import Ns2Slot from "./ns2-slot";
 import NordLabelAndValue from "./lib/nord-label-and-value";
 import NordLabel from "./lib/nord-label";
 
@@ -68,14 +68,14 @@ export default class Ns2 extends Component {
                 <div className="row">
                     <div className="col-12">
                         <div className={data.slotA.enabled ? "nord-on" : "nord-off"}>
-                            <Ns2Panel name="A" data={data.slotA} />
+                            <Ns2Slot name="A" data={data.slotA} />
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12">
                         <div className={data.slotB.enabled ? "nord-on" : "nord-off"}>
-                            <Ns2Panel name="B" data={data.slotB} />
+                            <Ns2Slot name="B" data={data.slotB} />
                         </div>
                     </div>
                 </div>
