@@ -167,7 +167,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * @example
          * O = off, 1 = on
          *
-         * @module NS2 Organ B3 Preset II
+         * @module NS2 Organ B3 Preset 2
          */
         organPreset2Enabled = (organOffset5c & 0x80) !== 0;
         /**
@@ -176,7 +176,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * @example
          * O = off, 1 = on
          *
-         * @module NS2 Organ B3 Preset I Vibrato Chorus
+         * @module NS2 Organ B3 Preset 1 Vibrato Chorus
          */
         vibratoPreset1 = (organOffset74 & 0x10) !== 0;
         /**
@@ -185,7 +185,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * @example
          * O = off, 1 = on
          *
-         * @module NS2 Organ B3 Preset I Percussion
+         * @module NS2 Organ B3 Preset 1 Percussion
          */
         percussionPreset1 = (organOffset74 & 0x08) !== 0;
         /**
@@ -194,7 +194,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * @example
          * O = off, 1 = on
          *
-         * @module NS2 Organ B3 Preset II Vibrato Chorus
+         * @module NS2 Organ B3 Preset 2 Vibrato Chorus
          */
         vibratoPreset2 = (organOffsetAb & 0x10) !== 0;
         /**
@@ -203,7 +203,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * @example
          * O = off, 1 = on
          *
-         * @module NS2 Organ B3 Preset II Percussion
+         * @module NS2 Organ B3 Preset 2 Percussion
          */
         percussionPreset2 = (organOffsetAb & 0x08) !== 0;
         /**
@@ -228,7 +228,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * @example
          * O = off, 1 = on
          *
-         * @module NS2 Organ Vox Preset II
+         * @module NS2 Organ Vox Preset 2
          */
         organPreset2Enabled = (organOffset5d & 0x80) !== 0;
         /**
@@ -238,7 +238,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * O = off, 1 = on
          * (common for Preset I & II)
          *
-         * @module NS2 Organ Vox Vibrato
+         * @module NS2 Organ Vox Vibrato On
          */
         vibratoPreset1 = (organOffset37 & 0x80) !== 0;
         vibratoPreset2 = vibratoPreset1;
@@ -262,7 +262,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * @example
          * O = off, 1 = on
          *
-         * @module NS2 Organ Farfisa Preset II
+         * @module NS2 Organ Farfisa Preset 2
          */
         organPreset2Enabled = (organOffset5e & 0x80) !== 0;
         /**
@@ -272,7 +272,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * O = off, 1 = on
          * (common for Preset I & II)
          *
-         * @module NS2 Organ Vox Vibrato
+         * @module NS2 Organ Farfisa Vibrato On
          */
         vibratoPreset1 = (organOffset39 & 0x80) !== 0;
         vibratoPreset2 = vibratoPreset1;
@@ -410,7 +410,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          * @example
          * #include ns2OrganTypeMap
          *
-         * @module NS2 Organ Type
+         * @module NS2 Organ Model
          */
         type: {
             value: organType,
@@ -621,7 +621,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
                  *
                  * only if Organ type is B3
                  *
-                 * @module NS2 Organ Percussion Volume Soft
+                 * @module NS2 Organ B3 Volume Soft
                  */
                 volumeSoft: {
                     enabled: organTypeIsB3 && (organOffset35 & 0x04) !== 0,
@@ -634,7 +634,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
                  *
                  * only if Organ type is B3
                  *
-                 * @module NS2 Organ Percussion Decay Fast
+                 * @module NS2 Organ B3 Decay Fast
                  */
                 decayFast: {
                     enabled: organTypeIsB3 && (organOffset35 & 0x08) !== 0,
@@ -647,7 +647,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
                  *
                  * only if Organ type is B3
                  *
-                 * @module NS2 Organ Percussion Harmonic Third
+                 * @module NS2 Organ B3 Harmonic Third
                  */
                 harmonicThird: {
                     enabled: organTypeIsB3 && (organOffset35 & 0x10) !== 0,
@@ -840,7 +840,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
              * Morph AT    offset in file 0xcb (b5-4)
              * Morph Pedal offset in file 0xcb (b3-2)
              *
-             * @module NS2 Organ Preset 2 Drawbars
+             * @module NS2 Organ Drawbars Preset 2
              */
             drawbars: drawbars2,
 

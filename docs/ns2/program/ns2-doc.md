@@ -1,37 +1,37 @@
 ## Modules
 
 <dl>
-<dt><a href="#module_NS2 Organ B3 Preset II">NS2 Organ B3 Preset II</a></dt>
+<dt><a href="#module_NS2 Organ B3 Preset 2">NS2 Organ B3 Preset 2</a></dt>
 <dd><p>Offset in file: 0x5c (b7)</p>
 </dd>
-<dt><a href="#module_NS2 Organ B3 Preset I Vibrato Chorus">NS2 Organ B3 Preset I Vibrato Chorus</a></dt>
+<dt><a href="#module_NS2 Organ B3 Preset 1 Vibrato Chorus">NS2 Organ B3 Preset 1 Vibrato Chorus</a></dt>
 <dd><p>Offset in file: 0x74 (b4)</p>
 </dd>
-<dt><a href="#module_NS2 Organ B3 Preset I Percussion">NS2 Organ B3 Preset I Percussion</a></dt>
+<dt><a href="#module_NS2 Organ B3 Preset 1 Percussion">NS2 Organ B3 Preset 1 Percussion</a></dt>
 <dd><p>Offset in file: 0x74 (b3)</p>
 </dd>
-<dt><a href="#module_NS2 Organ B3 Preset II Vibrato Chorus">NS2 Organ B3 Preset II Vibrato Chorus</a></dt>
+<dt><a href="#module_NS2 Organ B3 Preset 2 Vibrato Chorus">NS2 Organ B3 Preset 2 Vibrato Chorus</a></dt>
 <dd><p>Offset in file: 0xab (b4)</p>
 </dd>
-<dt><a href="#module_NS2 Organ B3 Preset II Percussion">NS2 Organ B3 Preset II Percussion</a></dt>
+<dt><a href="#module_NS2 Organ B3 Preset 2 Percussion">NS2 Organ B3 Preset 2 Percussion</a></dt>
 <dd><p>Offset in file: 0xab (b3)</p>
 </dd>
 <dt><a href="#module_NS2 Organ B3 Vibrato Mode">NS2 Organ B3 Vibrato Mode</a></dt>
 <dd><p>Offset in file: 0x35 (b7-5)</p>
 </dd>
-<dt><a href="#module_NS2 Organ Vox Preset II">NS2 Organ Vox Preset II</a></dt>
+<dt><a href="#module_NS2 Organ Vox Preset 2">NS2 Organ Vox Preset 2</a></dt>
 <dd><p>Offset in file: 0x5d (b7)</p>
 </dd>
-<dt><a href="#module_NS2 Organ Vox Vibrato">NS2 Organ Vox Vibrato</a></dt>
+<dt><a href="#module_NS2 Organ Vox Vibrato On">NS2 Organ Vox Vibrato On</a></dt>
 <dd><p>Offset in file: 0x37 (b4)</p>
 </dd>
 <dt><a href="#module_NS2 Organ Vox Vibrato Mode">NS2 Organ Vox Vibrato Mode</a></dt>
 <dd><p>Offset in file: 0x37 (b6-5)</p>
 </dd>
-<dt><a href="#module_NS2 Organ Farfisa Preset II">NS2 Organ Farfisa Preset II</a></dt>
+<dt><a href="#module_NS2 Organ Farfisa Preset 2">NS2 Organ Farfisa Preset 2</a></dt>
 <dd><p>Offset in file: 0x5e (b7)</p>
 </dd>
-<dt><a href="#module_NS2 Organ Vox Vibrato">NS2 Organ Vox Vibrato</a></dt>
+<dt><a href="#module_NS2 Organ Farfisa Vibrato On">NS2 Organ Farfisa Vibrato On</a></dt>
 <dd><p>Offset in file: 0x39 (b4)</p>
 </dd>
 <dt><a href="#module_NS2 Organ Farfisa Vibrato Mode">NS2 Organ Farfisa Vibrato Mode</a></dt>
@@ -61,24 +61,24 @@
 <dt><a href="#module_NS2 Organ Kb Gate">NS2 Organ Kb Gate</a></dt>
 <dd><p>Offset in file: 0x59 (b0)</p>
 </dd>
-<dt><a href="#module_NS2 Organ Type">NS2 Organ Type</a></dt>
+<dt><a href="#module_NS2 Organ Model">NS2 Organ Model</a></dt>
 <dd><p>Offset in file: 0x34 (b7-6)</p>
 </dd>
 <dt><a href="#module_NS2 Organ Drawbars Preset 1">NS2 Organ Drawbars Preset 1</a></dt>
 <dd></dd>
-<dt><a href="#module_NS2 Organ Percussion Volume Soft">NS2 Organ Percussion Volume Soft</a></dt>
+<dt><a href="#module_NS2 Organ B3 Volume Soft">NS2 Organ B3 Volume Soft</a></dt>
 <dd><p>Offset in file: 0x35 (b2)</p>
 </dd>
-<dt><a href="#module_NS2 Organ Percussion Decay Fast">NS2 Organ Percussion Decay Fast</a></dt>
+<dt><a href="#module_NS2 Organ B3 Decay Fast">NS2 Organ B3 Decay Fast</a></dt>
 <dd><p>Offset in file: 0x35 (b3)</p>
 </dd>
-<dt><a href="#module_NS2 Organ Percussion Harmonic Third">NS2 Organ Percussion Harmonic Third</a></dt>
+<dt><a href="#module_NS2 Organ B3 Harmonic Third">NS2 Organ B3 Harmonic Third</a></dt>
 <dd><p>Offset in file:  0x35 (b4)</p>
 </dd>
 <dt><a href="#module_NS3 Organ Preset 2 On">NS3 Organ Preset 2 On</a></dt>
 <dd><p>Offset in file: 0xBB (b2)</p>
 </dd>
-<dt><a href="#module_NS2 Organ Preset 2 Drawbars">NS2 Organ Preset 2 Drawbars</a></dt>
+<dt><a href="#module_NS2 Organ Drawbars Preset 2">NS2 Organ Drawbars Preset 2</a></dt>
 <dd></dd>
 <dt><a href="#module_NS2 Piano On">NS2 Piano On</a></dt>
 <dd><p>Offset in file: 0x48 (b7)</p>
@@ -161,45 +161,45 @@ Value: 0x38 (b6-3)</p>
 </dd>
 </dl>
 
-<a name="module_NS2 Organ B3 Preset II"></a>
+<a name="module_NS2 Organ B3 Preset 2"></a>
 
-## NS2 Organ B3 Preset II
+## NS2 Organ B3 Preset 2
 Offset in file: 0x5c (b7)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Organ B3 Preset I Vibrato Chorus"></a>
+<a name="module_NS2 Organ B3 Preset 1 Vibrato Chorus"></a>
 
-## NS2 Organ B3 Preset I Vibrato Chorus
+## NS2 Organ B3 Preset 1 Vibrato Chorus
 Offset in file: 0x74 (b4)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Organ B3 Preset I Percussion"></a>
+<a name="module_NS2 Organ B3 Preset 1 Percussion"></a>
 
-## NS2 Organ B3 Preset I Percussion
+## NS2 Organ B3 Preset 1 Percussion
 Offset in file: 0x74 (b3)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Organ B3 Preset II Vibrato Chorus"></a>
+<a name="module_NS2 Organ B3 Preset 2 Vibrato Chorus"></a>
 
-## NS2 Organ B3 Preset II Vibrato Chorus
+## NS2 Organ B3 Preset 2 Vibrato Chorus
 Offset in file: 0xab (b4)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Organ B3 Preset II Percussion"></a>
+<a name="module_NS2 Organ B3 Preset 2 Percussion"></a>
 
-## NS2 Organ B3 Preset II Percussion
+## NS2 Organ B3 Preset 2 Percussion
 Offset in file: 0xab (b3)
 
 **Example**  
@@ -215,18 +215,18 @@ Offset in file: 0x35 (b7-5)
 ```js
 #include ns2OrganB3VibratoModeMap
 ```
-<a name="module_NS2 Organ Vox Preset II"></a>
+<a name="module_NS2 Organ Vox Preset 2"></a>
 
-## NS2 Organ Vox Preset II
+## NS2 Organ Vox Preset 2
 Offset in file: 0x5d (b7)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Organ Vox Vibrato"></a>
+<a name="module_NS2 Organ Vox Vibrato On"></a>
 
-## NS2 Organ Vox Vibrato
+## NS2 Organ Vox Vibrato On
 Offset in file: 0x37 (b4)
 
 **Example**  
@@ -242,18 +242,18 @@ Offset in file: 0x37 (b6-5)
 ```js
 #include ns2OrganVoxVibratoModeMap
 ```
-<a name="module_NS2 Organ Farfisa Preset II"></a>
+<a name="module_NS2 Organ Farfisa Preset 2"></a>
 
-## NS2 Organ Farfisa Preset II
+## NS2 Organ Farfisa Preset 2
 Offset in file: 0x5e (b7)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Organ Vox Vibrato"></a>
+<a name="module_NS2 Organ Farfisa Vibrato On"></a>
 
-## NS2 Organ Vox Vibrato
+## NS2 Organ Farfisa Vibrato On
 Offset in file: 0x39 (b4)
 
 **Example**  
@@ -341,9 +341,9 @@ Offset in file: 0x59 (b0)
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Organ Type"></a>
+<a name="module_NS2 Organ Model"></a>
 
-## NS2 Organ Type
+## NS2 Organ Model
 Offset in file: 0x34 (b7-6)
 
 **Example**  
@@ -357,27 +357,27 @@ Offset in file: 0x34 (b7-6)
 ```js
 ORGAN B3 DRAWBARS Preset Iall B3 Drawbars are 4-Bit fields, values from 0 - 8Organ B3 Sub (drawbar 1)offset in file 0x60 (b0) and 0x61 (b7-5)	Morph Wheel offset in file 0x5f (b7-3)	Morph AT    offset in file 0x5f (b2-0) and 0x60 (b7-6)	Morph Pedal offset in file 0x60 (b5-1)Organ B3 Sub3 (drawbar 2)offset in file 0x63 (b5-2)    Morph Wheel offset in file 0x61 (b4-0)	Morph AT    offset in file 0x62 (b7-3)	Morph Pedal offset in file 0x62 (b2-0) and 0x63 (b7-6)Organ B3 Fund (drawbar 3)offset in file 0x65 (b2-0) and 0x66 (b7)	Morph Wheel offset in file 0x63 (b1-0) and 0x64 (b7-5)	Morph AT    offset in file 0x64 (b4-0)	Morph Pedal offset in file 0x65 (b7-3)Organ B3 2nd (drawbar 4)offset in file 0x68 (b7-4)	Morph Wheel offset in file 0x66 (b6-2)	Morph AT    offset in file 0x66 (b1-0) and 0x67 (b7-5)	Morph Pedal offset in file 0x67 (b4-0)Organ B3 3rd (drawbar 5)offset in file 0x6a (b4-1)	Morph Wheel offset in file 0x68 (b3-0) and 0x69 (b7)	Morph AT    offset in file 0x69 (b6-2)	Morph Pedal offset in file 0x69 (b1-0) and 0x6a (b7-5)Organ B3 4th (drawbar 6)offset in file 0x6c (b1-0) and 0x6d (b7-6)	Morph Wheel offset in file 0x6a (b0) and 0x6b (b7-4)	Morph AT    offset in file 0x6b (b3-0) and 0x6c (b7)	Morph Pedal offset in file 0x6c (b6-2)Organ B3 5th (drawbar 7)offset in file 0x6f (b6-3)	Morph Wheel offset in file 0x6d (b5-1)	Morph AT    offset in file 0x6d (b0) and 0x6e (b7-4)	Morph Pedal offset in file 0x6e (b3-0) and 0x6f (b7)Organ B3 6th (drawbar 8)offset in file 0x71 (b3-0)	Morph Wheel offset in file 0x6f (b2-0) and 0x70 (b7-6)	Morph AT    offset in file 0x70 (b5-1)	Morph Pedal offset in file 0x70 (b0) and 0x71 (b7-4)Organ B3 8th (drawbar 9)offset in file 0x73 (b0) and 0x74 (b7-5)	Morph Wheel offset in file 0x72 (b7-3)	Morph AT    offset in file 0x72 (b2-0) and 0x73 (b7-6)	Morph Pedal offset in file 0x73 (b5-1)ORGAN VOX DRAWBARS Preset IOrgan Vox 16' (drawbar 1)offset in file 0x77 (b0) and 0x78 (b7-5)Morph Wheel offset in file 0x76 (b7-3)Morph AT    offset in file 0x76 (b2-0) and 0x77 (b7-6)Morph Pedal offset in file 0x77 (b6-1)Organ Vox 8' (drawbar 2)offset in file 0x7a (b5-2)Morph Wheel offset in file 0x78 (b4-0)Morph AT    offset in file 0x79 (b7-3)Morph Pedal offset in file 0x79 (b2-0) and 0x7a (b7-6)Organ Vox 4' (drawbar 3)offset in file 0x7c (b2-0) and 0x7d (b7)Morph Wheel offset in file 0x7a (b1-0) and 0x7b (b7-5)Morph AT    offset in file 0x7b (b4-0)Morph Pedal offset in file 0x7c (b7-3)Organ Vox 2' (drawbar 4)offset in file 0x7f (b7-4)Morph Wheel offset in file 0x7d (b6-2)Morph AT    offset in file 0x7d (b1-0) and 0x7e (b7-5)Morph Pedal offset in file 0x7e (b4-0)Organ Vox II (drawbar 5)offset in file 0x81 (b4-1)Morph Wheel offset in file 0x7f (b3-0) and 0x80 (b7)Morph AT    offset in file 0x80 (b6-2)Morph Pedal offset in file 0x80 (b1-0) and 0x81 (b7-5)Organ Vox III (drawbar 6)offset in file 0x83 (b1-0) and 0x84 (b7-6)Morph Wheel offset in file 0x81 (b0) and 0x82 (b7-4)Morph AT    offset in file 0x82 (b3-0) and 0x83 (b7)Morph Pedal offset in file 0x83 (b6-2)Organ Vox IV (drawbar 7)offset in file 0x86 (b6-3)Morph Wheel offset in file 0x84 (b5-1)Morph AT    offset in file 0x84 (b0) and 0x85 (b7-4)Morph Pedal offset in file 0x85 (b3-0) and 0x86 (b7)Organ Vox SIN (drawbar 8)offset in file 0x88 (b3-0)Morph Wheel offset in file 0x86 (b2-0) and 0x87 (b7-6)Morph AT    offset in file 0x87 (b5-1)Morph Pedal offset in file 0x87 (b0) and 0x88 (b7-4)Organ Vox TRI (drawbar 9)offset in file 0x8a (b0) and 0x8b (b7-5)Morph Wheel offset in file 0x89 (b7-3)Morph AT    offset in file 0x89 (b2-0) and 0x8a (b7-6)Morph Pedal offset in file 0x8a (b5-1)ORGAN FARFISA DRAWBARS Preset IFarfisa drawbars are 1-Bit values, ON or OFFOrgan Farfisa Bass16 (drawbar 1)offset in file 0x8d (b1)Morph Wheel offset in file 0x8d (b7-6)Morph AT    offset in file 0x8d (b5-4)Morph Pedal offset in file 0x8d (b3-2)Organ Farfisa Str16 (drawbar 2)offset in file 0x8e (b2)Morph Wheel offset in file 0x8d (b0) and 0x8e (b7)Morph AT    offset in file 0x8e (b6-5)Morph Pedal offset in file 0x8e (b4-3)Organ Farfisa Flu8 (drawbar 3)offset in file 0x8f (b3)Morph Wheel offset in file 0x8e (b1-0)Morph AT    offset in file 0x8f (b7-6)Morph Pedal offset in file 0x8f (b5-4)Organ Farfisa Oboe8 (drawbar 4)offset in file 0x90 (b4)Morph Wheel offset in file 0x8f (b2-1)Morph AT    offset in file 0x8f (b0) and 0x90 (b7)Morph Pedal offset in file 0x90 (b6-5)Organ Farfisa Trump8 (drawbar 5)offset in file 0x91 (b5)Morph Wheel offset in file 0x90 (b3-2)Morph AT    offset in file 0x90 (b1-0)Morph Pedal offset in file 0x91 (b7-6)Organ Farfisa Str8 (drawbar 6)offset in file 0x92 (b6)Morph Wheel offset in file 0x91 (b4-3)Morph AT    offset in file 0x91 (b2-1)Morph Pedal offset in file 0x91 (b0) and 0x92 (b7)Organ Farfisa Flu4 (drawbar 7)offset in file 0x93 (b7)Morph Wheel offset in file 0x92 (b5-4)Morph AT    offset in file 0x92 (b3-2)Morph Pedal offset in file 0x92 (b1-0)Organ Farfisa Str4 (drawbar 8)offset in file 0x93 (b0)Morph Wheel offset in file 0x93 (b6-5)Morph AT    offset in file 0x93 (b4-3)Morph Pedal offset in file 0x93 (b2-1)Organ Farfisa 2 2/3 (drawbar 9)offset in file 0x94 (b1)Morph Wheel offset in file 0x94 (b7-6)Morph AT    offset in file 0x94 (b5-4)Morph Pedal offset in file 0x94 (b3-2)
 ```
-<a name="module_NS2 Organ Percussion Volume Soft"></a>
+<a name="module_NS2 Organ B3 Volume Soft"></a>
 
-## NS2 Organ Percussion Volume Soft
+## NS2 Organ B3 Volume Soft
 Offset in file: 0x35 (b2)
 
 **Example**  
 ```js
 O = off, 1 = ononly if Organ type is B3
 ```
-<a name="module_NS2 Organ Percussion Decay Fast"></a>
+<a name="module_NS2 Organ B3 Decay Fast"></a>
 
-## NS2 Organ Percussion Decay Fast
+## NS2 Organ B3 Decay Fast
 Offset in file: 0x35 (b3)
 
 **Example**  
 ```js
 O = off, 1 = ononly if Organ type is B3
 ```
-<a name="module_NS2 Organ Percussion Harmonic Third"></a>
+<a name="module_NS2 Organ B3 Harmonic Third"></a>
 
-## NS2 Organ Percussion Harmonic Third
+## NS2 Organ B3 Harmonic Third
 Offset in file:  0x35 (b4)
 
 **Example**  
@@ -393,9 +393,9 @@ Offset in file: 0xBB (b2)
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Organ Preset 2 Drawbars"></a>
+<a name="module_NS2 Organ Drawbars Preset 2"></a>
 
-## NS2 Organ Preset 2 Drawbars
+## NS2 Organ Drawbars Preset 2
 **Example**  
 ```js
 ORGAN B3 DRAWBARS Preset IIall B3 Drawbars are 4-Bit fields, values from 0 - 8Organ B3 Sub (drawbar 1)offset in file 0x97 (b0) and 0x98 (b7-5)Morph Wheel offset in file 0x96 (b7-3)Morph AT    offset in file 0x96 (b2-0) and 0x97 (b7-6)Morph Pedal offset in file 0x97 (b5-1)Organ B3 Sub3 (drawbar 2)offset in file 0x9a (b5-2)Morph Wheel offset in file 0x98 (b4-0)Morph AT    offset in file 0x99 (b7-3)Morph Pedal offset in file 0x99 (b2-0) and 0x9a (b7-6)Organ B3 Fund (drawbar 3)offset in file 0x9c (b2-0) and 0x9d (b7)Morph Wheel offset in file 0x9a (b1-0) and 0x9b (b7-5)Morph AT    offset in file 0x9b (b4-0)Morph Pedal offset in file 0x9c (b7-3)Organ B3 2nd (drawbar 4)offset in file 0x9f (b7-4)Morph Wheel offset in file 0x9d (b6-2)Morph AT    offset in file 0x9d (b1-0) and 0x9e (b7-5)Morph Pedal offset in file 0x9e (b4-0)Organ B3 3rd (drawbar 5)offset in file 0xa1 (b4-1)Morph Wheel offset in file 0x9f (b3-0) and 0xa0 (b7)Morph AT    offset in file 0xa0 (b6-2)Morph Pedal offset in file 0xa0 (b1-0) and 0xa1 (b7-5)Organ B3 4th (drawbar 6)offset in file 0xa3 (b1-0) and 0xa4 (b7-6)Morph Wheel offset in file 0xa1 (b0) and 0xa2 (b7-4)Morph AT    offset in file 0xa2 (b3-0) and 0xa3 (b7)Morph Pedal offset in file 0xa3 (b6-2)Organ B3 5th (drawbar 7)offset in file 0xa6 (b6-3)Morph Wheel offset in file 0xa4 (b5-1)Morph AT    offset in file 0xa4 (b0) and 0xa5 (b7-4)Morph Pedal offset in file 0xa5 (b3-0) and 0xa6 (b7)Organ B3 6th (drawbar 8)offset in file 0xa8 (b3-0)Morph Wheel offset in file 0xa6 (b2-0) and 0xa7 (b7-6)Morph AT    offset in file 0xa7 (b5-1)Morph Pedal offset in file 0xa7 (b0) and 0xa8 (b7-4)Organ B3 8th (drawbar 9)offset in file 0xaa (b0) and 0xab (b7-5)Morph Wheel offset in file 0xa9 (b7-3)Morph AT    offset in file 0xa9 (b2-0) and 0xaa (b7-6)Morph Pedal offset in file 0xaa (b5-1)ORGAN VOX DRAWBARS Preset IIOrgan Vox 16' (drawbar 1)offset in file 0xae (b0) and 0xaf (b7-5)Morph Wheel offset in file 0xad (b7-3)Morph AT    offset in file 0xad (b2-0) and 0xae (b7-6)Morph Pedal offset in file 0xae (b6-1)Organ Vox 8' (drawbar 2)offset in file 0xb1 (b5-2)Morph Wheel offset in file 0xaf (b4-0)Morph AT    offset in file 0xb0 (b7-3)Morph Pedal offset in file 0xb0 (b2-0) and 0xb1 (b7-6)Organ Vox 4' (drawbar 3)offset in file 0xb3 (b2-0) and 0xb4 (b7)Morph Wheel offset in file 0xb1 (b1-0) and 0xb2 (b7-5)Morph AT    offset in file 0xb2 (b4-0)Morph Pedal offset in file 0xb3 (b7-3)Organ Vox 2' (drawbar 4)offset in file 0xb6 (b7-4)Morph Wheel offset in file 0xb4 (b6-2)Morph AT    offset in file 0xb4 (b1-0) and 0xb5 (b7-5)Morph Pedal offset in file 0xb5 (b4-0)Organ Vox II (drawbar 5)offset in file 0xb8 (b4-1)Morph Wheel offset in file 0xb6 (b3-0) and 0xb7 (b7)Morph AT    offset in file 0xb7 (b6-2)Morph Pedal offset in file 0xb7 (b1-0) and 0xb8 (b7-5)Organ Vox III (drawbar 6)offset in file 0xba (b1-0) and 0xbb (b7-6)Morph Wheel offset in file 0xb8 (b0) and 0xb9 (b7-4)Morph AT    offset in file 0xb9 (b3-0) and 0xba (b7)Morph Pedal offset in file 0xba (b6-2)Organ Vox IV (drawbar 7)offset in file 0xbd (b6-3)Morph Wheel offset in file 0xbb (b5-1)Morph AT    offset in file 0xbb (b0) and 0xbc (b7-4)Morph Pedal offset in file 0xbc (b3-0) and 0xbd (b7)Organ Vox SIN (drawbar 8)offset in file 0xbf (b3-0)Morph Wheel offset in file 0xbd (b2-0) and 0xbe (b7-6)Morph AT    offset in file 0xbe (b5-1)Morph Pedal offset in file 0xbe (b0) and 0xbf (b7-4)Organ Vox TRI (drawbar 9)offset in file 0xc1 (b0) and 0xc2 (b7-5)Morph Wheel offset in file 0xc0 (b7-3)Morph AT    offset in file 0xc0 (b2-0) and 0xc1 (b7-6)Morph Pedal offset in file 0xc1 (b5-1)ORGAN FARFISA DRAWBARS Preset IIFarfisa drawbars are 1-Bit values, ON or OFFOrgan Farfisa Bass16 (drawbar 1)offset in file 0xc4 (b1)Morph Wheel offset in file 0xc4 (b7-6)Morph AT    offset in file 0xc4 (b5-4)Morph Pedal offset in file 0xc4 (b3-2)Organ Farfisa Str16 (drawbar 2)offset in file 0xc5 (b2)Morph Wheel offset in file 0xc4 (b0) and 0xc5 (b7)Morph AT    offset in file 0xc5 (b6-5)Morph Pedal offset in file 0xc5 (b4-3)Organ Farfisa Flu8 (drawbar 3)offset in file 0xc6 (b3)Morph Wheel offset in file 0xc5 (b1-0)Morph AT    offset in file 0xc6 (b7-6)Morph Pedal offset in file 0xc6 (b5-4)Organ Farfisa Oboe8 (drawbar 4)offset in file 0xc7 (b4)Morph Wheel offset in file 0xc6 (b2-1)Morph AT    offset in file 0xc6 (b0) and 0xc7 (b7)Morph Pedal offset in file 0xc7 (b6-5)Organ Farfisa Trump8 (drawbar 5)offset in file 0xc8 (b5)Morph Wheel offset in file 0xc7 (b3-2)Morph AT    offset in file 0xc7 (b1-0)Morph Pedal offset in file 0xc8 (b7-6)Organ Farfisa Str8 (drawbar 6)offset in file 0xc9 (b6)Morph Wheel offset in file 0xc8 (b4-3)Morph AT    offset in file 0xc8 (b2-1)Morph Pedal offset in file 0xc8 (b0) and 0xc9 (b7)Organ Farfisa Flu4 (drawbar 7)offset in file 0xca (b7)Morph Wheel offset in file 0xc9 (b5-4)Morph AT    offset in file 0xc9 (b3-2)Morph Pedal offset in file 0xc9 (b1-0)Organ Farfisa Str4 (drawbar 8)offset in file 0xca (b0)Morph Wheel offset in file 0xca (b6-5)Morph AT    offset in file 0xca (b4-3)Morph Pedal offset in file 0xca (b2-1)Organ Farfisa 2 2/3 (drawbar 9)offset in file 0xcb (b1)Morph Wheel offset in file 0xcb (b7-6)Morph AT    offset in file 0xcb (b5-4)Morph Pedal offset in file 0xcb (b3-2)
