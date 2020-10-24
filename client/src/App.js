@@ -11,7 +11,7 @@ import Figure from "react-bootstrap/Figure";
 import { ns3Model } from "./components/ns3/model/ns3-model";
 import NordDevice from "./components/nord-device";
 import Button from "react-bootstrap/Button";
-const clonedeep = require('lodash.clonedeep');
+const clonedeep = require("lodash.clonedeep");
 
 class App extends Component {
     constructor(props) {
@@ -59,17 +59,27 @@ class App extends Component {
     };
 
     handleShowAll = () => {
-
         if (!this.state.showAll) {
             const newData = clonedeep(this.state.data);
-            newData.panelA.enabled = true;
-            newData.panelA.organ.enabled = true;
-            newData.panelA.piano.enabled = true;
-            newData.panelA.synth.enabled = true;
-            newData.panelB.enabled = true;
-            newData.panelB.organ.enabled = true;
-            newData.panelB.piano.enabled = true;
-            newData.panelB.synth.enabled = true;
+            if (newData.panelA) {
+                newData.panelA.enabled = true;
+                newData.panelA.organ.enabled = true;
+                newData.panelA.piano.enabled = true;
+                newData.panelA.synth.enabled = true;
+                newData.panelB.enabled = true;
+                newData.panelB.organ.enabled = true;
+                newData.panelB.piano.enabled = true;
+                newData.panelB.synth.enabled = true;
+            } else if (newData.slotA) {
+                newData.slotA.enabled = true;
+                newData.slotA.organ.enabled = true;
+                newData.slotA.piano.enabled = true;
+                //newData.slotA.synth.enabled = true;
+                newData.slotB.enabled = true;
+                newData.slotB.organ.enabled = true;
+                newData.slotB.piano.enabled = true;
+                //newData.slotB.synth.enabled = true;
+            }
             this.setState((prevState) => ({
                 showAll: true,
                 data: newData,
