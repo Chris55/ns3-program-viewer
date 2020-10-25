@@ -103,24 +103,25 @@ exports.ns2MorphOrganDrawbar = (uint32Value, midiFrom) => {
 
     rawMorphValue[0] = (uint32Value & 0x7c00) >>> 10; // wheel
     rawMorphValue[1] = (uint32Value & 0x03e0) >>> 5; // after touch
-    rawMorphValue[2] = uint32Value & 0x008f; // control pedal
+    rawMorphValue[2] = uint32Value & 0x001f; // control pedal
 
-    // console.log(
-    //     "midiFrom",
-    //     midiFrom,
-    //     "wheel",
-    //     rawMorphValue[0].toString(16),
-    //     "after touch",
-    //     rawMorphValue[1].toString(16),
-    //     "control pedal",
-    //     rawMorphValue[2].toString(16)
-    // );
+    console.log(
+        "midiFrom",
+        midiFrom,
+        "wheel",
+        rawMorphValue[0].toString(16),
+        "after touch",
+        rawMorphValue[1].toString(16),
+        "control pedal",
+        rawMorphValue[2].toString(16)
+    );
 
     rawMorphValue.forEach((rawValue) => {
         const rawOffsetValue = rawValue & 0x0f;
         const polarity = (rawValue & 0x10) !== 0;
         // console.log("   ", "polarity", polarity, "value", rawOffsetValue);
-        const offset = polarity ? 8 - rawOffsetValue : rawOffsetValue - 8;
+        const offset = polarity ? rawOffsetValue - 16 : rawOffsetValue;
+        //const offset = polarity ? rawOffsetValue - 16 : rawOffsetValue;
         let value = midiFrom + offset;
         if (value < 0) {
             value = 0;

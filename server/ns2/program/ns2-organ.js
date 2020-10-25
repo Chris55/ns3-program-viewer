@@ -13,37 +13,37 @@ const { ns2VolumeEx } = require("./ns2-utils");
  * @returns {number[]}
  */
 const getB3AndVoxDrawbars = function (buffer, offset) {
-    const offset1 = offset; // 0x5f
-    const offset2 = offset + 2; // 0x61
-    const offset3 = offset + 4; // 0x63
-    const offset4 = offset + 7; // 0x66
-    const offset5 = offset + 9; // 0x68
-    const offset6 = offset + 11; // 0x6a
-    const offset7 = offset + 14; // 0x6d
-    const offset8 = offset + 16; // 0x6f
-    const offset9 = offset + 19; // 0x72
+    const offset1_5f = offset; // 0x5f
+    const offset2_61 = offset + 2; // 0x61
+    const offset3_63 = offset + 4; // 0x63
+    const offset4_66 = offset + 7; // 0x66
+    const offset5_68 = offset + 9; // 0x68
+    const offset6_6a = offset + 11; // 0x6a
+    const offset7_6d = offset + 14; // 0x6d
+    const offset8_6f = offset + 16; // 0x6f
+    const offset9_72 = offset + 19; // 0x72
 
-    let d1 = (buffer.readUInt16BE(offset1 + 1) & 0x01e0) >>> 5;
-    let d2 = (buffer.readUInt16BE(offset2 + 1) & 0x003c) >>> 2;
-    let d3 = (buffer.readUInt16BE(offset3 + 2) & 0x0780) >>> 7;
-    let d4 = (buffer.readUInt16BE(offset4 + 1) & 0x00f0) >>> 4;
-    let d5 = (buffer.readUInt16BE(offset5 + 1) & 0x001e) >>> 1;
-    let d6 = (buffer.readUInt16BE(offset6 + 2) & 0x03c0) >>> 6;
-    let d7 = (buffer.readUInt16BE(offset7 + 1) & 0x0078) >>> 3;
-    let d8 = (buffer.readUInt16BE(offset8 + 1) & 0x000f) >>> 0;
-    let d9 = (buffer.readUInt16BE(offset9 + 1) & 0x01e0) >>> 5;
+    let d1 = (buffer.readUInt16BE(offset1_5f + 1) & 0x01e0) >>> 5;
+    let d2 = (buffer.readUInt16BE(offset2_61 + 1) & 0x003c) >>> 2;
+    let d3 = (buffer.readUInt16BE(offset3_63 + 2) & 0x0780) >>> 7;
+    let d4 = (buffer.readUInt16BE(offset4_66 + 1) & 0x00f0) >>> 4;
+    let d5 = (buffer.readUInt16BE(offset5_68 + 1) & 0x001e) >>> 1;
+    let d6 = (buffer.readUInt16BE(offset6_6a + 2) & 0x03c0) >>> 6;
+    let d7 = (buffer.readUInt16BE(offset7_6d + 1) & 0x0078) >>> 3;
+    let d8 = (buffer.readUInt16BE(offset8_6f + 1) & 0x000f) >>> 0;
+    let d9 = (buffer.readUInt16BE(offset9_72 + 1) & 0x01e0) >>> 5;
 
     const preset = [d1, d2, d3, d4, d5, d6, d7, d8, d9];
 
-    const m1 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset1 - 2) >>> 1, d1);
-    const m2 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset2 - 1) >>> 6, d2);
-    const m3 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset3 - 1) >>> 3, d3);
-    const m4 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset4 - 2) >>> 0, d4);
-    const m5 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset5 - 1) >>> 5, d5);
-    const m6 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset6 - 1) >>> 2, d6);
-    const m7 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset7 - 1) >>> 7, d7);
-    const m8 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset8 - 1) >>> 4, d8);
-    const m9 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset9 - 2) >>> 1, d9);
+    const m1 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset1_5f - 2) >>> 1, d1);
+    const m2 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset2_61 - 1) >>> 6, d2);
+    const m3 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset3_63 - 1) >>> 3, d3);
+    const m4 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset4_66 - 2) >>> 0, d4);
+    const m5 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset5_68 - 1) >>> 5, d5);
+    const m6 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset6_6a - 1) >>> 2, d6);
+    const m7 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset7_6d - 1) >>> 7, d7);
+    const m8 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset8_6f - 1) >>> 4, d8);
+    const m9 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset9_72 - 2) >>> 1, d9);
 
     const morphWheel = [m1.wheel, m2.wheel, m3.wheel, m4.wheel, m5.wheel, m6.wheel, m7.wheel, m8.wheel, m9.wheel];
     hideIfEqual(preset, morphWheel);
