@@ -364,7 +364,7 @@ Offset in file: 0x35 (b2)
 
 **Example**  
 ```js
-O = off, 1 = ononly if Organ type is B3
+O = on, 1 = offonly if Organ type is B3
 ```
 <a name="module_NS2 Organ B3 Decay Fast"></a>
 

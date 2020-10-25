@@ -624,7 +624,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
                  * @module NS2 Organ B3 Volume Soft
                  */
                 volumeSoft: {
-                    enabled: organTypeIsB3 && ((organOffset35 & 0x04) !== 1),
+                    enabled: organTypeIsB3 && !((organOffset35 & 0x04) !== 0),
                 },
                 /**
                  * Offset in file: 0x35 (b3)

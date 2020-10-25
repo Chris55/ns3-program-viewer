@@ -182,5 +182,16 @@ exports.ns3ProductLibraries = new Map([
     [0x9312f5f3, {name: "SH101 Bass 1", info: "CL mono", version: "3.1", category: "Bass Synth", size: 278252, filename: "SH101 Bass 1_CL mono 3.1", ext: "nsmp3" }],
     [0xc9c1aff8, {name: "Synth Brass Layer", info: "AW stereo", version: "3.0", category: "Classic Synth", size: 5069292, filename: "Synth Brass Layer_AW stereo 3.0", ext: "nsmp3" }],
 
+    // Nord Piano Factory Sounds
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-piano/nord-piano-factory-sounds
+    // no additional sounds
+
+    // Nord Piano 2 Factory Sounds
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-piano-2/nord-piano-2-factory-sounds
+    // no additional sounds
+
+    // Nord Piano 3 Factory Sounds
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-piano-3-factory-sounds
+    //
 
 ]);
