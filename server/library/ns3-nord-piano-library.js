@@ -48,6 +48,7 @@ exports.ns3NordPianoLibrary = new Map([
     [0x6114dad6, {name: "Grand Lady D   Med", info: "Stw D", version: "5.3", category: "None", size: 63944348, filename: "Grand Lady D   Stw D  Med 5.3", ext: "npno" }],
     [0x325897f5, {name: "Grand Lady D   Sml", info: "Stw D", version: "5.3", category: "None", size: 41143528, filename: "Grand Lady D   Stw D  Sml 5.3", ext: "npno" }],
     [0x6fd1e770, {name: "Grand Lady D   Sml", info: "StwD", version: "5.0", category: "None", size: 41143510, filename: "Grand Lady D   StwD  Sml 5.0", ext: "npno" }],
+    [0xa1d5c861, {name: "Grand Lady D   Sml", info: "StwD", version: "5.3", category: "None", size: 41143510, filename: "Grand Lady D   StwD  Sml 5.3", ext: "npno" }],
 
     [0x5f0ce578, {name: "Studio Grand 1 Lrg", info: "YaC7", version: "5.3", category: "None", size: 72124436, filename: "Studio Grand 1 YaC7  Lrg 5.3", ext: "npno" }],
     [0xe9560bc1, {name: "Studio Grand 1 Med", info: "YaC7", version: "5.3", category: "None", size: 60001472, filename: "Studio Grand 1 YaC7  Med 5.3", ext: "npno" }],

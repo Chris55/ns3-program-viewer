@@ -91,7 +91,8 @@ exports.ns3ProductLibraries = new Map([
 
     // Nord Electro 3 Factory Sounds
     // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-electro-3-factory-sounds
-    // these entries are not in current archive library
+    // these entries are missing in current archive library
+
     [0xbb4227fb, {name: "22violins", info: "ste SR", version: "3.4", category: "Misc", size: 3076460, filename: "22violins__ste SRv4", ext: "nsmp3" }],
     [0xe4909bb, {name: "ChambStringsMarc", info: "ste KH", version: "3.4", category: "Misc", size: 4371308, filename: "ChambStringsMarc_LiteVib _ste KHv4", ext: "nsmp3" }],
     [0xcec88181, {name: "FullStrings1", info: "ste SR", version: "3.4", category: "Misc", size: 4473836, filename: "FullStrings1__ste SRv4", ext: "nsmp3" }],
@@ -100,5 +101,12 @@ exports.ns3ProductLibraries = new Map([
     [0x1db96ee0, {name: "SoloViolin1", info: "SR", version: "3.4", category: "Misc", size: 1362156, filename: "SoloViolin1_Vib_SRv4", ext: "nsmp3" }],
     [0x4c806394, {name: "StringOrchestra", info: "ste SR", version: "3.4", category: "Misc", size: 4476780, filename: "StringOrchestra_ _ste SRv4", ext: "nsmp3" }],
     [0x27e085fd, {name: "StringQuartet", info: "SR", version: "3.4", category: "Misc", size: 3930604, filename: "StringQuartet_ _SRv4", ext: "nsmp3" }],
+
+    // Nord Electro 4 Factory Sounds
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-electro-4/nord-electro-4-factory-sounds
+    // these entries are missing in current archive library
+
+    [0xe7810a9a, {name: "Celeste", info: "ST", version: "3.4", category: "Misc", size: 1127532, filename: "Celeste_Lite_STv4", ext: "nsmp3" }],
+    [0x25504eb4, {name: "Marimba", info: "ST", version: "3.4", category: "Misc", size: 316652, filename: "Marimba__STv4", ext: "nsmp3" }],
 
 ]);
