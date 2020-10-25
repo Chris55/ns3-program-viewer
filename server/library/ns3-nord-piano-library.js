@@ -187,6 +187,7 @@ exports.ns3NordPianoLibrary = new Map([
 
     [0xc8b6007d, {name: "Wurlitzer 2 XL", info: "Amped", version: "5.3", category: "None", size: 25148206, filename: "Wurlitzer 2 Amped XL 5.3", ext: "npno" }],
     [0xc720431c, {name: "Wurlitzer 2 Lrg", info: "Amped", version: "5.3", category: "None", size: 17310488, filename: "Wurlitzer_2_Amped_Lrg_5.3", ext: "npno" }],
+    [0xd7e270b1, {name: "Wurlitzer 2 Lrg", info: "Amped", version: "5.3", category: "None", size: 17310470, filename: "Wurlitzer 2 Amped Lrg 5.3", ext: "npno" }],
 
     // Electric Grands
 

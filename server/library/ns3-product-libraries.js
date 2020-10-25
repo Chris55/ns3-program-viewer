@@ -109,4 +109,14 @@ exports.ns3ProductLibraries = new Map([
     [0xe7810a9a, {name: "Celeste", info: "ST", version: "3.4", category: "Misc", size: 1127532, filename: "Celeste_Lite_STv4", ext: "nsmp3" }],
     [0x25504eb4, {name: "Marimba", info: "ST", version: "3.4", category: "Misc", size: 316652, filename: "Marimba__STv4", ext: "nsmp3" }],
 
+    // Nord Electro 5 Factory Sounds
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-electro-5-factory-sounds
+    // these entries are missing in current archive library
+
+    [0x782e801c, {name: "LuteHarp Soft", info: "PS ste", version: "3.0", category: "Guitar/Ethnic Str", size: 590188, filename: "LuteHarp Soft__PS ste 2.0", ext: "nsmp3" }],
+    [0x591b2c1e, {name: "Nylon Guitar", info: "DV mono", version: "3.0", category: "Guitar/Ethnic Str", size: 788076, filename: "Nylon Guitar__DV mono 2.0", ext: "nsmp3" }],
+    [0x8c4455bd, {name: "Overland Guitar", info: "PS mono", version: "3.0", category: "Guitar/Ethnic Str", size: 800748, filename: "Overland Guitar__PS mono 2.0", ext: "nsmp3" }],
+    [0x48db4fb4, {name: "Steel Guitar", info: "DV mono", version: "3.0", category: "Guitar/Ethnic Str", size: 1024364, filename: "Steel Guitar__DV mono 2.0", ext: "nsmp3" }],
+    [0xc7b40fb, {name: "Steel Guitar", info: "DV mono", version: "3.0", category: "Guitar/Ethnic Str", size: 761964, filename: "Steel Guitar_Finger_DV mono 2.0", ext: "nsmp3" }],
+
 ]);
