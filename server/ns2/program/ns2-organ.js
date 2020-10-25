@@ -617,14 +617,14 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
                  * Offset in file: 0x35 (b2)
                  *
                  * @example
-                 * O = off, 1 = on
+                 * O = on, 1 = off
                  *
                  * only if Organ type is B3
                  *
                  * @module NS2 Organ B3 Volume Soft
                  */
                 volumeSoft: {
-                    enabled: organTypeIsB3 && (organOffset35 & 0x04) !== 0,
+                    enabled: organTypeIsB3 && ((organOffset35 & 0x04) !== 1),
                 },
                 /**
                  * Offset in file: 0x35 (b3)
@@ -637,7 +637,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
                  * @module NS2 Organ B3 Decay Fast
                  */
                 decayFast: {
-                    enabled: organTypeIsB3 && (organOffset35 & 0x08) !== 0,
+                    enabled: organTypeIsB3 && ((organOffset35 & 0x08) !== 0),
                 },
                 /**
                  * Offset in file:  0x35 (b4)
@@ -650,7 +650,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
                  * @module NS2 Organ B3 Harmonic Third
                  */
                 harmonicThird: {
-                    enabled: organTypeIsB3 && (organOffset35 & 0x10) !== 0,
+                    enabled: organTypeIsB3 && ((organOffset35 & 0x10) !== 0),
                 },
             },
         },

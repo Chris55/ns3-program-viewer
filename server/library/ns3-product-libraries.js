@@ -89,5 +89,16 @@ exports.ns3ProductLibraries = new Map([
     [0xc2c8bd08, {name: "PAD11_-_Echoes_from_the_past_", info: "", version: "3.0", category: "Misc", size: 4709484, filename: "PAD11_-_Echoes_from_the_past_", ext: "nsmp3" }],
     [0xdcf7eebc, {name: "PAD12_-_Fear_of_light", info: "", version: "3.0", category: "Misc", size: 4062828, filename: "PAD12_-_Fear_of_light", ext: "nsmp3" }],
 
+    // Nord Electro 3 Factory Sounds
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-electro-3-factory-sounds
+    // these entries are not in current archive library
+    [0xbb4227fb, {name: "22violins", info: "ste SR", version: "3.4", category: "Misc", size: 3076460, filename: "22violins__ste SRv4", ext: "nsmp3" }],
+    [0xe4909bb, {name: "ChambStringsMarc", info: "ste KH", version: "3.4", category: "Misc", size: 4371308, filename: "ChambStringsMarc_LiteVib _ste KHv4", ext: "nsmp3" }],
+    [0xcec88181, {name: "FullStrings1", info: "ste SR", version: "3.4", category: "Misc", size: 4473836, filename: "FullStrings1__ste SRv4", ext: "nsmp3" }],
+    [0xe548351c, {name: "OrchStrings Marc", info: "ste KH", version: "3.4", category: "Misc", size: 4522348, filename: "OrchStrings Marc_LiteVib _ste KHv4", ext: "nsmp3" }],
+    [0xf10028d8, {name: "Pizzicato", info: "ste KH", version: "3.4", category: "Misc", size: 1021420, filename: "Pizzicato_OrchStr_ste KHv4", ext: "nsmp3" }],
+    [0x1db96ee0, {name: "SoloViolin1", info: "SR", version: "3.4", category: "Misc", size: 1362156, filename: "SoloViolin1_Vib_SRv4", ext: "nsmp3" }],
+    [0x4c806394, {name: "StringOrchestra", info: "ste SR", version: "3.4", category: "Misc", size: 4476780, filename: "StringOrchestra_ _ste SRv4", ext: "nsmp3" }],
+    [0x27e085fd, {name: "StringQuartet", info: "SR", version: "3.4", category: "Misc", size: 3930604, filename: "StringQuartet_ _SRv4", ext: "nsmp3" }],
 
 ]);

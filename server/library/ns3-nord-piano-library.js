@@ -47,6 +47,7 @@ exports.ns3NordPianoLibrary = new Map([
     [0x5f256d93, {name: "Grand Lady D   Lrg", info: "Stw D", version: "5.3", category: "None", size: 82368964, filename: "Grand Lady D   Stw D  Lrg 5.3", ext: "npno" }],
     [0x6114dad6, {name: "Grand Lady D   Med", info: "Stw D", version: "5.3", category: "None", size: 63944348, filename: "Grand Lady D   Stw D  Med 5.3", ext: "npno" }],
     [0x325897f5, {name: "Grand Lady D   Sml", info: "Stw D", version: "5.3", category: "None", size: 41143528, filename: "Grand Lady D   Stw D  Sml 5.3", ext: "npno" }],
+    [0x6fd1e770, {name: "Grand Lady D   Sml", info: "StwD", version: "5.0", category: "None", size: 41143510, filename: "Grand Lady D   StwD  Sml 5.0", ext: "npno" }],
 
     [0x5f0ce578, {name: "Studio Grand 1 Lrg", info: "YaC7", version: "5.3", category: "None", size: 72124436, filename: "Studio Grand 1 YaC7  Lrg 5.3", ext: "npno" }],
     [0xe9560bc1, {name: "Studio Grand 1 Med", info: "YaC7", version: "5.3", category: "None", size: 60001472, filename: "Studio Grand 1 YaC7  Med 5.3", ext: "npno" }],
@@ -55,6 +56,7 @@ exports.ns3NordPianoLibrary = new Map([
     [0xbd4b3e13, {name: "Studio Grand 2 Lrg", info: "YaC7", version: "5.3", category: "None", size: 71958872, filename: "Studio Grand 2 YaC7  Lrg 5.3", ext: "npno" }],
     [0x37d7ce6, {name: "Studio Grand 2 Med", info: "YaC7", version: "5.3", category: "None", size: 58018792, filename: "Studio Grand 2 YaC7  Med 5.3", ext: "npno" }],
     [0x16cc0ef4, {name: "Studio Grand 2 Sml", info: "YaC7", version: "5.3", category: "None", size: 35555232, filename: "Studio Grand 2 YaC7  Sml 5.3", ext: "npno" }],
+    [0x29a7a9e8, {name: "Studio Grand 2 Med", info: "YaC7", version: "5.0", category: "None", size: 58018792, filename: "Studio Grand 2 YaC7    Med 5.0", ext: "npno" }],
 
     [0x103515a1, {name: "Concert Grand1   Lrg", info: "StwD", version: "5.3", category: "None", size: 60886524, filename: "Concert Grand1   StwD  Lrg 5.3", ext: "npno" }],
     [0x8fe10fe3, {name: "Concert Grand1   Med", info: "StwD", version: "5.3", category: "None", size: 47950048, filename: "Concert Grand1   StwD  Med 5.3", ext: "npno" }],
@@ -133,6 +135,7 @@ exports.ns3NordPianoLibrary = new Map([
     [0x18287995, {name: "Rain Piano Lrg", info: "SvPnoFab", version: "5.3", category: "None", size: 49446256, filename: "Rain Piano SvPnoFab Lrg 5.3", ext: "npno" }],
     [0x16c44e40, {name: "Rain Piano Med", info: "SvPnoFab", version: "5.3", category: "None", size: 39109748, filename: "Rain Piano SvPnoFab Med 5.3", ext: "npno" }],
     [0xbad99a1f, {name: "Rain Piano Sml", info: "SvPnoFab", version: "5.3", category: "None", size: 23814496, filename: "Rain Piano SvPnoFab Sml 5.3", ext: "npno" }],
+    [0xabb08641, {name: "Rain Piano Sml", info: "SvPnoFab", version: "5.1", category: "None", size: 23832874, filename: "Rain Piano SvPnoFab Sml 5.1", ext: "npno" }],
 
     // Electric
 
@@ -155,6 +158,8 @@ exports.ns3NordPianoLibrary = new Map([
     [0x866a30a9, {name: "EP5 Bright Tines", info: "CustomMod", version: "5.3", category: "None", size: 15466800, filename: "EP5 Bright Tines CustomMod 5.3", ext: "npno" }],
     [0x24450059, {name: "EP5 BrightTines Med", info: "1975 Suitcase Mk1", version: "6.0", category: "None", size: 15242982, filename: "EP5 BrightTines Med 6.0", ext: "npno" }],
     [0xe4cd184a, {name: "EP5 BrightTines XL", info: "1975 Suitcase Mk1", version: "6.0", category: "None", size: 24638228, filename: "EP5 BrightTines XL 6.0", ext: "npno" }],
+    [0x3ebda323, {name: "EP5 Bright Tines CustomMod", info: "", version: "5.1", category: "None", size: 15466782, filename: "EP5 Bright Tines CustomMod 5.1", ext: "npno" }],
+
 
     [0x81a1a00a, {name: "EP4 Mk5 80s Lrg", info: "1984 Stage MkV", version: "6.0", category: "None", size: 12542858, filename: "EP4 Mk5 80s Lrg 6.0", ext: "npno" }],
     [0x48efb39d, {name: "EP4 Mk5 80s Sml", info: "1984 Stage MkV", version: "6.0", category: "None", size: 7724128, filename: "EP4 Mk5 80s Sml 6.0", ext: "npno" }],
@@ -163,16 +168,22 @@ exports.ns3NordPianoLibrary = new Map([
     [0x96ecd6ba, {name: "EP3 Shallow Close Lrg", info: "1981 Stage Mk2", version: "6.0", category: "None", size: 11108992, filename: "EP3 Shallow Close Lrg 6.0", ext: "npno" }],
     [0xe441e123, {name: "EP3 Shallow Close Sml", info: "1981 Stage Mk2", version: "6.0", category: "None", size: 7461474, filename: "EP3 Shallow Close Sml 6.0", ext: "npno" }],
     [0x3e8b316a, {name: "EPiano 3   Mk II", info: "Shallow", version: "5.3", category: "None", size: 7080268, filename: "EPiano 3   Mk II Shallow 5.3", ext: "npno" }],
+    [0x70f39516, {name: "EPiano 3   Mk II", info: "Shallow", version: "5.1", category: "None", size: 7080250, filename: "EPiano 3   Mk II Shallow 5.1", ext: "npno" }],
 
     [0x26666d1, {name: "EP2 Ideal Timbre Lrg", info: "1975 Suitcase Mk1", version: "6.0", category: "None", size: 10858602, filename: "EP2 Ideal Timbre Lrg 6.0", ext: "npno" }],
     [0x5866310d, {name: "EP2 Ideal Timbre Sml", info: "1975 Suitcase Mk1", version: "6.0", category: "None", size: 7069026, filename: "EP2 Ideal Timbre Sml 6.0", ext: "npno" }],
     [0xc8630fe2, {name: "EPiano 2    Mk I ClosIdeal", info: "", version: "5.3", category: "None", size: 6049070, filename: "EPiano 2    Mk I ClosIdeal 5.3", ext: "npno" }],
+    [0x37f67044, {name: "EPiano 2    Mk I ClosIdeal", info: "", version: "5.1", category: "None", size: 6167604, filename: "EPiano 2    Mk I ClosIdeal 5.1", ext: "npno" }],
 
     [0x4e099de0, {name: "EP1 Deep Timbre Lrg", info: "1978 Stage Mk1", version: "6.0", category: "None", size: 12440658, filename: "EP1 Deep Timbre Lrg 6.0", ext: "npno" }],
     [0xbde73dcb, {name: "EP1 Deep Timbre Sml", info: "1978 Stage Mk1", version: "6.0", category: "None", size: 7806910, filename: "EP1 Deep Timbre Sml 6.0", ext: "npno" }],
     [0xe4342576, {name: "EPiano 1    Mk I", info: "Low Deep", version: "5.3", category: "None", size: 6414946, filename: "EPiano 1    Mk I Low Deep  5.3", ext: "npno" }],
+    [0x825e7ddf, {name: "EPiano 1    Mk I", info: "Low Deep", version: "5.1", category: "None", size: 6522238, filename: "EPiano 1    Mk I Low Deep 5.1", ext: "npno" }],
+
 
     [0xf4de3d37, {name: "Wurlitzer 1", info: "200A", version: "5.3", category: "None", size: 6121632, filename: "Wurlitzer 1 200A 5.3", ext: "npno" }],
+    [0xa72ce5d3, {name: "Wurlitzer 1", info: "200A", version: "5.0", category: "None", size: 6151270, filename: "Wurlitzer 1 200A 5.0", ext: "npno" }],
+
     [0xc8b6007d, {name: "Wurlitzer 2 XL", info: "Amped", version: "5.3", category: "None", size: 25148206, filename: "Wurlitzer 2 Amped XL 5.3", ext: "npno" }],
     [0xc720431c, {name: "Wurlitzer 2 Lrg", info: "Amped", version: "5.3", category: "None", size: 17310488, filename: "Wurlitzer_2_Amped_Lrg_5.3", ext: "npno" }],
 
@@ -181,7 +192,10 @@ exports.ns3NordPianoLibrary = new Map([
     [0x75e6ad52, {name: "EGrand 3 Mono Sml", info: "CP80Amped", version: "5.3", category: "None", size: 32898032, filename: "EGrand 3 Mono CP80Amped Sml 5.3", ext: "npno" }],
     [0x1406bcb3, {name: "EGrand 3 Amped Sml", info: "CP80 mono", version: "5.3", category: "None", size: 21806266, filename: "EGrand 3 Amped CP80 mono Sml 5.3", ext: "npno" }],
     [0x7092e6ca, {name: "EGrand 3 Stereo Med", info: "CP80Amped", version: "5.3", category: "None", size: 65767596, filename: "EGrand 3 Stereo CP80Amped Med5.3", ext: "npno" }],
+
     [0xcca6ab07, {name: "Electric Grand 1", info: "CP80", version: "5.3", category: "None", size: 8880010, filename: "Electric Grand 1 CP80  5.3", ext: "npno" }],
+    [0x21deafae, {name: "Electric Grand 1", info: "CP80", version: "5.1", category: "None", size: 8878988, filename: "Electric Grand 1 CP80    5.1", ext: "npno" }],
+
     [0x33b747f7, {name: "ElectricGrand 2 CustomBld", info: "", version: "5.3", category: "None", size: 6643874, filename: "ElectricGrand 2 CustomBld 5.3", ext: "npno" }],
 
     [0xb016145b, {name: "EGrand 3 Mono Sml", info: "MapTest", version: "5.3", category: "None", size: 19784750, filename: "EGrand_3_Mono_MapTest_Sml_5.3", ext: "npno" }],
