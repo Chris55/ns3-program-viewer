@@ -192,6 +192,56 @@ exports.ns3ProductLibraries = new Map([
 
     // Nord Piano 3 Factory Sounds
     // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-piano-3-factory-sounds
-    //
+    // TODO
+
+
+    // Nord Wave 2 Factory Sounds
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/synthesizers/nord-wave-2-factory-sounds
+    // these samples are not yet in the standard library 3.0
+
+    [0xe72348f, {name: "Acoustic Piano 2", info: "Korg stereo", version: "3.1", category: "Piano", size: 2674796, filename: "Acoustic Piano 2_Korg stereo 3.1", ext: "nsmp3" }],
+    [0x46c39258, {name: "Acoustic Piano 4", info: "Korg  stereo", version: "3.1", category: "Piano", size: 1988844, filename: "Acoustic Piano 4_Korg  stereo 3.1", ext: "nsmp3" }],
+    [0x2c544d75, {name: "Alto Recorder", info: "BR mono", version: "3.01", category: "Solo WoodWind", size: 918636, filename: "Alto Recorder_BR mono 3.01", ext: "nsmp3" }],
+    [0xdfa9637f, {name: "Bassoon", info: "SO", version: "3.01", category: "Solo WoodWind", size: 694508, filename: "Bassoon_SO 3.01", ext: "nsmp3" }],
+    [0x7d37adc8, {name: "Bells", info: "ST", version: "3.2", category: "Chromatic Perc", size: 2022764, filename: "Bells_ST 3.2", ext: "nsmp3" }],
+    [0x9d563be, {name: "Belltower Gefle", info: "PS", version: "3.2", category: "Chromatic Perc", size: 1765996, filename: "Belltower Gefle_PS 3.2", ext: "nsmp3" }],
+    [0x91e9e0de, {name: "Cembalo1", info: "PS stereo", version: "3.1", category: "Piano", size: 3593324, filename: "Cembalo1_PS stereo 3.1", ext: "nsmp3" }],
+    [0xcb4b1710, {name: "Church Bells", info: "SO", version: "3.3", category: "Chromatic Perc", size: 2497772, filename: "Church Bells_SO 3.3", ext: "nsmp3" }],
+    [0x56c65f4d, {name: "Clarinet", info: "KG mono", version: "3.11", category: "Solo WoodWind", size: 39020, filename: "Clarinet_KG mono 3.11", ext: "nsmp3" }],
+    [0x25bf6a5f, {name: "Crotales", info: "ST", version: "3.2", category: "Chromatic Perc", size: 1349612, filename: "Crotales_ST 3.2", ext: "nsmp3" }],
+    [0xc88cde57, {name: "Full Orchestra", info: "SR", version: "3.0", category: "Orchestral", size: 3495660, filename: "Full Orchestra_SR 3.0", ext: "nsmp3" }],
+    [0xfc440a60, {name: "Glockenspiel 1", info: "KG mono", version: "3.2", category: "Chromatic Perc", size: 189036, filename: "Glockenspiel 1_KG mono 3.2", ext: "nsmp3" }],
+    [0x70f6d313, {name: "Glockenspiel 2", info: "KG mono", version: "3.3", category: "Chromatic Perc", size: 104300, filename: "Glockenspiel 2_KG mono 3.3", ext: "nsmp3" }],
+    [0xd835a699, {name: "Guitar Mellotron", info: "MKI Sml mono", version: "3.1", category: "Mellotron", size: 1054060, filename: "Guitar Mellotron_MKI Sml mono 3.1", ext: "nsmp3" }],
+    [0xf2fd9550, {name: "Marimba", info: "ST mono", version: "3.2", category: "Chromatic Perc", size: 252012, filename: "Marimba_ST mono 3.2", ext: "nsmp3" }],
+    [0xc94f69e5, {name: "Metallophone", info: "DV", version: "3.2", category: "Chromatic Perc", size: 999788, filename: "Metallophone_DV 3.2", ext: "nsmp3" }],
+    [0xb3f2fcfa, {name: "Rock Guitar Mellotron", info: "MKII Sml mono", version: "3.2", category: "Mellotron", size: 1214956, filename: "Rock Guitar Mellotron_MKII Sml mono 3.2", ext: "nsmp3" }],
+    [0xba5f0e05, {name: "Small Bells", info: "SO", version: "3.2", category: "Chromatic Perc", size: 1179500, filename: "Small Bells_SO 3.2", ext: "nsmp3" }],
+    [0xa4517335, {name: "Small Chimes", info: "ST", version: "3.2", category: "Chromatic Perc", size: 1845100, filename: "Small Chimes_ST 3.2", ext: "nsmp3" }],
+    [0xc1300117, {name: "Strings-Winds", info: "SR stereo", version: "3.0", category: "Orchestral", size: 3036268, filename: "Strings-Winds_SR stereo 3.0", ext: "nsmp3" }],
+    [0x7e452657, {name: "Tubular Bells", info: "ST mono", version: "3.2", category: "Chromatic Perc", size: 1057772, filename: "Tubular Bells_ST mono 3.2", ext: "nsmp3" }],
+    [0x726a0a78, {name: "Vibes", info: "DV mono", version: "3.2", category: "Chromatic Perc", size: 952684, filename: "Vibes_DV mono 3.2", ext: "nsmp3" }],
+    [0x8549d8df, {name: "Xylophone", info: "KG mono", version: "3.2", category: "Chromatic Perc", size: 65004, filename: "Xylophone_KG mono 3.2", ext: "nsmp3" }],
+    [0xfa19fd0b, {name: "Clavinet1 mic1", info: "CL mono", version: "3.1", category: "Piano", size: 936044, filename: "Clavinet1 mic1_CL mono 3.1", ext: "nsmp3" }],
+    [0x12a18ef7, {name: "Clavinet2 mic2", info: "CL mono", version: "3.1", category: "Piano", size: 963564, filename: "Clavinet2 mic2_CL mono 3.1", ext: "nsmp3" }],
+    [0xd391adb3, {name: "Clavinet3 mic1+2", info: "CL mono", version: "3.1", category: "Piano", size: 1097708, filename: "Clavinet3 mic1+2_CL mono 3.1", ext: "nsmp3" }],
+    [0x4a2c8c85, {name: "Clavinet4 mic1-2", info: "CL mono", version: "3.1", category: "Piano", size: 1209068, filename: "Clavinet4 mic1-2_CL mono 3.1", ext: "nsmp3" }],
+    [0x6bd902e0, {name: "Clavinet5 stereo", info: "CL stereo", version: "3.1", category: "Piano", size: 2222700, filename: "Clavinet5 stereo_CL stereo 3.1", ext: "nsmp3" }],
+    [0xc1a0aa58, {name: "ElGrand CP80", info: "CL mono", version: "3.1", category: "Piano", size: 1127276, filename: "ElGrand CP80_CL mono 3.1", ext: "nsmp3" }],
+    [0x5e4d95dd, {name: "Epiano1 soft", info: "CL mono", version: "3.1", category: "Piano", size: 887788, filename: "Epiano1 soft_CL mono 3.1", ext: "nsmp3" }],
+    [0x3d9eddba, {name: "Epiano2", info: "CL mono", version: "3.1", category: "Piano", size: 934508, filename: "Epiano2_CL mono 3.1", ext: "nsmp3" }],
+    [0x1c955739, {name: "Epiano3 shallow", info: "CL mono", version: "3.1", category: "Piano", size: 875628, filename: "Epiano3 shallow_CL mono 3.1", ext: "nsmp3" }],
+    [0x867c01e8, {name: "Epiano4", info: "CL mono", version: "3.1", category: "Piano", size: 883564, filename: "Epiano4_CL mono 3.1", ext: "nsmp3" }],
+    [0x7c2755f1, {name: "Grandmas Upright", info: "PH", version: "3.1", category: "Piano", size: 5674092, filename: "Grandmas Upright_PH 3.1", ext: "nsmp3" }],
+    [0xec9a1b2c, {name: "GrandPiano YaC7 stereo", info: "CL stereo", version: "3.1", category: "Piano", size: 2828524, filename: "GrandPiano YaC7 stereo_CL stereo 3.1", ext: "nsmp3" }],
+    [0x962efabc, {name: "Harpsichord Italia lute", info: "CL stereo", version: "3.1", category: "Piano", size: 2452716, filename: "Harpsichord Italia lute_CL stereo 3.1", ext: "nsmp3" }],
+    [0x41ca4ef9, {name: "Harpsichrd Ital double", info: "CL stereo", version: "3.1", category: "Piano", size: 3774444, filename: "Harpsichrd Ital double_CL stereo 3.1", ext: "nsmp3" }],
+    [0x673e04de, {name: "HonkTonkPiano", info: "ST stereo", version: "3.1", category: "Piano", size: 3842412, filename: "HonkTonkPiano_ST stereo 3.1", ext: "nsmp3" }],
+    [0xb9fccee4, {name: "Kalimba", info: "KG mono", version: "3.2", category: "Chromatic Perc", size: 39276, filename: "Kalimba_KG mono 3.2", ext: "nsmp3" }],
+    [0x256381eb, {name: "Mbira", info: "PS", version: "3.2", category: "Chromatic Perc", size: 1104748, filename: "Mbira_PS 3.2", ext: "nsmp3" }],
+    [0xf1174d32, {name: "RainPiano", info: "CL stereo", version: "3.1", category: "Piano", size: 3198188, filename: "RainPiano_CL stereo 3.1", ext: "nsmp3" }],
+    [0xfeaf3431, {name: "StudioStrings Pizzicato", info: "KH", version: "3.1", category: "Ens Strings", size: 746604, filename: "StudioStrings Pizzicato_KH 3.1", ext: "nsmp3" }],
+    [0x1a2c45fd, {name: "Wind Chimes 1", info: "PS Stereo", version: "3.0", category: "Chromatic Perc", size: 4228076, filename: "Wind Chimes 1_PS Stereo 3.0", ext: "nsmp3" }],
+    [0xf28cddec, {name: "Wurlitzer", info: "CL mono", version: "3.1", category: "Piano", size: 932076, filename: "Wurlitzer_CL mono 3.1", ext: "nsmp3" }],
 
 ]);
