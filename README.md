@@ -4,7 +4,7 @@ The unofficial Nord Stage Program viewer tool.
 Online version: [https://ns3-program-viewer.herokuapp.com](https://ns3-program-viewer.herokuapp.com)
 
 Documentation:
-- [NS3 Program mapping](https://github.com/Chris55/ns3-program-viewer/tree/master/docs/ns3/program)
+- [Nord Stage Program mapping](https://github.com/Chris55/ns3-program-viewer/tree/master/docs)
 
 This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com).
 
@@ -18,7 +18,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 ## Contributors
 - [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) (@florence)
 - [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal)
-- Thanks to other NUF member(s): @rpossemo
+- Thanks to other NUF member(s): @rpossemo, @cookie, @gordon
 
 ## FAQ
 
