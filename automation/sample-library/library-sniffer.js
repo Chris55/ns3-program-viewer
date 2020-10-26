@@ -34,20 +34,17 @@ const getFilesFromDir = (dir, fileTypes) => {
     return filesToReturn;
 };
 
-
-
 // cleanup the new folder
 
 const destinationPath = path.join(inputFolder, "new");
 if (fs.existsSync(destinationPath)) {
     fs.rmdirSync(destinationPath, { recursive: true });
-    fs.mkdirSync(destinationPath);
 }
-
+fs.mkdirSync(destinationPath);
 
 // check all sample files, including sub-folders
 
-const inputsFiles = getFilesFromDir(inputFolder, [".nsmp3", ".npno"]);
+const inputsFiles = getFilesFromDir(inputFolder, [".nsmp3", ".nsmp", ".npno"]);
 
 const newSample = [];
 
@@ -56,7 +53,9 @@ inputsFiles.forEach((x) => {
 
     let existingInLibrary = false;
     const checkIfExist = (s) => {
-        if (s.filename) {
+        if (s instanceof Array) {
+            // clavinet case not handled here...
+        } else if (s.filename) {
             if (s.filename.toUpperCase() === filename) {
                 existingInLibrary = true;
             }
@@ -79,7 +78,6 @@ inputsFiles.forEach((x) => {
         newSample.push(x);
     }
 });
-
 
 // copy the new samples in the new folder
 

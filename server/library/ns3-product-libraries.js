@@ -6,54 +6,6 @@
  */
 exports.ns3ProductLibraries = new Map([
 
-    // Michael Bereal Signature Sound Bank
-    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/michael-bereal-signature-sound-bank
-    // no additional sample
-
-    // Mike Patrick Signature Sound Bank
-    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/mike-patrick-signature-sound-bank
-
-    [0xb089531, {name: "Dark", info: "Vox", version: "3.0", category: "Misc", size: 2591340, filename: "Dark_Vox", ext: "nsmp3" }],
-    [0x98619f2e, {name: "Duvet Pad MP", info: "", version: "3.0", category: "Misc", size: 92396, filename: "Duvet Pad MP", ext: "nsmp3" }],
-    [0xbf9bbcdb, {name: "Easy Pad", info: "", version: "3.0", category: "Misc", size: 1970412, filename: "Easy Pad", ext: "nsmp3" }],
-    [0x12475ad8, {name: "Fatboy", info: "", version: "3.0", category: "Misc", size: 66156, filename: "Fatboy", ext: "nsmp3" }],
-    [0x9e7fe217, {name: "Grandfather Lead", info: "", version: "3.0", category: "Misc", size: 4019564, filename: "Grandfather Lead", ext: "nsmp3" }],
-    [0xcb2fa31e, {name: "Himalayan", info: "BR mono", version: "3.0", category: "Chromatic Perc", size: 765402, filename: "Himalayan_BR mono 3.0", ext: "nsmp3" }],
-    [0x8dc4abf5, {name: "Logan Lead", info: "", version: "3.0", category: "Misc", size: 1458796, filename: "Logan Lead", ext: "nsmp3" }],
-    [0x2c3e6aa0, {name: "Metallic Dust", info: "", version: "3.0", category: "Misc", size: 287340, filename: "Metallic Dust", ext: "nsmp3" }],
-    [0xc8485ab6, {name: "Mighty Mod Lead MP", info: "", version: "3.0", category: "Misc", size: 2528108, filename: "Mighty Mod Lead MP", ext: "nsmp3" }],
-    [0xd597bcf, {name: "Old Violin Pizzicato", info: "", version: "3.3", category: "Misc", size: 281964, filename: "Old Violin Pizzicato_v3", ext: "nsmp3" }],
-    [0x843dce8e, {name: "Old Violin Spiccato", info: "", version: "3.0", category: "Misc", size: 126956, filename: "Old Violin Spiccato", ext: "nsmp3" }],
-    [0x1798a84e, {name: "Old Violin Vibrato", info: "", version: "3.0", category: "Misc", size: 2029036, filename: "Old Violin Vibrato", ext: "nsmp3" }],
-    [0x9ba8d3e9, {name: "Ping Pong MP", info: "", version: "3.0", category: "Misc", size: 34156, filename: "Ping Pong MP", ext: "nsmp3" }],
-    [0x8d120633, {name: "Poly Triangle", info: "", version: "3.0", category: "Misc", size: 125164, filename: "Poly Triangle", ext: "nsmp3" }],
-    [0xd6aee9ef, {name: "Shoreditch Lead", info: "", version: "3.0", category: "Misc", size: 1214700, filename: "Shoreditch Lead", ext: "nsmp3" }],
-    [0x8cc48340, {name: "Square FM", info: "MP", version: "3.0", category: "Misc", size: 3144428, filename: "Square FM_MP", ext: "nsmp3" }],
-    [0xec7ab26, {name: "Squidge Synth", info: "", version: "3.0", category: "Misc", size: 493292, filename: "Squidge Synth", ext: "nsmp3" }],
-
-    // J3PO Signature Sound Bank
-    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/j3po-signature-sound-bank
-
-    [0x5d61d688, {name: "Glockenspiel 2", info: "KG mono", version: "3.0", category: "Chromatic Perc", size: 90220, filename: "Glockenspiel 2_KG mono 3.0", ext: "nsmp3" }],
-    [0x8a892208, {name: "Tape Hiss 1", info: "", version: "3.0", category: "Misc", size: 2104940, filename: "Tape Hiss 1", ext: "nsmp3" }],
-    [0x4ddfd3ce, {name: "Tape Hiss 2", info: "", version: "3.0", category: "Misc", size: 2483692, filename: "Tape Hiss 2", ext: "nsmp3" }],
-    [0x7c39cf0b, {name: "Vinyl Crackle 1", info: "", version: "3.0", category: "Misc", size: 1031788, filename: "Vinyl Crackle 1", ext: "nsmp3" }],
-    [0x7d804fd6, {name: "Vinyl Crackle 2", info: "", version: "3.0", category: "Misc", size: 1394540, filename: "Vinyl Crackle 2", ext: "nsmp3" }],
-
-    [0x8bc2405b, {name: "Angelic Choir 4 ah", info: "PS", version: "3.0", category: "Choir", size: 2714970, filename: "Angelic Choir 4 ah_PS 3.0", ext: "nsmp3" }],
-
-    // Brandon Coleman Signature Sound Bank
-    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/brandon-coleman-signature-sound-bank
-
-    [0xee5dcfc2, {name: "Dream Whistles", info: "PS mono", version: "3.1", category: "Solo Wind/Brass", size: 791898, filename: "Dream Whistles_PS mono 3.1", ext: "nsmp3" }],
-    [0xc2c5d63b, {name: "Finnish Kantele", info: "PS", version: "3.1", category: "Guitar/Ethnic Str", size: 5044058, filename: "Finnish Kantele_PS 3.1", ext: "nsmp3" }],
-    [0x2bf7e2b, {name: "Celeste", info: "ST mono", version: "3.0", category: "Chromatic Perc", size: 813658, filename: "Celeste_ST mono 3.0", ext: "nsmp3" }],
-    [0xc3467b95, {name: "Marimba", info: "ST mono", version: "3.0", category: "Chromatic Perc", size: 251994, filename: "Marimba_ST mono 3.0", ext: "nsmp3" }],
-    [0xdab5d910, {name: "Vibes", info: "DV mono", version: "3.0", category: "Chromatic Perc", size: 952666, filename: "Vibes_DV mono 3.0", ext: "nsmp3" }],
-
-    // Ondre J Signature EPs
-    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/ondre-j-signature-eps
-    // no additional sample
 
 
 
@@ -192,8 +144,181 @@ exports.ns3ProductLibraries = new Map([
 
     // Nord Piano 3 Factory Sounds
     // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-piano-3-factory-sounds
-    // TODO
+    // no additional sounds
 
+    // Nord Piano 4 Factory Sounds
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-piano-4-factory-sounds
+    [0x8ab94d3e, {name: "Attack Pad Layer", info: "AW stereo", version: "3.1", category: "Classic Synth", size: 3174764, filename: "Attack Pad Layer_AW stereo 3.1", ext: "nsmp3" }],
+    [0x1d33e9be, {name: "Celestial Pad", info: "AW stereo", version: "3.1", category: "Pad Synth", size: 4516076, filename: "Celestial Pad_AW stereo 3.1", ext: "nsmp3" }],
+    [0x7724d313, {name: "Vocalise Pad", info: "AW stereo", version: "3.1", category: "Pad Synth", size: 3799916, filename: "Vocalise Pad_AW stereo 3.1", ext: "nsmp3" }],
+
+    // Nord Stage 2 Factory Sample Bank v1.6 revA.zip
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-2/nord-stage-2-factory-sounds
+
+    [0x3da34631, {name: "Choir Aahs", info: "ste BR", version: "3.0", category: "Misc", size: 4327020, filename: "Choir Aahs_ste BR", ext: "nsmp3" }],
+    [0xc55b76f, {name: "Choir Boys", info: "ste BR", version: "3.0", category: "Misc", size: 4219884, filename: "Choir Boys_ste BR", ext: "nsmp3" }],
+    [0xdef73b8b, {name: "Choir Female", info: "ste BR", version: "3.0", category: "Misc", size: 4172652, filename: "Choir Female_ste BR", ext: "nsmp3" }],
+    [0xf9286683, {name: "Choir Mixed", info: "ste BR", version: "3.0", category: "Misc", size: 4015084, filename: "Choir Mixed_ste BR", ext: "nsmp3" }],
+    [0x3e1e9541, {name: "Choir Uuhs", info: "ste BR", version: "3.0", category: "Misc", size: 4601964, filename: "Choir Uuhs_ste BR", ext: "nsmp3" }],
+    [0xb763c34a, {name: "Pink Noise", info: "", version: "3.0", category: "Misc", size: 159596, filename: "Pink Noise", ext: "nsmp3" }],
+    [0xac23717, {name: "White Noise", info: "", version: "3.0", category: "Misc", size: 119788, filename: "White Noise", ext: "nsmp3" }],
+
+    // Nord Stage 2 EX Factory Sounds Bank v2.06 revA.zip
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-2-ex-factory-sounds
+    // these samples are not yet in the standard library
+
+    [0x61fb5510, {name: "16 Violins", info: "M400 mono", version: "3.0", category: "Ens Strings", size: 1716204, filename: "16 Violins_Mellotron_M400 mono 2.0", ext: "nsmp3" }],
+    [0x99165a93, {name: "2 Violins 2", info: "M300 mono", version: "3.0", category: "Ens Strings", size: 2481516, filename: "2 Violins 2_Mellotron_M300 mono 2.0", ext: "nsmp3" }],
+    [0xe70beb09, {name: "3 Violins", info: "MkII mono", version: "3.0", category: "Ens Strings", size: 2317804, filename: "3 Violins_Mellotron_MkII mono 2.0", ext: "nsmp3" }],
+    [0x2d376b94, {name: "BoysChoir Ste", info: "M400", version: "3.0", category: "Choir", size: 2796396, filename: "BoysChoir Ste_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x5b5e9a1c, {name: "Koto", info: "BR mono", version: "3.0", category: "Guitar/Ethnic Str", size: 495724, filename: "Koto__BR mono 2.0", ext: "nsmp3" }],
+    [0x9284d23c, {name: "MM Synth Violin", info: "BR mono", version: "3.0", category: "Misc Synth", size: 4541804, filename: "MM Synth Violin__BR mono 2.0", ext: "nsmp3" }],
+    [0x6a04926b, {name: "Pink Noise", info: "", version: "3.1", category: "FX", size: 1439084, filename: "Pink Noise__ 2.1", ext: "nsmp3" }],
+    [0x2c30f03c, {name: "Rock Guitar MkII SM", info: "small vers", version: "3.0", category: "Guitar/Ethnic Str", size: 1739884, filename: "Rock Guitar MkII SM_Mellotron_small vers 2.0", ext: "nsmp3" }],
+    [0x535cdbb2, {name: "Solo Violin", info: "mono", version: "3.0", category: "Solo Strings", size: 2119788, filename: "Solo Violin_Chamberlin_mono 2.0", ext: "nsmp3" }],
+    [0xddae5ef3, {name: "White Noise", info: "", version: "3.1", category: "FX", size: 2107884, filename: "White Noise__ 2.1", ext: "nsmp3" }],
+
+    // Nick Semrad Stage 2 EX Bank
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-2-ex/nick-semrad-stage-2-ex-bank
+
+    [0x4e3a285a, {name: "22violins Leg", info: "SR ste", version: "3.1", category: "Ens Strings", size: 3459436, filename: "22violins Leg_LoVib_SR ste 2.1", ext: "nsmp3" }],
+    [0x7ef55040, {name: "3 Violins", info: "MKII", version: "3.0", category: "Ens Strings", size: 4557804, filename: "3 Violins_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x92359397, {name: "MaleSoloVoice", info: "M400", version: "3.0", category: "Choir", size: 4313708, filename: "MaleSoloVoice_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xa1e22ff5, {name: "Recorder", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 3058412, filename: "Recorder_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xe5a51c9f, {name: "SpanishGuitar", info: "M300", version: "3.0", category: "Guitar/Ethnic Str", size: 1634796, filename: "SpanishGuitar_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0xf9ad8a32, {name: "Vibraphone", info: "MKII", version: "3.0", category: "Chromatic Perc", size: 5417452, filename: "Vibraphone_Mellotron_MKII 2.0", ext: "nsmp3" }],
+
+    // Nord Stage 3 Factory Sounds (Nord Stage 3 Factory Restore RevH v2.5X)
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/nord-stage-3-factory-sounds
+    // these samples are not yet in the standard library 3.0
+
+    [0xdad5fd6e, {name: "Bells", info: "ST", version: "3.0", category: "Chromatic Perc", size: 2022764, filename: "Bells_ST 3.0", ext: "nsmp3" }],
+    [0x7d05aef1, {name: "Belltower Gefle", info: "PS", version: "3.0", category: "Chromatic Perc", size: 1652332, filename: "Belltower Gefle_PS 3.0", ext: "nsmp3" }],
+    [0x8c36e0fa, {name: "Church Bells", info: "SO", version: "3.1", category: "Chromatic Perc", size: 2454252, filename: "Church Bells_SO 3.1", ext: "nsmp3" }],
+    [0x52093cbc, {name: "Crotales", info: "ST", version: "3.0", category: "Chromatic Perc", size: 1353964, filename: "Crotales_ST 3.0", ext: "nsmp3" }],
+    [0xd916ee1a, {name: "Dist Guitar", info: "DV mono", version: "3.1", category: "Guitar/Ethnic Str", size: 1226732, filename: "Dist Guitar_DV mono 3.1", ext: "nsmp3" }],
+    [0x49006cb5, {name: "Glockenspiel 1", info: "KG mono", version: "3.0", category: "Chromatic Perc", size: 209260, filename: "Glockenspiel 1_KG mono 3.0", ext: "nsmp3" }],
+    [0x64f6545a, {name: "J-celeste", info: "PS mono", version: "3.0", category: "Chromatic Perc", size: 840556, filename: "J-celeste_PS mono 3.0", ext: "nsmp3" }],
+    [0xf1ceff8f, {name: "Kalimba", info: "KG mono", version: "3.0", category: "Chromatic Perc", size: 41324, filename: "Kalimba_KG mono 3.0", ext: "nsmp3" }],
+    [0x6bf3234, {name: "Mbira", info: "PS", version: "3.0", category: "Chromatic Perc", size: 699116, filename: "Mbira_PS 3.0", ext: "nsmp3" }],
+    [0x994057e8, {name: "Metallophone", info: "DV", version: "3.0", category: "Chromatic Perc", size: 981484, filename: "Metallophone_DV 3.0", ext: "nsmp3" }],
+    [0xee107ea, {name: "Small Bells", info: "SO", version: "3.0", category: "Chromatic Perc", size: 1174764, filename: "Small Bells_SO 3.0", ext: "nsmp3" }],
+    [0x598a9e11, {name: "Small Chimes", info: "ST", version: "3.0", category: "Chromatic Perc", size: 1845100, filename: "Small Chimes_ST 3.0", ext: "nsmp3" }],
+    [0x286b52b6, {name: "TubularBells", info: "ST", version: "3.0", category: "Chromatic Perc", size: 2684140, filename: "TubularBells_ST 3.0", ext: "nsmp3" }],
+    [0xf739deaa, {name: "Ukrainian Bandura", info: "PS mono", version: "3.1", category: "Guitar/Ethnic Str", size: 1693420, filename: "Ukrainian Bandura_PS mono 3.1", ext: "nsmp3" }],
+    [0xcd9c86fd, {name: "Xylophone", info: "KG mono", version: "3.0", category: "Chromatic Perc", size: 65004, filename: "Xylophone_KG mono 3.0", ext: "nsmp3" }],
+
+    // Nord Stage 3 Michael Bereal Signature Sound Bank
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/michael-bereal-signature-sound-bank
+    // no additional sample
+
+    // Nord Stage 3 Mike Patrick Signature Sound Bank
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/mike-patrick-signature-sound-bank
+
+    [0xb089531, {name: "Dark", info: "Vox", version: "3.0", category: "Misc", size: 2591340, filename: "Dark_Vox", ext: "nsmp3" }],
+    [0x98619f2e, {name: "Duvet Pad MP", info: "", version: "3.0", category: "Misc", size: 92396, filename: "Duvet Pad MP", ext: "nsmp3" }],
+    [0xbf9bbcdb, {name: "Easy Pad", info: "", version: "3.0", category: "Misc", size: 1970412, filename: "Easy Pad", ext: "nsmp3" }],
+    [0x12475ad8, {name: "Fatboy", info: "", version: "3.0", category: "Misc", size: 66156, filename: "Fatboy", ext: "nsmp3" }],
+    [0x9e7fe217, {name: "Grandfather Lead", info: "", version: "3.0", category: "Misc", size: 4019564, filename: "Grandfather Lead", ext: "nsmp3" }],
+    [0xcb2fa31e, {name: "Himalayan", info: "BR mono", version: "3.0", category: "Chromatic Perc", size: 765402, filename: "Himalayan_BR mono 3.0", ext: "nsmp3" }],
+    [0x8dc4abf5, {name: "Logan Lead", info: "", version: "3.0", category: "Misc", size: 1458796, filename: "Logan Lead", ext: "nsmp3" }],
+    [0x2c3e6aa0, {name: "Metallic Dust", info: "", version: "3.0", category: "Misc", size: 287340, filename: "Metallic Dust", ext: "nsmp3" }],
+    [0xc8485ab6, {name: "Mighty Mod Lead MP", info: "", version: "3.0", category: "Misc", size: 2528108, filename: "Mighty Mod Lead MP", ext: "nsmp3" }],
+    [0xd597bcf, {name: "Old Violin Pizzicato", info: "", version: "3.3", category: "Misc", size: 281964, filename: "Old Violin Pizzicato_v3", ext: "nsmp3" }],
+    [0x843dce8e, {name: "Old Violin Spiccato", info: "", version: "3.0", category: "Misc", size: 126956, filename: "Old Violin Spiccato", ext: "nsmp3" }],
+    [0x1798a84e, {name: "Old Violin Vibrato", info: "", version: "3.0", category: "Misc", size: 2029036, filename: "Old Violin Vibrato", ext: "nsmp3" }],
+    [0x9ba8d3e9, {name: "Ping Pong MP", info: "", version: "3.0", category: "Misc", size: 34156, filename: "Ping Pong MP", ext: "nsmp3" }],
+    [0x8d120633, {name: "Poly Triangle", info: "", version: "3.0", category: "Misc", size: 125164, filename: "Poly Triangle", ext: "nsmp3" }],
+    [0xd6aee9ef, {name: "Shoreditch Lead", info: "", version: "3.0", category: "Misc", size: 1214700, filename: "Shoreditch Lead", ext: "nsmp3" }],
+    [0x8cc48340, {name: "Square FM", info: "MP", version: "3.0", category: "Misc", size: 3144428, filename: "Square FM_MP", ext: "nsmp3" }],
+    [0xec7ab26, {name: "Squidge Synth", info: "", version: "3.0", category: "Misc", size: 493292, filename: "Squidge Synth", ext: "nsmp3" }],
+
+    // Nord Stage 3 J3PO Signature Sound Bank
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/j3po-signature-sound-bank
+
+    [0x5d61d688, {name: "Glockenspiel 2", info: "KG mono", version: "3.0", category: "Chromatic Perc", size: 90220, filename: "Glockenspiel 2_KG mono 3.0", ext: "nsmp3" }],
+    [0x8a892208, {name: "Tape Hiss 1", info: "", version: "3.0", category: "Misc", size: 2104940, filename: "Tape Hiss 1", ext: "nsmp3" }],
+    [0x4ddfd3ce, {name: "Tape Hiss 2", info: "", version: "3.0", category: "Misc", size: 2483692, filename: "Tape Hiss 2", ext: "nsmp3" }],
+    [0x7c39cf0b, {name: "Vinyl Crackle 1", info: "", version: "3.0", category: "Misc", size: 1031788, filename: "Vinyl Crackle 1", ext: "nsmp3" }],
+    [0x7d804fd6, {name: "Vinyl Crackle 2", info: "", version: "3.0", category: "Misc", size: 1394540, filename: "Vinyl Crackle 2", ext: "nsmp3" }],
+    [0x8bc2405b, {name: "Angelic Choir 4 ah", info: "PS", version: "3.0", category: "Choir", size: 2714970, filename: "Angelic Choir 4 ah_PS 3.0", ext: "nsmp3" }],
+
+    // Nord Stage 3 Brandon Coleman Signature Sound Bank
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/brandon-coleman-signature-sound-bank
+
+    [0xee5dcfc2, {name: "Dream Whistles", info: "PS mono", version: "3.1", category: "Solo Wind/Brass", size: 791898, filename: "Dream Whistles_PS mono 3.1", ext: "nsmp3" }],
+    [0xc2c5d63b, {name: "Finnish Kantele", info: "PS", version: "3.1", category: "Guitar/Ethnic Str", size: 5044058, filename: "Finnish Kantele_PS 3.1", ext: "nsmp3" }],
+    [0x2bf7e2b, {name: "Celeste", info: "ST mono", version: "3.0", category: "Chromatic Perc", size: 813658, filename: "Celeste_ST mono 3.0", ext: "nsmp3" }],
+    [0xc3467b95, {name: "Marimba", info: "ST mono", version: "3.0", category: "Chromatic Perc", size: 251994, filename: "Marimba_ST mono 3.0", ext: "nsmp3" }],
+    [0xdab5d910, {name: "Vibes", info: "DV mono", version: "3.0", category: "Chromatic Perc", size: 952666, filename: "Vibes_DV mono 3.0", ext: "nsmp3" }],
+
+    // Nord Stage 3 Ondre J Signature EPs
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-stage-3/ondre-j-signature-eps
+    // no additional sample
+
+    // Nord Grand Factory Sounds
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/stage-pianos/nord-grand-factory-sounds
+
+    [0xe90e8c65, {name: "Glockenspiel", info: "ST Stereo", version: "3.0", category: "Chromatic Perc", size: 2760556, filename: "Glockenspiel_ST Stereo 3.0", ext: "nsmp3" }],
+
+
+    // Nord Wave Richard Courtel Sound Bank
+    // https://www.nordkeyboards.com/sound-libraries/nord-wave/richard-courtel-sound-bank
+
+    [0x300d9342, {name: "Abuse", info: "", version: "3.0", category: "Misc", size: 1566572, filename: "Abuse", ext: "nsmp3" }],
+    [0x6622a8aa, {name: "Ahhhhhh", info: "", version: "3.0", category: "Misc", size: 681324, filename: "Ahhhhhh", ext: "nsmp3" }],
+    [0xddb1ed59, {name: "Air", info: "", version: "3.0", category: "Misc", size: 1167340, filename: "Air", ext: "nsmp3" }],
+    [0x452b179a, {name: "Analog", info: "", version: "3.0", category: "Misc", size: 837100, filename: "Analog", ext: "nsmp3" }],
+    [0x37566e1c, {name: "Angel", info: "", version: "3.0", category: "Misc", size: 2414316, filename: "Angel", ext: "nsmp3" }],
+    [0x57ac06f7, {name: "Atomic", info: "", version: "3.0", category: "Misc", size: 1075948, filename: "Atomic", ext: "nsmp3" }],
+    [0x93dac224, {name: "BassEpiano", info: "", version: "3.0", category: "Misc", size: 877036, filename: "BassEpiano", ext: "nsmp3" }],
+    [0xadaa1c44, {name: "BassFat", info: "", version: "3.0", category: "Misc", size: 897004, filename: "BassFat", ext: "nsmp3" }],
+    [0xf54f06a2, {name: "Beauty", info: "", version: "3.0", category: "Misc", size: 2573164, filename: "Beauty", ext: "nsmp3" }],
+    [0x5aa1b278, {name: "BellVoice", info: "", version: "3.0", category: "Misc", size: 540908, filename: "BellVoice", ext: "nsmp3" }],
+    [0x227bc7cd, {name: "Bigpad", info: "", version: "3.0", category: "Misc", size: 2912364, filename: "Bigpad", ext: "nsmp3" }],
+    [0x2e3bfe4f, {name: "BigSynth", info: "", version: "3.0", category: "Misc", size: 655852, filename: "BigSynth", ext: "nsmp3" }],
+    [0x7da51124, {name: "Brass", info: "", version: "3.0", category: "Misc", size: 2313964, filename: "Brass", ext: "nsmp3" }],
+    [0x546db2c5, {name: "Brasspro", info: "", version: "3.0", category: "Misc", size: 2038892, filename: "Brasspro", ext: "nsmp3" }],
+    [0xa1147be5, {name: "Choir", info: "", version: "3.0", category: "Misc", size: 2327660, filename: "Choir", ext: "nsmp3" }],
+    [0x89c316a6, {name: "Church", info: "", version: "3.0", category: "Misc", size: 2500204, filename: "Church", ext: "nsmp3" }],
+    [0x97c4d43b, {name: "Dirty", info: "", version: "3.0", category: "Misc", size: 2913388, filename: "Dirty", ext: "nsmp3" }],
+    [0x2cfb7c02, {name: "Doublesynth", info: "", version: "3.0", category: "Misc", size: 499436, filename: "Doublesynth", ext: "nsmp3" }],
+    [0xb8ff85a5, {name: "Dream", info: "", version: "3.0", category: "Misc", size: 691052, filename: "Dream", ext: "nsmp3" }],
+    [0x46945b52, {name: "Dust", info: "", version: "3.0", category: "Misc", size: 2059244, filename: "Dust", ext: "nsmp3" }],
+    [0x6004e37f, {name: "Ebass", info: "", version: "3.0", category: "Misc", size: 209004, filename: "Ebass", ext: "nsmp3" }],
+    [0xe39d0e50, {name: "EGuitar", info: "", version: "3.0", category: "Misc", size: 2064236, filename: "EGuitar", ext: "nsmp3" }],
+    [0xeae9e66a, {name: "Filters", info: "", version: "3.0", category: "Misc", size: 1081836, filename: "Filters", ext: "nsmp3" }],
+    [0x6ee3aac8, {name: "Formant", info: "", version: "3.0", category: "Misc", size: 536428, filename: "Formant", ext: "nsmp3" }],
+    [0x424df343, {name: "Gibson", info: "", version: "3.0", category: "Misc", size: 1272428, filename: "Gibson", ext: "nsmp3" }],
+    [0x1f98dfea, {name: "Goldsynth", info: "", version: "3.0", category: "Misc", size: 901484, filename: "Goldsynth", ext: "nsmp3" }],
+    [0xf3c9a2bb, {name: "Granular", info: "", version: "3.0", category: "Misc", size: 345196, filename: "Granular", ext: "nsmp3" }],
+    [0x27cd2693, {name: "Imagination", info: "", version: "3.0", category: "Misc", size: 812140, filename: "Imagination", ext: "nsmp3" }],
+    [0x6f89b77, {name: "Love", info: "", version: "3.0", category: "Misc", size: 5514604, filename: "Love", ext: "nsmp3" }],
+    [0x3cbfd1fb, {name: "Metal", info: "", version: "3.0", category: "Misc", size: 1442668, filename: "Metal", ext: "nsmp3" }],
+    [0xe722186e, {name: "Minds", info: "", version: "3.0", category: "Misc", size: 531436, filename: "Minds", ext: "nsmp3" }],
+    [0x2ed64081, {name: "Moog", info: "", version: "3.0", category: "Misc", size: 688876, filename: "Moog", ext: "nsmp3" }],
+    [0xb4dc9de9, {name: "OldMoog", info: "", version: "3.0", category: "Misc", size: 1356524, filename: "OldMoog", ext: "nsmp3" }],
+    [0xae460429, {name: "Pah", info: "", version: "3.0", category: "Misc", size: 54764, filename: "Pah", ext: "nsmp3" }],
+    [0x94a03684, {name: "PanFlute", info: "", version: "3.0", category: "Misc", size: 446828, filename: "PanFlute", ext: "nsmp3" }],
+    [0x7a07e296, {name: "Pianissimo", info: "", version: "3.0", category: "Misc", size: 337772, filename: "Pianissimo", ext: "nsmp3" }],
+    [0x9d2cca14, {name: "Plucked", info: "", version: "3.0", category: "Misc", size: 236012, filename: "Plucked", ext: "nsmp3" }],
+    [0x2a50a483, {name: "Propaganda", info: "", version: "3.0", category: "Misc", size: 2410988, filename: "Propaganda", ext: "nsmp3" }],
+    [0x1e1c5bdf, {name: "Solo", info: "", version: "3.0", category: "Misc", size: 2924908, filename: "Solo", ext: "nsmp3" }],
+    [0xde753c5a, {name: "Square", info: "", version: "3.0", category: "Misc", size: 156780, filename: "Square", ext: "nsmp3" }],
+    [0x8282d676, {name: "Steam", info: "", version: "3.0", category: "Misc", size: 840428, filename: "Steam", ext: "nsmp3" }],
+    [0xbecf213d, {name: "Strings", info: "", version: "3.0", category: "Misc", size: 556396, filename: "Strings", ext: "nsmp3" }],
+    [0x15bf3c76, {name: "Synthbass", info: "", version: "3.0", category: "Misc", size: 202860, filename: "Synthbass", ext: "nsmp3" }],
+    [0x36e21298, {name: "Talk2", info: "", version: "3.0", category: "Misc", size: 2754796, filename: "Talk2", ext: "nsmp3" }],
+    [0x24a1a55f, {name: "TalkBox", info: "", version: "3.0", category: "Misc", size: 2527468, filename: "TalkBox", ext: "nsmp3" }],
+    [0x7f285ae, {name: "Tron", info: "", version: "3.0", category: "Misc", size: 2287084, filename: "Tron", ext: "nsmp3" }],
+    [0x348473e0, {name: "Tube", info: "", version: "3.0", category: "Misc", size: 582252, filename: "Tube", ext: "nsmp3" }],
+    [0xc099779e, {name: "Ushuaia", info: "", version: "3.0", category: "Misc", size: 234348, filename: "Ushuaia", ext: "nsmp3" }],
+    [0x4a0bf537, {name: "Vibrato", info: "", version: "3.0", category: "Misc", size: 142060, filename: "Vibrato", ext: "nsmp3" }],
+    [0x48227f6a, {name: "Virus", info: "", version: "3.0", category: "Misc", size: 1456108, filename: "Virus", ext: "nsmp3" }],
+    [0x910c4a3c, {name: "Vision", info: "", version: "3.0", category: "Misc", size: 3652588, filename: "Vision", ext: "nsmp3" }],
+    [0xb27642d, {name: "Voice", info: "", version: "3.0", category: "Misc", size: 849644, filename: "Voice", ext: "nsmp3" }],
+    [0xf00af701, {name: "Voiceagain", info: "", version: "3.0", category: "Misc", size: 801772, filename: "Voiceagain", ext: "nsmp3" }],
+    [0xe3d2fc7, {name: "XtremSynth", info: "", version: "3.0", category: "Misc", size: 877164, filename: "XtremSynth", ext: "nsmp3" }],
 
     // Nord Wave 2 Factory Sounds
     // https://www.nordkeyboards.com/sound-libraries/product-libraries/synthesizers/nord-wave-2-factory-sounds
@@ -243,5 +368,10 @@ exports.ns3ProductLibraries = new Map([
     [0xfeaf3431, {name: "StudioStrings Pizzicato", info: "KH", version: "3.1", category: "Ens Strings", size: 746604, filename: "StudioStrings Pizzicato_KH 3.1", ext: "nsmp3" }],
     [0x1a2c45fd, {name: "Wind Chimes 1", info: "PS Stereo", version: "3.0", category: "Chromatic Perc", size: 4228076, filename: "Wind Chimes 1_PS Stereo 3.0", ext: "nsmp3" }],
     [0xf28cddec, {name: "Wurlitzer", info: "CL mono", version: "3.1", category: "Piano", size: 932076, filename: "Wurlitzer_CL mono 3.1", ext: "nsmp3" }],
+
+    // Nord Wave 2 Parris Bowens Signature Sound Bank
+    // https://www.nordkeyboards.com/sound-libraries/product-libraries/synthesizers/nord-wave-2/parris-bowens-signature-sound-bank
+
+    [0x3c7d1b3d, {name: "Synth MultiSample", info: "", version: "3.0", category: "User", size: 3185004, filename: "Synth MultiSample", ext: "nsmp3" }],
 
 ]);

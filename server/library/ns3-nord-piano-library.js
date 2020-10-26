@@ -46,6 +46,7 @@ exports.ns3NordPianoLibrary = new Map([
 
     [0x5f256d93, {name: "Grand Lady D   Lrg", info: "Stw D", version: "5.3", category: "None", size: 82368964, filename: "Grand Lady D   Stw D  Lrg 5.3", ext: "npno" }],
     [0x6114dad6, {name: "Grand Lady D   Med", info: "Stw D", version: "5.3", category: "None", size: 63944348, filename: "Grand Lady D   Stw D  Med 5.3", ext: "npno" }],
+    [0x1ce08b2a, {name: "Grand Lady D   Med", info: "StwD", version: "5.0", category: "None", size: 63944330, filename: "Grand Lady D   StwD  Med 5.0", ext: "npno" }],
     [0x325897f5, {name: "Grand Lady D   Sml", info: "Stw D", version: "5.3", category: "None", size: 41143528, filename: "Grand Lady D   Stw D  Sml 5.3", ext: "npno" }],
     [0x6fd1e770, {name: "Grand Lady D   Sml", info: "StwD", version: "5.0", category: "None", size: 41143510, filename: "Grand Lady D   StwD  Sml 5.0", ext: "npno" }],
     [0xa1d5c861, {name: "Grand Lady D   Sml", info: "StwD", version: "5.3", category: "None", size: 41143510, filename: "Grand Lady D   StwD  Sml 5.3", ext: "npno" }],
@@ -116,6 +117,7 @@ exports.ns3NordPianoLibrary = new Map([
     [0xf4358d9, {name: "Black Upright Lrg", info: "Petrof", version: "5.3", category: "None", size: 68520864, filename: "Black Upright Petrof Lrg 5.3", ext: "npno" }],
     [0x9dd441cf, {name: "Black Upright Med", info: "Petrof", version: "5.3", category: "None", size: 54037080, filename: "Black Upright Petrof Med 5.3", ext: "npno" }],
     [0xa042b37c, {name: "Black Upright Sml", info: "Petrof", version: "5.3", category: "None", size: 34157136, filename: "Black Upright Petrof Sml 5.3", ext: "npno" }],
+    [0xf7078fb1, {name: "Black Upright Sml", info: "Petrof", version: "5.1", category: "None", size: 34157118, filename: "Black Upright Petrof  Sml 5.1", ext: "npno" }],
 
     [0x354a2c60, {name: "HonkyTonkUpright Lrg", info: "", version: "5.3", category: "None", size: 57953384, filename: "HonkyTonkUpright      Lrg 5.3", ext: "npno" }],
     [0x1c06f01a, {name: "HonkyTonkUpright Med", info: "", version: "5.3", category: "None", size: 47238736, filename: "HonkyTonkUpright      Med 5.3", ext: "npno" }],
@@ -128,6 +130,7 @@ exports.ns3NordPianoLibrary = new Map([
     [0x85ab33aa, {name: "Romantic Upright Lrg", info: "Schimmel", version: "5.3", category: "None", size: 62967316, filename: "Romantic Upright Schimmel Lrg5.3", ext: "npno" }],
     [0xf8152ad8, {name: "Romantic Upright Med", info: "Schimmel", version: "5.3", category: "None", size: 50482564, filename: "Romantic Upright Schimmel Med5.3", ext: "npno" }],
     [0xdb4d6d36, {name: "Romantic Upright Sml", info: "Schimmel", version: "5.3", category: "None", size: 30492244, filename: "Romantic Upright Schimmel Sml5.3", ext: "npno" }],
+    [0x8e7dfd2a, {name: "Romantic Upright Sml", info: "Schimmel", version: "5.0", category: "None", size: 30494270, filename: "Romantic Upright Schimmel Sml5.0", ext: "npno" }],
 
     [0xeb27ebc0, {name: "BlueSwede Lrg", info: "Ostl&Alm", version: "5.3", category: "None", size: 72273648, filename: "BlueSwede Ostl&Alm Lrg 5.3", ext: "npno" }],
     [0x8f625f27, {name: "BlueSwede Med", info: "Ostl&Alm", version: "5.3", category: "None", size: 58253852, filename: "BlueSwede Ostl&Alm Med 5.3", ext: "npno" }],
