@@ -6,45 +6,80 @@ const { ns2VolumeEx } = require("./ns2-utils");
 /***
  * return B3 and Vox Drawbars Preset and Morph
  *
- * @class
- * @ignore
- * @param buffer
- * @param offset
+ * @param buffer {Buffer}
+ * @param offset {number}
+ * @param valueOn4Bits {boolean}
  * @returns {number[]}
  */
-const getB3AndVoxDrawbars = function (buffer, offset) {
-    const offset1_5f = offset; // 0x5f
-    const offset2_61 = offset + 2; // 0x61
-    const offset3_63 = offset + 4; // 0x63
-    const offset4_66 = offset + 7; // 0x66
-    const offset5_68 = offset + 9; // 0x68
-    const offset6_6a = offset + 11; // 0x6a
-    const offset7_6d = offset + 14; // 0x6d
-    const offset8_6f = offset + 16; // 0x6f
-    const offset9_72 = offset + 19; // 0x72
+const getDrawbars = function (buffer, offset, valueOn4Bits) {
+    let d1, d2, d3, d4, d5, d6, d7, d8, d9;
+    let m1, m2, m3, m4, m5, m6, m7, m8, m9;
 
-    let d1 = (buffer.readUInt16BE(offset1_5f + 1) & 0x01e0) >>> 5;
-    let d2 = (buffer.readUInt16BE(offset2_61 + 1) & 0x003c) >>> 2;
-    let d3 = (buffer.readUInt16BE(offset3_63 + 2) & 0x0780) >>> 7;
-    let d4 = (buffer.readUInt16BE(offset4_66 + 1) & 0x00f0) >>> 4;
-    let d5 = (buffer.readUInt16BE(offset5_68 + 1) & 0x001e) >>> 1;
-    let d6 = (buffer.readUInt16BE(offset6_6a + 2) & 0x03c0) >>> 6;
-    let d7 = (buffer.readUInt16BE(offset7_6d + 1) & 0x0078) >>> 3;
-    let d8 = (buffer.readUInt16BE(offset8_6f + 1) & 0x000f) >>> 0;
-    let d9 = (buffer.readUInt16BE(offset9_72 + 1) & 0x01e0) >>> 5;
+    if (valueOn4Bits) {
+        // B3 & Vox drawbars value are coded on 4-bits (morph on 5-bits)
+        const offset1_5f = offset; // 0x5f
+        const offset2_61 = offset + 2; // 0x61
+        const offset3_63 = offset + 4; // 0x63
+        const offset4_66 = offset + 7; // 0x66
+        const offset5_68 = offset + 9; // 0x68
+        const offset6_6a = offset + 11; // 0x6a
+        const offset7_6d = offset + 14; // 0x6d
+        const offset8_6f = offset + 16; // 0x6f
+        const offset9_72 = offset + 19; // 0x72
+
+        d1 = (buffer.readUInt16BE(offset1_5f + 1) & 0x01e0) >>> 5;
+        d2 = (buffer.readUInt16BE(offset2_61 + 1) & 0x003c) >>> 2;
+        d3 = (buffer.readUInt16BE(offset3_63 + 2) & 0x0780) >>> 7;
+        d4 = (buffer.readUInt16BE(offset4_66 + 1) & 0x00f0) >>> 4;
+        d5 = (buffer.readUInt16BE(offset5_68 + 1) & 0x001e) >>> 1;
+        d6 = (buffer.readUInt16BE(offset6_6a + 2) & 0x03c0) >>> 6;
+        d7 = (buffer.readUInt16BE(offset7_6d + 1) & 0x0078) >>> 3;
+        d8 = (buffer.readUInt16BE(offset8_6f + 1) & 0x000f) >>> 0;
+        d9 = (buffer.readUInt16BE(offset9_72 + 1) & 0x01e0) >>> 5;
+
+        m1 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset1_5f - 2) >>> 1, d1, true);
+        m2 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset2_61 - 1) >>> 6, d2, true);
+        m3 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset3_63 - 1) >>> 3, d3, true);
+        m4 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset4_66 - 2) >>> 0, d4, true);
+        m5 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset5_68 - 1) >>> 5, d5, true);
+        m6 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset6_6a - 1) >>> 2, d6, true);
+        m7 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset7_6d - 1) >>> 7, d7, true);
+        m8 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset8_6f - 1) >>> 4, d8, true);
+        m9 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset9_72 - 2) >>> 1, d9, true);
+    } else {
+        // Farfisa drawbars value are coded on 1-bit only (morph on 2-bits)
+        const offset1_8c = offset - 1; // 0x8c
+        const offset2_8d = offset; // 0x8d
+        const offset3_8e = offset + 1; // 0x8e
+        const offset4_8f = offset + 2; // 0x8f
+        const offset5_90 = offset + 3; // 0x90
+        const offset6_91 = offset + 4; // 0x91
+        const offset7_92 = offset + 5; // 0x92
+        const offset8_93 = offset + 6; // 0x93
+        const offset9_94 = offset + 7; // 0x94
+
+        d1 = (buffer.readUInt16BE(offset1_8c) & 0x0002) >>> 1;
+        d2 = (buffer.readUInt16BE(offset2_8d) & 0x0004) >>> 2;
+        d3 = (buffer.readUInt16BE(offset3_8e) & 0x0008) >>> 3;
+        d4 = (buffer.readUInt16BE(offset4_8f) & 0x0010) >>> 4;
+        d5 = (buffer.readUInt16BE(offset5_90) & 0x0020) >>> 5;
+        d6 = (buffer.readUInt16BE(offset6_91) & 0x0040) >>> 6;
+        d7 = (buffer.readUInt16BE(offset7_92) & 0x0080) >>> 7;
+        d8 = (buffer.readUInt16BE(offset8_93) & 0x0100) >>> 8;
+        d9 = (buffer.readUInt16BE(offset9_94) & 0x0200) >>> 9;
+
+        m1 = ns2MorphOrganDrawbar(buffer.readUInt16BE(offset1_8c) >>> 2, d1, false);
+        m2 = ns2MorphOrganDrawbar(buffer.readUInt16BE(offset2_8d) >>> 3, d2, false);
+        m3 = ns2MorphOrganDrawbar(buffer.readUInt16BE(offset3_8e) >>> 4, d3, false);
+        m4 = ns2MorphOrganDrawbar(buffer.readUInt16BE(offset4_8f) >>> 5, d4, false);
+        m5 = ns2MorphOrganDrawbar(buffer.readUInt16BE(offset5_90) >>> 6, d5, false);
+        m6 = ns2MorphOrganDrawbar(buffer.readUInt16BE(offset6_91) >>> 7, d6, false);
+        m7 = ns2MorphOrganDrawbar(buffer.readUInt16BE(offset7_92) >>> 8, d7, false);
+        m8 = ns2MorphOrganDrawbar(buffer.readUInt16BE(offset8_93) >>> 9, d8, false);
+        m9 = ns2MorphOrganDrawbar(buffer.readUInt16BE(offset9_94) >>> 10, d9, false);
+    }
 
     const preset = [d1, d2, d3, d4, d5, d6, d7, d8, d9];
-
-    const m1 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset1_5f - 2) >>> 1, d1);
-    const m2 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset2_61 - 1) >>> 6, d2);
-    const m3 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset3_63 - 1) >>> 3, d3);
-    const m4 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset4_66 - 2) >>> 0, d4);
-    const m5 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset5_68 - 1) >>> 5, d5);
-    const m6 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset6_6a - 1) >>> 2, d6);
-    const m7 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset7_6d - 1) >>> 7, d7);
-    const m8 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset8_6f - 1) >>> 4, d8);
-    const m9 = ns2MorphOrganDrawbar(buffer.readUInt32BE(offset9_72 - 2) >>> 1, d9);
-
     const morphWheel = [m1.wheel, m2.wheel, m3.wheel, m4.wheel, m5.wheel, m6.wheel, m7.wheel, m8.wheel, m9.wheel];
     hideIfEqual(preset, morphWheel);
 
@@ -219,8 +254,8 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
         vibratoChorusModeLabel =
             organVibratoMode.length > 1 && organVibratoMode.charAt(0) === "V" ? "Vibrato" : "Chorus";
 
-        drawbars1 = getB3AndVoxDrawbars(buffer, 0x5f + panelOffset);
-        drawbars2 = getB3AndVoxDrawbars(buffer, 0x96 + panelOffset);
+        drawbars1 = getDrawbars(buffer, 0x5f + panelOffset, true);
+        drawbars2 = getDrawbars(buffer, 0x96 + panelOffset, true);
     } else if (organTypeIsVox) {
         /**
          * Offset in file: 0x5d (b7)
@@ -253,9 +288,10 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
         organVibratoModeValue = (organOffset37 & 0x60) >>> 5;
         organVibratoMode = mapping.ns2OrganVoxVibratoModeMap.get(organVibratoModeValue);
 
-        drawbars1 = getB3AndVoxDrawbars(buffer, 0x76 + panelOffset);
-        drawbars2 = getB3AndVoxDrawbars(buffer, 0xad + panelOffset);
-    } else { //if (organTypeIsFarfisa) { no test to be sure that drawbars are initialized.
+        drawbars1 = getDrawbars(buffer, 0x76 + panelOffset, true);
+        drawbars2 = getDrawbars(buffer, 0xad + panelOffset, true);
+    } else {
+        //if (organTypeIsFarfisa) { no test to be sure that drawbars are initialized.
         /**
          * Offset in file: 0x5e (b7)
          *
@@ -287,10 +323,9 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
         organVibratoModeValue = (organOffset39 & 0x60) >>> 5;
         organVibratoMode = mapping.ns2OrganFarfisaVibratoModeMap.get(organVibratoModeValue);
 
-        drawbars1 = getB3AndVoxDrawbars(buffer, 0x76 + panelOffset);
-        drawbars2 = getB3AndVoxDrawbars(buffer, 0xad + panelOffset);
+        drawbars1 = getDrawbars(buffer, 0x8d + panelOffset, false);
+        drawbars2 = getDrawbars(buffer, 0xc4 + panelOffset, false);
     }
-
 
     const organEnabled = (organOffset43 & 0x80) !== 0;
     const organKbZoneEnabled =
@@ -637,7 +672,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
                  * @module NS2 Organ B3 Decay Fast
                  */
                 decayFast: {
-                    enabled: organTypeIsB3 && ((organOffset35 & 0x08) !== 0),
+                    enabled: organTypeIsB3 && (organOffset35 & 0x08) !== 0,
                 },
                 /**
                  * Offset in file:  0x35 (b4)
@@ -650,7 +685,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
                  * @module NS2 Organ B3 Harmonic Third
                  */
                 harmonicThird: {
-                    enabled: organTypeIsB3 && ((organOffset35 & 0x10) !== 0),
+                    enabled: organTypeIsB3 && (organOffset35 & 0x10) !== 0,
                 },
             },
         },
