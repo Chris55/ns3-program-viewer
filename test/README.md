@@ -19,7 +19,7 @@ The API should return:
 - panelA.synth.oscillator1WaveForm = Sine
 
 ### Special characters
-- "/" is replaced by @s
+- "/" is replaced by @a
 - "±" is replaced by @=
 - "+" is replaced by @p
 - ":" is replaced by @c
