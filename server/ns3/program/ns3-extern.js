@@ -107,6 +107,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              * @module NS3 Extern Midi CC
              */
             midi: midiCc,
+            value: midiCc.toString(),
 
             morph: ns3Morph(externOffsetF8Ww >>> 2, midiCc, (x) => {
                 return x;
@@ -123,6 +124,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              * @module NS3 Extern Midi Program
              */
             midi: midiProgram,
+            value: midiProgram.toString(),
 
             morph: ns3Morph(externOffsetFeWw >>> 2, midiProgram, (x) => {
                 return x;
@@ -139,6 +141,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              * @module NS3 Extern Volume
              */
             midi: volume,
+            value: volume.toString(),
 
             morph: ns3Morph(externOffset102Ww >>> 2, volume, (x) => {
                 return x;

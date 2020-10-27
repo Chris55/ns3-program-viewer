@@ -17,7 +17,7 @@ export default class Ns3VolumeAndMore extends Component {
                 <div className="m-1 text-center">
                     <h6 className="mt-1 font-weight-bold">{this.props.name}</h6>
 
-                    <div className="my-2">
+                    <div className={this.props.name !== "EXTERN" ? "my-2": "d-none"}>
                         <NordLabel label="Level" />
                         <table className="text-left"  style={{ marginLeft: "auto", marginRight: "auto" }}>
                             <tbody>
