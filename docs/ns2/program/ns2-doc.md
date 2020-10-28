@@ -160,30 +160,36 @@ Value: 0x38 (b6-3)</p>
 <dd><p>Offset in file 0x3A (b1-0)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Sample ID">NS2 Synth Sample ID</a></dt>
-<dd><p>Offset in file: 0xA8 (b2-0) to 0xAC (b7-b3)</p>
+<dd><p>Offset in file: 0xf7 (b1-0) to 0xfb (b7-2)</p>
 </dd>
-<dt><a href="#module_NS3 Synth On">NS3 Synth On</a></dt>
-<dd><p>Offset in file: 0x52 (b7)</p>
+<dt><a href="#module_NS2 Synth On">NS2 Synth On</a></dt>
+<dd><p>Offset in file: 0x4d (b6)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Kb Zone">NS3 Synth Kb Zone</a></dt>
-<dd><p>Offset in file: 0x52 (b6-3)</p>
+<dt><a href="#module_NS2 Synth Kb Zone">NS2 Synth Kb Zone</a></dt>
+<dd><p>Offset in file: 0x51 (b6-4)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Volume">NS3 Synth Volume</a></dt>
-<dd><p>Offset in file: 0x52 (b2-0) and 0x53 (b7-4)</p>
+<dt><a href="#module_NS2 Synth Volume">NS2 Synth Volume</a></dt>
+<dd><p>Offset in file: 0x50 (b5-0) and 0x51 (b7)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Octave Shift">NS3 Synth Octave Shift</a></dt>
+<dt><a href="#module_NS3 Synth Octave Shift TODO">NS3 Synth Octave Shift TODO</a></dt>
 <dd><p>Offset in file: 0x56 (b3-0)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Pitch Stick">NS3 Synth Pitch Stick</a></dt>
-<dd><p>Offset in file: 0x57 (b7)</p>
+<dt><a href="#module_NS2 Synth Pitch Stick">NS2 Synth Pitch Stick</a></dt>
+<dd><p>Offset in file: 0x52 (b7)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Sustain Pedal">NS3 Synth Sustain Pedal</a></dt>
-<dd><p>Offset in file: 0x57 (b6)</p>
+<dt><a href="#module_NS2 Synth Sustain Pedal">NS2 Synth Sustain Pedal</a></dt>
+<dd><p>Offset in file: 0x52 (b6)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Kb Hold">NS3 Synth Kb Hold</a></dt>
-<dd><p>Offset in file: 0x80 (b7)</p>
+<dt><a href="#module_NS2 Piano Latch Pedal">NS2 Piano Latch Pedal</a></dt>
+<dd><p>Offset in file: 0x5a (b4)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Voice">NS3 Synth Voice</a></dt>
+<dt><a href="#module_NS2 Piano Kb Gate">NS2 Piano Kb Gate</a></dt>
+<dd><p>Offset in file: 0x5a (b5)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Kb Hold">NS2 Synth Kb Hold</a></dt>
+<dd><p>Offset in file: 0xdc (b1)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Voice">NS2 Synth Voice</a></dt>
 <dd><p>Offset in file: 0x84 (b0) and 0x85 (b7)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Glide">NS3 Synth Glide</a></dt>
@@ -732,81 +738,101 @@ Offset in file 0x3A (b1-0)
 <a name="module_NS2 Synth Sample ID"></a>
 
 ## NS2 Synth Sample ID
-Offset in file: 0xA8 (b2-0) to 0xAC (b7-b3)
+Offset in file: 0xf7 (b1-0) to 0xfb (b7-2)
 
 **Example**  
 ```js
 32-bit synth sample hash code.
 ```
-<a name="module_NS3 Synth On"></a>
+<a name="module_NS2 Synth On"></a>
 
-## NS3 Synth On
-Offset in file: 0x52 (b7)
+## NS2 Synth On
+Offset in file: 0x4d (b6)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS3 Synth Kb Zone"></a>
+<a name="module_NS2 Synth Kb Zone"></a>
 
-## NS3 Synth Kb Zone
-Offset in file: 0x52 (b6-3)
+## NS2 Synth Kb Zone
+Offset in file: 0x51 (b6-4)
 
-**See**: [Organ Kb Zone](ns3-doc.md#ns3-organ-kb-zone) for detailed explanation.  
-<a name="module_NS3 Synth Volume"></a>
-
-## NS3 Synth Volume
-Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
-
-**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed explanation.  
 **Example**  
 ```js
-Morph Wheel:0x53 (b3): polarity (1 = positive, 0 = negative)0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw valueMorph After Touch:0x54 (b3): polarity (1 = positive, 0 = negative)0x54 (b2-b0), 0x55 (b7-b4): 7-bit raw valueMorph Control Pedal:0x55 (b3): polarity (1 = positive, 0 = negative)0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
+0 = LO1 = LO UP2 = UP3 = UP HI4 = HI5 = LO UP HI
 ```
-<a name="module_NS3 Synth Octave Shift"></a>
+<a name="module_NS2 Synth Volume"></a>
 
-## NS3 Synth Octave Shift
+## NS2 Synth Volume
+Offset in file: 0x50 (b5-0) and 0x51 (b7)
+
+**Example**  
+```js
+Morph Wheel:offset in file 0x4d (b5-0) 0x4e (b7-6)Morph After Touch:offset in file 0x4e (b5-0) 0x4f (b7-6)Morph Control Pedal:offset in file 0x4f (b5-0) 0x50 (b7-6)
+```
+<a name="module_NS3 Synth Octave Shift TODO"></a>
+
+## NS3 Synth Octave Shift TODO
 Offset in file: 0x56 (b3-0)
 
 **Example**  
 ```js
 Octave Shift = value - 6
 ```
-<a name="module_NS3 Synth Pitch Stick"></a>
+<a name="module_NS2 Synth Pitch Stick"></a>
 
-## NS3 Synth Pitch Stick
-Offset in file: 0x57 (b7)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS3 Synth Sustain Pedal"></a>
-
-## NS3 Synth Sustain Pedal
-Offset in file: 0x57 (b6)
+## NS2 Synth Pitch Stick
+Offset in file: 0x52 (b7)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS3 Synth Kb Hold"></a>
+<a name="module_NS2 Synth Sustain Pedal"></a>
 
-## NS3 Synth Kb Hold
-Offset in file: 0x80 (b7)
+## NS2 Synth Sustain Pedal
+Offset in file: 0x52 (b6)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS3 Synth Voice"></a>
+<a name="module_NS2 Piano Latch Pedal"></a>
 
-## NS3 Synth Voice
+## NS2 Piano Latch Pedal
+Offset in file: 0x5a (b4)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Piano Kb Gate"></a>
+
+## NS2 Piano Kb Gate
+Offset in file: 0x5a (b5)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Synth Kb Hold"></a>
+
+## NS2 Synth Kb Hold
+Offset in file: 0xdc (b1)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Synth Voice"></a>
+
+## NS2 Synth Voice
 Offset in file: 0x84 (b0) and 0x85 (b7)
 
 **Example**  
 ```js
-0 = Poly1 = Legato2 = Mono
+#include ns2SynthVoiceMap
 ```
 <a name="module_NS3 Synth Glide"></a>
 
