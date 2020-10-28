@@ -80,12 +80,12 @@
 | `0x004A` | `accccccc` | [(c) piano volume morph control pedal](ns2-doc.md#ns2-piano-volume)
 | `0x004B` | `cvvvvvvv` | [(v) piano volume](ns2-doc.md#ns2-piano-volume)
 | `0x004C` | `zzzoooop` | [(z) piano split zones](ns2-doc.md#ns2-piano-kb-zone), [(o) piano octave shift](ns2-doc.md#ns2-piano-octave-shift), [(p) piano pitch stick](ns2-doc.md#ns2-piano-pitch-stick)
-| `0x004D` | `s-------` | [(s) piano sustain](ns2-doc.md#ns2-piano-sustain-pedal)
-| `0x004E` | `--------` |
-| `0x004F` | `--------` |
-| `0x0050` | `--------` |
-| `0x0051` | `--------` |
-| `0x0052` | `--------` |
+| `0x004D` | `sowwwwww` | [(s) piano sustain pedal](ns2-doc.md#ns2-piano-sustain-pedal), [(o) synth on](ns2-doc.md#ns2-synth-on), [(w) synth volume morph wheel](ns2-doc.md#ns2-synth-volume)
+| `0x004E` | `wwaaaaaa` | [(a) synth volume morph after touch](ns2-doc.md#ns2-synth-volume)
+| `0x004F` | `aacccccc` | [(c) synth volume morph control pedal](ns2-doc.md#ns2-synth-volume)
+| `0x0050` | `ccvvvvvv` | [(v) synth volume](ns2-doc.md#ns2-synth-volume)
+| `0x0051` | `vzzz----` | [(z) synth kb zone](ns2-doc.md#ns2-synth-kb-zone)
+| `0x0052` | `ps------` | [(p) synth pitch stick](ns2-doc.md#ns2-synth-pitch-stick), [(s) synth sustain pedal](ns2-doc.md#ns2-synth-sustain-pedal)
 | `0x0053` | `--------` |
 | `0x0054` | `--------` |
 | `0x0055` | `--------` |
@@ -93,7 +93,7 @@
 | `0x0057` | `--------` |
 | `0x0058` | `--------` |
 | `0x0059` | `------lg` | [(l) organ latch pedal](ns2-doc.md#ns2-organ-latch-pedal), [(g) organ kb gate](ns2-doc.md#ns2-organ-kb-gate)
-| `0x005A` | `lg------` | [(l) piano latch pedal](ns2-doc.md#ns2-piano-latch-pedal), [(g) piano kb gate](ns2-doc.md#ns2-piano-kb-gate)
+| `0x005A` | `lgtk----` | [(l) piano latch pedal](ns2-doc.md#ns2-piano-latch-pedal), [(g) piano kb gate](ns2-doc.md#ns2-piano-kb-gate), [(t) synth latch pedal](ns2-doc.md#ns2-synth-latch-pedal), [(k) synth kb gate](ns2-doc.md#ns2-synth-kb-gate)
 | `0x005B` | `--------` |
 | `0x005C` | `b-------` | [(b) organ b3 preset II](ns2-doc.md#ns2-organ-b3-preset-2)
 | `0x005D` | `b-------` | [(b) organ vox vox II](ns2-doc.md#ns2-organ-vox-preset-2)
@@ -220,43 +220,43 @@
 | `0x00D6` | `--------` |
 | `0x00D7` | `--------` |
 | `0x00D8` | `--------` |
-| `0x00D9` | `--------` |
-| `0x00DA` | `--------` |
-| `0x00DB` | `--------` |
-| `0x00DC` | `--------` |
+| `0x00D9` | `-------o` | [(o) synth arp on](ns3-doc.md#ns3-synth-arp-on)
+| `0x00DA` | `mdddd-rr` | [(m) synth arp master clock](ns3-doc.md#ns3-synth-arp-master-clock), [(d) synth arp master clock divisor](ns3-doc.md#ns3-synth-arp-master-clock-divisor), [(r) synth arp master clock rate](ns3-doc.md#ns3-synth-arp-master-clock-rate)
+| `0x00DB` | `rrrrrppn` | [(p) synth arp master pattern](ns3-doc.md#ns3-synth-arp-master-pattern), [(n) synth arp master range](ns3-doc.md#ns3-synth-arp-master-range)
+| `0x00DC` | `nvrrrrh-` | [(v) synth lfo master clock](ns2-doc.md#ns2-synth-lfo-master-clock), [(v) synth lfo rate clock divisor](ns2-doc.md#ns2-synth-lfo-rate-clock-divisor), [(h) synth kb-hold](ns2-doc.md#ns2-synth-kb-hold)
 | `0x00DD` | `--------` |
 | `0x00DE` | `--------` |
-| `0x00DF` | `--------` |
-| `0x00E0` | `--------` |
-| `0x00E1` | `--------` |
-| `0x00E2` | `--------` |
-| `0x00E3` | `--------` |
-| `0x00E4` | `--------` |
-| `0x00E5` | `--------` |
-| `0x00E6` | `--------` |
-| `0x00E7` | `--------` |
-| `0x00E8` | `--------` |
+| `0x00DF` | `aaaaaaad` | [(a) synth mod env attack](ns2-doc.md#ns2-synth-mod-env-attack), [(d) synth mod env decay](ns2-doc.md#ns2-synth-mod-env-decay)
+| `0x00E0` | `ddddddrr` | [(r) synth mod env release](ns2-doc.md#ns2-synth-mod-env-release)
+| `0x00E1` | `rrrrrvmm` | [(v) synth mod env velocity](ns2-doc.md#ns2-synth-mod-env-velocity), [(m) synth osc mode](ns2-doc.md#ns2-synth-osc-mode)
+| `0x00E2` | `mfffffff` | [(f) synth osc waveform](ns2-doc.md#ns2-synth-osc-waveform)
+| `0x00E3` | `fffwwwww` | [(w) synth shape morph wheel](ns2-doc.md#ns2-synth-shape)
+| `0x00E4` | `wwwaaaaa` | [(a) synth shape morph after touch](ns2-doc.md#ns2-synth-shape)
+| `0x00E5` | `aaaccccc` | [(c) synth shape morph control pedal](ns2-doc.md#ns2-synth-shape)
+| `0x00E6` | `cccsssss` | [(s) synth shape](ns2-doc.md#ns2-synth-shape)
+| `0x00E7` | `ssmmmmmm` | [(m) synth shape mod](ns2-doc.md#ns2-synth-shape-mod)
+| `0x00E8` | `m-------` |
 | `0x00E9` | `--------` |
 | `0x00EA` | `--------` |
 | `0x00EB` | `--------` |
-| `0x00EC` | `--------` |
-| `0x00ED` | `--------` |
-| `0x00EE` | `--------` |
-| `0x00EF` | `--------` |
-| `0x00F0` | `--------` |
-| `0x00F1` | `--------` |
-| `0x00F2` | `--------` |
-| `0x00F3` | `--------` |
-| `0x00F4` | `--------` |
-| `0x00F5` | `--------` |
-| `0x00F6` | `--------` |
-| `0x00F7` | `--------` |
-| `0x00F8` | `--------` |
-| `0x00F9` | `--------` |
-| `0x00FA` | `--------` |
-| `0x00FB` | `--------` |
-| `0x00FC` | `--------` |
-| `0x00FD` | `--------` |
+| `0x00EC` | `------sw` | [(s) synth skip sample attack](ns2-doc.md#ns2-synth-skip-sample-attack), [(w) synth filter freq morph wheel](ns2-doc.md#ns2-synth-filter-freq)
+| `0x00ED` | `wwwwwwwa` | [(a) synth filter freq morph after touch](ns2-doc.md#ns2-synth-filter-freq)
+| `0x00EE` | `aaaaaaac` | [(c) synth filter freq morph control pedal](ns2-doc.md#ns2-synth-filter-freq)
+| `0x00EF` | `cccccccf` | [(f) synth filter freq](ns2-doc.md#ns2-synth-filter-freq)
+| `0x00F0` | `ffffffrr` | [(r) synth filter resonance](ns2-doc.md#ns2-synth-filter-resonance)
+| `0x00F1` | `rrrrr222` | [(m) synth freq mod 2](ns2-doc.md#ns2-synth-freq-mod-2)
+| `0x00F2` | `22221111` | [(l) synth freq mod 1](ns2-doc.md#ns2-synth-freq-mod-1)
+| `0x00F3` | `111kttta` | [(t) synth filter kb track](ns2-doc.md#ns2-synth-filter-kb-track), [(t) synth filter type](ns2-doc.md#ns2-synth-filter-type), [(a) synth amp env attack](ns2-doc.md#ns2-synth-amp-env-attack)
+| `0x00F4` | `aaaaaadd` | [(d) synth amp env decay](ns2-doc.md#ns2-synth-amp-env-decay)
+| `0x00F5` | `dddddrrr` | [(r) synth amp env release](ns2-doc.md#ns2-synth-amp-env-release)
+| `0x00F6` | `rrrrvttt` | [(v) synth amp env velocity](ns2-doc.md#ns2-synth-amp-env-velocity), [(t) synth lfo rate](ns2-doc.md#ns2-synth-lfo-rate)
+| `0x00F7` | `ttttwwii` | [(w) synth lfo waveform](ns2-doc.md#ns2-synth-lfo-waveform), [(i) synth sample id](ns2-doc.md#ns2-synth-sample-id)
+| `0x00F8` | `iiiiiiii` |
+| `0x00F9` | `iiiiiiii` |
+| `0x00FA` | `iiiiiiii` |
+| `0x00FB` | `iiiiiirr` | [(r) synth glide rate](ns2-doc.md#ns2-synth-glide-rate)
+| `0x00FC` | `rrrrrmmu` | [(m) synth glide-voice-mode](ns2-doc.md#ns2-synth-voice-mode), [(u) synth unison](ns2-doc.md#ns2-synth-unison)
+| `0x00FD` | `uuvvv---` | [(v) synth vibrato](ns2-doc.md#ns2-synth-vibrato)
 | `0x00FE` | `--------` |
 | `0x00FF` | `--------` |
 | `0x0100` | `--------` |
@@ -300,7 +300,7 @@
 | `0x0126` | `--------` |
 | `0x0127` | `--------` |
 | `0x0128` | `--------` |
-| `0x0129` | `--------` |
+| `0x0129` | `--------` | Piano Slot B, same as offset 0x30, offset from Slot A is 0xf9 (249 bytes)
 | `0x012A` | `--------` |
 | `0x012B` | `--------` |
 | `0x012C` | `--------` |

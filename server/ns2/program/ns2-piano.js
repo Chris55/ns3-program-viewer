@@ -1,4 +1,5 @@
 const mapping = require("./ns2-mapping");
+const {getSampleIdNs2ToNs3} = require("../../library/ns3-library-service");
 const { ns2VolumeEx } = require("./ns2-utils");
 const { ns2KbZone } = require("./ns2-utils");
 const { getSample } = require("../../library/ns3-library-service");
@@ -40,17 +41,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
     const clavinetModel = mapping.ns2PianoClavinetModelMap.get(clavinetVariation);
 
     const ns2PianoSampleId = BigInt((pianoOffsetCdWww & 0x0000003fffffffc0n) >> 6n);
-    // convert the sampleId to NS3 format:
-    // b31 is inverted then value is decremented
-    // example:
-    //  | NS2 Hash   | NS3 Hash   | Name
-    //  | ---------- | ---------- | --------------------------
-    //  | 0x3f61a640 | 0xbf61a63f | Italian Grand Faz Sml 5.3
-    //  | 0x9fef7497 | 0x1fef7496 | Italian Grand Faz Lrg 5.3
-    //  | 0x01a1a00b | 0x81a1a00a | EP4 Mk5 80s Lrg
-    //
-    // 0 if program init.
-    const pianoSampleId = ns2PianoSampleId === 0n ? Number(0) : Number(ns2PianoSampleId ^ 0x80000000n) - 1;
+    const pianoSampleId = getSampleIdNs2ToNs3(ns2PianoSampleId);
 
     let pianoLib = getSample(pianoSampleId, clavinetVariation);
 

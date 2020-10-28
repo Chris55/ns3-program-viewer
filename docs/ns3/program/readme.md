@@ -32,7 +32,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 ## Contributors
 - [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) (@florence)
 - [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal)
-- Thanks to other NUF member(s): @cookie, @gordon, @rpossemo
+- Thanks to other NUF members: @cookie, @gordon, @rpossemo, @hobster
 
 ## Revision
 
@@ -45,6 +45,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |      |              | Added NS3 missing Organ Preset II options
 |      |              | Fixed NS3 Organ Morph implementation
 |      |              | Added NS3 Synth Preset
+|      |              | Fixed typo in offsets 0x011B, 0x011D, 0x011F, and 0x119
 |      |              | Draft added Stage 2
 
 
@@ -368,13 +369,13 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0116` | `aaaawwww` | [(w) effect 2 amount morph wheel](ns3-doc.md#ns3-effect-2-amount)
 | `0x0117` | `wwwwaaaa` | [(a) effect 2 amount morph after touch](ns3-doc.md#ns3-effect-2-amount)
 | `0x0118` | `aaaapppp` | [(p) effect 2 amount morph control pedal](ns3-doc.md#ns3-effect-2-amount)
-| `0x0119` | `ppppossc` | [(o) delay on](ns3-doc.md#ns3-delay-on), [(s) delay source](ns3-doc.md#ns3-delay-source), [(m) delay master clock](ns3-doc.md#ns3-delay-master-clock)
+| `0x0119` | `ppppossm` | [(o) delay on](ns3-doc.md#ns3-delay-on), [(s) delay source](ns3-doc.md#ns3-delay-source), [(m) delay master clock](ns3-doc.md#ns3-delay-master-clock)
 | `0x011A` | `tttttttx` | [(t) delay tempo](ns3-doc.md#ns3-delay-tempo), [(x) delay tempo lsw](ns3-doc.md#ns3-delay-tempo)
-| `0x011B` | `xxxxxxpw` | [(w) delay tempo morph wheel](ns3-doc.md#ns3-delay-tempo)
+| `0x011B` | `xxxxxxww` | [(w) delay tempo morph wheel](ns3-doc.md#ns3-delay-tempo)
 | `0x011C` | `wwwwwwxx` | [(x) delay tempo morph wheel lsw](ns3-doc.md#ns3-delay-tempo)
-| `0x011D` | `xxxxxpaa` | [(a) delay tempo morph after touch](ns3-doc.md#ns3-delay-tempo)
+| `0x011D` | `xxxxxaaa` | [(a) delay tempo morph after touch](ns3-doc.md#ns3-delay-tempo)
 | `0x011E` | `aaaaaxxx` | [(x) delay tempo morph after touch lsw](ns3-doc.md#ns3-delay-tempo)
-| `0x011F` | `xxxxpccc` | [(c) delay tempo morph control pedal](ns3-doc.md#ns3-delay-tempo)
+| `0x011F` | `xxxxcccc` | [(c) delay tempo morph control pedal](ns3-doc.md#ns3-delay-tempo)
 | `0x0120` | `ccccxxxx` | [(x) delay tempo morph control pedal lsw](ns3-doc.md#ns3-delay-tempo)
 | `0x0121` | `xxxmmmmm` | [(t) delay mix](ns3-doc.md#ns3-delay-mix)
 | `0x0122` | `mmwwwwww` | [(w) delay mix morph wheel](ns3-doc.md#ns3-delay-mix)

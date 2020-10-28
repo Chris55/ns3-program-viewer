@@ -76,19 +76,23 @@ class App extends Component {
                 newData.panelA.organ.enabled = true;
                 newData.panelA.piano.enabled = true;
                 newData.panelA.synth.enabled = true;
+                newData.panelA.extern.enabled = true;
                 newData.panelB.enabled = true;
                 newData.panelB.organ.enabled = true;
                 newData.panelB.piano.enabled = true;
                 newData.panelB.synth.enabled = true;
+                newData.panelB.extern.enabled = true;
             } else if (newData.slotA) {
                 newData.slotA.enabled = true;
                 newData.slotA.organ.enabled = true;
                 newData.slotA.piano.enabled = true;
-                //newData.slotA.synth.enabled = true;
+                newData.slotA.synth.enabled = true;
+                newData.slotA.extern.enabled = true;
                 newData.slotB.enabled = true;
                 newData.slotB.organ.enabled = true;
                 newData.slotB.piano.enabled = true;
-                //newData.slotB.synth.enabled = true;
+                newData.slotB.synth.enabled = true;
+                newData.slotB.extern.enabled = true;
             }
             this.setState((prevState) => ({
                 showAll: true,

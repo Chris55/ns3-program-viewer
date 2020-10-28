@@ -24,34 +24,34 @@ export default class Ns2SectionSynth extends Component {
                         <div className="">
                             <div className="row no-gutters">
                                 <div className="d-flex">
-                                    <Ns2VolumeAndMore name={"SYNTH"} data={synth} />
+                                    {/*<Ns2VolumeAndMore name={"SYNTH"} data={synth} />*/}
                                 </div>
 
                                 <div className="row no-gutters d-flex flex-wrap">
                                     <div className="row no-gutters flex-column m-1">
-                                        <div >
-                                            <NordLabelAndValue label="Voice" data={synth.voice} />
-                                            <span className="m-1" />
-                                            <NordLabelAndValue
-                                                enabled={synth.voice.value !== "Poly"}
-                                                label="Glide Rate"
-                                                data={synth.glide}
-                                            />
-                                            <span className="m-1" />
-                                            <NordLabelAndValue
-                                                enabled={synth.unison.value !== "Off"}
-                                                label="Unison"
-                                                data={synth.unison}
-                                            />
-                                            <span className="m-1" />
-                                            <NordLabelAndValue
-                                                enabled={synth.vibrato.value !== "Off"}
-                                                label="Vibrato"
-                                                data={synth.vibrato}
-                                            />
-                                            <span className="m-1" />
-                                            <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />
-                                        </div>
+                                        {/*<div >*/}
+                                        {/*    <NordLabelAndValue label="Voice" data={synth.voice} />*/}
+                                        {/*    <span className="m-1" />*/}
+                                        {/*    <NordLabelAndValue*/}
+                                        {/*        enabled={synth.voice.value !== "Poly"}*/}
+                                        {/*        label="Glide Rate"*/}
+                                        {/*        data={synth.glide}*/}
+                                        {/*    />*/}
+                                        {/*    <span className="m-1" />*/}
+                                        {/*    <NordLabelAndValue*/}
+                                        {/*        enabled={synth.unison.value !== "Off"}*/}
+                                        {/*        label="Unison"*/}
+                                        {/*        data={synth.unison}*/}
+                                        {/*    />*/}
+                                        {/*    <span className="m-1" />*/}
+                                        {/*    <NordLabelAndValue*/}
+                                        {/*        enabled={synth.vibrato.value !== "Off"}*/}
+                                        {/*        label="Vibrato"*/}
+                                        {/*        data={synth.vibrato}*/}
+                                        {/*    />*/}
+                                        {/*    <span className="m-1" />*/}
+                                        {/*    <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />*/}
+                                        {/*</div>*/}
                                         <div className="nord-name">
                                             <div className={presetName !== "" ? "": "d-none"}>
                                                 <div className={synth.oscillators.waveForm1.valid ? "nord-font-small": ""}>
@@ -63,40 +63,40 @@ export default class Ns2SectionSynth extends Component {
                                             <div ><small>{synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}</small></div>
                                         </div>
 
-                                        <div className="row no-gutters d-flex flex-wrap">
-                                            <Ns2SectionSynthOscillators
-                                                className="nord-synth-sub-feature"
-                                                data={synth.oscillators}
-                                            />
-                                            <span className="m-1" />
-                                            <Ns2SectionSynthFilter
-                                                className="nord-synth-sub-feature"
-                                                data={synth.filter}
-                                            />
-                                        </div>
+                                        {/*<div className="row no-gutters d-flex flex-wrap">*/}
+                                        {/*    <Ns2SectionSynthOscillators*/}
+                                        {/*        className="nord-synth-sub-feature"*/}
+                                        {/*        data={synth.oscillators}*/}
+                                        {/*    />*/}
+                                        {/*    <span className="m-1" />*/}
+                                        {/*    <Ns2SectionSynthFilter*/}
+                                        {/*        className="nord-synth-sub-feature"*/}
+                                        {/*        data={synth.filter}*/}
+                                        {/*    />*/}
+                                        {/*</div>*/}
 
-                                        <div className="row no-gutters d-flex flex-wrap">
-                                            <Ns2SectionSynthLfo className="nord-synth-sub-feature" data={synth.lfo} />
-                                            <span className="m-1" />
-                                            <Ns2SectionSynthModEnv
-                                                className="nord-synth-sub-feature"
-                                                data={synth.envelopes.modulation}
-                                            />
-                                            <span className="m-1" />
-                                            <Ns2SectionSynthAmpEnv
-                                                className="nord-synth-sub-feature"
-                                                data={synth.envelopes.amplifier}
-                                            />
-                                        </div>
+                                        {/*<div className="row no-gutters d-flex flex-wrap">*/}
+                                        {/*    <Ns2SectionSynthLfo className="nord-synth-sub-feature" data={synth.lfo} />*/}
+                                        {/*    <span className="m-1" />*/}
+                                        {/*    <Ns2SectionSynthModEnv*/}
+                                        {/*        className="nord-synth-sub-feature"*/}
+                                        {/*        data={synth.envelopes.modulation}*/}
+                                        {/*    />*/}
+                                        {/*    <span className="m-1" />*/}
+                                        {/*    <Ns2SectionSynthAmpEnv*/}
+                                        {/*        className="nord-synth-sub-feature"*/}
+                                        {/*        data={synth.envelopes.amplifier}*/}
+                                        {/*    />*/}
+                                        {/*</div>*/}
 
                                     </div>
 
-                                    <Ns2Fx
-                                        className="d-flex"
-                                        data={this.props.effects}
-                                        source="Synth"
-                                        arp={synth.arpeggiator}
-                                    />
+                                    {/*<Ns2Fx*/}
+                                    {/*    className="d-flex"*/}
+                                    {/*    data={this.props.effects}*/}
+                                    {/*    source="Synth"*/}
+                                    {/*    arp={synth.arpeggiator}*/}
+                                    {/*/>*/}
                                 </div>
                             </div>
                         </div>

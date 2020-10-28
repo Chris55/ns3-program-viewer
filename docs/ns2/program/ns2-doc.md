@@ -159,6 +159,114 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_NS2 Dual Keyboard Style">NS2 Dual Keyboard Style</a></dt>
 <dd><p>Offset in file 0x3A (b1-0)</p>
 </dd>
+<dt><a href="#module_NS2 Synth Sample ID">NS2 Synth Sample ID</a></dt>
+<dd><p>Offset in file: 0xA8 (b2-0) to 0xAC (b7-b3)</p>
+</dd>
+<dt><a href="#module_NS3 Synth On">NS3 Synth On</a></dt>
+<dd><p>Offset in file: 0x52 (b7)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Kb Zone">NS3 Synth Kb Zone</a></dt>
+<dd><p>Offset in file: 0x52 (b6-3)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Volume">NS3 Synth Volume</a></dt>
+<dd><p>Offset in file: 0x52 (b2-0) and 0x53 (b7-4)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Octave Shift">NS3 Synth Octave Shift</a></dt>
+<dd><p>Offset in file: 0x56 (b3-0)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Pitch Stick">NS3 Synth Pitch Stick</a></dt>
+<dd><p>Offset in file: 0x57 (b7)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Sustain Pedal">NS3 Synth Sustain Pedal</a></dt>
+<dd><p>Offset in file: 0x57 (b6)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Kb Hold">NS3 Synth Kb Hold</a></dt>
+<dd><p>Offset in file: 0x80 (b7)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Voice">NS3 Synth Voice</a></dt>
+<dd><p>Offset in file: 0x84 (b0) and 0x85 (b7)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Glide">NS3 Synth Glide</a></dt>
+<dd><p>Offset in file: 0x85 (b6-0) 7 bits, range 0/10</p>
+</dd>
+<dt><a href="#module_NS3 Synth Unison">NS3 Synth Unison</a></dt>
+<dd><p>Offset in file: 0x86 (b7-6)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Vibrato">NS3 Synth Vibrato</a></dt>
+<dd><p>Offset in file: 0x86 (b5-3)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Oscillator Type">NS3 Synth Oscillator Type</a></dt>
+<dd><p>Offset in file: 0x8D (b1-0) and 0x8E (b7)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Oscillator 1 Wave Form">NS3 Synth Oscillator 1 Wave Form</a></dt>
+<dd><p>Offset in file: 0x8E (b3-0) and 0x8F (b7/6)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Oscillator Config">NS3 Synth Oscillator Config</a></dt>
+<dd><p>Offset in file: 0x8F (b4-1)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Oscillator Control">NS3 Synth Oscillator Control</a></dt>
+<dd><p>Offset in file: 0x90 (b2-0) and 0x91 (b7-4)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Pitch">NS3 Synth Pitch</a></dt>
+<dd><p>Offset in file: 0x8f (b0) and 0x90 (b7-3)</p>
+</dd>
+<dt><a href="#module_NS3 Synth LFO Mod Env">NS3 Synth LFO Mod Env</a></dt>
+<dd><p>Offset in file: 0x94 (b3-0) and 0x95 (b7-5)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Fast Attack">NS3 Synth Fast Attack</a></dt>
+<dd><p>Offset in file: 0xAC (b2)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Mod Env Attack">NS3 Synth Mod Env Attack</a></dt>
+<dd><p>Offset in file: 0x8B (b7-1)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Mod Env Decay">NS3 Synth Mod Env Decay</a></dt>
+<dd><p>Offset in file: 0x8B (b0) and 0x8C (b7-2)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Mod Env Release">NS3 Synth Mod Env Release</a></dt>
+<dd><p>Offset in file: 0x8C (b1-0) and 0x8D (b7-3)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Mod Env Velocity">NS3 Synth Mod Env Velocity</a></dt>
+<dd><p>Offset in file: 0x8D (b2)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Amp Env Attack">NS3 Synth Amp Env Attack</a></dt>
+<dd><p>Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Amp Env Decay">NS3 Synth Amp Env Decay</a></dt>
+<dd><p>Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Amp Env Release">NS3 Synth Amp Env Release</a></dt>
+<dd><p>Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Amp Env Velocity">NS3 Synth Amp Env Velocity</a></dt>
+<dd><p>Offset in file: 0xA8 (b4-3)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Lfo Wave">NS3 Synth Lfo Wave</a></dt>
+<dd><p>Offset in file: 0x86 (b2-0)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Lfo Rate">NS3 Synth Lfo Rate</a></dt>
+<dd><p>Offset in file: 0x87 (b6-0)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Lfo Master Clock">NS3 Synth Lfo Master Clock</a></dt>
+<dd><p>Offset in file: 0x87 (b7)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Arp On">NS3 Synth Arp On</a></dt>
+<dd><p>Offset in file: 0x80 (b6)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Arp Rate">NS3 Synth Arp Rate</a></dt>
+<dd><p>Offset in file: 0x81 (b7-1)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Arp Kb Sync">NS3 Synth Arp Kb Sync</a></dt>
+<dd><p>Offset in file: 0x80 (b5)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Arp Master Clock">NS3 Synth Arp Master Clock</a></dt>
+<dd><p>Offset in file: 0x80 (b0)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Arp Range">NS3 Synth Arp Range</a></dt>
+<dd><p>Offset in file: 0x80 (b4-3)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Arp Pattern">NS3 Synth Arp Pattern</a></dt>
+<dd><p>Offset in file: 0x80 (b2-1)</p>
+</dd>
 </dl>
 
 <a name="module_NS2 Organ B3 Preset 2"></a>
@@ -620,4 +728,329 @@ Offset in file 0x3A (b1-0)
 **Example**  
 ```js
 0 = Panel1 = Organ2 = Piano3 = Synth
+```
+<a name="module_NS2 Synth Sample ID"></a>
+
+## NS2 Synth Sample ID
+Offset in file: 0xA8 (b2-0) to 0xAC (b7-b3)
+
+**Example**  
+```js
+32-bit synth sample hash code.
+```
+<a name="module_NS3 Synth On"></a>
+
+## NS3 Synth On
+Offset in file: 0x52 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Kb Zone"></a>
+
+## NS3 Synth Kb Zone
+Offset in file: 0x52 (b6-3)
+
+**See**: [Organ Kb Zone](ns3-doc.md#ns3-organ-kb-zone) for detailed explanation.  
+<a name="module_NS3 Synth Volume"></a>
+
+## NS3 Synth Volume
+Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
+
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed explanation.  
+**Example**  
+```js
+Morph Wheel:0x53 (b3): polarity (1 = positive, 0 = negative)0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw valueMorph After Touch:0x54 (b3): polarity (1 = positive, 0 = negative)0x54 (b2-b0), 0x55 (b7-b4): 7-bit raw valueMorph Control Pedal:0x55 (b3): polarity (1 = positive, 0 = negative)0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
+```
+<a name="module_NS3 Synth Octave Shift"></a>
+
+## NS3 Synth Octave Shift
+Offset in file: 0x56 (b3-0)
+
+**Example**  
+```js
+Octave Shift = value - 6
+```
+<a name="module_NS3 Synth Pitch Stick"></a>
+
+## NS3 Synth Pitch Stick
+Offset in file: 0x57 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Sustain Pedal"></a>
+
+## NS3 Synth Sustain Pedal
+Offset in file: 0x57 (b6)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Kb Hold"></a>
+
+## NS3 Synth Kb Hold
+Offset in file: 0x80 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Voice"></a>
+
+## NS3 Synth Voice
+Offset in file: 0x84 (b0) and 0x85 (b7)
+
+**Example**  
+```js
+0 = Poly1 = Legato2 = Mono
+```
+<a name="module_NS3 Synth Glide"></a>
+
+## NS3 Synth Glide
+Offset in file: 0x85 (b6-0) 7 bits, range 0/10
+
+**Example**  
+```js
+0/127 value = 0 / 10
+```
+<a name="module_NS3 Synth Unison"></a>
+
+## NS3 Synth Unison
+Offset in file: 0x86 (b7-6)
+
+**Example**  
+```js
+0 = Off1 = 12 = 23 = 3
+```
+<a name="module_NS3 Synth Vibrato"></a>
+
+## NS3 Synth Vibrato
+Offset in file: 0x86 (b5-3)
+
+**Example**  
+```js
+0 = Off1 = Delay 12 = Delay 23 = Delay 34 = Wheel5 = After Touch
+```
+<a name="module_NS3 Synth Oscillator Type"></a>
+
+## NS3 Synth Oscillator Type
+Offset in file: 0x8D (b1-0) and 0x8E (b7)
+
+**Example**  
+```js
+0 = Classic1 = Wave2 = Formant3 = Super4 = Sample
+```
+<a name="module_NS3 Synth Oscillator 1 Wave Form"></a>
+
+## NS3 Synth Oscillator 1 Wave Form
+Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
+
+**Example**  
+```js
+ID | Classic  | Wave               | Formant         | Super-- | -------- | ------------------ | --------------- | ------------------- O | Sine     | Wave 2nd Harm      | Format Wave Aaa | Super Wave Saw 1 | Triangle | Wave 3rd Harm      | Format Wave Eee | Super Wave Saw 2 2 | Saw      | Wave 4th Harm      | Format Wave Iii | Super Wave Square 3 | Square   | Wave 5th Harm      | Format Wave Ooo | Super Wave Square 2 4 | Pulse 33 | Wave 6th Harm      | Format Wave Uuu | Super Wave Bright 5 | Pulse 10 | Wave 7th Harm      | Format Wave Yyy | Super Wave Bright 2 6 | ESaw     | Wave 8th Harm      | Format Wave AO  | Super Wave Strings 7 | ESquare  | Wave Organ 1       | Format Wave AE  | Super Wave Organ 8 |          | Wave Organ 2       | Format Wave OE  | 9 |          | Wave Principal     |10 |          | Wave Flute 1       |11 |          | Wave Flute 2       |12 |          | Wave Clarinet 1    |13 |          | Wave Clarinet 2    |14 |          | Wave Alto Sax      |15 |          | Wave Tenor Sax     |16 |          | Wave 2nd Spectra   |17 |          | Wave 3rd Spectra   |18 |          | Wave 4th Spectra   |19 |          | Wave 5th Spectra   |20 |          | Wave 6th Spectra   |21 |          | Wave 7th Spectra   |22 |          | Wave 8th Spectra   |23 |          | Wave Saw Random    |24 |          | Wave Saw Bright    |25 |          | Wave Sqr Bright    |26 |          | Wave Saw NoFund    |27 |          | Wave EPiano 1      |28 |          | Wave EPiano 2      |29 |          | Wave EPiano 3      |30 |          | Wave DX 1          |31 |          | Wave DX 2          |32 |          | Wave Full Tines    |33 |          | Wave Ac Piano      |34 |          | Wave Ice 1         |35 |          | Wave Ice 2         |36 |          | Wave Clavinet 1    |37 |          | Wave Clavinet 2    |38 |          | Wave Clavinet 3    |39 |          | Wave Triplets      |40 |          | Wave Bell          |41 |          | Wave Bar 1         |42 |          | Wave Bar 2         |43 |          | Wave Tines         |44 |          | Wave Marimba       |45 |          | Wave Tubular Bells |
+```
+<a name="module_NS3 Synth Oscillator Config"></a>
+
+## NS3 Synth Oscillator Config
+Offset in file: 0x8F (b4-1)
+
+**Example**  
+```js
+0 = None1 = Pitch2 = Shape3 = Sync4 = Detune5 = MixSin6 = MixTri7 = MixSaw8 = MixSqr9 = MixBell10 = MixNs111 = MixNs212 = FM113 = FM214 = RM
+```
+<a name="module_NS3 Synth Oscillator Control"></a>
+
+## NS3 Synth Oscillator Control
+Offset in file: 0x90 (b2-0) and 0x91 (b7-4)
+
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
+**Example**  
+```js
+Type                  Midi value conversionPitch (1)             0/127 => 0/24Shape (2)             0/127 => 0/100 %Sync (3)              0/127 => 0/10Detune (4)            0/127 => 0/4Mix* (5 to 11)        0/127 => 100/0 to 0/100FM & RM (12 to 14)    0/127 => 0/100 %Morph Wheel:0x91 (b3): polarity (1 = positive, 0 = negative)0x91 (b2-b0), 0x92 (b7-b4): 7-bit raw valueMorph After Touch:0x92 (b3): polarity (1 = positive, 0 = negative)0x92 (b2-b0), 0x93 (b7-b4): 7-bit raw valueMorph Control Pedal:0x93 (b3): polarity (1 = positive, 0 = negative)0x93 (b2-b0), 0x94 (b7-b4): 7-bit raw value
+```
+<a name="module_NS3 Synth Pitch"></a>
+
+## NS3 Synth Pitch
+Offset in file: 0x8f (b0) and 0x90 (b7-3)
+
+**Example**  
+```js
+Midi value = 6-bit value + b0 forced to zero to have a standard Midi 7-bit valuevalue conversion: -12 (Sub) to +48
+```
+<a name="module_NS3 Synth LFO Mod Env"></a>
+
+## NS3 Synth LFO Mod Env
+Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
+
+**Example**  
+```js
+Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:0   = 10.0 (100% left value) 'LFO Amount'60  = 0.0 for both values120 = 10.0 (100% right value) 'Mod Env Amount'
+```
+<a name="module_NS3 Synth Fast Attack"></a>
+
+## NS3 Synth Fast Attack
+Offset in file: 0xAC (b2)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Mod Env Attack"></a>
+
+## NS3 Synth Mod Env Attack
+Offset in file: 0x8B (b7-1)
+
+**Example**  
+```js
+0/127 value = 0.5 ms / 45 s#include ns3SynthEnvAttackMap
+```
+<a name="module_NS3 Synth Mod Env Decay"></a>
+
+## NS3 Synth Mod Env Decay
+Offset in file: 0x8B (b0) and 0x8C (b7-2)
+
+**Example**  
+```js
+0/127 value = 3.0 ms / 45 s (Sustain)#include ns3SynthEnvDecayOrReleaseMap
+```
+<a name="module_NS3 Synth Mod Env Release"></a>
+
+## NS3 Synth Mod Env Release
+Offset in file: 0x8C (b1-0) and 0x8D (b7-3)
+
+**Example**  
+```js
+0/127 value = 3.0 ms / 45 s (Inf)#include ns3SynthEnvDecayOrReleaseMap
+```
+<a name="module_NS3 Synth Mod Env Velocity"></a>
+
+## NS3 Synth Mod Env Velocity
+Offset in file: 0x8D (b2)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Amp Env Attack"></a>
+
+## NS3 Synth Amp Env Attack
+Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)
+
+**Example**  
+```js
+0/127 value = 0.5 ms / 45 s#include ns3SynthEnvAttackMap
+```
+<a name="module_NS3 Synth Amp Env Decay"></a>
+
+## NS3 Synth Amp Env Decay
+Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)
+
+**Example**  
+```js
+0/127 value = 3.0 ms / 45 s (Sustain)#include ns3SynthEnvDecayOrReleaseMap
+```
+<a name="module_NS3 Synth Amp Env Release"></a>
+
+## NS3 Synth Amp Env Release
+Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)
+
+**Example**  
+```js
+0/127 value = 3.0 ms / 45 s#include ns3SynthEnvDecayOrReleaseMap
+```
+<a name="module_NS3 Synth Amp Env Velocity"></a>
+
+## NS3 Synth Amp Env Velocity
+Offset in file: 0xA8 (b4-3)
+
+**Example**  
+```js
+0 = Off1 = 12 = 23 = 3
+```
+<a name="module_NS3 Synth Lfo Wave"></a>
+
+## NS3 Synth Lfo Wave
+Offset in file: 0x86 (b2-0)
+
+**Example**  
+```js
+0 = Triangle1 = Saw2 = Neg Saw3 = Square4 = S/H
+```
+<a name="module_NS3 Synth Lfo Rate"></a>
+
+## NS3 Synth Lfo Rate
+Offset in file: 0x87 (b6-0)
+
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
+**Example**  
+```js
+0/127 value = 0.03 Hz / 523 Hz#include ns3SynthLfoRateMapif LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division#include ns3SynthLfoRateMasterClockDivisionMapMorph Wheel:0x88 (b7): polarity (1 = positive, 0 = negative)0x88 (b6-b0): 7-bit raw valueMorph After Touch:0x89 (b7): polarity (1 = positive, 0 = negative)0x89 (b6-b0): 7-bit raw valueMorph Control Pedal:0x8A (b7): polarity (1 = positive, 0 = negative)0x8A (b6-b0): 7-bit raw value
+```
+<a name="module_NS3 Synth Lfo Master Clock"></a>
+
+## NS3 Synth Lfo Master Clock
+Offset in file: 0x87 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Arp On"></a>
+
+## NS3 Synth Arp On
+Offset in file: 0x80 (b6)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Arp Rate"></a>
+
+## NS3 Synth Arp Rate
+Offset in file: 0x81 (b7-1)
+
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
+**Example**  
+```js
+0/127 value = 16 bpm / Fast 5#include ns3SynthArpRateMapif Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division#include ns3SynthArpMasterClockDivisionMapMorph Wheel:0x81 (b0): polarity (1 = positive, 0 = negative)0x82 (b7-b1): 7-bit raw valueMorph After Touch:0x82 (b0): polarity (1 = positive, 0 = negative)0x83 (b7-b1): 7-bit raw valueMorph Control Pedal:0x83 (b0): polarity (1 = positive, 0 = negative)0x84 (b7-b1): 7-bit raw value
+```
+<a name="module_NS3 Synth Arp Kb Sync"></a>
+
+## NS3 Synth Arp Kb Sync
+Offset in file: 0x80 (b5)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Arp Master Clock"></a>
+
+## NS3 Synth Arp Master Clock
+Offset in file: 0x80 (b0)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Arp Range"></a>
+
+## NS3 Synth Arp Range
+Offset in file: 0x80 (b4-3)
+
+**Example**  
+```js
+0 = 1 Octave1 = 2 Octaves2 = 3 Octaves3 = 4 Octaves
+```
+<a name="module_NS3 Synth Arp Pattern"></a>
+
+## NS3 Synth Arp Pattern
+Offset in file: 0x80 (b2-1)
+
+**Example**  
+```js
+0 = Up1 = Down2 = Up/Down3 = Random
 ```

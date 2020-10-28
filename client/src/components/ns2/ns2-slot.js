@@ -9,7 +9,7 @@ import Ns2FxReverb from "./ns2-fx-reverb";
 export default class Ns2Slot extends Component {
     render() {
         const data = this.props.data;
-        const visible = data.organ.enabled || data.piano.enabled || data.synth.enabled;
+        const visible = data.organ.enabled || data.piano.enabled || data.synth.enabled || data.extern.enabled;
 
         return (
             <div className={visible ? "ns3-panel" : "d-none"}>
@@ -39,13 +39,13 @@ export default class Ns2Slot extends Component {
                                 />
                             </div>
 
-                            <div>
-                                {/*<Ns2SectionSynth*/}
-                                {/*    className="ns3-section"*/}
-                                {/*    data={data.synth}*/}
-                                {/*    effects={data.effects}*/}
-                                {/*/>*/}
-                            </div>
+                            {/*<div>*/}
+                            {/*    <Ns2SectionSynth*/}
+                            {/*        className="ns3-section"*/}
+                            {/*        data={data.synth}*/}
+                            {/*        effects={data.effects}*/}
+                            {/*    />*/}
+                            {/*</div>*/}
                         </div>
                     </div>
 
