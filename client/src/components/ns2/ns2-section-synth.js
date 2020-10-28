@@ -24,7 +24,7 @@ export default class Ns2SectionSynth extends Component {
                         <div className="">
                             <div className="row no-gutters">
                                 <div className="d-flex">
-                                    {/*<Ns2VolumeAndMore name={"SYNTH"} data={synth} />*/}
+                                    <Ns2VolumeAndMore name={"SYNTH"} data={synth} />
                                 </div>
 
                                 <div className="row no-gutters d-flex flex-wrap">

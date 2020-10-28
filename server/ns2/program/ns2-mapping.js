@@ -126,3 +126,13 @@ exports.ns2OrganFarfisaVibratoModeMap = new Map([
     [2, "Heavy/Slow (C2)"],
     [3, "Heavy/Fast (C3)"],
 ]);
+
+/***
+ * Synth Voice Values
+ * @type {Map<number, string>}
+ */
+exports.ns2SynthVoiceMap = new Map([
+    [0, "Off"],
+    [1, "Legato"],
+    [2, "Mono"],
+]);
