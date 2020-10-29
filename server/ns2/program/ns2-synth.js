@@ -218,15 +218,15 @@ exports.ns2Synth = (buffer, id, panelOffset, global) => {
         volume: ns2VolumeEx(buffer, (synthOffset50W & 0x3f80) >>> 7, synthOffset4dWw >>> 6),
 
         /**
-         * Offset in file: 0x56 (b3-0)
+         * Offset in file: 0x51 (b3-0)
          *
          * @example
-         * Octave Shift = value - 6
+         * Octave Shift = value - 7
          *
-         * @module NS3 Synth Octave Shift TODO
+         * @module NS2 Synth Octave Shift
          */
         octaveShift: {
-            value: (synthOffset56 & 0x0f) - 6,
+            value: (synthOffset51 & 0x0f) - 7,
         },
         /**
          * Offset in file: 0x52 (b7)

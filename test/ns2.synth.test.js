@@ -53,6 +53,30 @@ describe("/ns2/synth", () => {
         });
     });
 
+    test("slotA.synth.octaveShift.value eq -7", async () => {
+        const file = "slotA.synth.octaveShift.value eq -7.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.synth.octaveShift.value eq 0", async () => {
+        const file = "slotA.synth.octaveShift.value eq 0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.synth.octaveShift.value eq 6", async () => {
+        const file = "slotA.synth.octaveShift.value eq 6.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.afterTouch.to.value eq Off", async () => {
         const file = "slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.afterTouch.to.value eq Off.ns2p";
         const sut = await loadTestCase(root + file);

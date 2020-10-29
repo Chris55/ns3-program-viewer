@@ -84,7 +84,7 @@
 | `0x004E` | `wwaaaaaa` | [(a) synth volume morph after touch](ns2-doc.md#ns2-synth-volume)
 | `0x004F` | `aacccccc` | [(c) synth volume morph control pedal](ns2-doc.md#ns2-synth-volume)
 | `0x0050` | `ccvvvvvv` | [(v) synth volume](ns2-doc.md#ns2-synth-volume)
-| `0x0051` | `vzzz----` | [(z) synth kb zone](ns2-doc.md#ns2-synth-kb-zone)
+| `0x0051` | `vzzzoooo` | [(z) synth kb zone](ns2-doc.md#ns2-synth-kb-zone), [(o) synth octave shift](ns2-doc.md#ns2-synth-octave-shift)
 | `0x0052` | `ps------` | [(p) synth pitch stick](ns2-doc.md#ns2-synth-pitch-stick), [(s) synth sustain pedal](ns2-doc.md#ns2-synth-sustain-pedal)
 | `0x0053` | `--------` |
 | `0x0054` | `--------` |

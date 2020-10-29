@@ -7,171 +7,190 @@ Offset in file 0x4d (b6)
 Synth Volume
 Slot A: Offset in file 0x50 (b5-0) and 0x51 (b7)
 Slot B: Offset in file 0x149 (b5-0) and 0x14a (b7)
-0 = OFF 
-1 = -84.2 dB 
-2 = -72.1 dB 
-3 = -65.1 dB 
-4 = -60.1 dB 
-5 = -56.2 dB 
-6 = -53.0 dB 
-7 = -50.3 dB 
-8 = -48.0 dB 
-9 = -46.0 dB 
-10 = -44.2 dB 
-11 = -42.5 dB 
-12 = -41.0 dB 
-13 = -39.6 dB 
-14 = -38.3 dB 
-15 = -37.1 dB 
-16 = -36.0 dB 
-17 = -34.9 dB 
-18 = -33.9 dB 
-19 = -33.0 dB 
-20 = -32.1 dB 
-21 = -31.3 dB 
-22 = -30.5 dB 
-23 = -29.7 dB 
-24 = -28.9 dB 
-25 = -28.2 dB 
-26 = -27.6 dB 
-27 = -26.9 dB 
-28 = -26.3 dB 
-29 = -25.7 dB 
-30 = -25.1 dB 
-31 = -24.5 dB 
-32 = -23.9 dB 
-33 = -23.4 dB 
-34 = -22.9 dB 
-35 = -22.4 dB 
-36 = -21.9 dB 
-37 = -21.4 dB 
-38 = -21.0 dB 
-39 = -20.5 dB 
-40 = -20.1 dB 
-41 = -19.6 dB 
-42 = -19.2 dB 
-43 = -18.8 dB 
-44 = -18.4 dB 
-45 = -18.0 dB 
-46 = -17.6 dB 
-47 = -17.3 dB 
-48 = -16.9 dB 
-49 = -16.5 dB 
-50 = -16.2 dB 
-51 = -15.8 dB 
-52 = -15.5 dB 
-53 = -15.2 dB 
-54 = -14.9 dB 
-55 = -14.5 dB 
-56 = -14.2 dB 
-57 = -13.9 dB 
-58 = -13.6 dB 
-59 = -13.3 dB 
-60 = -13.0 dB 
-61 = -12.7 dB 
-62 = -12.5 dB 
-63 = -12.2 dB 
-64 = -11.9 dB 
-65 = -11.6 dB 
-66 = -11.4 dB 
-67 = -11.1 dB 
-68 = -10.9 dB 
-69 = -10.6 dB 
-70 = -10.3 dB 
-71 = -10.1 dB 
-72 = -9.9 dB 
-73 = -9.6 dB 
-74 = -9.4 dB 
-75 = -9.1 dB 
-76 = -8.9 dB 
-77 = -8.7 dB 
-78 = -8.5 dB 
-79 = -8.2 dB 
-80 = -8.0 dB 
-81 = -7.8 dB 
-82 = -7.6 dB 
-83 = -7.4 dB 
-84 = -7.2 dB 
-85 = -7.0 dB 
-86 = -6.8 dB 
-87 = -6.6 dB 
-88 = -6.4 dB 
-89 = -6.2 dB 
-90 = -6.0 dB 
-91 = -5.8 dB 
-92 = -5.6 dB 
-93 = -5.4 dB 
-94 = -5.2 dB 
-95 = -5.0 dB 
-96 = -4.9 dB 
-97 = -4.7 dB 
-98 = -4.5 dB 
-99 = -4.3 dB 
-100 = -4.2 dB 
-101 = -4.0 dB 
-102 = -3.8 dB 
-103 = -3.6 dB 
-104 = -3.5 dB 
-105 = -3.3 dB 
-106 = -3.1 dB 
-107 = -3.0 dB 
-108 = -2.8 dB 
-109 = -2.7 dB 
-110 = -2.5 dB 
-111 = -2.3 dB 
-112 = -2.2 dB 
-113 = -2.0 dB 
-114 = -1.9 dB 
-115 = -1.7 dB 
-116 = -1.6 dB 
-117 = -1.4 dB 
-118 = -1.3 dB 
-119 = -1.1 dB 
-120 = -1.0 dB 
-121 = -0.8 dB 
-122 = -0.7 dB 
-123 = -0.6 dB 
-124 = -0.4 dB 
-125 = -0.3 dB 
-126 = -0.1 dB 
-127 = 0.0 dB 
+0 = OFF
+1 = -84.2 dB
+2 = -72.1 dB
+3 = -65.1 dB
+4 = -60.1 dB
+5 = -56.2 dB
+6 = -53.0 dB
+7 = -50.3 dB
+8 = -48.0 dB
+9 = -46.0 dB
+10 = -44.2 dB
+11 = -42.5 dB
+12 = -41.0 dB
+13 = -39.6 dB
+14 = -38.3 dB
+15 = -37.1 dB
+16 = -36.0 dB
+17 = -34.9 dB
+18 = -33.9 dB
+19 = -33.0 dB
+20 = -32.1 dB
+21 = -31.3 dB
+22 = -30.5 dB
+23 = -29.7 dB
+24 = -28.9 dB
+25 = -28.2 dB
+26 = -27.6 dB
+27 = -26.9 dB
+28 = -26.3 dB
+29 = -25.7 dB
+30 = -25.1 dB
+31 = -24.5 dB
+32 = -23.9 dB
+33 = -23.4 dB
+34 = -22.9 dB
+35 = -22.4 dB
+36 = -21.9 dB
+37 = -21.4 dB
+38 = -21.0 dB
+39 = -20.5 dB
+40 = -20.1 dB
+41 = -19.6 dB
+42 = -19.2 dB
+43 = -18.8 dB
+44 = -18.4 dB
+45 = -18.0 dB
+46 = -17.6 dB
+47 = -17.3 dB
+48 = -16.9 dB
+49 = -16.5 dB
+50 = -16.2 dB
+51 = -15.8 dB
+52 = -15.5 dB
+53 = -15.2 dB
+54 = -14.9 dB
+55 = -14.5 dB
+56 = -14.2 dB
+57 = -13.9 dB
+58 = -13.6 dB
+59 = -13.3 dB
+60 = -13.0 dB
+61 = -12.7 dB
+62 = -12.5 dB
+63 = -12.2 dB
+64 = -11.9 dB
+65 = -11.6 dB
+66 = -11.4 dB
+67 = -11.1 dB
+68 = -10.9 dB
+69 = -10.6 dB
+70 = -10.3 dB
+71 = -10.1 dB
+72 = -9.9 dB
+73 = -9.6 dB
+74 = -9.4 dB
+75 = -9.1 dB
+76 = -8.9 dB
+77 = -8.7 dB
+78 = -8.5 dB
+79 = -8.2 dB
+80 = -8.0 dB
+81 = -7.8 dB
+82 = -7.6 dB
+83 = -7.4 dB
+84 = -7.2 dB
+85 = -7.0 dB
+86 = -6.8 dB
+87 = -6.6 dB
+88 = -6.4 dB
+89 = -6.2 dB
+90 = -6.0 dB
+91 = -5.8 dB
+92 = -5.6 dB
+93 = -5.4 dB
+94 = -5.2 dB
+95 = -5.0 dB
+96 = -4.9 dB
+97 = -4.7 dB
+98 = -4.5 dB
+99 = -4.3 dB
+100 = -4.2 dB
+101 = -4.0 dB
+102 = -3.8 dB
+103 = -3.6 dB
+104 = -3.5 dB
+105 = -3.3 dB
+106 = -3.1 dB
+107 = -3.0 dB
+108 = -2.8 dB
+109 = -2.7 dB
+110 = -2.5 dB
+111 = -2.3 dB
+112 = -2.2 dB
+113 = -2.0 dB
+114 = -1.9 dB
+115 = -1.7 dB
+116 = -1.6 dB
+117 = -1.4 dB
+118 = -1.3 dB
+119 = -1.1 dB
+120 = -1.0 dB
+121 = -0.8 dB
+122 = -0.7 dB
+123 = -0.6 dB
+124 = -0.4 dB
+125 = -0.3 dB
+126 = -0.1 dB
+127 = 0.0 dB
 
 HOLD
 Slot A: Offset in file 0xdc (b1)
 Slot B: Offset in file 0x1d5 (b1)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 SPLIT ZONES
 Offset in file 0x51 (b6-4)
-0 = LO 
-1 = LO UP 
-2 = UP 
-3 = UP HI 
-4 = HI 
-5 = LO UP HI 
-6 = UNDEF 
-7 = UNDEF 
+0 = LO
+1 = LO UP
+2 = UP
+3 = UP HI
+4 = HI
+5 = LO UP HI
+6 = UNDEF
+7 = UNDEF
+
+SYNTH OCTAVE SHIFT
+Offset in file 0x51 (b3-0)
+0 = -7
+1 = -6
+2 = -5
+3 = -4
+4 = -3
+5 = -2
+6 = -1
+7 = 0
+8 = 1
+9 = 2
+10 = 3
+11 = 4
+12 = 5
+13 = 6
+14 = UNDEF
+15 = UNDEF
 
 PSTICK
 Offset in file 0x52 (b7)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 SUSTPED
 Offset in file 0x52 (b6)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 LATCH PED
 Offset in file 0x5a (b5)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 KBGATE
 Offset in file 0x5a (b4)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 ################################
       Begin MORPH
@@ -193,7 +212,7 @@ Offset in file 0xe4 (b4-0) 0xe5 (b7-5)
 
 MORPH CTRLPED SHAPE
 Offset in file 0xe5 (b4-0) 0xe6 (b7-5)
-	  
+
 MORPH WHEEL FILTER FREQ
 Offset in file 0xec (b0) 0xed (b7-1)
 
@@ -203,7 +222,7 @@ Offset in file 0xed (b0) 0xee (b7-1)
 MORPH CTRLPED FILTER FREQ
 Offset in file 0xee (b0) 0xef (b7-1)
 
-	  
+
 	  End MORPH
 ################################
 
@@ -212,185 +231,185 @@ Offset in file 0xee (b0) 0xef (b7-1)
 
 Arpeggiator ON/OFF
 Offset in file 0xd9 (b0)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 Arpeggiator MST ClOCK ON/OFF
 Offset in file 0xda (b7)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 Arpeggiator MST ClOCK DIVISOR (if MST CLK is ON)
 Offset in file 0xda (b6-3)
-0 = 1/2 
-1 = 1/2T 
-2 = 1/4 
-3 = 1/4T 
-4 = 1/8 
-5 = 1/8T 
-6 = 1/16 
-7 = 1/16T 
-8 = 1/32 
-9 = UNDEF 
-10 = UNDEF 
-11 = UNDEF 
-12 = UNDEF 
-13 = UNDEF 
-14 = UNDEF 
-15 = UNDEF 
+0 = 1/2
+1 = 1/2T
+2 = 1/4
+3 = 1/4T
+4 = 1/8
+5 = 1/8T
+6 = 1/16
+7 = 1/16T
+8 = 1/32
+9 = UNDEF
+10 = UNDEF
+11 = UNDEF
+12 = UNDEF
+13 = UNDEF
+14 = UNDEF
+15 = UNDEF
 
 Arpeggiator RATE (if MST CLK is OFF)
 Offset in files 0xda (b1-0) and 0xdb (b7-3)
-0 = 80 BPM 
-1 = 82 BPM 
-2 = 84 BPM 
-3 = 86 BPM 
-4 = 88 BPM 
-5 = 90 BPM 
-6 = 92 BPM 
-7 = 94 BPM 
-8 = 96 BPM 
-9 = 98 BPM 
-10 = 100 BPM 
-11 = 102 BPM 
-12 = 104 BPM 
-13 = 106 BPM 
-14 = 108 BPM 
-15 = 110 BPM 
-16 = 112 BPM 
-17 = 114 BPM 
-18 = 116 BPM 
-19 = 118 BPM 
-20 = 120 BPM 
-21 = 122 BPM 
-22 = 124 BPM 
-23 = 126 BPM 
-24 = 128 BPM 
-25 = 130 BPM 
-26 = 132 BPM 
-27 = 134 BPM 
-28 = 136 BPM 
-29 = 138 BPM 
-30 = 140 BPM 
-31 = 142 BPM 
-32 = 144 BPM 
-33 = 148 BPM 
-34 = 152 BPM 
-35 = 156 BPM 
-36 = 160 BPM 
-37 = 82:8 BPM 
-38 = 84:8 BPM 
-39 = 86:8 BPM 
-40 = 88:8 BPM 
-41 = 90:8 BPM 
-42 = 92:8 BPM 
-43 = 94:8 BPM 
-44 = 96:8 BPM 
-45 = 98:8 BPM 
-46 = 100:8 BPM 
-47 = 102:8 BPM 
-48 = 104:8 BPM 
-49 = 106:8 BPM 
-50 = 108:8 BPM 
-51 = 110:8 BPM 
-52 = 112:8 BPM 
-53 = 114:8 BPM 
-54 = 116:8 BPM 
-55 = 118:8 BPM 
-56 = 120:8 BPM 
-57 = 122:8 BPM 
-58 = 124:8 BPM 
-59 = 126:8 BPM 
-60 = 128:8 BPM 
-61 = 130:8 BPM 
-62 = 132:8 BPM 
-63 = 134:8 BPM 
-64 = 136:8 BPM 
-65 = 140:8 BPM 
-66 = 144:8 BPM 
-67 = 148:8 BPM 
-68 = 152:8 BPM 
-69 = 156:8 BPM 
-70 = 160:8 BPM 
-71 = 82:16 BPM 
-72 = 84:16 BPM 
-73 = 86:16 BPM 
-74 = 88:16 BPM 
-75 = 90:16 BPM 
-76 = 92:16 BPM 
-77 = 94:16 BPM 
-78 = 96:16 BPM 
-79 = 98:16 BPM 
-80 = 100:16 BPM 
-81 = 102:16 BPM 
-82 = 104:16 BPM 
-83 = 106:16 BPM 
-84 = 108:16 BPM 
-85 = 110:16 BPM 
-86 = 112:16 BPM 
-87 = 114:16 BPM 
-88 = 116:16 BPM 
-89 = 118:16 BPM 
-90 = 120:16 BPM 
-91 = 122:16 BPM 
-92 = 124:16 BPM 
-93 = 126:16 BPM 
-94 = 128:16 BPM 
-95 = 130:16 BPM 
-96 = 132:16 BPM 
-97 = 136:16 BPM 
-98 = 140:16 BPM 
-99 = 144:16 BPM 
-100 = 148:16 BPM 
-101 = 152:16 BPM 
-102 = 156:16 BPM 
-103 = 160:16 BPM 
-104 = 82:32 BPM 
-105 = 84:32 BPM 
-106 = 86:32 BPM 
-107 = 88:32 BPM 
-108 = 90:32 BPM 
-109 = 92:32 BPM 
-110 = 94:32 BPM 
-111 = 96:32 BPM 
-112 = 98:32 BPM 
-113 = 100:32 BPM 
-114 = 102:32 BPM 
-115 = 104:32 BPM 
-116 = 106:32 BPM 
-117 = 108:32 BPM 
-118 = 110:32 BPM 
-119 = 112:32 BPM 
-120 = 114:32 BPM 
-121 = 116:32 BPM 
-122 = 118:32 BPM 
-123 = 120:32 BPM 
-124 = 122:32 BPM 
-125 = 124:32 BPM 
-126 = 126:32 BPM 
-127 = 128:32 BPM 
+0 = 80 BPM
+1 = 82 BPM
+2 = 84 BPM
+3 = 86 BPM
+4 = 88 BPM
+5 = 90 BPM
+6 = 92 BPM
+7 = 94 BPM
+8 = 96 BPM
+9 = 98 BPM
+10 = 100 BPM
+11 = 102 BPM
+12 = 104 BPM
+13 = 106 BPM
+14 = 108 BPM
+15 = 110 BPM
+16 = 112 BPM
+17 = 114 BPM
+18 = 116 BPM
+19 = 118 BPM
+20 = 120 BPM
+21 = 122 BPM
+22 = 124 BPM
+23 = 126 BPM
+24 = 128 BPM
+25 = 130 BPM
+26 = 132 BPM
+27 = 134 BPM
+28 = 136 BPM
+29 = 138 BPM
+30 = 140 BPM
+31 = 142 BPM
+32 = 144 BPM
+33 = 148 BPM
+34 = 152 BPM
+35 = 156 BPM
+36 = 160 BPM
+37 = 82:8 BPM
+38 = 84:8 BPM
+39 = 86:8 BPM
+40 = 88:8 BPM
+41 = 90:8 BPM
+42 = 92:8 BPM
+43 = 94:8 BPM
+44 = 96:8 BPM
+45 = 98:8 BPM
+46 = 100:8 BPM
+47 = 102:8 BPM
+48 = 104:8 BPM
+49 = 106:8 BPM
+50 = 108:8 BPM
+51 = 110:8 BPM
+52 = 112:8 BPM
+53 = 114:8 BPM
+54 = 116:8 BPM
+55 = 118:8 BPM
+56 = 120:8 BPM
+57 = 122:8 BPM
+58 = 124:8 BPM
+59 = 126:8 BPM
+60 = 128:8 BPM
+61 = 130:8 BPM
+62 = 132:8 BPM
+63 = 134:8 BPM
+64 = 136:8 BPM
+65 = 140:8 BPM
+66 = 144:8 BPM
+67 = 148:8 BPM
+68 = 152:8 BPM
+69 = 156:8 BPM
+70 = 160:8 BPM
+71 = 82:16 BPM
+72 = 84:16 BPM
+73 = 86:16 BPM
+74 = 88:16 BPM
+75 = 90:16 BPM
+76 = 92:16 BPM
+77 = 94:16 BPM
+78 = 96:16 BPM
+79 = 98:16 BPM
+80 = 100:16 BPM
+81 = 102:16 BPM
+82 = 104:16 BPM
+83 = 106:16 BPM
+84 = 108:16 BPM
+85 = 110:16 BPM
+86 = 112:16 BPM
+87 = 114:16 BPM
+88 = 116:16 BPM
+89 = 118:16 BPM
+90 = 120:16 BPM
+91 = 122:16 BPM
+92 = 124:16 BPM
+93 = 126:16 BPM
+94 = 128:16 BPM
+95 = 130:16 BPM
+96 = 132:16 BPM
+97 = 136:16 BPM
+98 = 140:16 BPM
+99 = 144:16 BPM
+100 = 148:16 BPM
+101 = 152:16 BPM
+102 = 156:16 BPM
+103 = 160:16 BPM
+104 = 82:32 BPM
+105 = 84:32 BPM
+106 = 86:32 BPM
+107 = 88:32 BPM
+108 = 90:32 BPM
+109 = 92:32 BPM
+110 = 94:32 BPM
+111 = 96:32 BPM
+112 = 98:32 BPM
+113 = 100:32 BPM
+114 = 102:32 BPM
+115 = 104:32 BPM
+116 = 106:32 BPM
+117 = 108:32 BPM
+118 = 110:32 BPM
+119 = 112:32 BPM
+120 = 114:32 BPM
+121 = 116:32 BPM
+122 = 118:32 BPM
+123 = 120:32 BPM
+124 = 122:32 BPM
+125 = 124:32 BPM
+126 = 126:32 BPM
+127 = 128:32 BPM
 
 Arpeggiator PATTERN
 Offset in file 0xdb (b2-1)
-0 = UP 
-1 = UP/DN 
-2 = DN 
-3 = RANDOM 
+0 = UP
+1 = UP/DN
+2 = DN
+3 = RANDOM
 
 Arpeggiator RANGE
 Offset in files 0xdb (b0) and 0xdc (b7)
-0 = 0 
-1 = 1 
-2 = 2 
-3 = 3 
+0 = 0
+1 = 1
+2 = 2
+3 = 3
 
       End  Arpeggiator
 ################################
 
 
 ################################
-     BEGIN VOICE 
-	 
+     BEGIN VOICE
+
 GLIDE RATE
 Offset in files 0xfb (b1-0) and 0xfc (b7-3)
 0 = 0.0
@@ -401,42 +420,42 @@ Offset in files 0xfb (b1-0) and 0xfc (b7-3)
 
 GLIDE VOICE MODE
 Offset in file 0xfc (b2-1)
-0 = OFF 
-1 = LEGATO 
-2 = MONO 
-3 = UNDEF 
+0 = OFF
+1 = LEGATO
+2 = MONO
+3 = UNDEF
 
 UNISON
 Offset in files 0xfc (b0) and 0xfd (b7-6)
-0 = OFF 
-1 = 1 
-2 = 2 
-3 = 3 
-4 = Multi 1 
-5 = Multi 2 
-6 = Multi 3 
-7 = UNDEF 
+0 = OFF
+1 = 1
+2 = 2
+3 = 3
+4 = Multi 1
+5 = Multi 2
+6 = Multi 3
+7 = UNDEF
 
 VIBRATO
 Offset in files 0xfd (b5-3)
-0 = OFF 
-1 = DLY 1 
-2 = DLY 2 
-3 = DLY 3 
-4 = AT 
-5 = WH 
-6 = UNDEF 
-7 = UNDEF 
+0 = OFF
+1 = DLY 1
+2 = DLY 2
+3 = DLY 3
+4 = AT
+5 = WH
+6 = UNDEF
+7 = UNDEF
 
 MOD ENV VELOCITY
 Offset in file 0xe1 (b2)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 AMP ENV VELOCITY
 Offset in file 0xf6 (b3)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
        END VOICE
 ################################
@@ -447,8 +466,8 @@ Offset in file 0xf6 (b3)
 
 LFO MST ClOCK
 Offset in file 0xdc (b6)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 LFO WAVEFORM
 Offset in file 0xf7 (b3-2)
@@ -459,22 +478,22 @@ Offset in file 0xf7 (b3-2)
 
 LFO RATE ClOCK DIVISOR (if LFO MST CLOCK = ON)
 Offset in file 0xdc (b5-2)
-0 = 4/1 
-1 = 4/1T 
-2 = 2/1 
-3 = 2/1T 
-4 = 1/1 
-5 = 1/1T 
-6 = 1/2 
-7 = 1/2T 
-8 = 1/4 
-9 = 1/4T 
-10 = 1/8 
-11 = 1/8T 
-12 = 1/16 
-13 = 1/16T 
-14 = 1/32 
-15 = UNDEF 
+0 = 4/1
+1 = 4/1T
+2 = 2/1
+3 = 2/1T
+4 = 1/1
+5 = 1/1T
+6 = 1/2
+7 = 1/2T
+8 = 1/4
+9 = 1/4T
+10 = 1/8
+11 = 1/8T
+12 = 1/16
+13 = 1/16T
+14 = 1/32
+15 = UNDEF
 
 LFO RATE (if LFO MST CLOCK = OFF)
 Offset in file 0xf6 (b2-0) 0xf7 (b7-4)
@@ -1016,13 +1035,13 @@ Offset in files 0xe0 (b1-0) and 0xe1 (b7-3)
 
 OSC MODE
 Offset in file 0xe1 (b1-0) and 0xe2 (b7)
-0 = TRI 
-1 = SAW 
-2 = PULSE 
-3 = SAMPLE 
-4 = FM 
-5 = WAVE 
-6 = UNDEF 
+0 = TRI
+1 = SAW
+2 = PULSE
+3 = SAMPLE
+4 = FM
+5 = WAVE
+6 = UNDEF
 7 = UNDEF
 
 OSC WAVEFORM
@@ -1094,13 +1113,13 @@ ID   | TRI  | SAW    | PULSE  | SAMPLE  | FM   | WAVE  |
 62   |      |        |        | 63      |      | 63    |
 63   |      |        |        | 64      |      |       |
 
-. . . 
+. . .
 998  |      |        |        | 999     |      |       |
 . . .
 1023 |      |        |        |         |      |       |
 
-	
-SHAPE 
+
+SHAPE
 Offset in file 0xe6 (b4-0) and 0xe7 (7-6)
 0 = 0.0
 1 = 0.1
@@ -1110,8 +1129,8 @@ Offset in file 0xe6 (b4-0) and 0xe7 (7-6)
 
 SKIP SAMP ATTACK
 Offset in file 0xec (b1)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 SHAPE MOD
 Offset in file 0xe7 (b5-0) and 0xe8 (b7)
@@ -1257,19 +1276,19 @@ Offset in file 0xf7 (b1-0) 0xf8 (b7-0) 0xf9 (b7-0) 0xfa (b7-0) 0xfb (b7-2)
 
 FILTER TYPE
 Offset in file 0xf3 (b3-1)
-0 = LP12 
-1 = LP24 
-2 = HP 
-3 = NOTCH 
-4 = BP 
-5 = UNDEF 
-6 = UNDEF 
-7 = UNDEF 
+0 = LP12
+1 = LP24
+2 = HP
+3 = NOTCH
+4 = BP
+5 = UNDEF
+6 = UNDEF
+7 = UNDEF
 
 KB-TRACK
 Offset in file 0xf3 (b4)
-0 = OFF 
-1 = ON 
+0 = OFF
+1 = ON
 
 FILTER FREQUENCY
 Offset in files 0xef (b0) and 0xf0 (b7-2)
@@ -1562,7 +1581,7 @@ MOD ENV from 64 - 127
 AMP ENV ATTACK
 Offset in files 0xf3 (b0) and 0xf4 (b7-2)
 	for values see MOD ENV
-	
+
 AMP ENV DECAY
 Offset in files 0xf4 (b1-0) and 0xf5 (b7-3)
 	for values see MOD ENV

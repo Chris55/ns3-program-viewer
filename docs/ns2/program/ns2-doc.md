@@ -171,8 +171,8 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_NS2 Synth Volume">NS2 Synth Volume</a></dt>
 <dd><p>Offset in file: 0x50 (b5-0) and 0x51 (b7)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Octave Shift TODO">NS3 Synth Octave Shift TODO</a></dt>
-<dd><p>Offset in file: 0x56 (b3-0)</p>
+<dt><a href="#module_NS2 Synth Octave Shift">NS2 Synth Octave Shift</a></dt>
+<dd><p>Offset in file: 0x51 (b3-0)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Pitch Stick">NS2 Synth Pitch Stick</a></dt>
 <dd><p>Offset in file: 0x52 (b7)</p>
@@ -771,14 +771,14 @@ Offset in file: 0x50 (b5-0) and 0x51 (b7)
 ```js
 Morph Wheel:offset in file 0x4d (b5-0) 0x4e (b7-6)Morph After Touch:offset in file 0x4e (b5-0) 0x4f (b7-6)Morph Control Pedal:offset in file 0x4f (b5-0) 0x50 (b7-6)
 ```
-<a name="module_NS3 Synth Octave Shift TODO"></a>
+<a name="module_NS2 Synth Octave Shift"></a>
 
-## NS3 Synth Octave Shift TODO
-Offset in file: 0x56 (b3-0)
+## NS2 Synth Octave Shift
+Offset in file: 0x51 (b3-0)
 
 **Example**  
 ```js
-Octave Shift = value - 6
+Octave Shift = value - 7
 ```
 <a name="module_NS2 Synth Pitch Stick"></a>
 
