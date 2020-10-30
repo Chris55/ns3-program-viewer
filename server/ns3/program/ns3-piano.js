@@ -231,8 +231,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * 2 =  2
          * 3 =  3
          *
-         * Note: This parameter is common for both Panel. Layer Detune setting cannot be different
-         * for each panel, only offset 0x34 is used.
+         * Note: Same value is used for both panel A & B
          *
          * @module NS3 Piano Layer Detune
          */

@@ -44,7 +44,7 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
          * @example
          * 7-bit value 0/127 converted to 0/10
          *
-         * Note: Panel A value is used for panel A & B
+         * Note: Same value is used for both panel A & B
          *
          * @module NS3 Rotary Speaker Drive
          */
@@ -58,7 +58,7 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
          * @example
          * 0 = enabled (Speed Stop), 1 = disabled (Speed Slow)
          *
-         * Note: Panel A value is used for panel A & B
+         * Note: Same value is used for both panel A & B
          *
          * @module NS3 Rotary Speaker Stop Mode
          */
@@ -79,7 +79,7 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
          * 011 = 0x03 = morph off
          * 100 = 0x04 = morph on
          *
-         * Note: Panel A value is used for panel A & B
+         * Note: Same value is used for both panel A & B
          *
          * @module NS3 Rotary Speaker Speed
          */

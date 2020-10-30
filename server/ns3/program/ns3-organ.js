@@ -310,6 +310,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
          * @example
          * O = off, 1 = on
          *
+         * Note: Same value is used for both panel A & B
+         *
          * @module NS3 Organ Pitch Stick
          */
         pitchStick: {

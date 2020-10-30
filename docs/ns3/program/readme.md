@@ -46,6 +46,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |      |              | Fixed NS3 Organ Morph implementation
 |      |              | Added NS3 Synth Preset
 |      |              | Fixed typo in offsets 0x011B, 0x011D, 0x011F, and 0x119
+|      |              | Fixed NS3 panel starting offset
 |      |              | Draft added Stage 2
 
 
@@ -403,8 +404,22 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0138` | `aapppppp` | [(p) reverb amount morph control pedal](ns3-doc.md#ns3-reverb-amount)
 | `0x0139` | `ppoccccc` | [(o) compressor on](ns3-doc.md#ns3-compressor-on), [(c) compressor amount](ns3-doc.md#ns3-compressor-amount)
 | `0x013A` | `ccf-----` | [(f) compressor fast](ns3-doc.md#ns3-compressor-fast)
-| `0x013B` | `--------` | Piano Panel B, same as offset 0x34, offset from Panel A is 0x107 (263 bytes)
+| `0x013B` | `--------` |
 | `0x013C` | `--------` |
+| `0x013C` | `--------` |
+| `0x013E` | `--------` |
+| `0x013F` | `--------` |
+| `0x0140` | `--------` |
+| `0x0141` | `--------` |
+| `0x0142` | `--------` |
+| `0x0143` | `--------` |
+| `0x0144` | `--------` |
+| `0x0145` | `--------` |
+| `0x0146` | `--------` |
+| `0x0147` | `--------` |
+| `0x0148` | `--------` |
+| `0x0149` | `--------` |
+| `0x014A` | `--------` | Panel B, same as offset 0x43, offset from Panel A is 0x107 (263 bytes)
 | `...`    |            |
 | `0x0240` | `--------` |
 | `0x0241` | `--------` | end of Panel B

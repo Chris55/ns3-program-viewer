@@ -854,7 +854,7 @@ Offset in file: 0x39 (b2 to b0) and 0x3a (b7 to b4)
 
 **Example**  
 ```js
-7-bit value 0/127 converted to 0/10Note: Panel A value is used for panel A & B
+7-bit value 0/127 converted to 0/10Note: Same value is used for both panel A & B
 ```
 <a name="module_NS3 Rotary Speaker Stop Mode"></a>
 
@@ -863,7 +863,7 @@ Offset in file: 0x35 (bit7)
 
 **Example**  
 ```js
-0 = enabled (Speed Stop), 1 = disabled (Speed Slow)Note: Panel A value is used for panel A & B
+0 = enabled (Speed Stop), 1 = disabled (Speed Slow)Note: Same value is used for both panel A & B
 ```
 <a name="module_NS3 Rotary Speaker Speed"></a>
 
@@ -872,7 +872,7 @@ Offset in file: 0x34 (bit0)
 
 **Example**  
 ```js
-0 = Slow/Stop, 1 = FastMorph Wheel:         0x35 (b6-4)Morph After Touch:   0x35 (b3-1)Morph Control Pedal: 0x35 (b0) and 0x36 (b7-6)011 = 0x03 = morph off100 = 0x04 = morph onNote: Panel A value is used for panel A & B
+0 = Slow/Stop, 1 = FastMorph Wheel:         0x35 (b6-4)Morph After Touch:   0x35 (b3-1)Morph Control Pedal: 0x35 (b0) and 0x36 (b7-6)011 = 0x03 = morph off100 = 0x04 = morph onNote: Same value is used for both panel A & B
 ```
 <a name="module_NS3 Organ On"></a>
 
@@ -917,7 +917,7 @@ Offset in file: 0x34 (b4)
 
 **Example**  
 ```js
-O = off, 1 = on
+O = off, 1 = onNote: Same value is used for both panel A & B
 ```
 <a name="module_NS3 Organ Sustain Pedal"></a>
 
@@ -1185,7 +1185,7 @@ Offset in file: 0x34 (b6-5)
 
 **Example**  
 ```js
-0 =  Off1 =  12 =  23 =  3Note: This parameter is common for both Panel. Layer Detune setting cannot be differentfor each panel, only offset 0x34 is used.
+0 =  Off1 =  12 =  23 =  3Note: Same value is used for both panel A & B
 ```
 <a name="module_NS3 Piano Soft Release"></a>
 
