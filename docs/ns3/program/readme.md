@@ -209,7 +209,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0075` | `--------` |
 | `0x0076` | `--------` |
 | `0x0077` | `--------` |
-| `0x0078` | `----cccc` | (i) CRC2 (32-bit)
+| `0x0078` | `----cccc` | (c) CRC2 (32-bit)
 | `0x0079` | `cccccccc` |
 | `0x007A` | `cccccccc` |
 | `0x007B` | `cccccccc` |
