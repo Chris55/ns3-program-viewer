@@ -263,11 +263,11 @@ exports.ns3SynthPreset = (buffer, offset) => {
          * User Preset names are limited to 16 characters,
          * Sample Preset name are up to 22 characters.
          *
-         * character 1: (offset + 3) & 0x7f
+         * character 1: ((offset + 3) & 0xff) + 1
          * character 2: (offset + 2) & 0xff
          * character 3: (offset + 1) & 0xff
-         * character 4: ((offset + 0) & 0xff) + 1
-         * character 5: (offset + 3 + 4) & 0x7f
+         * character 4: (offset + 0) & 0x7f
+         * character 5: ((offset + 3 + 4) & 0xff) + 1
          * character 6: (offset + 2 + 4) & 0xff
          * . . .
          *
