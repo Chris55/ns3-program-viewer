@@ -76,9 +76,9 @@ const pathInputNs2 = __dirname + "/../../docs/ns2/program/";
 const pathInputNs3 = __dirname + "/../../docs/ns3/program/";
 
 convert("ns3", pathInputNs3 + "readme.md", pathOutput + "00-readme.md", false);
-convert("ns3", pathInputNs3 + "ns3-doc.md", pathOutput + "10-doc.md", true);
+convert("ns3", pathInputNs3 + "ns3-doc.md", pathOutput + "20-doc.md", true);
 
 
-convert("ns2", pathInputNs2 + "readme.md", pathOutput + "20-readme.md", false);
+convert("ns2", pathInputNs2 + "readme.md", pathOutput + "10-readme.md", false);
 convert("ns2", pathInputNs2 + "ns2-doc.md", pathOutput + "30-doc.md", true);
 

@@ -16,9 +16,8 @@ Source is located here: [https://github.com/Chris55/ns3-program-viewer](https://
 - [Contributors](#contributors)
 - [License](#license)
 - [Revision](#revision)
-- [Nord Stage 2 File Structure](#nord-stage-2-file-structure)
 - [Nord Stage 3 File Structure](#nord-stage-3-file-structure)
-
+- [Nord Stage 2 File Structure](#nord-stage-2-file-structure)
 
 
 

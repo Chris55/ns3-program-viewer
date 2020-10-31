@@ -9,7 +9,7 @@ import Ns3SectionSynthModEnv from "./ns3-section-synth-mod-env";
 import Ns3SectionSynthLfo from "./ns3-section-synth-lfo";
 import NordValueOnOff from "./lib/nord-value-on-off";
 import NordLabelAndValue from "./lib/nord-label-and-value";
-import Ns3SectionSynthOscillators from "./ns3-section-synth-oscilaltors";
+import Ns3SectionSynthOscillators from "./ns3-section-synth-oscillators";
 
 export default class Ns3SectionSynth extends Component {
     render() {

@@ -39,13 +39,13 @@ export default class Ns2Slot extends Component {
                                 />
                             </div>
 
-                            {/*<div>*/}
-                            {/*    <Ns2SectionSynth*/}
-                            {/*        className="ns3-section"*/}
-                            {/*        data={data.synth}*/}
-                            {/*        effects={data.effects}*/}
-                            {/*    />*/}
-                            {/*</div>*/}
+                            <div>
+                                <Ns2SectionSynth
+                                    className="ns3-section"
+                                    data={data.synth}
+                                    effects={data.effects}
+                                />
+                            </div>
                         </div>
                     </div>
 

@@ -261,7 +261,7 @@ exports.ns3SynthVibratoMap = new Map([
     [2, "Delay 2"],
     [3, "Delay 3"],
     [4, "Wheel"],
-    [5, "After Touch"],
+    [5, "AT"],
 ]);
 
 /***

@@ -18,7 +18,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 ## Contributors
 - [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) (@florence)
 - [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal)
-- Thanks to other NUF member(s): @rpossemo, @cookie, @gordon
+- Thanks to other NUF members: @rpossemo, @cookie, @gordon, @Hobster
 
 ## FAQ
 

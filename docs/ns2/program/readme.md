@@ -254,8 +254,8 @@
 | `0x00F8` | `iiiiiiii` |
 | `0x00F9` | `iiiiiiii` |
 | `0x00FA` | `iiiiiiii` |
-| `0x00FB` | `iiiiiirr` | [(r) synth glide rate](ns2-doc.md#ns2-synth-glide-rate)
-| `0x00FC` | `rrrrrmmu` | [(m) synth glide-voice-mode](ns2-doc.md#ns2-synth-voice-mode), [(u) synth unison](ns2-doc.md#ns2-synth-unison)
+| `0x00FB` | `iiiiiirr` | [(r) synth glide rate](ns2-doc.md#ns2-synth-glide)
+| `0x00FC` | `rrrrrmmu` | [(m) synth glide-voice-mode](ns2-doc.md#ns2-synth-voice), [(u) synth unison](ns2-doc.md#ns2-synth-unison)
 | `0x00FD` | `uuvvv---` | [(v) synth vibrato](ns2-doc.md#ns2-synth-vibrato)
 | `0x00FE` | `--------` |
 | `0x00FF` | `--------` |

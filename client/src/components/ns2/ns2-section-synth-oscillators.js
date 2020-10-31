@@ -9,15 +9,15 @@ export default class Ns2SectionSynthOscillators extends Component {
     render() {
         const osc = this.props.data;
 
-        let lfoModEnvTitle = "LFO/Mod Amt";
-        let lfoModEnvValue =
-            osc.modulations.lfoAmount.midi < 64 ? osc.modulations.lfoAmount : osc.modulations.modEnvAmount;
-
-        if (osc.modulations.lfoAmount.midi < 64) {
-            lfoModEnvTitle = "LFO Amt";
-        } else if (osc.modulations.modEnvAmount.midi > 64) {
-            lfoModEnvTitle = "Mod Env Amt";
-        }
+        // let lfoModEnvTitle = "LFO/Mod Amt";
+        // let lfoModEnvValue =
+        //     osc.modulations.lfoAmount.midi < 64 ? osc.modulations.lfoAmount : osc.modulations.modEnvAmount;
+        //
+        // if (osc.modulations.lfoAmount.midi < 64) {
+        //     lfoModEnvTitle = "LFO Amt";
+        // } else if (osc.modulations.modEnvAmount.midi > 64) {
+        //     lfoModEnvTitle = "Mod Env Amt";
+        // }
 
         return (
             <React.Fragment>
@@ -31,18 +31,16 @@ export default class Ns2SectionSynthOscillators extends Component {
                                     <tr>
                                         <NordLabelAndValue label="Type" data={osc.type} table={true} />
                                     </tr>
+
+                                    <NordLabelAndValueWithMorph label="Shape Ctrl" data={osc.shapeCtrl} />
+
                                     <tr>
-                                        <NordValueOnOff label="Fast Atk" data={osc.fastAttack} table={true} />
-                                    </tr>
-                                    <tr>
-                                        <NordLabelAndValue label="Config" data={osc.config} table={true} />
+                                        <NordLabelAndValue label={osc.shapeMod.label} data={osc.shapeMod} table={true} />
                                     </tr>
 
-                                    <NordLabelAndValueWithMorph label="Ctrl" data={osc.control} />
                                     <tr>
-                                        <NordLabelAndValue label="OSC 2 Pitch" data={osc.pitch} table={true} />
+                                        <NordValueOnOff label="Skip Samp Atk" data={osc.skipSampleAttack} table={true} />
                                     </tr>
-                                    <NordLabelAndValueWithMorph label={lfoModEnvTitle} data={lfoModEnvValue} />
                                 </tbody>
                             </table>
                         </div>

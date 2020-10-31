@@ -499,7 +499,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
              * @module NS3 Synth Fast Attack
              */
             fastAttack: {
-                enabled: (synthOffsetAc & 0x04) !== 0,
+                enabled: (oscillatorType === "Sample") && (synthOffsetAc & 0x04) !== 0,
             },
         },
 

@@ -1,6 +1,7 @@
 const mapping3 = require("./../../ns3/program/ns3-mapping");
 const converter = require("../../common/converter");
 const mapping = require("./ns2-mapping");
+const {ns2OscShape} = require("./ns2-synth-osc-shape");
 const { ns2KbZone } = require("./ns2-utils");
 const { ns2VolumeEx } = require("./ns2-utils");
 const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
@@ -44,45 +45,44 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  *
  * @param buffer {Buffer}
  * @param id {number}
- * @param panelOffset {number}
+ * @param slotOffset {number}
  * @param global
  * @returns {{voice: {value: *}, oscillators: {control: *, fastAttack: {enabled: boolean}, pitch: {midi: *, value: (string|string)}, type: {value: *}, waveForm1: *, config: {value: *}, modulations: {lfoAmount: {midi: *, morph: *, value: *}, modEnvAmount: {midi: *, morph: *, value: *}}}, debug: {lib: {valid: boolean, location: number, value: string, version: string, info: string}, sampleId: string, preset: {userPresetLocation: number, samplePresetLocation: number, presetName: string}}, unison: {value: *}, arpeggiator: {kbSync: {enabled: boolean}, rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, pattern: {value: *}, range: {value: *}, enabled: boolean}, kbZone: {array: string | string[] | boolean[], value: string | string[] | boolean[]}, sustainPedal: {enabled: boolean}, keyboardHold: {enabled: boolean}, preset: *, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: *, pitchStick: {enabled: boolean}, lfo: {rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, wave: {value: *}}, glide: {value: *}, envelopes: {modulation: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {enabled: boolean}}, amplifier: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {value: *}}}, vibrato: {value: *}}}
  */
-exports.ns2Synth = (buffer, id, panelOffset, global) => {
-    const synthOffset4d = buffer.readUInt8(0x4d + panelOffset);
-    const synthOffset4dWw = buffer.readUInt32BE(0x4d + panelOffset);
-    const synthOffset50W = buffer.readUInt16BE(0x50 + panelOffset);
-    const synthOffset51 = buffer.readUInt8(0x51 + panelOffset);
-    const synthOffset52 = buffer.readUInt8(0x52 + panelOffset);
-    const synthOffset5a = buffer.readUInt8(0x5a + panelOffset);
-    const synthOffsetDc = buffer.readUInt8(0xdc + panelOffset);
-    const synthOffsetFc = buffer.readUInt8(0xfc + panelOffset);
+exports.ns2Synth = (buffer, id, slotOffset, global) => {
+    const synthOffset4d = buffer.readUInt8(0x4d + slotOffset);
+    const synthOffset4dWw = buffer.readUInt32BE(0x4d + slotOffset);
+    const synthOffset50W = buffer.readUInt16BE(0x50 + slotOffset);
+    const synthOffset51 = buffer.readUInt8(0x51 + slotOffset);
+    const synthOffset52 = buffer.readUInt8(0x52 + slotOffset);
+    const synthOffset5a = buffer.readUInt8(0x5a + slotOffset);
+    const synthOffsetDc = buffer.readUInt8(0xdc + slotOffset);
+    const synthOffsetE1W = buffer.readUInt16BE(0xe1 + slotOffset);
+    const synthOffsetE2W = buffer.readUInt16BE(0xe2 + slotOffset);
+    const synthOffsetE7W = buffer.readUInt16BE(0xe7 + slotOffset);
+    const synthOffsetEc = buffer.readUInt8(0xec + slotOffset);
+    const synthOffsetFbW = buffer.readUInt16BE(0xfb + slotOffset);
+    const synthOffsetFcW = buffer.readUInt16BE(0xfc + slotOffset);
 
-    const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
-    const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
-    const synthOffset57 = buffer.readUInt8(0x57 + panelOffset);
-    const synthOffset80 = buffer.readUInt8(0x80 + panelOffset);
-    const synthOffset81 = buffer.readUInt8(0x81 + panelOffset);
-    const synthOffset81Ww = buffer.readUInt32BE(0x81 + panelOffset);
-    const synthOffset84W = buffer.readUInt16BE(0x84 + panelOffset);
-    const synthOffset86 = buffer.readUInt8(0x86 + panelOffset);
-    const synthOffset87 = buffer.readUInt8(0x87 + panelOffset);
-    const synthOffset87Ww = buffer.readUInt32BE(0x87 + panelOffset);
-    const synthOffset8bW = buffer.readUInt16BE(0x8b + panelOffset);
-    const synthOffset8cW = buffer.readUInt16BE(0x8c + panelOffset);
-    const synthOffset8dW = buffer.readUInt16BE(0x8d + panelOffset);
-    const synthOffset8eW = buffer.readUInt16BE(0x8e + panelOffset);
-    const synthOffset8f = buffer.readUInt8(0x8f + panelOffset);
-    const synthOffset8fW = buffer.readUInt16BE(0x8f + panelOffset);
-    const synthOffset94W = buffer.readUInt16BE(0x94 + panelOffset);
-    const synthOffset95Ww = buffer.readUInt32BE(0x95 + panelOffset);
 
-    const synthOffsetF4WW = buffer.readBigUInt64BE(0xf4 + panelOffset);
-    const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
-    const synthOffsetA6W = buffer.readUInt16BE(0xa6 + panelOffset);
-    const synthOffsetA7W = buffer.readUInt16BE(0xa7 + panelOffset);
-    const synthOffsetA8 = buffer.readUInt8(0xa8 + panelOffset);
-    const synthOffsetAc = buffer.readUInt8(0xac + panelOffset);
+    const synthOffset80 = buffer.readUInt8(0x80 + slotOffset);
+    const synthOffset81 = buffer.readUInt8(0x81 + slotOffset);
+    const synthOffset81Ww = buffer.readUInt32BE(0x81 + slotOffset);
+    const synthOffset84W = buffer.readUInt16BE(0x84 + slotOffset);
+    const synthOffset86 = buffer.readUInt8(0x86 + slotOffset);
+    const synthOffset87 = buffer.readUInt8(0x87 + slotOffset);
+    const synthOffset87Ww = buffer.readUInt32BE(0x87 + slotOffset);
+    const synthOffset8bW = buffer.readUInt16BE(0x8b + slotOffset);
+    const synthOffset8cW = buffer.readUInt16BE(0x8c + slotOffset);
+    const synthOffset8dW = buffer.readUInt16BE(0x8d + slotOffset);
+
+
+    const synthOffsetF4WW = buffer.readBigUInt64BE(0xf4 + slotOffset);
+    const synthOffsetA5W = buffer.readUInt16BE(0xa5 + slotOffset);
+    const synthOffsetA6W = buffer.readUInt16BE(0xa6 + slotOffset);
+    const synthOffsetA7W = buffer.readUInt16BE(0xa7 + slotOffset);
+    const synthOffsetA8 = buffer.readUInt8(0xa8 + slotOffset);
+
 
     /**
      * Offset in file: 0xf7 (b1-0) to 0xfb (b7-2)
@@ -95,48 +95,41 @@ exports.ns2Synth = (buffer, id, panelOffset, global) => {
     const synthNs2SampleId = BigInt((synthOffsetF4WW & 0x03fffffffcn) >> 2n);
     const sampleId = getSampleIdNs2ToNs3(synthNs2SampleId);
 
-    const oscillatorType = mapping3.ns3SynthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >>> 7);
+    const oscillatorType = mapping.ns2SynthOscillatorTypeMap.get((synthOffsetE1W & 0x0380) >>> 7);
 
-    let waveForm1 = {
+    let waveForm = {
         valid: false,
         value: "",
         info: "",
         version: "",
-        location: 0,
+        location: (synthOffsetE2W & 0x7fe0) >>> 5,
     };
     switch (oscillatorType) {
-        case "Classic":
-            waveForm1.location = (synthOffset8eW & 0x01c0) >>> 6;
-            waveForm1.value = mapping3.ns3SynthOscillator1ClassicWaveTypeMap.get(waveForm1.location);
-            waveForm1.valid = waveForm1.value !== undefined;
+        case "TRI":
+        case "SAW":
+        case "PULSE":
+            waveForm.value = oscillatorType + " " + mapping.ns2SynthOscillatorAnalogStyleWaveFormsMap.get(waveForm.location);
+            waveForm.valid = waveForm.value !== undefined;
             break;
-        case "Wave":
-            waveForm1.location = (synthOffset8eW & 0x0fc0) >>> 6;
-            waveForm1.value = mapping3.ns3SynthOscillator1WaveWaveTypeMap.get(waveForm1.location);
-            waveForm1.valid = waveForm1.value !== undefined;
+        case "SAMPLE":
+            waveForm = getSample(sampleId, 0, waveForm.location);
+            if (waveForm.version.startsWith("v3.")) {
+                waveForm.version = waveForm.version.replace("v3.", "v2.");
+            }
             break;
-        case "Formant":
-            waveForm1.location = (synthOffset8eW & 0x03c0) >>> 6;
-            waveForm1.value = mapping3.ns3SynthOscillator1FormantWaveTypeMap.get(waveForm1.location);
-            waveForm1.valid = waveForm1.value !== undefined;
+        case "FM":
+            waveForm.value = "FM " + mapping.ns2SynthOscillatorFmStyleWaveFormsMap.get(waveForm.location);
+            waveForm.valid = waveForm.value !== undefined;
             break;
-        case "Super":
-            waveForm1.location = (synthOffset8eW & 0x01c0) >>> 6;
-            waveForm1.value = mapping3.ns3SynthOscillator1SuperWaveTypeMap.get(waveForm1.location);
-            waveForm1.valid = waveForm1.value !== undefined;
-            break;
-        case "Sample":
-            const location = (synthOffset8eW & 0x7fc0) >>> 6;
-            waveForm1 = getSample(sampleId, 0, location);
+        case "WAVE":
+            waveForm.value = "WAVE " + (waveForm.location + 1);
+            waveForm.valid = waveForm.value !== undefined;
             break;
     }
 
-    const oscConfig = mapping3.ns3SynthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >>> 1);
 
-    const osc2Pitch = ((synthOffset8fW & 0x01f8) >>> 3) - 12;
-    const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127) / (48 + 12));
+    const oscModMidi = (synthOffsetE7W & 0x3f80) >>> 7;
 
-    const oscModulation = ns3KnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
 
     const lfoRateMidi = synthOffset87 & 0x7f;
     const lfoRateMasterClock = (synthOffset87 & 0x80) !== 0;
@@ -162,12 +155,12 @@ exports.ns2Synth = (buffer, id, panelOffset, global) => {
 
     const synthKbZoneValue = (synthOffset51 & 0x70) >>> 4;
     const synthKbZone = ns2KbZone(synthKbZoneEnabled, global, synthKbZoneValue);
-    const preset = ns3SynthPreset(buffer, 0x57 + panelOffset);
+    const preset = ns3SynthPreset(buffer, 0x57 + slotOffset);
 
     const synth = {
         debug: {
             sampleId: sampleId.toString(16),
-            lib: waveForm1,
+            lib: waveForm,
             preset: preset,
         },
 
@@ -251,26 +244,26 @@ exports.ns2Synth = (buffer, id, panelOffset, global) => {
             enabled: (synthOffset52 & 0x40) !== 0,
         },
         /**
-         * Offset in file: 0x5a (b4)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS2 Piano Latch Pedal
-         */
-        latchPedal: {
-            enabled: (synthOffset5a & 0x10) !== 0,
-        },
-        /**
          * Offset in file: 0x5a (b5)
          *
          * @example
          * O = off, 1 = on
          *
-         * @module NS2 Piano Kb Gate
+         * @module NS2 Synth Latch Pedal
+         */
+        latchPedal: {
+            enabled: (synthOffset5a & 0x20) !== 0,
+        },
+        /**
+         * Offset in file: 0x5a (b4)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS2 Synth Kb Gate
          */
         kbGate: {
-            enabled: (synthOffset5a & 0x20) !== 0,
+            enabled: (synthOffset5a & 0x10) !== 0,
         },
         /**
          * Offset in file: 0xdc (b1)
@@ -284,7 +277,7 @@ exports.ns2Synth = (buffer, id, panelOffset, global) => {
             enabled: (synthOffsetDc & 0x02) !== 0,
         },
         /**
-         * Offset in file: 0x84 (b0) and 0x85 (b7)
+         * Offset in file: 0xfc (b2-1)
          *
          * @example
          * #include ns2SynthVoiceMap
@@ -292,250 +285,192 @@ exports.ns2Synth = (buffer, id, panelOffset, global) => {
          * @module NS2 Synth Voice
          */
         voice: {
-            value: mapping.ns2SynthVoiceMap.get((synthOffsetFc & 0x06) >>> 1),
+            value: mapping.ns2SynthVoiceMap.get((synthOffsetFcW & 0x0600) >>> 9),
         },
         /**
-         * Offset in file: 0x85 (b6-0) 7 bits, range 0/10
+         * Offset in file: 0xfb (b1-0) and 0xfc (b7-3)
          *
          * @example
          * 0/127 value = 0 / 10
          *
-         * @module NS3 Synth Glide
+         * @module NS2 Synth Glide
          */
         glide: {
-            value: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
+            value: converter.midi2LinearStringValue(0, 10, (synthOffsetFbW & 0x03f8) >>> 3, 1, ""),
         },
         /**
-         * Offset in file: 0x86 (b7-6)
+         * Offset in file: 0xfc (b0) and 0xfd (b7-6)
          *
          * @example
-         * 0 = Off
-         * 1 = 1
-         * 2 = 2
-         * 3 = 3
+         * #include ns2SynthUnisonMap
          *
-         * @module NS3 Synth Unison
+         * @module NS2 Synth Unison
          */
         unison: {
-            value: mapping3.ns3SynthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
+            value: mapping.ns2SynthUnisonMap.get((synthOffsetFcW & 0x01c0) >>> 6),
         },
         /**
-         * Offset in file: 0x86 (b5-3)
+         * Offset in file: 0xfd (b5-3)
          *
          * @example
-         * 0 = Off
-         * 1 = Delay 1
-         * 2 = Delay 2
-         * 3 = Delay 3
-         * 4 = Wheel
-         * 5 = After Touch
+         * #include ns2SynthVibratoMap
          *
-         * @module NS3 Synth Vibrato
+         * @module NS2 Synth Vibrato
          */
         vibrato: {
-            value: mapping3.ns3SynthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
+            value: mapping.ns2SynthVibratoMap.get((synthOffsetFcW & 0x0038) >>> 3),
         },
-        /***
-         * Synth Preset
-         */
-        preset: preset,
         /***
          * Synth Oscillators Definition
          */
         oscillators: {
             /**
-             * Offset in file: 0x8D (b1-0) and 0x8E (b7)
+             * Offset in file: 0xe1 (b1-0) and 0xe2 (b7)
              *
              * @example
-             * 0 = Classic
-             * 1 = Wave
-             * 2 = Formant
-             * 3 = Super
-             * 4 = Sample
+             * #include ns2SynthOscillatorTypeMap
              *
-             * @module NS3 Synth Oscillator Type
+             * @module NS2 Synth Osc Mode
              */
             type: {
                 value: oscillatorType,
             },
             /**
-             * Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
+             * Offset in file: 0xe2 (b6-0) and 0xe3 (b7-5)
              *
              * @example
-
-             * ID | Classic  | Wave               | Formant         | Super
-             * -- | -------- | ------------------ | --------------- | -------------------
-             *  O | Sine     | Wave 2nd Harm      | Format Wave Aaa | Super Wave Saw
-             *  1 | Triangle | Wave 3rd Harm      | Format Wave Eee | Super Wave Saw 2
-             *  2 | Saw      | Wave 4th Harm      | Format Wave Iii | Super Wave Square
-             *  3 | Square   | Wave 5th Harm      | Format Wave Ooo | Super Wave Square 2
-             *  4 | Pulse 33 | Wave 6th Harm      | Format Wave Uuu | Super Wave Bright
-             *  5 | Pulse 10 | Wave 7th Harm      | Format Wave Yyy | Super Wave Bright 2
-             *  6 | ESaw     | Wave 8th Harm      | Format Wave AO  | Super Wave Strings
-             *  7 | ESquare  | Wave Organ 1       | Format Wave AE  | Super Wave Organ
-             *  8 |          | Wave Organ 2       | Format Wave OE  |
-             *  9 |          | Wave Principal     |
-             * 10 |          | Wave Flute 1       |
-             * 11 |          | Wave Flute 2       |
-             * 12 |          | Wave Clarinet 1    |
-             * 13 |          | Wave Clarinet 2    |
-             * 14 |          | Wave Alto Sax      |
-             * 15 |          | Wave Tenor Sax     |
-             * 16 |          | Wave 2nd Spectra   |
-             * 17 |          | Wave 3rd Spectra   |
-             * 18 |          | Wave 4th Spectra   |
-             * 19 |          | Wave 5th Spectra   |
-             * 20 |          | Wave 6th Spectra   |
-             * 21 |          | Wave 7th Spectra   |
-             * 22 |          | Wave 8th Spectra   |
-             * 23 |          | Wave Saw Random    |
-             * 24 |          | Wave Saw Bright    |
-             * 25 |          | Wave Sqr Bright    |
-             * 26 |          | Wave Saw NoFund    |
-             * 27 |          | Wave EPiano 1      |
-             * 28 |          | Wave EPiano 2      |
-             * 29 |          | Wave EPiano 3      |
-             * 30 |          | Wave DX 1          |
-             * 31 |          | Wave DX 2          |
-             * 32 |          | Wave Full Tines    |
-             * 33 |          | Wave Ac Piano      |
-             * 34 |          | Wave Ice 1         |
-             * 35 |          | Wave Ice 2         |
-             * 36 |          | Wave Clavinet 1    |
-             * 37 |          | Wave Clavinet 2    |
-             * 38 |          | Wave Clavinet 3    |
-             * 39 |          | Wave Triplets      |
-             * 40 |          | Wave Bell          |
-             * 41 |          | Wave Bar 1         |
-             * 42 |          | Wave Bar 2         |
-             * 43 |          | Wave Tines         |
-             * 44 |          | Wave Marimba       |
-             * 45 |          | Wave Tubular Bells |
              *
-             * @module NS3 Synth Oscillator 1 Wave Form
+             * ID   | TRI  | SAW    | PULSE  | SAMPLE  | FM   | WAVE  |
+             * -----|------|--------|--------|---------|------|-------|
+             * O    | ---  | ---    | ---    | 1       | Sin  |  1    |
+             * 1    | ShP  | ShP    | ShP    | 2       | 1 1  |  2    |
+             * 2    | dtn  | dtn    | dtn    | 3       | 2 1  |  3    |
+             * 3    | Snc  | Snc    | Snc    | 4       | 3 1  |  4    |
+             * 4    |      |        |        | 5       | 4 1  |  5    |
+             * 5    |      |        |        | 6       | 5 1  |  6    |
+             * 6    |      |        |        | 7       | 6 1  |  7    |
+             * 7    |      |        |        | 8       | 7 1  |  8    |
+             * 8    |      |        |        | 9       | 8 1  |  9    |
+             * 9    |      |        |        | 10      | 9 1  | 10    |
+             * 10   |      |        |        | 11      | 1.1  | 11    |
+             * 11   |      |        |        | 12      | 2.1  | 12    |
+             * 12   |      |        |        | 13      | 3.1  | 13    |
+             * 13   |      |        |        | 14      | 4.1  | 14    |
+             * 14   |      |        |        | 15      | 5.1  | 15    |
+             * 15   |      |        |        | 16      | 6.1  | 16    |
+             * 16   |      |        |        | 17      | 7.1  | 17    |
+             * 17   |      |        |        | 18      | 8.1  | 18    |
+             * 18   |      |        |        | 19      | 9.1  | 19    |
+             * 19   |      |        |        | 20      | 111  | 20    |
+             * 20   |      |        |        | 21      | 211  | 21    |
+             * 21   |      |        |        | 22      | 311  | 22    |
+             * 22   |      |        |        | 23      | 511  | 23    |
+             * 23   |      |        |        | 24      | 911  | 24    |
+             * 24   |      |        |        | 25      | 221  | 25    |
+             * 25   |      |        |        | 26      | 421  | 26    |
+             * 26   |      |        |        | 27      | 821  | 27    |
+             * 27   |      |        |        | 28      | 1.11 | 28    |
+             * 28   |      |        |        | 29      | 1.21 | 29    |
+             * 29   |      |        |        | 30      | 1.31 | 30    |
+             * 30   |      |        |        | 31      | 1.51 | 31    |
+             * 31   |      |        |        | 32      | 1.91 | 32    |
+             * 32   |      |        |        | 33      | 1.12 | 33    |
+             * 33   |      |        |        | 34      | 2.12 | 34    |
+             * 34   |      |        |        | 35      | 3.12 | 35    |
+             * 35   |      |        |        | 36      | 5.12 | 36    |
+             * 36   |      |        |        | 37      | 9.12 | 37    |
+             * 37   |      |        |        | 38      |      | 38    |
+             * 38   |      |        |        | 39      |      | 39    |
+             * 39   |      |        |        | 40      |      | 40    |
+             * 40   |      |        |        | 41      |      | 41    |
+             * 41   |      |        |        | 42      |      | 42    |
+             * 42   |      |        |        | 43      |      | 43    |
+             * 43   |      |        |        | 44      |      | 44    |
+             * 44   |      |        |        | 45      |      | 45    |
+             * 45   |      |        |        | 46      |      | 46    |
+             * 46   |      |        |        | 47      |      | 47    |
+             * 47   |      |        |        | 48      |      | 48    |
+             * 48   |      |        |        | 49      |      | 49    |
+             * 49   |      |        |        | 50      |      | 50    |
+             * 50   |      |        |        | 51      |      | 51    |
+             * 51   |      |        |        | 52      |      | 52    |
+             * 52   |      |        |        | 53      |      | 53    |
+             * 53   |      |        |        | 54      |      | 54    |
+             * 54   |      |        |        | 55      |      | 55    |
+             * 55   |      |        |        | 56      |      | 56    |
+             * 56   |      |        |        | 57      |      | 57    |
+             * 57   |      |        |        | 58      |      | 58    |
+             * 58   |      |        |        | 59      |      | 59    |
+             * 59   |      |        |        | 60      |      | 60    |
+             * 60   |      |        |        | 61      |      | 61    |
+             * 61   |      |        |        | 62      |      | 62    |
+             * 62   |      |        |        | 63      |      | 63    |
+             * 63   |      |        |        | 64      |      |       |
+             * ...  |      |        |        |         |      |       |
+             * 998  |      |        |        | 999     |      |       |
+             * ...  |      |        |        |         |      |       |
+             * 1023 |      |        |        |         |      |       |
+             *
+             * @module NS2 Synth Osc WaveForm
              */
-            waveForm1: waveForm1,
+            waveForm1: waveForm,
             /**
-             * Offset in file: 0x8F (b4-1)
+             * Offset in file: 0xe6 (b4-0) and 0xe7 (7-6)
              *
              * @example
-             *
-             * 0 = None
-             * 1 = Pitch
-             * 2 = Shape
-             * 3 = Sync
-             * 4 = Detune
-             * 5 = MixSin
-             * 6 = MixTri
-             * 7 = MixSaw
-             * 8 = MixSqr
-             * 9 = MixBell
-             * 10 = MixNs1
-             * 11 = MixNs2
-             * 12 = FM1
-             * 13 = FM2
-             * 14 = RM
-             *
-             * @module NS3 Synth Oscillator Config
-             */
-            config: {
-                value: oscConfig,
-            },
-            /**
-             * Offset in file: 0x90 (b2-0) and 0x91 (b7-4)
-             *
-             * @example
-             * Type                  Midi value conversion
-             * Pitch (1)             0/127 => 0/24
-             * Shape (2)             0/127 => 0/100 %
-             * Sync (3)              0/127 => 0/10
-             * Detune (4)            0/127 => 0/4
-             * Mix* (5 to 11)        0/127 => 100/0 to 0/100
-             * FM & RM (12 to 14)    0/127 => 0/100 %
+             * 0/127 value = 0 / 10
              *
              * Morph Wheel:
-             * 0x91 (b3): polarity (1 = positive, 0 = negative)
-             * 0x91 (b2-b0), 0x92 (b7-b4): 7-bit raw value
+             * Offset in file 0xe3 (b4-0) 0xe4 (b7-5)
              *
              * Morph After Touch:
-             * 0x92 (b3): polarity (1 = positive, 0 = negative)
-             * 0x92 (b2-b0), 0x93 (b7-b4): 7-bit raw value
+             * Offset in file 0xe4 (b4-0) 0xe5 (b7-5)
              *
              * Morph Control Pedal:
-             * 0x93 (b3): polarity (1 = positive, 0 = negative)
-             * 0x93 (b2-b0), 0x94 (b7-b4): 7-bit raw value
+             * Offset in file 0xe5 (b4-0) 0xe6 (b7-5)
              *
-             * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
-             *
-             * @module NS3 Synth Oscillator Control
+             * @module NS2 Synth Shape
              */
-            control: ns3OscControl(buffer, 0x90 + panelOffset, oscConfig),
+            shapeCtrl: ns2OscShape(buffer, slotOffset),
 
             /**
-             * Offset in file: 0x8f (b0) and 0x90 (b7-3)
+             * Offset in file: 0xe7 (b5-0) and 0xe8 (b7)
              *
              * @example
-             * Midi value = 6-bit value + b0 forced to zero to have a standard Midi 7-bit value
-             * value conversion: -12 (Sub) to +48
+             * LFO from 0-63
+             * MOD ENV from 64-127
              *
-             * @module NS3 Synth Pitch
+             * @module NS2 Synth Shape Mod
              */
-            pitch: {
+            shapeMod: {
                 /***
-                 * Synth Pitch Midi Value
+                 * Synth Shape Mod Midi Value
                  */
-                midi: osc2PitchMidi,
+                midi: oscModMidi,
 
                 /***
-                 * Synth Pitch value
+                 * Synth Shape Mod Value
                  */
-                value: osc2Pitch === -12 ? "Sub" : osc2Pitch + " semi",
-            },
+                value: mapping.ns2SynthOscillatorShapeModMap.get(oscModMidi),
 
-            /**
-             * Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
-             *
-             * @example
-             * Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.
-             * Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
-             * 0   = 10.0 (100% left value) 'LFO Amount'
-             * 60  = 0.0 for both values
-             * 120 = 10.0 (100% right value) 'Mod Env Amount'
-             *
-             * @module NS3 Synth LFO Mod Env
-             */
-            modulations: {
-                /**
-                 * LFO Amount
-                 */
-                lfoAmount: {
-                    midi: oscModulation.leftMidi,
-                    value: oscModulation.leftLabel,
-                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, true),
-                },
-                /**
-                 * Env Mod Amount
-                 */
-                modEnvAmount: {
-                    midi: oscModulation.rightMidi,
-                    value: oscModulation.rightLabel,
-                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, false),
-                },
+                label: (oscModMidi === 63 || oscModMidi === 64)
+                    ? "LFO/MOD AMT"
+                    : (oscModMidi < 64 ? "LFO AMT": "Mod Env AMT"),
             },
             /**
-             * Offset in file: 0xAC (b2)
+             * Offset in file: 0xec (b1)
              *
              * @example
              * O = off, 1 = on
              *
-             * @module NS3 Synth Fast Attack
+             * @module NS2 Synth Skip Sample Attack
              */
-            fastAttack: {
-                enabled: (synthOffsetAc & 0x04) !== 0,
+            skipSampleAttack: {
+                enabled: (oscillatorType === "SAMPLE") && (synthOffsetEc & 2) !== 0,
             },
         },
 
-        filter: ns3Filter(buffer, panelOffset),
+        filter: ns3Filter(buffer, slotOffset),
 
         envelopes: {
             modulation: {

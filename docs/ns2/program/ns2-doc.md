@@ -180,47 +180,41 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_NS2 Synth Sustain Pedal">NS2 Synth Sustain Pedal</a></dt>
 <dd><p>Offset in file: 0x52 (b6)</p>
 </dd>
-<dt><a href="#module_NS2 Piano Latch Pedal">NS2 Piano Latch Pedal</a></dt>
-<dd><p>Offset in file: 0x5a (b4)</p>
-</dd>
-<dt><a href="#module_NS2 Piano Kb Gate">NS2 Piano Kb Gate</a></dt>
+<dt><a href="#module_NS2 Synth Latch Pedal">NS2 Synth Latch Pedal</a></dt>
 <dd><p>Offset in file: 0x5a (b5)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Kb Gate">NS2 Synth Kb Gate</a></dt>
+<dd><p>Offset in file: 0x5a (b4)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Kb Hold">NS2 Synth Kb Hold</a></dt>
 <dd><p>Offset in file: 0xdc (b1)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Voice">NS2 Synth Voice</a></dt>
-<dd><p>Offset in file: 0x84 (b0) and 0x85 (b7)</p>
+<dd><p>Offset in file: 0xfc (b2-1)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Glide">NS3 Synth Glide</a></dt>
-<dd><p>Offset in file: 0x85 (b6-0) 7 bits, range 0/10</p>
+<dt><a href="#module_NS2 Synth Glide">NS2 Synth Glide</a></dt>
+<dd><p>Offset in file: 0xfb (b1-0) and 0xfc (b7-3)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Unison">NS3 Synth Unison</a></dt>
-<dd><p>Offset in file: 0x86 (b7-6)</p>
+<dt><a href="#module_NS2 Synth Unison">NS2 Synth Unison</a></dt>
+<dd><p>Offset in file: 0xfc (b0) and 0xfd (b7-6)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Vibrato">NS3 Synth Vibrato</a></dt>
-<dd><p>Offset in file: 0x86 (b5-3)</p>
+<dt><a href="#module_NS2 Synth Vibrato">NS2 Synth Vibrato</a></dt>
+<dd><p>Offset in file: 0xfd (b5-3)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Oscillator Type">NS3 Synth Oscillator Type</a></dt>
-<dd><p>Offset in file: 0x8D (b1-0) and 0x8E (b7)</p>
+<dt><a href="#module_NS2 Synth Osc Mode">NS2 Synth Osc Mode</a></dt>
+<dd><p>Offset in file: 0xe1 (b1-0) and 0xe2 (b7)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Oscillator 1 Wave Form">NS3 Synth Oscillator 1 Wave Form</a></dt>
-<dd><p>Offset in file: 0x8E (b3-0) and 0x8F (b7/6)</p>
+<dt><a href="#module_NS2 Synth Osc WaveForm">NS2 Synth Osc WaveForm</a></dt>
+<dd><p>Offset in file: 0xe2 (b6-0) and 0xe3 (b7-5)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Oscillator Config">NS3 Synth Oscillator Config</a></dt>
-<dd><p>Offset in file: 0x8F (b4-1)</p>
+<dt><a href="#module_NS2 Synth Shape">NS2 Synth Shape</a></dt>
+<dd><p>Offset in file: 0xe6 (b4-0) and 0xe7 (7-6)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Oscillator Control">NS3 Synth Oscillator Control</a></dt>
-<dd><p>Offset in file: 0x90 (b2-0) and 0x91 (b7-4)</p>
+<dt><a href="#module_NS2 Synth Shape Mod">NS2 Synth Shape Mod</a></dt>
+<dd><p>Offset in file: 0xe7 (b5-0) and 0xe8 (b7)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Pitch">NS3 Synth Pitch</a></dt>
-<dd><p>Offset in file: 0x8f (b0) and 0x90 (b7-3)</p>
-</dd>
-<dt><a href="#module_NS3 Synth LFO Mod Env">NS3 Synth LFO Mod Env</a></dt>
-<dd><p>Offset in file: 0x94 (b3-0) and 0x95 (b7-5)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Fast Attack">NS3 Synth Fast Attack</a></dt>
-<dd><p>Offset in file: 0xAC (b2)</p>
+<dt><a href="#module_NS2 Synth Skip Sample Attack">NS2 Synth Skip Sample Attack</a></dt>
+<dd><p>Offset in file: 0xec (b1)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Mod Env Attack">NS3 Synth Mod Env Attack</a></dt>
 <dd><p>Offset in file: 0x8B (b7-1)</p>
@@ -798,19 +792,19 @@ Offset in file: 0x52 (b6)
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Piano Latch Pedal"></a>
+<a name="module_NS2 Synth Latch Pedal"></a>
 
-## NS2 Piano Latch Pedal
-Offset in file: 0x5a (b4)
+## NS2 Synth Latch Pedal
+Offset in file: 0x5a (b5)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Piano Kb Gate"></a>
+<a name="module_NS2 Synth Kb Gate"></a>
 
-## NS2 Piano Kb Gate
-Offset in file: 0x5a (b5)
+## NS2 Synth Kb Gate
+Offset in file: 0x5a (b4)
 
 **Example**  
 ```js
@@ -828,98 +822,79 @@ O = off, 1 = on
 <a name="module_NS2 Synth Voice"></a>
 
 ## NS2 Synth Voice
-Offset in file: 0x84 (b0) and 0x85 (b7)
+Offset in file: 0xfc (b2-1)
 
 **Example**  
 ```js
 #include ns2SynthVoiceMap
 ```
-<a name="module_NS3 Synth Glide"></a>
+<a name="module_NS2 Synth Glide"></a>
 
-## NS3 Synth Glide
-Offset in file: 0x85 (b6-0) 7 bits, range 0/10
+## NS2 Synth Glide
+Offset in file: 0xfb (b1-0) and 0xfc (b7-3)
 
 **Example**  
 ```js
 0/127 value = 0 / 10
 ```
-<a name="module_NS3 Synth Unison"></a>
+<a name="module_NS2 Synth Unison"></a>
 
-## NS3 Synth Unison
-Offset in file: 0x86 (b7-6)
-
-**Example**  
-```js
-0 = Off1 = 12 = 23 = 3
-```
-<a name="module_NS3 Synth Vibrato"></a>
-
-## NS3 Synth Vibrato
-Offset in file: 0x86 (b5-3)
+## NS2 Synth Unison
+Offset in file: 0xfc (b0) and 0xfd (b7-6)
 
 **Example**  
 ```js
-0 = Off1 = Delay 12 = Delay 23 = Delay 34 = Wheel5 = After Touch
+#include ns2SynthUnisonMap
 ```
-<a name="module_NS3 Synth Oscillator Type"></a>
+<a name="module_NS2 Synth Vibrato"></a>
 
-## NS3 Synth Oscillator Type
-Offset in file: 0x8D (b1-0) and 0x8E (b7)
+## NS2 Synth Vibrato
+Offset in file: 0xfd (b5-3)
 
 **Example**  
 ```js
-0 = Classic1 = Wave2 = Formant3 = Super4 = Sample
+#include ns2SynthVibratoMap
 ```
-<a name="module_NS3 Synth Oscillator 1 Wave Form"></a>
+<a name="module_NS2 Synth Osc Mode"></a>
 
-## NS3 Synth Oscillator 1 Wave Form
-Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
+## NS2 Synth Osc Mode
+Offset in file: 0xe1 (b1-0) and 0xe2 (b7)
 
 **Example**  
 ```js
-ID | Classic  | Wave               | Formant         | Super-- | -------- | ------------------ | --------------- | ------------------- O | Sine     | Wave 2nd Harm      | Format Wave Aaa | Super Wave Saw 1 | Triangle | Wave 3rd Harm      | Format Wave Eee | Super Wave Saw 2 2 | Saw      | Wave 4th Harm      | Format Wave Iii | Super Wave Square 3 | Square   | Wave 5th Harm      | Format Wave Ooo | Super Wave Square 2 4 | Pulse 33 | Wave 6th Harm      | Format Wave Uuu | Super Wave Bright 5 | Pulse 10 | Wave 7th Harm      | Format Wave Yyy | Super Wave Bright 2 6 | ESaw     | Wave 8th Harm      | Format Wave AO  | Super Wave Strings 7 | ESquare  | Wave Organ 1       | Format Wave AE  | Super Wave Organ 8 |          | Wave Organ 2       | Format Wave OE  | 9 |          | Wave Principal     |10 |          | Wave Flute 1       |11 |          | Wave Flute 2       |12 |          | Wave Clarinet 1    |13 |          | Wave Clarinet 2    |14 |          | Wave Alto Sax      |15 |          | Wave Tenor Sax     |16 |          | Wave 2nd Spectra   |17 |          | Wave 3rd Spectra   |18 |          | Wave 4th Spectra   |19 |          | Wave 5th Spectra   |20 |          | Wave 6th Spectra   |21 |          | Wave 7th Spectra   |22 |          | Wave 8th Spectra   |23 |          | Wave Saw Random    |24 |          | Wave Saw Bright    |25 |          | Wave Sqr Bright    |26 |          | Wave Saw NoFund    |27 |          | Wave EPiano 1      |28 |          | Wave EPiano 2      |29 |          | Wave EPiano 3      |30 |          | Wave DX 1          |31 |          | Wave DX 2          |32 |          | Wave Full Tines    |33 |          | Wave Ac Piano      |34 |          | Wave Ice 1         |35 |          | Wave Ice 2         |36 |          | Wave Clavinet 1    |37 |          | Wave Clavinet 2    |38 |          | Wave Clavinet 3    |39 |          | Wave Triplets      |40 |          | Wave Bell          |41 |          | Wave Bar 1         |42 |          | Wave Bar 2         |43 |          | Wave Tines         |44 |          | Wave Marimba       |45 |          | Wave Tubular Bells |
+#include ns2SynthOscillatorTypeMap
 ```
-<a name="module_NS3 Synth Oscillator Config"></a>
+<a name="module_NS2 Synth Osc WaveForm"></a>
 
-## NS3 Synth Oscillator Config
-Offset in file: 0x8F (b4-1)
+## NS2 Synth Osc WaveForm
+Offset in file: 0xe2 (b6-0) and 0xe3 (b7-5)
 
 **Example**  
 ```js
-0 = None1 = Pitch2 = Shape3 = Sync4 = Detune5 = MixSin6 = MixTri7 = MixSaw8 = MixSqr9 = MixBell10 = MixNs111 = MixNs212 = FM113 = FM214 = RM
+ID   | TRI  | SAW    | PULSE  | SAMPLE  | FM   | WAVE  |-----|------|--------|--------|---------|------|-------|O    | ---  | ---    | ---    | 1       | Sin  |  1    |1    | ShP  | ShP    | ShP    | 2       | 1 1  |  2    |2    | dtn  | dtn    | dtn    | 3       | 2 1  |  3    |3    | Snc  | Snc    | Snc    | 4       | 3 1  |  4    |4    |      |        |        | 5       | 4 1  |  5    |5    |      |        |        | 6       | 5 1  |  6    |6    |      |        |        | 7       | 6 1  |  7    |7    |      |        |        | 8       | 7 1  |  8    |8    |      |        |        | 9       | 8 1  |  9    |9    |      |        |        | 10      | 9 1  | 10    |10   |      |        |        | 11      | 1.1  | 11    |11   |      |        |        | 12      | 2.1  | 12    |12   |      |        |        | 13      | 3.1  | 13    |13   |      |        |        | 14      | 4.1  | 14    |14   |      |        |        | 15      | 5.1  | 15    |15   |      |        |        | 16      | 6.1  | 16    |16   |      |        |        | 17      | 7.1  | 17    |17   |      |        |        | 18      | 8.1  | 18    |18   |      |        |        | 19      | 9.1  | 19    |19   |      |        |        | 20      | 111  | 20    |20   |      |        |        | 21      | 211  | 21    |21   |      |        |        | 22      | 311  | 22    |22   |      |        |        | 23      | 511  | 23    |23   |      |        |        | 24      | 911  | 24    |24   |      |        |        | 25      | 221  | 25    |25   |      |        |        | 26      | 421  | 26    |26   |      |        |        | 27      | 821  | 27    |27   |      |        |        | 28      | 1.11 | 28    |28   |      |        |        | 29      | 1.21 | 29    |29   |      |        |        | 30      | 1.31 | 30    |30   |      |        |        | 31      | 1.51 | 31    |31   |      |        |        | 32      | 1.91 | 32    |32   |      |        |        | 33      | 1.12 | 33    |33   |      |        |        | 34      | 2.12 | 34    |34   |      |        |        | 35      | 3.12 | 35    |35   |      |        |        | 36      | 5.12 | 36    |36   |      |        |        | 37      | 9.12 | 37    |37   |      |        |        | 38      |      | 38    |38   |      |        |        | 39      |      | 39    |39   |      |        |        | 40      |      | 40    |40   |      |        |        | 41      |      | 41    |41   |      |        |        | 42      |      | 42    |42   |      |        |        | 43      |      | 43    |43   |      |        |        | 44      |      | 44    |44   |      |        |        | 45      |      | 45    |45   |      |        |        | 46      |      | 46    |46   |      |        |        | 47      |      | 47    |47   |      |        |        | 48      |      | 48    |48   |      |        |        | 49      |      | 49    |49   |      |        |        | 50      |      | 50    |50   |      |        |        | 51      |      | 51    |51   |      |        |        | 52      |      | 52    |52   |      |        |        | 53      |      | 53    |53   |      |        |        | 54      |      | 54    |54   |      |        |        | 55      |      | 55    |55   |      |        |        | 56      |      | 56    |56   |      |        |        | 57      |      | 57    |57   |      |        |        | 58      |      | 58    |58   |      |        |        | 59      |      | 59    |59   |      |        |        | 60      |      | 60    |60   |      |        |        | 61      |      | 61    |61   |      |        |        | 62      |      | 62    |62   |      |        |        | 63      |      | 63    |63   |      |        |        | 64      |      |       |...  |      |        |        |         |      |       |998  |      |        |        | 999     |      |       |...  |      |        |        |         |      |       |1023 |      |        |        |         |      |       |
 ```
-<a name="module_NS3 Synth Oscillator Control"></a>
+<a name="module_NS2 Synth Shape"></a>
 
-## NS3 Synth Oscillator Control
-Offset in file: 0x90 (b2-0) and 0x91 (b7-4)
-
-**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
-**Example**  
-```js
-Type                  Midi value conversionPitch (1)             0/127 => 0/24Shape (2)             0/127 => 0/100 %Sync (3)              0/127 => 0/10Detune (4)            0/127 => 0/4Mix* (5 to 11)        0/127 => 100/0 to 0/100FM & RM (12 to 14)    0/127 => 0/100 %Morph Wheel:0x91 (b3): polarity (1 = positive, 0 = negative)0x91 (b2-b0), 0x92 (b7-b4): 7-bit raw valueMorph After Touch:0x92 (b3): polarity (1 = positive, 0 = negative)0x92 (b2-b0), 0x93 (b7-b4): 7-bit raw valueMorph Control Pedal:0x93 (b3): polarity (1 = positive, 0 = negative)0x93 (b2-b0), 0x94 (b7-b4): 7-bit raw value
-```
-<a name="module_NS3 Synth Pitch"></a>
-
-## NS3 Synth Pitch
-Offset in file: 0x8f (b0) and 0x90 (b7-3)
+## NS2 Synth Shape
+Offset in file: 0xe6 (b4-0) and 0xe7 (7-6)
 
 **Example**  
 ```js
-Midi value = 6-bit value + b0 forced to zero to have a standard Midi 7-bit valuevalue conversion: -12 (Sub) to +48
+0/127 value = 0 / 10Morph Wheel:Offset in file 0xe3 (b4-0) 0xe4 (b7-5)Morph After Touch:Offset in file 0xe4 (b4-0) 0xe5 (b7-5)Morph Control Pedal:Offset in file 0xe5 (b4-0) 0xe6 (b7-5)
 ```
-<a name="module_NS3 Synth LFO Mod Env"></a>
+<a name="module_NS2 Synth Shape Mod"></a>
 
-## NS3 Synth LFO Mod Env
-Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
+## NS2 Synth Shape Mod
+Offset in file: 0xe7 (b5-0) and 0xe8 (b7)
 
 **Example**  
 ```js
-Osc modulation (lfo/env mod) is using this single 7-bit value to define two settings with a single knob.Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:0   = 10.0 (100% left value) 'LFO Amount'60  = 0.0 for both values120 = 10.0 (100% right value) 'Mod Env Amount'
+LFO from 0-63MOD ENV from 64-127
 ```
-<a name="module_NS3 Synth Fast Attack"></a>
+<a name="module_NS2 Synth Skip Sample Attack"></a>
 
-## NS3 Synth Fast Attack
-Offset in file: 0xAC (b2)
+## NS2 Synth Skip Sample Attack
+Offset in file: 0xec (b1)
 
 **Example**  
 ```js

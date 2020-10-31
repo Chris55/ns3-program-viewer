@@ -165,8 +165,8 @@ describe("/ns3/synth", () => {
         });
     });
 
-    test("panelA.synth.vibrato.value eq After Touch", async () => {
-        const file = "panelA.synth.vibrato.value eq After Touch.ns3f";
+    test("panelA.synth.vibrato.value eq AT", async () => {
+        const file = "panelA.synth.vibrato.value eq AT.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
