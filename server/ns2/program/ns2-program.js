@@ -329,14 +329,25 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         ...global,
     };
 
-    // layer detune is common for both panel !
+    // All these settings are common for Slot A & B
+
     // noinspection JSPrimitiveTypeWrapperUsage
     ns2.slotB.piano.slotDetune.value = ns2.slotA.piano.slotDetune.value;
 
-    // // rotary speaker settings are common for both panel
-    // ns2.panelB.effects.rotarySpeaker.drive = ns2.panelA.effects.rotarySpeaker.drive;
-    // ns2.panelB.effects.rotarySpeaker.stopMode = ns2.panelA.effects.rotarySpeaker.stopMode;
-    // ns2.panelB.effects.rotarySpeaker.speed = ns2.panelA.effects.rotarySpeaker.speed;
+
+    ns2.slotB.organ.pitchStick.enabled = ns2.slotA.organ.pitchStick.enabled;
+    ns2.slotB.organ.type.value = ns2.slotA.organ.type.value;
+    ns2.slotB.organ.preset1.vibrato.enabled = ns2.slotA.organ.preset1.vibrato.enabled;
+    ns2.slotB.organ.preset1.vibrato.mode = ns2.slotA.organ.preset1.vibrato.mode;
+    ns2.slotB.organ.preset2.vibrato.enabled = ns2.slotA.organ.preset1.vibrato.enabled;
+
+    ns2.slotB.organ.preset1.percussion.volumeSoft.enabled = ns2.slotA.organ.preset1.percussion.volumeSoft.enabled;
+    ns2.slotB.organ.preset1.percussion.decayFast.enabled = ns2.slotA.organ.preset1.percussion.decayFast.enabled;
+    ns2.slotB.organ.preset1.percussion.harmonicThird.enabled = ns2.slotA.organ.preset1.percussion.harmonicThird.enabled;
+
+    // ns2.slotB.effects.rotarySpeaker.drive = ns2.slotA.effects.rotarySpeaker.drive;
+    // ns2.slotB.effects.rotarySpeaker.stopMode = ns2.slotA.effects.rotarySpeaker.stopMode;
+    // ns2.slotB.effects.rotarySpeaker.speed = ns2.slotA.effects.rotarySpeaker.speed;
 
     return ns2;
 };

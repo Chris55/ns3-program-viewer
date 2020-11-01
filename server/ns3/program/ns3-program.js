@@ -347,18 +347,17 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         ...global,
     };
 
-    // piano layer detune is common for both panel
+    // All these settings are common for Panel A & B
+
     // noinspection JSPrimitiveTypeWrapperUsage
     ns3.panelB.piano.layerDetune.value = ns3.panelA.piano.layerDetune.value;
 
-    // rotary speaker settings are common for both panel
+    ns3.panelB.organ.pitchStick.enabled = ns3.panelA.organ.pitchStick.enabled;
+    ns3.panelB.organ.preset1.vibrato.mode = ns3.panelA.organ.preset1.vibrato.mode;
+
     ns3.panelB.effects.rotarySpeaker.drive = ns3.panelA.effects.rotarySpeaker.drive;
     ns3.panelB.effects.rotarySpeaker.stopMode = ns3.panelA.effects.rotarySpeaker.stopMode;
     ns3.panelB.effects.rotarySpeaker.speed = ns3.panelA.effects.rotarySpeaker.speed;
-
-    // organ common settings
-    ns3.panelB.organ.pitchStick.enabled = ns3.panelA.organ.pitchStick.enabled;
-    ns3.panelB.organ.preset1.vibrato.mode = ns3.panelA.organ.preset1.vibrato.mode;
 
     return ns3;
 };
