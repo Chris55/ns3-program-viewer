@@ -29,7 +29,7 @@ export default class Ns2SectionSynth extends Component {
 
                                 <div className="row no-gutters d-flex flex-wrap">
                                     <div className="row no-gutters flex-column m-1">
-                                        <div >
+                                        <div>
                                             <NordLabelAndValue label="Voice" data={synth.voice} />
                                             <span className="m-1" />
                                             <NordLabelAndValue
@@ -53,14 +53,29 @@ export default class Ns2SectionSynth extends Component {
                                             <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />
                                         </div>
                                         <div className="nord-name">
-                                            <div className={presetName !== "" ? "": "d-none"}>
-                                                <div className={synth.oscillators.waveForm1.valid ? "nord-font-small": ""}>
+                                            <div className={presetName !== "" ? "" : "d-none"}>
+                                                <div
+                                                    className={
+                                                        synth.oscillators.waveForm1.valid ? "nord-font-small" : ""
+                                                    }
+                                                >
                                                     {presetName}
                                                 </div>
                                             </div>
-                                            <div className={synth.oscillators.waveForm1.valid ? "": "nord-font-small"}>{
-                                                synth.oscillators.waveForm1.value}</div>
-                                            <div ><small>{synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}</small></div>
+                                            <div className={synth.oscillators.waveForm1.valid ? "" : "nord-font-small"}>
+                                                {synth.oscillators.waveForm1.value}
+                                            </div>
+                                            <div className={synth.oscillators.waveForm1.filename ? "d-none" : ""}>
+                                                <small>
+                                                    {synth.oscillators.waveForm1.info}{" "}
+                                                    {synth.oscillators.waveForm1.version}
+                                                </small>
+                                            </div>
+                                            <div className={synth.oscillators.waveForm1.filename ? "" : "d-none"}>
+                                                <small>
+                                                    <i>{synth.oscillators.waveForm1.filename}</i>
+                                                </small>
+                                            </div>
                                         </div>
 
                                         <div className="row no-gutters d-flex flex-wrap">
@@ -88,7 +103,6 @@ export default class Ns2SectionSynth extends Component {
                                         {/*        data={synth.envelopes.amplifier}*/}
                                         {/*    />*/}
                                         {/*</div>*/}
-
                                     </div>
 
                                     {/*<Ns2Fx*/}

@@ -1047,4 +1047,210 @@ exports.ns3NordSampleLibrary2 = new Map([
     [0x1ed620ce, {name: "Male Voice UL", info: "MMaster", version: "3.0", category: "Choir", size: 11950828, filename: "Male Voice UL_Chamberlin_MMaster 2.0", ext: "nsmp3" }],
     [0x3b6f6e09, {name: "Male Voice", info: "MMaster mono", version: "3.0", category: "Choir", size: 5958380, filename: "Male Voice_Chamberlin_MMaster mono 2.0", ext: "nsmp3" }],
 
+    // Nord Sample Library 2.0 Chinese Orchestra
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/chinese-orchestra
+
+    [0xa0e9ce15, {name: "Dizi UL", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 10492268, filename: "Dizi UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x526a9d5c, {name: "Dizi", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 4664172, filename: "Dizi_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x1722ee22, {name: "Erhu Tremolo", info: "PP", version: "3.0", category: "Solo Strings", size: 2040300, filename: "Erhu Tremolo_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x354430ea, {name: "Erhu UL", info: "PP", version: "3.0", category: "Solo Strings", size: 1952492, filename: "Erhu UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xe4a823b3, {name: "Erhu", info: "PP", version: "3.0", category: "Solo Strings", size: 1080556, filename: "Erhu_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x784973, {name: "Gaohu Tremolo", info: "PP", version: "3.0", category: "Solo Strings", size: 2678764, filename: "Gaohu Tremolo_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x294c70b0, {name: "Gaohu UL", info: "PP", version: "3.0", category: "Solo Strings", size: 2784364, filename: "Gaohu UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x9ceb0a3f, {name: "Gaohu", info: "PP", version: "3.0", category: "Solo Strings", size: 1274988, filename: "Gaohu_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xc141bbf, {name: "Gaoyin Sheng Tremolo", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 4067820, filename: "Gaoyin Sheng Tremolo_Chi Orch_PP 2.0", ext: "nsmp3" }],
+    [0x197bd90b, {name: "Gaoyin Sheng UL", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 6592364, filename: "Gaoyin Sheng UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x355a002b, {name: "Gaoyin Sheng", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 1565932, filename: "Gaoyin Sheng_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xaac9d202, {name: "Gaoyin Suona Tremolo UL", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 3071852, filename: "Gaoyin Suona Tremolo UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xeb375ab3, {name: "Gaoyin Suona Tremolo", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 1525484, filename: "Gaoyin Suona Tremolo_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x9ed7ce98, {name: "Gaoyin Suona UL", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 8329068, filename: "Gaoyin Suona UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x2ebbe136, {name: "Gaoyin Suona Vibrato UL", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 2952812, filename: "Gaoyin Suona Vibrato UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x5bd31c3b, {name: "Gaoyin Suona Vibrato", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 995948, filename: "Gaoyin Suona Vibrato_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x2dde29f9, {name: "Gaoyin Suona", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 1451884, filename: "Gaoyin Suona_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x215a659f, {name: "Guqin Harmonics UL", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 1785964, filename: "Guqin Harmonics UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xd02b0132, {name: "Guqin Harmonics", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 1785964, filename: "Guqin Harmonics_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x3d7294e4, {name: "Guqin UL", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 1502188, filename: "Guqin UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xc4b99498, {name: "Guqin", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 1502188, filename: "Guqin_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xaace364a, {name: "Guzheng Tremolo", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 2118124, filename: "Guzheng Tremolo_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xee02f82, {name: "Guzheng", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 2366444, filename: "Guzheng_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x965f95e5, {name: "Hulusi UL", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 3162732, filename: "Hulusi UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xd8511f88, {name: "Hulusi Vibrato UL", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 3328748, filename: "Hulusi Vibrato UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x9d7b4e4, {name: "Hulusi Vibrato", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 492652, filename: "Hulusi Vibrato_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xfeec76af, {name: "Hulusi", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 507500, filename: "Hulusi_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x15668355, {name: "Huqin Section Tremolo", info: "PP ste", version: "3.0", category: "Ens Strings", size: 3085420, filename: "Huqin Section Tremolo_ChiOrch_PP ste 2.0", ext: "nsmp3" }],
+    [0x42d869de, {name: "Huqin Section", info: "PP ste", version: "3.0", category: "Ens Strings", size: 3574380, filename: "Huqin Section_ChiOrch_PP ste 2.0", ext: "nsmp3" }],
+    [0x1ba183f8, {name: "Liuqin", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 1057772, filename: "Liuqin_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x6d8d1f5f, {name: "Pipa Tremolo", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 2036716, filename: "Pipa Tremolo_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xa02e449f, {name: "Pipa", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 1544812, filename: "Pipa_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x34453571, {name: "Plucked Strings Section Tremolo", info: "PP ste", version: "3.0", category: "Guitar/Ethnic Str", size: 3557228, filename: "Plucked Strings Section Tremolo_ChiOrch_PP ste 2.0", ext: "nsmp3" }],
+    [0x2aed64b5, {name: "Plucked Strings Section", info: "PP ste", version: "3.0", category: "Guitar/Ethnic Str", size: 4613740, filename: "Plucked Strings Section_ChiOrch_PP ste 2.0", ext: "nsmp3" }],
+    [0xdbe824d1, {name: "Wind Section", info: "PP", version: "3.0", category: "Ens Wind/Brass", size: 2765036, filename: "Wind Section_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xafc52489, {name: "Xiao Staccato", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 151532, filename: "Xiao Staccato_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xe7fc31a3, {name: "Xiao Tremolo", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 1330284, filename: "Xiao Tremolo_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x1d2e04da, {name: "Xiao UL", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 6596588, filename: "Xiao UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xf6903008, {name: "Xiao Vibrato", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 802412, filename: "Xiao Vibrato_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x67a85796, {name: "Xiao", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 850028, filename: "Xiao_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xd124cb80, {name: "Yangqin Bamboo", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 4378732, filename: "Yangqin Bamboo_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xae9e8b03, {name: "Yangqin Rubber", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 4056172, filename: "Yangqin Rubber_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x7d19a4cb, {name: "Zhonghu UL", info: "PP", version: "3.0", category: "Solo Strings", size: 1572844, filename: "Zhonghu UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x1d6417b9, {name: "Zhonghu", info: "PP", version: "3.0", category: "Solo Strings", size: 969964, filename: "Zhonghu_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0xeaa6c6d2, {name: "Zhongruan", info: "PP", version: "3.0", category: "Guitar/Ethnic Str", size: 1881708, filename: "Zhongruan_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x8bd3d185, {name: "Zhongyin Sheng Tremolo UL", info: "PP", version: "3.0", category: "Accordeon/Harm", size: 3660140, filename: "Zhongyin Sheng Tremolo UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x3f4af4e7, {name: "Zhongyin Sheng UL", info: "PP", version: "3.0", category: "Accordeon/Harm", size: 2959596, filename: "Zhongyin Sheng UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x7cdab72b, {name: "Zhongyin Sheng", info: "PP", version: "3.0", category: "Accordeon/Harm", size: 985452, filename: "Zhongyin Sheng_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x5ca253e, {name: "Zhongyin Suona UL", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 5338092, filename: "Zhongyin Suona UL_ChiOrch_PP 2.0", ext: "nsmp3" }],
+    [0x28c2baae, {name: "Zhongyin Suona", info: "PP", version: "3.0", category: "Solo Wind/Brass", size: 902508, filename: "Zhongyin Suona_ChiOrch_PP 2.0", ext: "nsmp3" }],
+
+    // Nord Sample Library 2.0 Mellotron Accordions
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/mellotron/accordion
+
+    [0x73d12b7f, {name: "Accordion UL", info: "MKII", version: "3.0", category: "Accordeon/Harm", size: 13042028, filename: "Accordion UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x244679d1, {name: "Accordion", info: "MKII", version: "3.0", category: "Accordeon/Harm", size: 4517356, filename: "Accordion_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x1a394e53, {name: "FrAccordion UL", info: "MKII", version: "3.0", category: "Accordeon/Harm", size: 13400428, filename: "FrAccordion UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x386bb88e, {name: "FrAccordion", info: "MkII", version: "3.0", category: "Accordeon/Harm", size: 4419052, filename: "FrAccordion_Mellotron_MkII 2.0", ext: "nsmp3" }],
+
+    // Nord Sample Library 2.0 Mellotron Brass and Wind
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/mellotron/brass-and-wind
+
+    [0x3522f164, {name: "2 Brass UL", info: "M400", version: "3.0", category: "Ens Wind/Brass", size: 11364716, filename: "2 Brass UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xfcbf9fb, {name: "2 Brass", info: "M400", version: "3.0", category: "Ens Wind/Brass", size: 4808556, filename: "2 Brass_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xaa30c031, {name: "2 Saxes UL", info: "M400", version: "3.0", category: "Ens Wind/Brass", size: 12543596, filename: "2 Saxes UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xea9e3c7f, {name: "2 Saxes", info: "M400", version: "3.0", category: "Ens Wind/Brass", size: 5257708, filename: "2 Saxes_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x6adecd57, {name: "AltoSax UL", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 12301548, filename: "AltoSax UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xcefa56aa, {name: "AltoSax", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 5307372, filename: "AltoSax_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x3cf16f25, {name: "BassFlute UL", info: "M300", version: "3.0", category: "Solo Wind/Brass", size: 10560236, filename: "BassFlute UL_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0xf5d112b0, {name: "BassFlute", info: "M300", version: "3.0", category: "Solo Wind/Brass", size: 3509228, filename: "BassFlute_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0x63be7ec7, {name: "Bassoon UL", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 9799532, filename: "Bassoon UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xd28684da, {name: "Bassoon", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 3350380, filename: "Bassoon_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x1eab4105, {name: "Brass UL", info: "MKII", version: "3.0", category: "Ens Wind/Brass", size: 11433068, filename: "Brass UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0xe3b89208, {name: "Brass", info: "MKII", version: "3.0", category: "Ens Wind/Brass", size: 4358380, filename: "Brass_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0xa7cc1fb4, {name: "Clarinet UL", info: "M300", version: "3.0", category: "Solo Wind/Brass", size: 10307948, filename: "Clarinet UL_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0x42aadc99, {name: "Clarinet UL", info: "MKI", version: "3.0", category: "Solo Wind/Brass", size: 10095084, filename: "Clarinet UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x203361ad, {name: "Clarinet", info: "M300", version: "3.0", category: "Solo Wind/Brass", size: 3771500, filename: "Clarinet_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0xddbf2425, {name: "Clarinet", info: "MKI", version: "3.0", category: "Solo Wind/Brass", size: 3417964, filename: "Clarinet_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x2dd376d6, {name: "English Horn UL", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 12938732, filename: "English Horn UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x9ea6070d, {name: "English Horn", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 4350572, filename: "English Horn_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x64a6925, {name: "Flute UL", info: "MKII", version: "3.0", category: "Solo Wind/Brass", size: 10705132, filename: "Flute UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x713fb792, {name: "Flute", info: "MKII", version: "3.0", category: "Solo Wind/Brass", size: 3729004, filename: "Flute_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x84c14b02, {name: "MutedBrass UL", info: "MKII", version: "3.0", category: "Ens Wind/Brass", size: 11266156, filename: "MutedBrass UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x6f83d4c2, {name: "MutedBrass", info: "MKII", version: "3.0", category: "Ens Wind/Brass", size: 4030700, filename: "MutedBrass_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x9ae4a0d7, {name: "Oboe UL", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 12241772, filename: "Oboe UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xdc9fc751, {name: "Oboe", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 3965164, filename: "Oboe_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x55c297d8, {name: "Recorder UL", info: "M400", version: "3.0", category: "Solo Wind/Brass", size: 11932268, filename: "Recorder UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xa1b480bb, {name: "Tenor Sax UL", info: "MKI", version: "3.0", category: "Solo Wind/Brass", size: 11252204, filename: "Tenor Sax UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x86d3bfdb, {name: "Tenor Sax UL", info: "MKII", version: "3.0", category: "Solo Wind/Brass", size: 10916716, filename: "Tenor Sax UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0xf39eeae1, {name: "Tenor Sax", info: "MKI", version: "3.0", category: "Solo Wind/Brass", size: 4522476, filename: "Tenor Sax_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x44859f56, {name: "Tenor Sax", info: "MKII", version: "3.0", category: "Solo Wind/Brass", size: 5211756, filename: "Tenor Sax_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x3098990b, {name: "Trombone UL", info: "MKI", version: "3.0", category: "Solo Wind/Brass", size: 9833836, filename: "Trombone UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x41cc204d, {name: "Trombone UL", info: "MKII", version: "3.0", category: "Solo Wind/Brass", size: 9154540, filename: "Trombone UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x36d732c3, {name: "Trombone", info: "MKI", version: "3.0", category: "Solo Wind/Brass", size: 4088428, filename: "Trombone_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0xc8f597dc, {name: "Trombone", info: "MKII", version: "3.0", category: "Solo Wind/Brass", size: 4533740, filename: "Trombone_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x3a848f8f, {name: "Trumpet UL", info: "MKI", version: "3.0", category: "Solo Wind/Brass", size: 12115308, filename: "Trumpet UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x100f5891, {name: "Trumpet", info: "MKI", version: "3.0", category: "Solo Wind/Brass", size: 5209580, filename: "Trumpet_Mellotron_MKI 2.0", ext: "nsmp3" }],
+
+    // Nord Sample Library 2.0 Mellotron Guitars
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/mellotron/guitars
+
+    [0x83dd71a7, {name: "AccGuitar", info: "MKII", version: "3.0", category: "Guitar/Ethnic Str", size: 2159980, filename: "AccGuitar_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x3516985d, {name: "Guitar", info: "MKI", version: "3.0", category: "Guitar/Ethnic Str", size: 3080556, filename: "Guitar_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x11b4432d, {name: "Mandola UL", info: "MKI", version: "3.0", category: "Guitar/Ethnic Str", size: 11327084, filename: "Mandola UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x1006b36d, {name: "Mandola", info: "MKI", version: "3.0", category: "Guitar/Ethnic Str", size: 2601836, filename: "Mandola_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x602054a5, {name: "Mandolin UL", info: "MKII", version: "3.0", category: "Guitar/Ethnic Str", size: 10505836, filename: "Mandolin UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x5f17b1ba, {name: "Mandolin", info: "MKII", version: "3.0", category: "Guitar/Ethnic Str", size: 2898540, filename: "Mandolin_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0xfd241478, {name: "Rock Guitar UL", info: "MKII", version: "3.0", category: "Guitar/Ethnic Str", size: 4375660, filename: "Rock Guitar UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x3c9f2512, {name: "Rock Guitar", info: "MKII", version: "3.0", category: "Guitar/Ethnic Str", size: 3401708, filename: "Rock Guitar_Mellotron_MKII 2.0", ext: "nsmp3" }],
+
+    // Nord Sample Library 2.0 Mellotron Misc
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/mellotron/mellotron-miscellaneous
+
+    [0x194d2490, {name: "HarpsBrass UL", info: "MKI", version: "3.0", category: "Misc", size: 10163564, filename: "HarpsBrass UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x22a1df08, {name: "HarpsBrass", info: "MKI", version: "3.0", category: "Misc", size: 4178924, filename: "HarpsBrass_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0xa8d7bc0e, {name: "WineGlasses UL", info: "M400", version: "3.0", category: "Misc", size: 10265836, filename: "WineGlasses UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x340b9374, {name: "WineGlasses", info: "M400", version: "3.0", category: "Misc", size: 3538156, filename: "WineGlasses_Mellotron_M400 2.0", ext: "nsmp3" }],
+
+    // Nord Sample Library 2.0 Mellotron Organs
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/mellotron/organs
+
+    [0xff32ddc8, {name: "ChurchOrgan UL", info: "MKI", version: "3.0", category: "Organ", size: 11955052, filename: "ChurchOrgan UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x46f3dad9, {name: "ChurchOrgan UL", info: "MKII", version: "3.0", category: "Organ", size: 11856492, filename: "ChurchOrgan UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x83d652c4, {name: "ChurchOrgan", info: "MKI", version: "3.0", category: "Organ", size: 3361132, filename: "ChurchOrgan_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0xa9e42954, {name: "ChurchOrgan", info: "MKII", version: "3.0", category: "Organ", size: 2764652, filename: "ChurchOrgan_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x45cd3cf3, {name: "Hammond C3 UL", info: "M400", version: "3.0", category: "Organ", size: 9720812, filename: "Hammond C3 UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x313d4e73, {name: "Hammond C3", info: "M400", version: "3.0", category: "Organ", size: 4427116, filename: "Hammond C3_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x7a9ddf92, {name: "Hammond UL", info: "MKI", version: "3.0", category: "Organ", size: 10389612, filename: "Hammond UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x57afb291, {name: "Hammond UL", info: "MKII", version: "3.0", category: "Organ", size: 11856620, filename: "Hammond UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0xb3f16093, {name: "Hammond", info: "MKI", version: "3.0", category: "Organ", size: 2290924, filename: "Hammond_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x5125b7b7, {name: "Hammond", info: "MKII", version: "3.0", category: "Organ", size: 3056364, filename: "Hammond_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x71cd9d1f, {name: "Organ UL", info: "MKI", version: "3.0", category: "Organ", size: 10374508, filename: "Organ UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0xaea27e36, {name: "Organ UL", info: "MKII", version: "3.0", category: "Organ", size: 12444780, filename: "Organ UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x1228f3e6, {name: "Organ", info: "MKI", version: "3.0", category: "Organ", size: 1524588, filename: "Organ_Mellotron_MkI 2.0", ext: "nsmp3" }],
+    [0x265b2ec9, {name: "Organ", info: "MKII", version: "3.0", category: "Organ", size: 1331180, filename: "Organ_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x8931bca4, {name: "Pipe Organ UL", info: "M400", version: "3.0", category: "Organ", size: 11708396, filename: "Pipe Organ UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x2a4bb113, {name: "Pipe Organ", info: "M400", version: "3.0", category: "Organ", size: 4038508, filename: "Pipe Organ_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xeea34422, {name: "RevOrgan UL", info: "MKI", version: "3.0", category: "Organ", size: 11570796, filename: "RevOrgan UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0xc3cc4234, {name: "RevOrgan", info: "MKI", version: "3.0", category: "Organ", size: 2607340, filename: "RevOrgan_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x262cedce, {name: "Tibia UL", info: "MKI", version: "3.0", category: "Organ", size: 9171436, filename: "Tibia UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0x81b4889d, {name: "Tibia", info: "MKI", version: "3.0", category: "Organ", size: 2370156, filename: "Tibia_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0xc1e37649, {name: "Tibia", info: "MKII", version: "3.0", category: "Organ", size: 2403180, filename: "Tibia_Mellotron_MKII 2.0", ext: "nsmp3" }],
+
+    // Nord Sample Library 2.0 Mellotron Pianos
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/mellotron/mellotron-pianos
+
+    [0xb8b61be7, {name: "Clavichord", info: "M400", version: "3.0", category: "Piano", size: 4596076, filename: "Clavichord_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x66e32102, {name: "Harpsichord", info: "MKII", version: "3.0", category: "Piano", size: 4030700, filename: "Harpsichord_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0xfa4d72d, {name: "Piano", info: "MKII", version: "3.0", category: "Piano", size: 5129324, filename: "Piano_Mellotron_MKII 2.0", ext: "nsmp3" }],
+
+    // Nord Sample Library 2.0 Mellotron Strings
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/mellotron/strings
+
+    [0x233a3777, {name: "16 Violins UL", info: "M400", version: "3.0", category: "Ens Strings", size: 12135532, filename: "16 Violins UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x19f96856, {name: "16 Violins", info: "M400", version: "3.0", category: "Ens Strings", size: 3954156, filename: "16 Violins_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xa0781fca, {name: "2 Violins UL", info: "M300", version: "3.0", category: "Ens Strings", size: 14119148, filename: "2 Violins UL_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0xf872d6b6, {name: "2 Violins", info: "M300", version: "3.0", category: "Ens Strings", size: 5236972, filename: "2 Violins_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0xeb96ed52, {name: "3 Violins UL", info: "MKII", version: "3.0", category: "Ens Strings", size: 13323244, filename: "3 Violins UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+    [0x74a4613, {name: "Solo Cello UL", info: "M400", version: "3.0", category: "Solo Strings", size: 11563500, filename: "Solo Cello UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x625cca51, {name: "Solo Cello", info: "M400", version: "3.0", category: "Solo Strings", size: 5869932, filename: "Solo Cello_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x1b268d5f, {name: "Solo String UL", info: "M300", version: "3.0", category: "Solo Strings", size: 12032236, filename: "Solo String UL_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0xdca05fb5, {name: "Solo String", info: "M300", version: "3.0", category: "Solo Strings", size: 4793068, filename: "Solo String_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0xe6a6926a, {name: "Solo Viola UL", info: "M400", version: "3.0", category: "Solo Strings", size: 10551020, filename: "Solo Viola UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x23687acd, {name: "Solo Viola", info: "M400", version: "3.0", category: "Solo Strings", size: 4520428, filename: "Solo Viola_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x2830007a, {name: "Solo Violin UL", info: "M300", version: "3.0", category: "Solo Strings", size: 13018220, filename: "Solo Violin UL_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0xa9bf78e3, {name: "Solo Violin", info: "M300", version: "3.0", category: "Solo Strings", size: 5415532, filename: "Solo Violin_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0x3157ad70, {name: "String Section 1 UL", info: "M400", version: "3.0", category: "Ens Strings", size: 12660204, filename: "String Section 1 UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xd18509dc, {name: "String Section 1", info: "M400", version: "3.0", category: "Ens Strings", size: 4869868, filename: "String Section 1_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x4f1271f7, {name: "String Section 2 UL", info: "M400", version: "3.0", category: "Ens Strings", size: 13213676, filename: "String Section 2 UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x3b1fd04a, {name: "String Section 2", info: "M400", version: "3.0", category: "Ens Strings", size: 4907372, filename: "String Section 2_Mellotron_M400 2.0", ext: "nsmp3" }],
+
+    // Nord Sample Library 2.0 Mellotron Tuned Percussion
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/mellotron/tuned-percussion
+
+    [0x52b78882, {name: "Celeste", info: "M300", version: "3.0", category: "Chromatic Perc", size: 2392172, filename: "Celeste_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0x1b13b824, {name: "Celeste", info: "M400", version: "3.0", category: "Chromatic Perc", size: 4772844, filename: "Celeste_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x7437c6e, {name: "Marimba UL", info: "MKI", version: "3.0", category: "Chromatic Perc", size: 10390636, filename: "Marimba UL_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0xb82d0994, {name: "Marimba", info: "MKI", version: "3.0", category: "Chromatic Perc", size: 2366700, filename: "Marimba_Mellotron_MKI 2.0", ext: "nsmp3" }],
+    [0xeda510fa, {name: "Slow Vibra UL", info: "M300", version: "3.0", category: "Chromatic Perc", size: 9373804, filename: "Slow Vibra UL_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0xe9cb037b, {name: "Slow Vibra", info: "M300", version: "3.0", category: "Chromatic Perc", size: 5843052, filename: "Slow Vibra_Mellotron_M300 2.0", ext: "nsmp3" }],
+    [0x222f6509, {name: "TubularBells UL", info: "M400", version: "3.0", category: "Chromatic Perc", size: 7974252, filename: "TubularBells UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xd7c710fc, {name: "TubularBells", info: "M400", version: "3.0", category: "Chromatic Perc", size: 6041964, filename: "TubularBells_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xcf38737b, {name: "Vibes NoVib UL", info: "M400", version: "3.0", category: "Chromatic Perc", size: 9672812, filename: "Vibes NoVib UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x48efdb44, {name: "Vibes NoVib", info: "M400", version: "3.0", category: "Chromatic Perc", size: 4656748, filename: "Vibes NoVib_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xf12421cf, {name: "Vibraphone UL", info: "MKII", version: "3.0", category: "Chromatic Perc", size: 7629932, filename: "Vibraphone UL_Mellotron_MKII 2.0", ext: "nsmp3" }],
+
+    // Nord Sample Library 2.0 Mellotron Voices
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/mellotron/voices
+
+    [0xe15b5d3d, {name: "4VoiceFemChoir UL", info: "M400", version: "3.0", category: "Choir", size: 12128492, filename: "4VoiceFemChoir UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xc9705c7d, {name: "4VoiceFemChoir", info: "M400", version: "3.0", category: "Choir", size: 5110892, filename: "4VoiceFemChoir_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xa0aef5f8, {name: "4VoiceMaleChoir UL", info: "M400", version: "3.0", category: "Choir", size: 11070188, filename: "4VoiceMaleChoir UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x11d55de2, {name: "4VoiceMaleChoir", info: "M400", version: "3.0", category: "Choir", size: 4291948, filename: "4VoiceMaleChoir_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x4fba5e09, {name: "8VoiceChoir UL", info: "M400", version: "3.0", category: "Choir", size: 11698924, filename: "8VoiceChoir UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x4d36f3ab, {name: "8VoiceChoir", info: "M400", version: "3.0", category: "Choir", size: 4348652, filename: "8VoiceChoir_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x4d07a58c, {name: "BoysChoir UL", info: "M400", version: "3.0", category: "Choir", size: 10259692, filename: "BoysChoir UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x45019d0, {name: "BoysChoir", info: "M400", version: "3.0", category: "Choir", size: 3730412, filename: "BoysChoir_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x367076e1, {name: "MaleSoloVoice UL", info: "M400", version: "3.0", category: "Choir", size: 11187564, filename: "MaleSoloVoice UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0xd2ca83dc, {name: "MixCustChoir UL", info: "M400", version: "3.0", category: "Choir", size: 11335404, filename: "MixCustChoir UL_Mellotron_M400 2.0", ext: "nsmp3" }],
+    [0x61177f67, {name: "MixCustChoir", info: "M400", version: "3.0", category: "Choir", size: 3577708, filename: "MixCustChoir_Mellotron_M400 2.0", ext: "nsmp3" }],
+
+
+
 ]);

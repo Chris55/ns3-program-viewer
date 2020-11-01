@@ -103,6 +103,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         info: "",
         version: "",
         location: (synthOffsetE2W & 0x7fe0) >>> 5,
+        filename: "",
     };
     switch (oscillatorType) {
         case "TRI":

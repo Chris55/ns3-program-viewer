@@ -55,6 +55,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         version: "",
         size: "",
         location: location ? location : 0,
+        filename: "",
     };
 
     // special clavinet multi sample case...
@@ -71,6 +72,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         sample.version = sampleLib.version ? "v" + sampleLib.version : "";
         sample.info = sampleLib.info;
         sample.size = sampleLib.size ? byteSize(sampleLib.size).toString() : "";
+        sample.filename = sampleLib.filename;
     }
     // fallback if piano name is unknown
     // special case is if sampleId = 0 (this happens when program init is used and new piano not saved...)
