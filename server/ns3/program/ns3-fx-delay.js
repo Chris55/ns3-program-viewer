@@ -162,7 +162,7 @@ exports.ns3Delay = (buffer, panelOffset) => {
          * if polarity = 0 then Morph offset value = raw value - 16383
          *
          * Final 'To' Morph value = 'From value (original tempo)' + 'Morph offset value'
-         * Morph Enabled if  'From value' <> 'Morph offset value'
+         * Morph Enabled if  'Morph offset value' <> 0
          *
          * @module NS3 Delay Tempo
          */
