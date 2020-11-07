@@ -142,7 +142,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
          * 0/127 value = 14 Hz / 21 kHz
          * #include ns3SynthFilterCutoffFrequencyMap
          *
-         * * Morph Wheel:
+         * Morph Wheel:
          * 0x99 (b2): polarity (1 = positive, 0 = negative)
          * 0x99 (b1-b0), 0x9A (b7-b3): 7-bit raw value
          *

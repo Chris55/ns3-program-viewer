@@ -247,7 +247,7 @@ exports.loadNs3SampleFile = (buffer, filename) => {
 
     // Piano sample v6 are using offset 0x68 to define the name...
     if (sampleNameV6) {
-        sampleName = sampleNameV6
+        sampleName = sampleNameV6;
 
         const items = sampleName.split(" ");
         let size = items.pop();
@@ -258,9 +258,7 @@ exports.loadNs3SampleFile = (buffer, filename) => {
 
     return {
         version: sampleVersion.version,
-
         sampleValue: sampleValue,
-
         sampleName: sampleName,
         sampleInfo: sampleInfo,
         fileName: sampleFileName,

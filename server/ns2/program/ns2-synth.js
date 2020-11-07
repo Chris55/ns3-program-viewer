@@ -1,6 +1,7 @@
 const mapping3 = require("./../../ns3/program/ns3-mapping");
 const converter = require("../../common/converter");
 const mapping = require("./ns2-mapping");
+const {ns2Filter} = require("./ns2-synth-filter");
 const {ns2OscShape} = require("./ns2-synth-osc-shape");
 const { ns2KbZone } = require("./ns2-utils");
 const { ns2VolumeEx } = require("./ns2-utils");
@@ -455,7 +456,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                 value: mapping.ns2SynthOscillatorShapeModMap.get(oscModMidi),
 
                 label: (oscModMidi === 63 || oscModMidi === 64)
-                    ? "LFO/MOD AMT"
+                    ? "LFO/Env AMT"
                     : (oscModMidi < 64 ? "LFO AMT": "Mod Env AMT"),
             },
             /**
@@ -471,7 +472,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             },
         },
 
-        filter: ns3Filter(buffer, slotOffset),
+        filter: ns2Filter(buffer, slotOffset),
 
         envelopes: {
             modulation: {

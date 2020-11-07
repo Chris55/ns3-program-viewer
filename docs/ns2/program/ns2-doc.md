@@ -159,6 +159,24 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_NS2 Dual Keyboard Style">NS2 Dual Keyboard Style</a></dt>
 <dd><p>Offset in file 0x3A (b1-0)</p>
 </dd>
+<dt><a href="#module_NS2 Synth Filter Type">NS2 Synth Filter Type</a></dt>
+<dd><p>Offset in file: 0xf3 (b3-1)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Filter Kb Track">NS2 Synth Filter Kb Track</a></dt>
+<dd><p>Offset in file: 0xf3 (b4)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Filter Freq">NS2 Synth Filter Freq</a></dt>
+<dd><p>Offset in file: 0xef (b0) and 0xf0 (b7-2)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Filter Res">NS2 Synth Filter Res</a></dt>
+<dd><p>Offset in file: 0xf0 (b1-0) and 0xf1 (b7-3)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Filter Mod 1">NS2 Synth Filter Mod 1</a></dt>
+<dd><p>Offset in file: 0xf2 (b3-0) and 0xf3 (b7-5)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Filter Mod 2">NS2 Synth Filter Mod 2</a></dt>
+<dd><p>Offset in file: 0xf1 (b2-0) and 0xf2 (b7-4)</p>
+</dd>
 <dt><a href="#module_NS2 Synth Sample ID">NS2 Synth Sample ID</a></dt>
 <dd><p>Offset in file: 0xf7 (b1-0) to 0xfb (b7-2)</p>
 </dd>
@@ -728,6 +746,61 @@ Offset in file 0x3A (b1-0)
 **Example**  
 ```js
 0 = Panel1 = Organ2 = Piano3 = Synth
+```
+<a name="module_NS2 Synth Filter Type"></a>
+
+## NS2 Synth Filter Type
+Offset in file: 0xf3 (b3-1)
+
+**Example**  
+```js
+#include ns2SynthFilterTypeMap
+```
+<a name="module_NS2 Synth Filter Kb Track"></a>
+
+## NS2 Synth Filter Kb Track
+Offset in file: 0xf3 (b4)
+
+**Example**  
+```js
+0 = OFF1 = ON
+```
+<a name="module_NS2 Synth Filter Freq"></a>
+
+## NS2 Synth Filter Freq
+Offset in file: 0xef (b0) and 0xf0 (b7-2)
+
+**See**: [Organ Volume](ns2-doc.md#ns2-organ-volume) for detailed Morph explanation.  
+**Example**  
+```js
+0/127 value = 20 Hz / 21 kHz#include ns2SynthFilterFrequencyMapMorph Wheel:Offset in file 0xec (b0) 0xed (b7-1)Morph After Touch:Offset in file 0xed (b0) 0xee (b7-1)Morph Control Pedal:Offset in file 0xee (b0) 0xef (b7-1)
+```
+<a name="module_NS2 Synth Filter Res"></a>
+
+## NS2 Synth Filter Res
+Offset in file: 0xf0 (b1-0) and 0xf1 (b7-3)
+
+**Example**  
+```js
+0/127 value = 0 / 10
+```
+<a name="module_NS2 Synth Filter Mod 1"></a>
+
+## NS2 Synth Filter Mod 1
+Offset in file: 0xf2 (b3-0) and 0xf3 (b7-5)
+
+**Example**  
+```js
+0/127 value = 0 / 10
+```
+<a name="module_NS2 Synth Filter Mod 2"></a>
+
+## NS2 Synth Filter Mod 2
+Offset in file: 0xf1 (b2-0) and 0xf2 (b7-4)
+
+**Example**  
+```js
+VEL from 0 - 63 'Vel Amount'MOD ENV from 64 - 127 'Mod Env Amount'#include ns2SynthFilterFrequencyMod2Map
 ```
 <a name="module_NS2 Synth Sample ID"></a>
 

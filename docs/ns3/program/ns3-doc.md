@@ -1336,7 +1336,7 @@ Offset in file: 0x98 (b1-0) and 0x99 (b7-3)
 **See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-0/127 value = 14 Hz / 21 kHz#include ns3SynthFilterCutoffFrequencyMap* Morph Wheel:0x99 (b2): polarity (1 = positive, 0 = negative)0x99 (b1-b0), 0x9A (b7-b3): 7-bit raw valueMorph After Touch:0x9A (b2): polarity (1 = positive, 0 = negative)0x9A (b1-b0), 0x9B (b7-b3): 7-bit raw valueMorph Control Pedal:0x9B (b2): polarity (1 = positive, 0 = negative)0x9B (b1-b0), 0x9C (b7-b3): 7-bit raw value
+0/127 value = 14 Hz / 21 kHz#include ns3SynthFilterCutoffFrequencyMapMorph Wheel:0x99 (b2): polarity (1 = positive, 0 = negative)0x99 (b1-b0), 0x9A (b7-b3): 7-bit raw valueMorph After Touch:0x9A (b2): polarity (1 = positive, 0 = negative)0x9A (b1-b0), 0x9B (b7-b3): 7-bit raw valueMorph Control Pedal:0x9B (b2): polarity (1 = positive, 0 = negative)0x9B (b1-b0), 0x9C (b7-b3): 7-bit raw value
 ```
 <a name="module_NS3 Synth Filter HP Freq Res"></a>
 

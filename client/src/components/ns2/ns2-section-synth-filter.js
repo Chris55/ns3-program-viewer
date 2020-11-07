@@ -3,30 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns2.css";
 import NordLabelAndValue from "./lib/nord-label-and-value";
 import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
+import NordValueOnOff from "./lib/nord-value-on-off";
 
 export default class Ns2SectionSynthFilter extends Component {
     render() {
         const filter = this.props.data;
-
-        let velModTitle = "Vel/Mod Amt";
-        let velModValue = filter.modulations.velAmount;
-        if (filter.modulations.velAmount.midi < 64) {
-            velModTitle = "Vel Amt";
-            velModValue = filter.modulations.velAmount;
-        } else if (filter.modulations.modEnvAmount.midi > 64) {
-            velModTitle = "Mod Env Amt";
-            velModValue = filter.modulations.modEnvAmount;
-        }
-
-        let resFreqHpTitle, resFreqHpValue;
-
-        if (filter.type.value === "LP+HP") {
-            resFreqHpTitle = "Freq HP";
-            resFreqHpValue = filter.highPassCutoffFrequency;
-        } else {
-            resFreqHpTitle = "Resonance";
-            resFreqHpValue = filter.resonance;
-        }
 
         return (
             <React.Fragment>
@@ -45,15 +26,14 @@ export default class Ns2SectionSynthFilter extends Component {
                                                 </tr>
 
                                                 <NordLabelAndValueWithMorph
-                                                    label="LFO Amt"
-                                                    data={filter.modulations.lfoAmount}
-                                                />
-
-                                                <NordLabelAndValueWithMorph
                                                     label="Freq"
-                                                    data={filter.cutoffFrequency}
+                                                    data={filter.frequency}
                                                     upperCase={false}
                                                 />
+
+                                                <tr>
+                                                    <NordLabelAndValue label="Res" data={filter.resonance} table={true} />
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </td>
@@ -63,35 +43,25 @@ export default class Ns2SectionSynthFilter extends Component {
                                         <table className="table-borderless">
                                             <tbody>
                                                 <tr>
-                                                    <NordLabelAndValue
-                                                        enabled={filter.kbTrack.value !== "Off"}
-                                                        label="Kb Trk"
-                                                        data={filter.kbTrack}
-                                                        table={true}
-                                                    />
+                                                    <NordValueOnOff label="Kb Trk" data={filter.kbTrack} table={true} />
                                                 </tr>
+
+
                                                 <tr>
                                                     <NordLabelAndValue
-                                                        enabled={filter.drive.value !== "Off"}
-                                                        label="Drive"
-                                                        data={filter.drive}
+                                                        label="LFO AMT"
+                                                        data={filter.modulation1}
                                                         table={true}
                                                     />
                                                 </tr>
 
                                                 <tr>
                                                     <NordLabelAndValue
-                                                        label={velModTitle}
-                                                        data={velModValue}
+                                                        label={filter.modulation2.label}
+                                                        data={filter.modulation2}
                                                         table={true}
                                                     />
                                                 </tr>
-
-                                                <NordLabelAndValueWithMorph
-                                                    label={resFreqHpTitle}
-                                                    data={resFreqHpValue}
-                                                    upperCase={false}
-                                                />
                                             </tbody>
                                         </table>
                                     </td>

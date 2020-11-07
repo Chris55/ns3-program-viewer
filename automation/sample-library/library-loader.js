@@ -14,8 +14,7 @@ const { loadNs2ProgramFile } = require("../../server/ns2/program/ns2-program");
 
 //const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
 const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
-//const inputFile = homedir + "/downloads/RubbaRhodes and EG3_Maptest bundle.ns2pb";
-//const inputFile = homedir + "/downloads/Michael Bereal Signature Sound Bank Bundle.ns3fb";
+
 
 const samplesByFilename = new Map(); // key is the sample file name as defined in meta.xml file
 const programsByFileName = new Map(); // key is the program file name  as defined in meta.xml file
@@ -28,13 +27,16 @@ const metadata = new Map(); // key is the program file name as defined in meta.x
  */
 const loadMetadata = (meta) => {
     const xml = convert.xml2js(meta, { compact: false });
-    if (xml.elements.length !== 1 || xml.elements[0].name !== "bundle") {
-        throw new Error("Oops looks like this is not a bundle...");
+    if (xml.elements.length !== 1) {
+        throw new Error("Oops looks like this is not a bundle... ");
+    }
+    if (xml.elements[0].name !== "bundle") {
+        throw new Error(`Oops looks like this is not a bundle... (${xml.elements[0].name} detected)`);
     }
 
     const product = xml.elements[0].attributes.product;
     if (product !== "33" && product !== "38") {
-        throw new Error("Oops only NS2 or NS3 bundle are supported...");
+        throw new Error(`Oops only NS2 or NS3 bundle are supported... (product ${product} detected)`);
     }
 
     xml.elements[0].elements.forEach((f) => {

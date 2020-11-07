@@ -50,7 +50,7 @@ export default class Ns2SectionSynth extends Component {
                                                 data={synth.vibrato}
                                             />
                                             <span className="m-1" />
-                                            <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />
+                                            <NordValueOnOff label="Hold" data={synth.keyboardHold} />
                                         </div>
                                         <div className="nord-name">
                                             <div className={presetName !== "" ? "" : "d-none"}>
@@ -83,11 +83,11 @@ export default class Ns2SectionSynth extends Component {
                                                 className="nord-synth-sub-feature"
                                                 data={synth.oscillators}
                                             />
-                                            {/*<span className="m-1" />*/}
-                                            {/*<Ns2SectionSynthFilter*/}
-                                            {/*    className="nord-synth-sub-feature"*/}
-                                            {/*    data={synth.filter}*/}
-                                            {/*/>*/}
+                                            <span className="m-1" />
+                                            <Ns2SectionSynthFilter
+                                                className="nord-synth-sub-feature"
+                                                data={synth.filter}
+                                            />
                                         </div>
 
                                         {/*<div className="row no-gutters d-flex flex-wrap">*/}
