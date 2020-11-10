@@ -220,10 +220,10 @@
 | `0x00D6` | `--------` |
 | `0x00D7` | `--------` |
 | `0x00D8` | `--------` |
-| `0x00D9` | `-------o` | [(o) synth arp on](ns3-doc.md#ns3-synth-arp-on)
-| `0x00DA` | `mdddd-rr` | [(m) synth arp master clock](ns3-doc.md#ns3-synth-arp-master-clock), [(d) synth arp master clock divisor](ns3-doc.md#ns3-synth-arp-master-clock-divisor), [(r) synth arp master clock rate](ns3-doc.md#ns3-synth-arp-master-clock-rate)
-| `0x00DB` | `rrrrrppn` | [(p) synth arp master pattern](ns3-doc.md#ns3-synth-arp-master-pattern), [(n) synth arp master range](ns3-doc.md#ns3-synth-arp-master-range)
-| `0x00DC` | `nvrrrrh-` | [(v) synth lfo master clock](ns2-doc.md#ns2-synth-lfo-master-clock), [(v) synth lfo rate clock divisor](ns2-doc.md#ns2-synth-lfo-rate-clock-divisor), [(h) synth kb-hold](ns2-doc.md#ns2-synth-kb-hold)
+| `0x00D9` | `-------o` | [(o) synth arp on](ns2-doc.md#ns2-synth-arp-on)
+| `0x00DA` | `mdddd-rr` | [(m) synth arp master clock](ns2-doc.md#ns2-synth-arp-master-clock), [(d) synth arp master clock divisor](ns2-doc.md#ns2-synth-arp-master-clock-divisor), [(r) synth arp master clock rate](ns2-doc.md#ns2-synth-arp-master-clock-rate)
+| `0x00DB` | `rrrrrppn` | [(p) synth arp master pattern](ns2-doc.md#ns2-synth-arp-master-pattern), [(n) synth arp master range](ns2-doc.md#ns2-synth-arp-master-range)
+| `0x00DC` | `nvrrrrh-` | [(v) synth lfo master clock](ns2-doc.md#ns2-synth-lfo-master-clock), [(r) synth lfo rate clock divisor](ns2-doc.md#ns2-synth-lfo-rate), [(h) synth kb-hold](ns2-doc.md#ns2-synth-kb-hold)
 | `0x00DD` | `--------` |
 | `0x00DE` | `--------` |
 | `0x00DF` | `aaaaaaad` | [(a) synth mod env attack](ns2-doc.md#ns2-synth-mod-env-attack), [(d) synth mod env decay](ns2-doc.md#ns2-synth-mod-env-decay)
@@ -250,7 +250,7 @@
 | `0x00F4` | `aaaaaadd` | [(d) synth amp env decay](ns2-doc.md#ns2-synth-amp-env-decay)
 | `0x00F5` | `dddddrrr` | [(r) synth amp env release](ns2-doc.md#ns2-synth-amp-env-release)
 | `0x00F6` | `rrrrvttt` | [(v) synth amp env velocity](ns2-doc.md#ns2-synth-amp-env-velocity), [(t) synth lfo rate](ns2-doc.md#ns2-synth-lfo-rate)
-| `0x00F7` | `ttttwwii` | [(w) synth lfo waveform](ns2-doc.md#ns2-synth-lfo-waveform), [(i) synth sample id](ns2-doc.md#ns2-synth-sample-id)
+| `0x00F7` | `ttttwwii` | [(w) synth lfo waveform](ns2-doc.md#ns2-synth-lfo-wave), [(i) synth sample id](ns2-doc.md#ns2-synth-sample-id)
 | `0x00F8` | `iiiiiiii` |
 | `0x00F9` | `iiiiiiii` |
 | `0x00FA` | `iiiiiiii` |

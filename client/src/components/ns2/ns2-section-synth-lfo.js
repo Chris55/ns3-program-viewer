@@ -17,8 +17,9 @@ export default class Ns2SectionSynthLfo extends Component {
 
                         <table className="table-borderless">
                             <tbody>
-                                <NordLabelAndValueWithMorph label="Rate" data={lfo.rate} upperCase={false} />
-
+                                <tr>
+                                    <NordLabelAndValue label="Rate" data={lfo.rate} table={true} upperCase={false} />
+                                </tr>
                                 <tr>
                                     <NordLabelAndValue label="Wave" data={lfo.wave} table={true} />
                                 </tr>

@@ -90,19 +90,19 @@ export default class Ns2SectionSynth extends Component {
                                             />
                                         </div>
 
-                                        {/*<div className="row no-gutters d-flex flex-wrap">*/}
-                                        {/*    <Ns2SectionSynthLfo className="nord-synth-sub-feature" data={synth.lfo} />*/}
-                                        {/*    <span className="m-1" />*/}
-                                        {/*    <Ns2SectionSynthModEnv*/}
-                                        {/*        className="nord-synth-sub-feature"*/}
-                                        {/*        data={synth.envelopes.modulation}*/}
-                                        {/*    />*/}
-                                        {/*    <span className="m-1" />*/}
-                                        {/*    <Ns2SectionSynthAmpEnv*/}
-                                        {/*        className="nord-synth-sub-feature"*/}
-                                        {/*        data={synth.envelopes.amplifier}*/}
-                                        {/*    />*/}
-                                        {/*</div>*/}
+                                        <div className="row no-gutters d-flex flex-wrap">
+                                            <Ns2SectionSynthLfo className="nord-synth-sub-feature" data={synth.lfo} />
+                                            <span className="m-1" />
+                                            {/*<Ns2SectionSynthModEnv*/}
+                                            {/*    className="nord-synth-sub-feature"*/}
+                                            {/*    data={synth.envelopes.modulation}*/}
+                                            {/*/>*/}
+                                            {/*<span className="m-1" />*/}
+                                            {/*<Ns2SectionSynthAmpEnv*/}
+                                            {/*    className="nord-synth-sub-feature"*/}
+                                            {/*    data={synth.envelopes.amplifier}*/}
+                                            {/*/>*/}
+                                        </div>
                                     </div>
 
                                     {/*<Ns2Fx*/}

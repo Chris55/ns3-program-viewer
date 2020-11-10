@@ -1,8 +1,8 @@
 const mapping3 = require("./../../ns3/program/ns3-mapping");
 const converter = require("../../common/converter");
 const mapping = require("./ns2-mapping");
-const {ns2Filter} = require("./ns2-synth-filter");
-const {ns2OscShape} = require("./ns2-synth-osc-shape");
+const { ns2Filter } = require("./ns2-synth-filter");
+const { ns2OscShape } = require("./ns2-synth-osc-shape");
 const { ns2KbZone } = require("./ns2-utils");
 const { ns2VolumeEx } = require("./ns2-utils");
 const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
@@ -62,9 +62,10 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthOffsetE2W = buffer.readUInt16BE(0xe2 + slotOffset);
     const synthOffsetE7W = buffer.readUInt16BE(0xe7 + slotOffset);
     const synthOffsetEc = buffer.readUInt8(0xec + slotOffset);
+    const synthOffsetF6W = buffer.readUInt16BE(0xf6 + slotOffset);
+    const synthOffsetF7 = buffer.readUInt8(0xf7 + slotOffset);
     const synthOffsetFbW = buffer.readUInt16BE(0xfb + slotOffset);
     const synthOffsetFcW = buffer.readUInt16BE(0xfc + slotOffset);
-
 
     const synthOffset80 = buffer.readUInt8(0x80 + slotOffset);
     const synthOffset81 = buffer.readUInt8(0x81 + slotOffset);
@@ -77,13 +78,11 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthOffset8cW = buffer.readUInt16BE(0x8c + slotOffset);
     const synthOffset8dW = buffer.readUInt16BE(0x8d + slotOffset);
 
-
     const synthOffsetF4WW = buffer.readBigUInt64BE(0xf4 + slotOffset);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + slotOffset);
     const synthOffsetA6W = buffer.readUInt16BE(0xa6 + slotOffset);
     const synthOffsetA7W = buffer.readUInt16BE(0xa7 + slotOffset);
     const synthOffsetA8 = buffer.readUInt8(0xa8 + slotOffset);
-
 
     /**
      * Offset in file: 0xf7 (b1-0) to 0xfb (b7-2)
@@ -110,7 +109,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         case "TRI":
         case "SAW":
         case "PULSE":
-            waveForm.value = oscillatorType + " " + mapping.ns2SynthOscillatorAnalogStyleWaveFormsMap.get(waveForm.location);
+            waveForm.value =
+                oscillatorType + " " + mapping.ns2SynthOscillatorAnalogStyleWaveFormsMap.get(waveForm.location);
             waveForm.valid = waveForm.value !== undefined;
             break;
         case "SAMPLE":
@@ -129,12 +129,11 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             break;
     }
 
-
     const oscModMidi = (synthOffsetE7W & 0x3f80) >>> 7;
 
-
-    const lfoRateMidi = synthOffset87 & 0x7f;
-    const lfoRateMasterClock = (synthOffset87 & 0x80) !== 0;
+    const lfoRateMasterClock = (synthOffsetDc & 0x40) !== 0;
+    const lfoRateMidi = lfoRateMasterClock ? (synthOffsetDc & 0x3c) >>> 2
+        : (synthOffsetF6W & 0x07f0) >>> 4;
 
     const envModAttackMidi = (synthOffset8bW & 0xfe00) >>> 9;
     const envModDecayMidi = (synthOffset8bW & 0x01fc) >>> 2;
@@ -455,9 +454,12 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  */
                 value: mapping.ns2SynthOscillatorShapeModMap.get(oscModMidi),
 
-                label: (oscModMidi === 63 || oscModMidi === 64)
-                    ? "LFO/Env AMT"
-                    : (oscModMidi < 64 ? "LFO AMT": "Mod Env AMT"),
+                label:
+                    oscModMidi === 63 || oscModMidi === 64
+                        ? "LFO/Env AMT"
+                        : oscModMidi < 64
+                        ? "LFO AMT"
+                        : "Mod Env AMT",
             },
             /**
              * Offset in file: 0xec (b1)
@@ -468,7 +470,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              * @module NS2 Synth Skip Sample Attack
              */
             skipSampleAttack: {
-                enabled: (oscillatorType === "SAMPLE") && (synthOffsetEc & 2) !== 0,
+                enabled: oscillatorType === "SAMPLE" && (synthOffsetEc & 2) !== 0,
             },
         },
 
@@ -477,7 +479,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         envelopes: {
             modulation: {
                 /**
-                 * Offset in file: 0x8B (b7-1)
+                 * Offset in file: 0xdf (b7-1)
                  *
                  * @example
                  * 0/127 value = 0.5 ms / 45 s
@@ -591,72 +593,44 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         },
         lfo: {
             /**
-             * Offset in file: 0x86 (b2-0)
+             * Offset in file: 0xf7 (b3-2)
              *
              * @example
-             * 0 = Triangle
-             * 1 = Saw
-             * 2 = Neg Saw
-             * 3 = Square
-             * 4 = S/H
+             * #include ns2SynthLfoWaveMap
              *
-             * @module NS3 Synth Lfo Wave
+             * @module NS2 Synth Lfo Wave
              */
             wave: {
-                value: mapping3.ns3SynthLfoWaveMap.get(synthOffset86 & 0x07),
+                value: mapping.ns2SynthLfoWaveMap.get((synthOffsetF7 & 0x0c) >>> 2),
             },
             /**
-             * Offset in file: 0x87 (b6-0)
-             *
              * @example
-             * 0/127 value = 0.03 Hz / 523 Hz
-             * #include ns3SynthLfoRateMap
+             * Offset in file: 0xdc (b5-2) (if LFO MST CLOCK = ON)
              *
-             * if LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division
-             * #include ns3SynthLfoRateMasterClockDivisionMap
+             * #include ns2SynthLfoRateMasterClockDivisionMap
              *
-             * Morph Wheel:
-             * 0x88 (b7): polarity (1 = positive, 0 = negative)
-             * 0x88 (b6-b0): 7-bit raw value
+             * Offset in file: 0xf6 (b2-0) 0xf7 (b7-4) (if LFO MST CLOCK = OFF)
              *
-             * Morph After Touch:
-             * 0x89 (b7): polarity (1 = positive, 0 = negative)
-             * 0x89 (b6-b0): 7-bit raw value
+             * #include ns2SynthLfoRateMap
              *
-             * Morph Control Pedal:
-             * 0x8A (b7): polarity (1 = positive, 0 = negative)
-             * 0x8A (b6-b0): 7-bit raw value
              *
-             * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
-             *
-             * @module NS3 Synth Lfo Rate
+             * @module NS2 Synth Lfo Rate
              */
             rate: {
                 midi: lfoRateMidi,
 
                 value: lfoRateMasterClock
-                    ? mapping3.ns3SynthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
-                    : mapping3.ns3SynthLfoRateMap.get(lfoRateMidi),
-
-                morph: ns3Morph(
-                    synthOffset87Ww,
-                    lfoRateMidi,
-                    (x) => {
-                        return lfoRateMasterClock
-                            ? mapping3.ns3SynthLfoRateMasterClockDivisionMap.get(x)
-                            : mapping3.ns3SynthLfoRateMap.get(x);
-                    },
-                    false
-                ),
+                    ? mapping.ns2SynthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
+                    : mapping.ns2SynthLfoRateMap.get(lfoRateMidi),
             },
 
             /**
-             * Offset in file: 0x87 (b7)
+             * Offset in file: 0xdc (b6)
              *
              * @example
              * O = off, 1 = on
              *
-             * @module NS3 Synth Lfo Master Clock
+             * @module NS2 Synth Lfo Master Clock
              */
             masterClock: {
                 enabled: lfoRateMasterClock,

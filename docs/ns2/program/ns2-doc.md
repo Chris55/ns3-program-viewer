@@ -258,14 +258,13 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_NS3 Synth Amp Env Velocity">NS3 Synth Amp Env Velocity</a></dt>
 <dd><p>Offset in file: 0xA8 (b4-3)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Lfo Wave">NS3 Synth Lfo Wave</a></dt>
-<dd><p>Offset in file: 0x86 (b2-0)</p>
+<dt><a href="#module_NS2 Synth Lfo Wave">NS2 Synth Lfo Wave</a></dt>
+<dd><p>Offset in file: 0xf7 (b3-2)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Lfo Rate">NS3 Synth Lfo Rate</a></dt>
-<dd><p>Offset in file: 0x87 (b6-0)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Lfo Master Clock">NS3 Synth Lfo Master Clock</a></dt>
-<dd><p>Offset in file: 0x87 (b7)</p>
+<dt><a href="#module_NS2 Synth Lfo Rate">NS2 Synth Lfo Rate</a></dt>
+<dd></dd>
+<dt><a href="#module_NS2 Synth Lfo Master Clock">NS2 Synth Lfo Master Clock</a></dt>
+<dd><p>Offset in file: 0xdc (b6)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Arp On">NS3 Synth Arp On</a></dt>
 <dd><p>Offset in file: 0x80 (b6)</p>
@@ -1045,29 +1044,26 @@ Offset in file: 0xA8 (b4-3)
 ```js
 0 = Off1 = 12 = 23 = 3
 ```
-<a name="module_NS3 Synth Lfo Wave"></a>
+<a name="module_NS2 Synth Lfo Wave"></a>
 
-## NS3 Synth Lfo Wave
-Offset in file: 0x86 (b2-0)
+## NS2 Synth Lfo Wave
+Offset in file: 0xf7 (b3-2)
 
 **Example**  
 ```js
-0 = Triangle1 = Saw2 = Neg Saw3 = Square4 = S/H
+#include ns2SynthLfoWaveMap
 ```
-<a name="module_NS3 Synth Lfo Rate"></a>
+<a name="module_NS2 Synth Lfo Rate"></a>
 
-## NS3 Synth Lfo Rate
-Offset in file: 0x87 (b6-0)
-
-**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
+## NS2 Synth Lfo Rate
 **Example**  
 ```js
-0/127 value = 0.03 Hz / 523 Hz#include ns3SynthLfoRateMapif LFO Master Clock is On, 0/127 value = 4/1 to 1/64 Master Clock Division#include ns3SynthLfoRateMasterClockDivisionMapMorph Wheel:0x88 (b7): polarity (1 = positive, 0 = negative)0x88 (b6-b0): 7-bit raw valueMorph After Touch:0x89 (b7): polarity (1 = positive, 0 = negative)0x89 (b6-b0): 7-bit raw valueMorph Control Pedal:0x8A (b7): polarity (1 = positive, 0 = negative)0x8A (b6-b0): 7-bit raw value
+Offset in file: 0xdc (b5-2) (if LFO MST CLOCK = ON)#include ns2SynthLfoRateMasterClockDivisionMapOffset in file: 0xf6 (b2-0) 0xf7 (b7-4) (if LFO MST CLOCK = OFF)#include ns2SynthLfoRateMap
 ```
-<a name="module_NS3 Synth Lfo Master Clock"></a>
+<a name="module_NS2 Synth Lfo Master Clock"></a>
 
-## NS3 Synth Lfo Master Clock
-Offset in file: 0x87 (b7)
+## NS2 Synth Lfo Master Clock
+Offset in file: 0xdc (b6)
 
 **Example**  
 ```js
