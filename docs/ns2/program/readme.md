@@ -221,8 +221,8 @@
 | `0x00D7` | `--------` |
 | `0x00D8` | `--------` |
 | `0x00D9` | `-------o` | [(o) synth arp on](ns2-doc.md#ns2-synth-arp-on)
-| `0x00DA` | `mdddd-rr` | [(m) synth arp master clock](ns2-doc.md#ns2-synth-arp-master-clock), [(d) synth arp master clock divisor](ns2-doc.md#ns2-synth-arp-master-clock-divisor), [(r) synth arp master clock rate](ns2-doc.md#ns2-synth-arp-master-clock-rate)
-| `0x00DB` | `rrrrrppn` | [(p) synth arp master pattern](ns2-doc.md#ns2-synth-arp-master-pattern), [(n) synth arp master range](ns2-doc.md#ns2-synth-arp-master-range)
+| `0x00DA` | `mdddd-rr` | [(m) synth arp master clock](ns2-doc.md#ns2-synth-arp-master-clock), [(d) synth arp master clock divisor](ns2-doc.md#ns2-synth-arp-rate), [(r) synth arp rate](ns2-doc.md#ns2-synth-arp-rate)
+| `0x00DB` | `rrrrrppn` | [(p) synth arp pattern](ns2-doc.md#ns2-synth-arp-pattern), [(n) synth arp master range](ns2-doc.md#ns2-synth-arp-range)
 | `0x00DC` | `nvrrrrh-` | [(v) synth lfo master clock](ns2-doc.md#ns2-synth-lfo-master-clock), [(r) synth lfo rate clock divisor](ns2-doc.md#ns2-synth-lfo-rate), [(h) synth kb-hold](ns2-doc.md#ns2-synth-kb-hold)
 | `0x00DD` | `--------` |
 | `0x00DE` | `--------` |

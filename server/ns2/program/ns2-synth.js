@@ -56,6 +56,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthOffset51 = buffer.readUInt8(0x51 + slotOffset);
     const synthOffset52 = buffer.readUInt8(0x52 + slotOffset);
     const synthOffset5a = buffer.readUInt8(0x5a + slotOffset);
+    const synthOffsetD9 = buffer.readUInt8(0xd9 + slotOffset);
+    const synthOffsetDaW = buffer.readUInt16BE(0xda + slotOffset);
+    const synthOffsetDbW = buffer.readUInt16BE(0xdb + slotOffset);
     const synthOffsetDc = buffer.readUInt8(0xdc + slotOffset);
     const synthOffsetDfW = buffer.readUInt16BE(0xdf + slotOffset);
     const synthOffsetE0W = buffer.readUInt16BE(0xe0 + slotOffset);
@@ -71,15 +74,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthOffsetFbW = buffer.readUInt16BE(0xfb + slotOffset);
     const synthOffsetFcW = buffer.readUInt16BE(0xfc + slotOffset);
 
-    const synthOffset80 = buffer.readUInt8(0x80 + slotOffset);
-    const synthOffset81 = buffer.readUInt8(0x81 + slotOffset);
-    const synthOffset81Ww = buffer.readUInt32BE(0x81 + slotOffset);
-
     const synthOffsetF4WW = buffer.readBigUInt64BE(0xf4 + slotOffset);
-    const synthOffsetA5W = buffer.readUInt16BE(0xa5 + slotOffset);
-    const synthOffsetA6W = buffer.readUInt16BE(0xa6 + slotOffset);
-    const synthOffsetA7W = buffer.readUInt16BE(0xa7 + slotOffset);
-    const synthOffsetA8 = buffer.readUInt8(0xa8 + slotOffset);
 
     /**
      * Offset in file: 0xf7 (b1-0) to 0xfb (b7-2)
@@ -139,10 +134,13 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const envAmpDecayMidi = (synthOffsetF4W & 0x03f8) >>> 3;
     const envAmpReleaseMidi = (synthOffsetF5W & 0x07f0) >>> 4;
 
-    const arpeggiatorRange = (synthOffset80 & 0x18) >>> 3;
-    const arpeggiatorPattern = (synthOffset80 & 0x06) >>> 1;
-    const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >>> 1;
-    const arpeggiatorMasterClock = (synthOffset80 & 0x01) !== 0;
+    const arpeggiatorMasterClock = (synthOffsetDaW & 0x8000) !== 0;
+    const arpeggiatorRateMidi = arpeggiatorMasterClock
+        ? (synthOffsetDaW & 0x7800) >>> 11
+        : (synthOffsetDaW & 0x03f8) >>> 3;
+    const arpeggiatorPattern = (synthOffsetDbW & 0x0600) >>> 9;
+    const arpeggiatorRange = (synthOffsetDbW & 0x0180) >>> 7;
+
 
     const synthEnabled = (synthOffset4d & 0x40) !== 0;
     const synthKbZoneEnabled =
@@ -625,109 +623,65 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         },
         arpeggiator: {
             /**
-             * Offset in file: 0x80 (b6)
+             * Offset in file: 0xd9 (b0)
              *
              * @example
              * O = off, 1 = on
              *
-             * @module NS3 Synth Arp On
+             * @module NS2 Synth Arp On
              */
-            enabled: (synthOffset80 & 0x40) !== 0,
+            enabled: (synthOffsetD9 & 0x01) !== 0,
 
             /**
-             * Offset in file: 0x81 (b7-1)
-             *
              * @example
-             * 0/127 value = 16 bpm / Fast 5
-             * #include ns3SynthArpRateMap
+             * Offset in file: 0xda (b6-3) (if MST CLK is ON)
+             * #include ns2SynthArpMasterClockDivisionMap
              *
-             * if Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division
-             * #include ns3SynthArpMasterClockDivisionMap
+             * Offset in file: 0xda (b1-0) and 0xdb (b7-3) (if MST CLK is OFF)
+             * #include ns2SynthArpRateMap
              *
-             * Morph Wheel:
-             * 0x81 (b0): polarity (1 = positive, 0 = negative)
-             * 0x82 (b7-b1): 7-bit raw value
-             *
-             * Morph After Touch:
-             * 0x82 (b0): polarity (1 = positive, 0 = negative)
-             * 0x83 (b7-b1): 7-bit raw value
-             *
-             * Morph Control Pedal:
-             * 0x83 (b0): polarity (1 = positive, 0 = negative)
-             * 0x84 (b7-b1): 7-bit raw value
-             *
-             * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
-             *
-             * @module NS3 Synth Arp Rate
+             * @module NS2 Synth Arp Rate
              */
             rate: {
                 midi: arpeggiatorRateMidi,
 
                 value: arpeggiatorMasterClock
-                    ? mapping3.ns3SynthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
-                    : mapping3.ns3SynthArpRateMap.get(arpeggiatorRateMidi),
-
-                morph: ns3Morph(
-                    synthOffset81Ww >>> 1,
-                    arpeggiatorRateMidi,
-                    (x) => {
-                        return arpeggiatorMasterClock
-                            ? mapping3.ns3SynthArpMasterClockDivisionMap.get(x)
-                            : mapping3.ns3SynthArpRateMap.get(x);
-                    },
-                    false
-                ),
+                    ? mapping.ns2SynthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
+                    : mapping.ns2SynthArpRateMap.get(arpeggiatorRateMidi),
             },
 
             /**
-             * Offset in file: 0x80 (b5)
+             * Offset in file: 0xda (b7)
              *
              * @example
              * O = off, 1 = on
              *
-             * @module NS3 Synth Arp Kb Sync
-             */
-            kbSync: {
-                enabled: (synthOffset80 & 0x20) !== 0,
-            },
-            /**
-             * Offset in file: 0x80 (b0)
-             *
-             * @example
-             * O = off, 1 = on
-             *
-             * @module NS3 Synth Arp Master Clock
+             * @module NS2 Synth Arp Master Clock
              */
             masterClock: {
                 enabled: arpeggiatorMasterClock,
             },
             /**
-             * Offset in file: 0x80 (b4-3)
+             * Offset in file: 0xdb (b0) and 0xdc (b7)
              *
              * @example
-             * 0 = 1 Octave
-             * 1 = 2 Octaves
-             * 2 = 3 Octaves
-             * 3 = 4 Octaves
+             * #include ns2ArpeggiatorRangeMap
              *
-             * @module NS3 Synth Arp Range
+             * @module NS2 Synth Arp Range
              */
             range: {
-                value: mapping3.ns3ArpeggiatorRangeMap.get(arpeggiatorRange),
+                value: mapping.ns2ArpeggiatorRangeMap.get(arpeggiatorRange),
             },
             /**
-             * Offset in file: 0x80 (b2-1)
+             * Offset in file: 0xdb (b2-1)
              *
              * @example
-             * 0 = Up
-             * 1 = Down
-             * 2 = Up/Down
-             * 3 = Random
+             * #include ns2ArpeggiatorPatternMap
              *
-             * @module NS3 Synth Arp Pattern
+             * @module NS2 Synth Arp Pattern
              */
             pattern: {
-                value: mapping3.ns3ArpeggiatorPatternMap.get(arpeggiatorPattern),
+                value: mapping.ns2ArpeggiatorPatternMap.get(arpeggiatorPattern),
             },
         },
     };

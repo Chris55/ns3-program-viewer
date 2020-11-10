@@ -27,19 +27,19 @@ export default class Ns2Fx extends Component {
                     <div className="d-flex flex-wrap align-items-start">
                         {arp}
 
-                        <Ns2FxRotarySpeaker
-                            className="ns3-section-fx"
-                            data={data.rotarySpeaker}
-                            source={this.props.source}
-                        />
+                        {/*<Ns2FxRotarySpeaker*/}
+                        {/*    className="ns3-section-fx"*/}
+                        {/*    data={data.rotarySpeaker}*/}
+                        {/*    source={this.props.source}*/}
+                        {/*/>*/}
 
-                        <Ns2FxMulti1 className="ns3-section-fx" data={data.effect1} source={this.props.source} />
+                        {/*<Ns2FxMulti1 className="ns3-section-fx" data={data.effect1} source={this.props.source} />*/}
 
-                        <Ns2FxMulti2 className="ns3-section-fx" data={data.effect2} source={this.props.source} />
+                        {/*<Ns2FxMulti2 className="ns3-section-fx" data={data.effect2} source={this.props.source} />*/}
 
-                        <Ns2FxDelay className="ns3-section-fx" data={data.delay} source={this.props.source} />
+                        {/*<Ns2FxDelay className="ns3-section-fx" data={data.delay} source={this.props.source} />*/}
 
-                        <Ns2FxAmpSimEq className="ns3-section-fx" data={data.ampSimEq} source={this.props.source} />
+                        {/*<Ns2FxAmpSimEq className="ns3-section-fx" data={data.ampSimEq} source={this.props.source} />*/}
 
                     </div>
                 </div>

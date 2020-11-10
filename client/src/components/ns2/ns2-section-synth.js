@@ -105,12 +105,12 @@ export default class Ns2SectionSynth extends Component {
                                         </div>
                                     </div>
 
-                                    {/*<Ns2Fx*/}
-                                    {/*    className="d-flex"*/}
-                                    {/*    data={this.props.effects}*/}
-                                    {/*    source="Synth"*/}
-                                    {/*    arp={synth.arpeggiator}*/}
-                                    {/*/>*/}
+                                    <Ns2Fx
+                                        className="d-flex"
+                                        data={this.props.effects}
+                                        source="Synth"
+                                        arp={synth.arpeggiator}
+                                    />
                                 </div>
                             </div>
                         </div>

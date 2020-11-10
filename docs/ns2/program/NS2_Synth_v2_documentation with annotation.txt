@@ -398,8 +398,8 @@ Offset in file 0xdb (b2-1)
 
 Arpeggiator RANGE
 Offset in files 0xdb (b0) and 0xdc (b7)
-0 = 0
-1 = 1
+0 = 0 -> 1 oct
+1 = 1 -> 2 oct...
 2 = 2
 3 = 3
 

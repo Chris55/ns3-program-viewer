@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns2.css";
 import NordLabelAndValue from "./lib/nord-label-and-value";
 import NordValueOnOff from "./lib/nord-value-on-off";
-import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
 
 export default class Ns2SectionSynthArp extends Component {
     render() {
@@ -19,16 +18,14 @@ export default class Ns2SectionSynthArp extends Component {
                             <table className="table-borderless">
                                 <tbody>
                                     <tr>
-                                        <NordValueOnOff label="Run" data={arp} table={true} />
+                                        <NordValueOnOff label="On" data={arp} table={true} />
                                     </tr>
                                     <tr>
-                                        <NordValueOnOff label="Kb Sync" data={arp.kbSync} table={true} />
+                                        <NordLabelAndValue label="Rate" data={arp.rate} table={true} />
                                     </tr>
                                     <tr>
                                         <NordValueOnOff label="Mst Clk" data={arp.masterClock} table={true} />
                                     </tr>
-
-                                    <NordLabelAndValueWithMorph label="Rate" data={arp.rate} />
 
                                     <tr>
                                         <NordLabelAndValue label="Range" data={arp.range} table={true} />

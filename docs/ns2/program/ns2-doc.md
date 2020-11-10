@@ -266,23 +266,19 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_NS2 Synth Lfo Master Clock">NS2 Synth Lfo Master Clock</a></dt>
 <dd><p>Offset in file: 0xdc (b6)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Arp On">NS3 Synth Arp On</a></dt>
-<dd><p>Offset in file: 0x80 (b6)</p>
+<dt><a href="#module_NS2 Synth Arp On">NS2 Synth Arp On</a></dt>
+<dd><p>Offset in file: 0xd9 (b0)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Arp Rate">NS3 Synth Arp Rate</a></dt>
-<dd><p>Offset in file: 0x81 (b7-1)</p>
+<dt><a href="#module_NS2 Synth Arp Rate">NS2 Synth Arp Rate</a></dt>
+<dd></dd>
+<dt><a href="#module_NS2 Synth Arp Master Clock">NS2 Synth Arp Master Clock</a></dt>
+<dd><p>Offset in file: 0xda (b7)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Arp Kb Sync">NS3 Synth Arp Kb Sync</a></dt>
-<dd><p>Offset in file: 0x80 (b5)</p>
+<dt><a href="#module_NS2 Synth Arp Range">NS2 Synth Arp Range</a></dt>
+<dd><p>Offset in file: 0xdb (b0) and 0xdc (b7)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Arp Master Clock">NS3 Synth Arp Master Clock</a></dt>
-<dd><p>Offset in file: 0x80 (b0)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Arp Range">NS3 Synth Arp Range</a></dt>
-<dd><p>Offset in file: 0x80 (b4-3)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Arp Pattern">NS3 Synth Arp Pattern</a></dt>
-<dd><p>Offset in file: 0x80 (b2-1)</p>
+<dt><a href="#module_NS2 Synth Arp Pattern">NS2 Synth Arp Pattern</a></dt>
+<dd><p>Offset in file: 0xdb (b2-1)</p>
 </dd>
 </dl>
 
@@ -1069,58 +1065,46 @@ Offset in file: 0xdc (b6)
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS3 Synth Arp On"></a>
+<a name="module_NS2 Synth Arp On"></a>
 
-## NS3 Synth Arp On
-Offset in file: 0x80 (b6)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS3 Synth Arp Rate"></a>
-
-## NS3 Synth Arp Rate
-Offset in file: 0x81 (b7-1)
-
-**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
-**Example**  
-```js
-0/127 value = 16 bpm / Fast 5#include ns3SynthArpRateMapif Arpeggiator Master Clock is On, 0/127 value = 1/2 to 1/32 Master Clock Division#include ns3SynthArpMasterClockDivisionMapMorph Wheel:0x81 (b0): polarity (1 = positive, 0 = negative)0x82 (b7-b1): 7-bit raw valueMorph After Touch:0x82 (b0): polarity (1 = positive, 0 = negative)0x83 (b7-b1): 7-bit raw valueMorph Control Pedal:0x83 (b0): polarity (1 = positive, 0 = negative)0x84 (b7-b1): 7-bit raw value
-```
-<a name="module_NS3 Synth Arp Kb Sync"></a>
-
-## NS3 Synth Arp Kb Sync
-Offset in file: 0x80 (b5)
+## NS2 Synth Arp On
+Offset in file: 0xd9 (b0)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS3 Synth Arp Master Clock"></a>
+<a name="module_NS2 Synth Arp Rate"></a>
 
-## NS3 Synth Arp Master Clock
-Offset in file: 0x80 (b0)
+## NS2 Synth Arp Rate
+**Example**  
+```js
+Offset in file: 0xda (b6-3) (if MST CLK is ON)#include ns2SynthArpMasterClockDivisionMapOffset in file: 0xda (b1-0) and 0xdb (b7-3) (if MST CLK is OFF)#include ns2SynthArpRateMap
+```
+<a name="module_NS2 Synth Arp Master Clock"></a>
+
+## NS2 Synth Arp Master Clock
+Offset in file: 0xda (b7)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS3 Synth Arp Range"></a>
+<a name="module_NS2 Synth Arp Range"></a>
 
-## NS3 Synth Arp Range
-Offset in file: 0x80 (b4-3)
+## NS2 Synth Arp Range
+Offset in file: 0xdb (b0) and 0xdc (b7)
 
 **Example**  
 ```js
-0 = 1 Octave1 = 2 Octaves2 = 3 Octaves3 = 4 Octaves
+#include ns2ArpeggiatorRangeMap
 ```
-<a name="module_NS3 Synth Arp Pattern"></a>
+<a name="module_NS2 Synth Arp Pattern"></a>
 
-## NS3 Synth Arp Pattern
-Offset in file: 0x80 (b2-1)
+## NS2 Synth Arp Pattern
+Offset in file: 0xdb (b2-1)
 
 **Example**  
 ```js
-0 = Up1 = Down2 = Up/Down3 = Random
+#include ns2ArpeggiatorPatternMap
 ```
