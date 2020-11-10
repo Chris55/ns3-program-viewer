@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns2.css";
 import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordValueOnOff from "./lib/nord-value-on-off";
 
 export default class Ns2SectionSynthAmpEnv extends Component {
     render() {
@@ -31,12 +32,7 @@ export default class Ns2SectionSynthAmpEnv extends Component {
                                 </tr>
 
                                 <tr>
-                                    <NordLabelAndValue
-                                        label="Velocity"
-                                        data={env.velocity}
-                                        enabled={env.velocity.value !== "Off"}
-                                        table={true}
-                                    />
+                                    <NordValueOnOff label="Velocity" data={env.velocity} table={true} />
                                 </tr>
                             </tbody>
                         </table>

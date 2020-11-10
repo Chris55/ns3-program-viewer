@@ -8,11 +8,7 @@ const { ns2VolumeEx } = require("./ns2-utils");
 const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
 const { ns3SynthPreset } = require("./../../ns3/program/ns3-utils");
 const { getSample } = require("../../library/ns3-library-service");
-const { ns3MorphSynthOscillatorModulation } = require("./../../ns3/program/ns3-morph");
 const { ns3Morph } = require("./../../ns3/program/ns3-morph");
-const { ns3Filter } = require("./../../ns3/program/ns3-synth-filter");
-const { ns3OscControl } = require("./../../ns3/program/ns3-synth-osc-control");
-const { ns3KnobDualValues } = require("./../../ns3/program/ns3-utils");
 
 /***
  * Synth Envelope Decay / Release value
@@ -23,19 +19,22 @@ const { ns3KnobDualValues } = require("./../../ns3/program/ns3-utils");
 const synthEnvDecayOrReleaseLabel = function (value, type) {
     switch (type) {
         case "mod.decay": {
-            if (value === 127) return "Sustain";
-            else return mapping3.ns3SynthEnvDecayOrReleaseMap.get(value);
+            //if (value === 127) return "Sustain";
+            //else
+            return mapping.ns2SynthEnvDecayMap.get(value);
         }
         case "mod.release": {
-            if (value === 127) return "Inf";
-            else return mapping3.ns3SynthEnvDecayOrReleaseMap.get(value);
+            //if (value === 127) return "Inf";
+            //else
+            return mapping.ns2SynthEnvDecayMap.get(value);
         }
         case "amp.decay": {
-            if (value === 127) return "Sustain";
-            else return mapping3.ns3SynthEnvDecayOrReleaseMap.get(value);
+            //if (value === 127) return "Sustain";
+            //else
+            return mapping.ns2SynthEnvDecayMap.get(value);
         }
         case "amp.release": {
-            return mapping3.ns3SynthEnvDecayOrReleaseMap.get(value);
+            return mapping.ns2SynthEnvReleaseMap.get(value);
         }
     }
     return "";
@@ -58,10 +57,15 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthOffset52 = buffer.readUInt8(0x52 + slotOffset);
     const synthOffset5a = buffer.readUInt8(0x5a + slotOffset);
     const synthOffsetDc = buffer.readUInt8(0xdc + slotOffset);
+    const synthOffsetDfW = buffer.readUInt16BE(0xdf + slotOffset);
+    const synthOffsetE0W = buffer.readUInt16BE(0xe0 + slotOffset);
     const synthOffsetE1W = buffer.readUInt16BE(0xe1 + slotOffset);
     const synthOffsetE2W = buffer.readUInt16BE(0xe2 + slotOffset);
     const synthOffsetE7W = buffer.readUInt16BE(0xe7 + slotOffset);
     const synthOffsetEc = buffer.readUInt8(0xec + slotOffset);
+    const synthOffsetF3W = buffer.readUInt16BE(0xf3 + slotOffset);
+    const synthOffsetF4W = buffer.readUInt16BE(0xf4 + slotOffset);
+    const synthOffsetF5W = buffer.readUInt16BE(0xf5 + slotOffset);
     const synthOffsetF6W = buffer.readUInt16BE(0xf6 + slotOffset);
     const synthOffsetF7 = buffer.readUInt8(0xf7 + slotOffset);
     const synthOffsetFbW = buffer.readUInt16BE(0xfb + slotOffset);
@@ -70,13 +74,6 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthOffset80 = buffer.readUInt8(0x80 + slotOffset);
     const synthOffset81 = buffer.readUInt8(0x81 + slotOffset);
     const synthOffset81Ww = buffer.readUInt32BE(0x81 + slotOffset);
-    const synthOffset84W = buffer.readUInt16BE(0x84 + slotOffset);
-    const synthOffset86 = buffer.readUInt8(0x86 + slotOffset);
-    const synthOffset87 = buffer.readUInt8(0x87 + slotOffset);
-    const synthOffset87Ww = buffer.readUInt32BE(0x87 + slotOffset);
-    const synthOffset8bW = buffer.readUInt16BE(0x8b + slotOffset);
-    const synthOffset8cW = buffer.readUInt16BE(0x8c + slotOffset);
-    const synthOffset8dW = buffer.readUInt16BE(0x8d + slotOffset);
 
     const synthOffsetF4WW = buffer.readBigUInt64BE(0xf4 + slotOffset);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + slotOffset);
@@ -132,16 +129,15 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const oscModMidi = (synthOffsetE7W & 0x3f80) >>> 7;
 
     const lfoRateMasterClock = (synthOffsetDc & 0x40) !== 0;
-    const lfoRateMidi = lfoRateMasterClock ? (synthOffsetDc & 0x3c) >>> 2
-        : (synthOffsetF6W & 0x07f0) >>> 4;
+    const lfoRateMidi = lfoRateMasterClock ? (synthOffsetDc & 0x3c) >>> 2 : (synthOffsetF6W & 0x07f0) >>> 4;
 
-    const envModAttackMidi = (synthOffset8bW & 0xfe00) >>> 9;
-    const envModDecayMidi = (synthOffset8bW & 0x01fc) >>> 2;
-    const envModReleaseMidi = (synthOffset8cW & 0x03f8) >>> 3;
+    const envModAttackMidi = (synthOffsetDfW & 0xfe00) >>> 9;
+    const envModDecayMidi = (synthOffsetDfW & 0x01fc) >>> 2;
+    const envModReleaseMidi = (synthOffsetE0W & 0x03f8) >>> 3;
 
-    const envAmpAttackMidi = (synthOffsetA5W & 0x03f8) >>> 3;
-    const envAmpDecayMidi = (synthOffsetA6W & 0x07f0) >>> 4;
-    const envAmpReleaseMidi = (synthOffsetA7W & 0x0fe0) >>> 5;
+    const envAmpAttackMidi = (synthOffsetF3W & 0x01fc) >>> 2;
+    const envAmpDecayMidi = (synthOffsetF4W & 0x03f8) >>> 3;
+    const envAmpReleaseMidi = (synthOffsetF5W & 0x07f0) >>> 4;
 
     const arpeggiatorRange = (synthOffset80 & 0x18) >>> 3;
     const arpeggiatorPattern = (synthOffset80 & 0x06) >>> 1;
@@ -482,24 +478,22 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  * Offset in file: 0xdf (b7-1)
                  *
                  * @example
-                 * 0/127 value = 0.5 ms / 45 s
-                 * #include ns3SynthEnvAttackMap
+                 * #include ns2SynthEnvAttackMap
                  *
-                 * @module NS3 Synth Mod Env Attack
+                 * @module NS2 Synth Mod Env Attack
                  */
                 attack: {
                     midi: envModAttackMidi,
-                    value: mapping3.ns3SynthEnvAttackMap.get(envModAttackMidi),
+                    value: mapping.ns2SynthEnvAttackMap.get(envModAttackMidi),
                 },
 
                 /**
-                 * Offset in file: 0x8B (b0) and 0x8C (b7-2)
+                 * Offset in file: 0xdf (b0) and 0xe0 (b7-2)
                  *
                  * @example
-                 * 0/127 value = 3.0 ms / 45 s (Sustain)
-                 * #include ns3SynthEnvDecayOrReleaseMap
+                 * #include ns2SynthEnvDecayMap
                  *
-                 * @module NS3 Synth Mod Env Decay
+                 * @module NS2 Synth Mod Env Decay
                  */
                 decay: {
                     midi: envModDecayMidi,
@@ -507,13 +501,12 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                 },
 
                 /**
-                 * Offset in file: 0x8C (b1-0) and 0x8D (b7-3)
+                 * Offset in file: 0xe0 (b1-0) and 0xe1 (b7-3)
                  *
                  * @example
-                 * 0/127 value = 3.0 ms / 45 s (Inf)
-                 * #include ns3SynthEnvDecayOrReleaseMap
+                 * #include ns2SynthEnvReleaseMap
                  *
-                 * @module NS3 Synth Mod Env Release
+                 * @module NS2 Synth Mod Env Release
                  */
                 release: {
                     midi: envModReleaseMidi,
@@ -521,40 +514,38 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                 },
 
                 /**
-                 * Offset in file: 0x8D (b2)
+                 * Offset in file: 0xe1 (b2)
                  *
                  * @example
                  * O = off, 1 = on
                  *
-                 * @module NS3 Synth Mod Env Velocity
+                 * @module NS2 Synth Mod Env Velocity
                  */
                 velocity: {
-                    enabled: (synthOffset8dW & 0x0400) !== 0,
+                    enabled: (synthOffsetE1W & 0x0400) !== 0,
                 },
             },
             amplifier: {
                 /**
-                 * Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)
+                 * Offset in file: 0xf3 (b0) and 0xf4 (b7-2)
                  *
                  * @example
-                 * 0/127 value = 0.5 ms / 45 s
-                 * #include ns3SynthEnvAttackMap
+                 * #include ns2SynthEnvAttackMap
                  *
-                 * @module NS3 Synth Amp Env Attack
+                 * @module NS2 Synth Amp Env Attack
                  */
                 attack: {
                     midi: envAmpAttackMidi,
-                    value: mapping3.ns3SynthEnvAttackMap.get(envAmpAttackMidi),
+                    value: mapping.ns2SynthEnvAttackMap.get(envAmpAttackMidi),
                 },
 
                 /**
-                 * Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)
+                 * Offset in file: 0xf4 (b1-0) and 0xf5 (b7-3)
                  *
                  * @example
-                 * 0/127 value = 3.0 ms / 45 s (Sustain)
-                 * #include ns3SynthEnvDecayOrReleaseMap
+                 * #include ns2SynthEnvDecayMap
                  *
-                 * @module NS3 Synth Amp Env Decay
+                 * @module NS2 Synth Amp Env Decay
                  */
                 decay: {
                     midi: envAmpDecayMidi,
@@ -562,13 +553,12 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                 },
 
                 /**
-                 * Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)
+                 * Offset in file: 0xf5 (b2-0) and 0xf6 (b7-4)
                  *
                  * @example
-                 * 0/127 value = 3.0 ms / 45 s
-                 * #include ns3SynthEnvDecayOrReleaseMap
+                 * #include ns2SynthEnvReleaseMap
                  *
-                 * @module NS3 Synth Amp Env Release
+                 * @module NS2 Synth Amp Env Release
                  */
                 release: {
                     midi: envAmpReleaseMidi,
@@ -576,18 +566,15 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                 },
 
                 /**
-                 * Offset in file: 0xA8 (b4-3)
+                 * Offset in file: 0xf6 (b3)
                  *
                  * @example
-                 * 0 = Off
-                 * 1 = 1
-                 * 2 = 2
-                 * 3 = 3
+                 * O = off, 1 = on
                  *
-                 * @module NS3 Synth Amp Env Velocity
+                 * @module NS2 Synth Amp Env Velocity
                  */
                 velocity: {
-                    value: mapping3.ns3SynthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >>> 3),
+                    enabled: (synthOffsetF6W & 0x0800) !== 0,
                 },
             },
         },
