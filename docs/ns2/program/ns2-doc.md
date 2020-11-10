@@ -234,29 +234,29 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_NS2 Synth Skip Sample Attack">NS2 Synth Skip Sample Attack</a></dt>
 <dd><p>Offset in file: 0xec (b1)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Mod Env Attack">NS3 Synth Mod Env Attack</a></dt>
-<dd><p>Offset in file: 0x8B (b7-1)</p>
+<dt><a href="#module_NS2 Synth Mod Env Attack">NS2 Synth Mod Env Attack</a></dt>
+<dd><p>Offset in file: 0xdf (b7-1)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Mod Env Decay">NS3 Synth Mod Env Decay</a></dt>
-<dd><p>Offset in file: 0x8B (b0) and 0x8C (b7-2)</p>
+<dt><a href="#module_NS2 Synth Mod Env Decay">NS2 Synth Mod Env Decay</a></dt>
+<dd><p>Offset in file: 0xdf (b0) and 0xe0 (b7-2)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Mod Env Release">NS3 Synth Mod Env Release</a></dt>
-<dd><p>Offset in file: 0x8C (b1-0) and 0x8D (b7-3)</p>
+<dt><a href="#module_NS2 Synth Mod Env Release">NS2 Synth Mod Env Release</a></dt>
+<dd><p>Offset in file: 0xe0 (b1-0) and 0xe1 (b7-3)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Mod Env Velocity">NS3 Synth Mod Env Velocity</a></dt>
-<dd><p>Offset in file: 0x8D (b2)</p>
+<dt><a href="#module_NS2 Synth Mod Env Velocity">NS2 Synth Mod Env Velocity</a></dt>
+<dd><p>Offset in file: 0xe1 (b2)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Amp Env Attack">NS3 Synth Amp Env Attack</a></dt>
-<dd><p>Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)</p>
+<dt><a href="#module_NS2 Synth Amp Env Attack">NS2 Synth Amp Env Attack</a></dt>
+<dd><p>Offset in file: 0xf3 (b0) and 0xf4 (b7-2)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Amp Env Decay">NS3 Synth Amp Env Decay</a></dt>
-<dd><p>Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)</p>
+<dt><a href="#module_NS2 Synth Amp Env Decay">NS2 Synth Amp Env Decay</a></dt>
+<dd><p>Offset in file: 0xf4 (b1-0) and 0xf5 (b7-3)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Amp Env Release">NS3 Synth Amp Env Release</a></dt>
-<dd><p>Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)</p>
+<dt><a href="#module_NS2 Synth Amp Env Release">NS2 Synth Amp Env Release</a></dt>
+<dd><p>Offset in file: 0xf5 (b2-0) and 0xf6 (b7-4)</p>
 </dd>
-<dt><a href="#module_NS3 Synth Amp Env Velocity">NS3 Synth Amp Env Velocity</a></dt>
-<dd><p>Offset in file: 0xA8 (b4-3)</p>
+<dt><a href="#module_NS2 Synth Amp Env Velocity">NS2 Synth Amp Env Velocity</a></dt>
+<dd><p>Offset in file: 0xf6 (b3)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Lfo Wave">NS2 Synth Lfo Wave</a></dt>
 <dd><p>Offset in file: 0xf7 (b3-2)</p>
@@ -972,77 +972,77 @@ Offset in file: 0xec (b1)
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS3 Synth Mod Env Attack"></a>
+<a name="module_NS2 Synth Mod Env Attack"></a>
 
-## NS3 Synth Mod Env Attack
-Offset in file: 0x8B (b7-1)
-
-**Example**  
-```js
-0/127 value = 0.5 ms / 45 s#include ns3SynthEnvAttackMap
-```
-<a name="module_NS3 Synth Mod Env Decay"></a>
-
-## NS3 Synth Mod Env Decay
-Offset in file: 0x8B (b0) and 0x8C (b7-2)
+## NS2 Synth Mod Env Attack
+Offset in file: 0xdf (b7-1)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s (Sustain)#include ns3SynthEnvDecayOrReleaseMap
+#include ns2SynthEnvAttackMap
 ```
-<a name="module_NS3 Synth Mod Env Release"></a>
+<a name="module_NS2 Synth Mod Env Decay"></a>
 
-## NS3 Synth Mod Env Release
-Offset in file: 0x8C (b1-0) and 0x8D (b7-3)
+## NS2 Synth Mod Env Decay
+Offset in file: 0xdf (b0) and 0xe0 (b7-2)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s (Inf)#include ns3SynthEnvDecayOrReleaseMap
+#include ns2SynthEnvDecayMap
 ```
-<a name="module_NS3 Synth Mod Env Velocity"></a>
+<a name="module_NS2 Synth Mod Env Release"></a>
 
-## NS3 Synth Mod Env Velocity
-Offset in file: 0x8D (b2)
+## NS2 Synth Mod Env Release
+Offset in file: 0xe0 (b1-0) and 0xe1 (b7-3)
+
+**Example**  
+```js
+#include ns2SynthEnvReleaseMap
+```
+<a name="module_NS2 Synth Mod Env Velocity"></a>
+
+## NS2 Synth Mod Env Velocity
+Offset in file: 0xe1 (b2)
 
 **Example**  
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS3 Synth Amp Env Attack"></a>
+<a name="module_NS2 Synth Amp Env Attack"></a>
 
-## NS3 Synth Amp Env Attack
-Offset in file: 0xA5 (b1-0) and 0xA6 (b7-3)
+## NS2 Synth Amp Env Attack
+Offset in file: 0xf3 (b0) and 0xf4 (b7-2)
 
 **Example**  
 ```js
-0/127 value = 0.5 ms / 45 s#include ns3SynthEnvAttackMap
+#include ns2SynthEnvAttackMap
 ```
-<a name="module_NS3 Synth Amp Env Decay"></a>
+<a name="module_NS2 Synth Amp Env Decay"></a>
 
-## NS3 Synth Amp Env Decay
-Offset in file: 0xA6 (b2-0) and 0xA7 (b7-4)
+## NS2 Synth Amp Env Decay
+Offset in file: 0xf4 (b1-0) and 0xf5 (b7-3)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s (Sustain)#include ns3SynthEnvDecayOrReleaseMap
+#include ns2SynthEnvDecayMap
 ```
-<a name="module_NS3 Synth Amp Env Release"></a>
+<a name="module_NS2 Synth Amp Env Release"></a>
 
-## NS3 Synth Amp Env Release
-Offset in file: 0xA7 (b3-0) and 0xA8 (b7-5)
+## NS2 Synth Amp Env Release
+Offset in file: 0xf5 (b2-0) and 0xf6 (b7-4)
 
 **Example**  
 ```js
-0/127 value = 3.0 ms / 45 s#include ns3SynthEnvDecayOrReleaseMap
+#include ns2SynthEnvReleaseMap
 ```
-<a name="module_NS3 Synth Amp Env Velocity"></a>
+<a name="module_NS2 Synth Amp Env Velocity"></a>
 
-## NS3 Synth Amp Env Velocity
-Offset in file: 0xA8 (b4-3)
+## NS2 Synth Amp Env Velocity
+Offset in file: 0xf6 (b3)
 
 **Example**  
 ```js
-0 = Off1 = 12 = 23 = 3
+O = off, 1 = on
 ```
 <a name="module_NS2 Synth Lfo Wave"></a>
 
