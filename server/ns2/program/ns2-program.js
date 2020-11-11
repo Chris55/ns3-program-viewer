@@ -1,5 +1,8 @@
 const path = require("path");
-const mapping = require("../../ns3/program/ns3-mapping");
+const mapping = require("./ns2-mapping");
+const mapping3 = require("../../ns3/program/ns3-mapping");
+const {zeroPad} = require("../../common/converter");
+const {programCategoryMap} = require("../../common/nord-mapping");
 const { ns2Slot } = require("./ns2-slot");
 const { nordFileExtMap } = require("../../common/nord-mapping");
 const { getVersion } = require("../../common/converter");
@@ -32,14 +35,14 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const offset10 = buffer.readUInt8(0x10);
     const offset14W = buffer.readUInt16LE(0x14);
 
-    const bankValue = buffer.readUInt8(0x0c);
-    const locationValue = buffer.readUInt8(0x0e);
-    const locationDigit1 = (Math.trunc(locationValue / 5) + 1) * 10;
+    const bankValue = buffer.readUInt8(0x0c) & 0x03;
+    const locationValue = buffer.readUInt8(0x0e) & 0x7f;
+    const locationDigit1 = (Math.trunc(locationValue / 5) + 1); // * 10;
     const locationDigit2 = (locationValue % 5) + 1;
     const programLocation = {
         bank: bankValue,
         location: locationValue,
-        name: String.fromCharCode(65 + bankValue) + ":" + (locationDigit1 + locationDigit2),
+        name: String.fromCharCode(65 + bankValue) + ":" + zeroPad(locationDigit1, 2) + ":" + locationDigit2,
         value: bankValue * 25 + locationValue,
     };
     /**
@@ -51,12 +54,12 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
      *
      * @module NS2 File Version
      */
-
     const version = offset14W;
 
     /**
      * Offset in file: 0x04
      *
+     * @example
      * 0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
      * 1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
      *
@@ -77,40 +80,30 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         versionOffset = -20;
     }
 
+    const offset30 = buffer.readUInt8(0x30 + versionOffset);
     const offset31 = buffer.readUInt8(0x31 + versionOffset);
     const offset31W = buffer.readUInt16BE(0x31 + versionOffset);
     const offset32W = buffer.readUInt16BE(0x32 + versionOffset);
     const offset33W = buffer.readUInt16BE(0x33 + versionOffset);
     const offset38W = buffer.readUInt16BE(0x38 + versionOffset);
     const offset38 = buffer.readUInt8(0x38 + versionOffset);
-    const offset3a = buffer.readUInt8(0x3a + versionOffset);
+    const offset2e = buffer.readUInt8(0x2e + versionOffset);
 
     /**
-     * Offset in file: 0x38 (b7-3)
-     *
-     * Enabled: 0x38 (b7)
-     * Value: 0x38 (b6-3)
+     * Offset in file: 0x30 (b4-1)
      *
      * @example
-     * 7xxx xxxx : Transpose Off/On
-     * x654 3xxx : Transpose value
+     * Value: 0x30 (b4-1)
+     * #include ns2TransposeMap
      *
-     * Test1:  F8 38 : Transpose Off
-     * Test2:  0D 80 : Transpose -6 semi
-     * Test3:  0D 88 : Transpose -5 semi
-     * Test4:  0D A8 : Transpose -1 semi
-     * Test5:  0D B8 : Transpose +1 semi
-     * Test6:  0D D8 : Transpose +5 semi
-     * Test7:  0D E0 : Transpose +6 semi
-     *
-     * @module NS3 Transpose
+     * @module NS2 Transpose
      */
 
-    const transposeEnabled = (offset38 & 0x80) !== 0;
-    const transposeValue = (offset38 & 0x78) >>> 3;
+    const transposeEnabled = (offset30 & 0x20) !== 0;
+    const transposeValue = (offset30 & 0x1e) >>> 1;
     const transpose = {
         enabled: transposeEnabled,
-        value: transposeEnabled ? mapping.ns3TransposeMap.get(transposeValue) : "",
+        value: transposeEnabled ? mapping.ns2TransposeMap.get(transposeValue) : "",
     };
 
     /**
@@ -237,16 +230,16 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const split = {
         enabled: splitEnabled,
         low: {
-            width: splitEnabled && splitLowEnabled ? mapping.ns3SplitWidthMap.get((offset33W & 0x1800) >>> 11) : "Off",
-            note: splitEnabled && splitLowEnabled ? mapping.ns3SplitNoteMap.get(splitLowNote) : "--",
+            width: splitEnabled && splitLowEnabled ? mapping3.ns3SplitWidthMap.get((offset33W & 0x1800) >>> 11) : "Off",
+            note: splitEnabled && splitLowEnabled ? mapping3.ns3SplitNoteMap.get(splitLowNote) : "--",
         },
         mid: {
-            width: splitEnabled && splitMidEnabled ? mapping.ns3SplitWidthMap.get((offset33W & 0x0600) >>> 9) : "Off",
-            note: splitEnabled && splitMidEnabled ? mapping.ns3SplitNoteMap.get(splitMidNote) : "--",
+            width: splitEnabled && splitMidEnabled ? mapping3.ns3SplitWidthMap.get((offset33W & 0x0600) >>> 9) : "Off",
+            note: splitEnabled && splitMidEnabled ? mapping3.ns3SplitNoteMap.get(splitMidNote) : "--",
         },
         high: {
-            width: splitEnabled && splitHighEnabled ? mapping.ns3SplitWidthMap.get((offset33W & 0x0180) >>> 7) : "Off",
-            note: splitEnabled && splitHighEnabled ? mapping.ns3SplitNoteMap.get(splitHighNote) : "--",
+            width: splitEnabled && splitHighEnabled ? mapping3.ns3SplitWidthMap.get((offset33W & 0x0180) >>> 7) : "Off",
+            note: splitEnabled && splitHighEnabled ? mapping3.ns3SplitNoteMap.get(splitHighNote) : "--",
         },
     };
 
@@ -262,7 +255,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
 
     const dualKeyboard = {
         /**
-         * Offset in file 0x3A (b3)
+         * Offset in file 0x2e (b5)
          *
          * @example
          * 0 = Off
@@ -270,21 +263,9 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
          *
          * Note: if Dual Keyboard is On, both panel are enabled.
          *
-         * @module NS3 Dual Keyboard
+         * @module NS2 Dual Keyboard
          */
-        enabled: (offset3a & 0x08) >>> 3 !== 0,
-        /**
-         * Offset in file 0x3A (b1-0)
-         *
-         * @example
-         * 0 = Panel
-         * 1 = Organ
-         * 2 = Piano
-         * 3 = Synth
-         *
-         * @module NS2 Dual Keyboard Style
-         */
-        value: mapping.ns3DualKeyboardStyleMap.get(offset3a & 0x03),
+        enabled: (offset2e & 0x20) !== 0,
     };
 
     const ext = path.extname(filename).substr(1);
@@ -314,14 +295,14 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
 
         version: version,
 
-        // /**
-        //  * Offset in file: 0x10
-        //  *
-        //  * @example
-        //  * #include ns2programCategoryMap
-        //  * @module NS2 Program Category
-        //  */
-        //category: mapping.programCategoryMap.get(offset10),
+        /**
+         * Offset in file: 0x10
+         *
+         * @example
+         * #include programCategoryMap
+         * @module NS2 Program Category
+         */
+        category: programCategoryMap.get(offset10),
 
         slotA: ns2Slot(buffer, 0, versionOffset, global),
         slotB: ns2Slot(buffer, 1, versionOffset, global),

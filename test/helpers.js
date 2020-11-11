@@ -28,6 +28,7 @@ exports.loadTestCase = async (filename) => {
     basename = basename.replace("@=", "±")
     basename = basename.replace("@p", "+");
     basename = basename.replace("@c", ":");
+    basename = basename.replace("@c", ":");
 
     const ands = basename.split(' and ');
     const data = [];

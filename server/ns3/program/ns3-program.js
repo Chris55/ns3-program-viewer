@@ -1,5 +1,6 @@
 const path = require("path");
 const mapping = require("./ns3-mapping");
+const {programCategoryMap} = require("../../common/nord-mapping");
 const { ns3ProgramLocation } = require("./ns3-utils");
 const { nordFileExtMap } = require("../../common/nord-mapping");
 const { getVersion } = require("../../common/converter");
@@ -73,6 +74,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     /**
      * Offset in file: 0x04
      *
+     * @example
      * 0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
      * 1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
      *
@@ -325,10 +327,10 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
          * Offset in file: 0x10
          *
          * @example
-         * #include ns3ProgramCategoryMap
+         * #include programCategoryMap
          * @module NS3 Program Category
          */
-        category: mapping.ns3ProgramCategoryMap.get(offset10),
+        category: programCategoryMap.get(offset10),
         //fileId: fileId,
 
         panelA: ns3Panel(buffer, 0, versionOffset, global),

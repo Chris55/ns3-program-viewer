@@ -13,19 +13,22 @@ export default class Ns2 extends Component {
                 <div className="row no-gutters ns3-header justify-content-between d-flex flex-wrap">
                     <div className="col align-self-center">
                         <h3 className="ns3-header-name">
-                            {/*{data.id.name} {data.name}*/}
-                            {data.name}
+                            {data.id.name} {data.name}
                         </h3>
                         <div className="nord-option-on">
-                            {/*Category {data.category} */}
-                            <small className="nord-option-on">V{data.version}</small>
+                            Category {data.category} <small className="nord-option-on">V{data.version}</small>
                         </div>
                     </div>
 
                     <div className="col-2 text-right nord-option-on">
-                        <NordLabel label="Master Clock Rate" />
+                        <NordLabel label="Master Clock" />
                         <br />
                         {/*<NordLabelAndValue data={data.masterClock.rate} />*/}
+                    </div>
+                    <div className="col-1 text-right nord-option-on">
+                        <NordLabel label="Transpose" enabled={data.transpose.enabled} />
+                        <br />
+                        <NordLabelAndValue data={data.transpose}  enabled={data.transpose.enabled}/>
                     </div>
                     <div className={data.split.enabled ? "col-1 text-right mr-1" : "col-1 text-right mr-1"  }>
                         <NordLabel enabled={data.split.enabled} label="Split" />

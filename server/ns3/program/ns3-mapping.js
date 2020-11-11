@@ -1,41 +1,4 @@
-/***
- * Offset 0x10
- */
-exports.ns3ProgramCategoryMap = new Map([
-    [0x00, "Acoustic"],
-    [0x01, "Bass"],
-    [0x02, "Wind"],
-    //[0x03, ''],
-    [0x04, "Fantasy"],
-    [0x05, "FX"],
-    [0x06, "Lead"],
-    [0x07, "Organ"],
-    [0x08, "Pad"],
-    //[0x09, ''],
-    [0x0a, "Pluck"],
-    [0x0b, "String"],
-    [0x0c, "Synth"],
-    [0x0d, "Vocal"],
-    [0x0e, "User"],
-    //[0x0F, ''],
-    //[0x10, ''],
-    [0x11, "None"],
-    //[0x12, ''],
-    //[0x13, ''],
-    //[0x14, ''],
-    [0x15, "Grand"],
-    [0x16, "Upright"],
-    [0x17, "EPiano1"],
-    [0x18, "EPiano2"],
-    //[0x19, ''],
-    //[0x1A, ''],
-    [0x1b, "Clavinet"],
-    [0x1c, "Harpsi"],
-    //[0x1D, ''],
-    [0x1e, "Arpeggio"],
-    //[0x1F, ''],
-    [0xff, "Undefined"],
-]);
+
 
 /***
  * Panel Enable Matrix

@@ -13,31 +13,29 @@ const { ns2Organ } = require("./ns2-organ");
 const { ns2Piano } = require("./ns2-piano");
 
 exports.ns2Slot = function (buffer, id, versionOffset, global) {
-    const panelOffset31 = buffer.readUInt8(0x31 + versionOffset);
-    //
-    // /**
-    //  * Offset in file 0x31
-    //  *
-    //  * @example
-    //  * Enabled (b6-5):
-    //  * 0 = A only
-    //  * 1 = B only
-    //  * 2 = A & B
-    //  *
-    //  * Selected Panel (b7):
-    //  * A = 0, B = 1 (not used here)
-    //  *
-    //  * Note: if Dual Keyboard is On, both panel are enabled.
-    //  *
-    //  * @module NS2 Panel Enabled And Selection
-    //  */
+    const panelOffset2e = buffer.readUInt8(0x2e + versionOffset);
 
-    const panelEnabledFlag = 2; //(panelOffset31 & 0x60) >>> 5;
+    /**
+     * Offset in file 0x2e
+     *
+     * @example
+     * Enabled (b6-5):
+     * 0 = Slot A
+     * 1 = Slot B
+     * 2 = Slot A&B with focus Slot A
+     * 3 = Slot A&B with focus Slot B
+     *
+     * Note: if Dual Keyboard is On, both panel are enabled.
+     *
+     * @module NS2 Slot Enabled And Selection
+     */
+
+    const panelEnabledFlag = (panelOffset2e & 0xc0) >>> 6;
     const panelEnabled =
         global.dualKeyboard.enabled ||
         (id === 0
-            ? panelEnabledFlag === 0 || panelEnabledFlag === 2
-            : panelEnabledFlag === 1 || panelEnabledFlag === 2);
+            ? panelEnabledFlag !== 1
+            : panelEnabledFlag !== 0);
 
     // all hardcoded offset are for Panel A, offset value is for Panel B
     // versionOffset is added to read older version (header is version 0)

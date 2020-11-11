@@ -15,11 +15,11 @@
 | `0x0009` | `cccccccc` | ascii s - 0x73,
 | `0x000A` | `cccccccc` | ascii 2 - 0x32,
 | `0x000B` | `cccccccc` | ascii p - 0x70,
-| `0x000C` | `bbbbbbbb` |
+| `0x000C` | `------bb` | (b) bank (0 = A, 1 = B . . . )
 | `0x000D` | `--------` | 0
-| `0x000E` | `llllllll` |
+| `0x000E` | `--llllll` | (l) location lsb (0 = 01:1, 1 = 01:2 . . .)
 | `0x000F` | `--------` | 0
-| `0x0010` | `--------` |
+| `0x0010` | `cccccccc` | [(c) program category](ns2-doc.md#ns2-program-category)
 | `0x0011` | `--------` |
 | `0x0012` | `--------` |
 | `0x0013` | `--------` |
@@ -49,9 +49,9 @@
 | `0x002B` | `--------` |
 | `0x002C` | `--------` |
 | `0x002D` | `--------` |
-| `0x002E` | `--------` |
+| `0x002E` | `ssk-----` | [(p) slot selection](ns2-doc.md#ns2-slot-enabled-and-selection), [(k) dual keyboard](ns2-doc.md#ns2-dual-keyboard),
 | `0x002F` | `--------` |
-| `0x0030` | `-p------` | [(p) organ pitch stick](ns2-doc.md#ns2-organ-pitch-stick)
+| `0x0030` | `-p-tttt-` | [(p) organ pitch stick](ns2-doc.md#ns2-organ-pitch-stick), [(t) transpose](ns2-doc.md#ns2-transpose)
 | `0x0031` | `--------` |
 | `0x0032` | `--------` |
 | `0x0033` | `--------` |

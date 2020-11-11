@@ -271,8 +271,6 @@
 </dd>
 <dt><a href="#module_NS3 File Format">NS3 File Format</a></dt>
 <dd><p>Offset in file: 0x04</p>
-<p>0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
-1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).</p>
 </dd>
 <dt><a href="#module_NS3 Transpose">NS3 Transpose</a></dt>
 <dd><p>Offset in file: 0x38 (b7-3)</p>
@@ -1236,8 +1234,12 @@ Offset in file: 0x14 and 0x15
 <a name="module_NS3 File Format"></a>
 
 ## NS3 File Format
-Offset in file: 0x040 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
+Offset in file: 0x04
 
+**Example**  
+```js
+0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
+```
 <a name="module_NS3 Transpose"></a>
 
 ## NS3 Transpose
@@ -1290,7 +1292,7 @@ Offset in file: 0x10
 
 **Example**  
 ```js
-#include ns3ProgramCategoryMap
+#include programCategoryMap
 ```
 <a name="module_NS3 Synth Filter Type"></a>
 

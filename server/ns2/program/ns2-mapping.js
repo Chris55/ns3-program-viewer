@@ -1,4 +1,24 @@
 /***
+ * Transpose Values
+ * @type {Map<number, string>}
+ */
+exports.ns2TransposeMap = new Map([
+    [0, "minus 6"],
+    [1, "minus 5"],
+    [2, "minus 4"],
+    [3, "minus 3"],
+    [4, "minus 2"],
+    [5, "minus 1"],
+    [6, "OFF"],
+    [7, "plus 1"],
+    [8, "plus 2"],
+    [9, "plus 3"],
+    [10, "plus 4"],
+    [11, "plus 5"],
+    [12, "plus 6"],
+]);
+
+/***
  * Keyboard Zone Values
  *
  * @type {Map<number, (string|boolean[])[]>}

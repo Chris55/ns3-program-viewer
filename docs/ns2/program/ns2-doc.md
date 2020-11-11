@@ -139,13 +139,9 @@
 </dd>
 <dt><a href="#module_NS2 File Format">NS2 File Format</a></dt>
 <dd><p>Offset in file: 0x04</p>
-<p>0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
-1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).</p>
 </dd>
-<dt><a href="#module_NS3 Transpose">NS3 Transpose</a></dt>
-<dd><p>Offset in file: 0x38 (b7-3)</p>
-<p>Enabled: 0x38 (b7)
-Value: 0x38 (b6-3)</p>
+<dt><a href="#module_NS2 Transpose">NS2 Transpose</a></dt>
+<dd><p>Offset in file: 0x30 (b4-1)</p>
 </dd>
 <dt><a href="#module_NS3 Split">NS3 Split</a></dt>
 <dd><p>0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)</p>
@@ -153,11 +149,14 @@ Value: 0x38 (b6-3)</p>
 <dt><a href="#module_NS3 Master Clock Rate">NS3 Master Clock Rate</a></dt>
 <dd><p>Offset in file: 0x38 (b2-0) 0x39 (b7-3)</p>
 </dd>
-<dt><a href="#module_NS3 Dual Keyboard">NS3 Dual Keyboard</a></dt>
-<dd><p>Offset in file 0x3A (b3)</p>
+<dt><a href="#module_NS2 Dual Keyboard">NS2 Dual Keyboard</a></dt>
+<dd><p>Offset in file 0x2e (b5)</p>
 </dd>
-<dt><a href="#module_NS2 Dual Keyboard Style">NS2 Dual Keyboard Style</a></dt>
-<dd><p>Offset in file 0x3A (b1-0)</p>
+<dt><a href="#module_NS2 Program Category">NS2 Program Category</a></dt>
+<dd><p>Offset in file: 0x10</p>
+</dd>
+<dt><a href="#module_NS2 Slot Enabled And Selection">NS2 Slot Enabled And Selection</a></dt>
+<dd><p>Offset in file 0x2e</p>
 </dd>
 <dt><a href="#module_NS2 Synth Filter Type">NS2 Synth Filter Type</a></dt>
 <dd><p>Offset in file: 0xf3 (b3-1)</p>
@@ -695,16 +694,20 @@ Offset in file: 0x14 and 0x15
 <a name="module_NS2 File Format"></a>
 
 ## NS2 File Format
-Offset in file: 0x040 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
-
-<a name="module_NS3 Transpose"></a>
-
-## NS3 Transpose
-Offset in file: 0x38 (b7-3)Enabled: 0x38 (b7)Value: 0x38 (b6-3)
+Offset in file: 0x04
 
 **Example**  
 ```js
-7xxx xxxx : Transpose Off/Onx654 3xxx : Transpose valueTest1:  F8 38 : Transpose OffTest2:  0D 80 : Transpose -6 semiTest3:  0D 88 : Transpose -5 semiTest4:  0D A8 : Transpose -1 semiTest5:  0D B8 : Transpose +1 semiTest6:  0D D8 : Transpose +5 semiTest7:  0D E0 : Transpose +6 semi
+0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
+```
+<a name="module_NS2 Transpose"></a>
+
+## NS2 Transpose
+Offset in file: 0x30 (b4-1)
+
+**Example**  
+```js
+Value: 0x30 (b4-1)#include ns2TransposeMap
 ```
 <a name="module_NS3 Split"></a>
 
@@ -724,23 +727,32 @@ Offset in file: 0x38 (b2-0) 0x39 (b7-3)
 ```js
 bpm = value + 30
 ```
-<a name="module_NS3 Dual Keyboard"></a>
+<a name="module_NS2 Dual Keyboard"></a>
 
-## NS3 Dual Keyboard
-Offset in file 0x3A (b3)
+## NS2 Dual Keyboard
+Offset in file 0x2e (b5)
 
 **Example**  
 ```js
 0 = Off1 = OnNote: if Dual Keyboard is On, both panel are enabled.
 ```
-<a name="module_NS2 Dual Keyboard Style"></a>
+<a name="module_NS2 Program Category"></a>
 
-## NS2 Dual Keyboard Style
-Offset in file 0x3A (b1-0)
+## NS2 Program Category
+Offset in file: 0x10
 
 **Example**  
 ```js
-0 = Panel1 = Organ2 = Piano3 = Synth
+#include programCategoryMap
+```
+<a name="module_NS2 Slot Enabled And Selection"></a>
+
+## NS2 Slot Enabled And Selection
+Offset in file 0x2e
+
+**Example**  
+```js
+Enabled (b6-5):0 = Slot A1 = Slot B2 = Slot A&B with focus Slot A3 = Slot A&B with focus Slot BNote: if Dual Keyboard is On, both panel are enabled.
 ```
 <a name="module_NS2 Synth Filter Type"></a>
 
