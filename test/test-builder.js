@@ -38,22 +38,29 @@ const build = async(folder, testFilename) => {
 }
 
 const buildAll = async() => {
+    //await build("/ns2/effects", "ns2.effects.test.js");
+    //await build("/ns2/extern", "ns2.extern.test.js");
+    //await build("/ns2/global", "ns2.global.test.js");
     await build("/ns2/organ", "ns2.organ.test.js");
     await build("/ns2/piano", "ns2.piano.test.js");
     await build("/ns2/synth", "ns2.synth.test.js");
+    await build("/ns2/synth/arpeggiator", "ns2.synth.arpeggiator.test.js");
+    await build("/ns2/synth/envelopes", "ns2.synth.envelopes.test.js");
+    await build("/ns2/synth/filter", "ns2.synth.filter.test.js");
+    await build("/ns2/synth/lfo", "ns2.synth.lfo.test.js");
     await build("/ns2/synth/oscillators", "ns2.synth.oscillators.test.js");
 
     await build("/ns3/effects", "ns3.effects.test.js");
+    await build("/ns3/extern", "ns3.extern.test.js");
     await build("/ns3/global", "ns3.global.test.js");
     await build("/ns3/organ", "ns3.organ.test.js");
     await build("/ns3/piano", "ns3.piano.test.js");
     await build("/ns3/synth", "ns3.synth.test.js");
-    await build("/ns3/synth/oscillators", "ns3.synth.oscillators.test.js");
+    await build("/ns3/synth/arpeggiator", "ns3.synth.arpeggiator.test.js");
+    await build("/ns3/synth/envelopes", "ns3.synth.envelopes.test.js");
     await build("/ns3/synth/filter", "ns3.synth.filter.test.js");
     await build("/ns3/synth/lfo", "ns3.synth.lfo.test.js");
-    await build("/ns3/synth/envelopes", "ns3.synth.envelopes.test.js");
-    await build("/ns3/synth/arpeggiator", "ns3.synth.arpeggiator.test.js");
-    await build("/ns3/extern", "ns3.extern.test.js");
+    await build("/ns3/synth/oscillators", "ns3.synth.oscillators.test.js");
 }
 
 buildAll().catch(console.error)
