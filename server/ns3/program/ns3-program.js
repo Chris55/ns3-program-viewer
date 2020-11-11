@@ -104,20 +104,11 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     /**
      * Offset in file: 0x38 (b7-3)
      *
+     * @example
      * Enabled: 0x38 (b7)
      * Value: 0x38 (b6-3)
      *
-     * @example
-     * 7xxx xxxx : Transpose Off/On
-     * x654 3xxx : Transpose value
-     *
-     * Test1:  F8 38 : Transpose Off
-     * Test2:  0D 80 : Transpose -6 semi
-     * Test3:  0D 88 : Transpose -5 semi
-     * Test4:  0D A8 : Transpose -1 semi
-     * Test5:  0D B8 : Transpose +1 semi
-     * Test6:  0D D8 : Transpose +5 semi
-     * Test7:  0D E0 : Transpose +6 semi
+     * #include ns3TransposeMap
      *
      * @module NS3 Transpose
      */

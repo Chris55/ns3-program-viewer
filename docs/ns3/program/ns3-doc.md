@@ -273,8 +273,6 @@
 </dd>
 <dt><a href="#module_NS3 Transpose">NS3 Transpose</a></dt>
 <dd><p>Offset in file: 0x38 (b7-3)</p>
-<p>Enabled: 0x38 (b7)
-Value: 0x38 (b6-3)</p>
 </dd>
 <dt><a href="#module_NS3 Split">NS3 Split</a></dt>
 <dd><p>0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)</p>
@@ -1231,11 +1229,11 @@ Offset in file: 0x040 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B 
 <a name="module_NS3 Transpose"></a>
 
 ## NS3 Transpose
-Offset in file: 0x38 (b7-3)Enabled: 0x38 (b7)Value: 0x38 (b6-3)
+Offset in file: 0x38 (b7-3)
 
 **Example**  
 ```js
-7xxx xxxx : Transpose Off/Onx654 3xxx : Transpose valueTest1:  F8 38 : Transpose OffTest2:  0D 80 : Transpose -6 semiTest3:  0D 88 : Transpose -5 semiTest4:  0D A8 : Transpose -1 semiTest5:  0D B8 : Transpose +1 semiTest6:  0D D8 : Transpose +5 semiTest7:  0D E0 : Transpose +6 semi
+Enabled: 0x38 (b7)Value: 0x38 (b6-3)#include ns3TransposeMap
 ```
 <a name="module_NS3 Split"></a>
 
