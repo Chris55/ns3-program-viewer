@@ -40,7 +40,7 @@ const build = async(folder, testFilename) => {
 const buildAll = async() => {
     //await build("/ns2/effects", "ns2.effects.test.js");
     //await build("/ns2/extern", "ns2.extern.test.js");
-    //await build("/ns2/global", "ns2.global.test.js");
+    await build("/ns2/global", "ns2.global.test.js");
     await build("/ns2/organ", "ns2.organ.test.js");
     await build("/ns2/piano", "ns2.piano.test.js");
     await build("/ns2/synth", "ns2.synth.test.js");
