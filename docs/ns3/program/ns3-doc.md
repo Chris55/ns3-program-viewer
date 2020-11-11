@@ -218,6 +218,9 @@
 <dt><a href="#module_NS3 Panel Enabled And Selection">NS3 Panel Enabled And Selection</a></dt>
 <dd><p>Offset in file 0x31</p>
 </dd>
+<dt><a href="#module_NS3 Clavinet Model">NS3 Clavinet Model</a></dt>
+<dd><p>Offset in file: 0x49 (b5-4)</p>
+</dd>
 <dt><a href="#module_NS3 Piano On">NS3 Piano On</a></dt>
 <dd><p>Offset in file: 0x43 (b7)</p>
 </dd>
@@ -1078,6 +1081,15 @@ Offset in file 0x31
 **Example**  
 ```js
 Enabled (b6-5):0 = A only1 = B only2 = A & BSelected Panel (b7):A = 0, B = 1 (not used here)Note: if Dual Keyboard is On, both panel are enabled.
+```
+<a name="module_NS3 Clavinet Model"></a>
+
+## NS3 Clavinet Model
+Offset in file: 0x49 (b5-4)
+
+**Example**  
+```js
+Clavinet D6 5.0.npno is a multi-file with all 4 pick-up variations.This setting defines the pick-up variation.0 = CA1 = CB2 = DA3 = DB
 ```
 <a name="module_NS3 Piano On"></a>
 

@@ -161,7 +161,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0046` | `aaaapppp` | [(p) piano volume morph control pedal](ns3-doc.md#ns3-piano-volume)
 | `0x0047` | `ppppoooo` | [(o) piano octave shift](ns3-doc.md#ns3-piano-octave-shift)
 | `0x0048` | `pstttmmm` | [(p) piano pitch stick](ns3-doc.md#ns3-piano-pitch-stick), [(s) piano sustain pedal](ns3-doc.md#ns3-piano-sustain-pedal), [(t) piano type](ns3-doc.md#ns3-piano-type), [(m) piano model](ns3-doc.md#ns3-piano-model)
-| `0x0049` | `mmvviiii` | [(v) piano sample variation](ns3-doc.md#ns3-piano-model), [(i) piano sample name](ns3-doc.md#ns3-piano-model)
+| `0x0049` | `mmvviiii` | [(v) clavinet model](ns3-doc.md#ns3-clavinet-model), [(i) piano sample name](ns3-doc.md#ns3-piano-model)
 | `0x004A` | `iiiiiiii` |
 | `0x004B` | `iiiiiiii` |
 | `0x004C` | `iiiiiiii` |

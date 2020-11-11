@@ -38,6 +38,19 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
     const pianoKbZone = ns3KbZone(pianoKbZoneEnabled, global, (pianoOffset43W & 0x7800) >>> 11);
     const pianoModel = ((pianoOffset48W & 0x07c0) >>> 6) + 1;
 
+    /**
+     * Offset in file: 0x49 (b5-4)
+     *
+     * @example
+     * Clavinet D6 5.0.npno is a multi-file with all 4 pick-up variations.
+     * This setting defines the pick-up variation.
+     * 0 = CA
+     * 1 = CB
+     * 2 = DA
+     * 3 = DB
+     *
+     * @module NS3 Clavinet Model
+     */
     const pianoSampleVariation = (pianoOffset49 & 0x30) >>> 4;
     const pianoSampleId = Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
     const pianoLib = getSample(pianoSampleId, pianoSampleVariation, pianoModel);
