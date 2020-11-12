@@ -51,7 +51,7 @@
 | `0x002D` | `--------` |
 | `0x002E` | `ssk-----` | [(p) slot selection](ns2-doc.md#ns2-slot-enabled-and-selection), [(k) dual keyboard](ns2-doc.md#ns2-dual-keyboard),
 | `0x002F` | `--------` |
-| `0x0030` | `-p-tttt-` | [(p) organ pitch stick](ns2-doc.md#ns2-organ-pitch-stick), [(t) transpose](ns2-doc.md#ns2-transpose)
+| `0x0030` | `-pttttt-` | [(p) organ pitch stick](ns2-doc.md#ns2-organ-pitch-stick), [(t) transpose](ns2-doc.md#ns2-transpose)
 | `0x0031` | `--------` |
 | `0x0032` | `--------` |
 | `0x0033` | `--------` |

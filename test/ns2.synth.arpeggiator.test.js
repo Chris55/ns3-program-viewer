@@ -21,6 +21,30 @@ describe("/ns2/synth/arpeggiator", () => {
         });
     });
 
+    test("slotA.synth.arpeggiator.pattern.value eq DN", async () => {
+        const file = "slotA.synth.arpeggiator.pattern.value eq DN.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.synth.arpeggiator.pattern.value eq RANDOM", async () => {
+        const file = "slotA.synth.arpeggiator.pattern.value eq RANDOM.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.synth.arpeggiator.pattern.value eq UP@aDN", async () => {
+        const file = "slotA.synth.arpeggiator.pattern.value eq UP@aDN.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.synth.arpeggiator.range.value eq 2 Octaves", async () => {
         const file = "slotA.synth.arpeggiator.range.value eq 2 Octaves.ns2p";
         const sut = await loadTestCase(root + file);

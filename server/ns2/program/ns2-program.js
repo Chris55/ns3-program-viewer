@@ -90,10 +90,11 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const offset2e = buffer.readUInt8(0x2e + versionOffset);
 
     /**
-     * Offset in file: 0x30 (b4-1)
+     * Offset in file: 0x30 (b5-1)
      *
      * @example
-     * Value: 0x30 (b4-1)
+     * Enabled: (b5)
+     * Value: (b4-1)
      * #include ns2TransposeMap
      *
      * @module NS2 Transpose

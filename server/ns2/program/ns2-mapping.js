@@ -1257,8 +1257,8 @@ exports.ns2ArpeggiatorRangeMap = new Map([
  */
 exports.ns2ArpeggiatorPatternMap = new Map([
     [0, "UP"],
-    [1, "UP/DN"],
-    [2, "DN"],
+    [1, "DN"],
+    [2, "UP/DN"],
     [3, "RANDOM"],
 ]);
 

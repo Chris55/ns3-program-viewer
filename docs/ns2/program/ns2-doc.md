@@ -141,7 +141,7 @@
 <dd><p>Offset in file: 0x04</p>
 </dd>
 <dt><a href="#module_NS2 Transpose">NS2 Transpose</a></dt>
-<dd><p>Offset in file: 0x30 (b4-1)</p>
+<dd><p>Offset in file: 0x30 (b5-1)</p>
 </dd>
 <dt><a href="#module_NS3 Split">NS3 Split</a></dt>
 <dd><p>0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)</p>
@@ -703,11 +703,11 @@ Offset in file: 0x04
 <a name="module_NS2 Transpose"></a>
 
 ## NS2 Transpose
-Offset in file: 0x30 (b4-1)
+Offset in file: 0x30 (b5-1)
 
 **Example**  
 ```js
-Value: 0x30 (b4-1)#include ns2TransposeMap
+Enabled: (b5)Value: (b4-1)#include ns2TransposeMap
 ```
 <a name="module_NS3 Split"></a>
 

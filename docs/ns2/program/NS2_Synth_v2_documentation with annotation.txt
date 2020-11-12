@@ -392,8 +392,8 @@ Offset in files 0xda (b1-0) and 0xdb (b7-3)
 Arpeggiator PATTERN
 Offset in file 0xdb (b2-1)
 0 = UP
-1 = UP/DN
-2 = DN
+1 = DN
+2 = UP/DN
 3 = RANDOM
 
 Arpeggiator RANGE
