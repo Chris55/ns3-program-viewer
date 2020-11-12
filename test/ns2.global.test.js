@@ -269,72 +269,72 @@ describe("/ns2/global", () => {
         });
     });
 
+    test("transpose.value eq -1", async () => {
+        const file = "transpose.value eq -1.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.value eq -4", async () => {
+        const file = "transpose.value eq -4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.value eq -5", async () => {
+        const file = "transpose.value eq -5.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.value eq -6", async () => {
+        const file = "transpose.value eq -6.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.value eq @p1", async () => {
+        const file = "transpose.value eq @p1.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.value eq @p2", async () => {
+        const file = "transpose.value eq @p2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.value eq @p5", async () => {
+        const file = "transpose.value eq @p5.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("transpose.value eq @p6", async () => {
+        const file = "transpose.value eq @p6.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("transpose.value eq OFF", async () => {
         const file = "transpose.value eq OFF.ns2p";
-        const sut = await loadTestCase(root + file);
-        sut.data.forEach((d) => {
-            expect(d.actual).toEqual(d.expected);
-        });
-    });
-
-    test("transpose.value eq minus 1", async () => {
-        const file = "transpose.value eq minus 1.ns2p";
-        const sut = await loadTestCase(root + file);
-        sut.data.forEach((d) => {
-            expect(d.actual).toEqual(d.expected);
-        });
-    });
-
-    test("transpose.value eq minus 4", async () => {
-        const file = "transpose.value eq minus 4.ns2p";
-        const sut = await loadTestCase(root + file);
-        sut.data.forEach((d) => {
-            expect(d.actual).toEqual(d.expected);
-        });
-    });
-
-    test("transpose.value eq minus 5", async () => {
-        const file = "transpose.value eq minus 5.ns2p";
-        const sut = await loadTestCase(root + file);
-        sut.data.forEach((d) => {
-            expect(d.actual).toEqual(d.expected);
-        });
-    });
-
-    test("transpose.value eq minus 6", async () => {
-        const file = "transpose.value eq minus 6.ns2p";
-        const sut = await loadTestCase(root + file);
-        sut.data.forEach((d) => {
-            expect(d.actual).toEqual(d.expected);
-        });
-    });
-
-    test("transpose.value eq plus 1", async () => {
-        const file = "transpose.value eq plus 1.ns2p";
-        const sut = await loadTestCase(root + file);
-        sut.data.forEach((d) => {
-            expect(d.actual).toEqual(d.expected);
-        });
-    });
-
-    test("transpose.value eq plus 2", async () => {
-        const file = "transpose.value eq plus 2.ns2p";
-        const sut = await loadTestCase(root + file);
-        sut.data.forEach((d) => {
-            expect(d.actual).toEqual(d.expected);
-        });
-    });
-
-    test("transpose.value eq plus 5", async () => {
-        const file = "transpose.value eq plus 5.ns2p";
-        const sut = await loadTestCase(root + file);
-        sut.data.forEach((d) => {
-            expect(d.actual).toEqual(d.expected);
-        });
-    });
-
-    test("transpose.value eq plus 6", async () => {
-        const file = "transpose.value eq plus 6.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
