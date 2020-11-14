@@ -5,8 +5,10 @@
  * @returns {number}
  */
 const round = function (value, precision) {
+    //const multiplier = Math.pow(10, precision || 0);
+    //return Math.round(value * multiplier) / multiplier;
     const multiplier = Math.pow(10, precision || 0);
-    return Math.round(value * multiplier) / multiplier;
+    return Math.round((value + Number.EPSILON) * multiplier) / multiplier;
 };
 
 exports.round = round;
@@ -99,7 +101,6 @@ exports.zeroPad = (num, places) => String(num).padStart(places, "0");
  * @param offset {number}
  */
 exports.getVersion = (buffer, offset) => {
-
     const offset14W = buffer.readUInt16LE(offset);
 
     const majorVersion = Math.trunc(offset14W / 100);
@@ -109,9 +110,9 @@ exports.getVersion = (buffer, offset) => {
     return {
         majorVersion: majorVersion,
         minorVersion: minorVersion,
-        version: version
-    }
-}
+        version: version,
+    };
+};
 
 /***
  * Simple linear interpolation
@@ -123,9 +124,5 @@ exports.getVersion = (buffer, offset) => {
  * @returns {number}
  */
 exports.getLinearInterpolation = (x0, y0, x1, y1, x) => {
-    return (y0 * (x1 - x) + y1 * (x - x0)) / (x1 - x0)
-}
-
-
-
-
+    return (y0 * (x1 - x) + y1 * (x - x0)) / (x1 - x0);
+};

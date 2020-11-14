@@ -32,6 +32,11 @@ exports.ns3Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
             enabled: forceDisabled ? false : offset !== 0,
             midiTo: midiTo,
         });
+
+        // result.push({
+        //     enabled: forceDisabled ? false : rawValue !== 127,
+        //     midiTo: (rawValue + midiFrom - 127) & 127,
+        // });
     });
 
     return {
@@ -306,8 +311,8 @@ exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
     rawMorphValue.forEach((rawValue) => {
         const rawOffsetValue = rawValue & 0x0f;
         const polarity = (rawValue & 0x10) !== 0;
-        // console.log("   ", "polarity", polarity, "value", rawOffsetValue);
         const offset = polarity ? 8 - rawOffsetValue : rawOffsetValue - 8;
+        //console.log("   ", "polarity", polarity, "value", rawOffsetValue, "offset", offset);
         let value = midiFrom + offset;
         if (value < 0) {
             value = 0;
@@ -319,6 +324,11 @@ exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
             enabled: offset !== 0,
             midiTo: value,
         });
+
+        // result.push({
+        //     enabled: rawValue !== 8,
+        //     midiTo: rawValue + midiFrom - 8,
+        // });
     });
 
     return {

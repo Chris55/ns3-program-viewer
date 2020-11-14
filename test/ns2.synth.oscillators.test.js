@@ -5,6 +5,22 @@ const { loadTestCase } = require("./helpers");
 const root = __dirname + "/ns2/synth/oscillators/";
 
 describe("/ns2/synth/oscillators", () => {
+    test("slotA.synth.oscillators.shapeCtrl.value eq 0.0 and slotA.synth.oscillators.shapeCtrl.morph.afterTouch.to.value eq 10.0", async () => {
+        const file = "slotA.synth.oscillators.shapeCtrl.value eq 0.0 and slotA.synth.oscillators.shapeCtrl.morph.afterTouch.to.value eq 10.0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.synth.oscillators.shapeCtrl.value eq 0.0 and slotA.synth.oscillators.shapeCtrl.morph.controlPedal.to.value eq 10.0", async () => {
+        const file = "slotA.synth.oscillators.shapeCtrl.value eq 0.0 and slotA.synth.oscillators.shapeCtrl.morph.controlPedal.to.value eq 10.0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.synth.oscillators.shapeCtrl.value eq 0.0 and slotA.synth.oscillators.shapeCtrl.morph.wheel.enabled eq false", async () => {
         const file = "slotA.synth.oscillators.shapeCtrl.value eq 0.0 and slotA.synth.oscillators.shapeCtrl.morph.wheel.enabled eq false.ns2p";
         const sut = await loadTestCase(root + file);

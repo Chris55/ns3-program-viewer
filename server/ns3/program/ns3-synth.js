@@ -473,6 +473,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
              * @module NS3 Synth LFO Mod Env
              */
             modulations: {
+                value: oscModulation.fromValue,
                 /**
                  * LFO Amount
                  */

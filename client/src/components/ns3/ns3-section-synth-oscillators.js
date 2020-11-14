@@ -11,11 +11,11 @@ export default class Ns3SectionSynthOscillators extends Component {
 
         let lfoModEnvTitle = "LFO/Mod Amt";
         let lfoModEnvValue =
-            osc.modulations.lfoAmount.midi < 64 ? osc.modulations.lfoAmount : osc.modulations.modEnvAmount;
+            osc.modulations.value < 0 ? osc.modulations.lfoAmount : osc.modulations.modEnvAmount;
 
-        if (osc.modulations.lfoAmount.midi < 64) {
+        if (osc.modulations.value < 0) {
             lfoModEnvTitle = "LFO Amt";
-        } else if (osc.modulations.modEnvAmount.midi > 64) {
+        } else if (osc.modulations.value > 0) {
             lfoModEnvTitle = "Mod Env Amt";
         }
 
