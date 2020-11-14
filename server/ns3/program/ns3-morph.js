@@ -315,7 +315,7 @@ exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
         //console.log("   ", "polarity", polarity, "value", rawOffsetValue, "offset", offset);
         let value = midiFrom + offset;
         if (value < 0) {
-            value = 0;
+            value = Math.abs(value);
         } else if (value > 8) {
             value = 8;
         }
@@ -324,10 +324,10 @@ exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
             enabled: offset !== 0,
             midiTo: value,
         });
-
+        //
         // result.push({
         //     enabled: rawValue !== 8,
-        //     midiTo: rawValue + midiFrom - 8,
+        //     midiTo: Math.abs(rawValue + midiFrom - 8),
         // });
     });
 

@@ -173,6 +173,22 @@ describe("/ns3/organ", () => {
         });
     });
 
+    test("panelA.organ.preset1.drawbars.value eq 408167888 and panelA.organ.preset1.drawbars.morph.controlPedal.to.value eq 78083----", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 408167888 and panelA.organ.preset1.drawbars.morph.controlPedal.to.value eq 78083----.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.organ.preset1.drawbars.value eq 408167888 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 15257----", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 408167888 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 15257----.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.organ.preset1.drawbars.value eq 808643338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6-046-08-", async () => {
         const file = "panelA.organ.preset1.drawbars.value eq 808643338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6-046-08-.ns3f";
         const sut = await loadTestCase(root + file);
