@@ -18,25 +18,25 @@ exports.ns3Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
     rawMorphValue[2] = uint32Value & 0x000000ff; // control pedal
 
     rawMorphValue.forEach((rawValue) => {
-        const rawOffsetValue = rawValue & 0x7f;
-        const polarity = (rawValue & 0x80) !== 0;
-        const offset = polarity ? rawOffsetValue + 1 : rawOffsetValue - 127;
-        let midiTo = midiFrom + offset;
-        if (midiTo < 0) {
-            midiTo = 0;
-        } else if (midiTo > 127) {
-            midiTo = 127;
-        }
-
-        result.push({
-            enabled: forceDisabled ? false : offset !== 0,
-            midiTo: midiTo,
-        });
-
+        // const rawOffsetValue = rawValue & 0x7f;
+        // const polarity = (rawValue & 0x80) !== 0;
+        // const offset = polarity ? rawOffsetValue + 1 : rawOffsetValue - 127;
+        // let midiTo = midiFrom + offset;
+        // if (midiTo < 0) {
+        //     midiTo = 0;
+        // } else if (midiTo > 127) {
+        //     midiTo = 127;
+        // }
+        //
         // result.push({
-        //     enabled: forceDisabled ? false : rawValue !== 127,
-        //     midiTo: (rawValue + midiFrom - 127) & 127,
+        //     enabled: forceDisabled ? false : offset !== 0,
+        //     midiTo: midiTo,
         // });
+// d = v == 127 ? 'none' : (v + o - 127) & 127;
+        result.push({
+            enabled: forceDisabled ? false : rawValue !== 127,
+            midiTo: (rawValue + midiFrom - 127) & 127,
+        });
     });
 
     return {

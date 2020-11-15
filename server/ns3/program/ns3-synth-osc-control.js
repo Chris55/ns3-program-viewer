@@ -1,4 +1,5 @@
 const converter = require("../../common/converter");
+const mapping = require("./ns3-mapping");
 const { ns3Morph } = require("./ns3-morph");
 
 /***
@@ -21,7 +22,7 @@ const getOscControlLabel = (oscConfig, oscControlMidi) => {
             oscControlLabel = converter.midi2LinearStringValue(0, 10, oscControlMidi, 1, "");
             break;
         case "4 Detune":
-            oscControlLabel = converter.midi2LinearStringValue(0, 4, oscControlMidi, 2, "");
+            oscControlLabel = mapping.ns3SynthOsc0To4ControlMap.get(oscControlMidi);
             break;
         case "5 MixSin":
             oscControlLabel = converter.midi2LinearValueAndComplement(oscControlMidi);
