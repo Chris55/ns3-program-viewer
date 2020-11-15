@@ -1,4 +1,5 @@
 const mapping = require("./ns3-mapping");
+const {formatOrganDrawbars} = require("../../common/converter");
 const { ns3MorphOrganDrawbar } = require("./ns3-morph");
 const { ns3KbZone } = require("./ns3-utils");
 const { ns3VolumeEx } = require("./ns3-utils");
@@ -10,7 +11,7 @@ const { ns3VolumeEx } = require("./ns3-utils");
  * @ignore
  * @param buffer
  * @param offset
- * @param type B3, Vox, Farfisa
+ * @param type {string} B3, Vox, Farfisa
  * @returns {number[]}
  */
 const getDrawbars = function (buffer, offset, type) {
@@ -113,24 +114,24 @@ const getDrawbars = function (buffer, offset, type) {
     const morphControlPedalPreset = morphControlPedal.join("");
 
     return {
-        value: preset.join(""),
+        value: formatOrganDrawbars(preset.join(""), type),
         morph: {
             wheel: {
                 enabled: morphWheelPreset !== "---------",
                 to: {
-                    value: morphWheelPreset,
+                    value: formatOrganDrawbars(morphWheelPreset, type),
                 },
             },
             afterTouch: {
                 enabled: morphAfterTouchPreset !== "---------",
                 to: {
-                    value: morphAfterTouchPreset,
+                    value: formatOrganDrawbars(morphAfterTouchPreset, type),
                 },
             },
             controlPedal: {
                 enabled: morphControlPedalPreset !== "---------",
                 to: {
-                    value: morphControlPedalPreset,
+                    value: formatOrganDrawbars(morphControlPedalPreset, type),
                 },
             },
         },
@@ -401,17 +402,12 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
              *            Morph After Touch:   0xD2 (b6-2)
              *            Morph Control Pedal: 0xD2 (b1-0) and 0xD3 (b7-5)
              *
-             * Morph value is on 5-bit
-             * b4 is polarity
-             * b3-0 is raw 4-bit value
-             *
-             * if polarity = 1 then Morph offset value = 8 - raw value
-             * if polarity = 0 then Morph offset value = raw value - 8
-             *
-             * Final 'To' Morph value =
-             * 'From value (original volume)' + 'Morph offset value' (0/8 range)
-             *
-             * Morph Enabled if  'Morph offset value' <> 0
+             * Morph Algorithm:
+             * $d = $v == 8 ? '-' : $v == 16 ? 8 : abs($v + $o - 8);
+             * where
+             * $v is the 5-bit morph value
+             * $o is the original 'From' value
+             * $d is the final 'To' Morph value
              *
              * @module NS3 Organ Drawbars Preset 1
              */
@@ -575,17 +571,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
              *            Morph After Touch:   0xED (b6-2)
              *            Morph Control Pedal: 0xED (b1-0) and 0xEE (b7-5)
              *
-             * Morph value is on 5-bit
-             * b4 is polarity
-             * b3-0 is raw 4-bit value
-             *
-             * if polarity = 1 then Morph offset value = 8 - raw value
-             * if polarity = 0 then Morph offset value = raw value - 8
-             *
-             * Final 'To' Morph value =
-             * 'From value (original volume)' + 'Morph offset value' (0/8 range)
-             *
-             * Morph Enabled if  'Morph offset value' <> 0
+             * @see {@link ns3-doc.md#ns3-organ-drawbars-preset-1 Organ Preset 1 Drawbars} for detailed explanation.
              *
              * @module NS3 Organ Preset 2 Drawbars
              */

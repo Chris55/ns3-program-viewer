@@ -295,40 +295,40 @@ exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
 
     rawMorphValue[0] = (uint32Value & 0x7c00) >>> 10; // wheel
     rawMorphValue[1] = (uint32Value & 0x03e0) >>> 5; // after touch
-    rawMorphValue[2] = uint32Value & 0x008f; // control pedal
+    rawMorphValue[2] = uint32Value & 0x001f; // control pedal
 
-    // console.log(
-    //     "midiFrom",
-    //     midiFrom,
-    //     "wheel",
-    //     rawMorphValue[0].toString(16),
-    //     "after touch",
-    //     rawMorphValue[1].toString(16),
-    //     "control pedal",
-    //     rawMorphValue[2].toString(16)
-    // );
+/*    console.log(
+        "midiFrom",
+        midiFrom,
+        "wheel",
+        rawMorphValue[0].toString(16),
+        "after touch",
+        rawMorphValue[1].toString(16),
+        "control pedal",
+        rawMorphValue[2].toString(16)
+    );*/
 
     rawMorphValue.forEach((rawValue) => {
-        const rawOffsetValue = rawValue & 0x0f;
-        const polarity = (rawValue & 0x10) !== 0;
-        const offset = polarity ? 8 - rawOffsetValue : rawOffsetValue - 8;
-        //console.log("   ", "polarity", polarity, "value", rawOffsetValue, "offset", offset);
-        let value = midiFrom + offset;
-        if (value < 0) {
-            value = Math.abs(value);
-        } else if (value > 8) {
-            value = 8;
-        }
-
-        result.push({
-            enabled: offset !== 0,
-            midiTo: value,
-        });
+        // const rawOffsetValue = rawValue & 0x0f;
+        // const polarity = (rawValue & 0x10) !== 0;
+        // const offset = polarity ? 8 - rawOffsetValue : rawOffsetValue - 8;
+        // //console.log("   ", "polarity", polarity, "value", rawOffsetValue, "offset", offset);
+        // let value = midiFrom + offset;
+        // if (value < 0) {
+        //     value = Math.abs(value);
+        // } else if (value > 8) {
+        //     value = 8;
+        // }
         //
         // result.push({
-        //     enabled: rawValue !== 8,
-        //     midiTo: Math.abs(rawValue + midiFrom - 8),
+        //     enabled: offset !== 0,
+        //     midiTo: value,
         // });
+
+        result.push({
+            enabled: rawValue !== 8,
+            midiTo: rawValue === 16 ? 8: Math.abs(rawValue + midiFrom - 8),
+        });
     });
 
     return {

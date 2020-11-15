@@ -149,56 +149,56 @@ describe("/ns3/organ", () => {
         });
     });
 
-    test("panelA.organ.preset1.drawbars.morph.wheel.to.value eq 21-------", async () => {
-        const file = "panelA.organ.preset1.drawbars.morph.wheel.to.value eq 21-------.ns3f";
+    test("panelA.organ.preset1.drawbars.morph.wheel.to.value eq 21 ---- ---", async () => {
+        const file = "panelA.organ.preset1.drawbars.morph.wheel.to.value eq 21 ---- ---.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.preset1.drawbars.morph.wheel.to.value eq 864-32101", async () => {
-        const file = "panelA.organ.preset1.drawbars.morph.wheel.to.value eq 864-32101.ns3f";
+    test("panelA.organ.preset1.drawbars.morph.wheel.to.value eq 86 4-32 101", async () => {
+        const file = "panelA.organ.preset1.drawbars.morph.wheel.to.value eq 86 4-32 101.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.preset1.drawbars.value eq 123456780 and panelA.organ.preset1.drawbars.morph.wheel.enabled eq false", async () => {
-        const file = "panelA.organ.preset1.drawbars.value eq 123456780 and panelA.organ.preset1.drawbars.morph.wheel.enabled eq false.ns3f";
+    test("panelA.organ.preset1.drawbars.value eq 12 3456 780 and panelA.organ.preset1.drawbars.morph.wheel.enabled eq false", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 12 3456 780 and panelA.organ.preset1.drawbars.morph.wheel.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.preset1.drawbars.value eq 408167888 and panelA.organ.preset1.drawbars.morph.controlPedal.to.value eq 78083----", async () => {
-        const file = "panelA.organ.preset1.drawbars.value eq 408167888 and panelA.organ.preset1.drawbars.morph.controlPedal.to.value eq 78083----.ns3f";
+    test("panelA.organ.preset1.drawbars.value eq 40 8167 888 and panelA.organ.preset1.drawbars.morph.controlPedal.to.value eq 78 083- ---", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 40 8167 888 and panelA.organ.preset1.drawbars.morph.controlPedal.to.value eq 78 083- ---.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.preset1.drawbars.value eq 408167888 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 15257----", async () => {
-        const file = "panelA.organ.preset1.drawbars.value eq 408167888 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 15257----.ns3f";
+    test("panelA.organ.preset1.drawbars.value eq 40 8167 888 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 15 257- ---", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 40 8167 888 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 15 257- ---.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.preset1.drawbars.value eq 808643338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6-046-08-", async () => {
-        const file = "panelA.organ.preset1.drawbars.value eq 808643338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6-046-08-.ns3f";
+    test("panelA.organ.preset1.drawbars.value eq 80 8643 338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6- 046- 08-", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 80 8643 338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6- 046- 08-.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.preset1.drawbars.value eq 888600000 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq ---888887", async () => {
-        const file = "panelA.organ.preset1.drawbars.value eq 888600000 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq ---888887.ns3f";
+    test("panelA.organ.preset1.drawbars.value eq 88 8600 000 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq -- -888 887", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 88 8600 000 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq -- -888 887.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -349,24 +349,24 @@ describe("/ns3/organ", () => {
         });
     });
 
-    test("panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 345666554 and panelA.organ.preset2.drawbars.value eq 864111367", async () => {
-        const file = "panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 345666554 and panelA.organ.preset2.drawbars.value eq 864111367.ns3f";
+    test("panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 34 5666 554 and panelA.organ.preset2.drawbars.value eq 86 4111 367", async () => {
+        const file = "panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 34 5666 554 and panelA.organ.preset2.drawbars.value eq 86 4111 367.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 355788653 and panelA.organ.preset2.drawbars.value eq 343323343", async () => {
-        const file = "panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 355788653 and panelA.organ.preset2.drawbars.value eq 343323343.ns3f";
+    test("panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 35 5788 653 and panelA.organ.preset2.drawbars.value eq 34 3323 343", async () => {
+        const file = "panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 35 5788 653 and panelA.organ.preset2.drawbars.value eq 34 3323 343.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 888888888 and panelA.organ.preset2.drawbars.value eq 888888888", async () => {
-        const file = "panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 888888888 and panelA.organ.preset2.drawbars.value eq 888888888.ns3f";
+    test("panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 88 8888 888 and panelA.organ.preset2.drawbars.value eq 88 8888 888", async () => {
+        const file = "panelA.organ.type.value eq B3 and panelA.organ.preset1.drawbars.value eq 88 8888 888 and panelA.organ.preset2.drawbars.value eq 88 8888 888.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -525,64 +525,64 @@ describe("/ns3/organ", () => {
         });
     });
 
-    test("panelB.organ.preset1.drawbars.morph.afterTouch.to.value eq 012------", async () => {
-        const file = "panelB.organ.preset1.drawbars.morph.afterTouch.to.value eq 012------.ns3f";
+    test("panelB.organ.preset1.drawbars.morph.afterTouch.to.value eq 01 2--- ---", async () => {
+        const file = "panelB.organ.preset1.drawbars.morph.afterTouch.to.value eq 01 2--- ---.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset1.drawbars.morph.controlPedal.to.value eq 888888888", async () => {
-        const file = "panelB.organ.preset1.drawbars.morph.controlPedal.to.value eq 888888888.ns3f";
+    test("panelB.organ.preset1.drawbars.morph.controlPedal.to.value eq 88 8888 888", async () => {
+        const file = "panelB.organ.preset1.drawbars.morph.controlPedal.to.value eq 88 8888 888.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset1.drawbars.morph.wheel.to.value eq 887-2--54", async () => {
-        const file = "panelB.organ.preset1.drawbars.morph.wheel.to.value eq 887-2--54.ns3f";
+    test("panelB.organ.preset1.drawbars.morph.wheel.to.value eq 88 7-2- -54", async () => {
+        const file = "panelB.organ.preset1.drawbars.morph.wheel.to.value eq 88 7-2- -54.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset1.drawbars.value eq 233334366 and panelB.organ.preset2.drawbars.value eq 882221388", async () => {
-        const file = "panelB.organ.preset1.drawbars.value eq 233334366 and panelB.organ.preset2.drawbars.value eq 882221388.ns3f";
+    test("panelB.organ.preset1.drawbars.value eq 23 3334 366 and panelB.organ.preset2.drawbars.value eq 88 2221 388", async () => {
+        const file = "panelB.organ.preset1.drawbars.value eq 23 3334 366 and panelB.organ.preset2.drawbars.value eq 88 2221 388.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset2.drawbars.morph.afterTouch.to.value eq ------76-", async () => {
-        const file = "panelB.organ.preset2.drawbars.morph.afterTouch.to.value eq ------76-.ns3f";
+    test("panelB.organ.preset2.drawbars.morph.afterTouch.to.value eq -- ---- 76-", async () => {
+        const file = "panelB.organ.preset2.drawbars.morph.afterTouch.to.value eq -- ---- 76-.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset2.drawbars.morph.controlPedal.to.value eq ---------", async () => {
-        const file = "panelB.organ.preset2.drawbars.morph.controlPedal.to.value eq ---------.ns3f";
+    test("panelB.organ.preset2.drawbars.morph.controlPedal.to.value eq -- ---- ---", async () => {
+        const file = "panelB.organ.preset2.drawbars.morph.controlPedal.to.value eq -- ---- ---.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset2.drawbars.morph.wheel.to.value eq ----64--4", async () => {
-        const file = "panelB.organ.preset2.drawbars.morph.wheel.to.value eq ----64--4.ns3f";
+    test("panelB.organ.preset2.drawbars.morph.wheel.to.value eq -- --64 --4", async () => {
+        const file = "panelB.organ.preset2.drawbars.morph.wheel.to.value eq -- --64 --4.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelB.organ.preset2.drawbars.value eq 682221388", async () => {
-        const file = "panelB.organ.preset2.drawbars.value eq 682221388.ns3f";
+    test("panelB.organ.preset2.drawbars.value eq 68 2221 388", async () => {
+        const file = "panelB.organ.preset2.drawbars.value eq 68 2221 388.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

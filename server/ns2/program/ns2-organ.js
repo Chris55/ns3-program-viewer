@@ -1,4 +1,5 @@
 const mapping = require("./ns2-mapping");
+const {formatOrganDrawbars} = require("../../common/converter");
 const { ns2MorphOrganDrawbar } = require("./ns2-morph");
 const { ns2KbZone } = require("./ns2-utils");
 const { ns2VolumeEx } = require("./ns2-utils");
@@ -9,9 +10,10 @@ const { ns2VolumeEx } = require("./ns2-utils");
  * @param buffer {Buffer}
  * @param offset {number}
  * @param valueOn4Bits {boolean}
+ * @param type {string} B3, Vox, Farfisa
  * @returns {number[]}
  */
-const getDrawbars = function (buffer, offset, valueOn4Bits) {
+const getDrawbars = function (buffer, offset, valueOn4Bits, type) {
     let d1, d2, d3, d4, d5, d6, d7, d8, d9;
     let m1, m2, m3, m4, m5, m6, m7, m8, m9;
 
@@ -114,24 +116,24 @@ const getDrawbars = function (buffer, offset, valueOn4Bits) {
     const morphControlPedalPreset = morphControlPedal.join("");
 
     return {
-        value: preset.join(""),
+        value: formatOrganDrawbars(preset.join(""), type),
         morph: {
             wheel: {
                 enabled: morphWheelPreset !== "---------",
                 to: {
-                    value: morphWheelPreset,
+                    value: formatOrganDrawbars(morphWheelPreset, type),
                 },
             },
             afterTouch: {
                 enabled: morphAfterTouchPreset !== "---------",
                 to: {
-                    value: morphAfterTouchPreset,
+                    value: formatOrganDrawbars(morphAfterTouchPreset, type),
                 },
             },
             controlPedal: {
                 enabled: morphControlPedalPreset !== "---------",
                 to: {
-                    value: morphControlPedalPreset,
+                    value: formatOrganDrawbars(morphControlPedalPreset, type),
                 },
             },
         },
@@ -254,8 +256,8 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
         vibratoChorusModeLabel =
             organVibratoMode.length > 1 && organVibratoMode.charAt(0) === "V" ? "Vibrato" : "Chorus";
 
-        drawbars1 = getDrawbars(buffer, 0x5f + panelOffset, true);
-        drawbars2 = getDrawbars(buffer, 0x96 + panelOffset, true);
+        drawbars1 = getDrawbars(buffer, 0x5f + panelOffset, true, organType);
+        drawbars2 = getDrawbars(buffer, 0x96 + panelOffset, true, organType);
     } else if (organTypeIsVox) {
         /**
          * Offset in file: 0x5d (b7)
@@ -288,8 +290,8 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
         organVibratoModeValue = (organOffset37 & 0x60) >>> 5;
         organVibratoMode = mapping.ns2OrganVoxVibratoModeMap.get(organVibratoModeValue);
 
-        drawbars1 = getDrawbars(buffer, 0x76 + panelOffset, true);
-        drawbars2 = getDrawbars(buffer, 0xad + panelOffset, true);
+        drawbars1 = getDrawbars(buffer, 0x76 + panelOffset, true, organType);
+        drawbars2 = getDrawbars(buffer, 0xad + panelOffset, true, organType);
     } else {
         //if (organTypeIsFarfisa) { no test to be sure that drawbars are initialized.
         /**
@@ -323,8 +325,8 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
         organVibratoModeValue = (organOffset39 & 0x60) >>> 5;
         organVibratoMode = mapping.ns2OrganFarfisaVibratoModeMap.get(organVibratoModeValue);
 
-        drawbars1 = getDrawbars(buffer, 0x8d + panelOffset, false);
-        drawbars2 = getDrawbars(buffer, 0xc4 + panelOffset, false);
+        drawbars1 = getDrawbars(buffer, 0x8d + panelOffset, false, organType);
+        drawbars2 = getDrawbars(buffer, 0xc4 + panelOffset, false, organType);
     }
 
     const organEnabled = (organOffset43 & 0x80) !== 0;

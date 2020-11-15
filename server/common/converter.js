@@ -126,3 +126,17 @@ exports.getVersion = (buffer, offset) => {
 exports.getLinearInterpolation = (x0, y0, x1, y1, x) => {
     return (y0 * (x1 - x) + y1 * (x - x0)) / (x1 - x0);
 };
+
+/***
+ * Format to standard drawbars
+ * @param d {string}
+ * @param type {string}
+ * @returns {string|*}
+ */
+exports.formatOrganDrawbars = (d, type) => {
+    if (!d) return d;
+    if (d.length !== 9) return d;
+    if (type !== "B3") return d;
+
+    return `${d.substr(0, 2)} ${d.substr(2, 4)} ${d.substr(6, 3)}`;
+}
