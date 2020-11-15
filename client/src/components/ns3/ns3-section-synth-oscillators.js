@@ -9,15 +9,8 @@ export default class Ns3SectionSynthOscillators extends Component {
     render() {
         const osc = this.props.data;
 
-        let lfoModEnvTitle = "LFO/Mod Amt";
         let lfoModEnvValue =
-            osc.modulations.value < 0 ? osc.modulations.lfoAmount : osc.modulations.modEnvAmount;
-
-        if (osc.modulations.value < 0) {
-            lfoModEnvTitle = "LFO Amt";
-        } else if (osc.modulations.value > 0) {
-            lfoModEnvTitle = "Mod Env Amt";
-        }
+            osc.modulations.isLfo  ? osc.modulations.lfoAmount : osc.modulations.modEnvAmount;
 
         return (
             <React.Fragment>
@@ -42,7 +35,7 @@ export default class Ns3SectionSynthOscillators extends Component {
                                     <tr>
                                         <NordLabelAndValue label="OSC 2 Pitch" data={osc.pitch} table={true} />
                                     </tr>
-                                    <NordLabelAndValueWithMorph label={lfoModEnvTitle} data={lfoModEnvValue} />
+                                    <NordLabelAndValueWithMorph label={osc.modulations.label} data={lfoModEnvValue} />
                                 </tbody>
                             </table>
                         </div>

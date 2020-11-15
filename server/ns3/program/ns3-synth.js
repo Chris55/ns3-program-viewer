@@ -464,17 +464,20 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
              * 60  = 0.0 for both values
              * 120 = 10.0 (100% right value) 'Mod Env Amount'
              *
-             * @module NS3 Synth LFO Mod Env
+             * @module NS3 Synth Oscillator Mod
              */
             modulations: {
-                value: oscModulation.fromValue,
+                isLfo: oscModulation.fromValueRange120 < 60,
+                label: oscModulation.fromValueRange120 === 60
+                    ? "LFO/Mod Amt"
+                    : oscModulation.fromValueRange120 < 60 ? "LFO Amt": "Mod Env Amt",
                 /**
                  * LFO Amount
                  */
                 lfoAmount: {
                     midi: oscModulation.leftMidi,
                     value: oscModulation.leftLabel,
-                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, true),
+                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValueRange120, true),
                 },
                 /**
                  * Env Mod Amount
@@ -482,7 +485,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
                 modEnvAmount: {
                     midi: oscModulation.rightMidi,
                     value: oscModulation.rightLabel,
-                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValue, false),
+                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValueRange120, false),
                 },
             },
             /**

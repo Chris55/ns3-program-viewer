@@ -362,7 +362,7 @@
 <dt><a href="#module_NS3 Synth Pitch">NS3 Synth Pitch</a></dt>
 <dd><p>Offset in file: 0x8f (b0) and 0x90 (b7-3)</p>
 </dd>
-<dt><a href="#module_NS3 Synth LFO Mod Env">NS3 Synth LFO Mod Env</a></dt>
+<dt><a href="#module_NS3 Synth Oscillator Mod">NS3 Synth Oscillator Mod</a></dt>
 <dd><p>Offset in file: 0x94 (b3-0) and 0x95 (b7-5)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Fast Attack">NS3 Synth Fast Attack</a></dt>
@@ -1512,9 +1512,9 @@ Offset in file: 0x8f (b0) and 0x90 (b7-3)
 ```js
 Midi value = 6-bit value + b0 forced to zero to have a standard Midi 7-bit valuevalue conversion: -12 (Sub) to +48
 ```
-<a name="module_NS3 Synth LFO Mod Env"></a>
+<a name="module_NS3 Synth Oscillator Mod"></a>
 
-## NS3 Synth LFO Mod Env
+## NS3 Synth Oscillator Mod
 Offset in file: 0x94 (b3-0) and 0x95 (b7-5)
 
 **Example**  

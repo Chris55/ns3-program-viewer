@@ -15,24 +15,23 @@ const { ns3Morph } = require("./ns3-morph");
  * 120 = 10.0 (100% right value, example Mod Env Amount)
  *
  * @param valueRange120
- * @param valueRange120
  * @returns {{leftMidi: number, leftValue: string, rightValue: string, rightMidi: number}}
  */
 exports.ns3KnobDualValues = function (valueRange120) {
     const valueRange127 = Math.ceil((valueRange120 * 127) / 120);
-    const value = converter.midi2LinearValue(-10, 10, valueRange120, 1, 0, 120);
+    const value = mapping.ns3SynthModulation120Map.get(valueRange120);
     let leftLabel = "0.0";
     let rightLabel = "0.0";
     let leftMidi = 0;
     let rightMidi = 0;
-    if (value === 0) {
+    if (valueRange120 === 60) {
         leftMidi = valueRange127;
         rightMidi = valueRange127;
-    } else if (value < 0) {
-        leftLabel = Math.abs(value).toFixed(1);
+    } else if (valueRange120 < 60) {
+        leftLabel = value;
         leftMidi = valueRange127;
     } else {
-        rightLabel = value.toFixed(1);
+        rightLabel = value;
         rightMidi = valueRange127;
     }
     return {
@@ -41,6 +40,7 @@ exports.ns3KnobDualValues = function (valueRange120) {
         leftLabel: leftLabel,
         rightLabel: rightLabel,
         fromValue: value,
+        fromValueRange120: valueRange120,
     };
 };
 

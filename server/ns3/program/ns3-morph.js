@@ -1,3 +1,4 @@
+const mapping = require("./ns3-mapping");
 const { round } = require("../../common/converter");
 
 /***
@@ -198,11 +199,11 @@ exports.ns3Morph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
  * returns Synth Oscillator Modulation Morph values
  *
  * @param uint32Value uint32Value 32-bit raw value, wheel expected to be in b23-16, after touch in b15-8, and control pedal in b7-0.
- * @param fromValue fromValue from value (-10 / +10)
+ * @param fromValueRange120 fromValue 0/120
  * @param left true if called for left value
  * @returns {{afterTouch: {to: {midi: number, value: (string|string)}, enabled: *}, controlPedal: {to: {midi: number, value: (string|string)}, enabled: *}, wheel: {to: {midi: number, value: (string|string)}, enabled: *}}}
  */
-exports.ns3MorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
+exports.ns3MorphSynthOscillatorModulation = (uint32Value, fromValueRange120, left) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -210,21 +211,18 @@ exports.ns3MorphSynthOscillatorModulation = (uint32Value, fromValue, left) => {
     rawMorphValue[1] = (uint32Value & 0x00ff00) >>> 8; // after touch
     rawMorphValue[2] = uint32Value & 0x000000ff; // control pedal
 
-    const labelFrom = Math.abs(fromValue).toFixed(1);
-
     rawMorphValue.forEach((rawValue) => {
-        const offset = Math.trunc(((rawValue - 120) / 6) * 10) / 10; // 0 / 10
-        const valueTo = fromValue + offset;
+        const offset = rawValue - 120;
+        const valueTo = fromValueRange120 + offset;
         let midiTo = round(((valueTo + 10) * 127) / 20, 0);
         if (midiTo < 0) {
             midiTo = 0;
         } else if (midiTo > 127) {
             midiTo = 127;
         }
-
-        const labelTo = Math.abs(valueTo).toFixed(1);
-        const showed = left === fromValue < 0;
-        const enabled = showed && labelTo !== labelFrom;
+        const labelTo = mapping.ns3SynthModulation120Map.get(valueTo);
+        const showed = left === fromValueRange120 < 60;
+        const enabled = showed && offset !== 0;
 
         result.push({
             enabled: enabled,
