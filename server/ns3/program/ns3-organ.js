@@ -272,22 +272,20 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
          * #include dBMap
          *
          * Morph Wheel:
-         * 0xB7 (b3): polarity (1 = positive, 0 = negative)
-         * 0xB7 (b2-b0), 0xB8 (b7-b4): 7-bit raw value
+         * 0xB7 (b3-b0), 0xB8 (b7-b4): 8-bit raw value
          *
          * Morph After Touch:
-         * 0xB8 (b3): polarity (1 = positive, 0 = negative)
-         * 0xB8 (b2-b0), 0xB9 (b7-b4): 7-bit raw value
+         * 0xB8 (b3-b0), 0xB9 (b7-b4): 8-bit raw value
          *
          * Morph Control Pedal:
-         * 0xB9 (b3): polarity (1 = positive, 0 = negative)
-         * 0xB9 (b2-b0), 0xBA (b7-b4): 7-bit raw value
+         * 0xB9 (b3-b0), 0xBA (b7-b4): 8-bit raw value
          *
-         * if polarity = 1 then Morph offset value = raw value + 1
-         * if polarity = 0 then Morph offset value = raw value - 127
-         *
-         * Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
-         * Morph Enabled if 'Morph offset value' <> 0
+         * Morph Algorithm:
+         * $d = $v == 127 ? 'none' : ($v + $o - 127) & 127;
+         * where
+         * $v is the 8-bit morph value
+         * $o is the original 'From' value
+         * $d is the final 'To' Morph value
          *
          * @module NS3 Organ Volume
          */

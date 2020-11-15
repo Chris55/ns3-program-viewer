@@ -71,16 +71,13 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
          * 7-bit value 0/127 = 0/10
          *
          * Morph Wheel:
-         * 0x111 (b7): polarity (1 = positive, 0 = negative)
-         * 0x111 (b6-b0): 7-bit raw value
+         * 0x111 (b7-b0): 8-bit raw value
          *
          * Morph After Touch:
-         * 0x112 (b7): polarity (1 = positive, 0 = negative)
-         * 0x112 (b6-b0): 7-bit raw value
+         * 0x112 (b7-b0): 8-bit raw value
          *
          * Morph Control Pedal:
-         * 0x113 (b7): polarity (1 = positive, 0 = negative)
-         * 0x113 (b6-b0): 7-bit raw value
+         * 0x113 (b7-b0): 8-bit raw value
          *
          * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
@@ -111,16 +108,13 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
          * #include ns3Effect1MasterClockDivisionMap
          *
          * Morph Wheel:
-         * 0x10D (b6): polarity (1 = positive, 0 = negative)
-         * 0x10D (b5-b0) and 0x10E (b7): 7-bit raw value
+         * 0x10D (b6-b0) and 0x10E (b7): 8-bit raw value
          *
          * Morph After Touch:
-         * 0x10E (b6): polarity (1 = positive, 0 = negative)
-         * 0x10E (b5-b0) and 0x10F (b7): 7-bit raw value
+         * 0x10E (b6-b0) and 0x10F (b7): 8-bit raw value
          *
          * Morph Control Pedal:
-         * 0x10F (b6): polarity (1 = positive, 0 = negative)
-         * 0x10F (b5-b0) and 0x110 (b7): 7-bit raw value
+         * 0x10F (b6-b0) and 0x110 (b7): 8-bit raw value
          *
          * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *

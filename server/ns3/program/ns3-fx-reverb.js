@@ -52,16 +52,13 @@ exports.ns3Reverb = (buffer, panelOffset) => {
          * 7-bit value 0/127 = 0/10
          *
          * Morph Wheel:
-         * 0x136 (b5): polarity (1 = positive, 0 = negative)
-         * 0x136 (b4-b0) and 0x137 (b7-6): 7-bit raw value
+         * 0x136 (b5-b0) and 0x137 (b7-6): 8-bit raw value
          *
          * Morph After Touch:
-         * 0x137 (b5): polarity (1 = positive, 0 = negative)
-         * 0x137 (b4-b0) and 0x138 (b7-6): 7-bit raw value
+         * 0x137 (b5-b0) and 0x138 (b7-6): 8-bit raw value
          *
          * Morph Control Pedal:
-         * 0x138 (b5): polarity (1 = positive, 0 = negative)
-         * 0x138 (b4-b0) and 0x139 (b7-6): 7-bit raw value
+         * 0x138 (b5-b0) and 0x139 (b7-6): 8-bit raw value
          *
          * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *

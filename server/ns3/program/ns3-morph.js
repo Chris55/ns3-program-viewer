@@ -32,7 +32,7 @@ exports.ns3Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
         //     enabled: forceDisabled ? false : offset !== 0,
         //     midiTo: midiTo,
         // });
-// d = v == 127 ? 'none' : (v + o - 127) & 127;
+
         result.push({
             enabled: forceDisabled ? false : rawValue !== 127,
             midiTo: (rawValue + midiFrom - 127) & 127,

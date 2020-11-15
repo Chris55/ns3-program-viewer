@@ -99,16 +99,13 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * @example
          *
          * Morph Wheel:
-         * 0x44 (b3): polarity (1 = positive, 0 = negative)
-         * 0x44 (b2-b0), 0x45 (b7-b4): 7-bit raw value
+         * 0x44 (b3-b0), 0x45 (b7-b4): 8-bit raw value
          *
          * Morph After Touch:
-         * 0x45 (b3): polarity (1 = positive, 0 = negative)
-         * 0x45 (b2-b0), 0x46 (b7-b4): 7-bit raw value
+         * 0x45 (b3-b0), 0x46 (b7-b4): 8-bit raw value
          *
          * Morph Control Pedal:
-         * 0x46 (b3): polarity (1 = positive, 0 = negative)
-         * 0x46 (b2-b0), 0x47 (b7-b4): 7-bit raw value
+         * 0x46 (b3-b0), 0x47 (b7-b4): 8-bit raw value
          *
          * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed explanation.
          *

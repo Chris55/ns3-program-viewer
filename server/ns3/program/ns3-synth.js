@@ -186,16 +186,13 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
          * @example
          *
          * Morph Wheel:
-         * 0x53 (b3): polarity (1 = positive, 0 = negative)
-         * 0x53 (b2-b0), 0x54 (b7-b4): 7-bit raw value
+         * 0x53 (b3-b0), 0x54 (b7-b4): 8-bit raw value
          *
          * Morph After Touch:
-         * 0x54 (b3): polarity (1 = positive, 0 = negative)
-         * 0x54 (b2-b0), 0x55 (b7-b4): 7-bit raw value
+         * 0x54 (b3-b0), 0x55 (b7-b4): 8-bit raw value
          *
          * Morph Control Pedal:
-         * 0x55 (b3): polarity (1 = positive, 0 = negative)
-         * 0x55 (b2-b0), 0x56 (b7-b4): 7-bit raw value
+         * 0x55 (b3-b0), 0x56 (b7-b4): 8-bit raw value
          *
          * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed explanation.
          *
@@ -422,16 +419,13 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
              * FM & RM (12 to 14)    0/127 => 0/100 %
              *
              * Morph Wheel:
-             * 0x91 (b3): polarity (1 = positive, 0 = negative)
-             * 0x91 (b2-b0), 0x92 (b7-b4): 7-bit raw value
+             * 0x91 (b3-b0), 0x92 (b7-b4): 8-bit raw value
              *
              * Morph After Touch:
-             * 0x92 (b3): polarity (1 = positive, 0 = negative)
-             * 0x92 (b2-b0), 0x93 (b7-b4): 7-bit raw value
+             * 0x92 (b3-b0), 0x93 (b7-b4): 8-bit raw value
              *
              * Morph Control Pedal:
-             * 0x93 (b3): polarity (1 = positive, 0 = negative)
-             * 0x93 (b2-b0), 0x94 (b7-b4): 7-bit raw value
+             * 0x93 (b3-b0), 0x94 (b7-b4): 8-bit raw value
              *
              * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
              *
@@ -648,16 +642,13 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
              * #include ns3SynthLfoRateMasterClockDivisionMap
              *
              * Morph Wheel:
-             * 0x88 (b7): polarity (1 = positive, 0 = negative)
-             * 0x88 (b6-b0): 7-bit raw value
+             * 0x88 (b7-b0): 8-bit raw value
              *
              * Morph After Touch:
-             * 0x89 (b7): polarity (1 = positive, 0 = negative)
-             * 0x89 (b6-b0): 7-bit raw value
+             * 0x89 (b7-b0): 8-bit raw value
              *
              * Morph Control Pedal:
-             * 0x8A (b7): polarity (1 = positive, 0 = negative)
-             * 0x8A (b6-b0): 7-bit raw value
+             * 0x8A (b7-b0): 8-bit raw value
              *
              * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
              *
@@ -716,16 +707,13 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
              * #include ns3SynthArpMasterClockDivisionMap
              *
              * Morph Wheel:
-             * 0x81 (b0): polarity (1 = positive, 0 = negative)
-             * 0x82 (b7-b1): 7-bit raw value
+             * 0x81 (b0), 0x82 (b7-b1): 8-bit raw value
              *
              * Morph After Touch:
-             * 0x82 (b0): polarity (1 = positive, 0 = negative)
-             * 0x83 (b7-b1): 7-bit raw value
+             * 0x82 (b0), 0x83 (b7-b1): 8-bit raw value
              *
              * Morph Control Pedal:
-             * 0x83 (b0): polarity (1 = positive, 0 = negative)
-             * 0x84 (b7-b1): 7-bit raw value
+             * 0x83 (b0), 0x84 (b7-b1): 8-bit raw value
              *
              * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
              *

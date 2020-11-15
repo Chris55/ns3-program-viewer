@@ -147,22 +147,13 @@ exports.ns3Delay = (buffer, panelOffset) => {
          * #include ns3DelayTempoMasterClockDivisionMap
          *
          * Morph Wheel:
-         * 0x11B (b1): polarity (1 = positive, 0 = negative)
-         * 0x11B (b0), 0x11C (b7-0), and 0x11D (b7-3): 14-bit raw value
+         * 0x11B (b1-0), 0x11C (b7-0), and 0x11D (b7-3): 15-bit raw value
          *
          * Morph After Touch:
-         * 0x11D (b2): polarity (1 = positive, 0 = negative)
-         * 0x11D (b1-0), 0x11E (b7-0), and 0x11F (b7-4): 14-bit raw value
+         * 0x11D (b2-0), 0x11E (b7-0), and 0x11F (b7-4): 15-bit raw value
          *
          * Morph Control Pedal:
-         * 0x11F (b3): polarity (1 = positive, 0 = negative)
-         * 0x11F (b2-0), 0x120 (b7-0), and 0x121 (b7-5): 14-bit raw value
-         *
-         * if polarity = 1 then Morph offset value = raw value + 1
-         * if polarity = 0 then Morph offset value = raw value - 16383
-         *
-         * Final 'To' Morph value = 'From value (original tempo)' + 'Morph offset value'
-         * Morph Enabled if  'Morph offset value' <> 0
+         * 0x11F (b3-0), 0x120 (b7-0), and 0x121 (b7-5): 15-bit raw value
          *
          * @module NS3 Delay Tempo
          */
@@ -225,16 +216,13 @@ exports.ns3Delay = (buffer, panelOffset) => {
          * 7-bit value 0/127 = 0/10
          *
          * Morph Wheel:
-         * 0x126 (b3): polarity (1 = positive, 0 = negative)
-         * 0x126 (b2-b0) and 0x127 (b7-4): 7-bit raw value
+         * 0x126 (b3-b0) and 0x127 (b7-4): 8-bit raw value
          *
          * Morph After Touch:
-         * 0x127 (b3): polarity (1 = positive, 0 = negative)
-         * 0x127 (b2-b0) and 0x128 (b7-4): 7-bit raw value
+         * 0x127 (b3-b0) and 0x128 (b7-4): 8-bit raw value
          *
          * Morph Control Pedal:
-         * 0x128 (b3): polarity (1 = positive, 0 = negative)
-         * 0x128 (b2-b0) and 0x129 (b7-4): 7-bit raw value
+         * 0x128 (b3-b0) and 0x129 (b7-4): 8-bit raw value
          *
          * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
@@ -262,16 +250,13 @@ exports.ns3Delay = (buffer, panelOffset) => {
          * 7-bit value 0/127 = 0/10
          *
          * Morph Wheel:
-         * 0x122 (b5): polarity (1 = positive, 0 = negative)
-         * 0x122 (b4-b0) and 0x123 (b7-6): 7-bit raw value
+         * 0x122 (b5-b0) and 0x123 (b7-6): 8-bit raw value
          *
          * Morph After Touch:
-         * 0x123 (b5): polarity (1 = positive, 0 = negative)
-         * 0x123 (b4-b0) and 0x124 (b7-6): 7-bit raw value
+         * 0x123 (b5-b0) and 0x124 (b7-6): 8-bit raw value
          *
          * Morph Control Pedal:
-         * 0x124 (b5): polarity (1 = positive, 0 = negative)
-         * 0x124 (b4-b0) and 0x125 (b7-6): 7-bit raw value
+         * 0x124 (b5-b0) and 0x125 (b7-6): 8-bit raw value
          *
          * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *

@@ -42,7 +42,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 | 1.0  | 27-Sep-2020  | Added Amp Sim / Eq section and bumped to v1.0
 | 1.1  | xx-xxx-2020  | Fixed NS3 Organ mapping (0x00DB was missing)
 |      |              | Added NS3 missing Organ Preset II options
-|      |              | Fixed NS3 Organ Morph implementation
+|      |              | Simplified NS3 Morph implementation
 |      |              | Added NS3 Synth Preset
 |      |              | Fixed typo in offsets 0x011B, 0x011D, 0x011F, and 0x119
 |      |              | Fixed NS3 panel starting offset

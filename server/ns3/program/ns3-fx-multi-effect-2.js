@@ -65,16 +65,13 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
          * 7-bit value 0/127 = 0/10
          *
          * Morph Wheel:
-         * 0x116 (b3): polarity (1 = positive, 0 = negative)
-         * 0x116 (b2-b0) and 0x117 (b7-4): 7-bit raw value
+         * 0x116 (b3-b0) and 0x117 (b7-4): 8-bit raw value
          *
          * Morph After Touch:
-         * 0x117 (b3): polarity (1 = positive, 0 = negative)
-         * 0x117 (b2-b0) and 0x118 (b7-4): 7-bit raw value
+         * 0x117 (b3-b0) and 0x118 (b7-4): 8-bit raw value
          *
          * Morph Control Pedal:
-         * 0x118 (b3): polarity (1 = positive, 0 = negative)
-         * 0x118 (b2-b0) and 0x119 (b7-4): 7-bit raw value
+         * 0x118 (b3-b0) and 0x119 (b7-4): 8-bit raw value
          *
          * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed Morph explanation.
          *
