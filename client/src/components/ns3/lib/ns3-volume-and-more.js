@@ -12,20 +12,22 @@ export default class Ns3VolumeAndMore extends Component {
         const octaveShift =
             (section.octaveShift.value >= 0 ? "+" + section.octaveShift.value : section.octaveShift.value) + " oct";
 
+        const pitchStickRangeAvailable = this.props.name === "SYNTH";
+        const pitchStickRangeVisible = pitchStickRangeAvailable && section.pitchStickRange?.visible;
+
         return (
             <React.Fragment>
                 <div className="m-1 text-center">
                     <h6 className="mt-1 font-weight-bold">{this.props.name}</h6>
 
-                    <div className={this.props.name !== "EXTERN" ? "my-2": "d-none"}>
+                    <div className={this.props.name !== "EXTERN" ? "my-2" : "d-none"}>
                         <NordLabel label="Level" />
-                        <table className="text-left"  style={{ marginLeft: "auto", marginRight: "auto" }}>
+                        <table className="text-left" style={{ marginLeft: "auto", marginRight: "auto" }}>
                             <tbody>
-                            <NordLabelAndValueWithMorph data={section.volume} upperCase={false} />
+                                <NordLabelAndValueWithMorph data={section.volume} upperCase={false} />
                             </tbody>
                         </table>
                     </div>
-
 
                     <div className="">
                         <NordLabel label="Kb Zone" />
@@ -38,9 +40,7 @@ export default class Ns3VolumeAndMore extends Component {
                     </div>
 
                     <div className="">
-                        <NordLabelAndValue
-                            enabled={section.octaveShift.value !== 0}
-                            data={{ value: octaveShift }} />
+                        <NordLabelAndValue enabled={section.octaveShift.value !== 0} data={{ value: octaveShift }} />
                     </div>
 
                     <div>
@@ -49,6 +49,9 @@ export default class Ns3VolumeAndMore extends Component {
                         <span className="m-1" />
 
                         <NordValueOnOff label="SustPed" data={section.sustainPedal} />
+                    </div>
+                    <div className={pitchStickRangeVisible ? "text-left" : "d-none"}>
+                        <NordLabel label={section.pitchStickRange?.value} />
                     </div>
                 </div>
             </React.Fragment>

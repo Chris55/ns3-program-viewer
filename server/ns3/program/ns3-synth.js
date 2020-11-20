@@ -47,6 +47,7 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @returns {{voice: {value: *}, oscillators: {control: *, fastAttack: {enabled: boolean}, pitch: {midi: *, value: (string|string)}, type: {value: *}, waveForm1: *, config: {value: *}, modulations: {lfoAmount: {midi: *, morph: *, value: *}, modEnvAmount: {midi: *, morph: *, value: *}}}, debug: {lib: {valid: boolean, location: number, value: string, version: string, info: string}, sampleId: string, preset: {userPresetLocation: number, samplePresetLocation: number, presetName: string}}, unison: {value: *}, arpeggiator: {kbSync: {enabled: boolean}, rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, pattern: {value: *}, range: {value: *}, enabled: boolean}, kbZone: {array: string | string[] | boolean[], value: string | string[] | boolean[]}, sustainPedal: {enabled: boolean}, keyboardHold: {enabled: boolean}, preset: *, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: *, pitchStick: {enabled: boolean}, lfo: {rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, wave: {value: *}}, glide: {value: *}, envelopes: {modulation: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {enabled: boolean}}, amplifier: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {value: *}}}, vibrato: {value: *}}}
  */
 exports.ns3Synth = (buffer, id, panelOffset, global) => {
+    const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
     const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
     const synthOffset57 = buffer.readUInt8(0x57 + panelOffset);
@@ -152,6 +153,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
     const synthKbZone = ns3KbZone(synthKbZoneEnabled, global, synthKbZoneValue);
     const preset = ns3SynthPreset(buffer, 0x57 + panelOffset);
 
+    const pitchShiftRange = (synthOffset3b & 0xf0) >>> 4;
+
     const synth = {
         debug: {
             sampleId: sampleId.toString(16),
@@ -222,8 +225,19 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
         pitchStick: {
             enabled: (synthOffset57 & 0x80) !== 0,
         },
-        //pitchStickRange: mapping.synthPitchShiftRangeMap.get((synthOffset3b & 0xf0) >>> 4),
 
+        /**
+         * Offset in file: 0x3b (b7-4)
+         *
+         * @example
+         * #include ns3SynthPitchShiftRangeMap
+         *
+         * @module NS3 Synth Pitch Stick Range
+         */
+        pitchStickRange:  {
+            visible: pitchShiftRange !== 1,
+            value: mapping.ns3SynthPitchShiftRangeMap.get(pitchShiftRange),
+        },
         /**
          * Offset in file: 0x57 (b6)
          *

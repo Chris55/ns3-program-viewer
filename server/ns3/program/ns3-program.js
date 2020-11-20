@@ -345,8 +345,11 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     // noinspection JSPrimitiveTypeWrapperUsage
     ns3.panelB.piano.layerDetune.value = ns3.panelA.piano.layerDetune.value;
 
+    // noinspection JSPrimitiveTypeWrapperUsage
     ns3.panelB.organ.pitchStick.enabled = ns3.panelA.organ.pitchStick.enabled;
     ns3.panelB.organ.preset1.vibrato.mode = ns3.panelA.organ.preset1.vibrato.mode;
+
+    ns3.panelB.synth.pitchStickRange = ns3.panelA.synth.pitchStickRange;
 
     ns3.panelB.effects.rotarySpeaker.drive = ns3.panelA.effects.rotarySpeaker.drive;
     ns3.panelB.effects.rotarySpeaker.stopMode = ns3.panelA.effects.rotarySpeaker.stopMode;

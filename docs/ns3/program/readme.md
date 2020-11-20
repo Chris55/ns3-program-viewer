@@ -147,7 +147,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0038` | `tttttccc` | [(t) transpose](ns3-doc.md#ns3-transpose), [(c) master clock rate](ns3-doc.md#ns3-master-clock-rate)
 | `0x0039` | `cccccddd` | [(d) rotary speaker drive](ns3-doc.md#ns3-rotary-speaker-drive)
 | `0x003A` | `ddddk-ss` | [(k) dual keyboard](ns3-doc.md#ns3-dual-keyboard), [(s) dual keyboard style](ns3-doc.md#ns3-dual-keyboard-style)
-| `0x003B` | `--------` |
+| `0x003B` | `rrrr----` | [(r) synth pitch stick range](ns3-doc.md#ns3-synth-pitch-stick-range)
 | `0x003C` | `--------` |
 | `0x003D` | `--------` |
 | `0x003E` | `--------` |

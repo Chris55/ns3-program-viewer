@@ -329,6 +329,9 @@
 <dt><a href="#module_NS3 Synth Pitch Stick">NS3 Synth Pitch Stick</a></dt>
 <dd><p>Offset in file: 0x57 (b7)</p>
 </dd>
+<dt><a href="#module_NS3 Synth Pitch Stick Range">NS3 Synth Pitch Stick Range</a></dt>
+<dd><p>Offset in file: 0x3b (b7-4)</p>
+</dd>
 <dt><a href="#module_NS3 Synth Sustain Pedal">NS3 Synth Sustain Pedal</a></dt>
 <dd><p>Offset in file: 0x57 (b6)</p>
 </dd>
@@ -1411,6 +1414,15 @@ Offset in file: 0x57 (b7)
 **Example**  
 ```js
 O = off, 1 = on
+```
+<a name="module_NS3 Synth Pitch Stick Range"></a>
+
+## NS3 Synth Pitch Stick Range
+Offset in file: 0x3b (b7-4)
+
+**Example**  
+```js
+#include ns3SynthPitchShiftRangeMap
 ```
 <a name="module_NS3 Synth Sustain Pedal"></a>
 

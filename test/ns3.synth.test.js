@@ -117,6 +117,86 @@ describe("/ns3/synth", () => {
         });
     });
 
+    test("panelA.synth.pitchStickRange.value eq +2@a-12 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq +2@a-12 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.pitchStickRange.value eq +2@a-24 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq +2@a-24 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.pitchStickRange.value eq @=1 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq @=1 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.pitchStickRange.value eq @=10 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq @=10 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.pitchStickRange.value eq @=12 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq @=12 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.pitchStickRange.value eq @=2 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq @=2 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.pitchStickRange.value eq @=3 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq @=3 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.pitchStickRange.value eq @=4 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq @=4 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.pitchStickRange.value eq @=5 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq @=5 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelA.synth.pitchStickRange.value eq @=7 semi", async () => {
+        const file = "panelA.synth.pitchStickRange.value eq @=7 semi.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.sustainPedal.enabled eq false", async () => {
         const file = "panelA.synth.sustainPedal.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);

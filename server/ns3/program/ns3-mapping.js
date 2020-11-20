@@ -338,10 +338,11 @@ exports.ns3SynthOscillator1SuperWaveTypeMap = new Map([
 
 /***
  * Synth Pitch Shift Range
+ * note: // macos: shift + option + =
  * @type {Map<number, string>}
  */
 exports.ns3SynthPitchShiftRangeMap = new Map([
-    [0, "±1 semi"], // macos: shift + option + =
+    [0, "±1 semi"],
     [1, "±2 semi"],
     [2, "±3 semi"],
     [3, "±4 semi"],
