@@ -23,7 +23,7 @@ export default class Ns2 extends Component {
                     <div className="col-2 text-right nord-option-on">
                         <NordLabel label="Master Clock" />
                         <br />
-                        {/*<NordLabelAndValue data={data.masterClock.rate} />*/}
+                        <NordLabelAndValue data={data.masterClock.rate} />
                     </div>
                     <div className="col-1 text-right nord-option-on">
                         <NordLabel label="Transpose" enabled={data.transpose.enabled} />
@@ -34,32 +34,18 @@ export default class Ns2 extends Component {
                         <NordLabel enabled={data.split.enabled} label="Split" />
                     </div>
                     <div className={data.split.enabled ? "col-1 mt-1" : "d-none"}>
-                        {/*<table>*/}
-                        {/*    <tbody>*/}
-                        {/*        <tr>*/}
-                        {/*            <td>*/}
-                        {/*                <span className="nord-split ">{data.split.low.width}</span>*/}
-                        {/*            </td>*/}
-                        {/*            <td>*/}
-                        {/*                <span className="nord-split ">{data.split.mid.width}</span>*/}
-                        {/*            </td>*/}
-                        {/*            <td>*/}
-                        {/*                <span className="nord-split ">{data.split.high.width}</span>*/}
-                        {/*            </td>*/}
-                        {/*        </tr>*/}
-                        {/*        <tr>*/}
-                        {/*            <td>*/}
-                        {/*                <span className="nord-split ">{data.split.low.note}</span>*/}
-                        {/*            </td>*/}
-                        {/*            <td>*/}
-                        {/*                <span className="nord-split ">{data.split.mid.note}</span>*/}
-                        {/*            </td>*/}
-                        {/*            <td>*/}
-                        {/*                <span className="nord-split ">{data.split.high.note}</span>*/}
-                        {/*            </td>*/}
-                        {/*        </tr>*/}
-                        {/*    </tbody>*/}
-                        {/*</table>*/}
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span className="nord-split ">{data.split.low.note}</span>
+                                    </td>
+                                    <td>
+                                        <span className="nord-split ">{data.split.high.note}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div className="col-1 text-right nord-option-on">
                         <NordLabel enabled={data.dualKeyboard.enabled} label="Dual KB" />

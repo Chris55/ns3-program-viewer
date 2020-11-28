@@ -123,7 +123,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     };
 
     /**
-     * 0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)
+     * Offset in file: 0x31 (b4 to b0) to 0x34 (b7 only)
      *
      * @example
      * |  0X31     |    0x32   |     0x33  |    0x34   | description

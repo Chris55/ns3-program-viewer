@@ -49,11 +49,11 @@
 | `0x002B` | `--------` |
 | `0x002C` | `--------` |
 | `0x002D` | `--------` |
-| `0x002E` | `ssk-----` | [(p) slot selection](ns2-doc.md#ns2-slot-enabled-and-selection), [(k) dual keyboard](ns2-doc.md#ns2-dual-keyboard),
-| `0x002F` | `--------` |
+| `0x002E` | `ssk-llll` | [(p) slot selection](ns2-doc.md#ns2-slot-enabled-and-selection), [(k) dual keyboard](ns2-doc.md#ns2-dual-keyboard), [(k) split point low](ns2-doc.md#ns2-split),
+| `0x002F` | `hhhhtw--` | [(h) split point high](ns2-doc.md#ns2-split), [(t) three split zones](ns2-doc.md#ns2-split), [(w) two split zones](ns2-doc.md#ns2-split)
 | `0x0030` | `-pttttt-` | [(p) organ pitch stick](ns2-doc.md#ns2-organ-pitch-stick), [(t) transpose](ns2-doc.md#ns2-transpose)
-| `0x0031` | `--------` |
-| `0x0032` | `--------` |
+| `0x0031` | `---mmmmm` | [(m) master clock rate](ns2-doc.md#ns2-master-clock-rate)
+| `0x0032` | `mmm-----` |
 | `0x0033` | `--------` |
 | `0x0034` | `mm------` | [(m) organ model](ns2-doc.md#ns2-organ-model)
 | `0x0035` | `vvvhds--` | [(v) organ b3 vibrato mode](ns2-doc.md#ns2-organ-b3-vibrato-mode), [(h) organ b3 harmonic third](ns2-doc.md#ns2-organ-b3-harmonic-third), [(d) organ b3 decay fast](ns2-doc.md#ns2-organ-b3-decay-fast), [(s) organ b3 volume soft](ns2-doc.md#ns2-organ-b3-volume-soft)

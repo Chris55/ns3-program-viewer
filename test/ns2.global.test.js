@@ -245,6 +245,54 @@ describe("/ns2/global", () => {
         });
     });
 
+    test("masterClock.rate.value eq 238 bpm", async () => {
+        const file = "masterClock.rate.value eq 238 bpm.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("masterClock.rate.value eq 239 bpm", async () => {
+        const file = "masterClock.rate.value eq 239 bpm.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("masterClock.rate.value eq 240 bpm", async () => {
+        const file = "masterClock.rate.value eq 240 bpm.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("masterClock.rate.value eq 30 bpm", async () => {
+        const file = "masterClock.rate.value eq 30 bpm.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("masterClock.rate.value eq 31 bpm", async () => {
+        const file = "masterClock.rate.value eq 31 bpm.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("masterClock.rate.value eq 32 bpm", async () => {
+        const file = "masterClock.rate.value eq 32 bpm.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.enabled eq false and slotB.enabled eq true", async () => {
         const file = "slotA.enabled eq false and slotB.enabled eq true.ns2p";
         const sut = await loadTestCase(root + file);
@@ -263,6 +311,118 @@ describe("/ns2/global", () => {
 
     test("slotA.enabled eq true and slotB.enabled eq true", async () => {
         const file = "slotA.enabled eq true and slotB.enabled eq true.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.enabled eq false", async () => {
+        const file = "split.enabled eq false.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C3 and split.high.note eq --", async () => {
+        const file = "split.low.note eq C3 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C4 and split.high.note eq --", async () => {
+        const file = "split.low.note eq C4 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C5 and split.high.note eq --", async () => {
+        const file = "split.low.note eq C5 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C6 and split.high.note eq --", async () => {
+        const file = "split.low.note eq C6 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C7 and split.high.note eq --", async () => {
+        const file = "split.low.note eq C7 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F2 and split.high.note eq --", async () => {
+        const file = "split.low.note eq F2 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F2 and split.high.note eq C3", async () => {
+        const file = "split.low.note eq F2 and split.high.note eq C3.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F2 and split.high.note eq C7", async () => {
+        const file = "split.low.note eq F2 and split.high.note eq C7.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F3 and split.high.note eq --", async () => {
+        const file = "split.low.note eq F3 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F4 and split.high.note eq --", async () => {
+        const file = "split.low.note eq F4 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F5 and split.high.note eq --", async () => {
+        const file = "split.low.note eq F5 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F6 and split.high.note eq --", async () => {
+        const file = "split.low.note eq F6 and split.high.note eq --.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq F6 and split.high.note eq C7", async () => {
+        const file = "split.low.note eq F6 and split.high.note eq C7.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

@@ -276,7 +276,7 @@
 <dd><p>Offset in file: 0x38 (b7-3)</p>
 </dd>
 <dt><a href="#module_NS3 Split">NS3 Split</a></dt>
-<dd><p>0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)</p>
+<dd><p>Offset in file: 0x31 (b4 to b0) to 0x34 (b7 only)</p>
 </dd>
 <dt><a href="#module_NS3 Master Clock Rate">NS3 Master Clock Rate</a></dt>
 <dd><p>Offset in file: 0x38 (b2-0) 0x39 (b7-3)</p>
@@ -1256,7 +1256,7 @@ Enabled: 0x38 (b7)Value: 0x38 (b6-3)#include ns3TransposeMap
 <a name="module_NS3 Split"></a>
 
 ## NS3 Split
-0ffset in file: 0x31 (b4 to b0) to 0x34 (b7 only)
+Offset in file: 0x31 (b4 to b0) to 0x34 (b7 only)
 
 **Example**  
 ```js

@@ -33,6 +33,23 @@ exports.ns2KbZoneMap = new Map([
 ]);
 
 /***
+ * Split Note Values
+ * @type {Map<number, string>}
+ */
+exports.ns2SplitNoteMap = new Map([
+    [0, "F2"],
+    [1, "C3"],
+    [2, "F3"],
+    [3, "C4"],
+    [4, "F4"],
+    [5, "C5"],
+    [6, "F5"],
+    [7, "C6"],
+    [8, "F6"],
+    [9, "C7"],
+]);
+
+/***
  * Piano Types
  * @type {Map<number, string>}
  */
