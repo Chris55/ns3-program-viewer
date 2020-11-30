@@ -85,6 +85,10 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
     const sampleId = Number((synthOffsetA5WW & 0x07fffffff8n) >> 3n);
 
     const oscillatorType = mapping.ns3SynthOscillatorTypeMap.get((synthOffset8dW & 0x0380) >>> 7);
+    const oscConfigValue = (synthOffset8f & 0x1e) >>> 1;
+    let oscConfig = mapping.ns3SynthOscillatorsTypeMap.get(oscConfigValue);
+    const osc2Pitch = ((synthOffset8fW & 0x01f8) >>> 3) - 12;
+    const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127) / (48 + 12));
 
     let waveForm1 = {
         valid: false,
@@ -92,6 +96,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
         info: "",
         version: "",
         location: 0,
+        useConfigAndPitch: oscConfigValue !== 0,
     };
     switch (oscillatorType) {
         case "Classic":
@@ -108,22 +113,30 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
             waveForm1.location = (synthOffset8eW & 0x03c0) >>> 6;
             waveForm1.value = mapping.ns3SynthOscillator1FormantWaveTypeMap.get(waveForm1.location);
             waveForm1.valid = waveForm1.value !== undefined;
+            if (oscConfigValue === 4) {
+                waveForm1.useConfigAndPitch = false;
+            }
             break;
         case "Super":
             waveForm1.location = (synthOffset8eW & 0x01c0) >>> 6;
             waveForm1.value = mapping.ns3SynthOscillator1SuperWaveTypeMap.get(waveForm1.location);
             waveForm1.valid = waveForm1.value !== undefined;
+            const superUseConfigAndPitch = (oscConfigValue >= 5 && oscConfigValue <= 11) || (oscConfigValue === 14);
+            if (!superUseConfigAndPitch) {
+                waveForm1.useConfigAndPitch = false;
+            }
             break;
         case "Sample":
             const location = (synthOffset8eW & 0x7fc0) >>> 6;
             waveForm1 = getSample(sampleId, 0, location);
+            const sampleUseConfigAndPitch = (oscConfigValue >= 5 && oscConfigValue <= 11) || (oscConfigValue === 14);
+            if (!sampleUseConfigAndPitch) {
+                waveForm1.useConfigAndPitch = false;
+            }
             break;
     }
 
-    const oscConfig = mapping.ns3SynthOscillatorsTypeMap.get((synthOffset8f & 0x1e) >>> 1);
 
-    const osc2Pitch = ((synthOffset8fW & 0x01f8) >>> 3) - 12;
-    const osc2PitchMidi = Math.ceil(((osc2Pitch + 12) * 127) / (48 + 12));
 
     const oscModulation = ns3KnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
 

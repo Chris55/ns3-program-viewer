@@ -231,7 +231,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x008C` | `ddddddrr` | [(a) synth mod env release](ns3-doc.md#ns3-synth-mod-env-release)
 | `0x008D` | `rrrrrvtt` | [(v) synth mod env velocity](ns3-doc.md#ns3-synth-mod-env-velocity), [(t) synth oscillator type](ns3-doc.md#ns3-synth-oscillator-type)
 | `0x008E` | `twwwwwww` | [(w) synth oscillator 1 wave form](ns3-doc.md#ns3-synth-oscillator-1-wave-form)
-| `0x008F` | `ww-ccccp` | [(c) synth oscillator config](ns3-doc.md#ns3-synth-oscillator-config), [(c) synth pitch](ns3-doc.md#ns3-synth-pitch)
+| `0x008F` | `ww-ccccp` | [(c) synth oscillator config](ns3-doc.md#ns3-synth-oscillator-config), [(p) synth pitch](ns3-doc.md#ns3-synth-pitch)
 | `0x0090` | `ppppplll` | [(l) synth oscillator control](ns3-doc.md#ns3-synth-oscillator-control)
 | `0x0091` | `llllwwww` | [(w) synth oscillator control morph wheel](ns3-doc.md#ns3-synth-oscillator-control)
 | `0x0092` | `wwwwaaaa` | [(a) synth oscillator control morph after touch](ns3-doc.md#ns3-synth-oscillator-control)
