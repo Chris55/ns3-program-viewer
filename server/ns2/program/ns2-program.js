@@ -227,7 +227,6 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     // noinspection JSPrimitiveTypeWrapperUsage
     ns2.slotB.piano.slotDetune.value = ns2.slotA.piano.slotDetune.value;
 
-
     ns2.slotB.organ.pitchStick.enabled = ns2.slotA.organ.pitchStick.enabled;
     ns2.slotB.organ.type.value = ns2.slotA.organ.type.value;
     ns2.slotB.organ.preset1.vibrato.enabled = ns2.slotA.organ.preset1.vibrato.enabled;
@@ -238,9 +237,9 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     ns2.slotB.organ.preset1.percussion.decayFast.enabled = ns2.slotA.organ.preset1.percussion.decayFast.enabled;
     ns2.slotB.organ.preset1.percussion.harmonicThird.enabled = ns2.slotA.organ.preset1.percussion.harmonicThird.enabled;
 
-    // ns2.slotB.effects.rotarySpeaker.drive = ns2.slotA.effects.rotarySpeaker.drive;
-    // ns2.slotB.effects.rotarySpeaker.stopMode = ns2.slotA.effects.rotarySpeaker.stopMode;
-    // ns2.slotB.effects.rotarySpeaker.speed = ns2.slotA.effects.rotarySpeaker.speed;
+    ns2.slotB.effects.rotarySpeaker.drive = ns2.slotA.effects.rotarySpeaker.drive;
+    ns2.slotB.effects.rotarySpeaker.stopMode = ns2.slotA.effects.rotarySpeaker.stopMode;
+    ns2.slotB.effects.rotarySpeaker.speed = ns2.slotA.effects.rotarySpeaker.speed;
 
     return ns2;
 };

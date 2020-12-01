@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
 import Ns2VolumeAndMore from "./lib/ns2-volume-and-more";
-//import Ns2Fx from "./ns2-fx";
+import Ns2Fx from "./ns2-fx";
 import NordValueOnOff from "./lib/nord-value-on-off";
 import NordLabelAndValue from "./lib/nord-label-and-value";
 import NordLabel from "./lib/nord-label";
@@ -107,7 +107,7 @@ export default class Ns2SectionOrgan extends Component {
                                         </div>
                                     </div>
 
-                                    {/*<Ns2Fx className="d-flex" data={this.props.effects} source="Organ" />*/}
+                                    <Ns2Fx className="d-flex" data={this.props.effects} source="Organ" />
                                 </div>
                             </div>
                         </div>

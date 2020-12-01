@@ -1429,3 +1429,22 @@ exports.ns2SynthArpRateMap = new Map([
     [126, "126:32 BPM"],
     [127, "128:32 BPM"],
 ]);
+
+/***
+ * Effect Source Values
+ * @type {Map<number, string>}
+ */
+exports.ns2EffectSourceMap = new Map([
+    [0, "Organ"],
+    [1, "Piano"],
+    [2, "Synth"],
+]);
+
+/***
+ * Rotary Speaker Speed Values
+ * @type {Map<number, string>}
+ */
+exports.ns2RotarySpeakerSpeedMap = new Map([
+    [0, "Slow/Stop"],
+    [1, "Fast"],
+]);

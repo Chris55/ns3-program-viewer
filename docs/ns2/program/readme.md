@@ -64,11 +64,11 @@
 | `0x003A` | `--------` |
 | `0x003B` | `ddd-----` | [(o) piano slot detune](ns2-doc.md#ns2-piano-slot-detune)
 | `0x003C` | `--------` |
-| `0x003D` | `--------` |
-| `0x003E` | `--------` |
-| `0x003F` | `--------` |
-| `0x0040` | `--------` |
-| `0x0041` | `--------` |
+| `0x003D` | `otttrrrr` | [(o) reverb on](ns2-doc.md#ns2-reverb-on), [(t) reverb type](ns2-doc.md#ns2-reverb-type), [(r) reverb amount](ns2-doc.md#ns2-reverb-amount)
+| `0x003E` | `rrrocccc` | [(o) compressor on](ns2-doc.md#ns2-compressor-on), [(c) compressor amount](ns2-doc.md#ns2-compressor-amount)
+| `0x003F` | `cccossdd` | [(o) rotary speaker on](ns2-doc.md#ns2-rotary-speaker-on), [(s) rotary speaker source](ns2-doc.md#ns2-rotary-speaker-source), [(d) rotary speaker drive](ns2-doc.md#ns2-rotary-speaker-drive)
+| `0x0040` | `dddddmrw` | [(m) rotary speaker stop mode](ns2-doc.md#ns2-rotary-speaker-stop-mode), [(r) rotary speaker speed](ns2-doc.md#ns2-rotary-speaker-speed), [(w) rotary speaker speed morph wheel](ns2-doc.md#ns2-rotary-speaker-speed)
+| `0x0041` | `ac------` | [(a) rotary speaker speed morph after touch](ns2-doc.md#ns2-rotary-speaker-speed), [(c) rotary speaker speed morph control pedal](ns2-doc.md#ns2-rotary-speaker-speed)
 | `0x0042` | `--------` |
 | `0x0043` | `owwwwwww` | [(o) organ on](ns2-doc.md#ns2-organ-on), [(w) organ volume morph wheel](ns2-doc.md#ns2-organ-volume)
 | `0x0044` | `waaaaaaa` | [(a) organ volume morph after touch](ns2-doc.md#ns2-organ-volume)

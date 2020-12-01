@@ -1,6 +1,21 @@
 ## Modules
 
 <dl>
+<dt><a href="#module_NS2 Rotary Speaker On">NS2 Rotary Speaker On</a></dt>
+<dd><p>Offset in file: 0x3f (b4)</p>
+</dd>
+<dt><a href="#module_NS2 Rotary Speaker Source">NS2 Rotary Speaker Source</a></dt>
+<dd><p>Offset in file: 0x3f (b3-2)</p>
+</dd>
+<dt><a href="#module_NS2 Rotary Speaker Drive">NS2 Rotary Speaker Drive</a></dt>
+<dd><p>Offset in file: 0x3f (b1-0) and 0x40 (b7-3)</p>
+</dd>
+<dt><a href="#module_NS2 Rotary Speaker Stop Mode">NS2 Rotary Speaker Stop Mode</a></dt>
+<dd><p>Offset in file: 0x40 (b2)</p>
+</dd>
+<dt><a href="#module_NS2 Rotary Speaker Speed">NS2 Rotary Speaker Speed</a></dt>
+<dd><p>Offset in file: 0x40 (b1)</p>
+</dd>
 <dt><a href="#module_NS2 Organ B3 Preset 2">NS2 Organ B3 Preset 2</a></dt>
 <dd><p>Offset in file: 0x5c (b7)</p>
 </dd>
@@ -280,6 +295,51 @@
 </dd>
 </dl>
 
+<a name="module_NS2 Rotary Speaker On"></a>
+
+## NS2 Rotary Speaker On
+Offset in file: 0x3f (b4)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Rotary Speaker Source"></a>
+
+## NS2 Rotary Speaker Source
+Offset in file: 0x3f (b3-2)
+
+**Example**  
+```js
+#include ns2EffectSourceMap
+```
+<a name="module_NS2 Rotary Speaker Drive"></a>
+
+## NS2 Rotary Speaker Drive
+Offset in file: 0x3f (b1-0) and 0x40 (b7-3)
+
+**Example**  
+```js
+7-bit value 0/127 converted to 0/10Note: Same value is used for both panel A & B
+```
+<a name="module_NS2 Rotary Speaker Stop Mode"></a>
+
+## NS2 Rotary Speaker Stop Mode
+Offset in file: 0x40 (b2)
+
+**Example**  
+```js
+0 = disabled (Speed Slow), 1 = enabled (Speed Stop)Note: Same value is used for both panel A & B
+```
+<a name="module_NS2 Rotary Speaker Speed"></a>
+
+## NS2 Rotary Speaker Speed
+Offset in file: 0x40 (b1)
+
+**Example**  
+```js
+0 = Slow/Stop, 1 = FastMorph Wheel:         0x40 (b0)Morph After Touch:   0x41 (b7)Morph Control Pedal: 0x41 (b6)Note: Same value is used for both panel A & B
+```
 <a name="module_NS2 Organ B3 Preset 2"></a>
 
 ## NS2 Organ B3 Preset 2

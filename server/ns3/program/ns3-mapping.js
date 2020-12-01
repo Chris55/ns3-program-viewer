@@ -186,9 +186,9 @@ exports.ns3OrganFarfisaVibratoModeMap = new Map([
  * @type {Map<number, string>}
  */
 exports.ns3EffectSourceMap = new Map([
-    [0x00, "Organ"],
-    [0x01, "Piano"],
-    [0x02, "Synth"],
+    [0, "Organ"],
+    [1, "Piano"],
+    [2, "Synth"],
 ]);
 
 /***
@@ -1406,8 +1406,8 @@ exports.ns3SynthArpRateMap = new Map([
  * @type {Map<number, string>}
  */
 exports.ns3RotarySpeakerSpeedMap = new Map([
-    [0x00, "Slow/Stop"],
-    [0x01, "Fast"],
+    [0, "Slow/Stop"],
+    [1, "Fast"],
 ]);
 
 /***
