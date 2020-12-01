@@ -10,7 +10,7 @@ import Ns2SectionSynthArp from "./ns2-section-synth-arp";
 
 export default class Ns2Fx extends Component {
     render() {
-        const data = this.props.data;
+        //const data = this.props.data;
 
         let arp;
         if (this.props.arp === undefined) {

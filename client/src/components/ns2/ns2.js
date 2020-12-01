@@ -56,14 +56,14 @@ export default class Ns2 extends Component {
 
                 <div className="row">
                     <div className="col-12">
-                        <div className={data.slotA.enabled ? "nord-on" : "nord-off"}>
+                        <div className={data.slotA.enabled ? "nord-on" : "nord-off-2"}>
                             <Ns2Slot name="A" data={data.slotA} />
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12">
-                        <div className={data.slotB.enabled ? "nord-on" : "nord-off"}>
+                        <div className={data.slotB.enabled ? "nord-on" : "nord-off-2"}>
                             <Ns2Slot name="B" data={data.slotB} />
                         </div>
                     </div>

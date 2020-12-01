@@ -75,14 +75,14 @@ export default class Ns3 extends Component {
 
                 <div className="row">
                     <div className="col-12">
-                        <div className={data.panelA.enabled ? "nord-on" : "nord-off"}>
+                        <div className={data.panelA.enabled ? "nord-on" : "nord-off-2"}>
                             <Ns3Panel name="A" data={data.panelA} />
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12">
-                        <div className={data.panelB.enabled ? "nord-on" : "nord-off"}>
+                        <div className={data.panelB.enabled ? "nord-on" : "nord-off-2"}>
                             <Ns3Panel name="B" data={data.panelB} />
                         </div>
                     </div>

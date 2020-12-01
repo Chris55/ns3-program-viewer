@@ -22,7 +22,7 @@ export default class Ns2Slot extends Component {
                     </div>
                     {/*ml-n5*/}
                     <div className="col-10">
-                        <div className={data.enabled ? "nord-on" : "nord-off"}>
+                        {/*<div className={data.enabled ? "nord-on" : "nord-off"}>*/}
                             <div>
                                 <Ns2SectionOrgan
                                     className="ns3-section"
@@ -46,7 +46,7 @@ export default class Ns2Slot extends Component {
                                     effects={data.effects}
                                 />
                             </div>
-                        </div>
+                        {/*</div>*/}
                     </div>
 
                     <div className="col d-flex flex-wrap ns3-section-right">

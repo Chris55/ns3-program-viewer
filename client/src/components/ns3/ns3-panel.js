@@ -22,7 +22,7 @@ export default class Ns3Panel extends Component {
                     </div>
                     {/*ml-n5*/}
                     <div className="col-10">
-                        <div className={data.enabled ? "nord-on" : "nord-off"}>
+                        {/*<div className={data.enabled ? "nord-on" : "nord-off"}>*/}
                             <div>
                                 <Ns3SectionOrgan className="ns3-section" data={data.organ} effects={data.effects} />
                             </div>
@@ -38,7 +38,7 @@ export default class Ns3Panel extends Component {
                             <div>
                                 <Ns3SectionExtern className="ns3-section" data={data.extern} />
                             </div>
-                        </div>
+                        {/*</div>*/}
                     </div>
 
                     <div className="col d-flex flex-wrap ns3-section-right">
