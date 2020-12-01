@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ns2.css";
+import "../lib/ns3.css";
 import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
 import NordValueOnOff from "./lib/nord-value-on-off";
 import NordLabelAndValue from "./lib/nord-label-and-value";
@@ -8,16 +8,6 @@ import NordLabelAndValue from "./lib/nord-label-and-value";
 export default class Ns2SectionSynthOscillators extends Component {
     render() {
         const osc = this.props.data;
-
-        // let lfoModEnvTitle = "LFO/Mod Amt";
-        // let lfoModEnvValue =
-        //     osc.modulations.lfoAmount.midi < 64 ? osc.modulations.lfoAmount : osc.modulations.modEnvAmount;
-        //
-        // if (osc.modulations.lfoAmount.midi < 64) {
-        //     lfoModEnvTitle = "LFO Amt";
-        // } else if (osc.modulations.modEnvAmount.midi > 64) {
-        //     lfoModEnvTitle = "Mod Env Amt";
-        // }
 
         return (
             <React.Fragment>

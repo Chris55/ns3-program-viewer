@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./ns3.css";
+import "../lib/ns3.css";
 import Ns3SectionPiano from "./ns3-section-piano";
 import Ns3SectionOrgan from "./ns3-section-organ";
 import Ns3SectionSynth from "./ns3-section-synth";

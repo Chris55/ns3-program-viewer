@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ns3.css";
+import "../lib/ns3.css";
 import Ns3VolumeAndMore from "./lib/ns3-volume-and-more";
 import Ns3Fx from "./ns3-fx";
 import NordValueOnOff from "./lib/nord-value-on-off";
@@ -12,6 +12,7 @@ export default class Ns3SectionOrgan extends Component {
     render() {
         const organ = this.props.data;
         const visible = organ.enabled;
+        const dimmed = organ.dimmed === true;
 
         const optionsEqual = organ.preset1.vibrato.enabled === organ.preset2.vibrato.enabled &&
             organ.preset1.percussion.enabled === organ.preset2.percussion.enabled &&
@@ -22,7 +23,7 @@ export default class Ns3SectionOrgan extends Component {
         return (
             <React.Fragment>
                 <div className={visible ? this.props.className : "d-none"}>
-                    <div className={visible ? "nord-on" : "nord-off"}>
+                    <div className={dimmed ? "nord-dimmed" : "nord-on"}>
                         <div className="">
                             <div className="row no-gutters">
                                 <div className="d-flex">

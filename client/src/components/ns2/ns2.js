@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./ns2.css";
+import "../lib/ns3.css";
 import Ns2Slot from "./ns2-slot";
 import NordLabelAndValue from "./lib/nord-label-and-value";
 import NordLabel from "./lib/nord-label";

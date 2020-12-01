@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ns2.css";
+import "../lib/ns3.css";
 import Ns2VolumeAndMore from "./lib/ns2-volume-and-more";
 import Ns2Fx from "./ns2-fx";
 import Ns2SectionSynthAmpEnv from "./ns2-section-synth-amp-env";
@@ -15,12 +15,14 @@ export default class Ns2SectionSynth extends Component {
     render() {
         const synth = this.props.data;
         const visible = synth.enabled;
+        const dimmed = synth.dimmed === true;
+
         const presetName = "";
 
         return (
             <React.Fragment>
                 <div className={visible ? this.props.className : "d-none"}>
-                    <div className={visible ? "nord-on" : "nord-off"}>
+                    <div className={dimmed ? "nord-dimmed" : "nord-on"}>
                         <div className="">
                             <div className="row no-gutters">
                                 <div className="d-flex">

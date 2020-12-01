@@ -70,30 +70,32 @@ class App extends Component {
     handleShowAll = () => {
         if (!this.state.showAll) {
             const newData = clonedeep(this.state.data);
-            if (newData.panelA) {
-                newData.name += " - (All Instruments Visible)";
-                newData.panelA.enabled = true;
-                newData.panelA.organ.enabled = true;
-                newData.panelA.piano.enabled = true;
-                newData.panelA.synth.enabled = true;
-                newData.panelA.extern.enabled = true;
-                newData.panelB.enabled = true;
-                newData.panelB.organ.enabled = true;
-                newData.panelB.piano.enabled = true;
-                newData.panelB.synth.enabled = true;
-                newData.panelB.extern.enabled = true;
-            } else if (newData.slotA) {
-                newData.slotA.enabled = true;
-                newData.slotA.organ.enabled = true;
-                newData.slotA.piano.enabled = true;
-                newData.slotA.synth.enabled = true;
-                newData.slotA.extern.enabled = true;
-                newData.slotB.enabled = true;
-                newData.slotB.organ.enabled = true;
-                newData.slotB.piano.enabled = true;
-                newData.slotB.synth.enabled = true;
-                newData.slotB.extern.enabled = true;
-            }
+            newData.name += " - (All Instruments Visible)";
+            const panelA = newData.panelA || newData.slotA;
+            const panelB = newData.panelB || newData.slotB;
+
+            panelA.organ.dimmed = !panelA.enabled || !panelA.organ.enabled;
+            panelA.piano.dimmed = !panelA.enabled || !panelA.piano.enabled;
+            panelA.synth.dimmed = !panelA.enabled || !panelA.synth.enabled;
+            panelA.extern.dimmed = !panelA.enabled || !panelA.extern.enabled;
+
+            panelA.enabled = true;
+            panelA.organ.enabled = true;
+            panelA.piano.enabled = true;
+            panelA.synth.enabled = true;
+            panelA.extern.enabled = true;
+
+            panelB.organ.dimmed = !panelB.enabled || !panelB.organ.enabled;
+            panelB.piano.dimmed = !panelB.enabled || !panelB.piano.enabled;
+            panelB.synth.dimmed = !panelB.enabled || !panelB.synth.enabled;
+            panelB.extern.dimmed = !panelB.enabled || !panelB.extern.enabled;
+
+            panelB.enabled = true;
+            panelB.organ.enabled = true;
+            panelB.piano.enabled = true;
+            panelB.synth.enabled = true;
+            panelB.extern.enabled = true;
+
             this.setState((prevState) => ({
                 showAll: true,
                 data: newData,

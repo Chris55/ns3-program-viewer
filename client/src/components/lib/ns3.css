@@ -107,7 +107,9 @@
     opacity: 0.23;
 }
 
-
+.nord-dimmed {
+    opacity: 0.6;
+}
 
 
 .dot {
@@ -222,18 +224,6 @@
         /*width: 12.5%;*/
     }
 }
-
-/*table tr {*/
-/*    padding: 0;*/
-/*    margin: 0;*/
-
-/*    overflow: hidden;*/
-/*    height: 18px!important;*/
-/*    vertical-align: top;*/
-/*    white-space: nowrap;*/
-/*}*/
-
-
 
 td > * {
     vertical-align: top;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ns3.css";
+import "../lib/ns3.css";
 import Ns3VolumeAndMore from "./lib/ns3-volume-and-more";
 import Ns3Fx from "./ns3-fx";
 import NordLabelAndValue from "./lib/nord-label-and-value";
@@ -10,11 +10,12 @@ export default class Ns3SectionPiano extends Component {
     render() {
         const piano = this.props.data;
         const visible = piano.enabled;
+        const dimmed = piano.dimmed === true;
 
         return (
             <React.Fragment>
                 <div className={visible ? this.props.className : "d-none"}>
-                    <div className={visible ? "nord-on" : "nord-off"}>
+                    <div className={dimmed ? "nord-dimmed" : "nord-on"}>
                         <div className="">
                             <div className="row no-gutters">
                                 <div className="d-flex">

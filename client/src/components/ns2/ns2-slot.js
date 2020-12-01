@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./ns2.css";
+import "../lib/ns3.css";
 import Ns2SectionPiano from "./ns2-section-piano";
 import Ns2SectionOrgan from "./ns2-section-organ";
 import Ns2SectionSynth from "./ns2-section-synth";
-import Ns2FxCompressor from "./ns2-fx-compressor";
-import Ns2FxReverb from "./ns2-fx-reverb";
+// import Ns2FxCompressor from "./ns2-fx-compressor";
+// import Ns2FxReverb from "./ns2-fx-reverb";
 
 export default class Ns2Slot extends Component {
     render() {

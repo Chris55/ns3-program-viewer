@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ns3.css";
+import "../lib/ns3.css";
 import Ns3VolumeAndMore from "./lib/ns3-volume-and-more";
 import NordLabelAndValue from "./lib/nord-label-and-value";
 import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
@@ -9,11 +9,12 @@ export default class Ns3SectionExtern extends Component {
     render() {
         const extern = this.props.data;
         const visible = extern.enabled;
+        const dimmed = extern.dimmed === true;
 
         return (
             <React.Fragment>
                 <div className={visible ? this.props.className : "d-none"}>
-                    <div className={visible ? "nord-on" : "nord-off"}>
+                    <div className={dimmed ? "nord-dimmed" : "nord-on"}>
                         <div className="">
                             <div className="row no-gutters">
                                 <div className="d-flex">

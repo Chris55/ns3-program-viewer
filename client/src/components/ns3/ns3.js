@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./ns3.css";
+import "../lib/ns3.css";
 import Ns3Panel from "./ns3-panel";
 import NordLabelAndValue from "./lib/nord-label-and-value";
 import NordLabel from "./lib/nord-label";

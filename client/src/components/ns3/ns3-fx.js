@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./ns3.css";
+import "../lib/ns3.css";
 import Ns3FxMulti1 from "./ns3-fx-multi-1";
 import Ns3FxMulti2 from "./ns3-fx-multi-2";
 import Ns3FxRotarySpeaker from "./ns3-fx-rotary-speaker";
