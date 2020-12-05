@@ -32,4 +32,4 @@ We contacted Nord Keyboards / Clavia DMI AB support about this project, answer f
 
 - Is the mapping accurate?
 
-This is an online collaboration, feel free to contact us if something is wrong. While we certainly hope this document is useful, none of the authors or contributors place any guarantees as to the accuracy of the data.
+This is an online collaboration, feel free to contact us if something is wrong. While we certainly hope this application is useful, none of the authors or contributors place any guarantees as to the accuracy of the data.
