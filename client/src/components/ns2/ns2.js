@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "../lib/ns3.css";
 import Ns2Slot from "./ns2-slot";
-import NordLabelAndValue from "./lib/nord-label-and-value";
-import NordLabel from "./lib/nord-label";
+import NordLabelAndValue from "../lib/nord-label-and-value";
+import NordLabel from "../lib/nord-label";
 import Ns2FxCompressor from "./ns2-fx-compressor";
 import Ns2FxReverb from "./ns2-fx-reverb";
 

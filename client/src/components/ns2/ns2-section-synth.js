@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import Ns2VolumeAndMore from "./lib/ns2-volume-and-more";
+import Ns2VolumeAndMore from "./ns2-volume-and-more";
 import Ns2Fx from "./ns2-fx";
 import Ns2SectionSynthAmpEnv from "./ns2-section-synth-amp-env";
 import Ns2SectionSynthFilter from "./ns2-section-synth-filter";
 import Ns2SectionSynthModEnv from "./ns2-section-synth-mod-env";
 import Ns2SectionSynthLfo from "./ns2-section-synth-lfo";
-import NordValueOnOff from "./lib/nord-value-on-off";
-import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordValueOnOff from "../lib/nord-value-on-off";
+import NordLabelAndValue from "../lib/nord-label-and-value";
 import Ns2SectionSynthOscillators from "./ns2-section-synth-oscillators";
 
 export default class Ns2SectionSynth extends Component {

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import Ns3VolumeAndMore from "./lib/ns3-volume-and-more";
-import NordLabelAndValue from "./lib/nord-label-and-value";
-import NordLabelAndValueWithMorph from "./lib/nord-label-and-value-with-morph";
+import Ns3VolumeAndMore from "./ns3-volume-and-more";
+import NordLabelAndValue from "../lib/nord-label-and-value";
+import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph";
 
 export default class Ns3SectionExtern extends Component {
     render() {

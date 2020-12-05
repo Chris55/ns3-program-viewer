@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordLabelAndValue from "../lib/nord-label-and-value";
 
 export default class Ns2FxReverb extends Component {
     render() {

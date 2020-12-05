@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../lib/ns3.css";
+import "./ns3.css";
 import NordLabel from "./nord-label";
 import NordLabelAndValue from "./nord-label-and-value";
 

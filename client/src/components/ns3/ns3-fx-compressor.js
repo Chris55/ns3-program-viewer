@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import NordValueOnOff from "./lib/nord-value-on-off";
-import NordLabelAndValue from "./lib/nord-label-and-value";
+import NordValueOnOff from "../lib/nord-value-on-off";
+import NordLabelAndValue from "../lib/nord-label-and-value";
 
 export default class Ns3FxCompressor extends Component {
     render() {
