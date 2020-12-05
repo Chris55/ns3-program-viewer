@@ -1,16 +1,16 @@
 exports.ns2Model = {
-    "name": "Enjoy_Sil_Outro1",
-    "filename": "Enjoy_Sil_Outro1.ns2p",
+    "name": "Darkside      Em",
+    "filename": "Darkside      Em.ns2p",
     "ext": "ns2p",
     "description": "Nord Stage 2 Program",
     "id": {
         "bank": 3,
-        "location": 89,
-        "name": "D:18:5",
-        "value": 164
+        "location": 66,
+        "name": "D:14:2",
+        "value": 141
     },
     "version": 7,
-    "category": "Synth",
+    "category": "User",
     "slotA": {
         "enabled": true,
         "organ": {
@@ -24,34 +24,34 @@ exports.ns2Model = {
                 "value": ""
             },
             "volume": {
-                "midi": 107,
-                "value": "-3.0 dB",
+                "midi": 37,
+                "value": "-21.4 dB",
                 "morph": {
                     "wheel": {
                         "enabled": false,
                         "to": {
-                            "midi": 107,
+                            "midi": 37,
                             "value": "none"
                         }
                     },
                     "afterTouch": {
                         "enabled": false,
                         "to": {
-                            "midi": 107,
+                            "midi": 37,
                             "value": "none"
                         }
                     },
                     "controlPedal": {
                         "enabled": false,
                         "to": {
-                            "midi": 107,
+                            "midi": 37,
                             "value": "none"
                         }
                     }
                 }
             },
             "octaveShift": {
-                "value": 0
+                "value": 2
             },
             "pitchStick": {
                 "enabled": false
@@ -71,7 +71,7 @@ exports.ns2Model = {
             "preset1": {
                 "enabled": true,
                 "drawbars": {
-                    "value": "88 8000 000",
+                    "value": "88 8654 444",
                     "morph": {
                         "wheel": {
                             "enabled": false,
@@ -148,49 +148,49 @@ exports.ns2Model = {
         },
         "piano": {
             "debug": {
-                "sampleId": "66a30aa",
+                "sampleId": "74de3d38",
                 "lib": {
                     "valid": true,
-                    "value": "EP5 Bright Tines",
-                    "info": "CustomMod",
+                    "value": "Wurlitzer 1",
+                    "info": "200A",
                     "version": "v5.3",
-                    "size": "15.5 MB",
+                    "size": "6.1 MB",
                     "location": 0,
-                    "filename": "EP5 Bright Tines CustomMod 5.3"
+                    "filename": "Wurlitzer 1 200A 5.3"
                 }
             },
-            "enabled": true,
+            "enabled": false,
             "kbZone": {
                 "array": [
                     false,
                     false,
-                    true
+                    false
                 ],
-                "value": "HI"
+                "value": ""
             },
             "volume": {
-                "midi": 104,
-                "value": "-3.5 dB",
+                "midi": 110,
+                "value": "-2.5 dB",
                 "morph": {
                     "wheel": {
                         "enabled": false,
                         "to": {
-                            "midi": 104,
+                            "midi": 110,
                             "value": "none"
                         }
                     },
                     "afterTouch": {
                         "enabled": false,
                         "to": {
-                            "midi": 104,
+                            "midi": 110,
                             "value": "none"
                         }
                     },
                     "controlPedal": {
-                        "enabled": false,
+                        "enabled": true,
                         "to": {
-                            "midi": 104,
-                            "value": "none"
+                            "midi": 127,
+                            "value": "0.0 dB"
                         }
                     }
                 }
@@ -202,7 +202,7 @@ exports.ns2Model = {
                 "enabled": false
             },
             "sustainPedal": {
-                "enabled": false
+                "enabled": true
             },
             "latchPedal": {
                 "enabled": true
@@ -211,31 +211,31 @@ exports.ns2Model = {
                 "enabled": false
             },
             "type": {
-                "value": "E Piano 1"
+                "value": "E Piano 2"
             },
             "name": {
                 "valid": true,
-                "value": "EP5 Bright Tines",
-                "info": "CustomMod",
+                "value": "Wurlitzer 1",
+                "info": "200A",
                 "version": "v5.3",
-                "size": "15.5 MB",
+                "size": "6.1 MB",
                 "location": 0,
-                "filename": "EP5 Bright Tines CustomMod 5.3"
+                "filename": "Wurlitzer 1 200A 5.3"
             },
             "slotDetune": {
                 "value": "Off"
             },
             "longRelease": {
-                "enabled": true
+                "enabled": false
             },
             "stringResonance": {
-                "enabled": true
+                "enabled": false
             },
             "pedalNoise": {
-                "enabled": true
+                "enabled": false
             },
             "dynamics": {
-                "value": "1"
+                "value": "2"
             },
             "clavinetModel": {
                 "enabled": false,
@@ -252,15 +252,15 @@ exports.ns2Model = {
         },
         "synth": {
             "debug": {
-                "sampleId": "5abe6159",
+                "sampleId": "51dbd865",
                 "lib": {
                     "valid": true,
-                    "value": "Choir Aahs",
-                    "info": "ste v2 BR",
+                    "value": "Tenor Saxophone",
+                    "info": "Korg mono",
                     "version": "v2.0",
-                    "size": "4.3 MB",
-                    "location": 269,
-                    "filename": "Choir Aahs_ste v2 BR"
+                    "size": "89.6 kB",
+                    "location": 194,
+                    "filename": "Tenor Saxophone_mf_Korg mono 2.0"
                 },
                 "preset": {
                     "location": 512,
@@ -275,6 +275,443 @@ exports.ns2Model = {
             "enabled": true,
             "kbZone": {
                 "array": [
+                    false,
+                    false,
+                    true
+                ],
+                "value": "HI"
+            },
+            "volume": {
+                "midi": 97,
+                "value": "-4.7 dB",
+                "morph": {
+                    "wheel": {
+                        "enabled": false,
+                        "to": {
+                            "midi": 97,
+                            "value": "none"
+                        }
+                    },
+                    "afterTouch": {
+                        "enabled": false,
+                        "to": {
+                            "midi": 97,
+                            "value": "none"
+                        }
+                    },
+                    "controlPedal": {
+                        "enabled": true,
+                        "to": {
+                            "midi": 118,
+                            "value": "-1.3 dB"
+                        }
+                    }
+                }
+            },
+            "octaveShift": {
+                "value": -2
+            },
+            "pitchStick": {
+                "enabled": true
+            },
+            "sustainPedal": {
+                "enabled": true
+            },
+            "latchPedal": {
+                "enabled": false
+            },
+            "kbGate": {
+                "enabled": false
+            },
+            "keyboardHold": {
+                "enabled": false
+            },
+            "voice": {
+                "value": "Off"
+            },
+            "glide": {
+                "value": "0.0"
+            },
+            "unison": {
+                "value": "Off"
+            },
+            "vibrato": {
+                "value": "Off"
+            },
+            "oscillators": {
+                "type": {
+                    "value": "SAMPLE"
+                },
+                "waveForm1": {
+                    "valid": true,
+                    "value": "Tenor Saxophone",
+                    "info": "Korg mono",
+                    "version": "v2.0",
+                    "size": "89.6 kB",
+                    "location": 194,
+                    "filename": "Tenor Saxophone_mf_Korg mono 2.0"
+                },
+                "shapeCtrl": {
+                    "midi": 0,
+                    "value": "0.0",
+                    "morph": {
+                        "wheel": {
+                            "enabled": false,
+                            "to": {
+                                "midi": 0,
+                                "value": "none"
+                            }
+                        },
+                        "afterTouch": {
+                            "enabled": false,
+                            "to": {
+                                "midi": 0,
+                                "value": "none"
+                            }
+                        },
+                        "controlPedal": {
+                            "enabled": false,
+                            "to": {
+                                "midi": 0,
+                                "value": "none"
+                            }
+                        }
+                    }
+                },
+                "shapeMod": {
+                    "midi": 64,
+                    "value": "0.0",
+                    "label": "LFO/Env AMT"
+                },
+                "skipSampleAttack": {
+                    "enabled": false
+                }
+            },
+            "filter": {
+                "type": {
+                    "value": "LP12"
+                },
+                "kbTrack": {
+                    "enabled": false
+                },
+                "frequency": {
+                    "midi": 127,
+                    "value": "21 kHz",
+                    "morph": {
+                        "wheel": {
+                            "enabled": false,
+                            "to": {
+                                "midi": 127,
+                                "value": "none"
+                            }
+                        },
+                        "afterTouch": {
+                            "enabled": false,
+                            "to": {
+                                "midi": 127,
+                                "value": "none"
+                            }
+                        },
+                        "controlPedal": {
+                            "enabled": false,
+                            "to": {
+                                "midi": 127,
+                                "value": "none"
+                            }
+                        }
+                    }
+                },
+                "resonance": {
+                    "midi": 0,
+                    "value": "0.0"
+                },
+                "modulation1": {
+                    "midi": 0,
+                    "value": "0.0"
+                },
+                "modulation2": {
+                    "midi": 64,
+                    "value": "0.0",
+                    "label": "VEL/Env AMT"
+                }
+            },
+            "envelopes": {
+                "modulation": {
+                    "attack": {
+                        "midi": 0,
+                        "value": "0.5 ms"
+                    },
+                    "decay": {
+                        "midi": 32,
+                        "value": "120 ms"
+                    },
+                    "release": {
+                        "midi": 15,
+                        "value": "21 ms"
+                    },
+                    "velocity": {
+                        "enabled": false
+                    }
+                },
+                "amplifier": {
+                    "attack": {
+                        "midi": 0,
+                        "value": "0.5 ms"
+                    },
+                    "decay": {
+                        "midi": 97,
+                        "value": "11 s"
+                    },
+                    "release": {
+                        "midi": 38,
+                        "value": "206 ms"
+                    },
+                    "velocity": {
+                        "enabled": false
+                    }
+                }
+            },
+            "lfo": {
+                "wave": {
+                    "value": "TRI"
+                },
+                "rate": {
+                    "midi": 64,
+                    "value": "4.1 Hz"
+                },
+                "masterClock": {
+                    "enabled": false
+                }
+            },
+            "arpeggiator": {
+                "enabled": false,
+                "rate": {
+                    "midi": 0,
+                    "value": "80 BPM"
+                },
+                "masterClock": {
+                    "enabled": false
+                },
+                "range": {
+                    "value": "1 Octave"
+                },
+                "pattern": {
+                    "value": "UP"
+                }
+            }
+        },
+        "extern": {
+            "enabled": false
+        },
+        "effects": {
+            "rotarySpeaker": {
+                "enabled": true,
+                "source": {
+                    "value": "Organ"
+                },
+                "drive": {
+                    "value": "3.7"
+                },
+                "stopMode": {
+                    "enabled": false
+                },
+                "speed": {
+                    "value": "Slow/Stop",
+                    "morph": {
+                        "wheel": {
+                            "enabled": false
+                        },
+                        "afterTouch": {
+                            "enabled": false
+                        },
+                        "controlPedal": {
+                            "enabled": false
+                        }
+                    }
+                }
+            },
+            "ampSimEq": {
+                "enabled": true,
+                "source": {
+                    "value": "Synth"
+                },
+                "ampType": {
+                    "value": "Off"
+                },
+                "treble": {
+                    "midi": 81,
+                    "value": "+4.0 dB"
+                },
+                "mid": {
+                    "midi": 64,
+                    "value": "+0.0 dB"
+                },
+                "bass": {
+                    "midi": 81,
+                    "value": "+4.0 dB"
+                },
+                "midFilterFreq": {
+                    "midi": 120,
+                    "value": "6.3 kHz"
+                },
+                "overdrive": {
+                    "midi": 0,
+                    "value": "0.0"
+                }
+            }
+        }
+    },
+    "slotB": {
+        "enabled": true,
+        "organ": {
+            "enabled": false,
+            "kbZone": {
+                "array": [
+                    false,
+                    false,
+                    false
+                ],
+                "value": ""
+            },
+            "volume": {
+                "midi": 90,
+                "value": "-6.0 dB",
+                "morph": {
+                    "wheel": {
+                        "enabled": false,
+                        "to": {
+                            "midi": 90,
+                            "value": "none"
+                        }
+                    },
+                    "afterTouch": {
+                        "enabled": false,
+                        "to": {
+                            "midi": 90,
+                            "value": "none"
+                        }
+                    },
+                    "controlPedal": {
+                        "enabled": false,
+                        "to": {
+                            "midi": 90,
+                            "value": "none"
+                        }
+                    }
+                }
+            },
+            "octaveShift": {
+                "value": 0
+            },
+            "pitchStick": {
+                "enabled": false
+            },
+            "sustainPedal": {
+                "enabled": false
+            },
+            "latchPedal": {
+                "enabled": false
+            },
+            "kbGate": {
+                "enabled": false
+            },
+            "type": {
+                "value": "B3"
+            },
+            "preset1": {
+                "enabled": true,
+                "drawbars": {
+                    "value": "88 8654 444",
+                    "morph": {
+                        "wheel": {
+                            "enabled": false,
+                            "to": {
+                                "value": "-- ---- ---"
+                            }
+                        },
+                        "afterTouch": {
+                            "enabled": false,
+                            "to": {
+                                "value": "-- ---- ---"
+                            }
+                        },
+                        "controlPedal": {
+                            "enabled": false,
+                            "to": {
+                                "value": "-- ---- ---"
+                            }
+                        }
+                    }
+                },
+                "vibrato": {
+                    "enabled": false,
+                    "mode": {
+                        "value": "C3",
+                        "label": "Chorus"
+                    }
+                },
+                "percussion": {
+                    "enabled": false,
+                    "volumeSoft": {
+                        "enabled": true
+                    },
+                    "decayFast": {
+                        "enabled": true
+                    },
+                    "harmonicThird": {
+                        "enabled": true
+                    }
+                }
+            },
+            "preset2": {
+                "enabled": false,
+                "drawbars": {
+                    "value": "88 8000 000",
+                    "morph": {
+                        "wheel": {
+                            "enabled": false,
+                            "to": {
+                                "value": "-- ---- ---"
+                            }
+                        },
+                        "afterTouch": {
+                            "enabled": false,
+                            "to": {
+                                "value": "-- ---- ---"
+                            }
+                        },
+                        "controlPedal": {
+                            "enabled": false,
+                            "to": {
+                                "value": "-- ---- ---"
+                            }
+                        }
+                    }
+                },
+                "vibrato": {
+                    "enabled": false
+                },
+                "percussion": {
+                    "enabled": false
+                }
+            }
+        },
+        "piano": {
+            "debug": {
+                "sampleId": "adc42572",
+                "lib": {
+                    "valid": true,
+                    "value": "Grand Imperial Lrg",
+                    "info": "Bdorf",
+                    "version": "v5.3",
+                    "size": "93.5 MB",
+                    "location": 0,
+                    "filename": "Grand Imperial Bdorf Lrg 5.3"
+                }
+            },
+            "enabled": true,
+            "kbZone": {
+                "array": [
                     true,
                     false,
                     false
@@ -282,28 +719,141 @@ exports.ns2Model = {
                 "value": "LO"
             },
             "volume": {
-                "midi": 127,
-                "value": "0.0 dB",
+                "midi": 97,
+                "value": "-4.7 dB",
                 "morph": {
                     "wheel": {
                         "enabled": false,
                         "to": {
-                            "midi": 127,
+                            "midi": 97,
                             "value": "none"
                         }
                     },
                     "afterTouch": {
                         "enabled": false,
                         "to": {
-                            "midi": 127,
+                            "midi": 97,
                             "value": "none"
                         }
                     },
                     "controlPedal": {
                         "enabled": false,
                         "to": {
-                            "midi": 127,
+                            "midi": 97,
                             "value": "none"
+                        }
+                    }
+                }
+            },
+            "octaveShift": {
+                "value": 0
+            },
+            "pitchStick": {
+                "enabled": false
+            },
+            "sustainPedal": {
+                "enabled": true
+            },
+            "latchPedal": {
+                "enabled": true
+            },
+            "kbGate": {
+                "enabled": false
+            },
+            "type": {
+                "value": "Grand"
+            },
+            "name": {
+                "valid": true,
+                "value": "Grand Imperial Lrg",
+                "info": "Bdorf",
+                "version": "v5.3",
+                "size": "93.5 MB",
+                "location": 0,
+                "filename": "Grand Imperial Bdorf Lrg 5.3"
+            },
+            "slotDetune": {
+                "value": "Off"
+            },
+            "longRelease": {
+                "enabled": false
+            },
+            "stringResonance": {
+                "enabled": false
+            },
+            "pedalNoise": {
+                "enabled": false
+            },
+            "dynamics": {
+                "value": "2"
+            },
+            "clavinetModel": {
+                "enabled": false,
+                "value": "A"
+            },
+            "clavinetEqHi": {
+                "enabled": false,
+                "value": "Off"
+            },
+            "clavinetEq": {
+                "enabled": false,
+                "value": "Off"
+            }
+        },
+        "synth": {
+            "debug": {
+                "sampleId": "8bd2f7f0",
+                "lib": {
+                    "valid": true,
+                    "value": "TubularBells",
+                    "info": "ST",
+                    "version": "v2.4",
+                    "size": "1.3 MB",
+                    "location": 57,
+                    "filename": "TubularBells_Lite_STv4"
+                },
+                "preset": {
+                    "location": 512,
+                    "userPreset": false,
+                    "userPresetLocationValue": 0,
+                    "userPresetLocationName": "1:01",
+                    "samplePresetLocationValue": 112,
+                    "samplePresetLocationName": "113",
+                    "presetName": "\u0001"
+                }
+            },
+            "enabled": false,
+            "kbZone": {
+                "array": [
+                    false,
+                    false,
+                    false
+                ],
+                "value": ""
+            },
+            "volume": {
+                "midi": 98,
+                "value": "-4.5 dB",
+                "morph": {
+                    "wheel": {
+                        "enabled": false,
+                        "to": {
+                            "midi": 98,
+                            "value": "none"
+                        }
+                    },
+                    "afterTouch": {
+                        "enabled": false,
+                        "to": {
+                            "midi": 98,
+                            "value": "none"
+                        }
+                    },
+                    "controlPedal": {
+                        "enabled": true,
+                        "to": {
+                            "midi": 117,
+                            "value": "-1.4 dB"
                         }
                     }
                 }
@@ -344,533 +894,12 @@ exports.ns2Model = {
                 },
                 "waveForm1": {
                     "valid": true,
-                    "value": "Choir Aahs",
-                    "info": "ste v2 BR",
-                    "version": "v2.0",
-                    "size": "4.3 MB",
-                    "location": 269,
-                    "filename": "Choir Aahs_ste v2 BR"
-                },
-                "shapeCtrl": {
-                    "midi": 0,
-                    "value": "0.0",
-                    "morph": {
-                        "wheel": {
-                            "enabled": false,
-                            "to": {
-                                "midi": 0,
-                                "value": "none"
-                            }
-                        },
-                        "afterTouch": {
-                            "enabled": false,
-                            "to": {
-                                "midi": 0,
-                                "value": "none"
-                            }
-                        },
-                        "controlPedal": {
-                            "enabled": false,
-                            "to": {
-                                "midi": 0,
-                                "value": "none"
-                            }
-                        }
-                    }
-                },
-                "shapeMod": {
-                    "midi": 62,
-                    "value": "0.0",
-                    "label": "LFO AMT"
-                },
-                "skipSampleAttack": {
-                    "enabled": false
-                }
-            },
-            "filter": {
-                "type": {
-                    "value": "LP12"
-                },
-                "kbTrack": {
-                    "enabled": false
-                },
-                "frequency": {
-                    "midi": 107,
-                    "value": "7.0 kHz",
-                    "morph": {
-                        "wheel": {
-                            "enabled": false,
-                            "to": {
-                                "midi": 107,
-                                "value": "none"
-                            }
-                        },
-                        "afterTouch": {
-                            "enabled": false,
-                            "to": {
-                                "midi": 107,
-                                "value": "none"
-                            }
-                        },
-                        "controlPedal": {
-                            "enabled": false,
-                            "to": {
-                                "midi": 107,
-                                "value": "none"
-                            }
-                        }
-                    }
-                },
-                "resonance": {
-                    "midi": 0,
-                    "value": "0.0"
-                },
-                "modulation1": {
-                    "midi": 0,
-                    "value": "0.0"
-                },
-                "modulation2": {
-                    "midi": 64,
-                    "value": "0.0",
-                    "label": "VEL/Env AMT"
-                }
-            },
-            "envelopes": {
-                "modulation": {
-                    "attack": {
-                        "midi": 0,
-                        "value": "0.5 ms"
-                    },
-                    "decay": {
-                        "midi": 0,
-                        "value": "3.0 ms"
-                    },
-                    "release": {
-                        "midi": 0,
-                        "value": "3.0 ms"
-                    },
-                    "velocity": {
-                        "enabled": false
-                    }
-                },
-                "amplifier": {
-                    "attack": {
-                        "midi": 0,
-                        "value": "0.5 ms"
-                    },
-                    "decay": {
-                        "midi": 127,
-                        "value": "45 s"
-                    },
-                    "release": {
-                        "midi": 61,
-                        "value": "1.21 s"
-                    },
-                    "velocity": {
-                        "enabled": false
-                    }
-                }
-            },
-            "lfo": {
-                "wave": {
-                    "value": "SAW"
-                },
-                "rate": {
-                    "midi": 69,
-                    "value": "6.0 Hz"
-                },
-                "masterClock": {
-                    "enabled": false
-                }
-            },
-            "arpeggiator": {
-                "enabled": false,
-                "rate": {
-                    "midi": 0,
-                    "value": "80 BPM"
-                },
-                "masterClock": {
-                    "enabled": false
-                },
-                "range": {
-                    "value": "1 Octave"
-                },
-                "pattern": {
-                    "value": "UP"
-                }
-            }
-        },
-        "extern": {
-            "enabled": false
-        },
-        "effects": {
-            "rotarySpeaker": {
-                "enabled": false,
-                "source": {
-                    "value": "Organ"
-                },
-                "drive": {
-                    "value": "0.0"
-                },
-                "stopMode": {
-                    "enabled": false
-                },
-                "speed": {
-                    "value": "Slow/Stop",
-                    "morph": {
-                        "wheel": {
-                            "enabled": false
-                        },
-                        "afterTouch": {
-                            "enabled": false
-                        },
-                        "controlPedal": {
-                            "enabled": false
-                        }
-                    }
-                }
-            }
-        }
-    },
-    "slotB": {
-        "enabled": true,
-        "organ": {
-            "enabled": false,
-            "kbZone": {
-                "array": [
-                    false,
-                    false,
-                    false
-                ],
-                "value": ""
-            },
-            "volume": {
-                "midi": 107,
-                "value": "-3.0 dB",
-                "morph": {
-                    "wheel": {
-                        "enabled": false,
-                        "to": {
-                            "midi": 107,
-                            "value": "none"
-                        }
-                    },
-                    "afterTouch": {
-                        "enabled": false,
-                        "to": {
-                            "midi": 107,
-                            "value": "none"
-                        }
-                    },
-                    "controlPedal": {
-                        "enabled": false,
-                        "to": {
-                            "midi": 107,
-                            "value": "none"
-                        }
-                    }
-                }
-            },
-            "octaveShift": {
-                "value": 0
-            },
-            "pitchStick": {
-                "enabled": false
-            },
-            "sustainPedal": {
-                "enabled": false
-            },
-            "latchPedal": {
-                "enabled": false
-            },
-            "kbGate": {
-                "enabled": false
-            },
-            "type": {
-                "value": "B3"
-            },
-            "preset1": {
-                "enabled": true,
-                "drawbars": {
-                    "value": "88 8000 000",
-                    "morph": {
-                        "wheel": {
-                            "enabled": false,
-                            "to": {
-                                "value": "-- ---- ---"
-                            }
-                        },
-                        "afterTouch": {
-                            "enabled": false,
-                            "to": {
-                                "value": "-- ---- ---"
-                            }
-                        },
-                        "controlPedal": {
-                            "enabled": false,
-                            "to": {
-                                "value": "-- ---- ---"
-                            }
-                        }
-                    }
-                },
-                "vibrato": {
-                    "enabled": false,
-                    "mode": {
-                        "value": "C3",
-                        "label": "Chorus"
-                    }
-                },
-                "percussion": {
-                    "enabled": false,
-                    "volumeSoft": {
-                        "enabled": true
-                    },
-                    "decayFast": {
-                        "enabled": true
-                    },
-                    "harmonicThird": {
-                        "enabled": true
-                    }
-                }
-            },
-            "preset2": {
-                "enabled": false,
-                "drawbars": {
-                    "value": "88 8000 000",
-                    "morph": {
-                        "wheel": {
-                            "enabled": false,
-                            "to": {
-                                "value": "-- ---- ---"
-                            }
-                        },
-                        "afterTouch": {
-                            "enabled": false,
-                            "to": {
-                                "value": "-- ---- ---"
-                            }
-                        },
-                        "controlPedal": {
-                            "enabled": false,
-                            "to": {
-                                "value": "-- ---- ---"
-                            }
-                        }
-                    }
-                },
-                "vibrato": {
-                    "enabled": false
-                },
-                "percussion": {
-                    "enabled": false
-                }
-            }
-        },
-        "piano": {
-            "debug": {
-                "sampleId": "d1accddd",
-                "lib": {
-                    "valid": true,
-                    "value": "DX7 FullTines Lrg",
-                    "info": "",
-                    "version": "v5.4",
-                    "size": "11.8 MB",
-                    "location": 0,
-                    "filename": "DX7 FullTines  Lrg 5.4"
-                }
-            },
-            "enabled": true,
-            "kbZone": {
-                "array": [
-                    false,
-                    false,
-                    true
-                ],
-                "value": "HI"
-            },
-            "volume": {
-                "midi": 107,
-                "value": "-3.0 dB",
-                "morph": {
-                    "wheel": {
-                        "enabled": false,
-                        "to": {
-                            "midi": 107,
-                            "value": "none"
-                        }
-                    },
-                    "afterTouch": {
-                        "enabled": false,
-                        "to": {
-                            "midi": 107,
-                            "value": "none"
-                        }
-                    },
-                    "controlPedal": {
-                        "enabled": false,
-                        "to": {
-                            "midi": 107,
-                            "value": "none"
-                        }
-                    }
-                }
-            },
-            "octaveShift": {
-                "value": -1
-            },
-            "pitchStick": {
-                "enabled": false
-            },
-            "sustainPedal": {
-                "enabled": true
-            },
-            "latchPedal": {
-                "enabled": true
-            },
-            "kbGate": {
-                "enabled": false
-            },
-            "type": {
-                "value": "E Piano 2"
-            },
-            "name": {
-                "valid": true,
-                "value": "DX7 FullTines Lrg",
-                "info": "",
-                "version": "v5.4",
-                "size": "11.8 MB",
-                "location": 0,
-                "filename": "DX7 FullTines  Lrg 5.4"
-            },
-            "slotDetune": {
-                "value": "Off"
-            },
-            "longRelease": {
-                "enabled": true
-            },
-            "stringResonance": {
-                "enabled": true
-            },
-            "pedalNoise": {
-                "enabled": true
-            },
-            "dynamics": {
-                "value": "1"
-            },
-            "clavinetModel": {
-                "enabled": false,
-                "value": "A"
-            },
-            "clavinetEqHi": {
-                "enabled": false,
-                "value": "Off"
-            },
-            "clavinetEq": {
-                "enabled": false,
-                "value": "Off"
-            }
-        },
-        "synth": {
-            "debug": {
-                "sampleId": "d7785427",
-                "lib": {
-                    "valid": true,
-                    "value": "SynthPad1",
-                    "info": "ste CL",
+                    "value": "TubularBells",
+                    "info": "ST",
                     "version": "v2.4",
-                    "size": "1.5 MB",
-                    "location": 87,
-                    "filename": "SynthPad1__ste CLv4"
-                },
-                "preset": {
-                    "location": 512,
-                    "userPreset": false,
-                    "userPresetLocationValue": 0,
-                    "userPresetLocationName": "1:01",
-                    "samplePresetLocationValue": 112,
-                    "samplePresetLocationName": "113",
-                    "presetName": "\u0001"
-                }
-            },
-            "enabled": true,
-            "kbZone": {
-                "array": [
-                    false,
-                    true,
-                    false
-                ],
-                "value": "UP"
-            },
-            "volume": {
-                "midi": 58,
-                "value": "-13.6 dB",
-                "morph": {
-                    "wheel": {
-                        "enabled": false,
-                        "to": {
-                            "midi": 58,
-                            "value": "none"
-                        }
-                    },
-                    "afterTouch": {
-                        "enabled": false,
-                        "to": {
-                            "midi": 58,
-                            "value": "none"
-                        }
-                    },
-                    "controlPedal": {
-                        "enabled": true,
-                        "to": {
-                            "midi": 97,
-                            "value": "-4.7 dB"
-                        }
-                    }
-                }
-            },
-            "octaveShift": {
-                "value": 0
-            },
-            "pitchStick": {
-                "enabled": true
-            },
-            "sustainPedal": {
-                "enabled": true
-            },
-            "latchPedal": {
-                "enabled": false
-            },
-            "kbGate": {
-                "enabled": false
-            },
-            "keyboardHold": {
-                "enabled": false
-            },
-            "voice": {
-                "value": "Off"
-            },
-            "glide": {
-                "value": "0.0"
-            },
-            "unison": {
-                "value": "Multi 1"
-            },
-            "vibrato": {
-                "value": "Off"
-            },
-            "oscillators": {
-                "type": {
-                    "value": "SAMPLE"
-                },
-                "waveForm1": {
-                    "valid": true,
-                    "value": "SynthPad1",
-                    "info": "ste CL",
-                    "version": "v2.4",
-                    "size": "1.5 MB",
-                    "location": 87,
-                    "filename": "SynthPad1__ste CLv4"
+                    "size": "1.3 MB",
+                    "location": 57,
+                    "filename": "TubularBells_Lite_STv4"
                 },
                 "shapeCtrl": {
                     "midi": 0,
@@ -910,33 +939,33 @@ exports.ns2Model = {
             },
             "filter": {
                 "type": {
-                    "value": "LP24"
+                    "value": "LP12"
                 },
                 "kbTrack": {
                     "enabled": false
                 },
                 "frequency": {
-                    "midi": 111,
-                    "value": "8.7 kHz",
+                    "midi": 127,
+                    "value": "21 kHz",
                     "morph": {
                         "wheel": {
                             "enabled": false,
                             "to": {
-                                "midi": 111,
+                                "midi": 127,
                                 "value": "none"
                             }
                         },
                         "afterTouch": {
                             "enabled": false,
                             "to": {
-                                "midi": 111,
+                                "midi": 127,
                                 "value": "none"
                             }
                         },
                         "controlPedal": {
                             "enabled": false,
                             "to": {
-                                "midi": 111,
+                                "midi": 127,
                                 "value": "none"
                             }
                         }
@@ -951,9 +980,9 @@ exports.ns2Model = {
                     "value": "0.0"
                 },
                 "modulation2": {
-                    "midi": 77,
-                    "value": "1.9",
-                    "label": "Mod Env AMT"
+                    "midi": 64,
+                    "value": "0.0",
+                    "label": "VEL/Env AMT"
                 }
             },
             "envelopes": {
@@ -963,12 +992,12 @@ exports.ns2Model = {
                         "value": "0.5 ms"
                     },
                     "decay": {
-                        "midi": 45,
-                        "value": "368 ms"
+                        "midi": 32,
+                        "value": "120 ms"
                     },
                     "release": {
-                        "midi": 23,
-                        "value": "50 ms"
+                        "midi": 15,
+                        "value": "21 ms"
                     },
                     "velocity": {
                         "enabled": false
@@ -976,19 +1005,19 @@ exports.ns2Model = {
                 },
                 "amplifier": {
                     "attack": {
-                        "midi": 43,
-                        "value": "169 ms"
+                        "midi": 0,
+                        "value": "0.5 ms"
                     },
                     "decay": {
-                        "midi": 110,
-                        "value": "20 s"
+                        "midi": 76,
+                        "value": "3.22 s"
                     },
                     "release": {
-                        "midi": 60,
-                        "value": "1.13 s"
+                        "midi": 68,
+                        "value": "1.94 s"
                     },
                     "velocity": {
-                        "enabled": true
+                        "enabled": false
                     }
                 }
             },
@@ -997,8 +1026,8 @@ exports.ns2Model = {
                     "value": "TRI"
                 },
                 "rate": {
-                    "midi": 70,
-                    "value": "6.5 Hz"
+                    "midi": 64,
+                    "value": "4.1 Hz"
                 },
                 "masterClock": {
                     "enabled": false
@@ -1031,7 +1060,7 @@ exports.ns2Model = {
                     "value": "Organ"
                 },
                 "drive": {
-                    "value": "0.0"
+                    "value": "3.7"
                 },
                 "stopMode": {
                     "enabled": false
@@ -1050,6 +1079,35 @@ exports.ns2Model = {
                         }
                     }
                 }
+            },
+            "ampSimEq": {
+                "enabled": true,
+                "source": {
+                    "value": "Piano"
+                },
+                "ampType": {
+                    "value": "Off"
+                },
+                "treble": {
+                    "midi": 85,
+                    "value": "+5.0 dB"
+                },
+                "mid": {
+                    "midi": 76,
+                    "value": "+2.9 dB"
+                },
+                "bass": {
+                    "midi": 81,
+                    "value": "+4.0 dB"
+                },
+                "midFilterFreq": {
+                    "midi": 119,
+                    "value": "6.1 kHz"
+                },
+                "overdrive": {
+                    "midi": 0,
+                    "value": "0.0"
+                }
             }
         }
     },
@@ -1065,10 +1123,10 @@ exports.ns2Model = {
     "split": {
         "enabled": true,
         "low": {
-            "note": "F4"
+            "note": "F5"
         },
         "high": {
-            "note": "C7"
+            "note": "--"
         }
     },
     "dualKeyboard": {
@@ -1077,18 +1135,18 @@ exports.ns2Model = {
     "compressor": {
         "enabled": true,
         "amount": {
-            "midi": 70,
-            "value": "5.5"
+            "midi": 13,
+            "value": "1.0"
         }
     },
     "reverb": {
         "enabled": true,
         "type": {
-            "value": "Hall 1"
+            "value": "Room 1"
         },
         "amount": {
-            "midi": 53,
-            "value": "4.2"
+            "midi": 41,
+            "value": "3.2"
         }
     }
 };

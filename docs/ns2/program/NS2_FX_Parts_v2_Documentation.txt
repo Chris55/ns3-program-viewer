@@ -93,7 +93,7 @@ TREBLE, MID and BASS follow the scheme below using 127 values
 AMP MID
 Offset in file 0x135 (b1-0) and 0x136 (b7-3)
 TREBLE, MID and BASS follow the scheme below using 127 values
-		
+
 AMP BASS
 Offset in file 0x136 (b2-0) and 0x137 (b7-4)
 TREBLE, MID and BASS follow the following scheme using 127 values

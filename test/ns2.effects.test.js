@@ -117,6 +117,174 @@ describe("/ns2/effects", () => {
         });
     });
 
+    test("slotA.effects.ampSimEq.ampType.value eq JC", async () => {
+        const file = "slotA.effects.ampSimEq.ampType.value eq JC.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.ampType.value eq Off", async () => {
+        const file = "slotA.effects.ampSimEq.ampType.value eq Off.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.ampType.value eq Small", async () => {
+        const file = "slotA.effects.ampSimEq.ampType.value eq Small.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.ampType.value eq Twin", async () => {
+        const file = "slotA.effects.ampSimEq.ampType.value eq Twin.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.bass.value eq +0.0 dB", async () => {
+        const file = "slotA.effects.ampSimEq.bass.value eq +0.0 dB.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.bass.value eq +15.0 dB", async () => {
+        const file = "slotA.effects.ampSimEq.bass.value eq +15.0 dB.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.bass.value eq -15.0 dB", async () => {
+        const file = "slotA.effects.ampSimEq.bass.value eq -15.0 dB.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.enabled eq false", async () => {
+        const file = "slotA.effects.ampSimEq.enabled eq false.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.mid.value eq +0.0 dB", async () => {
+        const file = "slotA.effects.ampSimEq.mid.value eq +0.0 dB.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.mid.value eq +15.0 dB", async () => {
+        const file = "slotA.effects.ampSimEq.mid.value eq +15.0 dB.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.mid.value eq -15.0 dB", async () => {
+        const file = "slotA.effects.ampSimEq.mid.value eq -15.0 dB.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.midFilterFreq.value eq 200 Hz", async () => {
+        const file = "slotA.effects.ampSimEq.midFilterFreq.value eq 200 Hz.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.midFilterFreq.value eq 8.0 kHz", async () => {
+        const file = "slotA.effects.ampSimEq.midFilterFreq.value eq 8.0 kHz.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.midFilterFreq.value eq 999 Hz", async () => {
+        const file = "slotA.effects.ampSimEq.midFilterFreq.value eq 999 Hz.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.overdrive.value eq 10.0", async () => {
+        const file = "slotA.effects.ampSimEq.overdrive.value eq 10.0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.source.value eq Organ", async () => {
+        const file = "slotA.effects.ampSimEq.source.value eq Organ.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.source.value eq Piano", async () => {
+        const file = "slotA.effects.ampSimEq.source.value eq Piano.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.source.value eq Synth", async () => {
+        const file = "slotA.effects.ampSimEq.source.value eq Synth.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.treble.value eq +0.0 dB", async () => {
+        const file = "slotA.effects.ampSimEq.treble.value eq +0.0 dB.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.treble.value eq +15.0 dB", async () => {
+        const file = "slotA.effects.ampSimEq.treble.value eq +15.0 dB.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.ampSimEq.treble.value eq -15.0 dB", async () => {
+        const file = "slotA.effects.ampSimEq.treble.value eq -15.0 dB.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.effects.rotarySpeaker.drive.value eq 10.0", async () => {
         const file = "slotA.effects.rotarySpeaker.drive.value eq 10.0.ns2p";
         const sut = await loadTestCase(root + file);

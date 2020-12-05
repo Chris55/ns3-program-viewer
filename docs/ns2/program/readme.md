@@ -300,7 +300,7 @@
 | `0x0126` | `--------` |
 | `0x0127` | `--------` |
 | `0x0128` | `--------` |
-| `0x0129` | `--------` | Piano Slot B, same as offset 0x30, offset from Slot A is 0xf9 (249 bytes)
+| `0x0129` | `--------` |
 | `0x012A` | `--------` |
 | `0x012B` | `--------` |
 | `0x012C` | `--------` |
@@ -310,16 +310,16 @@
 | `0x0130` | `--------` |
 | `0x0131` | `--------` |
 | `0x0132` | `--------` |
-| `0x0133` | `--------` |
-| `0x0134` | `--------` |
-| `0x0135` | `--------` |
-| `0x0136` | `--------` |
-| `0x0137` | `--------` |
-| `0x0138` | `--------` |
+| `0x0133` | `---osstt` | [(o) amp sim eq on](ns2-doc.md#ns2-amp-sim-eq-on), [(s) amp sim eq source](ns2-doc.md#ns2-amp-sim-eq-source), [(t) amp type](ns2-doc.md#ns2-amp-type)
+| `0x0134` | `dddddddt` | [(d) amp sim drive](ns2-doc.md#ns2-amp-sim-drive), [(t) eq treble](ns2-doc.md#ns2-eq-treble)
+| `0x0135` | `ttttttmm` | [(m) eq mid](ns2-doc.md#ns2-eq-mid)
+| `0x0136` | `mmmmmbbb` | [(b) eq bass](ns2-doc.md#ns2-eq-bass)
+| `0x0137` | `bbbbffff` | [(f) eq mid flt freq](ns2-doc.md#ns2-eq-mid-flt-freq)
+| `0x0138` | `fff-----` |
 | `0x0139` | `--------` |
 | `0x013A` | `--------` |
 | `0x013B` | `--------` |
-| `0x013C` | `--------` |
+| `0x013C` | `--------` | Slot B, same as offset 0x43, offset from Slot A is 0xf9 (249 bytes)
 | `...`
 | `0x0220` | `--------` |
 | `0x0221` | `--------` |

@@ -1,6 +1,30 @@
 ## Modules
 
 <dl>
+<dt><a href="#module_NS2 Amp Sim Eq On">NS2 Amp Sim Eq On</a></dt>
+<dd><p>Offset in file: 0x133 (b4)</p>
+</dd>
+<dt><a href="#module_NS2 Amp Sim Eq Source">NS2 Amp Sim Eq Source</a></dt>
+<dd><p>Offset in file: 0x133 (b3-2)</p>
+</dd>
+<dt><a href="#module_NS2 Amp Type">NS2 Amp Type</a></dt>
+<dd><p>Offset in file: 0x133 (b1-0)</p>
+</dd>
+<dt><a href="#module_NS2 Eq Treble">NS2 Eq Treble</a></dt>
+<dd><p>Offset in file: 0x134 (b0) and 0x135 (b7-2)</p>
+</dd>
+<dt><a href="#module_NS2 Eq Mid">NS2 Eq Mid</a></dt>
+<dd><p>Offset in file: 0x135 (b1-0) and 0x136 (b7-3)</p>
+</dd>
+<dt><a href="#module_NS2 Eq Bass">NS2 Eq Bass</a></dt>
+<dd><p>Offset in file: 0x136 (b2-0) and 0x137 (b7-4)</p>
+</dd>
+<dt><a href="#module_NS2 Eq Mid Flt Freq">NS2 Eq Mid Flt Freq</a></dt>
+<dd><p>Offset in file: 0x137 (b3-0) and 0x138 (b7-5)</p>
+</dd>
+<dt><a href="#module_NS2 Amp Sim Drive">NS2 Amp Sim Drive</a></dt>
+<dd><p>Offset in file: 0x134 (b7-1)</p>
+</dd>
 <dt><a href="#module_NS2 Compressor On">NS2 Compressor On</a></dt>
 <dd><p>Offset in file: 0x3e (b4)</p>
 </dd>
@@ -310,6 +334,78 @@
 </dd>
 </dl>
 
+<a name="module_NS2 Amp Sim Eq On"></a>
+
+## NS2 Amp Sim Eq On
+Offset in file: 0x133 (b4)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_NS2 Amp Sim Eq Source"></a>
+
+## NS2 Amp Sim Eq Source
+Offset in file: 0x133 (b3-2)
+
+**Example**  
+```js
+0 = Organ, 1, Piano, 2 = Synth 
+```
+<a name="module_NS2 Amp Type"></a>
+
+## NS2 Amp Type
+Offset in file: 0x133 (b1-0)
+
+**Example**  
+```js
+#include ns2AmpSimTypeMap 
+```
+<a name="module_NS2 Eq Treble"></a>
+
+## NS2 Eq Treble
+Offset in file: 0x134 (b0) and 0x135 (b7-2)
+
+**Example**  
+```js
+treble (fixed 4 kHz) frequency boost/cut table:#include ns2AmpSimEqdBMap
+```
+<a name="module_NS2 Eq Mid"></a>
+
+## NS2 Eq Mid
+Offset in file: 0x135 (b1-0) and 0x136 (b7-3)
+
+**Example**  
+```js
+#include ns2AmpSimEqdBMap
+```
+<a name="module_NS2 Eq Bass"></a>
+
+## NS2 Eq Bass
+Offset in file: 0x136 (b2-0) and 0x137 (b7-4)
+
+**Example**  
+```js
+bass (fixed 100 Hz) frequency boost/cut table:#include ns2AmpSimEqdBMap
+```
+<a name="module_NS2 Eq Mid Flt Freq"></a>
+
+## NS2 Eq Mid Flt Freq
+Offset in file: 0x137 (b3-0) and 0x138 (b7-5)
+
+**Example**  
+```js
+7-bit value 0/127 = 200 Hz to 8.0 kHz#include ns2AmpSimEqMidFilterFreqMap
+```
+<a name="module_NS2 Amp Sim Drive"></a>
+
+## NS2 Amp Sim Drive
+Offset in file: 0x134 (b7-1)
+
+**Example**  
+```js
+7-bit value 0/127 = 0 to 10.0
+```
 <a name="module_NS2 Compressor On"></a>
 
 ## NS2 Compressor On

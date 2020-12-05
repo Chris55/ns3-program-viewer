@@ -1875,8 +1875,12 @@ exports.ns3DelayTempoMasterClockDivisionMap = new Map([
     [127, "1/64"],
 ]);
 
+/***
+ * Amp Simulation Model
+ * @type {Map<number, string>}
+ */
 exports.ns3AmpSimTypeMap = new Map([
-    [0, "Clean"],
+    [0, "Off"],
     [1, "Twin"],
     [2, "JC"],
     [3, "Small"],
@@ -2019,6 +2023,10 @@ exports.ns3AmpSimEqMidFilterFreqMap = new Map([
     [127, "8.0 kHz"],
 ]);
 
+/***
+ * Eq boost/cut table
+ * @type {Map<number, string>}
+ */
 exports.ns3AmpSimEqdBMap = new Map([
     [0, "-15.0 dB"],
     [1, "-14.8 dB"],
