@@ -85,12 +85,12 @@
 | `0x004F` | `aacccccc` | [(c) synth volume morph control pedal](ns2-doc.md#ns2-synth-volume)
 | `0x0050` | `ccvvvvvv` | [(v) synth volume](ns2-doc.md#ns2-synth-volume)
 | `0x0051` | `vzzzoooo` | [(z) synth kb zone](ns2-doc.md#ns2-synth-kb-zone), [(o) synth octave shift](ns2-doc.md#ns2-synth-octave-shift)
-| `0x0052` | `ps------` | [(p) synth pitch stick](ns2-doc.md#ns2-synth-pitch-stick), [(s) synth sustain pedal](ns2-doc.md#ns2-synth-sustain-pedal)
+| `0x0052` | `pso-----` | [(p) synth pitch stick](ns2-doc.md#ns2-synth-pitch-stick), [(s) synth sustain pedal](ns2-doc.md#ns2-synth-sustain-pedal), [(o) extern on](ns2-doc.md#ns2-extern-on)
 | `0x0053` | `--------` |
 | `0x0054` | `--------` |
 | `0x0055` | `--------` |
-| `0x0056` | `--------` |
-| `0x0057` | `--------` |
+| `0x0056` | `--zzzooo` | [(z) extern kb zone](ns2-doc.md#ns2-extern-kb-zone), [(o) extern octave shift](ns2-doc.md#ns2-extern-octave-shift)
+| `0x0057` | `ops-----` | [(p) extern pitch stick](ns2-doc.md#ns2-extern-pitch-stick), [(s) extern sustain pedal](ns2-doc.md#ns2-extern-sustain-pedal)
 | `0x0058` | `--------` |
 | `0x0059` | `------lg` | [(l) organ latch pedal](ns2-doc.md#ns2-organ-latch-pedal), [(g) organ kb gate](ns2-doc.md#ns2-organ-kb-gate)
 | `0x005A` | `lgtk----` | [(l) piano latch pedal](ns2-doc.md#ns2-piano-latch-pedal), [(g) piano kb gate](ns2-doc.md#ns2-piano-kb-gate), [(t) synth latch pedal](ns2-doc.md#ns2-synth-latch-pedal), [(k) synth kb gate](ns2-doc.md#ns2-synth-kb-gate)
@@ -258,19 +258,19 @@
 | `0x00FC` | `rrrrrmmu` | [(m) synth glide-voice-mode](ns2-doc.md#ns2-synth-voice), [(u) synth unison](ns2-doc.md#ns2-synth-unison)
 | `0x00FD` | `uuvvv---` | [(v) synth vibrato](ns2-doc.md#ns2-synth-vibrato)
 | `0x00FE` | `--------` |
-| `0x00FF` | `--------` |
-| `0x0100` | `--------` |
-| `0x0101` | `--------` |
-| `0x0102` | `--------` |
-| `0x0103` | `--------` |
+| `0x00FF` | `mm------` | [(m) extern midi control](ns2-doc.md#ns2-extern-midi-control)
+| `0x0100` | `-wwwwwww` | [(w) extern midi cc morph wheel](ns2-doc.md#ns2-extern-midi-cc)
+| `0x0101` | `waaaaaaa` | [(a) extern midi cc morph after touch](ns2-doc.md#ns2-extern-midi-cc)
+| `0x0102` | `appppppp` | [(p) extern midi cc morph control pedal](ns2-doc.md#ns2-extern-midi-cc)
+| `0x0103` | `pccccccc` | [(c) extern midi cc](ns2-doc.md#ns2-extern-midi-cc)
 | `0x0104` | `--------` |
 | `0x0105` | `--------` |
-| `0x0106` | `--------` |
-| `0x0107` | `--------` |
-| `0x0108` | `--------` |
-| `0x0109` | `--------` |
-| `0x010A` | `--------` |
-| `0x010B` | `--------` |
+| `0x0106` | `-vvvvvvv` | [(v) extern midi program](ns2-doc.md#ns2-extern-midi-program)
+| `0x0107` | `-------w` | [(w) extern volume morph wheel](ns2-doc.md#ns2-extern-volume)
+| `0x0108` | `wwwwwwwa` | [(a) extern volume morph after touch](ns2-doc.md#ns2-extern-volume)
+| `0x0109` | `aaaaaaap` | [(p) extern volume morph control pedal](ns2-doc.md#ns2-extern-volume)
+| `0x010A` | `pppppppv` | [(v) extern volume](ns2-doc.md#ns2-extern-volume)
+| `0x010B` | `vvvvvv--` |
 | `0x010C` | `--------` |
 | `0x010D` | `--------` |
 | `0x010E` | `--------` |

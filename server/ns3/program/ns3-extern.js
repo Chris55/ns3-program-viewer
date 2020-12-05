@@ -124,10 +124,10 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              * @module NS3 Extern Midi Program
              */
             midi: midiProgram,
-            value: midiProgram.toString(),
+            value: (midiProgram + 1).toString(),
 
             morph: ns3Morph(externOffsetFeWw >>> 2, midiProgram, (x) => {
-                return x;
+                return (x + 1).toString();
             }, false),
         },
 

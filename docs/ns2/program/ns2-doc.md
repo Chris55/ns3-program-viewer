@@ -1,6 +1,33 @@
 ## Modules
 
 <dl>
+<dt><a href="#module_NS2 Extern On">NS2 Extern On</a></dt>
+<dd><p>Offset in file: 0x52 (b5)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Kb Zone">NS2 Extern Kb Zone</a></dt>
+<dd><p>Offset in file: 0x56 (b5-3)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Octave Shift">NS2 Extern Octave Shift</a></dt>
+<dd><p>Offset in file: 0x56 (b2-0) and 0x57 (b7)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Pitch Stick">NS2 Extern Pitch Stick</a></dt>
+<dd><p>Offset in file: 0x57 (b6)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Sustain Pedal">NS2 Extern Sustain Pedal</a></dt>
+<dd><p>Offset in file: 0x57 (b5)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Control">NS2 Extern Midi Control</a></dt>
+<dd><p>Offset in file: 0xff (b7-6)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi CC">NS2 Extern Midi CC</a></dt>
+<dd><p>Offset in file: 0x103 (b6-0)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Program">NS2 Extern Midi Program</a></dt>
+<dd><p>Offset in file: 0x106 (b6-0)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Volume">NS2 Extern Volume</a></dt>
+<dd><p>Offset in file: 0x10a (b0) and 0x10b (b7-2)</p>
+</dd>
 <dt><a href="#module_NS2 Amp Sim Eq On">NS2 Amp Sim Eq On</a></dt>
 <dd><p>Offset in file: 0x133 (b4)</p>
 </dd>
@@ -334,6 +361,84 @@
 </dd>
 </dl>
 
+<a name="module_NS2 Extern On"></a>
+
+## NS2 Extern On
+Offset in file: 0x52 (b5)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Extern Kb Zone"></a>
+
+## NS2 Extern Kb Zone
+Offset in file: 0x56 (b5-3)
+
+**See**: [Organ Kb Zone](ns2-doc.md#ns2-organ-kb-zone) for detailed explanation.  
+<a name="module_NS2 Extern Octave Shift"></a>
+
+## NS2 Extern Octave Shift
+Offset in file: 0x56 (b2-0) and 0x57 (b7)
+
+**Example**  
+```js
+Octave Shift = value - 7
+```
+<a name="module_NS2 Extern Pitch Stick"></a>
+
+## NS2 Extern Pitch Stick
+Offset in file: 0x57 (b6)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Extern Sustain Pedal"></a>
+
+## NS2 Extern Sustain Pedal
+Offset in file: 0x57 (b5)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Extern Midi Control"></a>
+
+## NS2 Extern Midi Control
+Offset in file: 0xff (b7-6)
+
+**Example**  
+```js
+#include ns2ExternControlMap
+```
+<a name="module_NS2 Extern Midi CC"></a>
+
+## NS2 Extern Midi CC
+Offset in file: 0x103 (b6-0)
+
+**Example**  
+```js
+7-bit value = 0/127EXTERN MIDI CC Morph WHEELoffset in file 0x100 (b6-0) and 0x101 (b7)EXTERN MIDI CC Morph AToffset in file 0x101 (b6-0) and 0x102 (b7)EXTERN MIDI CC Morph CONTROL PEDALoffset in file 0x102 (b6-0) and 0x103 (b7)
+```
+<a name="module_NS2 Extern Midi Program"></a>
+
+## NS2 Extern Midi Program
+Offset in file: 0x106 (b6-0)
+
+**Example**  
+```js
+O7-bit value = 1 to 128 (no morph)
+```
+<a name="module_NS2 Extern Volume"></a>
+
+## NS2 Extern Volume
+Offset in file: 0x10a (b0) and 0x10b (b7-2)
+
+**Example**  
+```js
+O7-bit value = 0/127EXTERN VOLUME Morph WHEELoffset in file 0x107 (b0) and 0x108 (b7-1)EXTERN VOLUME Morph AToffset in file 0x108 (b0) and 0x109 (b7-1)EXTERN VOLUME Morph CONTROL PEDALoffset in file 0x109 (b0) and 0x10a (b7-1)
+```
 <a name="module_NS2 Amp Sim Eq On"></a>
 
 ## NS2 Amp Sim Eq On

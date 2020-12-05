@@ -1742,3 +1742,13 @@ exports.ns2AmpSimEqMidFilterFreqMap = new Map([
     [126, "7.7 kHz"],
     [127, "8.0 kHz"],
 ]);
+
+/***
+ * Extern Control Types
+ * @type {Map<number, string>}
+ */
+exports.ns2ExternControlMap = new Map([
+    [0, "Midi CC"],
+    [1, "Program"],
+    [2, "Volume"],
+]);

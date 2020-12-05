@@ -5,15 +5,15 @@ Offset in file 0x52 (b5)
 
 EXTERN SPLIT ZONES
 Offset in file 0x56 (b5-3)
-0 = LO 
-1 = LO UP 
-2 = UP 
-3 = UP HI 
-4 = HI 
-5 = LO UP HI 
+0 = LO
+1 = LO UP
+2 = UP
+3 = UP HI
+4 = HI
+5 = LO UP HI
 
 EXTERN OCTAVE SHIFT
-Offset in file 0x56(b2-0) and 0x57 (b7)
+Offset in file 0x56 (b2-0) and 0x57 (b7)
 0 = -7
 1 = -6
 2 = -5
@@ -30,23 +30,23 @@ Offset in file 0x56(b2-0) and 0x57 (b7)
 13 = 6
 
 EXTERN PITCHSTICK
-Offset in file 0x57(b6)
+Offset in file 0x57 (b6)
 0 = OFF
 1 = ON
 
 EXTERN SUSTAIN
-Offset in file 0x57(b5)
+Offset in file 0x57 (b5)
 0 = OFF
 1 = ON
 
 EXTERN PARAMETER
-Offset in file 0xff(b7-6)
+Offset in file 0xff (b7-6)
 0 = MIDI CC
 1 = PROG CHANGE
 2 = VOLUME
 
 EXTERN MIDI CC PARAMETER
-Offset in file 0x103(b6-0)
+Offset in file 0x103 (b6-0)
 0 = 0
 . . .
 127 = 127
@@ -61,7 +61,7 @@ EXTERN MIDI CC Morph CONTROL PEDAL
 offset in file 0x102 (b6-0) and 0x103 (b7)
 
 EXTERN PROG CHANGE PARAMETER (no morphing !!)
-Offset in file 0x106(b6-0)
+Offset in file 0x106 (b6-0)
 Starts with "1", maximum at "128"!!
 0 = 1
 1 = 2
