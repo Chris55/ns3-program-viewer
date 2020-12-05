@@ -1,6 +1,8 @@
 const path = require("path");
 const mapping = require("./ns2-mapping");
 const mapping3 = require("../../ns3/program/ns3-mapping");
+const {ns2Reverb} = require("./ns2-fx-reverb");
+const {ns2Compressor} = require("./ns2-fx-compressor");
 const {zeroPad} = require("../../common/converter");
 const {programCategoryMap} = require("../../common/nord-mapping");
 const { ns2Slot } = require("./ns2-slot");
@@ -193,6 +195,8 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         split: split,
         dualKeyboard: dualKeyboard,
         //monoOut: '', // this is a global setting
+        compressor: ns2Compressor(buffer, versionOffset),
+        reverb: ns2Reverb(buffer, versionOffset),
     };
 
     const ns2 = {

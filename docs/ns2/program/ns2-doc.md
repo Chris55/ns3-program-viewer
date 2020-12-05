@@ -1,6 +1,21 @@
 ## Modules
 
 <dl>
+<dt><a href="#module_NS2 Compressor On">NS2 Compressor On</a></dt>
+<dd><p>Offset in file: 0x3e (b4)</p>
+</dd>
+<dt><a href="#module_NS2 Compressor Amount">NS2 Compressor Amount</a></dt>
+<dd><p>Offset in file: 0x3e (b3-0) and 0x3f (b7-5)</p>
+</dd>
+<dt><a href="#module_NS2 Reverb On">NS2 Reverb On</a></dt>
+<dd><p>Offset in file: 0x3d (b7)</p>
+</dd>
+<dt><a href="#module_NS2 Reverb Type">NS2 Reverb Type</a></dt>
+<dd><p>Offset in file: 0x3d (b6-4)</p>
+</dd>
+<dt><a href="#module_NS2 Reverb Amount">NS2 Reverb Amount</a></dt>
+<dd><p>Offset in file: 0x3d (b3-0) and 0x3e (b7-5)</p>
+</dd>
 <dt><a href="#module_NS2 Rotary Speaker On">NS2 Rotary Speaker On</a></dt>
 <dd><p>Offset in file: 0x3f (b4)</p>
 </dd>
@@ -295,6 +310,51 @@
 </dd>
 </dl>
 
+<a name="module_NS2 Compressor On"></a>
+
+## NS2 Compressor On
+Offset in file: 0x3e (b4)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_NS2 Compressor Amount"></a>
+
+## NS2 Compressor Amount
+Offset in file: 0x3e (b3-0) and 0x3f (b7-5)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10
+```
+<a name="module_NS2 Reverb On"></a>
+
+## NS2 Reverb On
+Offset in file: 0x3d (b7)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_NS2 Reverb Type"></a>
+
+## NS2 Reverb Type
+Offset in file: 0x3d (b6-4)
+
+**Example**  
+```js
+0 = Room 11 = Room 22 = Stage 13 = Stage 24 = Hall 15 = Hall 2
+```
+<a name="module_NS2 Reverb Amount"></a>
+
+## NS2 Reverb Amount
+Offset in file: 0x3d (b3-0) and 0x3e (b7-5)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10
+```
 <a name="module_NS2 Rotary Speaker On"></a>
 
 ## NS2 Rotary Speaker On

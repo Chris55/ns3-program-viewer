@@ -1448,3 +1448,16 @@ exports.ns2RotarySpeakerSpeedMap = new Map([
     [0, "Slow/Stop"],
     [1, "Fast"],
 ]);
+
+/***
+ * Reverb Types
+ * @type {Map<number, string>}
+ */
+exports.ns2ReverbTypeMap = new Map([
+    [0, "Room 1"],
+    [1, "Room 2"],
+    [2, "Stage 1"],
+    [3, "Stage 2"],
+    [4, "Hall 1"],
+    [5, "Hall 2"],
+]);

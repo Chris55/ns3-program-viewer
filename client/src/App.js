@@ -8,7 +8,7 @@ import axios from "axios";
 import programIcon from "./nprog.icns.svg";
 import Container from "react-bootstrap/Container";
 import Figure from "react-bootstrap/Figure";
-import { ns3Model } from "./components/ns3/model/ns3-model";
+import { ns2Model } from "./components/ns2/model/ns2-model";
 import NordDevice from "./components/nord-device";
 import Button from "react-bootstrap/Button";
 const clonedeep = require("lodash.clonedeep");
@@ -20,13 +20,13 @@ class App extends Component {
         this.production = process.env.NODE_ENV === "production";
 
         if (this.production) {
-            ns3Model.panelA.enabled = false;
-            ns3Model.panelB.enabled = false;
+            ns2Model.slotA.enabled = false;
+            ns2Model.slotB.enabled = false;
         }
         this.state = {
             loaded: false,
-            data: ns3Model,
-            originalData: clonedeep(ns3Model),
+            data: ns2Model,
+            originalData: clonedeep(ns2Model),
             error: null,
             showAll: false,
         };

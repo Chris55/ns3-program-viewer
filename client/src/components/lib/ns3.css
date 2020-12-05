@@ -220,6 +220,13 @@
     width: 4.1666666666%;
 }
 
+.col-sm-1-half  {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    width: 12.49999999%;
+}
+
 @media (min-width: 768px) {
     .col-sm-0-half {
         /*float: left;*/

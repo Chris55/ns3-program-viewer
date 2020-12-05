@@ -3,6 +3,10 @@ import "../lib/ns3.css";
 import Ns2Slot from "./ns2-slot";
 import NordLabelAndValue from "./lib/nord-label-and-value";
 import NordLabel from "./lib/nord-label";
+import Ns3FxCompressor from "../ns3/ns3-fx-compressor";
+import Ns3FxReverb from "../ns3/ns3-fx-reverb";
+import Ns2FxCompressor from "./ns2-fx-compressor";
+import Ns2FxReverb from "./ns2-fx-reverb";
 
 export default class Ns2 extends Component {
     render() {
@@ -28,9 +32,9 @@ export default class Ns2 extends Component {
                     <div className="col-1 text-right nord-option-on">
                         <NordLabel label="Transpose" enabled={data.transpose.enabled} />
                         <br />
-                        <NordLabelAndValue data={data.transpose}  enabled={data.transpose.enabled}/>
+                        <NordLabelAndValue data={data.transpose} enabled={data.transpose.enabled} />
                     </div>
-                    <div className={data.split.enabled ? "col-1 text-right mr-1" : "col-1 text-right mr-1"  }>
+                    <div className={data.split.enabled ? "col-1 text-right mr-1" : "col-1 text-right mr-1"}>
                         <NordLabel enabled={data.split.enabled} label="Split" />
                     </div>
                     <div className={data.split.enabled ? "col-1 mt-1" : "d-none"}>
@@ -55,16 +59,38 @@ export default class Ns2 extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-12">
-                        <div className={data.slotA.enabled ? "nord-on" : "nord-off-2"}>
-                            <Ns2Slot name="A" data={data.slotA} />
+                    <div className="col">
+                        <div className="row ns3-panel">
+                            <div className="col">
+                                <div className={data.slotA.enabled ? "nord-on" : "nord-off-2"}>
+                                    <Ns2Slot name="A" data={data.slotA} />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row ns3-panel">
+                            <div className="col">
+                                <div className={data.slotB.enabled ? "nord-on" : "nord-off-2"}>
+                                    <Ns2Slot name="B" data={data.slotB} />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-12">
-                        <div className={data.slotB.enabled ? "nord-on" : "nord-off-2"}>
-                            <Ns2Slot name="B" data={data.slotB} />
+                    <div className="col-sm-1-half ns3-panel d-flex flex-column">
+                        <div className="row flex-grow-1" >
+                            <div className="col ns3-section-right align-self-stretch" >
+                                <div className="">
+                                    <Ns2FxCompressor
+                                        className="ns3-section-main-fx"
+                                        data={data.compressor}
+                                        other={data.reverb.enabled}
+                                    />
+                                    <Ns2FxReverb
+                                        className="ns3-section-main-fx"
+                                        data={data.reverb}
+                                        other={data.compressor.enabled}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

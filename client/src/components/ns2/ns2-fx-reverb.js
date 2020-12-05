@@ -23,9 +23,8 @@ export default class Ns2FxReverb extends Component {
                                     <tr>
                                         <NordLabelAndValue label="Type" data={fx.type} table={true} />
                                     </tr>
-                                    <NordLabelAndValueWithMorph label="Amount" data={fx.amount} />
                                     <tr>
-                                        <NordValueOnOff label="Bright" data={fx.bright} table={true} />
+                                        <NordLabelAndValue label="Amount" data={fx.amount} table={true} />
                                     </tr>
                                 </tbody>
                             </table>

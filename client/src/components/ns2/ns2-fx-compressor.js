@@ -21,9 +21,6 @@ export default class Ns2FxCompressor extends Component {
                                     <tr>
                                         <NordLabelAndValue label="Amount" data={fx.amount} table={true} />
                                     </tr>
-                                    <tr>
-                                        <NordValueOnOff label="Fast" data={fx.fast} table={true} />
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
