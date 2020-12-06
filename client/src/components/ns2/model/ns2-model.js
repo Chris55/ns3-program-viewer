@@ -1,59 +1,59 @@
 exports.ns2Model = {
-    name: "2_Extern_On",
-    filename: "2_Extern_On.ns2p",
+    name: "Enjoy_Sil_Intro",
+    filename: "Enjoy_Sil_Intro.ns2p",
     ext: "ns2p",
     description: "Nord Stage 2 Program",
     id: {
-        bank: 0,
-        location: 84,
-        name: "A:17:5",
-        value: 84,
+        bank: 3,
+        location: 85,
+        name: "D:18:1",
+        value: 160,
     },
     version: 7,
-    category: "Fantasy",
+    category: "Synth",
     slotA: {
         enabled: true,
         organ: {
-            enabled: true,
+            enabled: false,
             kbZone: {
-                array: [true, false, false],
-                value: "LO",
+                array: [false, false, false],
+                value: "",
             },
             volume: {
-                midi: 127,
-                value: "0.0 dB",
+                midi: 0,
+                value: "Off",
                 morph: {
                     wheel: {
                         enabled: false,
                         to: {
-                            midi: 127,
+                            midi: 0,
                             value: "none",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 127,
+                            midi: 0,
                             value: "none",
                         },
                     },
                     controlPedal: {
                         enabled: false,
                         to: {
-                            midi: 127,
+                            midi: 0,
                             value: "none",
                         },
                     },
                 },
             },
             octaveShift: {
-                value: 0,
+                value: -2,
             },
             pitchStick: {
-                enabled: true,
+                enabled: false,
             },
             sustainPedal: {
-                enabled: false,
+                enabled: true,
             },
             latchPedal: {
                 enabled: false,
@@ -67,7 +67,7 @@ exports.ns2Model = {
             preset1: {
                 enabled: false,
                 drawbars: {
-                    value: "80 0000 000",
+                    value: "88 8000 000",
                     morph: {
                         wheel: {
                             enabled: false,
@@ -92,14 +92,14 @@ exports.ns2Model = {
                 vibrato: {
                     enabled: false,
                     mode: {
-                        value: "V1",
-                        label: "Vibrato",
+                        value: "C3",
+                        label: "Chorus",
                     },
                 },
                 percussion: {
                     enabled: false,
                     volumeSoft: {
-                        enabled: false,
+                        enabled: true,
                     },
                     decayFast: {
                         enabled: true,
@@ -112,7 +112,7 @@ exports.ns2Model = {
             preset2: {
                 enabled: true,
                 drawbars: {
-                    value: "00 0000 000",
+                    value: "88 8050 000",
                     morph: {
                         wheel: {
                             enabled: false,
@@ -138,96 +138,96 @@ exports.ns2Model = {
                     enabled: true,
                 },
                 percussion: {
-                    enabled: true,
+                    enabled: false,
                 },
             },
         },
         piano: {
             debug: {
-                sampleId: "7dc7d01e",
+                sampleId: "d1accddd",
                 lib: {
                     valid: true,
-                    value: "Italian Grand XL",
-                    info: "Faz",
-                    version: "v5.3",
-                    size: "191.0 MB",
+                    value: "DX7 FullTines Lrg",
+                    info: "",
+                    version: "v5.4",
+                    size: "11.8 MB",
                     location: 0,
-                    filename: "Italian Grand Faz XL 5.3",
+                    filename: "DX7 FullTines  Lrg 5.4",
                 },
             },
-            enabled: true,
+            enabled: false,
             kbZone: {
-                array: [false, false, true],
-                value: "HI",
+                array: [false, false, false],
+                value: "",
             },
             volume: {
-                midi: 127,
-                value: "0.0 dB",
+                midi: 43,
+                value: "-18.8 dB",
                 morph: {
                     wheel: {
                         enabled: false,
                         to: {
-                            midi: 127,
+                            midi: 43,
                             value: "none",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 127,
+                            midi: 43,
                             value: "none",
                         },
                     },
                     controlPedal: {
                         enabled: false,
                         to: {
-                            midi: 127,
+                            midi: 43,
                             value: "none",
                         },
                     },
                 },
             },
             octaveShift: {
-                value: -7,
+                value: 0,
             },
             pitchStick: {
-                enabled: true,
+                enabled: false,
             },
             sustainPedal: {
                 enabled: true,
             },
             latchPedal: {
-                enabled: true,
+                enabled: false,
             },
             kbGate: {
-                enabled: true,
+                enabled: false,
             },
             type: {
-                value: "Grand",
+                value: "E Piano 2",
             },
             name: {
                 valid: true,
-                value: "Italian Grand XL",
-                info: "Faz",
-                version: "v5.3",
-                size: "191.0 MB",
+                value: "DX7 FullTines Lrg",
+                info: "",
+                version: "v5.4",
+                size: "11.8 MB",
                 location: 0,
-                filename: "Italian Grand Faz XL 5.3",
+                filename: "DX7 FullTines  Lrg 5.4",
             },
             slotDetune: {
                 value: "Off",
             },
             longRelease: {
-                enabled: true,
+                enabled: false,
             },
             stringResonance: {
-                enabled: true,
+                enabled: false,
             },
             pedalNoise: {
-                enabled: true,
+                enabled: false,
             },
             dynamics: {
-                value: "0",
+                value: "1",
             },
             clavinetModel: {
                 enabled: false,
@@ -239,18 +239,19 @@ exports.ns2Model = {
             },
             clavinetEq: {
                 enabled: false,
-                value: "Soft+Medium",
+                value: "Off",
             },
         },
         synth: {
             debug: {
-                sampleId: "0",
+                sampleId: "521b950a",
                 lib: {
-                    valid: true,
-                    value: "PULSE ShP",
+                    valid: false,
+                    value: "Unknown",
                     info: "",
                     version: "",
-                    location: 1,
+                    size: "",
+                    location: 0,
                     filename: "",
                 },
                 preset: {
@@ -265,31 +266,31 @@ exports.ns2Model = {
             },
             enabled: true,
             kbZone: {
-                array: [true, true, true],
-                value: "LO UP HI",
+                array: [true, false, false],
+                value: "LO",
             },
             volume: {
-                midi: 0,
-                value: "Off",
+                midi: 69,
+                value: "-10.6 dB",
                 morph: {
                     wheel: {
                         enabled: false,
                         to: {
-                            midi: 0,
+                            midi: 69,
                             value: "none",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 0,
+                            midi: 69,
                             value: "none",
                         },
                     },
                     controlPedal: {
                         enabled: false,
                         to: {
-                            midi: 0,
+                            midi: 69,
                             value: "none",
                         },
                     },
@@ -299,10 +300,10 @@ exports.ns2Model = {
                 value: 0,
             },
             pitchStick: {
-                enabled: true,
+                enabled: false,
             },
             sustainPedal: {
-                enabled: true,
+                enabled: false,
             },
             latchPedal: {
                 enabled: false,
@@ -327,657 +328,48 @@ exports.ns2Model = {
             },
             oscillators: {
                 type: {
-                    value: "PULSE",
+                    value: "SAMPLE",
                 },
                 waveForm1: {
-                    valid: true,
-                    value: "PULSE ShP",
+                    valid: false,
+                    value: "Unknown",
                     info: "",
                     version: "",
-                    location: 1,
-                    filename: "",
-                },
-                shapeCtrl: {
-                    midi: 35,
-                    value: "2.8",
-                    morph: {
-                        wheel: {
-                            enabled: false,
-                            to: {
-                                midi: 35,
-                                value: "none",
-                            },
-                        },
-                        afterTouch: {
-                            enabled: false,
-                            to: {
-                                midi: 35,
-                                value: "none",
-                            },
-                        },
-                        controlPedal: {
-                            enabled: false,
-                            to: {
-                                midi: 35,
-                                value: "none",
-                            },
-                        },
-                    },
-                },
-                shapeMod: {
-                    midi: 24,
-                    value: "6.1",
-                    label: "LFO AMT",
-                },
-                skipSampleAttack: {
-                    enabled: false,
-                },
-            },
-            filter: {
-                type: {
-                    value: "LP24",
-                },
-                kbTrack: {
-                    enabled: true,
-                },
-                frequency: {
-                    midi: 23,
-                    value: "70 Hz",
-                    morph: {
-                        wheel: {
-                            enabled: false,
-                            to: {
-                                midi: 23,
-                                value: "none",
-                            },
-                        },
-                        afterTouch: {
-                            enabled: false,
-                            to: {
-                                midi: 23,
-                                value: "none",
-                            },
-                        },
-                        controlPedal: {
-                            enabled: false,
-                            to: {
-                                midi: 23,
-                                value: "none",
-                            },
-                        },
-                    },
-                },
-                resonance: {
-                    midi: 14,
-                    value: "1.1",
-                },
-                modulation1: {
-                    midi: 0,
-                    value: "0.0",
-                },
-                modulation2: {
-                    midi: 97,
-                    value: "5.1",
-                    label: "Mod Env AMT",
-                },
-            },
-            envelopes: {
-                modulation: {
-                    attack: {
-                        midi: 5,
-                        value: "1.3 ms",
-                    },
-                    decay: {
-                        midi: 41,
-                        value: "265 ms",
-                    },
-                    release: {
-                        midi: 0,
-                        value: "3.0 ms",
-                    },
-                    velocity: {
-                        enabled: false,
-                    },
-                },
-                amplifier: {
-                    attack: {
-                        midi: 5,
-                        value: "1.3 ms",
-                    },
-                    decay: {
-                        midi: 60,
-                        value: "1.13 s",
-                    },
-                    release: {
-                        midi: 30,
-                        value: "100 ms",
-                    },
-                    velocity: {
-                        enabled: false,
-                    },
-                },
-            },
-            lfo: {
-                wave: {
-                    value: "SAW",
-                },
-                rate: {
-                    midi: 59,
-                    value: "2.8 Hz",
-                },
-                masterClock: {
-                    enabled: false,
-                },
-            },
-            arpeggiator: {
-                enabled: true,
-                rate: {
-                    midi: 6,
-                    value: "1/16",
-                },
-                masterClock: {
-                    enabled: true,
-                },
-                range: {
-                    value: "3 Octaves",
-                },
-                pattern: {
-                    value: "UP/DN",
-                },
-            },
-        },
-        extern: {
-            enabled: true,
-            kbZone: {
-                array: [true, true, true],
-                value: "LO UP HI",
-            },
-            octaveShift: {
-                value: 0,
-            },
-            pitchStick: {
-                enabled: true,
-            },
-            sustainPedal: {
-                enabled: true,
-            },
-            control: {
-                value: "Midi CC",
-            },
-            midiCc: {
-                midi: 0,
-                value: "0",
-                morph: {
-                    wheel: {
-                        enabled: false,
-                        to: {
-                            midi: 0,
-                            value: "none",
-                        },
-                    },
-                    afterTouch: {
-                        enabled: false,
-                        to: {
-                            midi: 0,
-                            value: "none",
-                        },
-                    },
-                    controlPedal: {
-                        enabled: false,
-                        to: {
-                            midi: 0,
-                            value: "none",
-                        },
-                    },
-                },
-            },
-            program: {
-                midi: 0,
-                value: "1",
-            },
-            volume: {
-                midi: 0,
-                value: "0",
-                morph: {
-                    wheel: {
-                        enabled: false,
-                        to: {
-                            midi: 0,
-                            value: "none",
-                        },
-                    },
-                    afterTouch: {
-                        enabled: false,
-                        to: {
-                            midi: 0,
-                            value: "none",
-                        },
-                    },
-                    controlPedal: {
-                        enabled: false,
-                        to: {
-                            midi: 0,
-                            value: "none",
-                        },
-                    },
-                },
-            },
-        },
-        effects: {
-            rotarySpeaker: {
-                enabled: false,
-                source: {
-                    value: "Organ",
-                },
-                drive: {
-                    value: "0.0",
-                },
-                stopMode: {
-                    enabled: false,
-                },
-                speed: {
-                    value: "Slow/Stop",
-                    morph: {
-                        wheel: {
-                            enabled: false,
-                        },
-                        afterTouch: {
-                            enabled: false,
-                        },
-                        controlPedal: {
-                            enabled: false,
-                        },
-                    },
-                },
-            },
-            ampSimEq: {
-                enabled: false,
-                source: {
-                    value: "Piano",
-                },
-                ampType: {
-                    value: "Off",
-                },
-                treble: {
-                    midi: 64,
-                    value: "+0.0 dB",
-                },
-                mid: {
-                    midi: 64,
-                    value: "+0.0 dB",
-                },
-                bass: {
-                    midi: 64,
-                    value: "+0.0 dB",
-                },
-                midFilterFreq: {
-                    midi: 64,
-                    value: "999 Hz",
-                },
-                overdrive: {
-                    midi: 0,
-                    value: "0.0",
-                },
-            },
-        },
-    },
-    slotB: {
-        enabled: true,
-        organ: {
-            enabled: false,
-            kbZone: {
-                array: [false, false, false],
-                value: "",
-            },
-            volume: {
-                midi: 107,
-                value: "-3.0 dB",
-                morph: {
-                    wheel: {
-                        enabled: false,
-                        to: {
-                            midi: 107,
-                            value: "none",
-                        },
-                    },
-                    afterTouch: {
-                        enabled: false,
-                        to: {
-                            midi: 107,
-                            value: "none",
-                        },
-                    },
-                    controlPedal: {
-                        enabled: false,
-                        to: {
-                            midi: 107,
-                            value: "none",
-                        },
-                    },
-                },
-            },
-            octaveShift: {
-                value: 0,
-            },
-            pitchStick: {
-                enabled: true,
-            },
-            sustainPedal: {
-                enabled: false,
-            },
-            latchPedal: {
-                enabled: false,
-            },
-            kbGate: {
-                enabled: false,
-            },
-            type: {
-                value: "B3",
-            },
-            preset1: {
-                enabled: true,
-                drawbars: {
-                    value: "88 8000 000",
-                    morph: {
-                        wheel: {
-                            enabled: false,
-                            to: {
-                                value: "-- ---- ---",
-                            },
-                        },
-                        afterTouch: {
-                            enabled: false,
-                            to: {
-                                value: "-- ---- ---",
-                            },
-                        },
-                        controlPedal: {
-                            enabled: false,
-                            to: {
-                                value: "-- ---- ---",
-                            },
-                        },
-                    },
-                },
-                vibrato: {
-                    enabled: false,
-                    mode: {
-                        value: "V1",
-                        label: "Vibrato",
-                    },
-                },
-                percussion: {
-                    enabled: false,
-                    volumeSoft: {
-                        enabled: false,
-                    },
-                    decayFast: {
-                        enabled: true,
-                    },
-                    harmonicThird: {
-                        enabled: true,
-                    },
-                },
-            },
-            preset2: {
-                enabled: false,
-                drawbars: {
-                    value: "88 8000 000",
-                    morph: {
-                        wheel: {
-                            enabled: false,
-                            to: {
-                                value: "-- ---- ---",
-                            },
-                        },
-                        afterTouch: {
-                            enabled: false,
-                            to: {
-                                value: "-- ---- ---",
-                            },
-                        },
-                        controlPedal: {
-                            enabled: false,
-                            to: {
-                                value: "-- ---- ---",
-                            },
-                        },
-                    },
-                },
-                vibrato: {
-                    enabled: false,
-                },
-                percussion: {
-                    enabled: false,
-                },
-            },
-        },
-        piano: {
-            debug: {
-                sampleId: "7dc7d01e",
-                lib: {
-                    valid: true,
-                    value: "Italian Grand XL",
-                    info: "Faz",
-                    version: "v5.3",
-                    size: "191.0 MB",
+                    size: "",
                     location: 0,
-                    filename: "Italian Grand Faz XL 5.3",
-                },
-            },
-            enabled: true,
-            kbZone: {
-                array: [true, true, true],
-                value: "LO UP HI",
-            },
-            volume: {
-                midi: 127,
-                value: "0.0 dB",
-                morph: {
-                    wheel: {
-                        enabled: false,
-                        to: {
-                            midi: 127,
-                            value: "none",
-                        },
-                    },
-                    afterTouch: {
-                        enabled: false,
-                        to: {
-                            midi: 127,
-                            value: "none",
-                        },
-                    },
-                    controlPedal: {
-                        enabled: false,
-                        to: {
-                            midi: 127,
-                            value: "none",
-                        },
-                    },
-                },
-            },
-            octaveShift: {
-                value: 0,
-            },
-            pitchStick: {
-                enabled: false,
-            },
-            sustainPedal: {
-                enabled: true,
-            },
-            latchPedal: {
-                enabled: false,
-            },
-            kbGate: {
-                enabled: false,
-            },
-            type: {
-                value: "Grand",
-            },
-            name: {
-                valid: true,
-                value: "Italian Grand XL",
-                info: "Faz",
-                version: "v5.3",
-                size: "191.0 MB",
-                location: 0,
-                filename: "Italian Grand Faz XL 5.3",
-            },
-            slotDetune: {
-                value: "Off",
-            },
-            longRelease: {
-                enabled: false,
-            },
-            stringResonance: {
-                enabled: false,
-            },
-            pedalNoise: {
-                enabled: false,
-            },
-            dynamics: {
-                value: "1",
-            },
-            clavinetModel: {
-                enabled: false,
-                value: "A",
-            },
-            clavinetEqHi: {
-                enabled: false,
-                value: "Off",
-            },
-            clavinetEq: {
-                enabled: false,
-                value: "Off",
-            },
-        },
-        synth: {
-            debug: {
-                sampleId: "0",
-                lib: {
-                    valid: true,
-                    value: "TRI ShP",
-                    info: "",
-                    version: "",
-                    location: 1,
-                    filename: "",
-                },
-                preset: {
-                    location: 512,
-                    userPreset: false,
-                    userPresetLocationValue: 0,
-                    userPresetLocationName: "1:01",
-                    samplePresetLocationValue: 112,
-                    samplePresetLocationName: "113",
-                    presetName: "\u0001",
-                },
-            },
-            enabled: true,
-            kbZone: {
-                array: [true, true, true],
-                value: "LO UP HI",
-            },
-            volume: {
-                midi: 75,
-                value: "-9.1 dB",
-                morph: {
-                    wheel: {
-                        enabled: true,
-                        to: {
-                            midi: 62,
-                            value: "-12.5 dB",
-                        },
-                    },
-                    afterTouch: {
-                        enabled: false,
-                        to: {
-                            midi: 75,
-                            value: "none",
-                        },
-                    },
-                    controlPedal: {
-                        enabled: false,
-                        to: {
-                            midi: 75,
-                            value: "none",
-                        },
-                    },
-                },
-            },
-            octaveShift: {
-                value: 0,
-            },
-            pitchStick: {
-                enabled: true,
-            },
-            sustainPedal: {
-                enabled: true,
-            },
-            latchPedal: {
-                enabled: false,
-            },
-            kbGate: {
-                enabled: false,
-            },
-            keyboardHold: {
-                enabled: false,
-            },
-            voice: {
-                value: "Off",
-            },
-            glide: {
-                value: "0.0",
-            },
-            unison: {
-                value: "Off",
-            },
-            vibrato: {
-                value: "Delay 2",
-            },
-            oscillators: {
-                type: {
-                    value: "TRI",
-                },
-                waveForm1: {
-                    valid: true,
-                    value: "TRI ShP",
-                    info: "",
-                    version: "",
-                    location: 1,
                     filename: "",
                 },
                 shapeCtrl: {
-                    midi: 39,
-                    value: "3.1",
+                    midi: 0,
+                    value: "0.0",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 39,
+                                midi: 0,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 39,
+                                midi: 0,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 39,
+                                midi: 0,
                                 value: "none",
                             },
                         },
                     },
                 },
                 shapeMod: {
-                    midi: 9,
-                    value: "8.5",
-                    label: "LFO AMT",
+                    midi: 77,
+                    value: "1.9",
+                    label: "Mod Env AMT",
                 },
                 skipSampleAttack: {
                     enabled: false,
@@ -991,59 +383,59 @@ exports.ns2Model = {
                     enabled: false,
                 },
                 frequency: {
-                    midi: 50,
-                    value: "309 Hz",
+                    midi: 111,
+                    value: "8.7 kHz",
                     morph: {
                         wheel: {
-                            enabled: true,
+                            enabled: false,
                             to: {
-                                midi: 57,
-                                value: "454 Hz",
+                                midi: 111,
+                                value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 50,
+                                midi: 111,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 50,
+                                midi: 111,
                                 value: "none",
                             },
                         },
                     },
                 },
                 resonance: {
-                    midi: 111,
-                    value: "8.7",
+                    midi: 0,
+                    value: "0.0",
                 },
                 modulation1: {
                     midi: 0,
                     value: "0.0",
                 },
                 modulation2: {
-                    midi: 102,
-                    value: "5.9",
+                    midi: 77,
+                    value: "1.9",
                     label: "Mod Env AMT",
                 },
             },
             envelopes: {
                 modulation: {
                     attack: {
-                        midi: 114,
-                        value: "24 s",
+                        midi: 0,
+                        value: "0.5 ms",
                     },
                     decay: {
-                        midi: 127,
-                        value: "45 s",
+                        midi: 45,
+                        value: "368 ms",
                     },
                     release: {
-                        midi: 99,
-                        value: "12 s",
+                        midi: 23,
+                        value: "50 ms",
                     },
                     velocity: {
                         enabled: false,
@@ -1051,16 +443,16 @@ exports.ns2Model = {
                 },
                 amplifier: {
                     attack: {
-                        midi: 64,
-                        value: "1.02 s",
+                        midi: 0,
+                        value: "0.5 ms",
                     },
                     decay: {
-                        midi: 127,
-                        value: "45 s",
+                        midi: 75,
+                        value: "3.03 s",
                     },
                     release: {
-                        midi: 83,
-                        value: "4.89 s",
+                        midi: 67,
+                        value: "1.82 s",
                     },
                     velocity: {
                         enabled: false,
@@ -1069,14 +461,14 @@ exports.ns2Model = {
             },
             lfo: {
                 wave: {
-                    value: "SAW",
+                    value: "TRI",
                 },
                 rate: {
-                    midi: 6,
-                    value: "1/2",
+                    midi: 70,
+                    value: "6.5 Hz",
                 },
                 masterClock: {
-                    enabled: true,
+                    enabled: false,
                 },
             },
             arpeggiator: {
@@ -1180,7 +572,7 @@ exports.ns2Model = {
                     value: "Organ",
                 },
                 drive: {
-                    value: "0.0",
+                    value: "4.6",
                 },
                 stopMode: {
                     enabled: false,
@@ -1200,6 +592,760 @@ exports.ns2Model = {
                     },
                 },
             },
+            delay: {
+                enabled: false,
+                source: {
+                    value: "Synth",
+                },
+                masterClock: {
+                    enabled: false,
+                },
+                tempo: {
+                    midi: 52,
+                    lsw: 0,
+                    value: "288 ms 104 bpm (x2)",
+                    morph: {
+                        wheel: {
+                            enabled: true,
+                            to: {
+                                midi: 0,
+                                value: "750 ms 80 bpm",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: true,
+                            to: {
+                                midi: 0,
+                                value: "750 ms 80 bpm",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: true,
+                            to: {
+                                midi: 0,
+                                value: "750 ms 80 bpm",
+                            },
+                        },
+                    },
+                },
+                pingPong: {
+                    enabled: false,
+                },
+                feedback: {
+                    midi: 10,
+                    value: "0.8",
+                },
+                amount: {
+                    midi: 41,
+                    value: "3.2",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                midi: 41,
+                                value: "none",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                midi: 41,
+                                value: "none",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                midi: 41,
+                                value: "none",
+                            },
+                        },
+                    },
+                },
+            },
+            ampSimEq: {
+                enabled: true,
+                source: {
+                    value: "Piano",
+                },
+                ampType: {
+                    value: "Off",
+                },
+                treble: {
+                    midi: 42,
+                    value: "-5.2 dB",
+                },
+                mid: {
+                    midi: 64,
+                    value: "+0.0 dB",
+                },
+                bass: {
+                    midi: 116,
+                    value: "+12.4 dB",
+                },
+                midFilterFreq: {
+                    midi: 34,
+                    value: "470 Hz",
+                },
+                overdrive: {
+                    midi: 0,
+                    value: "0.0",
+                },
+            },
+        },
+    },
+    slotB: {
+        enabled: true,
+        organ: {
+            enabled: false,
+            kbZone: {
+                array: [false, false, false],
+                value: "",
+            },
+            volume: {
+                midi: 18,
+                value: "-33.9 dB",
+                morph: {
+                    wheel: {
+                        enabled: false,
+                        to: {
+                            midi: 18,
+                            value: "none",
+                        },
+                    },
+                    afterTouch: {
+                        enabled: false,
+                        to: {
+                            midi: 18,
+                            value: "none",
+                        },
+                    },
+                    controlPedal: {
+                        enabled: false,
+                        to: {
+                            midi: 18,
+                            value: "none",
+                        },
+                    },
+                },
+            },
+            octaveShift: {
+                value: 0,
+            },
+            pitchStick: {
+                enabled: false,
+            },
+            sustainPedal: {
+                enabled: true,
+            },
+            latchPedal: {
+                enabled: false,
+            },
+            kbGate: {
+                enabled: false,
+            },
+            type: {
+                value: "B3",
+            },
+            preset1: {
+                enabled: true,
+                drawbars: {
+                    value: "88 8030 000",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                value: "-- ---- ---",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                value: "-- ---- ---",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                value: "-- ---- ---",
+                            },
+                        },
+                    },
+                },
+                vibrato: {
+                    enabled: false,
+                    mode: {
+                        value: "C3",
+                        label: "Chorus",
+                    },
+                },
+                percussion: {
+                    enabled: false,
+                    volumeSoft: {
+                        enabled: true,
+                    },
+                    decayFast: {
+                        enabled: true,
+                    },
+                    harmonicThird: {
+                        enabled: true,
+                    },
+                },
+            },
+            preset2: {
+                enabled: false,
+                drawbars: {
+                    value: "88 8000 000",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                value: "-- ---- ---",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                value: "-- ---- ---",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                value: "-- ---- ---",
+                            },
+                        },
+                    },
+                },
+                vibrato: {
+                    enabled: false,
+                },
+                percussion: {
+                    enabled: false,
+                },
+            },
+        },
+        piano: {
+            debug: {
+                sampleId: "d1accddd",
+                lib: {
+                    valid: true,
+                    value: "DX7 FullTines Lrg",
+                    info: "",
+                    version: "v5.4",
+                    size: "11.8 MB",
+                    location: 0,
+                    filename: "DX7 FullTines  Lrg 5.4",
+                },
+            },
+            enabled: false,
+            kbZone: {
+                array: [false, false, false],
+                value: "",
+            },
+            volume: {
+                midi: 51,
+                value: "-15.8 dB",
+                morph: {
+                    wheel: {
+                        enabled: false,
+                        to: {
+                            midi: 51,
+                            value: "none",
+                        },
+                    },
+                    afterTouch: {
+                        enabled: false,
+                        to: {
+                            midi: 51,
+                            value: "none",
+                        },
+                    },
+                    controlPedal: {
+                        enabled: false,
+                        to: {
+                            midi: 51,
+                            value: "none",
+                        },
+                    },
+                },
+            },
+            octaveShift: {
+                value: -1,
+            },
+            pitchStick: {
+                enabled: false,
+            },
+            sustainPedal: {
+                enabled: true,
+            },
+            latchPedal: {
+                enabled: false,
+            },
+            kbGate: {
+                enabled: false,
+            },
+            type: {
+                value: "E Piano 2",
+            },
+            name: {
+                valid: true,
+                value: "DX7 FullTines Lrg",
+                info: "",
+                version: "v5.4",
+                size: "11.8 MB",
+                location: 0,
+                filename: "DX7 FullTines  Lrg 5.4",
+            },
+            slotDetune: {
+                value: "Off",
+            },
+            longRelease: {
+                enabled: false,
+            },
+            stringResonance: {
+                enabled: false,
+            },
+            pedalNoise: {
+                enabled: false,
+            },
+            dynamics: {
+                value: "0",
+            },
+            clavinetModel: {
+                enabled: false,
+                value: "A",
+            },
+            clavinetEqHi: {
+                enabled: false,
+                value: "Off",
+            },
+            clavinetEq: {
+                enabled: false,
+                value: "Off",
+            },
+        },
+        synth: {
+            debug: {
+                sampleId: "5abe6159",
+                lib: {
+                    valid: true,
+                    value: "Choir Aahs",
+                    info: "ste v2 BR",
+                    version: "v2.0",
+                    size: "4.3 MB",
+                    location: 269,
+                    filename: "Choir Aahs_ste v2 BR",
+                },
+                preset: {
+                    location: 512,
+                    userPreset: false,
+                    userPresetLocationValue: 0,
+                    userPresetLocationName: "1:01",
+                    samplePresetLocationValue: 112,
+                    samplePresetLocationName: "113",
+                    presetName: "\u0001",
+                },
+            },
+            enabled: true,
+            kbZone: {
+                array: [false, true, false],
+                value: "UP",
+            },
+            volume: {
+                midi: 71,
+                value: "-10.1 dB",
+                morph: {
+                    wheel: {
+                        enabled: false,
+                        to: {
+                            midi: 71,
+                            value: "none",
+                        },
+                    },
+                    afterTouch: {
+                        enabled: false,
+                        to: {
+                            midi: 71,
+                            value: "none",
+                        },
+                    },
+                    controlPedal: {
+                        enabled: false,
+                        to: {
+                            midi: 71,
+                            value: "none",
+                        },
+                    },
+                },
+            },
+            octaveShift: {
+                value: -1,
+            },
+            pitchStick: {
+                enabled: true,
+            },
+            sustainPedal: {
+                enabled: true,
+            },
+            latchPedal: {
+                enabled: false,
+            },
+            kbGate: {
+                enabled: true,
+            },
+            keyboardHold: {
+                enabled: false,
+            },
+            voice: {
+                value: "Off",
+            },
+            glide: {
+                value: "0.0",
+            },
+            unison: {
+                value: "Off",
+            },
+            vibrato: {
+                value: "Off",
+            },
+            oscillators: {
+                type: {
+                    value: "SAMPLE",
+                },
+                waveForm1: {
+                    valid: true,
+                    value: "Choir Aahs",
+                    info: "ste v2 BR",
+                    version: "v2.0",
+                    size: "4.3 MB",
+                    location: 269,
+                    filename: "Choir Aahs_ste v2 BR",
+                },
+                shapeCtrl: {
+                    midi: 0,
+                    value: "0.0",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                midi: 0,
+                                value: "none",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                midi: 0,
+                                value: "none",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                midi: 0,
+                                value: "none",
+                            },
+                        },
+                    },
+                },
+                shapeMod: {
+                    midi: 64,
+                    value: "0.0",
+                    label: "LFO/Env AMT",
+                },
+                skipSampleAttack: {
+                    enabled: false,
+                },
+            },
+            filter: {
+                type: {
+                    value: "LP24",
+                },
+                kbTrack: {
+                    enabled: false,
+                },
+                frequency: {
+                    midi: 127,
+                    value: "21 kHz",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                midi: 127,
+                                value: "none",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                midi: 127,
+                                value: "none",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                midi: 127,
+                                value: "none",
+                            },
+                        },
+                    },
+                },
+                resonance: {
+                    midi: 0,
+                    value: "0.0",
+                },
+                modulation1: {
+                    midi: 0,
+                    value: "0.0",
+                },
+                modulation2: {
+                    midi: 77,
+                    value: "1.9",
+                    label: "Mod Env AMT",
+                },
+            },
+            envelopes: {
+                modulation: {
+                    attack: {
+                        midi: 0,
+                        value: "0.5 ms",
+                    },
+                    decay: {
+                        midi: 45,
+                        value: "368 ms",
+                    },
+                    release: {
+                        midi: 23,
+                        value: "50 ms",
+                    },
+                    velocity: {
+                        enabled: false,
+                    },
+                },
+                amplifier: {
+                    attack: {
+                        midi: 2,
+                        value: "0.7 ms",
+                    },
+                    decay: {
+                        midi: 117,
+                        value: "29 s",
+                    },
+                    release: {
+                        midi: 63,
+                        value: "1.39 s",
+                    },
+                    velocity: {
+                        enabled: true,
+                    },
+                },
+            },
+            lfo: {
+                wave: {
+                    value: "TRI",
+                },
+                rate: {
+                    midi: 70,
+                    value: "6.5 Hz",
+                },
+                masterClock: {
+                    enabled: false,
+                },
+            },
+            arpeggiator: {
+                enabled: false,
+                rate: {
+                    midi: 0,
+                    value: "80 BPM",
+                },
+                masterClock: {
+                    enabled: false,
+                },
+                range: {
+                    value: "1 Octave",
+                },
+                pattern: {
+                    value: "UP",
+                },
+            },
+        },
+        extern: {
+            enabled: false,
+            kbZone: {
+                array: [false, false, false],
+                value: "",
+            },
+            octaveShift: {
+                value: 0,
+            },
+            pitchStick: {
+                enabled: true,
+            },
+            sustainPedal: {
+                enabled: true,
+            },
+            control: {
+                value: "Midi CC",
+            },
+            midiCc: {
+                midi: 0,
+                value: "0",
+                morph: {
+                    wheel: {
+                        enabled: false,
+                        to: {
+                            midi: 0,
+                            value: "none",
+                        },
+                    },
+                    afterTouch: {
+                        enabled: false,
+                        to: {
+                            midi: 0,
+                            value: "none",
+                        },
+                    },
+                    controlPedal: {
+                        enabled: false,
+                        to: {
+                            midi: 0,
+                            value: "none",
+                        },
+                    },
+                },
+            },
+            program: {
+                midi: 0,
+                value: "1",
+            },
+            volume: {
+                midi: 0,
+                value: "0",
+                morph: {
+                    wheel: {
+                        enabled: false,
+                        to: {
+                            midi: 0,
+                            value: "none",
+                        },
+                    },
+                    afterTouch: {
+                        enabled: false,
+                        to: {
+                            midi: 0,
+                            value: "none",
+                        },
+                    },
+                    controlPedal: {
+                        enabled: false,
+                        to: {
+                            midi: 0,
+                            value: "none",
+                        },
+                    },
+                },
+            },
+        },
+        effects: {
+            rotarySpeaker: {
+                enabled: false,
+                source: {
+                    value: "Organ",
+                },
+                drive: {
+                    value: "4.6",
+                },
+                stopMode: {
+                    enabled: false,
+                },
+                speed: {
+                    value: "Slow/Stop",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                        },
+                        afterTouch: {
+                            enabled: false,
+                        },
+                        controlPedal: {
+                            enabled: false,
+                        },
+                    },
+                },
+            },
+            delay: {
+                enabled: false,
+                source: {
+                    value: "Piano",
+                },
+                masterClock: {
+                    enabled: false,
+                },
+                tempo: {
+                    midi: 56,
+                    lsw: 0,
+                    value: "268 ms 112 bpm (x2)",
+                    morph: {
+                        wheel: {
+                            enabled: true,
+                            to: {
+                                midi: 0,
+                                value: "750 ms 80 bpm",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: true,
+                            to: {
+                                midi: 0,
+                                value: "750 ms 80 bpm",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: true,
+                            to: {
+                                midi: 31,
+                                value: "417 ms 144 bpm (1/4)",
+                            },
+                        },
+                    },
+                },
+                pingPong: {
+                    enabled: false,
+                },
+                feedback: {
+                    midi: 54,
+                    value: "4.3",
+                },
+                amount: {
+                    midi: 26,
+                    value: "2.0",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                midi: 26,
+                                value: "none",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                midi: 26,
+                                value: "none",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                midi: 26,
+                                value: "none",
+                            },
+                        },
+                    },
+                },
+            },
             ampSimEq: {
                 enabled: false,
                 source: {
@@ -1209,16 +1355,16 @@ exports.ns2Model = {
                     value: "Off",
                 },
                 treble: {
-                    midi: 64,
-                    value: "+0.0 dB",
+                    midi: 35,
+                    value: "-6.8 dB",
                 },
                 mid: {
-                    midi: 64,
-                    value: "+0.0 dB",
+                    midi: 40,
+                    value: "-5.6 dB",
                 },
                 bass: {
-                    midi: 64,
-                    value: "+0.0 dB",
+                    midi: 63,
+                    value: "-0.2 dB",
                 },
                 midFilterFreq: {
                     midi: 64,
@@ -1243,10 +1389,10 @@ exports.ns2Model = {
     split: {
         enabled: true,
         low: {
-            note: "F2",
+            note: "F3",
         },
         high: {
-            note: "C7",
+            note: "--",
         },
     },
     dualKeyboard: {
@@ -1255,18 +1401,18 @@ exports.ns2Model = {
     compressor: {
         enabled: true,
         amount: {
-            midi: 70,
-            value: "5.5",
+            midi: 103,
+            value: "8.1",
         },
     },
     reverb: {
         enabled: true,
         type: {
-            value: "Stage 2",
+            value: "Hall 1",
         },
         amount: {
-            midi: 29,
-            value: "2.3",
+            midi: 92,
+            value: "7.2",
         },
     },
 };

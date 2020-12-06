@@ -22,35 +22,35 @@ const fixSignature = (value) => {
  * return the formatted tempo value
  *
  * @param masterClock {boolean}
- * @param mswMidi {number}
- * @param lswMidi {number}
+ * @param midiValue {number}
+ * @param tapValue {number}
  * @returns {string|*}
  */
-const getTempo = (masterClock, mswMidi, lswMidi) => {
+const getTempo = (masterClock, midiValue, tapValue) => {
     // if master clock is used, get the tempo details from the dedicated map
     if (masterClock) {
-        return mapping.ns3DelayTempoMasterClockDivisionMap.get(mswMidi);
+        return mapping.ns3DelayTempoMasterClockDivisionMap.get(midiValue);
     }
 
     // else use the default tempo mapping
-    const value = mapping.ns3DelayTempoMap.get(mswMidi);
+    const value = mapping.ns3DelayTempoMap.get(midiValue);
     if (!(value instanceof Array)) {
         return "error";
     }
 
     // default case, value is from the knob (no LSW value is used)
-    if (lswMidi === 0 || mswMidi === 127) {
+    if (tapValue === 0 || midiValue === 127) {
         return value[1];
     }
 
     // special case (from tap tempo) LSW contains fine tempo adjustment
-    const y0 = mapping.ns3DelayTempoMap.get(mswMidi);
-    const y1 = mapping.ns3DelayTempoMap.get(mswMidi + 1);
+    const y0 = mapping.ns3DelayTempoMap.get(midiValue);
+    const y1 = mapping.ns3DelayTempoMap.get(midiValue + 1);
     if (!(y0 instanceof Array) || !(y1 instanceof Array)) {
         return "error";
     }
 
-    const fineMs = getLinearInterpolation(0, y0[0], 127, y1[0], lswMidi);
+    const fineMs = getLinearInterpolation(0, y0[0], 127, y1[0], tapValue);
     let bpm = (60 / fineMs) * 1000;
     let signature = "(1/4)";
     if (bpm > 160) {
@@ -83,8 +83,8 @@ exports.ns3Delay = (buffer, panelOffset) => {
     const delayOffset126dWw = buffer.readUInt32BE(0x126 + panelOffset);
     const delayOffset129 = buffer.readUInt8(0x129 + panelOffset);
 
-    const delayTempoMswMidi = (delayOffset11aW & 0xfe00) >>> 9;
-    const delayTempoLswMidi = (delayOffset11aW & 0x01fc) >>> 2;
+    const delayTempoMidiValue = (delayOffset11aW & 0xfe00) >>> 9;
+    const delayTempoTapValue = (delayOffset11aW & 0x01fc) >>> 2;
 
     const delayMasterClock = (delayOffset119 & 0x01) !== 0;
     const delayFeedbackMidi = (delayOffset125W & 0x07f0) >>> 4;
@@ -158,10 +158,10 @@ exports.ns3Delay = (buffer, panelOffset) => {
          * @module NS3 Delay Tempo
          */
         tempo: {
-            midi: delayTempoMswMidi,
-            lsw: delayTempoLswMidi,
+            midi: delayTempoMidiValue,
+            lsw: delayTempoTapValue,
 
-            value: fixSignature(getTempo(delayMasterClock, delayTempoMswMidi, delayTempoLswMidi)),
+            value: fixSignature(getTempo(delayMasterClock, delayTempoMidiValue, delayTempoTapValue)),
 
             morph: ns3Morph14Bits(
                 buffer,

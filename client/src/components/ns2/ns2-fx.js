@@ -5,7 +5,7 @@ import "../lib/ns3.css";
 //import Ns2FxMulti2 from "./ns2-fx-multi-2";
 import Ns2FxRotarySpeaker from "./ns2-fx-rotary-speaker";
 import Ns2SectionSynthArp from "./ns2-section-synth-arp";
-//import Ns2FxDelay from "./ns2-fx-delay";
+// import Ns2FxDelay from "./ns2-fx-delay";
 import Ns2FxAmpSimEq from "./ns2-fx-amp-sim-eq";
 
 export default class Ns2Fx extends Component {

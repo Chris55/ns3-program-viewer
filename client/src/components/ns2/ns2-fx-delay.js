@@ -19,26 +19,22 @@ export default class Ns2FxDelay extends Component {
 
                             <table className="table-borderless">
                                 <tbody>
+                                    <tr>
+                                        <NordValueOnOff label="Mst Clk" data={fx.masterClock} table={true} />
+                                    </tr>
                                     <NordLabelAndValueWithMorph
                                         label={tempoLabel}
                                         data={fx.tempo}
                                         valueClass="nord-delay-tempo"
                                         upperCase={false}
                                     />
-                                    <tr>
-                                        <NordValueOnOff label="Mst Clk" data={fx.masterClock} table={true} />
-                                    </tr>
+                                    <NordLabelAndValueWithMorph label="Amount" data={fx.amount} />
                                     <tr>
                                         <NordValueOnOff label="Ping Pong" data={fx.pingPong} table={true} />
                                     </tr>
                                     <tr>
-                                        <NordLabelAndValue label="Filter" data={fx.filter} table={true} />
+                                        <NordLabelAndValue label="Feedback" data={fx.feedback} table={true} />
                                     </tr>
-                                    <tr>
-                                        <NordValueOnOff label="Analog Mode" data={fx.analogMode} table={true} />
-                                    </tr>
-                                    <NordLabelAndValueWithMorph label="Feedback" data={fx.feedback} />
-                                    <NordLabelAndValueWithMorph label="Mix" data={fx.mix} />
                                 </tbody>
                             </table>
                         </div>

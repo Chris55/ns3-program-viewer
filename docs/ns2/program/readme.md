@@ -296,21 +296,21 @@
 | `0x0122` | `--------` |
 | `0x0123` | `--------` |
 | `0x0124` | `--------` |
-| `0x0125` | `--------` |
-| `0x0126` | `--------` |
-| `0x0127` | `--------` |
-| `0x0128` | `--------` |
-| `0x0129` | `--------` |
-| `0x012A` | `--------` |
-| `0x012B` | `--------` |
-| `0x012C` | `--------` |
-| `0x012D` | `--------` |
-| `0x012E` | `--------` |
-| `0x012F` | `--------` |
-| `0x0130` | `--------` |
-| `0x0131` | `--------` |
-| `0x0132` | `--------` |
-| `0x0133` | `---osstt` | [(o) amp sim eq on](ns2-doc.md#ns2-amp-sim-eq-on), [(s) amp sim eq source](ns2-doc.md#ns2-amp-sim-eq-source), [(t) amp type](ns2-doc.md#ns2-amp-type)
+| `0x0125` | `--osspmw` | [(o) delay on](ns2-doc.md#ns2-delay-on), [(s) delay source](ns2-doc.md#ns2-delay-source), [(p) delay ping pong](ns2-doc.md#ns2-delay-ping-pong), [(m) delay master clock](ns2-doc.md#ns2-delay-master-clock), [(w) delay tempo master clock divisor morph wheel](ns2-doc.md#ns2-delay-tempo-master-clock-divisor)
+| `0x0126` | `wwwwaaaa` | [(a) delay tempo master clock divisor morph after touch](ns2-doc.md#ns2-delay-tempo-master-clock-divisor)
+| `0x0127` | `apppppdd` | [(p) delay tempo master clock divisor morph control pedal](ns2-doc.md#ns2-delay-tempo-master-clock-divisor), [(d) delay tempo master clock divisor](ns2-doc.md#ns2-delay-tempo-master-clock-divisor)
+| `0x0128` | `ddwwwwww` | [(w) delay tempo morph wheel](ns2-doc.md#ns2-delay-tempo)
+| `0x0129` | `wwwwwwwa` | [(a) delay tempo morph after touch](ns2-doc.md#ns2-delay-tempo)
+| `0x012A` | `aaaaaaaa` |
+| `0x012B` | `aaaacccc` | [(c) delay tempo morph control pedal](ns2-doc.md#ns2-delay-tempo)
+| `0x012C` | `cccccccc` |
+| `0x012D` | `cttttttt` | [(t) delay tempo](ns2-doc.md#ns2-delay-tempo)
+| `0x012E` | `tttttwww` | [(w) delay amount morph wheel](ns2-doc.md#ns2-delay-amount)
+| `0x012F` | `wwwwwaaa` | [(a) delay amount morph after touch](ns2-doc.md#ns2-delay-amount)
+| `0x0130` | `aaaaappp` | [(p) delay amount morph control pedal](ns2-doc.md#ns2-delay-amount)
+| `0x0131` | `pppppaaa` | [(a) delay amount](ns2-doc.md#ns2-delay-amount)
+| `0x0132` | `aaaaffff` | [(f) delay feedback](ns2-doc.md#ns2-delay-feedback)
+| `0x0133` | `fffosstt` | [(o) amp sim eq on](ns2-doc.md#ns2-amp-sim-eq-on), [(s) amp sim eq source](ns2-doc.md#ns2-amp-sim-eq-source), [(t) amp type](ns2-doc.md#ns2-amp-type)
 | `0x0134` | `dddddddt` | [(d) amp sim drive](ns2-doc.md#ns2-amp-sim-drive), [(t) eq treble](ns2-doc.md#ns2-eq-treble)
 | `0x0135` | `ttttttmm` | [(m) eq mid](ns2-doc.md#ns2-eq-mid)
 | `0x0136` | `mmmmmbbb` | [(b) eq bass](ns2-doc.md#ns2-eq-bass)

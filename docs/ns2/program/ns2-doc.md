@@ -58,6 +58,27 @@
 <dt><a href="#module_NS2 Compressor Amount">NS2 Compressor Amount</a></dt>
 <dd><p>Offset in file: 0x3e (b3-0) and 0x3f (b7-5)</p>
 </dd>
+<dt><a href="#module_NS2 Delay On">NS2 Delay On</a></dt>
+<dd><p>Offset in file: 0x125 (b5)</p>
+</dd>
+<dt><a href="#module_NS2 Delay Source">NS2 Delay Source</a></dt>
+<dd><p>Offset in file: 0x125 (b4-3)</p>
+</dd>
+<dt><a href="#module_NS2 Delay Master Clock">NS2 Delay Master Clock</a></dt>
+<dd><p>Offset in file: 0x125 (b1)</p>
+</dd>
+<dt><a href="#module_NS2 Delay Tempo">NS2 Delay Tempo</a></dt>
+<dd><p>Offset in file:</p>
+</dd>
+<dt><a href="#module_NS2 Delay Ping Pong">NS2 Delay Ping Pong</a></dt>
+<dd><p>Offset in file: 0x125 (b2)</p>
+</dd>
+<dt><a href="#module_NS2 Delay Feedback">NS2 Delay Feedback</a></dt>
+<dd><p>Offset in file: 0x132 (b3-0) and 0x133 (b7-5)</p>
+</dd>
+<dt><a href="#module_NS2 Delay Amount">NS2 Delay Amount</a></dt>
+<dd><p>Offset in file: 0x131 (b2-0) and 0x132 (b7-4)</p>
+</dd>
 <dt><a href="#module_NS2 Reverb On">NS2 Reverb On</a></dt>
 <dd><p>Offset in file: 0x3d (b7)</p>
 </dd>
@@ -528,6 +549,69 @@ Offset in file: 0x3e (b3-0) and 0x3f (b7-5)
 **Example**  
 ```js
 7-bit value 0/127 = 0/10
+```
+<a name="module_NS2 Delay On"></a>
+
+## NS2 Delay On
+Offset in file: 0x125 (b5)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_NS2 Delay Source"></a>
+
+## NS2 Delay Source
+Offset in file: 0x125 (b4-3)
+
+**Example**  
+```js
+0 = Organ, 1, Piano, 2 = Synth 
+```
+<a name="module_NS2 Delay Master Clock"></a>
+
+## NS2 Delay Master Clock
+Offset in file: 0x125 (b1)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_NS2 Delay Tempo"></a>
+
+## NS2 Delay Tempo
+Offset in file:
+
+**Example**  
+```js
+if MST CLK is OFFoffset in file 0x12d (b1-0) and 0x12e (b7-3) for Knob values (manual or MIDI input)offset in file 0x12d (b6-2) for TAP Input#include ns2DelayTempoMapDelay Rate / Tempo Knob Morph Wheeloffset in file 0x128 (b5-0) and 0x129 (b7-1)Delay Rate / Tempo Morph AToffset in file 0x129 (b0), 0x12a (b7-0) and 0x12b (b7-4)Delay Rate / Tempo Morph CtrlPedaloffset in file 0x12b (b3-0), 0x12c (b7-0) and 0x12d (b7)if MST CLK is ONoffset in file 0x127 (b1-0) and 0x128 (b7-6)#include ns2DelayTempoMasterClockDivisionMap
+```
+<a name="module_NS2 Delay Ping Pong"></a>
+
+## NS2 Delay Ping Pong
+Offset in file: 0x125 (b2)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_NS2 Delay Feedback"></a>
+
+## NS2 Delay Feedback
+Offset in file: 0x132 (b3-0) and 0x133 (b7-5)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10
+```
+<a name="module_NS2 Delay Amount"></a>
+
+## NS2 Delay Amount
+Offset in file: 0x131 (b2-0) and 0x132 (b7-4)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10Delay Amount Morph Wheeloffset in file 0x12e (b2-0) and 0x12f (b7-3)Delay Amount Morph AToffset in file 0x12f (b2-0) and 0x130 (b7-3)Delay Amount Morph CtrlPedaloffset in file 0x130 (b2-0) and 0x131 (b7-3)
 ```
 <a name="module_NS2 Reverb On"></a>
 
