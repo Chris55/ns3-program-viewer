@@ -1,6 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 
 /***
  * returns Oscillator Control value
@@ -86,7 +86,7 @@ exports.ns3OscControl = (buffer, offset, oscConfig) => {
         /***
          * Morphing settings
          */
-        morph: ns3Morph(synthOffset91Ww >>> 4, oscControlMidi, (x) => {
+        morph: ns3Morph7Bits(synthOffset91Ww >>> 4, oscControlMidi, (x) => {
             return getOscControlLabel(oscConfig, x);
         }, false),
     };

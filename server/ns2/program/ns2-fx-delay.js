@@ -1,6 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns2-mapping");
-const { ns2Morph } = require("./ns2-morph");
+const { ns2Morph7Bits } = require("./ns2-morph");
 const { ns2Morph12Bits } = require("./ns2-morph");
 const { getLinearInterpolation } = require("../../common/converter");
 
@@ -202,7 +202,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, delayAmountMidi, 1, ""),
 
-            morph: ns2Morph(
+            morph: ns2Morph7Bits(
                 delayOffset12eWw >>> 3,
                 delayAmountMidi,
                 (x) => {

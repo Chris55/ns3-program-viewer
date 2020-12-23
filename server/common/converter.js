@@ -140,3 +140,68 @@ exports.formatOrganDrawbars = (d, type) => {
 
     return `${d.substr(0, 2)} ${d.substr(2, 4)} ${d.substr(6, 3)}`;
 }
+
+/***
+ * returns morph model
+ *
+ * @param result
+ * @param labelCallBack
+ * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled}, controlPedal: {to: {midi: *, value: (*|string)}, enabled}, wheel: {to: {midi: *, value: (*|string)}, enabled}}}
+ */
+exports.getMorphModel = (result, labelCallBack) => {
+    return {
+        /***
+         * Wheel Morphing
+         */
+        wheel: {
+            /***
+             * Wheel Morphing Level On/Off
+             */
+            enabled: result[0].enabled,
+
+            /***
+             * Wheel Morphing Final Level Value
+             */
+            to: {
+                midi: result[0].midiTo,
+                value: result[0].enabled ? labelCallBack(result[0].midiTo) : "none",
+            },
+        },
+
+        /***
+         * After Touch Morphing
+         */
+        afterTouch: {
+            /***
+             * After Touch Morphing Level On/Off
+             */
+            enabled: result[1].enabled,
+
+            /***
+             * After Touch Morphing Final Level Value
+             */
+            to: {
+                midi: result[1].midiTo,
+                value: result[1].enabled ? labelCallBack(result[1].midiTo) : "none",
+            },
+        },
+
+        /***
+         * Control Pedal Morphing
+         */
+        controlPedal: {
+            /***
+             * Control Pedal Morphing Level On/Off
+             */
+            enabled: result[2].enabled,
+
+            /***
+             * Control Pedal Morphing Final Level Value
+             */
+            to: {
+                midi: result[2].midiTo,
+                value: result[2].enabled ? labelCallBack(result[2].midiTo) : "none",
+            },
+        },
+    };
+}

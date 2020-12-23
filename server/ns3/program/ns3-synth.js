@@ -3,7 +3,7 @@ const converter = require("../../common/converter");
 const {ns3SynthPreset} = require("./ns3-utils");
 const { getSample } = require("../../library/ns3-library-service");
 const { ns3MorphSynthOscillatorModulation } = require("./ns3-morph");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 const { ns3Filter } = require("./ns3-synth-filter");
 const { ns3OscControl } = require("./ns3-synth-osc-control");
 const { ns3VolumeEx } = require("./ns3-utils");
@@ -691,7 +691,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
                     ? mapping.ns3SynthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
                     : mapping.ns3SynthLfoRateMap.get(lfoRateMidi),
 
-                morph: ns3Morph(
+                morph: ns3Morph7Bits(
                     synthOffset87Ww,
                     lfoRateMidi,
                     (x) => {
@@ -756,7 +756,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
                     ? mapping.ns3SynthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
                     : mapping.ns3SynthArpRateMap.get(arpeggiatorRateMidi),
 
-                morph: ns3Morph(
+                morph: ns3Morph7Bits(
                     synthOffset81Ww >>> 1,
                     arpeggiatorRateMidi,
                     (x) => {

@@ -1909,3 +1909,51 @@ exports.ns2DelayTempoMasterClockDivisionMap = new Map([
     [13, "1/32T"],
     [14, "1/32"],
 ]);
+
+/***
+ * Effect 1 Types
+ * @type {Map<number, string>}
+ */
+exports.ns2Effect1TypeMap = new Map([
+    [0, "Panning"],
+    [1, "Tremolo"],
+    [2, "Ring Mod"],
+    [3, "Wah-Wah"],
+    [4, "Auto-Wah 1"],
+    [5, "Auto-Wah 2"],
+]);
+
+/***
+* Effect 1 Master Clock Division Values
+* @type {Map<number, string>}
+*/
+exports.ns2Effect1MasterClockDivisionMap = new Map([
+    [0,  "4/1"],
+    [1,  "4/1T"],
+    [2,  "2/1"],
+    [3,  "2/1T"],
+    [4,  "1/1"],
+    [5,  "1/1T"],
+    [6,  "1/2"],
+    [7,  "1/2T"],
+    [8,  "1/4"],
+    [9,  "1/4T"],
+    [10, "1/8"],
+    [11, "1/8T"],
+    [12, "1/16"],
+    [13, "1/16T"],
+    [14, "1/32"],
+]);
+
+/***
+ * Effect 2 Types
+ * @type {Map<number, string>}
+ */
+exports.ns2Effect2TypeMap = new Map([
+    [0, "Phaser 1"],
+    [1, "Phaser 2"],
+    [2, "Flanger"],
+    [3, "Vibe"],
+    [4, "Chorus 1"],
+    [5, "Chorus 2"],
+]);

@@ -79,6 +79,48 @@
 <dt><a href="#module_NS2 Delay Amount">NS2 Delay Amount</a></dt>
 <dd><p>Offset in file: 0x131 (b2-0) and 0x132 (b7-4)</p>
 </dd>
+<dt><a href="#module_NS2 Effect 1 On">NS2 Effect 1 On</a></dt>
+<dd><p>Offset in file: 0x10f (b5)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 1 Source">NS2 Effect 1 Source</a></dt>
+<dd><p>Offset in file: 0x10f (b4-3)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 1 Type">NS2 Effect 1 Type</a></dt>
+<dd><p>Offset in file: 0x10f (b2-0)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 1 Amount">NS2 Effect 1 Amount</a></dt>
+<dd><p>Offset in file: 0x119 (b4-0) and 0x11a (b7-6)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 1 Rate Master Clock">NS2 Effect 1 Rate Master Clock</a></dt>
+<dd><p>Offset in file: 0x112 (b7-4)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 1 Rate">NS2 Effect 1 Rate</a></dt>
+<dd><p>Offset in file: 0x115 (b3-0) and 0x116 (b7-5)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 1 Master Clock">NS2 Effect 1 Master Clock</a></dt>
+<dd><p>Offset in file: 0x110 (b7)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 2 On">NS2 Effect 2 On</a></dt>
+<dd><p>Offset in file: 0x11a (b5)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 2 Source">NS2 Effect 2 Source</a></dt>
+<dd><p>Offset in file: 0x11a (b4-3)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 2 Type">NS2 Effect 2 Type</a></dt>
+<dd><p>Offset in file: 0x11a (b2-0)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 2 Amount">NS2 Effect 2 Amount</a></dt>
+<dd><p>Offset in file: 0x124 (b4-0) and 0x125 (b7-6)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 2 Rate Master Clock">NS2 Effect 2 Rate Master Clock</a></dt>
+<dd><p>Offset in file: 0x11d (b7-4)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 2 Rate">NS2 Effect 2 Rate</a></dt>
+<dd><p>Offset in file: 0x120 (b3-0) and 0x121 (b7-5)</p>
+</dd>
+<dt><a href="#module_NS2 Effect 2 Master Clock">NS2 Effect 2 Master Clock</a></dt>
+<dd><p>Offset in file: 0x11b (b7)</p>
+</dd>
 <dt><a href="#module_NS2 Reverb On">NS2 Reverb On</a></dt>
 <dd><p>Offset in file: 0x3d (b7)</p>
 </dd>
@@ -612,6 +654,132 @@ Offset in file: 0x131 (b2-0) and 0x132 (b7-4)
 **Example**  
 ```js
 7-bit value 0/127 = 0/10Delay Amount Morph Wheeloffset in file 0x12e (b2-0) and 0x12f (b7-3)Delay Amount Morph AToffset in file 0x12f (b2-0) and 0x130 (b7-3)Delay Amount Morph CtrlPedaloffset in file 0x130 (b2-0) and 0x131 (b7-3)
+```
+<a name="module_NS2 Effect 1 On"></a>
+
+## NS2 Effect 1 On
+Offset in file: 0x10f (b5)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_NS2 Effect 1 Source"></a>
+
+## NS2 Effect 1 Source
+Offset in file: 0x10f (b4-3)
+
+**Example**  
+```js
+0 = Organ, 1, Piano, 2 = Synth 
+```
+<a name="module_NS2 Effect 1 Type"></a>
+
+## NS2 Effect 1 Type
+Offset in file: 0x10f (b2-0)
+
+**Example**  
+```js
+0 = A-Pan1 = Trem2 = RM3 = WA-WA4 = A-WA15 = A-WA2 
+```
+<a name="module_NS2 Effect 1 Amount"></a>
+
+## NS2 Effect 1 Amount
+Offset in file: 0x119 (b4-0) and 0x11a (b7-6)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10Morph Wheel:0x116 (b4-0) and 0x117 (b7-5)Morph After Touch:0x117 (b4-0) and 0x118 (b7-5)Morph Control Pedal:0x118 (b4-0) and 0x119 (b7-5)
+```
+<a name="module_NS2 Effect 1 Rate Master Clock"></a>
+
+## NS2 Effect 1 Rate Master Clock
+Offset in file: 0x112 (b7-4)
+
+**Example**  
+```js
+7-bit value 0/127 = 4/1 to 1/32#include ns2Effect1MasterClockDivisionMapMorph Wheel:0x110 (b6-2)Morph After Touch:0x110 (b1-0) and 0x111 (b7-5)Morph Control Pedal:0x111 (b4-0)
+```
+<a name="module_NS2 Effect 1 Rate"></a>
+
+## NS2 Effect 1 Rate
+Offset in file: 0x115 (b3-0) and 0x116 (b7-5)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10Morph Wheel:0x112 (b3-0) and 0x113 (b7-4)Morph After Touch:0x113 (b3-0) and 0x114 (b7-4)Morph Control Pedal:0x114 (b3-0) and 0x115 (b7-4)
+```
+<a name="module_NS2 Effect 1 Master Clock"></a>
+
+## NS2 Effect 1 Master Clock
+Offset in file: 0x110 (b7)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_NS2 Effect 2 On"></a>
+
+## NS2 Effect 2 On
+Offset in file: 0x11a (b5)
+
+**Example**  
+```js
+O = off, 1 = on 
+```
+<a name="module_NS2 Effect 2 Source"></a>
+
+## NS2 Effect 2 Source
+Offset in file: 0x11a (b4-3)
+
+**Example**  
+```js
+0 = Organ, 1, Piano, 2 = Synth 
+```
+<a name="module_NS2 Effect 2 Type"></a>
+
+## NS2 Effect 2 Type
+Offset in file: 0x11a (b2-0)
+
+**Example**  
+```js
+0 = PHAS11 = PHAS22 = FLANG3 = VIBE4 = CHOR15 = CHOR2 
+```
+<a name="module_NS2 Effect 2 Amount"></a>
+
+## NS2 Effect 2 Amount
+Offset in file: 0x124 (b4-0) and 0x125 (b7-6)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10Morph Wheel:0x121 (b4-0) and 0x117 (b7-5)Morph After Touch:0x122 (b4-0) and 0x118 (b7-5)Morph Control Pedal:0x123 (b4-0) and 0x119 (b7-5)
+```
+<a name="module_NS2 Effect 2 Rate Master Clock"></a>
+
+## NS2 Effect 2 Rate Master Clock
+Offset in file: 0x11d (b7-4)
+
+**Example**  
+```js
+7-bit value 0/127 = 4/1 to 1/32#include ns2Effect1MasterClockDivisionMapMorph Wheel:0x11b (b6-2)Morph After Touch:0x11b (b1-0) and 0x11c (b7-5)Morph Control Pedal:0x11c (b4-0)
+```
+<a name="module_NS2 Effect 2 Rate"></a>
+
+## NS2 Effect 2 Rate
+Offset in file: 0x120 (b3-0) and 0x121 (b7-5)
+
+**Example**  
+```js
+7-bit value 0/127 = 0/10Morph Wheel:0x121 (b4-0) and 0x122 (b7-5)Morph After Touch:0x122 (b4-0) and 0x123 (b7-5)Morph Control Pedal:0x123 (b4-0) and 0x124 (b7-5)
+```
+<a name="module_NS2 Effect 2 Master Clock"></a>
+
+## NS2 Effect 2 Master Clock
+Offset in file: 0x11b (b7)
+
+**Example**  
+```js
+O = off, 1 = on 
 ```
 <a name="module_NS2 Reverb On"></a>
 

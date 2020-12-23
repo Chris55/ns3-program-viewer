@@ -1,6 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 
 /***
  * returns Reverb
@@ -69,7 +69,7 @@ exports.ns3Reverb = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, reverbAmountMidi, 1, ""),
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 reverbOffset136Ww >>> 6,
                 reverbAmountMidi,
                 (x) => {

@@ -1,7 +1,7 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
 const { midi2LinearValue } = require("../../common/converter");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 
 /***
  * returns Amp Sim / Eq
@@ -154,7 +154,7 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
 
             value: mapping.ns3AmpSimEqMidFilterFreqMap.get(midFilterFreqMidi),
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 eqOffset12dWw >>> 1,
                 midFilterFreqMidi,
                 (x) => {
@@ -188,7 +188,7 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, drive, 1, ""),
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 eqOffset131Ww >>> 2,
                 drive,
                 (x) => {

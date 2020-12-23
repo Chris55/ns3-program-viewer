@@ -1,5 +1,5 @@
 const converter = require("../../common/converter");
-const { ns2Morph } = require("./ns2-morph");
+const { ns2Morph7Bits } = require("./ns2-morph");
 
 /***
  * returns Oscillator Shape settings
@@ -28,7 +28,7 @@ exports.ns2OscShape = (buffer, slotOffset) => {
         /***
          * Morphing settings
          */
-        morph: ns2Morph(
+        morph: ns2Morph7Bits(
             synthOffsetE3Ww >>> 5,
             oscShapeMidi,
             (x) => {

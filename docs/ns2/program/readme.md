@@ -1,6 +1,8 @@
 \newpage
 ## Nord Stage 2 File Structure
 
+This mapping corresponds to the Nord Stage 2 program file (file extension ns2p).
+
 | offset   | bits       | description
 | :---:    |   :----:   | :-------------------------------------------------
 | `0x0000` | `cccccccc` | ascii C - 0x43, 4-byte Clavia ID
@@ -274,29 +276,29 @@
 | `0x010C` | `--------` |
 | `0x010D` | `--------` |
 | `0x010E` | `--------` |
-| `0x010F` | `--------` |
-| `0x0110` | `--------` |
-| `0x0111` | `--------` |
-| `0x0112` | `--------` |
-| `0x0113` | `--------` |
-| `0x0114` | `--------` |
-| `0x0115` | `--------` |
-| `0x0116` | `--------` |
-| `0x0117` | `--------` |
-| `0x0118` | `--------` |
-| `0x0119` | `--------` |
-| `0x011A` | `--------` |
-| `0x011B` | `--------` |
-| `0x011C` | `--------` |
-| `0x011D` | `--------` |
-| `0x011E` | `--------` |
-| `0x011F` | `--------` |
-| `0x0120` | `--------` |
-| `0x0121` | `--------` |
-| `0x0122` | `--------` |
-| `0x0123` | `--------` |
-| `0x0124` | `--------` |
-| `0x0125` | `--osspmw` | [(o) delay on](ns2-doc.md#ns2-delay-on), [(s) delay source](ns2-doc.md#ns2-delay-source), [(p) delay ping pong](ns2-doc.md#ns2-delay-ping-pong), [(m) delay master clock](ns2-doc.md#ns2-delay-master-clock), [(w) delay tempo master clock divisor morph wheel](ns2-doc.md#ns2-delay-tempo-master-clock-divisor)
+| `0x010F` | `--ossttt` | [(o) effect 1 on](ns2-doc.md#ns2-effect-1-on), [(s) effect-1-source](ns2-doc.md#ns2-effect-1-source), [(t) effect 1 type](ns2-doc.md#ns2-effect-1-type)
+| `0x0110` | `cwwwwwaa` | [(c) effect 1 master clock](ns2-doc.md#ns2-effect-1-master-clock), [(w) effect 1 rate mst clock divisor morph wheel](ns2-doc.md#ns2-effect-1-rate-master-clock), [(w) effect 1 rate mst clock divisor morph after touch](ns2-doc.md#ns2-effect-1-rate-master-clock)
+| `0x0111` | `aaappppp` | [(p) effect 1 rate mst clock divisor morph control pedal](ns2-doc.md#ns2-effect-1-rate-master-clock)
+| `0x0112` | `rrrrwwww` | [(r) effect 1 rate mst clock divisor](ns2-doc.md#ns2-effect-1-rate-master-clock), [(w) effect 1 rate morph wheel](ns2-doc.md#ns2-effect-1-rate)
+| `0x0113` | `wwwwaaaa` | [(a) effect 1 rate morph after touch](ns2-doc.md#ns2-effect-1-rate)
+| `0x0114` | `aaaapppp` | [(p) effect 1 rate morph control pedal](ns2-doc.md#ns2-effect-1-rate)
+| `0x0115` | `pppprrrr` | [(r) effect 1 rate](ns2-doc.md#ns2-effect-1-rate)
+| `0x0116` | `rrrwwwww` | [(w) effect 1 amount morph wheel](ns2-doc.md#ns2-effect-1-amount)
+| `0x0117` | `wwwaaaaa` | [(a) effect 1 amount after touch](ns2-doc.md#ns2-effect-1-amount)
+| `0x0118` | `aaappppp` | [(p) effect 1 amount control pedal](ns2-doc.md#ns2-effect-1-amount)
+| `0x0119` | `pppaaaaa` | [(a) effect 1 amount](ns2-doc.md#ns2-effect-1-amount)
+| `0x011A` | `aaossttt` | [(o) effect 2 on](ns2-doc.md#ns2-effect-2-on), [(s) effect-2-source](ns2-doc.md#ns2-effect-2-source), [(t) effect 2 type](ns2-doc.md#ns2-effect-2-type)
+| `0x011B` | `cwwwwwaa` | [(c) effect 2 master clock](ns2-doc.md#ns2-effect-2-master-clock), [(w) effect 2 rate mst clock divisor morph wheel](ns2-doc.md#ns2-effect-2-rate-master-clock), [(w) effect 2 rate mst clock divisor morph after touch](ns2-doc.md#ns2-effect-2-rate-master-clock)
+| `0x011C` | `aaappppp` | [(p) effect 2 rate mst clock divisor morph control pedal](ns2-doc.md#ns2-effect-2-rate-master-clock)
+| `0x011D` | `rrrrwwww` | [(r) effect 2 rate mst clock divisor](ns2-doc.md#ns2-effect-2-rate-master-clock), [(w) effect 2 rate morph wheel](ns2-doc.md#ns2-effect-2-rate)
+| `0x011E` | `wwwwaaaa` | [(a) effect 2 rate morph after touch](ns2-doc.md#ns2-effect-2-rate)
+| `0x011F` | `aaaapppp` | [(p) effect 2 rate morph control pedal](ns2-doc.md#ns2-effect-2-rate)
+| `0x0120` | `pppprrrr` | [(r) effect 2 rate](ns2-doc.md#ns2-effect-2-rate)
+| `0x0121` | `rrrwwwww` | [(w) effect 2 amount morph wheel](ns2-doc.md#ns2-effect-2-amount)
+| `0x0122` | `wwwaaaaa` | [(a) effect 2 amount after touch](ns2-doc.md#ns2-effect-2-amount)
+| `0x0123` | `aaappppp` | [(p) effect 2 amount control pedal](ns2-doc.md#ns2-effect-2-amount)
+| `0x0124` | `pppaaaaa` | [(a) effect 2 amount](ns2-doc.md#ns2-effect-2-amount)
+| `0x0125` | `aaosspmw` | [(o) delay on](ns2-doc.md#ns2-delay-on), [(s) delay source](ns2-doc.md#ns2-delay-source), [(p) delay ping pong](ns2-doc.md#ns2-delay-ping-pong), [(m) delay master clock](ns2-doc.md#ns2-delay-master-clock), [(w) delay tempo master clock divisor morph wheel](ns2-doc.md#ns2-delay-tempo-master-clock-divisor)                                                                                                                                                                                                                                                                                     [(o) delay on](ns2-doc.md#ns2-delay-on), [(s) delay source](ns2-doc.md#ns2-delay-source), [(p) delay ping pong](ns2-doc.md#ns2-delay-ping-pong), [(m) delay master clock](ns2-doc.md#ns2-delay-master-clock), [(w) delay tempo master clock divisor morph wheel](ns2-doc.md#ns2-delay-tempo-master-clock-divisor)
 | `0x0126` | `wwwwaaaa` | [(a) delay tempo master clock divisor morph after touch](ns2-doc.md#ns2-delay-tempo-master-clock-divisor)
 | `0x0127` | `apppppdd` | [(p) delay tempo master clock divisor morph control pedal](ns2-doc.md#ns2-delay-tempo-master-clock-divisor), [(d) delay tempo master clock divisor](ns2-doc.md#ns2-delay-tempo-master-clock-divisor)
 | `0x0128` | `ddwwwwww` | [(w) delay tempo morph wheel](ns2-doc.md#ns2-delay-tempo)

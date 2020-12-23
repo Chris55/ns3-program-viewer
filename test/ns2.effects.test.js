@@ -285,6 +285,198 @@ describe("/ns2/effects", () => {
         });
     });
 
+    test("slotA.effects.effect1.amount.midi eq 0", async () => {
+        const file = "slotA.effects.effect1.amount.midi eq 0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.amount.midi eq 127", async () => {
+        const file = "slotA.effects.effect1.amount.midi eq 127.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.rate.midi eq 0", async () => {
+        const file = "slotA.effects.effect1.rate.midi eq 0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.rate.midi eq 127", async () => {
+        const file = "slotA.effects.effect1.rate.midi eq 127.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.source.value eq Organ", async () => {
+        const file = "slotA.effects.effect1.source.value eq Organ.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.source.value eq Piano", async () => {
+        const file = "slotA.effects.effect1.source.value eq Piano.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.source.value eq Synth", async () => {
+        const file = "slotA.effects.effect1.source.value eq Synth.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.type.value eq Auto-Wah 1", async () => {
+        const file = "slotA.effects.effect1.type.value eq Auto-Wah 1.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.type.value eq Auto-Wah 2", async () => {
+        const file = "slotA.effects.effect1.type.value eq Auto-Wah 2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.type.value eq Ring Mod", async () => {
+        const file = "slotA.effects.effect1.type.value eq Ring Mod.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.type.value eq Tremolo", async () => {
+        const file = "slotA.effects.effect1.type.value eq Tremolo.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect1.type.value eq Wah-Wah", async () => {
+        const file = "slotA.effects.effect1.type.value eq Wah-Wah.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.amount.midi eq 0", async () => {
+        const file = "slotA.effects.effect2.amount.midi eq 0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.amount.midi eq 127", async () => {
+        const file = "slotA.effects.effect2.amount.midi eq 127.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.rate.midi eq 0", async () => {
+        const file = "slotA.effects.effect2.rate.midi eq 0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.rate.midi eq 127", async () => {
+        const file = "slotA.effects.effect2.rate.midi eq 127.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.source.value eq Organ", async () => {
+        const file = "slotA.effects.effect2.source.value eq Organ.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.source.value eq Synth", async () => {
+        const file = "slotA.effects.effect2.source.value eq Synth.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.type.value eq Chorus 1", async () => {
+        const file = "slotA.effects.effect2.type.value eq Chorus 1.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.type.value eq Chorus 2", async () => {
+        const file = "slotA.effects.effect2.type.value eq Chorus 2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.type.value eq Flanger", async () => {
+        const file = "slotA.effects.effect2.type.value eq Flanger.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.type.value eq Phaser 1", async () => {
+        const file = "slotA.effects.effect2.type.value eq Phaser 1.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.type.value eq Phaser 2", async () => {
+        const file = "slotA.effects.effect2.type.value eq Phaser 2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.effect2.type.value eq Vibe", async () => {
+        const file = "slotA.effects.effect2.type.value eq Vibe.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.effects.rotarySpeaker.drive.value eq 10.0", async () => {
         const file = "slotA.effects.rotarySpeaker.drive.value eq 10.0.ns2p";
         const sut = await loadTestCase(root + file);

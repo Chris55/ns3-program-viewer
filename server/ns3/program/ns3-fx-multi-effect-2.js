@@ -1,6 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 
 /***
  * returns Effect 2
@@ -82,7 +82,7 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 effectOffset116Ww >>> 4,
                 effect2AmountMidi,
                 (x) => {

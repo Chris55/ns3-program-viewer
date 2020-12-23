@@ -1,5 +1,5 @@
 const { ns3ExternControlMap } = require("./ns3-mapping");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 const { ns3KbZone } = require("./ns3-utils");
 
 /***
@@ -109,7 +109,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
             midi: midiCc,
             value: midiCc.toString(),
 
-            morph: ns3Morph(externOffsetF8Ww >>> 2, midiCc, (x) => {
+            morph: ns3Morph7Bits(externOffsetF8Ww >>> 2, midiCc, (x) => {
                 return x;
             }, false),
         },
@@ -126,7 +126,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
             midi: midiProgram,
             value: (midiProgram + 1).toString(),
 
-            morph: ns3Morph(externOffsetFeWw >>> 2, midiProgram, (x) => {
+            morph: ns3Morph7Bits(externOffsetFeWw >>> 2, midiProgram, (x) => {
                 return (x + 1).toString();
             }, false),
         },
@@ -143,7 +143,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
             midi: volume,
             value: volume.toString(),
 
-            morph: ns3Morph(externOffset102Ww >>> 2, volume, (x) => {
+            morph: ns3Morph7Bits(externOffset102Ww >>> 2, volume, (x) => {
                 return x;
             }, false),
         },

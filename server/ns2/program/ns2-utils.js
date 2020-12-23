@@ -1,5 +1,5 @@
 const converter = require("../../common/converter");
-const { ns2Morph } = require("./ns2-morph");
+const { ns2Morph7Bits } = require("./ns2-morph");
 const { ns2KbZoneMap } = require("./ns2-mapping");
 const { dBMap } = require("../../common/nord-mapping");
 
@@ -32,7 +32,7 @@ exports.ns2KbZone = (sectionEnabled, splitEnabled, value) => {
  * @returns {{midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}}
  */
 exports.ns2VolumeEx = (buffer, midiFrom, uint32MorphValues) => {
-    const morph = ns2Morph(
+    const morph = ns2Morph7Bits(
         uint32MorphValues,
         midiFrom,
         (x) => {

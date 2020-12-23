@@ -1,0 +1,159 @@
+######################################################
+
+Effect 1 On/Off
+Offset in file 0x10f (b5)
+0 = OFF
+1 = ON
+
+Effect 1 Source Select
+Offset in file 0x10f (b4-3)
+0 = Organ
+1 = Piano
+2 = Synth
+
+Effect 1 Type
+Offset in file 0x10f (b2-0)
+000 = A-PAN
+001 = TREM
+010 = RM
+011 = WA-WA
+100 = A-WA1
+101 = A-WA2
+
+Effect 1 MST CLK ON
+Offset in file 0x110 (b7)
+0 = OFF
+1 = ON
+
+Effect 1 RATE MST CLK DIVISOR Morph Wheel
+offset in file 0x110 (b6-2)
+
+Effect 1 RATE MST CLK DIVISOR Morph AT
+offset in file 0x110 (b1-0) and 0x111 (b7-5)
+
+Effect 1 RATE MST CLK DIVISOR Morph Pedal
+offset in file 0x111 (b4-0)
+
+Effect 1 Rate MST CLK DIVISOR
+Offset in file 0x112 (b7-4)
+0 =  4/1
+1 =  4/1T
+2 =  2/1
+3 =  2/1T
+4 =  1/1
+5 =  1/1T
+6 =  1/2
+7 =  1/2T
+8 =  1/4
+9 =  1/4T
+10 = 1/8
+11 = 1/8T
+12 = 1/16
+13 = 1/16T
+14 = 1/32
+
+Effect 1 RATE Morph Wheel
+offset in file 0x112 (b3-0) and 0x113 (b7-4)
+
+Effect 1 RATE Morph AT
+offset in file 0x113 (b3-0) and 0x114 (b7-4)
+
+Effect 1 RATE Morph Pedal
+offset in file 0x114 (b3-0) and 0x115 (b7-4)
+
+Effect 1 Rate
+Offset in file 0x115 (b3-0) and 0x116 (b7-5)
+linear scale 0 - 127
+
+Effect 1 AMOUNT Morph Wheel
+offset in file 0x116 (b4-0) and 0x117 (b7-5)
+
+Effect 1 AMOUNT Morph AT
+offset in file 0x117 (b4-0) and 0x118 (b7-5)
+
+Effect 1 AMOUNT Morph Pedal
+offset in file 0x118 (b4-0) and 0x119 (b7-5)
+
+Effect 1 AMOUNT
+Offset in file 0x119 (b4-0) and 0x11a (b7-6)
+Linear scale 0 - 10.0 using 127 values
+
+#########################################################################
+
+Effect 2 On/Off
+Offset in file 0x11a (b5)
+0 = OFF
+1 = ON
+
+Effect 2 Source Select
+Offset in file 0x11a (b4-3)
+0 = Organ
+1 = Piano
+2 = Synth
+
+Effect 2 Type
+Offset in file 0x11a (b2-0)
+000 = PHAS1
+001 = PHAS2
+010 = FLANGE
+011 = VIBE
+100 = CHOR1
+101 = CHOR2
+
+Effect 2 MST CLK ON
+Offset in file 0x11b (b7)
+0 = OFF
+1 = ON
+
+Effect 2 RATE MST CLK DIVISOR Morph Wheel
+offset in file 0x11b (b6-2)
+
+Effect 2 RATE MST CLK DIVISOR Morph AT
+offset in file 0x11b (b1-0) and 0x11c (b7-5)
+
+Effect 2 RATE MST CLK DIVISOR Morph Pedal
+offset in file 0x11c (b4-0)
+
+Effect 2 Rate MST CLK DIVISOR
+Offset in file 0x11d (b7-4)
+0 = 4/1
+1 = 4/1T
+2 = 2/1
+3 = 2/1T
+4 = 1/1
+5 = 1/1T
+6 = 1/2
+7 = 1/2T
+8 = 1/4
+9 = 1/4T
+10 = 1/8
+11 = 1/8T
+12 = 1/16
+13 = 1/16T
+14 = 1/32
+
+Effect 2 RATE Morph Wheel
+offset in file 0x11d (b3-0) and 0x11e (b7-4)
+
+Effect 2 RATE Morph AT
+offset in file 0x11e (b3-0) and 0x11f (b7-4)
+
+Effect 2 RATE Morph Pedal
+offset in file 0x11f (b3-0) and 0x120 (b7-4)
+
+Effect 2 Rate
+Offset in file 0x120 (b3-0) and 0x121 (b7-5)
+linear scale 0 - 127
+
+Effect 2 AMOUNT Morph Wheel
+offset in file 0x121 (b4-0) and 0x122 (b7-5)
+
+Effect 2 RATE Morph AT
+offset in file 0x122 (b4-0) and 0x123 (b7-5)
+
+Effect 2 RATE Morph Pedal
+offset in file 0x123 (b4-0) and 0x124 (b7-5)
+
+Effect 2 AMOUNT
+Offset in file 0x124 (b4-0) and 0x125 (b7-6)
+Linear scale 0 - 10.0 using 127 values

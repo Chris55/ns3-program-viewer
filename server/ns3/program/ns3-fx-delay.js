@@ -2,7 +2,7 @@ const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
 const { getLinearInterpolation } = require("../../common/converter");
 const { ns3Morph14Bits } = require("./ns3-morph");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 
 /***
  * replace the note by unicode value
@@ -233,7 +233,7 @@ exports.ns3Delay = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 delayOffset126dWw >>> 4,
                 delayFeedbackMidi,
                 (x) => {
@@ -267,7 +267,7 @@ exports.ns3Delay = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, delayMixMidi, 1, ""),
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 delayOffset122dWw >>> 6,
                 delayMixMidi,
                 (x) => {

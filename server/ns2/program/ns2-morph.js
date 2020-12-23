@@ -1,3 +1,5 @@
+const { getMorphModel } = require("../../common/converter");
+
 /***
  * returns an array of morph settings
  *
@@ -7,7 +9,7 @@
  * @param forceDisabled optional used on dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.ns2Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
+exports.ns2Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -32,61 +34,44 @@ exports.ns2Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
         });
     });
 
-    return {
-        /***
-         * Wheel Morphing
-         */
-        wheel: {
-            /***
-             * Wheel Morphing Level On/Off
-             */
-            enabled: result[0].enabled,
+    return getMorphModel(result, labelCallBack);
+};
 
-            /***
-             * Wheel Morphing Final Level Value
-             */
-            to: {
-                midi: result[0].midiTo,
-                value: result[0].enabled ? labelCallBack(result[0].midiTo) : "none",
-            },
-        },
+/***
+ * returns an array of morph settings
+ *
+ * @param uint16Value 16-bit raw value, wheel expected to be in b14-10, after touch in b9-5, and control pedal in b4-0.
+ * @param midiFrom 4-bit original position
+ * @param labelCallBack callback method to render the value
+ * @param forceDisabled optional used on dual knob to disable morph option
+ * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
+ */
+exports.ns2Morph4Bits = (uint16Value, midiFrom, labelCallBack, forceDisabled) => {
+    const rawMorphValue = [3];
+    const result = [];
 
-        /***
-         * After Touch Morphing
-         */
-        afterTouch: {
-            /***
-             * After Touch Morphing Level On/Off
-             */
-            enabled: result[1].enabled,
+    rawMorphValue[0] = (uint16Value & 0x7c00) >>> 10; // wheel
+    rawMorphValue[1] = (uint16Value & 0x03e0) >>> 5; // after touch
+    rawMorphValue[2] = uint16Value & 0x001f; // control pedal
 
-            /***
-             * After Touch Morphing Final Level Value
-             */
-            to: {
-                midi: result[1].midiTo,
-                value: result[1].enabled ? labelCallBack(result[1].midiTo) : "none",
-            },
-        },
+    rawMorphValue.forEach((rawValue) => {
+        const rawOffsetValue = rawValue & 0x0f;
+        const positive = (rawValue & 0x10) !== 0;
+        const offset = positive ? rawOffsetValue - 16 : rawOffsetValue;
+        let midiTo = midiFrom + offset;
+        if (midiTo < 0) {
+            midiTo = 0;
+        } else if (midiTo > 15) {
+            midiTo = 15;
+        }
 
-        /***
-         * Control Pedal Morphing
-         */
-        controlPedal: {
-            /***
-             * Control Pedal Morphing Level On/Off
-             */
-            enabled: result[2].enabled,
+        result.push({
+            enabled: forceDisabled ? false : offset !== 0,
+            midiTo: midiTo,
+        });
+    });
 
-            /***
-             * Control Pedal Morphing Final Level Value
-             */
-            to: {
-                midi: result[2].midiTo,
-                value: result[2].enabled ? labelCallBack(result[2].midiTo) : "none",
-            },
-        },
-    };
+    return getMorphModel(result, labelCallBack);
 };
 
 /***

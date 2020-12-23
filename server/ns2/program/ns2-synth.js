@@ -8,7 +8,7 @@ const { ns2VolumeEx } = require("./ns2-utils");
 const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
 const { ns3SynthPreset } = require("./../../ns3/program/ns3-utils");
 const { getSample } = require("../../library/ns3-library-service");
-const { ns3Morph } = require("./../../ns3/program/ns3-morph");
+const { ns3Morph7Bits } = require("./../../ns3/program/ns3-morph");
 
 /***
  * Synth Envelope Decay / Release value

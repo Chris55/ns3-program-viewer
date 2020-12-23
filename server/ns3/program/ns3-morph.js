@@ -1,4 +1,5 @@
 const mapping = require("./ns3-mapping");
+const {getMorphModel} = require("../../common/converter");
 const { round } = require("../../common/converter");
 
 /***
@@ -10,7 +11,7 @@ const { round } = require("../../common/converter");
  * @param forceDisabled optional used on dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.ns3Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
+exports.ns3Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -40,61 +41,7 @@ exports.ns3Morph = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
         });
     });
 
-    return {
-        /***
-         * Wheel Morphing
-         */
-        wheel: {
-            /***
-             * Wheel Morphing Level On/Off
-             */
-            enabled: result[0].enabled,
-
-            /***
-             * Wheel Morphing Final Level Value
-             */
-            to: {
-                midi: result[0].midiTo,
-                value: result[0].enabled ? labelCallBack(result[0].midiTo) : "none",
-            },
-        },
-
-        /***
-         * After Touch Morphing
-         */
-        afterTouch: {
-            /***
-             * After Touch Morphing Level On/Off
-             */
-            enabled: result[1].enabled,
-
-            /***
-             * After Touch Morphing Final Level Value
-             */
-            to: {
-                midi: result[1].midiTo,
-                value: result[1].enabled ? labelCallBack(result[1].midiTo) : "none",
-            },
-        },
-
-        /***
-         * Control Pedal Morphing
-         */
-        controlPedal: {
-            /***
-             * Control Pedal Morphing Level On/Off
-             */
-            enabled: result[2].enabled,
-
-            /***
-             * Control Pedal Morphing Final Level Value
-             */
-            to: {
-                midi: result[2].midiTo,
-                value: result[2].enabled ? labelCallBack(result[2].midiTo) : "none",
-            },
-        },
-    };
+    return getMorphModel(result, labelCallBack);
 };
 
 /***

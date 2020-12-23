@@ -1,9 +1,9 @@
-const {ns3AmpSimEq} = require("./ns3-fx-amp-sim-eq");
-const {ns3Compressor} = require("./ns3-fx-compressor");
-const {ns3Delay} = require("./ns3-fx-delay");
-const {ns3Effect2} = require("./ns3-fx-multi-effect-2");
-const {ns3Effect1} = require("./ns3-fx-muli-effect-1");
-const {ns3RotarySpeakerEffect} = require("./ns3-fx-rotary-speaker");
+const { ns3AmpSimEq } = require("./ns3-fx-amp-sim-eq");
+const { ns3Compressor } = require("./ns3-fx-compressor");
+const { ns3Delay } = require("./ns3-fx-delay");
+const { ns3Effect2 } = require("./ns3-fx-multi-effect-2");
+const { ns3Effect1 } = require("./ns3-fx-multi-effect-1");
+const { ns3RotarySpeakerEffect } = require("./ns3-fx-rotary-speaker");
 const { ns3Reverb } = require("./ns3-fx-reverb");
 const { ns3Extern } = require("./ns3-extern");
 const { ns3Synth } = require("./ns3-synth");

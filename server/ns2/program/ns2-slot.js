@@ -1,3 +1,5 @@
+const { ns2Effect2 } = require("./ns2-fx-multi-effect-2");
+const { ns2Effect1 } = require("./ns2-fx-multi-effect-1");
 const { ns2Delay } = require("./ns2-fx-delay");
 const { ns2Extern } = require("./ns2-extern");
 const { ns2AmpSimEq } = require("./ns2-fx-amp-sim-eq");
@@ -50,8 +52,8 @@ exports.ns2Slot = function (buffer, id, versionOffset, global) {
         extern: ns2Extern(buffer, panelOffset, global),
         effects: {
             rotarySpeaker: ns2RotarySpeakerEffect(buffer, panelOffset),
-            //     effect1: getEffect1(buffer, panelOffset),
-            //     effect2: getEffect2(buffer, panelOffset),
+            effect1: ns2Effect1(buffer, panelOffset),
+            effect2: ns2Effect2(buffer, panelOffset),
             delay: ns2Delay(buffer, panelOffset),
             ampSimEq: ns2AmpSimEq(buffer, panelOffset),
         },

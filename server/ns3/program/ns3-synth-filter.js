@@ -1,7 +1,7 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
 const { getMorph2 } = require("./ns3-morph");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 const { ns3KnobDualValues } = require("./ns3-utils");
 
 /***
@@ -100,7 +100,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
             lfoAmount: {
                 midi: filterModulation1KnobMidi,
                 value: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
-                morph: ns3Morph(
+                morph: ns3Morph7Bits(
                     synthOffsetA1Ww >>> 5,
                     filterModulation1KnobMidi,
                     (x) => {
@@ -155,7 +155,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
         cutoffFrequency: {
             midi: filterCutoffFreqKnobMidi,
             value: mapping.ns3SynthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 synthOffset99Ww >>> 3,
                 filterCutoffFreqKnobMidi,
                 (x) => {
@@ -184,7 +184,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
 
             value: filterTypeIsLpHp ? mapping.ns3SynthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 synthOffset9dWw >>> 4,
                 filterResFreqHpKnobMidi,
                 (x) => {
@@ -199,7 +199,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
 
             value: filterTypeIsLpHp ? "0.0" : converter.midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 synthOffset9dWw >>> 4,
                 filterResFreqHpKnobMidi,
                 (x) => {

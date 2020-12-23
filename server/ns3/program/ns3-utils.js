@@ -1,8 +1,7 @@
 const mapping = require("./ns3-mapping");
-const converter = require("../../common/converter");
-const {zeroPad} = require("../../common/converter");
+const { zeroPad } = require("../../common/converter");
 const { dBMap } = require("../../common/nord-mapping");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 
 /***
  * Returns two values from a single knob (and equivalent midi value).
@@ -130,7 +129,7 @@ exports.ns3VolumeEx = (buffer, offset) => {
     const midi = (organOffsetB6W & 0x07f0) >>> 4;
 
     // To values
-    const morph = ns3Morph(
+    const morph = ns3Morph7Bits(
         morphOffsetB7Ww >>> 4,
         midi,
         (x) => {
@@ -190,17 +189,16 @@ exports.ns3ProgramLocation = (bankValue, locationValue) => {
  * @returns {{userPresetLocation: number, samplePresetLocation: number, presetName: string}}
  */
 exports.ns3SynthPreset = (buffer, offset) => {
-
     const offset57W = buffer.readUInt16BE(offset);
     const location = (offset57W & 0x3ff0) >>> 4;
 
     const userPreset = location < 400;
-    const userPresetLocationValue = location >= 400 ? 0: location;
+    const userPresetLocationValue = location >= 400 ? 0 : location;
     const userPresetLocationBank = Math.trunc(userPresetLocationValue / 50) + 1;
     const userPresetLocationLoc = (userPresetLocationValue % 50) + 1;
     const userPresetLocationName = userPresetLocationBank + ":" + zeroPad(userPresetLocationLoc, 2);
 
-    const samplePresetLocationValue = location >= 400 ? location - 400: 0;
+    const samplePresetLocationValue = location >= 400 ? location - 400 : 0;
     const samplePresetLocationName = (samplePresetLocationValue + 1).toString();
 
     //

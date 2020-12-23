@@ -1,6 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns2-mapping");
-const { ns2Morph } = require("./ns2-morph");
+const { ns2Morph7Bits } = require("./ns2-morph");
 
 /***
  *
@@ -70,7 +70,7 @@ exports.ns2Filter = (buffer, slotOffset) => {
         frequency: {
             midi: filterFrequencyMidi,
             value: mapping.ns2SynthFilterFrequencyMap.get(filterFrequencyMidi),
-            morph: ns2Morph(
+            morph: ns2Morph7Bits(
                 synthOffsetEcWw >>> 1,
                 filterFrequencyMidi,
                 (x) => {

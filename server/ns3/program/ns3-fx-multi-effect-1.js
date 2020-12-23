@@ -1,6 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
-const { ns3Morph } = require("./ns3-morph");
+const { ns3Morph7Bits } = require("./ns3-morph");
 
 /***
  * returns Effect 1
@@ -88,7 +88,7 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
 
             value: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 effectOffset110Ww,
                 effect1AmountMidi,
                 (x) => {
@@ -127,7 +127,7 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
                 ? mapping.ns3Effect1MasterClockDivisionMap.get(effect1RateMidi)
                 : converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, ""),
 
-            morph: ns3Morph(
+            morph: ns3Morph7Bits(
                 effectOffset10dWw >>> 7,
                 effect1RateMidi,
                 (x) => {

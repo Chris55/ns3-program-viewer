@@ -1,4 +1,4 @@
-const { ns2Morph } = require("./ns2-morph");
+const { ns2Morph7Bits } = require("./ns2-morph");
 const { ns2KbZone } = require("./ns2-utils");
 const { ns2ExternControlMap } = require("./ns2-mapping");
 
@@ -121,7 +121,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
             midi: midiCc,
             value: midiCc.toString(),
 
-            morph: ns2Morph(
+            morph: ns2Morph7Bits(
                 externOffset100Ww >>> 7,
                 midiCc,
                 (x) => {
@@ -165,7 +165,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
             midi: volume,
             value: volume.toString(),
 
-            morph: ns2Morph(
+            morph: ns2Morph7Bits(
                 externOffset107Ww >>> 1,
                 volume,
                 (x) => {
