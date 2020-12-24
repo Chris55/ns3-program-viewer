@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
 import NordLabelAndValue from "../lib/nord-label-and-value";
 import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph";
+import NordValueOnOff from "../lib/nord-value-on-off";
 
 export default class Ns2FxMulti2 extends Component {
     render() {
@@ -22,8 +23,10 @@ export default class Ns2FxMulti2 extends Component {
                                         <NordLabelAndValue label="Type" data={fx.type} table={true} />
                                     </tr>
                                     <tr>
-                                        <NordLabelAndValue label="Rate" data={fx.rate} table={true} />
+                                        <NordValueOnOff label="Mst Clk" data={fx.masterClock} table={true} />
                                     </tr>
+
+                                    <NordLabelAndValueWithMorph label="Rate" data={fx.rate} />
 
                                     <NordLabelAndValueWithMorph label="Amount" data={fx.amount} />
                                 </tbody>

@@ -770,7 +770,7 @@ Offset in file: 0x120 (b3-0) and 0x121 (b7-5)
 
 **Example**  
 ```js
-7-bit value 0/127 = 0/10Morph Wheel:0x121 (b4-0) and 0x122 (b7-5)Morph After Touch:0x122 (b4-0) and 0x123 (b7-5)Morph Control Pedal:0x123 (b4-0) and 0x124 (b7-5)
+7-bit value 0/127 = 0/10Morph Wheel:0x11d (b3-0) and 0x11e (b7-4)Morph After Touch:0x11e (b3-0) and 0x11f (b7-4)Morph Control Pedal:0x11f (b3-0) and 0x120 (b7-4)
 ```
 <a name="module_NS2 Effect 2 Master Clock"></a>
 

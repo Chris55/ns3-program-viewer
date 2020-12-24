@@ -148,10 +148,10 @@ linear scale 0 - 127
 Effect 2 AMOUNT Morph Wheel
 offset in file 0x121 (b4-0) and 0x122 (b7-5)
 
-Effect 2 RATE Morph AT
+Effect 2 AMOUNT Morph AT
 offset in file 0x122 (b4-0) and 0x123 (b7-5)
 
-Effect 2 RATE Morph Pedal
+Effect 2 AMOUNT Morph Pedal
 offset in file 0x123 (b4-0) and 0x124 (b7-5)
 
 Effect 2 AMOUNT

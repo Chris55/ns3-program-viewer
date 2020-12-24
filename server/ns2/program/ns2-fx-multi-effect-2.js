@@ -128,13 +128,13 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
          * 7-bit value 0/127 = 0/10
          *
          * Morph Wheel:
-         * 0x121 (b4-0) and 0x122 (b7-5)
+         * 0x11d (b3-0) and 0x11e (b7-4)
          *
          * Morph After Touch:
-         * 0x122 (b4-0) and 0x123 (b7-5)
+         * 0x11e (b3-0) and 0x11f (b7-4)
          *
          * Morph Control Pedal:
-         * 0x123 (b4-0) and 0x124 (b7-5)
+         * 0x11f (b3-0) and 0x120 (b7-4)
          *
          * @module NS2 Effect 2 Rate
          */
@@ -155,7 +155,7 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
                 : ns2Morph7Bits(
                     effectOffset11dWw >>> 4,
                     effect2RateMidi,
-                    (x) => mapping.ns2Effect1MasterClockDivisionMap.get(x),
+                    (x) => converter.midi2LinearStringValue(0, 10, x, 1, ""),
                     false
                 ),
         },

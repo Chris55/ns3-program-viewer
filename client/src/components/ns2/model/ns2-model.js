@@ -1,13 +1,13 @@
 exports.ns2Model = {
-    name: "01. eff1",
-    filename: "01. eff1.ns2p",
+    name: "01",
+    filename: "01.ns2p",
     ext: "ns2p",
     description: "Nord Stage 2 Program",
     id: {
         bank: 1,
-        location: 6,
-        name: "B:02:2",
-        value: 31,
+        location: 0,
+        name: "B:01:1",
+        value: 25,
     },
     version: 7,
     category: "None",
@@ -626,6 +626,72 @@ exports.ns2Model = {
                     },
                 },
                 rate: {
+                    midi: 5,
+                    value: "0.4",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                midi: 5,
+                                value: "none",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                midi: 5,
+                                value: "none",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                midi: 5,
+                                value: "none",
+                            },
+                        },
+                    },
+                },
+                masterClock: {
+                    enabled: false,
+                },
+            },
+            effect2: {
+                enabled: false,
+                source: {
+                    value: "Piano",
+                },
+                type: {
+                    value: "Phaser 1",
+                },
+                amount: {
+                    midi: 64,
+                    value: "5.0",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                midi: 64,
+                                value: "none",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                midi: 64,
+                                value: "none",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                midi: 64,
+                                value: "none",
+                            },
+                        },
+                    },
+                },
+                rate: {
                     midi: 64,
                     value: "5.0",
                     morph: {
@@ -654,46 +720,6 @@ exports.ns2Model = {
                 },
                 masterClock: {
                     enabled: false,
-                },
-            },
-            effect2: {
-                enabled: false,
-                source: {
-                    value: "Organ",
-                },
-                type: {
-                    value: "Phaser 1",
-                },
-                amount: {
-                    midi: 0,
-                    value: "0.0",
-                    morph: {
-                        wheel: {
-                            enabled: false,
-                            to: {
-                                midi: 0,
-                                value: "none",
-                            },
-                        },
-                        afterTouch: {
-                            enabled: false,
-                            to: {
-                                midi: 0,
-                                value: "none",
-                            },
-                        },
-                        controlPedal: {
-                            enabled: true,
-                            to: {
-                                midi: 1,
-                                value: "0.1",
-                            },
-                        },
-                    },
-                },
-                rate: {
-                    midi: 1,
-                    value: "0.1",
                 },
             },
             delay: {
@@ -1446,41 +1472,67 @@ exports.ns2Model = {
             effect2: {
                 enabled: false,
                 source: {
-                    value: "Organ",
+                    value: "Piano",
                 },
                 type: {
                     value: "Phaser 1",
                 },
                 amount: {
-                    midi: 0,
-                    value: "0.0",
+                    midi: 64,
+                    value: "5.0",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         controlPedal: {
-                            enabled: true,
+                            enabled: false,
                             to: {
-                                midi: 1,
-                                value: "0.1",
+                                midi: 64,
+                                value: "none",
                             },
                         },
                     },
                 },
                 rate: {
-                    midi: 1,
-                    value: "0.1",
+                    midi: 64,
+                    value: "5.0",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                midi: 64,
+                                value: "none",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                midi: 64,
+                                value: "none",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                midi: 64,
+                                value: "none",
+                            },
+                        },
+                    },
+                },
+                masterClock: {
+                    enabled: false,
                 },
             },
             delay: {
