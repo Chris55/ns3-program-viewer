@@ -121,7 +121,7 @@ class App extends Component {
                                     </span>{" "}
                                     Program File Viewer
                                 </h1>
-                                <p className="lead">Online tool to review Nord Stage program file settings.</p>
+                                <p className="lead">Online tool to review Nord Stage 2/2EX/3 program file settings.</p>
 
                                 <blockquote className="blockquote">
                                     <footer className="blockquote-footer">
@@ -145,10 +145,16 @@ class App extends Component {
                                     />
                                 </div>
 
+                                {/*<div className="col-auto align-self-center">*/}
+                                {/*    Nord Stage 3 Program File (ns3f) <span className="work-complete" /> (100% decoded)*/}
+                                {/*    <br />*/}
+                                {/*    Nord Stage 2 Program File (ns2p) <span className="work-in-progress" /> (in progress){" "}*/}
+                                {/*</div>*/}
+
                                 <div className="col-auto align-self-center">
-                                    Nord Stage 3 Program File (ns3f) <span className="work-complete" /> (100% decoded)
+                                    Nord Stage 3 Program File (ns3f)
                                     <br />
-                                    Nord Stage 2 Program File (ns2p) <span className="work-in-progress" /> (in progress){" "}
+                                    Nord Stage 2 Program File (ns2p)
                                 </div>
 
                                 <div className="col-auto align-self-center">
