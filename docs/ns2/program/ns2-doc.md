@@ -79,6 +79,9 @@
 <dt><a href="#module_NS2 Delay Amount">NS2 Delay Amount</a></dt>
 <dd><p>Offset in file: 0x131 (b2-0) and 0x132 (b7-4)</p>
 </dd>
+<dt><a href="#module_NS2 Effect Focus">NS2 Effect Focus</a></dt>
+<dd><p>Offset in file: 0x10f (b7-b6)</p>
+</dd>
 <dt><a href="#module_NS2 Effect 1 On">NS2 Effect 1 On</a></dt>
 <dd><p>Offset in file: 0x10f (b5)</p>
 </dd>
@@ -654,6 +657,15 @@ Offset in file: 0x131 (b2-0) and 0x132 (b7-4)
 **Example**  
 ```js
 7-bit value 0/127 = 0/10Delay Amount Morph Wheeloffset in file 0x12e (b2-0) and 0x12f (b7-3)Delay Amount Morph AToffset in file 0x12f (b2-0) and 0x130 (b7-3)Delay Amount Morph CtrlPedaloffset in file 0x130 (b2-0) and 0x131 (b7-3)
+```
+<a name="module_NS2 Effect Focus"></a>
+
+## NS2 Effect Focus
+Offset in file: 0x10f (b7-b6)
+
+**Example**  
+```js
+O = Effect 1, 1 = Effect 2, 2 = Delay 
 ```
 <a name="module_NS2 Effect 1 On"></a>
 

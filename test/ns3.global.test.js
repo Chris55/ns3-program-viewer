@@ -293,6 +293,22 @@ describe("/ns3/global", () => {
         });
     });
 
+    test("split.low.note eq C3 and split.high.note eq F3", async () => {
+        const file = "split.low.note eq C3 and split.high.note eq F3.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C3 and split.mid.note eq F3 and split.high.note eq C4", async () => {
+        const file = "split.low.note eq C3 and split.mid.note eq F3 and split.high.note eq C4.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("split.low.note eq C3", async () => {
         const file = "split.low.note eq C3.ns3f";
         const sut = await loadTestCase(root + file);
@@ -311,6 +327,22 @@ describe("/ns3/global", () => {
 
     test("split.low.note eq C5", async () => {
         const file = "split.low.note eq C5.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C6 and split.high.note eq F6", async () => {
+        const file = "split.low.note eq C6 and split.high.note eq F6.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("split.low.note eq C6 and split.mid.note eq F6 and split.high.note eq C7", async () => {
+        const file = "split.low.note eq C6 and split.mid.note eq F6 and split.high.note eq C7.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

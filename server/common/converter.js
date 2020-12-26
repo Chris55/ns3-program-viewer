@@ -109,8 +109,9 @@ exports.getVersion = (buffer, offset) => {
 
     return {
         majorVersion: majorVersion,
-        minorVersion: minorVersion,
-        version: version,
+        minorVersion: Number(minorVersion),
+        version: offset14W,
+        value: version,
     };
 };
 

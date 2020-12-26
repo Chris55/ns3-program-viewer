@@ -56,7 +56,12 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
      *
      * @module NS2 File Version
      */
-    const version = offset14W;
+    const majorVersion = offset14W;
+    const version = {
+        majorVersion: majorVersion,
+        minorVersion: 0,
+        value: majorVersion.toString(),
+    }
 
     /**
      * Offset in file: 0x04
@@ -185,6 +190,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const ext = path.extname(filename).substr(1);
 
     const global = {
+        version: version,
         masterClock: {
             rate: {
                 value: tempo + " bpm",
@@ -209,7 +215,6 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         // program location
         id: programLocation,
 
-        version: version,
 
         /**
          * Offset in file: 0x10
@@ -220,10 +225,10 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
          */
         category: programCategoryMap.get(offset10),
 
+        ...global,
+
         slotA: ns2Slot(buffer, 0, versionOffset, global),
         slotB: ns2Slot(buffer, 1, versionOffset, global),
-
-        ...global,
     };
 
     // All these settings are common for Slot A & B

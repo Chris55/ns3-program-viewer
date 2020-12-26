@@ -276,7 +276,7 @@ This mapping corresponds to the Nord Stage 2 program file (file extension ns2p).
 | `0x010C` | `--------` |
 | `0x010D` | `--------` |
 | `0x010E` | `--------` |
-| `0x010F` | `--ossttt` | [(o) effect 1 on](ns2-doc.md#ns2-effect-1-on), [(s) effect-1-source](ns2-doc.md#ns2-effect-1-source), [(t) effect 1 type](ns2-doc.md#ns2-effect-1-type)
+| `0x010F` | `ffossttt` | [(o) effect focus](ns2-doc.md#ns2-effect-focus), [(o) effect 1 on](ns2-doc.md#ns2-effect-1-on), [(s) effect-1-source](ns2-doc.md#ns2-effect-1-source), [(t) effect 1 type](ns2-doc.md#ns2-effect-1-type)
 | `0x0110` | `cwwwwwaa` | [(c) effect 1 master clock](ns2-doc.md#ns2-effect-1-master-clock), [(w) effect 1 rate mst clock divisor morph wheel](ns2-doc.md#ns2-effect-1-rate-master-clock), [(w) effect 1 rate mst clock divisor morph after touch](ns2-doc.md#ns2-effect-1-rate-master-clock)
 | `0x0111` | `aaappppp` | [(p) effect 1 rate mst clock divisor morph control pedal](ns2-doc.md#ns2-effect-1-rate-master-clock)
 | `0x0112` | `rrrrwwww` | [(r) effect 1 rate mst clock divisor](ns2-doc.md#ns2-effect-1-rate-master-clock), [(w) effect 1 rate morph wheel](ns2-doc.md#ns2-effect-1-rate)

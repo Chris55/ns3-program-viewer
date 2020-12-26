@@ -71,9 +71,10 @@ const getTempo = (masterClock, midiValue, tapValue) => {
  *
  * @param buffer
  * @param panelOffset
+ * @param global
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.ns3Delay = (buffer, panelOffset) => {
+exports.ns3Delay = (buffer, panelOffset, global) => {
     const delayOffset119 = buffer.readUInt8(0x119 + panelOffset);
     const delayOffset11aW = buffer.readUInt16BE(0x11a + panelOffset);
     const delayOffset121W = buffer.readUInt16BE(0x121 + panelOffset);
@@ -83,9 +84,20 @@ exports.ns3Delay = (buffer, panelOffset) => {
     const delayOffset126dWw = buffer.readUInt32BE(0x126 + panelOffset);
     const delayOffset129 = buffer.readUInt8(0x129 + panelOffset);
 
-    const delayTempoMidiValue = (delayOffset11aW & 0xfe00) >>> 9;
-    const delayTempoTapValue = (delayOffset11aW & 0x01fc) >>> 2;
+    let delayTempoMidiValue = (delayOffset11aW & 0xfe00) >>> 9;
+    let delayTempoTapValue = (delayOffset11aW & 0x01fc) >>> 2;
 
+    if (global.version.version <= 300) {
+        // https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history
+        // v1.36 (2018-02-07): Increased resolution of tempo/rate parameter.
+        // By using the tap button one is not limited to the tempos available by knob.
+        // Programs stored with v1.36 will have version 3.01
+        //
+        // This means that in v3.00 the tap additional bits are not used.
+        delayTempoMidiValue = delayTempoTapValue;
+        delayTempoTapValue = 0;
+
+    }
     const delayMasterClock = (delayOffset119 & 0x01) !== 0;
     const delayFeedbackMidi = (delayOffset125W & 0x07f0) >>> 4;
     const delayMixMidi = (delayOffset121W & 0x1fc0) >>> 6;
@@ -169,7 +181,8 @@ exports.ns3Delay = (buffer, panelOffset) => {
                 (msw, lsw) => {
                     return fixSignature(getTempo(delayMasterClock, msw, lsw));
                 },
-                false
+                // v3.00 is different and I cannot test it, I prefer disable morph for now...
+                global.version.version <= 300
             ),
         },
 

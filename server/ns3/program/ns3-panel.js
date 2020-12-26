@@ -62,7 +62,7 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
             rotarySpeaker: ns3RotarySpeakerEffect(buffer, panelOffset),
             effect1: ns3Effect1(buffer, panelOffset),
             effect2: ns3Effect2(buffer, panelOffset),
-            delay: ns3Delay(buffer, panelOffset),
+            delay: ns3Delay(buffer, panelOffset, global),
             ampSimEq: ns3AmpSimEq(buffer, panelOffset),
             compressor: ns3Compressor(buffer, panelOffset),
             reverb: ns3Reverb(buffer, panelOffset),

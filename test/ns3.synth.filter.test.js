@@ -61,6 +61,14 @@ describe("/ns3/synth/filter", () => {
         });
     });
 
+    test("panelA.synth.filter.cutoffFrequency.value eq 262 Hz and panelA.synth.filter.cutoffFrequency.morph.wheel.to.value eq 21 kHz", async () => {
+        const file = "panelA.synth.filter.cutoffFrequency.value eq 262 Hz and panelA.synth.filter.cutoffFrequency.morph.wheel.to.value eq 21 kHz.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.synth.filter.cutoffFrequency.value eq 554 Hz", async () => {
         const file = "panelA.synth.filter.cutoffFrequency.value eq 554 Hz.ns3f";
         const sut = await loadTestCase(root + file);

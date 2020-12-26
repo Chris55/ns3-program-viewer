@@ -30,6 +30,17 @@ exports.ns2Effect1 = (buffer, panelOffset) => {
 
     const effect1RateMidi = effect1MasterClockUsed ? effect1RateMasterClockOnMidi : effect1RateMasterClockOffMidi;
 
+    // focus is not used, only added to be included it in the documentation.
+    /**
+     * Offset in file: 0x10f (b7-b6)
+     *
+     * @example
+     * O = Effect 1, 1 = Effect 2, 2 = Delay
+     *
+     *  @module NS2 Effect Focus
+     */
+
+
     return {
         /**
          * Offset in file: 0x10f (b5)

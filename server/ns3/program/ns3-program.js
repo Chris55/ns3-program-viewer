@@ -1,6 +1,6 @@
 const path = require("path");
 const mapping = require("./ns3-mapping");
-const {programCategoryMap} = require("../../common/nord-mapping");
+const { programCategoryMap } = require("../../common/nord-mapping");
 const { ns3ProgramLocation } = require("./ns3-utils");
 const { nordFileExtMap } = require("../../common/nord-mapping");
 const { getVersion } = require("../../common/converter");
@@ -204,42 +204,43 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     let splitHighNote = (offset32W & 0x01e0) >>> 5;
     const lastNote = 9;
 
+    /***
+     * returns ordered split point as done in NS3
+     * @param lower {number} lower note index
+     * @param upper {number} higher note index
+     * @returns {[number, number]}
+     */
+    const checkSplitPair = (lower, upper) => {
+        if (lower >= upper) {
+            upper = lower + 1;
+            if (upper > lastNote) {
+                upper--;
+                lower--;
+            }
+        }
+        return [lower, upper];
+    };
+
     // low/mid/high note can be unordered in file !!!
     // validation must be done to fix note order if required
+    // thanks to hobster for the improved version.
 
     if (splitLowEnabled && splitMidEnabled && !splitHighEnabled) {
-        if (splitLowNote >= splitMidNote) {
-            splitMidNote = splitLowNote + 1;
-            if (splitMidNote > lastNote) {
-                splitLowNote--;
-                splitMidNote--;
-            }
-        }
+        // Low & Mid
+        [splitLowNote, splitMidNote] = checkSplitPair(splitLowNote, splitMidNote);
     } else if (splitLowEnabled && !splitMidEnabled && splitHighEnabled) {
-        if (splitLowNote >= splitHighNote) {
-            splitHighNote = splitLowNote + 1;
-            if (splitHighNote > lastNote) {
-                splitLowNote--;
-                splitHighNote--;
-            }
-        }
+        // Low & High
+        [splitLowNote, splitHighNote] = checkSplitPair(splitLowNote, splitHighNote);
     } else if (!splitLowEnabled && splitMidEnabled && splitHighEnabled) {
-        if (splitMidNote >= splitHighNote) {
-            splitHighNote = splitMidNote + 1;
-            if (splitHighNote > lastNote) {
-                splitMidNote--;
-                splitHighNote--;
-            }
-        }
+        // Mid & High
+        [splitMidNote, splitHighNote] = checkSplitPair(splitMidNote, splitHighNote);
     } else if (splitLowEnabled && splitMidEnabled && splitHighEnabled) {
-        // not sure what to do here...
-        // if (splitMidNote >= splitHighNote) {
-        //     splitHighNote = splitMidNote + 1;
-        //     if (splitHighNote > lastNote) {
-        //         splitMidNote--;
-        //         splitHighNote--;
-        //     }
-        // }
+        // Low & Mid & High
+        [splitLowNote, splitMidNote] = checkSplitPair(splitLowNote, splitMidNote);
+        [splitMidNote, splitHighNote] = checkSplitPair(splitMidNote, splitHighNote);
+        if (splitLowNote >= splitMidNote) {
+            splitLowNote--;
+        }
     }
 
     const splitEnabled = (offset31 & 0x10) !== 0;
@@ -299,6 +300,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     const ext = path.extname(filename).substr(1);
 
     const global = {
+        version: version,
         masterClock: {
             rate: {
                 value: tempo + " bpm",
@@ -321,7 +323,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         // program location
         id: programLocation,
 
-        version: version.version,
+        ...global,
 
         /**
          * Offset in file: 0x10
@@ -336,8 +338,6 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         panelA: ns3Panel(buffer, 0, versionOffset, global),
 
         panelB: ns3Panel(buffer, 1, versionOffset, global),
-
-        ...global,
     };
 
     // All these settings are common for Panel A & B

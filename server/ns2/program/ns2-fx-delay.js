@@ -7,18 +7,12 @@ const { getLinearInterpolation } = require("../../common/converter");
 /***
  * return the formatted tempo value
  *
- * @param masterClock {boolean}
  * @param midiValue {number}
  * @param tapValue {number}
  * @returns {string|*}
  */
-const getTempo = (masterClock, midiValue, tapValue) => {
-    // if master clock is used, get the tempo details from the dedicated map
-    if (masterClock) {
-        return mapping.ns2DelayTempoMasterClockDivisionMap.get(midiValue);
-    }
-
-    // else use the default tempo mapping
+const getTempo = (midiValue, tapValue) => {
+    // use the default tempo mapping
     const value = mapping.ns2DelayTempoMap.get(midiValue);
     if (!(value instanceof Array)) {
         return "error";
@@ -70,9 +64,10 @@ exports.ns2Delay = (buffer, panelOffset) => {
 
     const delayMasterClock = (delayOffset125 & 0x02) !== 0;
 
-    const delayTempoMasterClockDivisorValue = (delayOffset127W & 0x03c0) >>> 6;
     const delayTempoTapValue = (delayOffset12dW & 0x7c00) >>> 10;
-    const delayTempoMidiValue = (delayOffset12dW & 0x03f8) >>> 3;
+    const delayTempoClockOffMidiValue = (delayOffset12dW & 0x03f8) >>> 3;
+    const delayTempoClockOnMidiValue = (delayOffset127W & 0x03c0) >>> 6;
+    const delayTempoMidiValue = delayMasterClock ? delayTempoClockOnMidiValue : delayTempoClockOffMidiValue;
 
     const delayFeedbackMidi = (delayOffset132W & 0x0fe0) >>> 5;
     const delayAmountMidi = (delayOffset131W & 0x07f0) >>> 4;
@@ -142,15 +137,19 @@ exports.ns2Delay = (buffer, panelOffset) => {
             midi: delayTempoMidiValue,
             lsw: delayTempoTapValue,
 
-            value: getTempo(delayMasterClock, delayTempoMidiValue, delayTempoTapValue),
+            value: delayMasterClock
+                ? mapping.ns2DelayTempoMasterClockDivisionMap.get(delayTempoClockOnMidiValue)
+                : getTempo(delayTempoClockOffMidiValue, delayTempoTapValue),
 
             morph: ns2Morph12Bits(
                 buffer,
                 0x12d + panelOffset,
                 (msw, lsw) => {
-                    return getTempo(delayMasterClock, msw, lsw);
+                    return delayMasterClock
+                        ? mapping.ns2DelayTempoMasterClockDivisionMap.get(msw)
+                        : getTempo(msw, lsw);
                 },
-                false
+                true // morph not yet tested
             ),
         },
 
@@ -208,7 +207,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
                 (x) => {
                     return converter.midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                false
+                true // morph not yet tested
             ),
         },
     };
