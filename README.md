@@ -1,6 +1,6 @@
 # ns3-program-viewer
 
-The unofficial Nord Stage Program viewer tool.
+The unofficial Nord Stage 2/2EX/3 Program viewer tool.
 Online version: [https://ns3-program-viewer.herokuapp.com](https://ns3-program-viewer.herokuapp.com)
 
 Documentation:

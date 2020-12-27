@@ -126,12 +126,28 @@ exports.ns2Delay = (buffer, panelOffset) => {
          * Delay Rate / Tempo Morph CtrlPedal
          * offset in file 0x12b (b3-0), 0x12c (b7-0) and 0x12d (b7)
          *
+         * @module NS2 Delay Tempo
+         */
+
+        /**
+         * Offset in file:
+         *
+         * @example
          * if MST CLK is ON
          * offset in file 0x127 (b1-0) and 0x128 (b7-6)
          *
          * #include ns2DelayTempoMasterClockDivisionMap
          *
-         * @module NS2 Delay Tempo
+         * Delay Rate / Tempo Knob Morph Wheel
+         * offset in file 0x125 (b0) and 0x126 (b7-4)
+         *
+         * Delay Rate / Tempo Morph AT
+         * offset in file 0x126 (b3-0) and 0x127 (b7)
+         *
+         * Delay Rate / Tempo Morph CtrlPedal
+         * offset in file 0x127 (b6-2)
+         *
+         * @module NS2 Delay Tempo Master Clock Divisor
          */
         tempo: {
             midi: delayTempoMidiValue,

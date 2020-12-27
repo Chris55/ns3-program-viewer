@@ -117,7 +117,6 @@ exports.ns2Effect1 = (buffer, panelOffset) => {
          * Offset in file: 0x112 (b7-4)
          *
          * @example
-         * 7-bit value 0/127 = 4/1 to 1/32
          * #include ns2Effect1MasterClockDivisionMap
          *
          * Morph Wheel:

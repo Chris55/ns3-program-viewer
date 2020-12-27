@@ -70,6 +70,9 @@
 <dt><a href="#module_NS2 Delay Tempo">NS2 Delay Tempo</a></dt>
 <dd><p>Offset in file:</p>
 </dd>
+<dt><a href="#module_NS2 Delay Tempo Master Clock Divisor">NS2 Delay Tempo Master Clock Divisor</a></dt>
+<dd><p>Offset in file:</p>
+</dd>
 <dt><a href="#module_NS2 Delay Ping Pong">NS2 Delay Ping Pong</a></dt>
 <dd><p>Offset in file: 0x125 (b2)</p>
 </dd>
@@ -629,7 +632,16 @@ Offset in file:
 
 **Example**  
 ```js
-if MST CLK is OFFoffset in file 0x12d (b1-0) and 0x12e (b7-3) for Knob values (manual or MIDI input)offset in file 0x12d (b6-2) for TAP Input#include ns2DelayTempoMapDelay Rate / Tempo Knob Morph Wheeloffset in file 0x128 (b5-0) and 0x129 (b7-1)Delay Rate / Tempo Morph AToffset in file 0x129 (b0), 0x12a (b7-0) and 0x12b (b7-4)Delay Rate / Tempo Morph CtrlPedaloffset in file 0x12b (b3-0), 0x12c (b7-0) and 0x12d (b7)if MST CLK is ONoffset in file 0x127 (b1-0) and 0x128 (b7-6)#include ns2DelayTempoMasterClockDivisionMap
+if MST CLK is OFFoffset in file 0x12d (b1-0) and 0x12e (b7-3) for Knob values (manual or MIDI input)offset in file 0x12d (b6-2) for TAP Input#include ns2DelayTempoMapDelay Rate / Tempo Knob Morph Wheeloffset in file 0x128 (b5-0) and 0x129 (b7-1)Delay Rate / Tempo Morph AToffset in file 0x129 (b0), 0x12a (b7-0) and 0x12b (b7-4)Delay Rate / Tempo Morph CtrlPedaloffset in file 0x12b (b3-0), 0x12c (b7-0) and 0x12d (b7)
+```
+<a name="module_NS2 Delay Tempo Master Clock Divisor"></a>
+
+## NS2 Delay Tempo Master Clock Divisor
+Offset in file:
+
+**Example**  
+```js
+if MST CLK is ONoffset in file 0x127 (b1-0) and 0x128 (b7-6)#include ns2DelayTempoMasterClockDivisionMapDelay Rate / Tempo Knob Morph Wheeloffset in file 0x125 (b0) and 0x126 (b7-4)Delay Rate / Tempo Morph AToffset in file 0x126 (b3-0) and 0x127 (b7)Delay Rate / Tempo Morph CtrlPedaloffset in file 0x127 (b6-2)
 ```
 <a name="module_NS2 Delay Ping Pong"></a>
 
@@ -710,7 +722,7 @@ Offset in file: 0x112 (b7-4)
 
 **Example**  
 ```js
-7-bit value 0/127 = 4/1 to 1/32#include ns2Effect1MasterClockDivisionMapMorph Wheel:0x110 (b6-2)Morph After Touch:0x110 (b1-0) and 0x111 (b7-5)Morph Control Pedal:0x111 (b4-0)
+#include ns2Effect1MasterClockDivisionMapMorph Wheel:0x110 (b6-2)Morph After Touch:0x110 (b1-0) and 0x111 (b7-5)Morph Control Pedal:0x111 (b4-0)
 ```
 <a name="module_NS2 Effect 1 Rate"></a>
 
@@ -773,7 +785,7 @@ Offset in file: 0x11d (b7-4)
 
 **Example**  
 ```js
-7-bit value 0/127 = 4/1 to 1/32#include ns2Effect1MasterClockDivisionMapMorph Wheel:0x11b (b6-2)Morph After Touch:0x11b (b1-0) and 0x11c (b7-5)Morph Control Pedal:0x11c (b4-0)
+#include ns2Effect1MasterClockDivisionMapMorph Wheel:0x11b (b6-2)Morph After Touch:0x11b (b1-0) and 0x11c (b7-5)Morph Control Pedal:0x11c (b4-0)
 ```
 <a name="module_NS2 Effect 2 Rate"></a>
 
