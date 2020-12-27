@@ -23,7 +23,7 @@ exports.ns2Effect1 = (buffer, panelOffset) => {
     const effect1AmountMidi = (effectOffset119W & 0x1fc0) >>> 6;
 
     const effect1MasterClock = (effectOffset110 & 0x80) !== 0;
-    const effect1MasterClockUsed = effect1MasterClock; // && (effect1Type === "Panning" || effect1Type === "Tremolo");
+    const effect1MasterClockUsed = effect1MasterClock && (effect1Type === "Panning" || effect1Type === "Tremolo");
 
     const effect1RateMasterClockOffMidi = (effectOffset115W & 0x0fe0) >>> 5;
     const effect1RateMasterClockOnMidi = (effectOffset112 & 0xf0) >>> 4;

@@ -50,7 +50,7 @@ exports.ns3Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) =>
  * @param buffer {Buffer}
  * @param offset {Number} panel A/B offset, expected to start with fromValue on b7
  * @param labelCallBack callback method to render the value
- * @param forceDisabled optional used ont dual knob to disable morph option
+ * @param forceDisabled optional used on dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
 exports.ns3Morph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {

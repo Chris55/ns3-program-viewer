@@ -10,7 +10,7 @@ const { ns3Morph7Bits } = require("./ns3-morph");
  * @returns {string}
  */
 const fixSignature = (value) => {
-    if (typeof value === 'string' || value instanceof String) {
+    if (typeof value === "string" || value instanceof String) {
         value = value.replace("(1/4)", "\u{2669}");
         value = value.replace("(1/8)", "\u{266A}");
         //value = value.replace("(1/16)", "\u{266C}");
@@ -77,11 +77,12 @@ const getTempo = (masterClock, midiValue, tapValue) => {
 exports.ns3Delay = (buffer, panelOffset, global) => {
     const delayOffset119 = buffer.readUInt8(0x119 + panelOffset);
     const delayOffset11aW = buffer.readUInt16BE(0x11a + panelOffset);
+    const delayOffset11bWw = buffer.readUInt32BE(0x11b + panelOffset);
     const delayOffset121W = buffer.readUInt16BE(0x121 + panelOffset);
-    const delayOffset122dWw = buffer.readUInt32BE(0x122 + panelOffset);
+    const delayOffset122Ww = buffer.readUInt32BE(0x122 + panelOffset);
     const delayOffset125 = buffer.readUInt8(0x125 + panelOffset);
     const delayOffset125W = buffer.readUInt16BE(0x125 + panelOffset);
-    const delayOffset126dWw = buffer.readUInt32BE(0x126 + panelOffset);
+    const delayOffset126Ww = buffer.readUInt32BE(0x126 + panelOffset);
     const delayOffset129 = buffer.readUInt8(0x129 + panelOffset);
 
     let delayTempoMidiValue = (delayOffset11aW & 0xfe00) >>> 9;
@@ -93,10 +94,9 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
         // By using the tap button one is not limited to the tempos available by knob.
         // Programs stored with v1.36 will have version 3.01
         //
-        // This means that in v3.00 the tap additional bits are not used.
+        // This means that in v3.00 the tap additional bits are not available.
         delayTempoMidiValue = delayTempoTapValue;
         delayTempoTapValue = 0;
-
     }
     const delayMasterClock = (delayOffset119 & 0x01) !== 0;
     const delayFeedbackMidi = (delayOffset125W & 0x07f0) >>> 4;
@@ -175,15 +175,25 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
 
             value: fixSignature(getTempo(delayMasterClock, delayTempoMidiValue, delayTempoTapValue)),
 
-            morph: ns3Morph14Bits(
-                buffer,
-                0x11a + panelOffset,
-                (msw, lsw) => {
-                    return fixSignature(getTempo(delayMasterClock, msw, lsw));
-                },
-                // v3.00 is different and I cannot test it, I prefer disable morph for now...
+            morph:
                 global.version.version <= 300
-            ),
+                    ? ns3Morph7Bits(
+                          delayOffset11bWw >>> 2,
+                          delayTempoMidiValue,
+                          (x) => {
+                              return fixSignature(getTempo(delayMasterClock, x, 0));
+                          },
+                          // v3.00 is different and I cannot test it, I prefer disable morph for now...
+                          true
+                      )
+                    : ns3Morph14Bits(
+                          buffer,
+                          0x11a + panelOffset,
+                          (msw, lsw) => {
+                              return fixSignature(getTempo(delayMasterClock, msw, lsw));
+                          },
+                          false
+                      ),
         },
 
         /**
@@ -247,7 +257,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
             value: converter.midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
 
             morph: ns3Morph7Bits(
-                delayOffset126dWw >>> 4,
+                delayOffset126Ww >>> 4,
                 delayFeedbackMidi,
                 (x) => {
                     return converter.midi2LinearStringValue(0, 10, x, 1, "");
@@ -281,7 +291,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
             value: converter.midi2LinearStringValue(0, 10, delayMixMidi, 1, ""),
 
             morph: ns3Morph7Bits(
-                delayOffset122dWw >>> 6,
+                delayOffset122Ww >>> 6,
                 delayMixMidi,
                 (x) => {
                     return converter.midi2LinearStringValue(0, 10, x, 1, "");

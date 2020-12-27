@@ -377,7 +377,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x011E` | `aaaaaxxx` | [(x) delay tempo morph after touch lsw](ns3-doc.md#ns3-delay-tempo)
 | `0x011F` | `xxxxcccc` | [(c) delay tempo morph control pedal](ns3-doc.md#ns3-delay-tempo)
 | `0x0120` | `ccccxxxx` | [(x) delay tempo morph control pedal lsw](ns3-doc.md#ns3-delay-tempo)
-| `0x0121` | `xxxmmmmm` | [(t) delay mix](ns3-doc.md#ns3-delay-mix)
+| `0x0121` | `xxxmmmmm` | [(m) delay mix](ns3-doc.md#ns3-delay-mix)
 | `0x0122` | `mmwwwwww` | [(w) delay mix morph wheel](ns3-doc.md#ns3-delay-mix)
 | `0x0123` | `wwaaaaaa` | [(a) delay mix morph after touch](ns3-doc.md#ns3-delay-mix)
 | `0x0124` | `aapppppp` | [(p) delay mix morph control pedal](ns3-doc.md#ns3-delay-mix)
