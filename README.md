@@ -1,5 +1,10 @@
 # ns3-program-viewer
 
+![Coverage lines](./coverage/badge-lines.svg)
+![Coverage functions](./coverage/badge-functions.svg)
+![Coverage branches](./coverage/badge-branches.svg)
+![Coverage statements](./coverage/badge-statements.svg)
+
 The unofficial Nord Stage 2/2EX/3 Program viewer tool.
 Online version: [https://ns3-program-viewer.herokuapp.com](https://ns3-program-viewer.herokuapp.com)
 

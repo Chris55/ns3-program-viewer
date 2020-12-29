@@ -8,7 +8,7 @@
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "start": "NODE_ENV=production node server.js",
         "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-        "test": "jest",
+        "test": "jest --coverage && jest-coverage-badges",
         "doc:1ns3": "jsdoc2md server/ns3/program/*.js > docs/ns3/program/ns3-doc.md",
         "doc:1ns2": "jsdoc2md server/ns2/program/*.js > docs/ns2/program/ns2-doc.md",
         "doc:1": "npm run doc:1ns3 && npm run doc:1ns2",
@@ -21,6 +21,7 @@
         "byte-size": "^7.0.0",
         "cors": "^2.8.5",
         "express": "^4.17.1",
+        "jest-coverage-badges": "^1.1.2",
         "lodash.clonedeep": "^4.5.0",
         "multer": "^1.4.2",
         "nodemon": "^2.0.4",
@@ -41,7 +42,8 @@
         "prettier": "^2.1.1",
         "showdown": "^1.9.1",
         "unzipper": "^0.10.11",
-        "xml-js": "^1.6.11"
+        "xml-js": "^1.6.11",
+        "nyc": "^15.1.0"
     },
     "keywords": [
         "Nord",
@@ -54,6 +56,11 @@
     "jest": {
         "modulePathIgnorePatterns": [
             "client"
+        ],
+        "coverageReporters": [
+            "json-summary",
+            "text",
+            "lcov"
         ]
     },
     "eslintConfig": {
