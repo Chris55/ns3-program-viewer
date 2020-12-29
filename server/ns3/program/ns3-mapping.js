@@ -310,15 +310,15 @@ exports.ns3SynthOscillator1WaveWaveTypeMap = new Map([
  * @type {Map<number, string>}
  */
 exports.ns3SynthOscillator1FormantWaveTypeMap = new Map([
-    [0, "Format Wave Aaa"],
-    [1, "Format Wave Eee"],
-    [2, "Format Wave Iii"],
-    [3, "Format Wave Ooo"],
-    [4, "Format Wave Uuu"],
-    [5, "Format Wave Yyy"],
-    [6, "Format Wave AO"],
-    [7, "Format Wave AE"],
-    [8, "Format Wave OE"],
+    [0, "Formant Wave Aaa"],
+    [1, "Formant Wave Eee"],
+    [2, "Formant Wave Iii"],
+    [3, "Formant Wave Ooo"],
+    [4, "Formant Wave Uuu"],
+    [5, "Formant Wave Yyy"],
+    [6, "Formant Wave AO"],
+    [7, "Formant Wave AE"],
+    [8, "Formant Wave OE"],
 ]);
 
 /***

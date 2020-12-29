@@ -357,24 +357,24 @@ describe("/ns3/synth/oscillators", () => {
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave Aaa", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave Aaa.ns3f";
+    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Formant Wave Aaa", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Formant Wave Aaa.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave Eee", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave Eee.ns3f";
+    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Formant Wave Eee", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Formant Wave Eee.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave OE", async () => {
-        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Format Wave OE.ns3f";
+    test("panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Formant Wave OE", async () => {
+        const file = "panelA.synth.oscillators.type.value eq Formant and panelA.synth.oscillators.waveForm1.value eq Formant Wave OE.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
