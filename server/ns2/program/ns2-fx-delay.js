@@ -1,5 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns2-mapping");
+const {ns2Morph4Bits} = require("./ns2-morph");
 const { ns2Morph7Bits } = require("./ns2-morph");
 const { ns2Morph12Bits } = require("./ns2-morph");
 const { getLinearInterpolation } = require("../../common/converter");
@@ -54,6 +55,7 @@ const getTempo = (midiValue, tapValue) => {
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
 exports.ns2Delay = (buffer, panelOffset) => {
+    const delayOffset124Ww = buffer.readUInt32BE(0x124 + panelOffset);
     const delayOffset125 = buffer.readUInt8(0x125 + panelOffset);
     const delayOffset127W = buffer.readUInt16BE(0x127 + panelOffset);
     const delayOffset12dW = buffer.readUInt16BE(0x12d + panelOffset);
@@ -65,7 +67,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
     const delayMasterClock = (delayOffset125 & 0x02) !== 0;
 
     const delayTempoTapValue = (delayOffset12dW & 0x7c00) >>> 10;
-    const delayTempoClockOffMidiValue = (delayOffset12dW & 0x03f8) >>> 3;
+    const delayTempoClockOffMidiValue = (delayOffset12dW & 0x7ff8) >>> 3;
     const delayTempoClockOnMidiValue = (delayOffset127W & 0x03c0) >>> 6;
     const delayTempoMidiValue = delayMasterClock ? delayTempoClockOnMidiValue : delayTempoClockOffMidiValue;
 
@@ -157,16 +159,14 @@ exports.ns2Delay = (buffer, panelOffset) => {
                 ? mapping.ns2DelayTempoMasterClockDivisionMap.get(delayTempoClockOnMidiValue)
                 : getTempo(delayTempoClockOffMidiValue, delayTempoTapValue),
 
-            morph: ns2Morph12Bits(
-                buffer,
-                0x12d + panelOffset,
-                (msw, lsw) => {
-                    return delayMasterClock
-                        ? mapping.ns2DelayTempoMasterClockDivisionMap.get(msw)
-                        : getTempo(msw, lsw);
-                },
-                true // morph not yet tested
-            ),
+            morph: delayMasterClock
+                ? ns2Morph4Bits(
+                      delayOffset124Ww >>> 2,
+                      delayTempoClockOnMidiValue,
+                      (x) => mapping.ns2DelayTempoMasterClockDivisionMap.get(x),
+                      false
+                  )
+                : ns2Morph12Bits(buffer, 0x128 + panelOffset, (x, tap) => getTempo(x, tap), false),
         },
 
         /**

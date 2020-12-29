@@ -24,7 +24,7 @@ exports.loadTestCase = async (filename) => {
     // decode expression from filename
 
     let basename = path.basename(filename, path.extname(filename));
-    basename = basename.replace("@a", "/");
+    basename = basename.replace(/@a/g, "/");
     basename = basename.replace("@=", "±")
     basename = basename.replace("@p", "+");
     basename = basename.replace("@c", ":");

@@ -40,19 +40,19 @@ exports.ns2Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) =>
 /***
  * returns an array of morph settings
  *
- * @param uint16Value 16-bit raw value, wheel expected to be in b14-10, after touch in b9-5, and control pedal in b4-0.
+ * @param rawMorph morph raw value, wheel expected to be in b14-10, after touch in b9-5, and control pedal in b4-0.
  * @param midiFrom 4-bit original position
  * @param labelCallBack callback method to render the value
  * @param forceDisabled optional used on dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.ns2Morph4Bits = (uint16Value, midiFrom, labelCallBack, forceDisabled) => {
+exports.ns2Morph4Bits = (rawMorph, midiFrom, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
-    rawMorphValue[0] = (uint16Value & 0x7c00) >>> 10; // wheel
-    rawMorphValue[1] = (uint16Value & 0x03e0) >>> 5; // after touch
-    rawMorphValue[2] = uint16Value & 0x001f; // control pedal
+    rawMorphValue[0] = (rawMorph & 0x7c00) >>> 10; // wheel
+    rawMorphValue[1] = (rawMorph & 0x03e0) >>> 5; // after touch
+    rawMorphValue[2] = rawMorph & 0x001f; // control pedal
 
     rawMorphValue.forEach((rawValue) => {
         const rawOffsetValue = rawValue & 0x0f;
@@ -158,20 +158,20 @@ exports.ns2Morph12Bits = (buffer, offset, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
-    const midi12FromOffset = buffer.readUInt16BE(offset);
-    const midi12From = (midi12FromOffset & 0xfffc) >>> 2;
+    const midi12FromOffset = buffer.readUInt16BE(offset + 5);
+    const midi12From = (midi12FromOffset & 0x7ff8) >>> 3;
 
-    const rawMorphWheelValue = buffer.readUInt32BE(offset + 1);
-    const rawMorphAfterTouchValue = buffer.readUInt32BE(offset + 3);
-    const rawMorphControlPedalValue = buffer.readUInt32BE(offset + 5);
-    rawMorphValue[0] = (rawMorphWheelValue & 0x03fff800) >>> 11; // wheel
-    rawMorphValue[1] = (rawMorphAfterTouchValue & 0x07fff000) >>> 12; // after touch
-    rawMorphValue[2] = (rawMorphControlPedalValue & 0x0fffe000) >>> 13; // control pedal
+    const rawMorphWheelValue = buffer.readUInt32BE(offset - 2);
+    const rawMorphAfterTouchValue = buffer.readUInt32BE(offset);
+    const rawMorphControlPedalValue = buffer.readUInt32BE(offset + 2);
+    rawMorphValue[0] = (rawMorphWheelValue & 0x3ffe) >>> 1; // wheel
+    rawMorphValue[1] = (rawMorphAfterTouchValue & 0x1fff0) >>> 4; // after touch
+    rawMorphValue[2] = (rawMorphControlPedalValue & 0xfff80) >>> 7; // control pedal
 
     rawMorphValue.forEach((rawValue) => {
-        const rawOffsetValue = rawValue & 0x3fff;
-        const polarity = (rawValue & 0x4000) !== 0;
-        const offset = polarity ? rawOffsetValue + 1 : rawOffsetValue - 4095; // 2^12 - 1
+        const rawOffsetValue = rawValue & 0x0fff;
+        const polarity = (rawValue & 0x1000) !== 0;
+        const offset = polarity ? rawOffsetValue - 4096 : rawOffsetValue;// 2^12
         let midiTo = midi12From + offset;
         if (midiTo < 0) {
             midiTo = 0;
@@ -181,8 +181,8 @@ exports.ns2Morph12Bits = (buffer, offset, labelCallBack, forceDisabled) => {
 
         result.push({
             enabled: forceDisabled ? false : offset !== 0,
-            midiTo: midiTo >>> 7,
-            lsw: midiTo & 0x007f,
+            midiTo: midiTo & 0x007f,
+            tap: midiTo >>> 7,
         });
     });
 
@@ -201,7 +201,7 @@ exports.ns2Morph12Bits = (buffer, offset, labelCallBack, forceDisabled) => {
              */
             to: {
                 midi: result[0].midiTo,
-                value: result[0].enabled ? labelCallBack(result[0].midiTo, result[0].lsw) : "none",
+                value: result[0].enabled ? labelCallBack(result[0].midiTo, result[0].tap) : "none",
             },
         },
 
@@ -219,7 +219,7 @@ exports.ns2Morph12Bits = (buffer, offset, labelCallBack, forceDisabled) => {
              */
             to: {
                 midi: result[1].midiTo,
-                value: result[1].enabled ? labelCallBack(result[1].midiTo, result[1].lsw) : "none",
+                value: result[1].enabled ? labelCallBack(result[1].midiTo, result[1].tap) : "none",
             },
         },
 
@@ -237,7 +237,7 @@ exports.ns2Morph12Bits = (buffer, offset, labelCallBack, forceDisabled) => {
              */
             to: {
                 midi: result[2].midiTo,
-                value: result[2].enabled ? labelCallBack(result[2].midiTo, result[2].lsw) : "none",
+                value: result[2].enabled ? labelCallBack(result[2].midiTo, result[2].tap) : "none",
             },
         },
     };

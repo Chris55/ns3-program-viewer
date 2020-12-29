@@ -405,6 +405,38 @@ describe("/ns2/effects", () => {
         });
     });
 
+    test("slotA.effects.delay.tempo.value eq 1@a2 and slotA.effects.delay.tempo.morph.afterTouch.to.value eq 1@a32", async () => {
+        const file = "slotA.effects.delay.tempo.value eq 1@a2 and slotA.effects.delay.tempo.morph.afterTouch.to.value eq 1@a32.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.delay.tempo.value eq 1@a32 and slotA.effects.delay.tempo.morph.controlPedal.to.value eq 1@a2", async () => {
+        const file = "slotA.effects.delay.tempo.value eq 1@a32 and slotA.effects.delay.tempo.morph.controlPedal.to.value eq 1@a2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.delay.tempo.value eq 1@a4 and slotA.effects.delay.tempo.morph.wheel.to.value eq 1@a32", async () => {
+        const file = "slotA.effects.delay.tempo.value eq 1@a4 and slotA.effects.delay.tempo.morph.wheel.to.value eq 1@a32.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.delay.tempo.value eq 1@a4", async () => {
+        const file = "slotA.effects.delay.tempo.value eq 1@a4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.effects.delay.tempo.value eq 20 ms", async () => {
         const file = "slotA.effects.delay.tempo.value eq 20 ms.ns2p";
         const sut = await loadTestCase(root + file);
