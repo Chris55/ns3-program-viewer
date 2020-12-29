@@ -8,10 +8,13 @@
 The unofficial Nord Stage 2/2EX/3 Program viewer tool.
 Online version: [https://ns3-program-viewer.herokuapp.com](https://ns3-program-viewer.herokuapp.com)
 
-Documentation:
+This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com).
+
+## Documentation
+Handmade unofficial Nord Stage 2/3 Program File Documentation:
 - [Nord Stage Program mapping](https://github.com/Chris55/ns3-program-viewer/tree/master/docs)
 
-This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com).
+
 
 ## Disclaimer
 We are not affiliated, associated, endorsed by, or in any way officially connected with Nord Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.
