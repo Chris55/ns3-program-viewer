@@ -223,7 +223,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
                 (x) => {
                     return converter.midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                true // morph not yet tested
+                false
             ),
         },
     };

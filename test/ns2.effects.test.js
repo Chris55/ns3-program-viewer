@@ -285,6 +285,14 @@ describe("/ns2/effects", () => {
         });
     });
 
+    test("slotA.effects.delay.amount.value eq 0.0 and slotA.effects.delay.amount.morph.afterTouch.to.value eq 10.0", async () => {
+        const file = "slotA.effects.delay.amount.value eq 0.0 and slotA.effects.delay.amount.morph.afterTouch.to.value eq 10.0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.effects.delay.amount.value eq 0.0", async () => {
         const file = "slotA.effects.delay.amount.value eq 0.0.ns2p";
         const sut = await loadTestCase(root + file);
@@ -293,8 +301,24 @@ describe("/ns2/effects", () => {
         });
     });
 
+    test("slotA.effects.delay.amount.value eq 10.0 and slotA.effects.delay.amount.morph.controlPedal.to.value eq 0.0", async () => {
+        const file = "slotA.effects.delay.amount.value eq 10.0 and slotA.effects.delay.amount.morph.controlPedal.to.value eq 0.0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.effects.delay.amount.value eq 10.0", async () => {
         const file = "slotA.effects.delay.amount.value eq 10.0.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.effects.delay.amount.value eq 5.0 and slotA.effects.delay.amount.morph.wheel.to.value eq 10.0", async () => {
+        const file = "slotA.effects.delay.amount.value eq 5.0 and slotA.effects.delay.amount.morph.wheel.to.value eq 10.0.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
