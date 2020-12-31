@@ -18,7 +18,7 @@ app.use(cors());
 
 app.use("/api", api);
 
-app.use("/media", express.static("upload"), serveIndex("upload", { icons: true }));
+app.use("/media", express.static("upload"), serveIndex("upload", { icons: true, view: "details" }));
 
 //console.log("env: ", JSON.stringify(process.env, null, 2));
 
@@ -48,5 +48,3 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
-
