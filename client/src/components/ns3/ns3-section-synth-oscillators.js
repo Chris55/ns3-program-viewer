@@ -50,10 +50,13 @@ export default class Ns3SectionSynthOscillators extends Component {
                                     <tr>
                                         <NordValueOnOff label="Fast Atk" data={osc.fastAttack} table={true} />
                                     </tr>
-                                    <tr>{config}</tr>
+                                    {/*<tr>*/}
+                                    {/*    <NordLabelAndValue label="Osc 1 WaveForm" data={osc.waveForm1} table={true} />*/}
+                                    {/*</tr>*/}
+                                    {/*<tr>{config}</tr>*/}
 
                                     {ctrl}
-                                    {pitch}
+                                    {/*{pitch}*/}
 
                                     <NordLabelAndValueWithMorph label={osc.modulations.label} data={lfoModEnvValue} />
                                 </tbody>

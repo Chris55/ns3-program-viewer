@@ -10,6 +10,7 @@ import Ns3SectionSynthLfo from "./ns3-section-synth-lfo";
 import NordValueOnOff from "../lib/nord-value-on-off";
 import NordLabelAndValue from "../lib/nord-label-and-value";
 import Ns3SectionSynthOscillators from "./ns3-section-synth-oscillators";
+import { Ns3SectionSynthDisplay } from "./ns3-section-synth-display";
 
 export default class Ns3SectionSynth extends Component {
     render() {
@@ -17,7 +18,8 @@ export default class Ns3SectionSynth extends Component {
         const visible = synth.enabled;
         const dimmed = synth.dimmed === true;
 
-        const presetName = synth.preset?.presetName !== synth.oscillators.waveForm1.value ? synth.preset?.presetName: "";
+        // const presetName =
+        //     synth.preset?.presetName !== synth.oscillators.waveForm1.value ? synth.preset?.presetName : "";
 
         return (
             <React.Fragment>
@@ -31,7 +33,7 @@ export default class Ns3SectionSynth extends Component {
 
                                 <div className="row no-gutters d-flex flex-wrap">
                                     <div className="row no-gutters flex-column m-1">
-                                        <div >
+                                        <div>
                                             <NordLabelAndValue label="Voice" data={synth.voice} />
                                             <span className="m-1" />
                                             <NordLabelAndValue
@@ -54,15 +56,53 @@ export default class Ns3SectionSynth extends Component {
                                             <span className="m-1" />
                                             <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />
                                         </div>
-                                        <div className="nord-name">
-                                            <div className={presetName !== "" ? "": "d-none"}>
-                                                <div className={synth.oscillators.waveForm1.valid ? "nord-font-small": ""}>
-                                                    {presetName}
-                                                </div>
+                                        {/*<div className="nord-name">*/}
+                                        {/*    <div className={presetName !== "" ? "" : "d-none"}>*/}
+                                        {/*        <div*/}
+                                        {/*            className={*/}
+                                        {/*                synth.oscillators.waveForm1.valid ? "nord-font-small" : ""*/}
+                                        {/*            }*/}
+                                        {/*        >*/}
+                                        {/*            {presetName}*/}
+                                        {/*        </div>*/}
+                                        {/*    </div>*/}
+                                        {/*    <div className={synth.oscillators.waveForm1.valid ? "" : "nord-font-small"}>*/}
+                                        {/*        {synth.oscillators.waveForm1.value}*/}
+                                        {/*    </div>*/}
+                                        {/*    <div>*/}
+                                        {/*        <small>*/}
+                                        {/*            {synth.oscillators.waveForm1.info}{" "}*/}
+                                        {/*            {synth.oscillators.waveForm1.version}*/}
+                                        {/*        </small>*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
+
+                                        <div className="ns3-lcd-synth">
+                                            <div className="nord-font-small" style={{ marginLeft: "5px" }}>
+                                                {synth.preset.userPresetLocationName} {synth.preset.presetName}
                                             </div>
-                                            <div className={synth.oscillators.waveForm1.valid ? "": "nord-font-small"}>{
-                                                synth.oscillators.waveForm1.value}</div>
-                                            <div ><small>{synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}</small></div>
+
+                                            <Ns3SectionSynthDisplay
+                                                oscType={synth.oscillators.type.value}
+                                                oscWaveForm={synth.oscillators.waveForm1}
+                                                oscConfig={synth.oscillators.config}
+                                                oscPitch={synth.oscillators.pitch}
+                                                oscControl={synth.oscillators.control}
+                                            />
+
+                                            {synth.oscillators.waveForm1.version && (
+                                                <div
+                                                    className="nord-font-small"
+                                                    style={{
+                                                        margin: "0 5px 5px 5px",
+                                                        padding: "0",
+                                                        lineHeight: "80%",
+                                                    }}
+                                                >
+                                                    {synth.oscillators.waveForm1.info}{" "}
+                                                    {synth.oscillators.waveForm1.version}
+                                                </div>
+                                            )}
                                         </div>
 
                                         <div className="row no-gutters d-flex flex-wrap">
@@ -90,7 +130,6 @@ export default class Ns3SectionSynth extends Component {
                                                 data={synth.envelopes.amplifier}
                                             />
                                         </div>
-
                                     </div>
 
                                     <Ns3Fx

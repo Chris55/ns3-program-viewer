@@ -138,8 +138,8 @@
 }
 
 .nord-name {
-    //font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;
-   //font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;
+    /*font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;*/
+    /*font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;*/
     font-size: 1rem;
     font-stretch: normal;
     font-weight: bold;
@@ -149,7 +149,23 @@
     color: white;
     /*min-width: 340px;*/
     /*max-width: 400px;*/
-    width: 290px;
+    /*width: 290px;*/
+    width: 240px;
+}
+
+.ns3-lcd-synth {
+/*font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;*/
+/*font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;*/
+    font-size: 1rem;
+    font-stretch: normal;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    background-color: #3b4047;
+    color: white;
+    /*min-width: 340px;*/
+    /*max-width: 400px;*/
+    width: 240px;
 }
 
 .nord-split {

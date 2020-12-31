@@ -51,6 +51,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     const sample = {
         valid: false,
         value: "",
+        name: "unknown",
         info: "",
         version: "",
         size: "",
@@ -62,6 +63,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     if (sampleLib instanceof Array) {
         if (clavinetModel >= 0 && clavinetModel < sampleLib.length) {
             sample.value = sampleLib[clavinetModel];
+            sample.name = sampleLib[clavinetModel];
             sample.valid = true;
         } else {
             sample.value = sampleLib[0] + " unknown variation";
@@ -69,6 +71,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     } else if (sampleLib && sampleLib.name) {
         sample.valid = true;
         sample.value = sampleLib.name;
+        sample.name = sampleLib.name;
         sample.version = sampleLib.version ? "v" + sampleLib.version : "";
         sample.info = sampleLib.info;
         sample.size = sampleLib.size ? byteSize(sampleLib.size).toString() : "";
