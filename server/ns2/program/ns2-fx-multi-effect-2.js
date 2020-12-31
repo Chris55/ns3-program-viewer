@@ -124,7 +124,7 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
          * Offset in file: 0x120 (b3-0) and 0x121 (b7-5)
          *
          * @example
-         * 7-bit value 0/127 = 0/10
+         * 7-bit value 0/127
          *
          * Morph Wheel:
          * 0x11d (b3-0) and 0x11e (b7-4)
@@ -142,7 +142,7 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
 
             value: effect2MasterClockUsed
                 ? mapping.ns2Effect1MasterClockDivisionMap.get(effect2RateMidi)
-                : converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, ""),
+                : effect2RateMidi,
 
             morph: effect2MasterClockUsed
                 ? ns2Morph4Bits(
@@ -154,7 +154,7 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
                 : ns2Morph7Bits(
                     effectOffset11dWw >>> 4,
                     effect2RateMidi,
-                    (x) => converter.midi2LinearStringValue(0, 10, x, 1, ""),
+                    (x) => x,
                     false
                 ),
         },
