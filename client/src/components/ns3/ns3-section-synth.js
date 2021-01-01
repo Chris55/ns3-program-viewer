@@ -78,10 +78,16 @@ export default class Ns3SectionSynth extends Component {
                                         {/*</div>*/}
 
                                         <div className="ns3-lcd-synth">
+                                            {synth.preset.userPreset &&
                                             <div className="nord-font-small" style={{ marginLeft: "5px" }}>
                                                 {synth.preset.userPresetLocationName} {synth.preset.presetName}
                                             </div>
-
+                                            }
+                                            {!synth.preset.userPreset &&
+                                            <div className="nord-font-small" style={{ marginLeft: "5px" }}>
+                                                {synth.preset.samplePresetLocationName} {synth.preset.presetName}
+                                            </div>
+                                            }
                                             <Ns3SectionSynthDisplay
                                                 oscType={synth.oscillators.type.value}
                                                 oscWaveForm={synth.oscillators.waveForm1}
