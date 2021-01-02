@@ -36,7 +36,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
     const pianoType = mapping.ns2PianoTypeMap.get(pianoTypeValue);
     const clavinetEnabled = pianoType === "Clavinet";
 
-    const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, global.split.enabled, (pianoOffset4c & 0xe0) >>> 5);
+    const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, global, (pianoOffset4c & 0xe0) >>> 5);
     const clavinetVariation = (pianoOffsetCeW & 0x0180) >>> 7;
     const clavinetModel = mapping.ns2PianoClavinetModelMap.get(clavinetVariation);
 

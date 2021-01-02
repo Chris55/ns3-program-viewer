@@ -74,14 +74,14 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
         return ["----", [false, false, false, false]];
     }
 
-    const zones = {
+    const splitPoints = {
         low: global.split.enabled && global.split.low.width !== "Off",
         mid: global.split.enabled && global.split.mid.width !== "Off",
         high: global.split.enabled && global.split.high.width !== "Off",
     };
 
-    if (zones.low && !zones.mid && zones.high) {
-        // when only low and high split are enabled, the middle zone corresponds to two LEDs
+    if (splitPoints.low && !splitPoints.mid && splitPoints.high) {
+        // when only low and high are enabled, the middle kb zone corresponds to two LEDs
         // "-O--" or "--O-" are invalid zones, forced to "-OO-"
         // some programs have this issue, example:
         // https://www.norduserforum.com/post132371.html?hilit=os%20older%20version#p132371
@@ -89,8 +89,8 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
         if (value === 1 || value === 2) {
             result = mapping.ns3KbZoneMap.get(5);
         }
-    } else if (!zones.low && zones.mid && !zones.high) {
-        // when only middle zone is enabled, "O---", "-O--, "--O-", and "---O" are invalid zones.
+    } else if (!splitPoints.low && splitPoints.mid && !splitPoints.high) {
+        // when only middle split point is enabled, "O---", "-O--, "--O-", and "---O" are invalid zones.
         // value is forced to "OO--" (or "--OO")
         // some programs have this issue, example:
         // https://www.norduserforum.com/viewtopic.php?t=14414
@@ -100,13 +100,13 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
         } else if (value === 2 || value === 3) {
             result = mapping.ns3KbZoneMap.get(6); // "--OO"
         }
-    } else if (zones.low && !zones.mid && !zones.high) {
-        // when only low zone is enabled, only "O---", "-OOO", and "OOOO" are valid zones.
+    } else if (splitPoints.low && !splitPoints.mid && !splitPoints.high) {
+        // when only low split point is enabled, only "O---", "-OOO", and "OOOO" are valid zones.
         if (value !== 0 && value !== 9) {
             result = mapping.ns3KbZoneMap.get(8); // "-OOO"
         }
-    } else if (!zones.low && !zones.mid && zones.high) {
-        // when only high zone is enabled, only "---O", "OOO-", and "OOOO" are valid zones.
+    } else if (!splitPoints.low && !splitPoints.mid && splitPoints.high) {
+        // when only high split point is enabled, only "---O", "OOO-", and "OOOO" are valid zones.
         if (value !== 3 && value !== 9) {
             result = mapping.ns3KbZoneMap.get(7); // "OOO-"
         }

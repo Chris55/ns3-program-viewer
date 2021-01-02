@@ -242,13 +242,20 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     ns2.slotB.organ.preset1.vibrato.mode = ns2.slotA.organ.preset1.vibrato.mode;
     ns2.slotB.organ.preset2.vibrato.enabled = ns2.slotA.organ.preset1.vibrato.enabled;
 
-    ns2.slotB.organ.preset1.percussion.volumeSoft.enabled = ns2.slotA.organ.preset1.percussion.volumeSoft.enabled;
-    ns2.slotB.organ.preset1.percussion.decayFast.enabled = ns2.slotA.organ.preset1.percussion.decayFast.enabled;
-    ns2.slotB.organ.preset1.percussion.harmonicThird.enabled = ns2.slotA.organ.preset1.percussion.harmonicThird.enabled;
+    // Again "Jonny B" shows for SlotA Percussion / Decay Fast / Harmonic Third enabled although they are disabled.
+    // I played around with these settings and it looks as if these parameters can only be set independently
+    // if the Nord is either SlotA enabled or SlotB enabled.
+    // As soon as both Slots are enabled or the Nord is in DualKB mode,
+    // then I can not change the parameters per Slot anymore.
+    // Then SlotB takes precedence, in SlotA the parameters can not be used anymore.
 
-    ns2.slotB.effects.rotarySpeaker.drive = ns2.slotA.effects.rotarySpeaker.drive;
-    ns2.slotB.effects.rotarySpeaker.stopMode = ns2.slotA.effects.rotarySpeaker.stopMode;
-    ns2.slotB.effects.rotarySpeaker.speed = ns2.slotA.effects.rotarySpeaker.speed;
+    if ((ns2.slotA.enabled && ns2.slotB.enabled) || ns2.dualKeyboard.enabled) {
+        ns2.slotA.organ.preset1.percussion.volumeSoft.enabled = ns2.slotB.organ.preset1.percussion.volumeSoft.enabled;
+        ns2.slotA.organ.preset1.percussion.decayFast.enabled = ns2.slotB.organ.preset1.percussion.decayFast.enabled;
+        ns2.slotA.organ.preset1.percussion.harmonicThird.enabled = ns2.slotB.organ.preset1.percussion.harmonicThird.enabled;
+    }
+
+    ns2.slotB.effects.rotarySpeaker = ns2.slotA.effects.rotarySpeaker;
 
     return ns2;
 };

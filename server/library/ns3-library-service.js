@@ -51,7 +51,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     const sample = {
         valid: false,
         value: "",
-        name: "unknown",
+        name: "Sample not found",
         info: "",
         version: "",
         size: "",

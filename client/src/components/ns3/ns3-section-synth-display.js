@@ -6,7 +6,7 @@ const background = "green"; // "#32322f";
 const strokeWidth = 1.5;
 const fontFamily = ""; // Helvetica, Arial";
 const fontWeight = 400;
-const fontSize = "1rem";
+const fontSize = "0.95rem";
 
 const textAlignMiddleStyle = {
     fontWeight: fontWeight,
