@@ -20,8 +20,14 @@ class App extends Component {
         this.production = process.env.NODE_ENV === "production";
 
         if (this.production) {
-            ns3Model.slotA.enabled = false;
-            ns3Model.slotB.enabled = false;
+            if (ns3Model.slotA) {
+                ns3Model.slotA.enabled = false;
+                ns3Model.slotB.enabled = false;
+            }
+            if (ns3Model.panelA) {
+                ns3Model.panelA.enabled = false;
+                ns3Model.panelA.enabled = false;
+            }
         }
         this.state = {
             loaded: false,
@@ -161,7 +167,7 @@ class App extends Component {
                                     <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
                                 </div>
 
-                                <div className="col-auto align-self-center"/>
+                                <div className="col-auto align-self-center" />
 
                                 <div className="col-auto align-self-center">
                                     <div className={this.state.loaded ? "" : "d-none"}>
