@@ -208,8 +208,8 @@ exports.ns3NordPianoLibrary = new Map([
 
     // Clavinet
 
-    //  [0x1bedfa44, {name: "Clavinet D6", info: "", version: "5.0", category: "None", size: 5894748, filename: "Clavinet D6  5.0", ext: "npno" }],
-    [0x1bedfa44, ["Clavinet D6 CA 5.0", "Clavinet D6 CB 5.0", "Clavinet D6 DA 5.0", "Clavinet D6 DB 5.0"]],
+    [0x1bedfa44, {name: ["Clavinet D6 CA 5.0", "Clavinet D6 CB 5.0", "Clavinet D6 DA 5.0", "Clavinet D6 DB 5.0"], info: "", version: "5.0", category: "None", size: 5894748, filename: "Clavinet D6  5.0", ext: "npno" }],
+    //[0x1bedfa44, ["Clavinet D6 CA 5.0", "Clavinet D6 CB 5.0", "Clavinet D6 DA 5.0", "Clavinet D6 DB 5.0"]],
 
     // Harpsichord (listed as Clav type)
 

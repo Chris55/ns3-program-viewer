@@ -105,10 +105,10 @@ exports.ns3PianoTimbreMap = new Map([
     //  Grand,     Upright,  Electric, Clav,             Digital,  Misc
     [0, ["None", "None", "None", "None", "None", "None"]],
     [1, ["Soft", "Soft", "Soft", "Soft", "Soft", "Soft"]],
-    [2, ["Mid", "Mid", "Mid", "Treble (Mid)", "Mid", "Mid"]],
-    [3, ["Bright", "Bright", "Bright", "Soft+Treble (Bright)", "Bright", "Bright"]],
-    [4, ["None", "None", "Dyno1", "Brilliant (Dyno1)", "None", "None"]],
-    [5, ["None", "None", "Dyno2", "Soft+Brill (Dyno2)", "None", "None"]],
+    [2, ["Mid", "Mid", "Mid", "Treble", "Mid", "Mid"]],
+    [3, ["Bright", "Bright", "Bright", "Soft+Treble", "Bright", "Bright"]],
+    [4, ["None", "None", "Dyno1", "Brilliant", "None", "None"]],
+    [5, ["None", "None", "Dyno2", "Soft+Brill", "None", "None"]],
     [6, ["None", "None", "None", "Treble+Brill", "None", "None"]],
     [7, ["None", "None", "None", "Soft+Trb+Brill", "None", "None"]],
 ]);

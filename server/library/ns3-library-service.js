@@ -60,14 +60,14 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     };
 
     // special clavinet multi sample case...
-    if (sampleLib instanceof Array) {
-        if (clavinetModel >= 0 && clavinetModel < sampleLib.length) {
-            sample.value = sampleLib[clavinetModel];
-            sample.name = sampleLib[clavinetModel];
+    if (sampleLib && sampleLib.name instanceof Array) {
+        if (clavinetModel >= 0 && clavinetModel < sampleLib.name.length) {
+            sample.value = sampleLib.name[clavinetModel];
             sample.valid = true;
         } else {
-            sample.value = sampleLib[0] + " unknown variation";
+            sample.value = sampleLib.name[0] + " unknown variation";
         }
+        sample.name = sample.value;
     } else if (sampleLib && sampleLib.name) {
         sample.valid = true;
         sample.value = sampleLib.name;
