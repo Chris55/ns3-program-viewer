@@ -63,9 +63,9 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         size: "",
         location: location ? location : 0,
         filename: "",
-        stringsRes: sampleLib?.acoustics?.stringsRes || false,
-        softRelease: sampleLib?.acoustics?.softRelease || false,
-        pedalNoise: sampleLib?.acoustics?.pedalNoise || false,
+        stringsRes: sampleLib && sampleLib.acoustics && sampleLib.acoustics.stringsRes,
+        softRelease: sampleLib && sampleLib.acoustics && sampleLib.acoustics.softRelease,
+        pedalNoise: sampleLib && sampleLib.acoustics && sampleLib.acoustics.pedalNoise,
     };
 
     // special clavinet multi sample case...
