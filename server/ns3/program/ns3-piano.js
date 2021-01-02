@@ -259,7 +259,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * @module NS3 Piano Soft Release
          */
         softRelease: {
-            enabled: pianoTypeValue !== 3 && pianoTypeValue !== 4 && (pianoOffset4d & 0x08) !== 0,
+            enabled: ((pianoOffset4d & 0x08) !== 0) && pianoLib.softRelease,
         },
         /**
          * Offset in file: 0x4D (b2)
@@ -272,7 +272,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * @module NS3 Piano Pedal Noise
          */
         pedalNoise: {
-            enabled: pianoTypeValue <= 2 && (pianoOffset4d & 0x02) !== 0,
+            enabled: ((pianoOffset4d & 0x02) !== 0) && pianoLib.pedalNoise,
         },
         /**
          * Offset in file: 0x4D (b3)
@@ -285,7 +285,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * @module NS3 Piano String Resonance
          */
         stringResonance: {
-            enabled: pianoTypeValue <= 1 && (pianoOffset4d & 0x04) !== 0,
+            enabled: ((pianoOffset4d & 0x04) !== 0)  && pianoLib.stringsRes,
         },
     };
 

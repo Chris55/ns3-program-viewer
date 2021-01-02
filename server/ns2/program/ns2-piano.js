@@ -201,7 +201,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          * @module NS2 Piano Long Release
          */
         longRelease: {
-            enabled: (pianoOffsetCf & 0x40) !== 0,
+            enabled: ((pianoOffsetCf & 0x40) !== 0) && pianoLib.softRelease,
         },
         /**
          * Offset in file: 0xCF (b5)
@@ -214,7 +214,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          * @module NS2 Piano String Resonance
          */
         stringResonance: {
-            enabled: (pianoOffsetCf & 0x20) !== 0,
+            enabled: ((pianoOffsetCf & 0x20) !== 0) && pianoLib.stringsRes,
         },
         /**
          * Offset in file: 0xCF (b4)
@@ -227,7 +227,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          * @module NS2 Piano Pedal Noise
          */
         pedalNoise: {
-            enabled: (pianoOffsetCf & 0x10) !== 0,
+            enabled: ((pianoOffsetCf & 0x10) !== 0) && pianoLib.pedalNoise,
         },
         /**
          * Offset in file: 0xCF (b3-2)

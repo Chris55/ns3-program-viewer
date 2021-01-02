@@ -48,6 +48,12 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         ns3NordSampleLibraryArchive.get(sampleId) ||
         ns3ProductLibraries.get(sampleId);
 
+    // note for the user manuals:
+    // String Resonance: Not applicable to the small (Sml) versions of the grand pianos and uprights, or the electric pianos.
+
+    // Long Release (NS2) / Soft Release (NS3): for Piano v5.3 or later only (but DigiGrand 1  Sml 5.2 allows the option...).
+    // Some Piano types, such as Clavinets and Harpsichords do not support the Soft Release.
+
     const sample = {
         valid: false,
         value: "",
@@ -57,6 +63,9 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         size: "",
         location: location ? location : 0,
         filename: "",
+        stringsRes: sampleLib?.acoustics?.stringsRes || false,
+        softRelease: sampleLib?.acoustics?.softRelease || false,
+        pedalNoise: sampleLib?.acoustics?.pedalNoise || false,
     };
 
     // special clavinet multi sample case...
@@ -89,5 +98,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
             sample.value = "Unknown";
         }
     }
+
+
     return sample;
 };
