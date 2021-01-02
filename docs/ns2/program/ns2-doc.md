@@ -731,7 +731,7 @@ Offset in file: 0x115 (b3-0) and 0x116 (b7-5)
 
 **Example**  
 ```js
-7-bit value 0/127 = 0/10Morph Wheel:0x112 (b3-0) and 0x113 (b7-4)Morph After Touch:0x113 (b3-0) and 0x114 (b7-4)Morph Control Pedal:0x114 (b3-0) and 0x115 (b7-4)
+7-bit value 0/127Morph Wheel:0x112 (b3-0) and 0x113 (b7-4)Morph After Touch:0x113 (b3-0) and 0x114 (b7-4)Morph Control Pedal:0x114 (b3-0) and 0x115 (b7-4)
 ```
 <a name="module_NS2 Effect 1 Master Clock"></a>
 
@@ -794,7 +794,7 @@ Offset in file: 0x120 (b3-0) and 0x121 (b7-5)
 
 **Example**  
 ```js
-7-bit value 0/127 = 0/10Morph Wheel:0x11d (b3-0) and 0x11e (b7-4)Morph After Touch:0x11e (b3-0) and 0x11f (b7-4)Morph Control Pedal:0x11f (b3-0) and 0x120 (b7-4)
+7-bit value 0/127Morph Wheel:0x11d (b3-0) and 0x11e (b7-4)Morph After Touch:0x11e (b3-0) and 0x11f (b7-4)Morph Control Pedal:0x11f (b3-0) and 0x120 (b7-4)
 ```
 <a name="module_NS2 Effect 2 Master Clock"></a>
 
@@ -1132,7 +1132,12 @@ Offset in file: 0x4C (b7-5)
 
 **Example**  
 ```js
-0 = LO1 = LO UP2 = UP3 = UP HI4 = HI5 = LO UP HI
+0 = LO
+1 = LO UP
+2 = UP
+3 = UP HI
+4 = HI
+5 = LO UP HI
 ```
 <a name="module_NS2 Piano Volume"></a>
 
@@ -1141,7 +1146,23 @@ Offset in file: 0x4B (b6-0)
 
 **Example**  
 ```js
-Morph Wheel:0x48 (b6): polarity (1 = positive, 0 = negative)0x48 (b5-b0), 0x49 (b7): 7-bit raw valueMorph After Touch:0x49 (b6): polarity (1 = positive, 0 = negative)0x49 (b5-b0), 0x4A (b7): 7-bit raw valueMorph Control Pedal:0x4A (b6): polarity (1 = positive, 0 = negative)0x4A (b5-b0), 0x4B (b7): 7-bit raw valueif polarity = 1 then Morph offset value = raw valueif polarity = 0 then Morph offset value = 128 - raw valueFinal 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
+Morph Wheel:
+0x48 (b6): polarity (1 = positive, 0 = negative)
+0x48 (b5-b0), 0x49 (b7): 7-bit raw value
+
+Morph After Touch:
+0x49 (b6): polarity (1 = positive, 0 = negative)
+0x49 (b5-b0), 0x4A (b7): 7-bit raw value
+
+Morph Control Pedal:
+0x4A (b6): polarity (1 = positive, 0 = negative)
+0x4A (b5-b0), 0x4B (b7): 7-bit raw value
+
+if polarity = 1 then Morph offset value = raw value
+if polarity = 0 then Morph offset value = 128 - raw value
+
+Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
+Morph Enabled if  'From value' <> 'Morph offset value'
 ```
 <a name="module_NS2 Piano Octave Shift"></a>
 
@@ -1231,7 +1252,9 @@ Offset in file: 0xCF (b5)
 
 **Example**  
 ```js
-O = off, 1 = onOnly on Acoustic Grand or Upright Piano
+O = off, 1 = on
+
+Only on Acoustic Grand or Upright Piano
 ```
 <a name="module_NS2 Piano Pedal Noise"></a>
 
@@ -1240,7 +1263,9 @@ Offset in file: 0xCF (b4)
 
 **Example**  
 ```js
-O = off, 1 = onOnly on Acoustic and Electric piano.
+O = off, 1 = on
+
+Only on Acoustic and Electric piano.
 ```
 <a name="module_NS2 Piano Dynamics"></a>
 
@@ -1428,7 +1453,12 @@ Offset in file: 0x51 (b6-4)
 
 **Example**  
 ```js
-0 = LO1 = LO UP2 = UP3 = UP HI4 = HI5 = LO UP HI
+0 = LO
+1 = LO UP
+2 = UP
+3 = UP HI
+4 = HI
+5 = LO UP HI
 ```
 <a name="module_NS2 Synth Volume"></a>
 
@@ -1437,7 +1467,14 @@ Offset in file: 0x50 (b5-0) and 0x51 (b7)
 
 **Example**  
 ```js
-Morph Wheel:offset in file 0x4d (b5-0) 0x4e (b7-6)Morph After Touch:offset in file 0x4e (b5-0) 0x4f (b7-6)Morph Control Pedal:offset in file 0x4f (b5-0) 0x50 (b7-6)
+Morph Wheel:
+offset in file 0x4d (b5-0) 0x4e (b7-6)
+
+Morph After Touch:
+offset in file 0x4e (b5-0) 0x4f (b7-6)
+
+Morph Control Pedal:
+offset in file 0x4f (b5-0) 0x50 (b7-6)
 ```
 <a name="module_NS2 Synth Octave Shift"></a>
 
@@ -1545,7 +1582,76 @@ Offset in file: 0xe2 (b6-0) and 0xe3 (b7-5)
 
 **Example**  
 ```js
-ID   | TRI  | SAW    | PULSE  | SAMPLE  | FM   | WAVE  |-----|------|--------|--------|---------|------|-------|O    | ---  | ---    | ---    | 1       | Sin  |  1    |1    | ShP  | ShP    | ShP    | 2       | 1 1  |  2    |2    | dtn  | dtn    | dtn    | 3       | 2 1  |  3    |3    | Snc  | Snc    | Snc    | 4       | 3 1  |  4    |4    |      |        |        | 5       | 4 1  |  5    |5    |      |        |        | 6       | 5 1  |  6    |6    |      |        |        | 7       | 6 1  |  7    |7    |      |        |        | 8       | 7 1  |  8    |8    |      |        |        | 9       | 8 1  |  9    |9    |      |        |        | 10      | 9 1  | 10    |10   |      |        |        | 11      | 1.1  | 11    |11   |      |        |        | 12      | 2.1  | 12    |12   |      |        |        | 13      | 3.1  | 13    |13   |      |        |        | 14      | 4.1  | 14    |14   |      |        |        | 15      | 5.1  | 15    |15   |      |        |        | 16      | 6.1  | 16    |16   |      |        |        | 17      | 7.1  | 17    |17   |      |        |        | 18      | 8.1  | 18    |18   |      |        |        | 19      | 9.1  | 19    |19   |      |        |        | 20      | 111  | 20    |20   |      |        |        | 21      | 211  | 21    |21   |      |        |        | 22      | 311  | 22    |22   |      |        |        | 23      | 511  | 23    |23   |      |        |        | 24      | 911  | 24    |24   |      |        |        | 25      | 221  | 25    |25   |      |        |        | 26      | 421  | 26    |26   |      |        |        | 27      | 821  | 27    |27   |      |        |        | 28      | 1.11 | 28    |28   |      |        |        | 29      | 1.21 | 29    |29   |      |        |        | 30      | 1.31 | 30    |30   |      |        |        | 31      | 1.51 | 31    |31   |      |        |        | 32      | 1.91 | 32    |32   |      |        |        | 33      | 1.12 | 33    |33   |      |        |        | 34      | 2.12 | 34    |34   |      |        |        | 35      | 3.12 | 35    |35   |      |        |        | 36      | 5.12 | 36    |36   |      |        |        | 37      | 9.12 | 37    |37   |      |        |        | 38      |      | 38    |38   |      |        |        | 39      |      | 39    |39   |      |        |        | 40      |      | 40    |40   |      |        |        | 41      |      | 41    |41   |      |        |        | 42      |      | 42    |42   |      |        |        | 43      |      | 43    |43   |      |        |        | 44      |      | 44    |44   |      |        |        | 45      |      | 45    |45   |      |        |        | 46      |      | 46    |46   |      |        |        | 47      |      | 47    |47   |      |        |        | 48      |      | 48    |48   |      |        |        | 49      |      | 49    |49   |      |        |        | 50      |      | 50    |50   |      |        |        | 51      |      | 51    |51   |      |        |        | 52      |      | 52    |52   |      |        |        | 53      |      | 53    |53   |      |        |        | 54      |      | 54    |54   |      |        |        | 55      |      | 55    |55   |      |        |        | 56      |      | 56    |56   |      |        |        | 57      |      | 57    |57   |      |        |        | 58      |      | 58    |58   |      |        |        | 59      |      | 59    |59   |      |        |        | 60      |      | 60    |60   |      |        |        | 61      |      | 61    |61   |      |        |        | 62      |      | 62    |62   |      |        |        | 63      |      | 63    |63   |      |        |        | 64      |      |       |...  |      |        |        |         |      |       |998  |      |        |        | 999     |      |       |...  |      |        |        |         |      |       |1023 |      |        |        |         |      |       |
+ID   | TRI  | SAW    | PULSE  | SAMPLE  | FM   | WAVE  |
+-----|------|--------|--------|---------|------|-------|
+O    | ---  | ---    | ---    | 1       | Sin  |  1    |
+1    | ShP  | ShP    | ShP    | 2       | 1 1  |  2    |
+2    | dtn  | dtn    | dtn    | 3       | 2 1  |  3    |
+3    | Snc  | Snc    | Snc    | 4       | 3 1  |  4    |
+4    |      |        |        | 5       | 4 1  |  5    |
+5    |      |        |        | 6       | 5 1  |  6    |
+6    |      |        |        | 7       | 6 1  |  7    |
+7    |      |        |        | 8       | 7 1  |  8    |
+8    |      |        |        | 9       | 8 1  |  9    |
+9    |      |        |        | 10      | 9 1  | 10    |
+10   |      |        |        | 11      | 1.1  | 11    |
+11   |      |        |        | 12      | 2.1  | 12    |
+12   |      |        |        | 13      | 3.1  | 13    |
+13   |      |        |        | 14      | 4.1  | 14    |
+14   |      |        |        | 15      | 5.1  | 15    |
+15   |      |        |        | 16      | 6.1  | 16    |
+16   |      |        |        | 17      | 7.1  | 17    |
+17   |      |        |        | 18      | 8.1  | 18    |
+18   |      |        |        | 19      | 9.1  | 19    |
+19   |      |        |        | 20      | 111  | 20    |
+20   |      |        |        | 21      | 211  | 21    |
+21   |      |        |        | 22      | 311  | 22    |
+22   |      |        |        | 23      | 511  | 23    |
+23   |      |        |        | 24      | 911  | 24    |
+24   |      |        |        | 25      | 221  | 25    |
+25   |      |        |        | 26      | 421  | 26    |
+26   |      |        |        | 27      | 821  | 27    |
+27   |      |        |        | 28      | 1.11 | 28    |
+28   |      |        |        | 29      | 1.21 | 29    |
+29   |      |        |        | 30      | 1.31 | 30    |
+30   |      |        |        | 31      | 1.51 | 31    |
+31   |      |        |        | 32      | 1.91 | 32    |
+32   |      |        |        | 33      | 1.12 | 33    |
+33   |      |        |        | 34      | 2.12 | 34    |
+34   |      |        |        | 35      | 3.12 | 35    |
+35   |      |        |        | 36      | 5.12 | 36    |
+36   |      |        |        | 37      | 9.12 | 37    |
+37   |      |        |        | 38      |      | 38    |
+38   |      |        |        | 39      |      | 39    |
+39   |      |        |        | 40      |      | 40    |
+40   |      |        |        | 41      |      | 41    |
+41   |      |        |        | 42      |      | 42    |
+42   |      |        |        | 43      |      | 43    |
+43   |      |        |        | 44      |      | 44    |
+44   |      |        |        | 45      |      | 45    |
+45   |      |        |        | 46      |      | 46    |
+46   |      |        |        | 47      |      | 47    |
+47   |      |        |        | 48      |      | 48    |
+48   |      |        |        | 49      |      | 49    |
+49   |      |        |        | 50      |      | 50    |
+50   |      |        |        | 51      |      | 51    |
+51   |      |        |        | 52      |      | 52    |
+52   |      |        |        | 53      |      | 53    |
+53   |      |        |        | 54      |      | 54    |
+54   |      |        |        | 55      |      | 55    |
+55   |      |        |        | 56      |      | 56    |
+56   |      |        |        | 57      |      | 57    |
+57   |      |        |        | 58      |      | 58    |
+58   |      |        |        | 59      |      | 59    |
+59   |      |        |        | 60      |      | 60    |
+60   |      |        |        | 61      |      | 61    |
+61   |      |        |        | 62      |      | 62    |
+62   |      |        |        | 63      |      | 63    |
+63   |      |        |        | 64      |      |       |
+...  |      |        |        |         |      |       |
+998  |      |        |        | 999     |      |       |
+...  |      |        |        |         |      |       |
+1023 |      |        |        |         |      |       |
 ```
 <a name="module_NS2 Synth Shape"></a>
 
@@ -1554,7 +1660,16 @@ Offset in file: 0xe6 (b4-0) and 0xe7 (7-6)
 
 **Example**  
 ```js
-0/127 value = 0 / 10Morph Wheel:Offset in file 0xe3 (b4-0) 0xe4 (b7-5)Morph After Touch:Offset in file 0xe4 (b4-0) 0xe5 (b7-5)Morph Control Pedal:Offset in file 0xe5 (b4-0) 0xe6 (b7-5)
+0/127 value = 0 / 10
+
+Morph Wheel:
+Offset in file 0xe3 (b4-0) 0xe4 (b7-5)
+
+Morph After Touch:
+Offset in file 0xe4 (b4-0) 0xe5 (b7-5)
+
+Morph Control Pedal:
+Offset in file 0xe5 (b4-0) 0xe6 (b7-5)
 ```
 <a name="module_NS2 Synth Shape Mod"></a>
 
@@ -1563,7 +1678,8 @@ Offset in file: 0xe7 (b5-0) and 0xe8 (b7)
 
 **Example**  
 ```js
-LFO from 0-63MOD ENV from 64-127
+LFO from 0-63
+MOD ENV from 64-127
 ```
 <a name="module_NS2 Synth Skip Sample Attack"></a>
 
@@ -1660,7 +1776,13 @@ Offset in file: 0xf7 (b3-2)
 ## NS2 Synth Lfo Rate
 **Example**  
 ```js
-Offset in file: 0xdc (b5-2) (if LFO MST CLOCK = ON)#include ns2SynthLfoRateMasterClockDivisionMapOffset in file: 0xf6 (b2-0) 0xf7 (b7-4) (if LFO MST CLOCK = OFF)#include ns2SynthLfoRateMap
+Offset in file: 0xdc (b5-2) (if LFO MST CLOCK = ON)
+
+#include ns2SynthLfoRateMasterClockDivisionMap
+
+Offset in file: 0xf6 (b2-0) 0xf7 (b7-4) (if LFO MST CLOCK = OFF)
+
+#include ns2SynthLfoRateMap
 ```
 <a name="module_NS2 Synth Lfo Master Clock"></a>
 
@@ -1685,7 +1807,11 @@ O = off, 1 = on
 ## NS2 Synth Arp Rate
 **Example**  
 ```js
-Offset in file: 0xda (b6-3) (if MST CLK is ON)#include ns2SynthArpMasterClockDivisionMapOffset in file: 0xda (b1-0) and 0xdb (b7-3) (if MST CLK is OFF)#include ns2SynthArpRateMap
+Offset in file: 0xda (b6-3) (if MST CLK is ON)
+#include ns2SynthArpMasterClockDivisionMap
+
+Offset in file: 0xda (b1-0) and 0xdb (b7-3) (if MST CLK is OFF)
+#include ns2SynthArpRateMap
 ```
 <a name="module_NS2 Synth Arp Master Clock"></a>
 

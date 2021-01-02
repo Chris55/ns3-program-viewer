@@ -1704,7 +1704,9 @@ Offset in file: 0x57 (b5-0) and 0x58 (b7-4)
 
 **Example**  
 ```js
-Preset location:0-399:   user preset400-799: sample preset
+Preset location:
+0-399:   user preset
+400-799: sample preset
 ```
 <a name="module_NS3 Synth Preset Name"></a>
 
@@ -1713,5 +1715,14 @@ Offset in file: 0x58 (b3-0) to 0x6E (b7-4)
 
 **Example**  
 ```js
-User Preset names are limited to 16 characters,Sample Preset name are up to 22 characters.character 1: ((offset + 3) & 0xff) + 1character 2: (offset + 2) & 0xffcharacter 3: (offset + 1) & 0xffcharacter 4: (offset + 0) & 0x7fcharacter 5: ((offset + 3 + 4) & 0xff) + 1character 6: (offset + 2 + 4) & 0xff. . .
+User Preset names are limited to 16 characters,
+Sample Preset name are up to 22 characters.
+
+character 1: ((offset + 3) & 0xff) + 1
+character 2: (offset + 2) & 0xff
+character 3: (offset + 1) & 0xff
+character 4: (offset + 0) & 0x7f
+character 5: ((offset + 3 + 4) & 0xff) + 1
+character 6: (offset + 2 + 4) & 0xff
+. . .
 ```
