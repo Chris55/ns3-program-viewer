@@ -26,7 +26,7 @@ class App extends Component {
             }
             if (ns3Model.panelA) {
                 ns3Model.panelA.enabled = false;
-                ns3Model.panelA.enabled = false;
+                ns3Model.panelB.enabled = false;
             }
         }
         this.state = {
