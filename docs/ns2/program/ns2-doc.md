@@ -1132,12 +1132,7 @@ Offset in file: 0x4C (b7-5)
 
 **Example**  
 ```js
-0 = LO
-1 = LO UP
-2 = UP
-3 = UP HI
-4 = HI
-5 = LO UP HI
+0 = LO1 = LO UP2 = UP3 = UP HI4 = HI5 = LO UP HI
 ```
 <a name="module_NS2 Piano Volume"></a>
 
@@ -1146,23 +1141,7 @@ Offset in file: 0x4B (b6-0)
 
 **Example**  
 ```js
-Morph Wheel:
-0x48 (b6): polarity (1 = positive, 0 = negative)
-0x48 (b5-b0), 0x49 (b7): 7-bit raw value
-
-Morph After Touch:
-0x49 (b6): polarity (1 = positive, 0 = negative)
-0x49 (b5-b0), 0x4A (b7): 7-bit raw value
-
-Morph Control Pedal:
-0x4A (b6): polarity (1 = positive, 0 = negative)
-0x4A (b5-b0), 0x4B (b7): 7-bit raw value
-
-if polarity = 1 then Morph offset value = raw value
-if polarity = 0 then Morph offset value = 128 - raw value
-
-Final 'To' Morph value = 'From value (original volume)' + 'Morph offset value'
-Morph Enabled if  'From value' <> 'Morph offset value'
+Morph Wheel:0x48 (b6): polarity (1 = positive, 0 = negative)0x48 (b5-b0), 0x49 (b7): 7-bit raw valueMorph After Touch:0x49 (b6): polarity (1 = positive, 0 = negative)0x49 (b5-b0), 0x4A (b7): 7-bit raw valueMorph Control Pedal:0x4A (b6): polarity (1 = positive, 0 = negative)0x4A (b5-b0), 0x4B (b7): 7-bit raw valueif polarity = 1 then Morph offset value = raw valueif polarity = 0 then Morph offset value = 128 - raw valueFinal 'To' Morph value = 'From value (original volume)' + 'Morph offset value'Morph Enabled if  'From value' <> 'Morph offset value'
 ```
 <a name="module_NS2 Piano Octave Shift"></a>
 
@@ -1252,9 +1231,7 @@ Offset in file: 0xCF (b5)
 
 **Example**  
 ```js
-O = off, 1 = on
-
-Only on Acoustic Grand or Upright Piano
+O = off, 1 = onOnly on Acoustic Grand or Upright Piano
 ```
 <a name="module_NS2 Piano Pedal Noise"></a>
 
@@ -1263,9 +1240,7 @@ Offset in file: 0xCF (b4)
 
 **Example**  
 ```js
-O = off, 1 = on
-
-Only on Acoustic and Electric piano.
+O = off, 1 = onOnly on Acoustic and Electric piano.
 ```
 <a name="module_NS2 Piano Dynamics"></a>
 
