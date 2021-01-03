@@ -89,5 +89,8 @@
             "client/**/*.js"
         ]
     },
-    "prettier": {}
+    "prettier": {},
+    "engines": {
+        "node": "14.x"
+    }
 }
