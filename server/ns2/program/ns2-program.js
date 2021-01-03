@@ -242,7 +242,15 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     ns2.slotB.organ.preset1.vibrato.mode = ns2.slotA.organ.preset1.vibrato.mode;
     ns2.slotB.organ.preset2.vibrato.enabled = ns2.slotA.organ.preset1.vibrato.enabled;
 
-    // ???
+    ns2.slotB.organ.preset1.percussion.volumeSoft.enabled = ns2.slotA.organ.preset1.percussion.volumeSoft.enabled;
+    ns2.slotB.organ.preset1.percussion.decayFast.enabled = ns2.slotA.organ.preset1.percussion.decayFast.enabled;
+    ns2.slotB.organ.preset1.percussion.harmonicThird.enabled = ns2.slotA.organ.preset1.percussion.harmonicThird.enabled;
+
+    // NS2 User Manual:
+    // The percussion can be used on Slot A or on Slot B provided that
+    // both slots are not active at the same time in a layer or split key- board configuration.
+    // If you use a layer or a split, then percussion will only be available on Slot B.
+    //
     // "Jonny B" shows for SlotA Percussion / Decay Fast / Harmonic Third enabled although they are disabled.
     // I played around with these settings and it looks as if these parameters can only be set independently
     // if the Nord is either SlotA enabled or SlotB enabled.
@@ -250,11 +258,13 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     // then I can not change the parameters per Slot anymore.
     // Then SlotB takes precedence, in SlotA the parameters can not be used anymore.
 
-    //if ((ns2.slotA.enabled && ns2.slotB.enabled) || ns2.dualKeyboard.enabled) {
-        ns2.slotB.organ.preset1.percussion.volumeSoft.enabled = ns2.slotA.organ.preset1.percussion.volumeSoft.enabled;
-        ns2.slotB.organ.preset1.percussion.decayFast.enabled = ns2.slotA.organ.preset1.percussion.decayFast.enabled;
-        ns2.slotB.organ.preset1.percussion.harmonicThird.enabled = ns2.slotA.organ.preset1.percussion.harmonicThird.enabled;
-    //}
+    if ((ns2.slotA.enabled && ns2.slotB.enabled) || ns2.dualKeyboard.enabled) {
+        ns2.slotA.organ.preset1.percussion.enabled = false;
+        ns2.slotA.organ.preset1.percussion.volumeSoft.enabled = false;
+        ns2.slotA.organ.preset1.percussion.decayFast.enabled = false;
+        ns2.slotA.organ.preset1.percussion.harmonicThird.enabled = false;
+        ns2.slotA.organ.preset2.percussion.enabled = false;
+    }
 
     ns2.slotB.effects.rotarySpeaker = ns2.slotA.effects.rotarySpeaker;
 
