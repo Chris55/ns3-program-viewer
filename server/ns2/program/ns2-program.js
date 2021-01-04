@@ -258,7 +258,8 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     // Then SlotB takes precedence, in SlotA the parameters can not be used anymore.
 
     if ((ns2.slotA.enabled && ns2.slotB.enabled) || ns2.dualKeyboard.enabled) {
-        if (ns2.slotB.organ.preset1.percussion.enabled || ns2.slotB.organ.preset2.percussion.enabled) {
+       // if (ns2.slotB.organ.preset1.percussion.enabled || ns2.slotB.organ.preset2.percussion.enabled) {
+        if (ns2.slotA.organ.enabled && ns2.slotB.organ.enabled) {
             ns2.slotA.organ.preset1.percussion.enabled = false;
             ns2.slotA.organ.preset1.percussion.volumeSoft.enabled = false;
             ns2.slotA.organ.preset1.percussion.decayFast.enabled = false;
