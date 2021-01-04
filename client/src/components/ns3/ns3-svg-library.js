@@ -27,7 +27,7 @@ const linearConverter = function (value, minFrom, maxFrom, minTo, maxTo) {
 };
 
 const getKnobPosition = (x, y, radius, engValue, engMin, engMax) => {
-    const deg = linearConverter(engValue, engMin, engMax, 135, 405);
+    const deg = linearConverter(engValue, engMin, engMax, 145, 395);
     const rad = (deg * Math.PI) / 180;
     const x1 = x;
     const y1 = y;
