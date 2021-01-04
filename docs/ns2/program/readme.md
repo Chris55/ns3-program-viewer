@@ -265,14 +265,14 @@ This mapping corresponds to the Nord Stage 2 program file (file extension ns2p).
 | `0x0101` | `waaaaaaa` | [(a) extern midi cc morph after touch](ns2-doc.md#ns2-extern-midi-cc)
 | `0x0102` | `appppppp` | [(p) extern midi cc morph control pedal](ns2-doc.md#ns2-extern-midi-cc)
 | `0x0103` | `pccccccc` | [(c) extern midi cc](ns2-doc.md#ns2-extern-midi-cc)
-| `0x0104` | `--------` |
+| `0x0104` | `o-------` | [(o) extern midi cc on](ns2-doc.md#ns2-extern-midi-cc-on)
 | `0x0105` | `--------` |
 | `0x0106` | `-vvvvvvv` | [(v) extern midi program](ns2-doc.md#ns2-extern-midi-program)
-| `0x0107` | `-------w` | [(w) extern volume morph wheel](ns2-doc.md#ns2-extern-volume)
+| `0x0107` | `o------w` | [(o) extern midi program on](ns2-doc.md#ns2-extern-midi-program-on), [(w) extern volume morph wheel](ns2-doc.md#ns2-extern-volume)
 | `0x0108` | `wwwwwwwa` | [(a) extern volume morph after touch](ns2-doc.md#ns2-extern-volume)
 | `0x0109` | `aaaaaaap` | [(p) extern volume morph control pedal](ns2-doc.md#ns2-extern-volume)
 | `0x010A` | `pppppppv` | [(v) extern volume](ns2-doc.md#ns2-extern-volume)
-| `0x010B` | `vvvvvv--` |
+| `0x010B` | `vvvvvvo-` | [(o) extern midi volume on](ns2-doc.md#ns2-extern-midi-volume-on)
 | `0x010C` | `--------` |
 | `0x010D` | `--------` |
 | `0x010E` | `--------` |

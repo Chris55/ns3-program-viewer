@@ -32,15 +32,25 @@ export default class Ns2SectionExtern extends Component {
                                                         table={true}
                                                     />
                                                 </tr>
-                                                <NordLabelAndValueWithMorph label="Volume" data={extern.volume} />
-                                                <tr>
+
+                                                <NordLabelAndValueWithMorph
+                                                    enabled={extern.volume.enabled}
+                                                    label="Volume"
+                                                    data={extern.volume}
+                                                />
+
+                                                <tr className={extern.program.enabled ? "": "nord-off"}>
                                                     <NordLabelAndValue
                                                         label="Program"
                                                         data={extern.program}
                                                         table={true}
                                                     />
                                                 </tr>
-                                                <NordLabelAndValueWithMorph label="Midi CC" data={extern.midiCc} />
+                                                <NordLabelAndValueWithMorph
+                                                    enabled={extern.midiCc.enabled}
+                                                    label="Midi CC"
+                                                    data={extern.midiCc}
+                                                />
                                             </tbody>
                                         </table>
                                     </div>

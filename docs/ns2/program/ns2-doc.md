@@ -19,11 +19,20 @@
 <dt><a href="#module_NS2 Extern Midi Control">NS2 Extern Midi Control</a></dt>
 <dd><p>Offset in file: 0xff (b7-6)</p>
 </dd>
+<dt><a href="#module_NS2 Extern Midi CC On">NS2 Extern Midi CC On</a></dt>
+<dd><p>Offset in file: 0x104 (b7)</p>
+</dd>
 <dt><a href="#module_NS2 Extern Midi CC">NS2 Extern Midi CC</a></dt>
 <dd><p>Offset in file: 0x103 (b6-0)</p>
 </dd>
+<dt><a href="#module_NS2 Extern Midi Program On">NS2 Extern Midi Program On</a></dt>
+<dd><p>Offset in file: 0x107 (b7)</p>
+</dd>
 <dt><a href="#module_NS2 Extern Midi Program">NS2 Extern Midi Program</a></dt>
 <dd><p>Offset in file: 0x106 (b6-0)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Volume On">NS2 Extern Midi Volume On</a></dt>
+<dd><p>Offset in file: 0x10b (b1)</p>
 </dd>
 <dt><a href="#module_NS2 Extern Volume">NS2 Extern Volume</a></dt>
 <dd><p>Offset in file: 0x10a (b0) and 0x10b (b7-2)</p>
@@ -481,6 +490,15 @@ Offset in file: 0xff (b7-6)
 ```js
 #include ns2ExternControlMap
 ```
+<a name="module_NS2 Extern Midi CC On"></a>
+
+## NS2 Extern Midi CC On
+Offset in file: 0x104 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_NS2 Extern Midi CC"></a>
 
 ## NS2 Extern Midi CC
@@ -490,6 +508,15 @@ Offset in file: 0x103 (b6-0)
 ```js
 7-bit value = 0/127EXTERN MIDI CC Morph WHEELoffset in file 0x100 (b6-0) and 0x101 (b7)EXTERN MIDI CC Morph AToffset in file 0x101 (b6-0) and 0x102 (b7)EXTERN MIDI CC Morph CONTROL PEDALoffset in file 0x102 (b6-0) and 0x103 (b7)
 ```
+<a name="module_NS2 Extern Midi Program On"></a>
+
+## NS2 Extern Midi Program On
+Offset in file: 0x107 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_NS2 Extern Midi Program"></a>
 
 ## NS2 Extern Midi Program
@@ -498,6 +525,15 @@ Offset in file: 0x106 (b6-0)
 **Example**  
 ```js
 O7-bit value = 1 to 128 (no morph)
+```
+<a name="module_NS2 Extern Midi Volume On"></a>
+
+## NS2 Extern Midi Volume On
+Offset in file: 0x10b (b1)
+
+**Example**  
+```js
+O = off, 1 = on
 ```
 <a name="module_NS2 Extern Volume"></a>
 

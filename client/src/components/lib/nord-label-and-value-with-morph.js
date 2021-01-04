@@ -11,9 +11,14 @@ export default class NordLabelAndValueWithMorph extends Component {
             data.morph &&
             (data.morph.wheel.enabled || data.morph.afterTouch.enabled || data.morph.controlPedal.enabled);
 
+        const enabled = this.props.enabled === undefined
+            ? ""
+            : this.props.enabled === true
+                ? "nord-on"
+                : "nord-off";
         return (
             <>
-                <tr>
+                <tr className={enabled}>
                     <td className="nord-label">
                         <NordLabel label={this.props.label} />
                     </td>

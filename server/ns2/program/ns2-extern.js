@@ -19,8 +19,11 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
     const externOffsetFf = buffer.readUInt8(0xff + panelOffset);
 
     const externOffset103 = buffer.readUInt8(0x103 + panelOffset);
+    const externOffset104 = buffer.readUInt8(0x104 + panelOffset);
     const externOffset106 = buffer.readUInt8(0x106 + panelOffset);
+    const externOffset107 = buffer.readUInt8(0x107 + panelOffset);
     const externOffset10aW = buffer.readUInt16BE(0x10a + panelOffset);
+    const externOffset10b = buffer.readUInt8(0x10b + panelOffset);
 
     const externOffset100Ww = buffer.readUInt32BE(0x100 + panelOffset);
     const externOffset107Ww = buffer.readUInt32BE(0x107 + panelOffset);
@@ -102,6 +105,15 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
 
         midiCc: {
             /**
+             * Offset in file: 0x104 (b7)
+             *
+             * @example
+             * O = off, 1 = on
+             *
+             * @module NS2 Extern Midi CC On
+             */
+            enabled: (externOffset104 & 0x80) !== 0,
+            /**
              * Offset in file: 0x103 (b6-0)
              *
              * @example
@@ -133,6 +145,16 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
 
         program: {
             /**
+             * Offset in file: 0x107 (b7)
+             *
+             * @example
+             * O = off, 1 = on
+             *
+             * @module NS2 Extern Midi Program On
+             */
+            enabled: (externOffset107 & 0x80) !== 0,
+
+            /**
              * Offset in file: 0x106 (b6-0)
              *
              * @example
@@ -145,6 +167,16 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
         },
 
         volume: {
+            /**
+             * Offset in file: 0x10b (b1)
+             *
+             * @example
+             * O = off, 1 = on
+             *
+             * @module NS2 Extern Midi Volume On
+             */
+            enabled: (externOffset10b & 0x02) !== 0,
+
             /**
              * Offset in file: 0x10a (b0) and 0x10b (b7-2)
              *

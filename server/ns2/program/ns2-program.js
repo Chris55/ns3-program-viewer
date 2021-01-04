@@ -1,10 +1,10 @@
 const path = require("path");
 const mapping = require("./ns2-mapping");
 const mapping3 = require("../../ns3/program/ns3-mapping");
-const {ns2Reverb} = require("./ns2-fx-reverb");
-const {ns2Compressor} = require("./ns2-fx-compressor");
-const {zeroPad} = require("../../common/converter");
-const {programCategoryMap} = require("../../common/nord-mapping");
+const { ns2Reverb } = require("./ns2-fx-reverb");
+const { ns2Compressor } = require("./ns2-fx-compressor");
+const { zeroPad } = require("../../common/converter");
+const { programCategoryMap } = require("../../common/nord-mapping");
 const { ns2Slot } = require("./ns2-slot");
 const { nordFileExtMap } = require("../../common/nord-mapping");
 const { getVersion } = require("../../common/converter");
@@ -39,7 +39,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
 
     const bankValue = buffer.readUInt8(0x0c) & 0x03;
     const locationValue = buffer.readUInt8(0x0e) & 0x7f;
-    const locationDigit1 = (Math.trunc(locationValue / 5) + 1); // * 10;
+    const locationDigit1 = Math.trunc(locationValue / 5) + 1; // * 10;
     const locationDigit2 = (locationValue % 5) + 1;
     const programLocation = {
         bank: bankValue,
@@ -61,7 +61,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         majorVersion: majorVersion,
         minorVersion: 0,
         value: majorVersion.toString(),
-    }
+    };
 
     /**
      * Offset in file: 0x04
@@ -155,7 +155,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const split = {
         enabled: splitEnabled,
         low: {
-            note: splitEnabled  ? mapping.ns2SplitNoteMap.get(splitLowNote) : "--",
+            note: splitEnabled ? mapping.ns2SplitNoteMap.get(splitLowNote) : "--",
         },
         high: {
             note: splitEnabled && split3Zones ? mapping.ns2SplitNoteMap.get(splitHighNote) : "--",
@@ -215,7 +215,6 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         // program location
         id: programLocation,
 
-
         /**
          * Offset in file: 0x10
          *
@@ -259,11 +258,13 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     // Then SlotB takes precedence, in SlotA the parameters can not be used anymore.
 
     if ((ns2.slotA.enabled && ns2.slotB.enabled) || ns2.dualKeyboard.enabled) {
-        ns2.slotA.organ.preset1.percussion.enabled = false;
-        ns2.slotA.organ.preset1.percussion.volumeSoft.enabled = false;
-        ns2.slotA.organ.preset1.percussion.decayFast.enabled = false;
-        ns2.slotA.organ.preset1.percussion.harmonicThird.enabled = false;
-        ns2.slotA.organ.preset2.percussion.enabled = false;
+        if (ns2.slotB.organ.preset1.percussion.enabled || ns2.slotB.organ.preset2.percussion.enabled) {
+            ns2.slotA.organ.preset1.percussion.enabled = false;
+            ns2.slotA.organ.preset1.percussion.volumeSoft.enabled = false;
+            ns2.slotA.organ.preset1.percussion.decayFast.enabled = false;
+            ns2.slotA.organ.preset1.percussion.harmonicThird.enabled = false;
+            ns2.slotA.organ.preset2.percussion.enabled = false;
+        }
     }
 
     ns2.slotB.effects.rotarySpeaker = ns2.slotA.effects.rotarySpeaker;

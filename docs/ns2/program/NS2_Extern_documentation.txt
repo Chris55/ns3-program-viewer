@@ -82,3 +82,18 @@ offset in file 0x108 (b0) and 0x109 (b7-1)
 
 EXTERN VOLUME Morph CONTROL PEDAL
 offset in file 0x109 (b0) and 0x10a (b7-1)
+
+EXTERN MIDI CC ENABLE
+offset in file 0x104 (b7)
+0 = OFF
+1 = ON
+
+EXTERN PROG CHANGE ENABLE
+offset in file 0x107 (b7)
+0 = OFF
+1 = ON
+
+EXTERN VOLUME ENABLE
+offset in file 0x10b (b1)
+0 = OFF
+1 = ON
