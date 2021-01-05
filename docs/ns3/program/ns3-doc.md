@@ -287,6 +287,15 @@
 <dt><a href="#module_NS3 Dual Keyboard Style">NS3 Dual Keyboard Style</a></dt>
 <dd><p>Offset in file 0x3A (b1-0)</p>
 </dd>
+<dt><a href="#module_NS3 Program Output Main">NS3 Program Output Main</a></dt>
+<dd><p>Offset in file 0x144 (b7-5)</p>
+</dd>
+<dt><a href="#module_NS3 Program Output Sub Source">NS3 Program Output Sub Source</a></dt>
+<dd><p>Offset in file 0x144 (b4-3)</p>
+</dd>
+<dt><a href="#module_NS3 Program Output Sub Destination">NS3 Program Output Sub Destination</a></dt>
+<dd><p>Offset in file 0x144 (b2-1)</p>
+</dd>
 <dt><a href="#module_NS3 Program Category">NS3 Program Category</a></dt>
 <dd><p>Offset in file: 0x10</p>
 </dd>
@@ -1288,6 +1297,33 @@ Offset in file 0x3A (b1-0)
 **Example**  
 ```js
 0 = Panel1 = Organ2 = Piano3 = Synth
+```
+<a name="module_NS3 Program Output Main"></a>
+
+## NS3 Program Output Main
+Offset in file 0x144 (b7-5)
+
+**Example**  
+```js
+0 = 1-21 = 3-42 = 33 = 44 = 1-4
+```
+<a name="module_NS3 Program Output Sub Source"></a>
+
+## NS3 Program Output Sub Source
+Offset in file 0x144 (b4-3)
+
+**Example**  
+```js
+0 = Off1 = Organ2 = Piano3 = Synth
+```
+<a name="module_NS3 Program Output Sub Destination"></a>
+
+## NS3 Program Output Sub Destination
+Offset in file 0x144 (b2-1)
+
+**Example**  
+```js
+0 = 1-21 = 3-42 = 33 = 4
 ```
 <a name="module_NS3 Program Category"></a>
 

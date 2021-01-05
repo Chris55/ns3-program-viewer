@@ -6,6 +6,7 @@ import Ns3SectionSynth from "./ns3-section-synth";
 import Ns3FxCompressor from "./ns3-fx-compressor";
 import Ns3FxReverb from "./ns3-fx-reverb";
 import Ns3SectionExtern from "./ns3-section-extern";
+import Ns3Output from "./ns3-output";
 
 export default class Ns3Panel extends Component {
     render() {
@@ -46,13 +47,19 @@ export default class Ns3Panel extends Component {
                             <Ns3FxCompressor
                                 className="ns3-section-main-fx"
                                 data={data.effects.compressor}
-                                other={data.effects.reverb.enabled}
+                                other={false}
                             />
                             <Ns3FxReverb
                                 className="ns3-section-main-fx"
                                 data={data.effects.reverb}
-                                other={data.effects.compressor.enabled}
+                                other={false}
                             />
+                            {/*<Ns3Output*/}
+                            {/*    className="ns3-section-main-fx"*/}
+                            {/*    data={data.output}*/}
+                            {/*    other={false}*/}
+                            {/*    // other={data.effects.reverb.enabled || data.effects.compressor.enabled}*/}
+                            {/*/>*/}
                         </div>
                     </div>
                 </div>

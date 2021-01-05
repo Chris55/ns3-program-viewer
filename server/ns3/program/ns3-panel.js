@@ -1,3 +1,4 @@
+const mapping = require("./ns3-mapping");
 const { ns3AmpSimEq } = require("./ns3-fx-amp-sim-eq");
 const { ns3Compressor } = require("./ns3-fx-compressor");
 const { ns3Delay } = require("./ns3-fx-delay");
@@ -22,6 +23,7 @@ const { ns3Organ } = require("./ns3-organ");
 
 exports.ns3Panel = function (buffer, id, versionOffset, global) {
     const panelOffset31 = buffer.readUInt8(0x31 + versionOffset);
+    const offset144 = buffer.readUInt8(0x144 + versionOffset);
 
     /**
      * Offset in file 0x31
@@ -52,6 +54,54 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
 
     const panelOffset = id * 263 + versionOffset;
 
+    const output = {
+        /**
+         * Offset in file 0x144 (b7-5)
+         *
+         * @example
+         * 0 = 1-2
+         * 1 = 3-4
+         * 2 = 3
+         * 3 = 4
+         * 4 = 1-4
+         *
+         * @module NS3 Program Output Main
+         */
+        main: {
+            value: mapping.ns3ProgramOutputMap.get((offset144 & 0xe0) >>> 5),
+        },
+
+        /**
+         * Offset in file 0x144 (b4-3)
+         *
+         * @example
+         * 0 = Off
+         * 1 = Organ
+         * 2 = Piano
+         * 3 = Synth
+         *
+         * @module NS3 Program Output Sub Source
+         */
+        subSource: {
+            value: mapping.ns3ProgramOutputSourceMap.get((offset144 & 0x18) >>> 3),
+        },
+
+        /**
+         * Offset in file 0x144 (b2-1)
+         *
+         * @example
+         * 0 = 1-2
+         * 1 = 3-4
+         * 2 = 3
+         * 3 = 4
+         *
+         * @module NS3 Program Output Sub Destination
+         */
+        subDestination: {
+            value: mapping.ns3ProgramOutputMap.get((offset144 & 0x06) >>> 1),
+        },
+    };
+
     return {
         enabled: panelEnabled,
         organ: ns3Organ(buffer, id, panelOffset, global),
@@ -67,5 +117,6 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
             compressor: ns3Compressor(buffer, panelOffset),
             reverb: ns3Reverb(buffer, panelOffset),
         },
+        output: output,
     };
 };

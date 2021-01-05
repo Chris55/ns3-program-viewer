@@ -297,6 +297,8 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         value: mapping.ns3DualKeyboardStyleMap.get(offset3a & 0x03),
     };
 
+
+
     const ext = path.extname(filename).substr(1);
 
     const global = {

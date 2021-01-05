@@ -412,7 +412,7 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x0141` | `--------` |
 | `0x0142` | `--------` |
 | `0x0143` | `--------` |
-| `0x0144` | `--------` |
+| `0x0144` | `mmmssdd-` | [(m) program output main](ns3-doc.md#ns3-program-output-main), [(s) program output sub source](ns3-doc.md#ns3-program-output-sub-source), [(d) program output sub destination](ns3-doc.md#ns3-program-output-sub-destination)
 | `0x0145` | `--------` |
 | `0x0146` | `--------` |
 | `0x0147` | `--------` |

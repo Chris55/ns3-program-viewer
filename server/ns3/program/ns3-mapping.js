@@ -2555,3 +2555,26 @@ exports.ns3SynthModulation120Map = new Map([
     [119, "9.8"],
     [120, "10.0"],
 ]);
+
+/***
+ * Program Output Map
+ * @type {Map<number, string>}
+ */
+exports.ns3ProgramOutputMap = new Map([
+    [0, "1-2"],
+    [1, "3-4"],
+    [2, "3"],
+    [3, "4"],
+    [4, "1-4"],
+]);
+
+/***
+ * Program Output Source Map
+ * @type {Map<number, string>}
+ */
+exports.ns3ProgramOutputSourceMap = new Map([
+    [0, "Off"],
+    [1, "Organ"],
+    [2, "Piano"],
+    [3, "Synth"],
+]);
