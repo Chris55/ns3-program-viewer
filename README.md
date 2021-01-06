@@ -1,7 +1,6 @@
 # ns3-program-viewer
 
 ![Build](https://travis-ci.com/Chris55/ns3-program-viewer.svg?branch=master)
-
 ![Coverage lines](./coverage/badge-lines.svg)
 ![Coverage functions](./coverage/badge-functions.svg)
 ![Coverage branches](./coverage/badge-branches.svg)
