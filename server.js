@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
-const api = require("./server/routes/api.routes");
+const api = require("./client/public/server/routes/api.routes");
 const serveIndex = require("serve-index");
 
 const app = express();

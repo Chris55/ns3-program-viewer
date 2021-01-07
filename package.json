@@ -1,21 +1,5 @@
 {
-    "name": "ns-file-parser",
-    "version": "1.0.0",
-    "description": "Nord Stage file parser",
-    "scripts": {
-        "client": "cd client && yarn start",
-        "server": "nodemon server.js",
-        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-        "start": "NODE_ENV=production node server.js",
-        "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-        "test": "jest --coverage && jest-coverage-badges",
-        "doc:1ns3": "jsdoc2md server/ns3/program/*.js > docs/ns3/program/ns3-doc.md",
-        "doc:1ns2": "jsdoc2md server/ns2/program/*.js > docs/ns2/program/ns2-doc.md",
-        "doc:1": "npm run doc:1ns3 && npm run doc:1ns2",
-        "doc:2": "node ./automation/docs/build-doc.js",
-        "doc:3": "pandoc ./docs/ns3/program/header.yaml ./automation/docs/out/*.md -s -o ./docs/nord-mapping.pdf --css=./../pandoc2.css -V geometry:margin=2cm -V geometry:a4paper -V linkcolor:blue",
-        "doc": "npm run doc:1 && npm run doc:2 && npm run doc:3"
-    },
+    "author": "Christian Florentz (christian.florentz@gmail.com)",
     "dependencies": {
         "body-parser": "^1.18.3",
         "byte-size": "^7.0.0",
@@ -26,6 +10,7 @@
         "serve-index": "^1.9.1",
         "uuid": "^8.3.0"
     },
+    "description": "Nord Stage file parser",
     "devDependencies": {
         "@types/jest": "^26.0.10",
         "better-docs": "^2.3.1",
@@ -44,23 +29,8 @@
         "unzipper": "^0.10.11",
         "xml-js": "^1.6.11"
     },
-    "keywords": [
-        "Nord",
-        "Stage",
-        "NS3",
-        "File"
-    ],
-    "author": "Christian Florentz (christian.florentz@gmail.com)",
-    "license": "MIT",
-    "jest": {
-        "modulePathIgnorePatterns": [
-            "client"
-        ],
-        "coverageReporters": [
-            "json-summary",
-            "text",
-            "lcov"
-        ]
+    "engines": {
+        "node": "14.x"
     },
     "eslintConfig": {
         "root": true,
@@ -89,8 +59,38 @@
             "client/**/*.js"
         ]
     },
+    "jest": {
+        "modulePathIgnorePatterns": [
+            "client"
+        ],
+        "coverageReporters": [
+            "json-summary",
+            "text",
+            "lcov"
+        ]
+    },
+    "keywords": [
+        "Nord",
+        "Stage",
+        "NS3",
+        "File"
+    ],
+    "license": "MIT",
+    "name": "ns-file-parser",
     "prettier": {},
-    "engines": {
-        "node": "14.x"
-    }
+    "scripts": {
+        "client": "cd client && yarn start",
+        "server": "nodemon server.js",
+        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+        "start": "NODE_ENV=production node server.js",
+        "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+        "test": "jest --coverage && jest-coverage-badges",
+        "doc:1ns3": "jsdoc2md client/public/server/ns3/program/*.js > docs/ns3/program/ns3-doc.md",
+        "doc:1ns2": "jsdoc2md client/public/server/ns2/program/*.js > docs/ns2/program/ns2-doc.md",
+        "doc:1": "npm run doc:1ns3 && npm run doc:1ns2",
+        "doc:2": "node ./automation/docs/build-doc.js",
+        "doc:3": "pandoc ./docs/ns3/program/header.yaml ./automation/docs/out/*.md -s -o ./docs/nord-mapping.pdf --css=./../pandoc2.css -V geometry:margin=2cm -V geometry:a4paper -V linkcolor:blue",
+        "doc": "npm run doc:1 && npm run doc:2 && npm run doc:3"
+    },
+    "version": "1.0.0"
 }

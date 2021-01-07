@@ -1,9 +1,9 @@
 const readline = require("readline");
 const fs = require("fs");
 const os = require("os");
-const ns2Mapping = require("../../server/ns2/program/ns2-mapping");
-const ns3Mapping = require("../../server/ns3/program/ns3-mapping");
-const commonMapping = require("../../server/common/nord-mapping");
+const ns2Mapping = require("../../client/public/server/ns2/program/ns2-mapping");
+const ns3Mapping = require("../../client/public/server/ns3/program/ns3-mapping");
+const commonMapping = require("../../client/public/server/common/nord-mapping");
 
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, "g"), replace);

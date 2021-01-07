@@ -1,8 +1,16 @@
 {
-    "name": "ns3-file-parser-client",
-    "version": "0.1.0",
-    "proxy": "http://localhost:4000/",
-    "private": true,
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
@@ -16,11 +24,8 @@
         "react-scripts": "3.4.3",
         "react-toastify": "^6.0.8"
     },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+    "devDependencies": {
+        "prettier": "^2.1.1"
     },
     "eslintConfig": {
         "extends": [
@@ -28,19 +33,14 @@
             "plugin:prettier/recommended"
         ]
     },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+    "name": "ns3-file-parser-client",
+    "private": true,
+    "proxy": "http://localhost:4000/",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
     },
-    "devDependencies": {
-        "prettier": "^2.1.1"
-    }
+    "version": "0.1.0"
 }

@@ -13,6 +13,11 @@ import NordDevice from "./components/nord-device";
 import Button from "react-bootstrap/Button";
 const clonedeep = require("lodash.clonedeep");
 
+const isElectron = /electron/i.test(navigator.userAgent);
+console.log("Electron:", isElectron);
+
+const ipcRenderer = isElectron ? window.require("electron").ipcRenderer : null;
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -36,6 +41,16 @@ class App extends Component {
             error: null,
             showAll: false,
         };
+
+        if (ipcRenderer) {
+            ipcRenderer.on("Data", (event, res) => {
+                if (res.success) {
+                    this.onSuccess(res);
+                } else {
+                    this.onError(res);
+                }
+            });
+        }
     }
 
     onSuccess = (data) => {
@@ -60,6 +75,11 @@ class App extends Component {
 
     handleFile = async (filename) => {
         if (!filename) return;
+
+        if (ipcRenderer) {
+            ipcRenderer.send("Load", { path: filename.path, name: filename.name });
+            return;
+        }
 
         const formData = new FormData();
         formData.append("nordFile", filename);

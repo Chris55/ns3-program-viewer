@@ -1,4 +1,4 @@
-const mapping3 = require("./../../ns3/program/ns3-mapping");
+const mapping3 = require("../../ns3/program/ns3-mapping");
 const converter = require("../../common/converter");
 const mapping = require("./ns2-mapping");
 const { ns2Filter } = require("./ns2-synth-filter");
@@ -6,7 +6,7 @@ const { ns2OscShape } = require("./ns2-synth-osc-shape");
 const { ns2KbZone } = require("./ns2-utils");
 const { ns2VolumeEx } = require("./ns2-utils");
 const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
-const { ns3SynthPreset } = require("./../../ns3/program/ns3-utils");
+const { ns3SynthPreset } = require("../../ns3/program/ns3-utils");
 const { getSample } = require("../../library/ns3-library-service");
 
 /***

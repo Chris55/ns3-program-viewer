@@ -1,4 +1,4 @@
-const {loadNordFile} = require("../server/nord-service");
+const {loadNordFile} = require("../client/public/server/nord-service");
 const fs = require('fs').promises;
 const path = require('path');
 

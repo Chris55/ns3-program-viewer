@@ -1,10 +1,10 @@
 const fs = require("fs");
 const path = require("path");
-const { ns3ProductLibraries } = require("../../server/library/ns3-product-libraries");
-const { ns3NordSampleLibraryArchive } = require("../../server/library/ns3-nord-sample-library-archive");
-const { ns3NordPianoLibrary } = require("../../server/library/ns3-nord-piano-library");
-const { ns3NordSampleLibrary2 } = require("../../server/library/ns3-nord-sample-library-2");
-const { ns3NordSampleLibrary3 } = require("../../server/library/ns3-nord-sample-library-3");
+const { ns3ProductLibraries } = require("../../client/public/server/library/ns3-product-libraries");
+const { ns3NordSampleLibraryArchive } = require("../../client/public/server/library/ns3-nord-sample-library-archive");
+const { ns3NordPianoLibrary } = require("../../client/public/server/library/ns3-nord-piano-library");
+const { ns3NordSampleLibrary2 } = require("../../client/public/server/library/ns3-nord-sample-library-2");
+const { ns3NordSampleLibrary3 } = require("../../client/public/server/library/ns3-nord-sample-library-3");
 const homedir = require("os").homedir();
 
 const inputFolder = homedir + "/downloads/library";

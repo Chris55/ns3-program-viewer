@@ -10,10 +10,10 @@
 const unzipper = require("unzipper");
 const fs = require("fs");
 const path = require("path");
-const { ns3NordPianoLibrary } = require("../../../server/library/ns3-nord-piano-library");
-const { ns3SampleLibraryLegacy } = require("../../../server/library/ns3-library-sample-legacy");
-const { loadNs3SampleFile } = require("../../../server/common/nord-sample");
-const { loadNs3ProgramFile } = require("../../../server/ns3/program/ns3-program");
+const { ns3NordPianoLibrary } = require("../../../client/public/server/library/ns3-nord-piano-library");
+const { ns3SampleLibraryLegacy } = require("../../../client/public/server/library/ns3-library-sample-legacy");
+const { loadNs3SampleFile } = require("../../../client/public/server/common/nord-sample");
+const { loadNs3ProgramFile } = require("../../../client/public/server/ns3/program/ns3-program");
 const homedir = require("os").homedir();
 
 const library = new Map();
