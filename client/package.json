@@ -1,4 +1,5 @@
 {
+    "author": "Christian Florentz (christian.florentz@gmail.com)",
     "browserslist": {
         "production": [
             ">0.2%",
@@ -11,21 +12,45 @@
             "last 1 safari version"
         ]
     },
+    "build": {
+        "appId": "com.nord-keyboars-file-viewer",
+        "productName": "Nord File Viewer",
+        "copyright": "Copyright © 2021 ${author}\n\nSpecial thanks to Andreas Gallenmueller (@gaaal)\nThanks to other NUF members: @rpossemo, @cookie, @gordon, @Hobster\n\n\nDisclaimer: We are not affiliated, associated, endorsed by, or in any way officially connected with Nord Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.\nThe names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.",
+        "mac": {
+            "category": "public.app-category.music",
+            "icon": "assets/apple.icns"
+        },
+        "win": {
+            "target": "nsis",
+            "icon": "assets/apple.ico"
+        }
+    },
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
         "axios": "^0.19.2",
         "bootstrap": "^4.5.3",
+        "byte-size": "^7.0.0",
+        "cross-env": "^7.0.3",
+        "electron-is-dev": "^1.2.0",
+        "electron-log": "^4.3.1",
+        "lodash.clonedeep": "^4.5.0",
         "react": "^16.13.1",
         "react-bootstrap": "^1.4.0",
         "react-dom": "^16.13.1",
         "react-json-tree": "^0.12.1",
         "react-scripts": "3.4.3",
-        "react-toastify": "^6.0.8"
+        "react-toastify": "^6.0.8",
+        "update-electron-app": "^2.0.1"
     },
+    "description": "The unofficial Nord Stage 2/2EX/3 Program viewer tool.",
     "devDependencies": {
-        "prettier": "^2.1.1"
+        "concurrently": "^5.3.0",
+        "electron": "^11.1.1",
+        "electron-builder": "^22.9.1",
+        "prettier": "^2.2.1",
+        "wait-on": "^5.2.1"
     },
     "eslintConfig": {
         "extends": [
@@ -33,14 +58,20 @@
             "plugin:prettier/recommended"
         ]
     },
+    "homepage": "./",
+    "main": "public/electron.js",
     "name": "ns3-file-parser-client",
     "private": true,
     "proxy": "http://localhost:4000/",
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "react-start": "react-scripts start",
+        "react-build": "react-scripts build",
+        "react-test": "react-scripts test --env=jsdom",
+        "react-eject": "react-scripts eject",
+        "electron-build": "electron-builder",
+        "deploy": "yarn react-build && electron-builder --mac --win --publish=always",
+        "build": "yarn react-build && yarn electron-build build --mac --win --publish never",
+        "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
     },
     "version": "0.1.0"
 }

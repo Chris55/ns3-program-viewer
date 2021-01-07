@@ -79,7 +79,7 @@
     "name": "ns-file-parser",
     "prettier": {},
     "scripts": {
-        "client": "cd client && yarn start",
+        "client": "cd client && yarn react-start",
         "server": "nodemon server.js",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "start": "NODE_ENV=production node server.js",
