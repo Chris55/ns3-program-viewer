@@ -41,8 +41,7 @@
         "react-dom": "^16.13.1",
         "react-json-tree": "^0.12.1",
         "react-scripts": "3.4.3",
-        "react-toastify": "^6.0.8",
-        "update-electron-app": "^2.0.1"
+        "react-toastify": "^6.0.8"
     },
     "description": "The unofficial Nord Stage 2/2EX/3 Program viewer tool.",
     "devDependencies": {
