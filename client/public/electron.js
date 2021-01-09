@@ -62,12 +62,12 @@ app.on("activate", () => {
 
 // Setting the location for the userdata folder created by an Electron app.
 // It default to the AppData folder if you don't set it.
-app.setPath(
-    'userData',
-    isDev
-        ? path.join(app.getAppPath(), 'userdata/') // In development it creates the userdata folder where package.json is
-        : path.join(process.resourcesPath, 'userdata/') // In production it creates userdata folder in the resources folder
-);
+// app.setPath(
+//     'userData',
+//     isDev
+//         ? path.join(app.getAppPath(), 'userdata/') // In development it creates the userdata folder where package.json is
+//         : path.join(process.resourcesPath, 'userdata/') // In production it creates userdata folder in the resources folder
+// );
 
 app.on("ready", async () => {
     await createWindow();
