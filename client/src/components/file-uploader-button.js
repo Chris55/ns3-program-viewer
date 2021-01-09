@@ -8,6 +8,7 @@ const FileUploaderButton = props => {
         hiddenFileInput.current.click();
     };
     const handleChange = event => {
+        event.preventDefault();
         const fileUploaded = event.target.files[0];
         //console.log("selected file:", fileUploaded);
         props.handleFile(fileUploaded);

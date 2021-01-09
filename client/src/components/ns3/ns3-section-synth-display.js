@@ -2,7 +2,7 @@ import React from "react";
 import { Ns3ArrowLeft, Ns3ArrowRight, Ns3Knob, Ns3WaveForm } from "./ns3-svg-library";
 
 const color = "#f6faf7";
-const background = "green"; // "#32322f";
+// const background = "green"; // "#32322f";
 const strokeWidth = 1.5;
 const fontFamily = ""; // Helvetica, Arial";
 const fontWeight = 400;

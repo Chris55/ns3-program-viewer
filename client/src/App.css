@@ -4,6 +4,11 @@
 
 }
 
+.jumbotron {
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
 .ns3-program-logo {
   //margin-right: 5px;
   width: 64px;

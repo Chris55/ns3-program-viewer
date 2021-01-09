@@ -126,18 +126,25 @@ template.push({
     ],
 });
 
+const helpSubMenu = [];
+
+if (process.platform !== "darwin") {
+    helpSubMenu.push({
+        role: "about", label: "About",
+    });
+}
+helpSubMenu.push({
+    label: "Learn More",
+    click() {
+        require("electron").shell.openExternal(
+            "https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html"
+        );
+    },
+});
+
 template.push({
     role: "help",
-    submenu: [
-        {
-            label: "Learn More",
-            click() {
-                require("electron").shell.openExternal(
-                    "https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html"
-                );
-            },
-        },
-    ],
+    submenu: helpSubMenu,
 });
 
 if (process.platform === "darwin") {
@@ -146,7 +153,7 @@ if (process.platform === "darwin") {
         label: name,
         submenu: [
             {
-                role: "about",
+                role: "about", label: "About",
             },
             {
                 type: "separator",
@@ -159,10 +166,10 @@ if (process.platform === "darwin") {
                 type: "separator",
             },
             {
-                role: "hide",
+                role: "hide", label: "Hide",
             },
             {
-                role: "hideothers",
+                role: "hideothers", label: "Hide Other",
             },
             {
                 role: "unhide",
@@ -171,7 +178,7 @@ if (process.platform === "darwin") {
                 type: "separator",
             },
             {
-                role: "quit",
+                role: "quit", label: "Quit",
             },
         ],
     });

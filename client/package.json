@@ -13,12 +13,24 @@
         ]
     },
     "build": {
-        "appId": "com.nord-keyboars-file-viewer",
+        "appId": "com.nord-file-viewer",
         "productName": "Nord File Viewer",
         "copyright": "Copyright © 2021 ${author}\n\nSpecial thanks to Andreas Gallenmueller (@gaaal)\nThanks to other NUF members: @rpossemo, @cookie, @gordon, @Hobster\n\n\nDisclaimer: We are not affiliated, associated, endorsed by, or in any way officially connected with Nord Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.\nThe names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.",
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "Chris55",
+                "repo": "ns3-program-viewer"
+            }
+        ],
+        "extraResources": [],
         "mac": {
             "category": "public.app-category.music",
-            "icon": "assets/apple.icns"
+            "icon": "assets/apple.icns",
+            "target": [
+                "zip",
+                "dmg"
+            ]
         },
         "win": {
             "target": "nsis",
@@ -26,6 +38,7 @@
         }
     },
     "dependencies": {
+        "@react-pdf/renderer": "^1.6.12",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
@@ -35,6 +48,7 @@
         "cross-env": "^7.0.3",
         "electron-is-dev": "^1.2.0",
         "electron-log": "^4.3.1",
+        "electron-updater": "^4.3.5",
         "lodash.clonedeep": "^4.5.0",
         "react": "^16.13.1",
         "react-bootstrap": "^1.4.0",
@@ -48,6 +62,7 @@
         "concurrently": "^5.3.0",
         "electron": "^11.1.1",
         "electron-builder": "^22.9.1",
+        "nodemon": "^2.0.7",
         "prettier": "^2.2.1",
         "wait-on": "^5.2.1"
     },
@@ -63,14 +78,15 @@
     "private": true,
     "proxy": "http://localhost:4000/",
     "scripts": {
-        "react-start": "react-scripts start",
+        "react-start": "cross-env REACT_APP_VERSION=$npm_package_version react-scripts start",
         "react-build": "react-scripts build",
         "react-test": "react-scripts test --env=jsdom",
         "react-eject": "react-scripts eject",
+        "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
         "electron-build": "electron-builder",
-        "deploy": "yarn react-build && electron-builder --mac --win --publish=always",
-        "build": "yarn react-build && yarn electron-build build --mac --win --publish never",
-        "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
+        "deploy": "yarn react-build && yarn electron-build build --win --publish=always",
+        "build": "yarn react-build && yarn electron-build build -mwl --publish never",
+        "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
-    "version": "0.1.0"
+    "version": "0.1.4"
 }

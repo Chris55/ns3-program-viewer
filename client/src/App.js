@@ -11,17 +11,20 @@ import Figure from "react-bootstrap/Figure";
 import { ns3Model } from "./components/ns3/model/ns3-model";
 import NordDevice from "./components/nord-device";
 import Button from "react-bootstrap/Button";
+import ReactPDF from "@react-pdf/renderer";
+import PdfExport from "./pdf-export";
+import { PDFDownloadLink, PDFViewer, Document, Page } from "@react-pdf/renderer";
+
 const clonedeep = require("lodash.clonedeep");
 
 const isElectron = /electron/i.test(navigator.userAgent);
 console.log("Electron:", isElectron);
 
-const ipcRenderer = isElectron ? window.require("electron").ipcRenderer : null;
-
 class App extends Component {
     constructor(props) {
         super(props);
 
+        this.title = ""; //`v${process.env.REACT_APP_VERSION}`;
         this.production = process.env.NODE_ENV === "production";
 
         if (this.production) {
@@ -41,16 +44,6 @@ class App extends Component {
             error: null,
             showAll: false,
         };
-
-        if (ipcRenderer) {
-            ipcRenderer.on("Data", (event, res) => {
-                if (res.success) {
-                    this.onSuccess(res);
-                } else {
-                    this.onError(res);
-                }
-            });
-        }
     }
 
     onSuccess = (data) => {
@@ -64,7 +57,7 @@ class App extends Component {
                 showAll: false,
             });
         } else {
-            this.setState({ loaded: false, error: data.error, showAll: false });
+            this.onError(data);
         }
     };
 
@@ -76,8 +69,13 @@ class App extends Component {
     handleFile = async (filename) => {
         if (!filename) return;
 
-        if (ipcRenderer) {
-            ipcRenderer.send("Load", { path: filename.path, name: filename.name });
+        if (isElectron) {
+            try {
+                const response = await window.electron.downloadFile({ path: filename.path, name: filename.name });
+                this.onSuccess(response);
+            } catch (e) {
+                this.onError({ error: e.message });
+            }
             return;
         }
 
@@ -134,6 +132,12 @@ class App extends Component {
         }
     };
 
+    handleExport = () => {
+        const doc = <PdfExport data={this.data} showAll={this.showAll} />;
+
+        ReactPDF.render(doc, `${__dirname}/output.pdf`);
+    };
+
     render() {
         return (
             <>
@@ -151,7 +155,7 @@ class App extends Component {
 
                                 <blockquote className="blockquote">
                                     <footer className="blockquote-footer">
-                                        Handmade by Nord User Forum{" "}
+                                        {this.title} Handmade by Nord User Forum{" "}
                                         <a href="https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html">
                                             Members
                                         </a>
@@ -211,6 +215,25 @@ class App extends Component {
                                         </Button>
                                     </div>
                                 </div>
+
+                                {/*<div className="col-auto align-self-center" />*/}
+
+                                {/*<div className="col-auto align-self-center">*/}
+                                {/*    <div className={this.state.loaded ? "" : "d-none"}>*/}
+                                {/*        <Button type="button" variant="primary" onClick={this.handleExport}>*/}
+                                {/*            Save*/}
+                                {/*        </Button>*/}
+                                {/*    </div>*/}
+
+                                {/*    <PDFDownloadLink*/}
+                                {/*        document={<PdfExport data={this.data} showAll={this.showAll} />}*/}
+                                {/*        fileName="somename.pdf"*/}
+                                {/*    >*/}
+                                {/*        {({ blob, url, loading, error }) =>*/}
+                                {/*            loading ? "Loading document..." : "Download now!"*/}
+                                {/*        }*/}
+                                {/*    </PDFDownloadLink>*/}
+                                {/*</div>*/}
                             </div>
                         </Container>
 
