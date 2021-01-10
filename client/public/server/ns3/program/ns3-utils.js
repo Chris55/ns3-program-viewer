@@ -14,7 +14,7 @@ const { ns3Morph7Bits } = require("./ns3-morph");
  * 120 = 10.0 (100% right value, example Mod Env Amount)
  *
  * @param valueRange120
- * @returns {{leftMidi: number, leftValue: string, rightValue: string, rightMidi: number}}
+ * @returns {{fromValue: string, leftMidi: number, leftLabel: string, rightMidi: number, fromValueRange120, rightLabel: string}}
  */
 exports.ns3KnobDualValues = function (valueRange120) {
     const valueRange127 = Math.ceil((valueRange120 * 127) / 120);

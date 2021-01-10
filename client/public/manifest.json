@@ -1,6 +1,6 @@
 {
-  "short_name": "ns-file-parser",
-  "name": "NS File Parser",
+  "short_name": "nord-file-viewer",
+  "name": "Nord File Viewer",
   "icons": [
     {
       "src": "favicon.ico",

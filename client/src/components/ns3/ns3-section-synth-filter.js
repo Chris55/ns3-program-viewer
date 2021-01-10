@@ -10,10 +10,10 @@ export default class Ns3SectionSynthFilter extends Component {
 
         let velModTitle = "Vel/Mod Amt";
         let velModValue = filter.modulations.velAmount;
-        if (filter.modulations.velAmount.midi < 64) {
+        if (filter.modulations.velAmount.rawValue < 60) {
             velModTitle = "Vel Amt";
             velModValue = filter.modulations.velAmount;
-        } else if (filter.modulations.modEnvAmount.midi > 64) {
+        } else if (filter.modulations.modEnvAmount.rawValue > 60) {
             velModTitle = "Mod Env Amt";
             velModValue = filter.modulations.modEnvAmount;
         }

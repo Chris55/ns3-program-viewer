@@ -123,10 +123,12 @@ exports.ns3Filter = (buffer, panelOffset) => {
              * @module NS3 Synth Filter Vel Mod Env Amount
              */
             velAmount: {
+                rawValue: filterModulation2Knob.fromValueRange120,
                 midi: filterModulation2Knob.leftMidi,
                 value: filterModulation2Knob.leftLabel,
             },
             modEnvAmount: {
+                rawValue: filterModulation2Knob.fromValueRange120,
                 midi: filterModulation2Knob.rightMidi,
                 value: filterModulation2Knob.rightLabel,
             },
