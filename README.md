@@ -1,6 +1,8 @@
 # ns3-program-viewer
 
 ![Build](https://travis-ci.com/Chris55/ns3-program-viewer.svg?branch=master)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer?ref=badge_shield)
+
 ![Coverage lines](./coverage/badge-lines.svg)
 ![Coverage functions](./coverage/badge-functions.svg)
 ![Coverage branches](./coverage/badge-branches.svg)
