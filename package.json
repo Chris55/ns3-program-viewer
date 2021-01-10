@@ -83,7 +83,7 @@
         "server": "nodemon server.js",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "start": "NODE_ENV=production node server.js",
-        "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run react-build",
+        "heroku-postbuild": "cd client && yarn install && yarn install --only=dev --no-shrinkwrap && yarn run react-build",
         "test": "jest --coverage && jest-coverage-badges",
         "doc:1ns3": "jsdoc2md client/public/server/ns3/program/*.js > docs/ns3/program/ns3-doc.md",
         "doc:1ns2": "jsdoc2md client/public/server/ns2/program/*.js > docs/ns2/program/ns2-doc.md",

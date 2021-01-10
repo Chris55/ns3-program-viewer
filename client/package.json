@@ -29,8 +29,13 @@
             "type": "development",
             "category": "public.app-category.music",
             "icon": "assets/apple.icns",
-            "target": ["dmg", "mas"],
-            "electronLanguages": ["en"],
+            "target": [
+                "dmg",
+                "mas"
+            ],
+            "electronLanguages": [
+                "en"
+            ],
             "hardenedRuntime": true
         },
         "mas": {
@@ -90,7 +95,6 @@
         "react-eject": "react-scripts eject",
         "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
         "electron-build": "electron-builder",
-        "postinstall": "electron-builder install-app-deps",
         "deploy": "yarn react-build && yarn electron-build build --mac --win --publish=always",
         "build": "yarn react-build && yarn electron-build build --mac --win --publish never",
         "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
