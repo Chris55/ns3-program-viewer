@@ -28,7 +28,7 @@
         "mac": {
             "type": "development",
             "category": "public.app-category.music",
-            "icon": "assets/apple.icns",
+            "icon": "assets/icons/app.icns",
             "target": [
                 "dmg",
                 "mas"
@@ -36,7 +36,13 @@
             "electronLanguages": [
                 "en"
             ],
-            "hardenedRuntime": true
+            "entitlements": "./build/entitlements.mac.plist",
+            "entitlementsInherit": "./build/entitlements.mac.plist",
+            "hardenedRuntime": true,
+            "gatekeeperAssess": false
+        },
+        "dmg": {
+            "sign": false
         },
         "mas": {
             "type": "development",
@@ -44,7 +50,7 @@
         },
         "win": {
             "target": "nsis",
-            "icon": "assets/apple.ico"
+            "icon": "assets/icons/app.ico"
         }
     },
     "dependencies": {
@@ -95,9 +101,9 @@
         "react-eject": "react-scripts eject",
         "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
         "electron-build": "electron-builder",
-        "deploy": "yarn react-build && yarn electron-build build --mac --win --publish=always",
-        "build": "yarn react-build && yarn electron-build build --mac --win --publish never",
+        "deploy": "yarn react-build && yarn electron-build build  --win --publish=always",
+        "build": "yarn react-build && yarn electron-build build --mac --publish never",
         "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
-    "version": "0.1.4"
+    "version": "0.1.5"
 }

@@ -129,10 +129,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
         case "Sample":
             const location = (synthOffset8eW & 0x7fc0) >>> 6;
             waveForm1 = getSample(sampleId, 0, location);
-            const sampleUseConfigAndPitch = (oscConfigValue >= 5 && oscConfigValue <= 11) || (oscConfigValue === 14);
-            if (!sampleUseConfigAndPitch) {
-                waveForm1.useConfigAndPitch = false;
-            }
+            waveForm1.useConfigAndPitch = (oscConfigValue >= 5 && oscConfigValue <= 11) || (oscConfigValue === 14);
             break;
     }
 

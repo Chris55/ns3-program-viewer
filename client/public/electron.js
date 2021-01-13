@@ -27,7 +27,7 @@ function createWindow() {
             enableRemoteModule: false,
             preload: path.join(__dirname, 'preload.js'),
         },
-        icon: path.join(__dirname, "assets/apple.png"),
+        icon: path.join(__dirname, "assets/icons/app.png"),
         //titleBarStyle: "hidden"
     });
     mainWindow.loadURL(isDev
