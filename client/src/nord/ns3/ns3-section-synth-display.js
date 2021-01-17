@@ -1,5 +1,6 @@
 import React from "react";
 import { Ns3ArrowLeft, Ns3ArrowRight, Ns3Knob, Ns3WaveForm } from "./ns3-svg-library";
+import { renderToStaticMarkup } from "react-dom/server";
 
 const color = "#f6faf7";
 // const background = "green"; // "#32322f";
@@ -76,7 +77,6 @@ const getFirstBox = (oscType, oscWaveForm) => {
                         {oscWaveForm.name}
                     </text>
                 )}
-
             </>
         );
     }
@@ -433,28 +433,47 @@ export const Ns3SectionSynthDisplay = ({ oscType, oscWaveForm, oscConfig, oscCon
     const secondBlock = getSecondBlock(oscType, oscWaveForm, oscConfig, oscControl, oscPitch);
 
     return (
-        <div
-            style={
-                {
-                    //background: background,
-                    // width: "240",
-                    // height: "90",
-                }
-            }
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 4 235 86"
-                width="235"
-                height="86"
-                preserveAspectRatio="none"
-            >
-                <line x1="5" y1="7" x2="237" y2="7" style={lineStyle} />
+        // <div
+        //     style={
+        //         {
+        //             //background: background,
+        //             // width: "240",
+        //             // height: "90",
+        //         }
+        //     }
+        // >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 4 235 86" width="235" height="86" preserveAspectRatio="none">
+            <line x1="5" y1="7" x2="237" y2="7" style={lineStyle} />
 
-                {firstBox}
+            {firstBox}
 
-                {oscWaveForm.useConfigAndPitch && secondBlock}
-            </svg>
-        </div>
+            {oscWaveForm.useConfigAndPitch && secondBlock}
+        </svg>
+        // </div>
     );
 };
+
+// export const Ns3SectionSynthDisplay = ({ oscType, oscWaveForm, oscConfig, oscControl, oscPitch }) => {
+//     const svgString = renderToStaticMarkup( //encodeURIComponent(
+//         <Ns3SectionSynthDisplaySvg
+//             oscType={oscType}
+//             oscWaveForm={oscWaveForm}
+//             oscConfig={oscConfig}
+//             oscControl={oscControl}
+//             oscPitch={oscPitch}
+//         />
+//         //)
+//     );
+//     const dataUri = `url("data:image/svg+xml;base64,${btoa(svgString)}")`;
+//     //`url("data:image/svg+xml,${svgString}")`;
+//
+//     return (
+//         <div
+//             style={{
+//                 background: dataUri,
+//                 width: 235,
+//                 height: 86,
+//             }}
+//         />
+//     );
+// };

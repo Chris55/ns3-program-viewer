@@ -139,7 +139,7 @@ class App extends Component {
 
     handleExport = () => {
         this.setState({ exporting: true }, async () => {
-            await buildExport(this.state.data, this.state.showAll);
+            await buildExport(this.state.data, this.state.showAll).catch((e) => toast.error(e.message));
             this.setState({ exporting: false });
         });
     };
@@ -236,7 +236,7 @@ class App extends Component {
                                                 disabled={this.state.exporting}
                                                 onClick={this.handleExport}
                                             >
-                                                {this.state.exporting?"Saving...":"Save"}
+                                                {this.state.exporting ? "Saving..." : "Save"}
                                             </Button>
                                         </div>
                                     </>

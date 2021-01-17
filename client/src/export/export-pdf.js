@@ -3,11 +3,14 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import React from "react";
 import NordDevice from "../nord/nord-device";
-import { delay } from "../utils/delay";
+import { handy, isSafari } from "../utils/handy";
 
 export const buildExport = async (data, showAll) => {
+    // svg are not rendered by html2canvas in Safari
+    if (isSafari) throw Error("Safari not fully supported...., please use Chrome ;)");
+
     // workaround to disable the save button
-    await delay(10);
+    await handy(10);
 
     const doc = <NordDevice data={data} showAll={showAll} production={true} />;
     const output = document.createElement("div");
@@ -17,7 +20,7 @@ export const buildExport = async (data, showAll) => {
 
     const canvas = await html2canvas(output, {
         logging: false,
-        useCORS: true,
+        useCORS: false,
         scale: 2,
         scrollX: 0,
         scrollY: -window.scrollY, // https://stackoverflow.com/questions/57936607/why-there-is-a-white-space-on-the-top-on-html2canvas
@@ -45,4 +48,5 @@ export const buildExport = async (data, showAll) => {
     pdf.addImage(imgData, "JPEG", x, y, w, h);
     pdf.save(data.name + ".pdf");
     document.body.removeChild(output);
+    return "";
 };

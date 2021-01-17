@@ -41,13 +41,6 @@
             "hardenedRuntime": true,
             "gatekeeperAssess": false
         },
-        "dmg": {
-            "sign": false
-        },
-        "mas": {
-            "type": "development",
-            "category": "public.app-category.music"
-        },
         "win": {
             "target": "nsis",
             "icon": "assets/icons/app.ico"
