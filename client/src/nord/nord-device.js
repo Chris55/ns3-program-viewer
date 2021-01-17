@@ -6,6 +6,12 @@ import NordTree from "./nord-tree";
 import Ns2 from "./ns2/ns2";
 
 export default class NordDevice extends Component {
+    shouldComponentUpdate(nextProps, nextState, nextContent){
+        const render = this.props.data.name !== nextProps.data.name;
+        console.log("render device", render);
+        return render;
+    }
+
     render() {
         const data = this.props.data;
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
-import NordDevice from "./components/nord-device";
+import NordDevice from "./../nord/nord-device";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 });
 
 
-const PdfExport = ({data, showAll}) => (
+const NordDocument = ({data, showAll}) => (
     <Document>
         <Page size="A4" style={styles.page} >
             <View style={styles.section} wrap={true}>
@@ -30,6 +30,6 @@ const PdfExport = ({data, showAll}) => (
     </Document>
 );
 
-export default PdfExport;
+export default NordDocument;
 
 

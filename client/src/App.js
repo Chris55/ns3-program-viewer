@@ -3,17 +3,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import FileUploaderButton from "./components/file-uploader-button";
+import FileUploaderButton from "./utils/file-uploader-button";
 import axios from "axios";
 import programIcon from "./nprog.icns.svg";
 import Container from "react-bootstrap/Container";
 import Figure from "react-bootstrap/Figure";
-import { ns3Model } from "./components/ns3/model/ns3-model";
-import NordDevice from "./components/nord-device";
+import { ns3Model } from "./nord/ns3/model/ns3-model";
+import NordDevice from "./nord/nord-device";
 import Button from "react-bootstrap/Button";
-import ReactPDF from "@react-pdf/renderer";
-import PdfExport from "./pdf-export";
-import { PDFDownloadLink, PDFViewer, Document, Page } from "@react-pdf/renderer";
+import { buildExport } from "./export/export-pdf";
 
 const clonedeep = require("lodash.clonedeep");
 
@@ -26,6 +24,12 @@ class App extends Component {
 
         this.title = ""; //`v${process.env.REACT_APP_VERSION}`;
         this.production = process.env.NODE_ENV === "production";
+        //this.ref = React.createRef();
+        this.options = {
+            orientation: "landscape",
+            unit: "in",
+            format: [4, 2],
+        };
 
         if (this.production) {
             if (ns3Model.slotA) {
@@ -43,6 +47,7 @@ class App extends Component {
             originalData: clonedeep(ns3Model),
             error: null,
             showAll: false,
+            exporting: false,
         };
     }
 
@@ -133,9 +138,10 @@ class App extends Component {
     };
 
     handleExport = () => {
-        const doc = <PdfExport data={this.data} showAll={this.showAll} />;
-
-        ReactPDF.render(doc, `${__dirname}/output.pdf`);
+        this.setState({ exporting: true }, async () => {
+            await buildExport(this.state.data, this.state.showAll);
+            this.setState({ exporting: false });
+        });
     };
 
     render() {
@@ -191,49 +197,50 @@ class App extends Component {
                                     <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
                                 </div>
 
-                                <div className="col-auto align-self-center" />
+                                {this.state.loaded && (
+                                    <>
+                                        <div className="col-auto align-self-center" />
 
-                                <div className="col-auto align-self-center">
-                                    <div className={this.state.loaded ? "" : "d-none"}>
-                                        <span className="mr-2">Show All Instruments</span>
+                                        <div className="col-auto align-self-center">
+                                            <span className="mr-2">Show All Instruments</span>
 
-                                        <Button
-                                            type="button"
-                                            variant="primary"
-                                            className={this.state.showAll ? "mr-1 active" : "mr-1 disabled"}
-                                            onClick={this.handleShowAll}
-                                        >
-                                            On
-                                        </Button>
-                                        <Button
-                                            type="button"
-                                            variant="primary"
-                                            className={this.state.showAll ? "mr-1 disabled" : "mr-1 active"}
-                                            onClick={this.handleShowAll}
-                                        >
-                                            Off
-                                        </Button>
-                                    </div>
-                                </div>
+                                            <Button
+                                                type="button"
+                                                variant="primary"
+                                                className={this.state.showAll ? "mr-1" : "mr-1 disabled"}
+                                                //className="mr-1"
+                                                //disabled={!this.state.showAll}
+                                                onClick={this.handleShowAll}
+                                            >
+                                                On
+                                            </Button>
+                                            <Button
+                                                type="button"
+                                                variant="primary"
+                                                className={this.state.showAll ? "mr-1 disabled" : "mr-1"}
+                                                //className="mr-1"
+                                                //disabled={this.state.showAll}
+                                                onClick={this.handleShowAll}
+                                            >
+                                                Off
+                                            </Button>
+                                        </div>
 
-                                {/*<div className="col-auto align-self-center" />*/}
+                                        <div className="col-auto align-self-center" />
 
-                                {/*<div className="col-auto align-self-center">*/}
-                                {/*    <div className={this.state.loaded ? "" : "d-none"}>*/}
-                                {/*        <Button type="button" variant="primary" onClick={this.handleExport}>*/}
-                                {/*            Save*/}
-                                {/*        </Button>*/}
-                                {/*    </div>*/}
-
-                                {/*    <PDFDownloadLink*/}
-                                {/*        document={<PdfExport data={this.data} showAll={this.showAll} />}*/}
-                                {/*        fileName="somename.pdf"*/}
-                                {/*    >*/}
-                                {/*        {({ blob, url, loading, error }) =>*/}
-                                {/*            loading ? "Loading document..." : "Download now!"*/}
-                                {/*        }*/}
-                                {/*    </PDFDownloadLink>*/}
-                                {/*</div>*/}
+                                        <div className="col-auto align-self-center">
+                                            <Button
+                                                type="button"
+                                                variant="primary"
+                                                //className={this.state.exporting ? "disabled" : "active"}
+                                                disabled={this.state.exporting}
+                                                onClick={this.handleExport}
+                                            >
+                                                {this.state.exporting?"Saving...":"Save"}
+                                            </Button>
+                                        </div>
+                                    </>
+                                )}
                             </div>
                         </Container>
 
