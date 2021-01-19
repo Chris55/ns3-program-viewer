@@ -15,6 +15,13 @@ log.info("App starting...");
 function createWindow() {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize;
 
+    // mainWindow = new BrowserWindow(
+    //     {
+    //         width: Math.round(width * 0.9),
+    //         height: Math.round(height * 0.9),
+    //         icon: path.join(__dirname, "assets/icons/app.png"),
+    //     });
+
     mainWindow = new BrowserWindow({
         width: Math.round(width * 0.9),
         height: Math.round(height * 0.9),
@@ -25,14 +32,13 @@ function createWindow() {
             nodeIntegrationInSubFrames: false,
             contextIsolation: true,
             enableRemoteModule: false,
-            preload: path.join(__dirname, 'preload.js'),
+            preload: path.join(__dirname, "preload.js"),
         },
-        icon: path.join(__dirname, "assets/icons/app.png"),
+        //icon: path.join(__dirname, "assets/icons/app.png"),
         //titleBarStyle: "hidden"
     });
-    mainWindow.loadURL(isDev
-        ? "http://localhost:3000"
-        : `file://${path.join(__dirname, "../build/index.html")}`);
+
+    mainWindow.loadURL(isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "../build/index.html")}`);
 
     mainWindow.on("closed", () => (mainWindow = null));
     require("./mainmenu");
@@ -42,8 +48,8 @@ function createWindow() {
 
     // In development mode, if the window has loaded, then load the dev tools.
     if (isDev) {
-        mainWindow.webContents.on('did-frame-finish-load', () => {
-            mainWindow.webContents.openDevTools({ mode: 'detach' });
+        mainWindow.webContents.on("did-frame-finish-load", () => {
+            mainWindow.webContents.openDevTools({ mode: "detach" });
         });
     }
 }
@@ -73,9 +79,6 @@ app.on("ready", async () => {
     await createWindow();
     await autoUpdater.checkForUpdatesAndNotify();
 });
-
-
-
 
 ipcMain.handle("download-file", async (event, args) => {
     try {

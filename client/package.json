@@ -26,12 +26,10 @@
         "extraResources": [],
         "afterSign": "./afterSignHook.js",
         "mac": {
-            "type": "development",
             "category": "public.app-category.music",
             "icon": "assets/icons/app.icns",
             "target": [
-                "dmg",
-                "mas"
+                "dmg"
             ],
             "electronLanguages": [
                 "en"
@@ -42,8 +40,16 @@
             "gatekeeperAssess": false
         },
         "win": {
-            "target": "nsis",
+            "publish": [
+                "github"
+            ],
+            "target": [
+                "nsis"
+            ],
             "icon": "assets/icons/app.ico"
+        },
+        "dmg": {
+            "sign": false
         }
     },
     "dependencies": {
@@ -62,7 +68,7 @@
         "bootstrap": "^4.5.3",
         "concurrently": "^5.3.0",
         "cross-env": "^7.0.3",
-        "electron": "^11.1.1",
+        "electron": "^11.2.0",
         "electron-builder": "^22.9.1",
         "electron-notarize": "^1.0.0",
         "lodash.clonedeep": "^4.5.0",
@@ -76,8 +82,7 @@
         "react-toastify": "^6.0.8",
         "wait-on": "^5.2.1",
         "html2canvas": "^1.0.0-rc.7",
-        "jspdf": "^2.3.0",
-        "prop-types": "^15.7.2"
+        "jspdf": "^2.3.0"
     },
     "eslintConfig": {
         "extends": [
@@ -90,6 +95,10 @@
     "name": "ns3-file-parser-client",
     "private": true,
     "proxy": "http://localhost:4000/",
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/Chris55/ns3-program-viewer.git"
+    },
     "scripts": {
         "react-start": "cross-env REACT_APP_VERSION=$npm_package_version react-scripts start",
         "react-build": "react-scripts build",
@@ -97,9 +106,9 @@
         "react-eject": "react-scripts eject",
         "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
         "electron-build": "electron-builder",
-        "deploy": "yarn react-build && yarn electron-build build  --win --publish=always",
+        "deploy": "yarn react-build && yarn electron-build build --mac --publish=always",
         "build": "yarn react-build && yarn electron-build build --mac --publish never",
         "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
-    "version": "0.1.5"
+    "version": "0.1.6"
 }

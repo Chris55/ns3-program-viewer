@@ -1,3 +1,15 @@
+// "html2canvas": "^1.0.0-rc.7",
+//     "jspdf": "^2.3.0",
+//     "prop-types": "^15.7.2"
+//
+// <key>com.apple.security.temporary-exception.files.absolute-path.read-only</key><true/>
+// <key>com.apple.security.temporary-exception.files.absolute-path.read-write</key><true/>
+//
+// <key>com.apple.security.network.client</key><true/>
+// <key>com.apple.security.network.server</key><true/>
+// <key>com.apple.security.files.user-selected.read-only</key><true/>
+// <key>com.apple.security.files.user-selected.read-write</key><true/>
+
 import { renderToStaticMarkup } from "react-dom/server";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
