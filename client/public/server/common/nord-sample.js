@@ -184,9 +184,9 @@ exports.loadNs3SampleFile = (buffer, filename) => {
     const sampleValue = buffer.readUInt16LE(0x0e);
     const sampleVersion = getVersion(buffer, 0x14);
     // minor version is on one digit only...
-    // but of the time except on some older sample (Woodwind Alto recorder version is 3.11)
-    if (sampleVersion.version.charAt(sampleVersion.version.length - 1) === "0") {
-        sampleVersion.version = sampleVersion.version.slice(0, -1);
+    // except on some older sample example Woodwind Alto recorder version is 3.11
+    if (sampleVersion.value.charAt(sampleVersion.value.length - 1) === "0") {
+        sampleVersion.value = sampleVersion.value.slice(0, -1);
     }
 
     const sampleCategoryValue = buffer.readUInt8(0x12);
@@ -257,7 +257,7 @@ exports.loadNs3SampleFile = (buffer, filename) => {
     }
 
     return {
-        version: sampleVersion.version,
+        version: sampleVersion.value,
         sampleValue: sampleValue,
         sampleName: sampleName,
         sampleInfo: sampleInfo,

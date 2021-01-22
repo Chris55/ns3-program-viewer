@@ -1345,5 +1345,23 @@ exports.ns3NordSampleLibrary2 = new Map([
     [0xc60c2bcf, {name: "VibratoOrgan UL", info: "RyFi MKII", version: "3.0", category: "Misc", size: 11499372, filename: "VibratoOrgan UL_Mellotron_RyFi MKII 2.0", ext: "nsmp3" }],
     [0x1bd333c2, {name: "VienWaltz Accord UL", info: "RyFi MKII", version: "3.0", category: "Misc", size: 8537324, filename: "VienWaltz Accord UL_Mellotron_RyFi MKII 2.0", ext: "nsmp3" }],
 
+    // Swing! Collection
+    // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/sound-collections/swing-collection
+
+    [0x29d4cdb4, {name: "Swing Big Band Soft", info: "Project SAM", version: "3.0", category: "Ens Wind/Brass", size: 6548844, filename: "Swing Big Band Soft_Amb_Project SAM 2.0", ext: "nsmp3" }],
+    [0x77a4aa10, {name: "Swing Big Band Soft", info: "Project SAM", version: "3.0", category: "Ens Wind/Brass", size: 6736108, filename: "Swing Big Band Soft_Close_Project SAM 2.0", ext: "nsmp3" }],
+    [0x119878ea, {name: "Swing Big Band", info: "Project SAM", version: "3.0", category: "Ens Wind/Brass", size: 7834348, filename: "Swing Big Band_Amb_Project SAM 2.0", ext: "nsmp3" }],
+    [0xa596cc20, {name: "Swing Big Band", info: "Project SAM", version: "3.0", category: "Ens Wind/Brass", size: 8874732, filename: "Swing Big Band_Close_Project SAM 2.0", ext: "nsmp3" }],
+    [0x25f45775, {name: "Swing Upright Bass", info: "Project SAM", version: "3.0", category: "Bass", size: 2508396, filename: "Swing Upright Bass_Normal_Project SAM 2.0", ext: "nsmp3" }],
+    [0xce125871, {name: "Swing Upright Bass", info: "Project SAM", version: "3.0", category: "Bass", size: 1613036, filename: "Swing Upright Bass_Slap_Project SAM 2.0", ext: "nsmp3" }],
+    [0x7443868, {name: "SwingStr Leg Soft", info: "Project SAM", version: "3.0", category: "Ens Strings", size: 13793900, filename: "SwingStr Leg Soft_Amb_Project SAM 2.0", ext: "nsmp3" }],
+    [0x8e446a2f, {name: "SwingStr Leg Soft", info: "Project SAM", version: "3.0", category: "Ens Strings", size: 13586412, filename: "SwingStr Leg Soft_Close_Project SAM 2.0", ext: "nsmp3" }],
+    [0xe22030b7, {name: "SwingStr Legato", info: "Project SAM", version: "3.0", category: "Ens Strings", size: 14497132, filename: "SwingStr Legato_Amb_Project SAM 2.0", ext: "nsmp3" }],
+    [0x7d6ca098, {name: "SwingStr Legato", info: "Project SAM", version: "3.0", category: "Ens Strings", size: 14802924, filename: "SwingStr Legato_Close_Project SAM 2.0", ext: "nsmp3" }],
+    [0x56bb52a3, {name: "SwingStr Stacc", info: "Project SAM", version: "3.0", category: "Ens Strings", size: 3248492, filename: "SwingStr Stacc_Amb_Project SAM 2.0", ext: "nsmp3" }],
+    [0x89d65900, {name: "SwingStr Stacc", info: "Project SAM", version: "3.0", category: "Ens Strings", size: 2856940, filename: "SwingStr Stacc_Close_Project SAM 2.0", ext: "nsmp3" }],
+    [0x2b130f82, {name: "SwingStr Tremolo", info: "Project SAM", version: "3.0", category: "Ens Strings", size: 14169324, filename: "SwingStr Tremolo_Amb_Project SAM 2.0", ext: "nsmp3" }],
+    [0xdf397ebb, {name: "SwingStr Tremolo", info: "Project SAM", version: "3.0", category: "Ens Strings", size: 13858668, filename: "SwingStr Tremolo_Close_Project SAM 2.0", ext: "nsmp3" }],
+
 
 ]);
