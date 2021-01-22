@@ -26,11 +26,9 @@
         "extraResources": [],
         "afterSign": "./afterSignHook.js",
         "mac": {
+            "target": ["dmg", "mas", "zip"],
             "category": "public.app-category.music",
             "icon": "assets/icons/app.icns",
-            "target": [
-                "dmg"
-            ],
             "electronLanguages": [
                 "en"
             ],
@@ -39,18 +37,29 @@
             "hardenedRuntime": true,
             "gatekeeperAssess": false
         },
+        "mas": {
+            "hardenedRuntime" : false,
+            "category": "public.app-category.music",
+            "provisioningProfile": "embedded.provisionprofile",
+            "entitlements": "build/entitlements.mas.plist",
+            "entitlementsInherit": "build/entitlements.mas.inherit.plist",
+            "gatekeeperAssess": false,
+            "icon": "assets/icons/app.icns"
+        },
         "win": {
-            "publish": [
-                "github"
-            ],
-            "target": [
-                "nsis"
-            ],
+            "target": "nsis",
             "icon": "assets/icons/app.ico"
         },
         "dmg": {
             "sign": false
-        }
+        },
+        "fileAssociations": [
+            {
+                "ext": ["ns3f", "ns2p"],
+                "name": "Plain Text",
+                "role": "Viewer"
+            }
+        ]
     },
     "dependencies": {
         "byte-size": "^7.0.0",
@@ -64,7 +73,7 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "bootstrap": "^4.5.3",
         "concurrently": "^5.3.0",
         "cross-env": "^7.0.3",
@@ -106,9 +115,9 @@
         "react-eject": "react-scripts eject",
         "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
         "electron-build": "electron-builder",
-        "deploy": "yarn react-build && yarn electron-build build --mac --publish=always",
-        "build": "yarn react-build && yarn electron-build build --mac --publish never",
+        "deploy": "yarn react-build && yarn electron-build build -mw --publish=always",
+        "build": "yarn react-build && yarn electron-build build -mw --publish never",
         "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
-    "version": "0.1.6"
+    "version": "0.1.10"
 }

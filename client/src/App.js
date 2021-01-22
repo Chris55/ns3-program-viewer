@@ -157,13 +157,16 @@ class App extends Component {
                                     </span>{" "}
                                     Program File Viewer
                                 </h1>
-                                <p className="lead">Online tool to review Nord Stage 2/2EX/3 program file settings.</p>
+                                <p className="lead">
+                                    {isElectron ? "Offline" : "Online"} tool to review Nord Stage 2/2EX/3 program file
+                                    settings.
+                                </p>
 
                                 <blockquote className="blockquote">
                                     <footer className="blockquote-footer">
                                         {this.title} Handmade by Nord User Forum{" "}
                                         <a href="https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html">
-                                            Members
+                                            Members.
                                         </a>
                                     </footer>
                                 </blockquote>
@@ -249,12 +252,32 @@ class App extends Component {
 
                     <div className="nord-footer">
                         <small>
-                            Disclaimer: We are not affiliated, associated, endorsed by, or in any way officially
-                            connected with <a href="https://www.nordkeyboards.com">Nord Keyboards / Clavia DMI AB</a>,
-                            or any of its subsidiaries or its affiliates.
-                            <br />
-                            The names Nord and Clavia as well as related names, marks, emblems and images are registered
-                            trademarks of their respective owners.
+                            <div>
+                                Privacy Policy: We don’t log or share your personal information. We don’t track you. We
+                                don’t profile you.
+                                {isElectron && (
+                                    <span>
+                                        {" "}
+                                        Downloaded files are stored locally only, nothing is send to a remote server.
+                                    </span>
+                                )}
+                                {!isElectron && (
+                                    <span>
+                                        {" "}
+                                        Uploaded files are stored on the server for processing only and deleted every 24h.
+                                    </span>
+                                )}
+                            </div>
+                            <div>
+                                Disclaimer: We are not affiliated, associated, endorsed by, or in any way officially
+                                connected with{" "}
+                                <a href="https://www.nordkeyboards.com">Nord Keyboards / Clavia DMI AB</a>, or any of
+                                its subsidiaries or its affiliates.
+                            </div>
+                            <div>
+                                The names Nord and Clavia as well as related names, marks, emblems and images are
+                                registered trademarks of their respective owners.
+                            </div>
                         </small>
                     </div>
 

@@ -1,0 +1,9 @@
+Read and review your favorite Nord Stage 2/2EX/3 Program settings without any download in the keyboard, no Nord Sound Manager is required.
+Export the patch sheet as a pdf file for archive.
+
+This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com).
+
+Disclaimer
+We are not affiliated, associated, endorsed by, or in any way officially connected with Nord Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.
+The official Nord Keyboards website can be found at https://www.nordkeyboards.com
+The names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.

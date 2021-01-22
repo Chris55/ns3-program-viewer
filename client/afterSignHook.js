@@ -1,4 +1,12 @@
 // See: https://medium.com/@TwitterArchiveEraser/notarize-electron-apps-7a5f988406db
+//
+// Signing an Electron app for Mac App Store
+// https://epxx.co/artigos/electronsign.html
+//
+// Notarizing your Electron application
+// https://kilianvalkhof.com/2019/electron/notarizing-your-electron-application/
+//
+// https://blog.mifi.no/2020/03/31/automated-electron-build-with-release-to-mac-app-store-microsoft-store-snapcraft/
 
 const fs = require('fs');
 const path = require('path');
@@ -7,7 +15,11 @@ const electron_notarize = require('electron-notarize');
 module.exports = async function (params) {
 
     // Only notarize the app on Mac OS only.
-    if (process.platform !== 'darwin' && params.electronPlatformName !== 'darwin') {
+    if (process.platform !== 'darwin' || params.electronPlatformName !== 'darwin') {
+        return;
+    }
+    if (params.packager.platformSpecificBuildOptions.type === 'development') {
+        console.log("cancel notarize step for type", params.packager.platformSpecificBuildOptions.type);
         return;
     }
     //console.log(params);
