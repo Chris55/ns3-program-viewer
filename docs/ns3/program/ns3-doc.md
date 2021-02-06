@@ -1839,12 +1839,7 @@ Offset in file: 0x98 (b4-2)
 
 **Example**  
 ```js
-0 = LP12
-1 = LP24
-2 = Mini Moog
-3 = LP+HP
-4 = BP24
-5 = HP24
+0 = LP121 = LP242 = Mini Moog3 = LP+HP4 = BP245 = HP24
 ```
 <a name="module_NS3 Synth Filter Kb Track"></a>
 
@@ -1853,10 +1848,7 @@ Offset in file: 0xA5 (b5-4)
 
 **Example**  
 ```js
-0 = Off
-1 = 1/3
-2 = 2/3
-3 = 1
+0 = Off1 = 1/32 = 2/33 = 1
 ```
 <a name="module_NS3 Synth Filter Drive"></a>
 
@@ -1865,10 +1857,7 @@ Offset in file: 0xA5 (b3-2)
 
 **Example**  
 ```js
-0 = Off
-1 = 1
-2 = 2
-3 = 3
+0 = Off1 = 12 = 23 = 3
 ```
 <a name="module_NS3 Synth Filter LFO Amount"></a>
 
@@ -1878,16 +1867,7 @@ Offset in file: 0xA0 (b3-0) and 0xA1 (b7-5)
 **See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-0/127 value = 0 / 10
-
-Morph Wheel:
-0xA1 (b4-b0), 0xA2 (b7-b5): 8-bit raw value
-
-Morph After Touch:
-0xA2 (b4-b0), 0xA3 (b7-b5): 8-bit raw value
-
-Morph Control Pedal:
-0xA3 (b4-b0), 0xA4 (b7-b5): 8-bit raw value
+0/127 value = 0 / 10Morph Wheel:0xA1 (b4-b0), 0xA2 (b7-b5): 8-bit raw valueMorph After Touch:0xA2 (b4-b0), 0xA3 (b7-b5): 8-bit raw valueMorph Control Pedal:0xA3 (b4-b0), 0xA4 (b7-b5): 8-bit raw value
 ```
 <a name="module_NS3 Synth Filter Vel Mod Env Amount"></a>
 
@@ -1896,11 +1876,7 @@ Offset in file: 0xA4 (b4-0) and 0xA5 (b7-6)
 
 **Example**  
 ```js
-Filter modulation (vel/env mod) is using this single 7-bit value to define two settings with a single knob.
-Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:
-0   = 10.0 (100% left value) 'Vel Amount'
-60  = 0.0 for both values
-120 = 10.0 (100% right value) 'Mod Env Amount'
+Filter modulation (vel/env mod) is using this single 7-bit value to define two settings with a single knob.Input Value is not the direct midi value as usual, instead it is coded on a special 0/120 range:0   = 10.0 (100% left value) 'Vel Amount'60  = 0.0 for both values120 = 10.0 (100% right value) 'Mod Env Amount'
 ```
 <a name="module_NS3 Synth Filter Freq"></a>
 
@@ -1910,17 +1886,7 @@ Offset in file: 0x98 (b1-0) and 0x99 (b7-3)
 **See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed Morph explanation.  
 **Example**  
 ```js
-0/127 value = 14 Hz / 21 kHz
-#include ns3SynthFilterCutoffFrequencyMap
-
-Morph Wheel:
-0x99 (b2-b0), 0x9A (b7-b3): 8-bit raw value
-
-Morph After Touch:
-0x9A (b2-b0), 0x9B (b7-b3): 8-bit raw value
-
-Morph Control Pedal:
-0x9B (b2-b0), 0x9C (b7-b3): 8-bit raw value
+0/127 value = 14 Hz / 21 kHz#include ns3SynthFilterCutoffFrequencyMapMorph Wheel:0x99 (b2-b0), 0x9A (b7-b3): 8-bit raw valueMorph After Touch:0x9A (b2-b0), 0x9B (b7-b3): 8-bit raw valueMorph Control Pedal:0x9B (b2-b0), 0x9C (b7-b3): 8-bit raw value
 ```
 <a name="module_NS3 Synth Filter HP Freq Res"></a>
 
@@ -1929,12 +1895,7 @@ Offset in file: 0x9C (b2-0) and 0x9D (b7-4)
 
 **Example**  
 ```js
-for 'LP+HP' filter
-  => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHz
-#include ns3SynthFilterCutoffFrequencyMap
-
-for all other filters
-  => Resonance:  0/127 value = 0 / 10
+for 'LP+HP' filter  => Frequency High Pass value: 0/127 value = 14 Hz / 21 kHz#include ns3SynthFilterCutoffFrequencyMapfor all other filters  => Resonance:  0/127 value = 0 / 10
 ```
 <a name="module_NS3 Synth Sample ID"></a>
 
@@ -2424,9 +2385,7 @@ Offset in file: 0x57 (b5-0) and 0x58 (b7-4)
 
 **Example**  
 ```js
-Preset location:
-0-399:   user preset
-400-799: sample preset
+Preset location:0-399:   user preset400-799: sample preset
 ```
 <a name="module_NS3 Synth Preset Name"></a>
 
@@ -2435,14 +2394,5 @@ Offset in file: 0x58 (b3-0) to 0x6E (b7-4)
 
 **Example**  
 ```js
-User Preset names are limited to 16 characters,
-Sample Preset name are up to 22 characters.
-
-character 1: ((offset + 3) & 0xff) + 1
-character 2: (offset + 2) & 0xff
-character 3: (offset + 1) & 0xff
-character 4: (offset + 0) & 0x7f
-character 5: ((offset + 3 + 4) & 0xff) + 1
-character 6: (offset + 2 + 4) & 0xff
-. . .
+User Preset names are limited to 16 characters,Sample Preset name are up to 22 characters.character 1: ((offset + 3) & 0xff) + 1character 2: (offset + 2) & 0xffcharacter 3: (offset + 1) & 0xffcharacter 4: (offset + 0) & 0x7fcharacter 5: ((offset + 3 + 4) & 0xff) + 1character 6: (offset + 2 + 4) & 0xff. . .
 ```

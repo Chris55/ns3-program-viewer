@@ -4,9 +4,22 @@
 This file documents the Nord Stage program file structure. It is handmade by [NUF](https://www.norduserforum.com) users and is not officially supported by Nord Keyboards / Clavia DMI AB.
 While we certainly hope this document is useful, none of the authors or contributors place any guarantees as to the accuracy of the data.
 
-We contacted Nord Keyboards / Clavia DMI AB support about this project, and the answer was that they are fine with this project, and it can be published :)
+We contacted Nord Keyboards / Clavia DMI AB support about this project, answer from the support
 
-[https://ns3-program-viewer.herokuapp.com](https://ns3-program-viewer.herokuapp.com) web application is the project behind this initiative.
+> I talked to the guys here, and it is fine with us for you to proceed with this project - as long as you accompany your published work with a disclaimer that Clavia in no way is affiliated with it. We will not be able to provide any assistance with this, but good luck nonetheless!
+>
+> @Clavia Support.
+
+### Application
+
+The application is available in both format:
+
+- Online version: [https://ns3-program-viewer.herokuapp.com](https://ns3-program-viewer.herokuapp.com)
+
+- Offline version also available as standalone desktop application:
+  - Windows: [https://github.com/Chris55/ns3-program-viewer/releases](https://github.com/Chris55/ns3-program-viewer/releases)
+  - Mac: AppStore - [https://apps.apple.com/app/id1549939673](https://apps.apple.com/app/id1549939673)
+
 Source is located here: [https://github.com/Chris55/ns3-program-viewer](https://github.com/Chris55/ns3-program-viewer)
 
 * * *
@@ -47,6 +60,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |      |              | Fixed typo in offsets 0x011B, 0x011D, 0x011F, and 0x119
 |      |              | Fixed NS3 panel starting offset
 |      |              | Added Stage 2 mapping
+|1.2   | 06-Feb-2021  | Cleanup
 
 
 \newpage
@@ -55,7 +69,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 ## License
 This mapping is provided as-is under the MIT license.
 
-Copyright (c) 2020 Christian Florentz
+Copyright (c) 2020, 2021 Christian Florentz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell

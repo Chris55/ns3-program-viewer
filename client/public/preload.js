@@ -2,8 +2,8 @@ const { ipcRenderer, contextBridge } = require('electron');
 
 contextBridge.exposeInMainWorld('electron', {
     // Invoke Methods
-    downloadFile: async (args) => {
-        return await ipcRenderer.invoke('download-file', args);
+    downloadFiles: async (args) => {
+        return await ipcRenderer.invoke('download-files', args);
     },
     // Send Methods
     //testSend: (args) => ipcRenderer.send('test-send', args),

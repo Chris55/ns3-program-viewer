@@ -9,19 +9,19 @@ const FileUploaderButton = props => {
     };
     const handleChange = event => {
         event.preventDefault();
-        const fileUploaded = event.target.files[0];
-        //console.log("selected file:", fileUploaded);
-        props.handleFile(fileUploaded);
+        props.handleFile(event.target.files);
     };
     return (
         <>
             <Button
+                disabled={props.disabled}
                 onClick={handleClick}>
                 {props.title}
             </Button>
             <input type="file"
                    accept={props.accept}
                    ref={hiddenFileInput}
+                   multiple={props.multiple}
                    onChange={handleChange}
                    style={{display:'none'}}
             />

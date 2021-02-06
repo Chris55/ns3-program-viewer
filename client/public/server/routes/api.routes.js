@@ -28,28 +28,39 @@ const upload = multer({
     },
 });
 
-router.post("/upload", upload.single("nordFile"), async (req, res, next) => {
-    if (!req.file) {
+router.post("/upload", upload.array("nordFiles", 100), async (req, res, next) => {
+    if (!req.files) {
         next(Error("Unsupported file"));
         return;
     }
-    console.log(req.file.path);
-
-    const buffer = await fs.readFile(req.file.path).catch(next);
-
-    if (process.env.NODE_ENV !== "production") {
-        // in dev cleanup all files
-        // in prod: no cleanup required heroku free dyno restart every 24h and cleanup everything
-        // this allows to monitor in /media the last 24h site usage
-        await fs.unlink(req.file.path).catch(next);
+    if (req.files.length === 0) {
+        next(Error("No file selected!"));
+        return;
     }
 
     try {
+        const bundle = [];
 
+        for(const file of req.files) {
+
+            console.log(file.path);
+
+            const buffer = await fs.readFile(file.path);
+
+            if (process.env.NODE_ENV !== "production") {
+                // in dev cleanup all files
+                // in prod: no cleanup required heroku free dyno restart every 24h and cleanup everything
+                // this allows to monitor in /media the last 24h site usage
+                await fs.unlink(file.path).catch(next);
+            }
+
+            const data = loadNordFile(buffer, file.originalname);
+            bundle.push(data);
+        }
         const response = {
             success: true,
             error: "",
-            data: loadNordFile(buffer, req.file.originalname),
+            data: bundle,
         };
         res.send(response);
 

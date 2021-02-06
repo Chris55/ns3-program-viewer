@@ -14,7 +14,7 @@
     },
     "build": {
         "appId": "com.chris55.nord-file-viewer",
-        "productName": "Nord File Viewer",
+        "productName": "File Viewer for Nord Stage",
         "copyright": "Copyright © 2021 ${author}\n\nSpecial thanks to Andreas Gallenmueller (@gaaal)\nThanks to other NUF members: @rpossemo, @cookie, @gordon, @Hobster\n\n\nDisclaimer: We are not affiliated, associated, endorsed by, or in any way officially connected with Nord Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.\nThe names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.",
         "publish": [
             {
@@ -77,7 +77,7 @@
         "bootstrap": "^4.5.3",
         "concurrently": "^5.3.0",
         "cross-env": "^7.0.3",
-        "electron": "^11.2.0",
+        "electron": "^11.2.1",
         "electron-builder": "^22.9.1",
         "electron-notarize": "^1.0.0",
         "lodash.clonedeep": "^4.5.0",
@@ -115,9 +115,9 @@
         "react-eject": "react-scripts eject",
         "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
         "electron-build": "electron-builder",
-        "deploy": "yarn react-build && yarn electron-build build -mw --publish=always",
+        "deploy": "yarn react-build && yarn electron-build build -w --publish=always",
         "build": "yarn react-build && yarn electron-build build -mw --publish never",
         "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
-    "version": "0.1.12"
+    "version": "0.1.16"
 }

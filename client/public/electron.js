@@ -80,14 +80,20 @@ app.on("ready", async () => {
     await autoUpdater.checkForUpdatesAndNotify();
 });
 
-ipcMain.handle("download-file", async (event, args) => {
+ipcMain.handle("download-files", async (event, args) => {
     try {
-        const buffer = await fs.readFile(args.path);
-        const data = loadNordFile(buffer, args.name);
+        const bundle = [];
+        for(const file of args) {
+            console.log(file.path);
+            const buffer = await fs.readFile(file.path);
+            const data = loadNordFile(buffer, file.name);
+            bundle.push(data);
+        }
+
         return {
             success: true,
             error: "",
-            data: data,
+            data: bundle,
         };
     } catch (e) {
         return {

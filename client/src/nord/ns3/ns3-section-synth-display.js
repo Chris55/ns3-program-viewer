@@ -1,6 +1,6 @@
 import React from "react";
 import { Ns3ArrowLeft, Ns3ArrowRight, Ns3Knob, Ns3WaveForm } from "./ns3-svg-library";
-import { renderToStaticMarkup } from "react-dom/server";
+// import { renderToStaticMarkup } from "react-dom/server";
 
 const color = "#f6faf7";
 // const background = "green"; // "#32322f";

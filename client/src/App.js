@@ -24,12 +24,6 @@ class App extends Component {
 
         this.title = ""; //`v${process.env.REACT_APP_VERSION}`;
         this.production = process.env.NODE_ENV === "production";
-        //this.ref = React.createRef();
-        this.options = {
-            orientation: "landscape",
-            unit: "in",
-            format: [4, 2],
-        };
 
         if (this.production) {
             if (ns3Model.slotA) {
@@ -43,11 +37,13 @@ class App extends Component {
         }
         this.state = {
             loaded: false,
-            data: ns3Model,
-            originalData: clonedeep(ns3Model),
+            loading: false,
+            data: [ns3Model],
+            originalData: clonedeep([ns3Model]),
             error: null,
             showAll: false,
             exporting: false,
+            exportDetails: "",
         };
     }
 
@@ -56,6 +52,7 @@ class App extends Component {
         if (data.success) {
             this.setState({
                 loaded: true,
+                loading: false,
                 data: data.data,
                 originalData: clonedeep(data.data),
                 error: null,
@@ -67,16 +64,25 @@ class App extends Component {
     };
 
     onError = (err) => {
-        this.setState({ loaded: false, error: err.error, showAll: false });
+        this.setState({ loaded: false, loading: false, error: err.error, showAll: false });
         toast.error(this.state.error);
     };
 
-    handleFile = async (filename) => {
-        if (!filename) return;
+    handleFile = async (files) => {
+        if (!files) return;
+
+        this.setState({loading: true});
 
         if (isElectron) {
             try {
-                const response = await window.electron.downloadFile({ path: filename.path, name: filename.name });
+                const bundle = [];
+                for (const file of files) {
+                    bundle.push({
+                        path: file.path,
+                        name: file.name
+                    });
+                }
+                const response = await window.electron.downloadFiles(bundle);
                 this.onSuccess(response);
             } catch (e) {
                 this.onError({ error: e.message });
@@ -85,7 +91,10 @@ class App extends Component {
         }
 
         const formData = new FormData();
-        formData.append("nordFile", filename);
+        for (const file of files) {
+            formData.append("nordFiles", file);
+        }
+
         await axios
             .post("api/upload", formData, {})
             .then((res) => {
@@ -99,31 +108,33 @@ class App extends Component {
     handleShowAll = () => {
         if (!this.state.showAll) {
             const newData = clonedeep(this.state.data);
-            newData.name += " - (All Instruments Visible)";
-            const panelA = newData.panelA || newData.slotA;
-            const panelB = newData.panelB || newData.slotB;
+            for (const item of newData) {
+                item.name += " - (All Instruments Visible)";
+                const panelA = item.panelA || item.slotA;
+                const panelB = item.panelB || item.slotB;
 
-            panelA.organ.dimmed = !panelA.enabled || !panelA.organ.enabled;
-            panelA.piano.dimmed = !panelA.enabled || !panelA.piano.enabled;
-            panelA.synth.dimmed = !panelA.enabled || !panelA.synth.enabled;
-            panelA.extern.dimmed = !panelA.enabled || !panelA.extern.enabled;
+                panelA.organ.dimmed = !panelA.enabled || !panelA.organ.enabled;
+                panelA.piano.dimmed = !panelA.enabled || !panelA.piano.enabled;
+                panelA.synth.dimmed = !panelA.enabled || !panelA.synth.enabled;
+                panelA.extern.dimmed = !panelA.enabled || !panelA.extern.enabled;
 
-            panelA.enabled = true;
-            panelA.organ.enabled = true;
-            panelA.piano.enabled = true;
-            panelA.synth.enabled = true;
-            panelA.extern.enabled = true;
+                panelA.enabled = true;
+                panelA.organ.enabled = true;
+                panelA.piano.enabled = true;
+                panelA.synth.enabled = true;
+                panelA.extern.enabled = true;
 
-            panelB.organ.dimmed = !panelB.enabled || !panelB.organ.enabled;
-            panelB.piano.dimmed = !panelB.enabled || !panelB.piano.enabled;
-            panelB.synth.dimmed = !panelB.enabled || !panelB.synth.enabled;
-            panelB.extern.dimmed = !panelB.enabled || !panelB.extern.enabled;
+                panelB.organ.dimmed = !panelB.enabled || !panelB.organ.enabled;
+                panelB.piano.dimmed = !panelB.enabled || !panelB.piano.enabled;
+                panelB.synth.dimmed = !panelB.enabled || !panelB.synth.enabled;
+                panelB.extern.dimmed = !panelB.enabled || !panelB.extern.enabled;
 
-            panelB.enabled = true;
-            panelB.organ.enabled = true;
-            panelB.piano.enabled = true;
-            panelB.synth.enabled = true;
-            panelB.extern.enabled = true;
+                panelB.enabled = true;
+                panelB.organ.enabled = true;
+                panelB.piano.enabled = true;
+                panelB.synth.enabled = true;
+                panelB.extern.enabled = true;
+            }
 
             this.setState((prevState) => ({
                 showAll: true,
@@ -138,8 +149,11 @@ class App extends Component {
     };
 
     handleExport = () => {
+        const callback = (name) => {
+            this.setState({ exportDetails: name });
+        };
         this.setState({ exporting: true }, async () => {
-            await buildExport(this.state.data, this.state.showAll).catch((e) => toast.error(e.message));
+            await buildExport(this.state.data, this.state.showAll, callback).catch((e) => toast.error(e.message));
             this.setState({ exporting: false });
         });
     };
@@ -178,8 +192,10 @@ class App extends Component {
                                 <div className="col-2-auto align-self-center">
                                     <FileUploaderButton
                                         className=""
-                                        title="Select"
+                                        title={this.state.loading ? "Loading..." : "Select"}
+                                        disabled={this.state.loading}
                                         accept=".ns3f,.ns2p"
+                                        multiple={true}
                                         handleFile={this.handleFile}
                                     />
                                 </div>
@@ -239,7 +255,7 @@ class App extends Component {
                                                 disabled={this.state.exporting}
                                                 onClick={this.handleExport}
                                             >
-                                                {this.state.exporting ? "Saving..." : "Save"}
+                                                {this.state.exporting ? "Saving " + this.state.exportDetails : "Save"}
                                             </Button>
                                         </div>
                                     </>
@@ -247,7 +263,11 @@ class App extends Component {
                             </div>
                         </Container>
 
-                        <NordDevice data={this.state.data} showAll={this.state.showAll} production={this.production} />
+                        <NordDevice
+                            data={this.state.data}
+                            showAll={this.state.showAll}
+                            production={this.production}
+                        />
                     </div>
 
                     <div className="nord-footer">
@@ -264,7 +284,8 @@ class App extends Component {
                                 {!isElectron && (
                                     <span>
                                         {" "}
-                                        Uploaded files are stored on the server for processing only and deleted every 24h.
+                                        Uploaded files are stored on the server for processing only and deleted every
+                                        24h.
                                     </span>
                                 )}
                             </div>
