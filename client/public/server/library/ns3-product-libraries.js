@@ -5,20 +5,9 @@
  * @type {Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>}
  */
 exports.ns3ProductLibraries = new Map([
-    // these samples are not available in the library!
-    // library contains a version 3.01 or 3.11, or 3.12 but the products uses version with one digit only in the minor version...
-    [
-        0x378fb16c,
-        {
-            name: "All Winds Legato",
-            info: "SR",
-            version: "3.0",
-            category: "Ens WoodWind",
-            size: 3187436,
-            filename: "All Winds Legato_SR 3.0",
-            ext: "nsmp3",
-        },
-    ],
+    // these samples are not available in the library...
+    // library contains a version 3.01 or 3.11, or 3.12
+    // but the products uses version with one digit only in the minor version...
     [
         0x7fbd7a2f,
         {
@@ -68,6 +57,18 @@ exports.ns3ProductLibraries = new Map([
         },
     ],
     [
+        0x378fb16c,
+        {
+            name: "All Winds Legato",
+            info: "SR",
+            version: "3.0",
+            category: "Ens WoodWind",
+            size: 3187436,
+            filename: "All Winds Legato_SR 3.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
         0x6d5d692c,
         {
             name: "Alto Recorder",
@@ -80,6 +81,18 @@ exports.ns3ProductLibraries = new Map([
         },
     ],
     [
+        0xd14ff3f3,
+        {
+            name: "Bagpipe Combi",
+            info: "BR mono",
+            version: "3.0",
+            category: "Solo WoodWind",
+            size: 812140,
+            filename: "Bagpipe Combi_BR mono 3.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
         0xd75e8490,
         {
             name: "Bansuri Asian Flute",
@@ -88,6 +101,18 @@ exports.ns3ProductLibraries = new Map([
             category: "Solo WoodWind",
             size: 1112940,
             filename: "Bansuri Asian Flute_BR mono 3.1",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xef263cd7,
+        {
+            name: "Bass Clarinet 1",
+            info: "SO",
+            version: "3.0",
+            category: "Solo WoodWind",
+            size: 1078892,
+            filename: "Bass Clarinet 1_SO 3.0",
             ext: "nsmp3",
         },
     ],
@@ -212,6 +237,18 @@ exports.ns3ProductLibraries = new Map([
         },
     ],
     [
+        0x4545bded,
+        {
+            name: "Ney  Flute",
+            info: "BR mono",
+            version: "3.0",
+            category: "Solo WoodWind",
+            size: 877676,
+            filename: "Ney  Flute_BR mono 3.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
         0xfe8a56f5,
         {
             name: "Nor Flute",
@@ -260,6 +297,30 @@ exports.ns3ProductLibraries = new Map([
         },
     ],
     [
+        0xa8eef00a,
+        {
+            name: "Pan Flute Tremolo Slow",
+            info: "",
+            version: "3.0",
+            category: "Solo WoodWind",
+            size: 595180,
+            filename: "Pan Flute Tremolo Slow_ 3.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xc34fbf21,
+        {
+            name: "Panflute 2",
+            info: "BR mono",
+            version: "3.0",
+            category: "Solo WoodWind",
+            size: 1526124,
+            filename: "Panflute 2_BR mono 3.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
         0x7cc45a3d,
         {
             name: "Piccolo Flute",
@@ -304,6 +365,30 @@ exports.ns3ProductLibraries = new Map([
             category: "Solo WoodWind",
             size: 872684,
             filename: "Quena Latin Flute_BR mono 3.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xfc70ea3a,
+        {
+            name: "Shakuhachi",
+            info: "BR mono",
+            version: "3.1",
+            category: "Solo WoodWind",
+            size: 2118252,
+            filename: "Shakuhachi_BR mono 3.1",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xe199a8cb,
+        {
+            name: "Shehnai",
+            info: "BR mono",
+            version: "3.1",
+            category: "Solo WoodWind",
+            size: 1233644,
+            filename: "Shehnai_BR mono 3.1",
             ext: "nsmp3",
         },
     ],
