@@ -59,7 +59,8 @@ inputsFiles.forEach((x) => {
             if (s.filename.toUpperCase() === filename) {
                 existingInLibrary = true;
             }
-        } else if (filename.includes(s.name.toUpperCase()) && filename.includes(s.version.toUpperCase())) {
+        } //else if (filename.includes(s.name.toUpperCase()) && filename.includes(s.version.toUpperCase())) {
+        else if (filename.includes(s.name.toUpperCase()) && filename.endsWith(s.version.toUpperCase())) {
             existingInLibrary = true;
         }
     };

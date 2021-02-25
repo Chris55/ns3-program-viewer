@@ -6,7 +6,33 @@
  */
 exports.ns3ProductLibraries = new Map([
 
-
+    // these samples are not available in the library!
+    // library contains a version 3.01 or 3.11, or 3.12 but the products uses version with one digit only in the minor version...
+    [0x378fb16c, {name: "All Winds Legato", info: "SR", version: "3.0", category: "Ens WoodWind", size: 3187436, filename: "All Winds Legato_SR 3.0", ext: "nsmp3" }],
+    [0x7fbd7a2f, {name: "3-Bassoons Legato", info: "SO", version: "3.0", category: "Ens WoodWind", size: 2842604, filename: "3-Bassoons Legato_SO 3.0", ext: "nsmp3" }],
+    [0xf3d95544, {name: "3-Clarinets Legato", info: "SO", version: "3.1", category: "Ens WoodWind", size: 3027820, filename: "3-Clarinets Legato_SO 3.1", ext: "nsmp3" }],
+    [0x666a968b, {name: "3-Flutes Legato", info: "SO", version: "3.1", category: "Ens WoodWind", size: 2369644, filename: "3-Flutes Legato_SO 3.1", ext: "nsmp3" }],
+    [0x4020ac8d, {name: "3-Oboes Legato", info: "SO", version: "3.0", category: "Ens WoodWind", size: 2254316, filename: "3-Oboes Legato_SO 3.0", ext: "nsmp3" }],
+    [0x6d5d692c, {name: "Alto Recorder", info: "BR mono", version: "3.1", category: "Solo WoodWind", size: 1104620, filename: "Alto Recorder_BR mono 3.1", ext: "nsmp3" }],
+    [0xd75e8490, {name: "Bansuri Asian Flute", info: "BR mono", version: "3.1", category: "Solo WoodWind", size: 1112940, filename: "Bansuri Asian Flute_BR mono 3.1", ext: "nsmp3" }],
+    [0xc07f3d94, {name: "Bass Clarinet 2", info: "KG  mono", version: "3.1", category: "Solo WoodWind", size: 28780, filename: "Bass Clarinet 2_KG  mono 3.1", ext: "nsmp3" }],
+    [0x1e5360d4, {name: "Bassoon", info: "SO", version: "3.1", category: "Solo WoodWind", size: 624108, filename: "Bassoon_SO 3.1", ext: "nsmp3" }],
+    [0x57bfcf71, {name: "Bolivian Panpipe", info: "PS mono", version: "3.1", category: "Solo WoodWind", size: 857836, filename: "Bolivian Panpipe_PS mono 3.1", ext: "nsmp3" }],
+    [0xa06ccdb1, {name: "Celtic Whistle", info: "PS mono", version: "3.0", category: "Solo WoodWind", size: 675820, filename: "Celtic Whistle_PS mono 3.0", ext: "nsmp3" }],
+    [0x8bd6f2aa, {name: "Clarinet", info: "KG mono", version: "3.1", category: "Solo WoodWind", size: 35692, filename: "Clarinet_KG mono 3.1", ext: "nsmp3" }],
+    [0x42a922ee, {name: "English Horn", info: "SO", version: "3.1", category: "Solo WoodWind", size: 1953772, filename: "English Horn_SO 3.1", ext: "nsmp3" }],
+    [0xbc9a51c2, {name: "Flute Vibrato", info: "KG mono", version: "3.0", category: "Solo WoodWind", size: 318316, filename: "Flute Vibrato_KG mono 3.0", ext: "nsmp3" }],
+    [0x61296b3a, {name: "Flute", info: "", version: "3.0", category: "Solo WoodWind", size: 1208428, filename: "Flute_ 3.0", ext: "nsmp3" }],
+    [0x2c9df931, {name: "Flutes + Clarinets Leg", info: "SR", version: "3.1", category: "Ens WoodWind", size: 2687340, filename: "Flutes + Clarinets Leg_SR 3.1", ext: "nsmp3" }],
+    [0xb667ce49, {name: "Flutes + Oboe Legato", info: "SR", version: "3.1", category: "Ens WoodWind", size: 2382444, filename: "Flutes + Oboe Legato_SR 3.1", ext: "nsmp3" }],
+    [0xfe8a56f5, {name: "Nor Flute", info: "BR mono", version: "3.0", category: "Solo WoodWind", size: 1170668, filename: "Nor Flute_BR mono 3.0", ext: "nsmp3" }],
+    [0x7c45f1d6, {name: "Nordic Whistle", info: "PS mono", version: "3.0", category: "Solo WoodWind", size: 1232876, filename: "Nordic Whistle_PS mono 3.0", ext: "nsmp3" }],
+    [0xf568d7a1, {name: "Oboe", info: "KG mono", version: "3.0", category: "Solo WoodWind", size: 82284, filename: "Oboe_KG mono 3.0", ext: "nsmp3" }],
+    [0xdc1565b6, {name: "Pan Flute 1", info: "KG mono", version: "3.1", category: "Solo WoodWind", size: 218860, filename: "Pan Flute 1_KG mono 3.1", ext: "nsmp3" }],
+    [0x7cc45a3d, {name: "Piccolo Flute", info: "", version: "3.0", category: "Solo WoodWind", size: 896492, filename: "Piccolo Flute_ 3.0", ext: "nsmp3" }],
+    [0x2538f6e5, {name: "Privilege Flute Vibrato", info: "PS mono", version: "3.0", category: "Solo WoodWind", size: 564844, filename: "Privilege Flute Vibrato_PS mono 3.0", ext: "nsmp3" }],
+    [0x95e6c5f9, {name: "Privilege Flute", info: "PS mono", version: "3.0", category: "Solo WoodWind", size: 1059308, filename: "Privilege Flute_PS mono 3.0", ext: "nsmp3" }],
+    [0x5071c998, {name: "Quena Latin Flute", info: "BR mono", version: "3.0", category: "Solo WoodWind", size: 872684, filename: "Quena Latin Flute_BR mono 3.0", ext: "nsmp3" }],
 
 
 
