@@ -99,6 +99,5 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         }
     }
 
-
     return sample;
 };
