@@ -239,3 +239,168 @@ exports.programCategoryMap = new Map([
     //[0x1F, ''],
     [0xff, "Undefined"],
 ]);
+
+/***
+ * Synth Category
+ * @type {Map<number, {subCategory: Map<number, string>, category: string}>}
+ */
+exports.synthCategoryMap = new Map([
+    [
+        0,
+        {
+            category: "Undefined",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        1,
+        {
+            category: "Bass",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        2,
+        {
+            category: "Drums",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        3,
+        {
+            category: "Accordion/Harm",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        4,
+        {
+            category: "Effects",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        5,
+        {
+            category: "Guitar",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        6,
+        {
+            category: "Organ",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        7,
+        {
+            category: "Tuned Percussion",
+            subCategory: new Map([[1, ""]]),
+        },
+    ],
+    [
+        8,
+        {
+            category: "Piano",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        9,
+        {
+            category: "Strings",
+            subCategory: new Map([
+                [1, "Solo"],
+                [2, "Ensemble"],
+                [3, "Analog"],
+            ]),
+        },
+    ],
+    [
+        10,
+        {
+            category: "Synth",
+            subCategory: new Map([
+                [0, "Misc"],
+                [1, "Pad"],
+                [2, "Ens"],
+                [3, "Bass"],
+                [4, "Classic"],
+                [7, "Lead"],
+            ]),
+        },
+    ],
+    [
+        11,
+        {
+            category: "Choir",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        12,
+        {
+            category: "Brass",
+            subCategory: new Map([
+                [1, "Solo"],
+                [2, "Ensemble"],
+            ]),
+        },
+    ],
+    [
+        13,
+        {
+            category: "Orchestral",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        14,
+        {
+            category: "Misc",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        15,
+        {
+            category: "User",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        16,
+        {
+            category: "Mellotron",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        17,
+        {
+            category: "Rhythmic",
+            subCategory: new Map([[0, ""]]),
+        },
+    ],
+    [
+        18,
+        {
+            category: "Wind",
+            subCategory: new Map([
+                [1, "Solo"],
+                [2, "Ensemble"],
+            ]),
+        },
+    ],
+    [
+        255,
+        {
+            category: "None",
+            subCategory: new Map([[255, ""]]),
+        },
+    ],
+]);
+

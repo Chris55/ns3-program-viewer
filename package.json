@@ -77,7 +77,8 @@
     ],
     "license": "MIT",
     "name": "ns-file-parser",
-    "prettier": {},
+    "prettier": {
+    },
     "scripts": {
         "client": "cd client && yarn react-start",
         "server": "nodemon server.js",

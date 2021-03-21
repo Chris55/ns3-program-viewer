@@ -24,21 +24,26 @@ export default class Ns3Panel extends Component {
                     {/*ml-n5*/}
                     <div className="col-10">
                         {/*<div className={data.enabled ? "nord-on" : "nord-off"}>*/}
-                            <div>
-                                <Ns3SectionOrgan className="ns3-section" data={data.organ} effects={data.effects} />
-                            </div>
+                        <div>
+                            <Ns3SectionOrgan className="ns3-section" data={data.organ} effects={data.effects} />
+                        </div>
 
-                            <div>
-                                <Ns3SectionPiano className="ns3-section" data={data.piano} effects={data.effects} />
-                            </div>
+                        <div>
+                            <Ns3SectionPiano className="ns3-section" data={data.piano} effects={data.effects} />
+                        </div>
 
-                            <div>
-                                <Ns3SectionSynth className="ns3-section" data={data.synth} effects={data.effects} />
-                            </div>
+                        <div>
+                            <Ns3SectionSynth
+                                className="ns3-section"
+                                data={data.synth}
+                                effects={data.effects}
+                                ns3y={false}
+                            />
+                        </div>
 
-                            <div>
-                                <Ns3SectionExtern className="ns3-section" data={data.extern} />
-                            </div>
+                        <div>
+                            <Ns3SectionExtern className="ns3-section" data={data.extern} />
+                        </div>
                         {/*</div>*/}
                     </div>
 
@@ -49,11 +54,7 @@ export default class Ns3Panel extends Component {
                                 data={data.effects.compressor}
                                 other={false}
                             />
-                            <Ns3FxReverb
-                                className="ns3-section-main-fx"
-                                data={data.effects.reverb}
-                                other={false}
-                            />
+                            <Ns3FxReverb className="ns3-section-main-fx" data={data.effects.reverb} other={false} />
                             {/*<Ns3Output*/}
                             {/*    className="ns3-section-main-fx"*/}
                             {/*    data={data.output}*/}

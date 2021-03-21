@@ -17,6 +17,7 @@ export default class Ns3SectionSynth extends Component {
         const synth = this.props.data;
         const visible = synth.enabled;
         const dimmed = synth.dimmed === true;
+        const ns3y = this.props.ns3y;
 
         // const presetName =
         //     synth.preset?.presetName !== synth.oscillators.waveForm1.value ? synth.preset?.presetName : "";
@@ -28,7 +29,8 @@ export default class Ns3SectionSynth extends Component {
                         <div className="">
                             <div className="row no-gutters">
                                 <div className="d-flex">
-                                    <Ns3VolumeAndMore name={"SYNTH"} data={synth} />
+                                    {ns3y && <div style={{width: '50px'}} />}
+                                    {!ns3y && <Ns3VolumeAndMore name={"SYNTH"} data={synth} />}
                                 </div>
 
                                 <div className="row no-gutters d-flex flex-wrap">
@@ -78,19 +80,26 @@ export default class Ns3SectionSynth extends Component {
                                         {/*</div>*/}
 
                                         <div className="ns3-lcd-synth">
-                                            {synth.preset.userPreset && synth.preset.presetName &&
-                                            <div className="nord-font-small" style={{ marginLeft: "5px" }}>
-                                                {synth.preset.userPresetLocationName} {synth.preset.presetName}
-                                            </div>
-                                            }
-                                            {!synth.preset.userPreset && synth.preset.presetName &&
-                                            <div className="nord-font-small" style={{ marginLeft: "5px" }}>
-                                                <span style={{color: "#3b4047", background: "#f6faf7", padding: "0 0.2rem", marginRight: "0.4rem"}}>
-                                                    {synth.preset.samplePresetLocationName}
-                                                </span>
-                                                 {synth.preset.presetName}
-                                            </div>
-                                            }
+                                            {!ns3y && synth.preset.userPreset && synth.preset.presetName && (
+                                                <div className="nord-font-small" style={{ marginLeft: "5px" }}>
+                                                    {synth.preset.userPresetLocationName} {synth.preset.presetName}
+                                                </div>
+                                            )}
+                                            {!ns3y && !synth.preset.userPreset && synth.preset.presetName && (
+                                                <div className="nord-font-small" style={{ marginLeft: "5px" }}>
+                                                    <span
+                                                        style={{
+                                                            color: "#3b4047",
+                                                            background: "#f6faf7",
+                                                            padding: "0 0.2rem",
+                                                            marginRight: "0.4rem",
+                                                        }}
+                                                    >
+                                                        {synth.preset.samplePresetLocationName}
+                                                    </span>
+                                                    {synth.preset.presetName}
+                                                </div>
+                                            )}
                                             <Ns3SectionSynthDisplay
                                                 oscType={synth.oscillators.type.value}
                                                 oscWaveForm={synth.oscillators.waveForm1}
@@ -141,12 +150,14 @@ export default class Ns3SectionSynth extends Component {
                                         </div>
                                     </div>
 
-                                    <Ns3Fx
-                                        className="d-flex"
-                                        data={this.props.effects}
-                                        source="Synth"
-                                        arp={synth.arpeggiator}
-                                    />
+                                    {this.props.effects && (
+                                        <Ns3Fx
+                                            className="d-flex"
+                                            data={this.props.effects}
+                                            source="Synth"
+                                            arp={synth.arpeggiator}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </div>

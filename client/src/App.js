@@ -71,7 +71,7 @@ class App extends Component {
     handleFile = async (files) => {
         if (!files) return;
 
-        this.setState({loading: true});
+        this.setState({ loading: true });
 
         if (isElectron) {
             try {
@@ -79,7 +79,7 @@ class App extends Component {
                 for (const file of files) {
                     bundle.push({
                         path: file.path,
-                        name: file.name
+                        name: file.name,
                     });
                 }
                 const response = await window.electron.downloadFiles(bundle);
@@ -109,31 +109,33 @@ class App extends Component {
         if (!this.state.showAll) {
             const newData = clonedeep(this.state.data);
             for (const item of newData) {
-                item.name += " - (All Instruments Visible)";
-                const panelA = item.panelA || item.slotA;
-                const panelB = item.panelB || item.slotB;
+                if (item.ext === "ns3f" || item.ext === "ns2p") {
+                    item.name += " - (All Instruments Visible)";
+                    const panelA = item.panelA || item.slotA;
+                    const panelB = item.panelB || item.slotB;
 
-                panelA.organ.dimmed = !panelA.enabled || !panelA.organ.enabled;
-                panelA.piano.dimmed = !panelA.enabled || !panelA.piano.enabled;
-                panelA.synth.dimmed = !panelA.enabled || !panelA.synth.enabled;
-                panelA.extern.dimmed = !panelA.enabled || !panelA.extern.enabled;
+                    panelA.organ.dimmed = !panelA.enabled || !panelA.organ.enabled;
+                    panelA.piano.dimmed = !panelA.enabled || !panelA.piano.enabled;
+                    panelA.synth.dimmed = !panelA.enabled || !panelA.synth.enabled;
+                    panelA.extern.dimmed = !panelA.enabled || !panelA.extern.enabled;
 
-                panelA.enabled = true;
-                panelA.organ.enabled = true;
-                panelA.piano.enabled = true;
-                panelA.synth.enabled = true;
-                panelA.extern.enabled = true;
+                    panelA.enabled = true;
+                    panelA.organ.enabled = true;
+                    panelA.piano.enabled = true;
+                    panelA.synth.enabled = true;
+                    panelA.extern.enabled = true;
 
-                panelB.organ.dimmed = !panelB.enabled || !panelB.organ.enabled;
-                panelB.piano.dimmed = !panelB.enabled || !panelB.piano.enabled;
-                panelB.synth.dimmed = !panelB.enabled || !panelB.synth.enabled;
-                panelB.extern.dimmed = !panelB.enabled || !panelB.extern.enabled;
+                    panelB.organ.dimmed = !panelB.enabled || !panelB.organ.enabled;
+                    panelB.piano.dimmed = !panelB.enabled || !panelB.piano.enabled;
+                    panelB.synth.dimmed = !panelB.enabled || !panelB.synth.enabled;
+                    panelB.extern.dimmed = !panelB.enabled || !panelB.extern.enabled;
 
-                panelB.enabled = true;
-                panelB.organ.enabled = true;
-                panelB.piano.enabled = true;
-                panelB.synth.enabled = true;
-                panelB.extern.enabled = true;
+                    panelB.enabled = true;
+                    panelB.organ.enabled = true;
+                    panelB.piano.enabled = true;
+                    panelB.synth.enabled = true;
+                    panelB.extern.enabled = true;
+                }
             }
 
             this.setState((prevState) => ({
@@ -179,8 +181,12 @@ class App extends Component {
                                 <blockquote className="blockquote">
                                     <footer className="blockquote-footer">
                                         {this.title} Handmade by Nord User Forum{" "}
-                                        <a href="https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html">
-                                            Members.
+                                        <a
+                                            rel="noopener noreferrer"
+                                            target="_blank"
+                                            href="https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html"
+                                        >
+                                            members.
                                         </a>
                                     </footer>
                                 </blockquote>
@@ -194,7 +200,7 @@ class App extends Component {
                                         className=""
                                         title={this.state.loading ? "Loading..." : "Select"}
                                         disabled={this.state.loading}
-                                        accept=".ns3f,.ns2p"
+                                        accept=".ns3f,.ns3y,.ns2p"
                                         multiple={true}
                                         handleFile={this.handleFile}
                                     />
@@ -207,12 +213,12 @@ class App extends Component {
                                 {/*</div>*/}
 
                                 <div className="col-auto align-self-center">
-                                    Nord Stage 3 Program File (ns3f)
+                                    Nord Stage 3 Program File (ns3f, ns3y)
                                     <br />
                                     Nord Stage 2 Program File (ns2p)
                                 </div>
 
-                                <div className="col-auto align-self-center">
+                                <div className="col-auto align-self-center mt-sm-2">
                                     <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
                                 </div>
 
@@ -263,11 +269,7 @@ class App extends Component {
                             </div>
                         </Container>
 
-                        <NordDevice
-                            data={this.state.data}
-                            showAll={this.state.showAll}
-                            production={this.production}
-                        />
+                        <NordDevice data={this.state.data} showAll={this.state.showAll} production={this.production} />
                     </div>
 
                     <div className="nord-footer">

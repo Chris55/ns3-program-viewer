@@ -182,6 +182,22 @@ exports.ns3ProgramLocation = (bankValue, locationValue) => {
 };
 
 /***
+ * returns NS3 synth location
+ *
+ * @param bankValue {number}
+ * @param locationValue {number}
+ * @returns {{bank: number, name: string, location: number, value: number}}
+ */
+exports.ns3SynthLocation = (bankValue, locationValue) => {
+    return {
+        bank: bankValue,
+        location: locationValue,
+        name: (bankValue + 1) + ":" + zeroPad(locationValue + 1, 2),
+        value: bankValue * 50 + locationValue,
+    };
+};
+
+/***
  * returns Synth Preset details
  *
  * @param buffer {Buffer}

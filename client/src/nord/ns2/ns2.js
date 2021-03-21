@@ -18,7 +18,7 @@ export default class Ns2 extends Component {
                             {data.id.name} {data.name}
                         </h3>
                         <div className="nord-option-on">
-                            Category {data.category} <small className="nord-option-on">V{data.version.value}</small>
+                            {data.description} ({data.ext})   <small>Version</small> {data.version.value}   <small>Category</small> {data.category}
                         </div>
                     </div>
 

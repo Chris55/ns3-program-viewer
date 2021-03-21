@@ -4,6 +4,7 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import NordTree from "./nord-tree";
 import Ns2 from "./ns2/ns2";
+import Ns3y from "./ns3/ns3y/ns3y";
 
 class NordList extends Component {
     render() {
@@ -36,6 +37,24 @@ class NordList extends Component {
                             <Tabs id="uncontrolled-tab-example">
                                 <Tab eventKey="panel" title="Panel" disabled={false}>
                                     <Ns2 data={data} />
+                                </Tab>
+
+                                <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
+                                    <NordTree data={data} />
+                                </Tab>
+                            </Tabs>
+                        )}
+                    </div>
+                );
+            } else if (data && data.ext === "ns3y") {
+                result = (
+                    <div className="mt-2">
+                        {this.props.production && <Ns3y data={data} />}
+
+                        {!this.props.production && (
+                            <Tabs id="uncontrolled-tab-example">
+                                <Tab eventKey="panel" title="Panel" disabled={false}>
+                                    <Ns3y data={data} />
                                 </Tab>
 
                                 <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">

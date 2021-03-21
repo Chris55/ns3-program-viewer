@@ -1,6 +1,6 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
-const {ns3SynthPreset} = require("./ns3-utils");
+const { ns3SynthPreset } = require("./ns3-utils");
 const { getSample } = require("../../library/ns3-library-service");
 const { ns3MorphSynthOscillatorModulation } = require("./ns3-morph");
 const { ns3Morph7Bits } = require("./ns3-morph");
@@ -47,10 +47,21 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @returns {{voice: {value: *}, oscillators: {control: *, fastAttack: {enabled: boolean}, pitch: {midi: *, value: (string|string)}, type: {value: *}, waveForm1: *, config: {value: *}, modulations: {lfoAmount: {midi: *, morph: *, value: *}, modEnvAmount: {midi: *, morph: *, value: *}}}, debug: {lib: {valid: boolean, location: number, value: string, version: string, info: string}, sampleId: string, preset: {userPresetLocation: number, samplePresetLocation: number, presetName: string}}, unison: {value: *}, arpeggiator: {kbSync: {enabled: boolean}, rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, pattern: {value: *}, range: {value: *}, enabled: boolean}, kbZone: {array: string | string[] | boolean[], value: string | string[] | boolean[]}, sustainPedal: {enabled: boolean}, keyboardHold: {enabled: boolean}, preset: *, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: *, pitchStick: {enabled: boolean}, lfo: {rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, wave: {value: *}}, glide: {value: *}, envelopes: {modulation: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {enabled: boolean}}, amplifier: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {value: *}}}, vibrato: {value: *}}}
  */
 exports.ns3Synth = (buffer, id, panelOffset, global) => {
-    const synthOffset3b = buffer.readUInt8(0x3b + panelOffset);
-    const synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset);
-    const synthOffset56 = buffer.readUInt8(0x56 + panelOffset);
-    const synthOffset57 = buffer.readUInt8(0x57 + panelOffset);
+    let synthOffset3b = 0;
+    let synthOffset52W = 0;
+    let synthOffset56 = 0;
+    let synthOffset57 = 0;
+    let isNs3yFile = true;
+
+    // when reading ns3y (synth file), these global settings are not available in the file
+    if (panelOffset >= 0) {
+        isNs3yFile = false;
+        synthOffset3b = buffer.readUInt8(0x3b + panelOffset); // pitch stick range
+        synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset); //  synth kb zone, volume
+        synthOffset56 = buffer.readUInt8(0x56 + panelOffset); // oct shift
+        synthOffset57 = buffer.readUInt8(0x57 + panelOffset); // pitch stick/sustain/preset name
+    }
+
     const synthOffset80 = buffer.readUInt8(0x80 + panelOffset);
     const synthOffset81 = buffer.readUInt8(0x81 + panelOffset);
     const synthOffset81Ww = buffer.readUInt32BE(0x81 + panelOffset);
@@ -121,7 +132,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
             waveForm1.location = (synthOffset8eW & 0x01c0) >>> 6;
             waveForm1.value = mapping.ns3SynthOscillator1SuperWaveTypeMap.get(waveForm1.location);
             waveForm1.valid = waveForm1.value !== undefined;
-            const superUseConfigAndPitch = (oscConfigValue >= 5 && oscConfigValue <= 11) || (oscConfigValue === 14);
+            const superUseConfigAndPitch = (oscConfigValue >= 5 && oscConfigValue <= 11) || oscConfigValue === 14;
             if (!superUseConfigAndPitch) {
                 waveForm1.useConfigAndPitch = false;
             }
@@ -129,11 +140,9 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
         case "Sample":
             const location = (synthOffset8eW & 0x7fc0) >>> 6;
             waveForm1 = getSample(sampleId, 0, location);
-            waveForm1.useConfigAndPitch = (oscConfigValue >= 5 && oscConfigValue <= 11) || (oscConfigValue === 14);
+            waveForm1.useConfigAndPitch = (oscConfigValue >= 5 && oscConfigValue <= 11) || oscConfigValue === 14;
             break;
     }
-
-
 
     const oscModulation = ns3KnobDualValues((synthOffset94W & 0x0fe0) >>> 5);
 
@@ -153,7 +162,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
     const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >>> 1;
     const arpeggiatorMasterClock = (synthOffset80 & 0x01) !== 0;
 
-    const synthEnabled = (synthOffset52W & 0x8000) !== 0;
+    const synthEnabled = isNs3yFile || ((synthOffset52W & 0x8000) !== 0);
     const synthKbZoneEnabled =
         id === 0
             ? synthEnabled
@@ -244,7 +253,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Synth Pitch Stick Range
          */
-        pitchStickRange:  {
+        pitchStickRange: {
             visible: pitchShiftRange !== 1,
             value: mapping.ns3SynthPitchShiftRangeMap.get(pitchShiftRange),
         },
@@ -492,16 +501,23 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
              */
             modulations: {
                 isLfo: oscModulation.fromValueRange120 < 60,
-                label: oscModulation.fromValueRange120 === 60
-                    ? "LFO/Mod Amt"
-                    : oscModulation.fromValueRange120 < 60 ? "LFO Amt": "Mod Env Amt",
+                label:
+                    oscModulation.fromValueRange120 === 60
+                        ? "LFO/Mod Amt"
+                        : oscModulation.fromValueRange120 < 60
+                        ? "LFO Amt"
+                        : "Mod Env Amt",
                 /**
                  * LFO Amount
                  */
                 lfoAmount: {
                     midi: oscModulation.leftMidi,
                     value: oscModulation.leftLabel,
-                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValueRange120, true),
+                    morph: ns3MorphSynthOscillatorModulation(
+                        synthOffset95Ww >>> 5,
+                        oscModulation.fromValueRange120,
+                        true
+                    ),
                 },
                 /**
                  * Env Mod Amount
@@ -509,7 +525,11 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
                 modEnvAmount: {
                     midi: oscModulation.rightMidi,
                     value: oscModulation.rightLabel,
-                    morph: ns3MorphSynthOscillatorModulation(synthOffset95Ww >>> 5, oscModulation.fromValueRange120, false),
+                    morph: ns3MorphSynthOscillatorModulation(
+                        synthOffset95Ww >>> 5,
+                        oscModulation.fromValueRange120,
+                        false
+                    ),
                 },
             },
             /**
@@ -521,7 +541,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
              * @module NS3 Synth Fast Attack
              */
             fastAttack: {
-                enabled: (oscillatorType === "Sample") && (synthOffsetAc & 0x04) !== 0,
+                enabled: oscillatorType === "Sample" && (synthOffsetAc & 0x04) !== 0,
             },
         },
 

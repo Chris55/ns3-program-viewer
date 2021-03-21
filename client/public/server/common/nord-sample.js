@@ -12,7 +12,7 @@ const sampleCategoryMap = new Map([
     [
         3,
         {
-            category: "Accordeon/Harm",
+            category: "Accordion/Harm",
             subCategory: new Map([[0, ""]]),
         },
     ],

@@ -192,7 +192,7 @@ run(inputFile).then(() => {
             // if (typeof a[1].sampleName === 'undefined') {
             //     console.log(a);
             // }
-            return a[0].localeCompare(b[0]);
+            return a[0].toLowerCase().localeCompare(b[0].toLowerCase());
         })
     );
 
