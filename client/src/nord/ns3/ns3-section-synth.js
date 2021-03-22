@@ -29,7 +29,7 @@ export default class Ns3SectionSynth extends Component {
                         <div className="">
                             <div className="row no-gutters">
                                 <div className="d-flex">
-                                    {ns3y && <div style={{width: '50px'}} />}
+                                    {ns3y && <div style={{ width: "2rem" }} />}
                                     {!ns3y && <Ns3VolumeAndMore name={"SYNTH"} data={synth} />}
                                 </div>
 
@@ -149,15 +149,12 @@ export default class Ns3SectionSynth extends Component {
                                             />
                                         </div>
                                     </div>
-
-                                    {this.props.effects && (
-                                        <Ns3Fx
-                                            className="d-flex"
-                                            data={this.props.effects}
-                                            source="Synth"
-                                            arp={synth.arpeggiator}
-                                        />
-                                    )}
+                                    <Ns3Fx
+                                        className="d-flex"
+                                        data={this.props.effects}
+                                        source="Synth"
+                                        arp={synth.arpeggiator}
+                                    />
                                 </div>
                             </div>
                         </div>

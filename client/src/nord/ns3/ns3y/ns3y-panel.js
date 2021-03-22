@@ -17,15 +17,10 @@ export default class Ns3yPanel extends Component {
                     </div>
                     {/*ml-n5*/}
                     <div className="">
-                        {/*<div className={data.enabled ? "nord-on" : "nord-off"}>*/}
-                            <div>
-                                <Ns3SectionSynth className="ns3-section" data={data} ns3y={true} />
-                            </div>
-
-                        {/*</div>*/}
+                        <div>
+                            <Ns3SectionSynth className="ns3-section" data={data} effects={undefined} ns3y={true} />
+                        </div>
                     </div>
-
-
                 </div>
             </div>
         );

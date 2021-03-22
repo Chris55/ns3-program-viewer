@@ -14,11 +14,9 @@ export default class Ns3Fx extends Component {
 
         let arp;
         if (this.props.arp === undefined) {
-            arp = <> </>;
+            arp = <></>;
         } else {
-            arp = <Ns3SectionSynthArp
-                className="nord-synth-sub-feature"
-                data={this.props.arp} />;
+            arp = <Ns3SectionSynthArp className="nord-synth-sub-feature" data={this.props.arp} />;
         }
 
         return (
@@ -27,19 +25,35 @@ export default class Ns3Fx extends Component {
                     <div className="d-flex flex-wrap align-items-start">
                         {arp}
 
-                        <Ns3FxMulti1 className="ns3-section-fx" data={data.effect1} source={this.props.source} />
+                        {data && (
+                            <>
+                                <Ns3FxMulti1
+                                    className="ns3-section-fx"
+                                    data={data.effect1}
+                                    source={this.props.source}
+                                />
 
-                        <Ns3FxMulti2 className="ns3-section-fx" data={data.effect2} source={this.props.source} />
+                                <Ns3FxMulti2
+                                    className="ns3-section-fx"
+                                    data={data.effect2}
+                                    source={this.props.source}
+                                />
 
-                        <Ns3FxDelay className="ns3-section-fx" data={data.delay} source={this.props.source} />
+                                <Ns3FxDelay className="ns3-section-fx" data={data.delay} source={this.props.source} />
 
-                        <Ns3FxAmpSimEq className="ns3-section-fx" data={data.ampSimEq} source={this.props.source} />
+                                <Ns3FxAmpSimEq
+                                    className="ns3-section-fx"
+                                    data={data.ampSimEq}
+                                    source={this.props.source}
+                                />
 
-                        <Ns3FxRotarySpeaker
-                            className="ns3-section-fx"
-                            data={data.rotarySpeaker}
-                            source={this.props.source}
-                        />
+                                <Ns3FxRotarySpeaker
+                                    className="ns3-section-fx"
+                                    data={data.rotarySpeaker}
+                                    source={this.props.source}
+                                />
+                            </>
+                        )}
                     </div>
                 </div>
             </React.Fragment>

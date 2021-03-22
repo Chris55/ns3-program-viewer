@@ -142,7 +142,7 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
 
             value: effect2MasterClockUsed
                 ? mapping.ns2Effect1MasterClockDivisionMap.get(effect2RateMidi)
-                : effect2RateMidi,
+                : effect2RateMidi + " (" + converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, "") + ")",
 
             morph: effect2MasterClockUsed
                 ? ns2Morph4Bits(
@@ -154,7 +154,7 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
                 : ns2Morph7Bits(
                     effectOffset11dWw >>> 4,
                     effect2RateMidi,
-                    (x) => x,
+                    (x) => x + " (" + converter.midi2LinearStringValue(0, 10, x, 1, "") + ")",
                     false
                 ),
         },
