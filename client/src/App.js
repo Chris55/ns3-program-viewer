@@ -186,8 +186,8 @@ class App extends Component {
                                             target="_blank"
                                             href="https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html"
                                         >
-                                            members.
-                                        </a>
+                                            members
+                                        </a> - version {process.env.REACT_APP_VERSION}
                                     </footer>
                                 </blockquote>
                             </Container>

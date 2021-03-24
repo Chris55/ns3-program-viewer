@@ -109,7 +109,7 @@
         "url" : "https://github.com/Chris55/ns3-program-viewer.git"
     },
     "scripts": {
-        "react-start": "cross-env REACT_APP_VERSION=$npm_package_version react-scripts start",
+        "react-start": "react-scripts start",
         "react-build": "react-scripts build",
         "react-test": "react-scripts test --env=jsdom",
         "react-eject": "react-scripts eject",
