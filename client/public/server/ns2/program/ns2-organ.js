@@ -277,7 +277,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Organ Vox Vibrato On
          */
-        vibratoPreset1 = (organOffset37 & 0x80) !== 0;
+        vibratoPreset1 = (organOffset37 & 0x10) !== 0;
         vibratoPreset2 = vibratoPreset1;
         /**
          * Offset in file: 0x37 (b6-5)
@@ -312,7 +312,7 @@ exports.ns2Organ = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Organ Farfisa Vibrato On
          */
-        vibratoPreset1 = (organOffset39 & 0x80) !== 0;
+        vibratoPreset1 = (organOffset39 & 0x10) !== 0;
         vibratoPreset2 = vibratoPreset1;
         /**
          * Offset in file: 0x39 (b6-5)

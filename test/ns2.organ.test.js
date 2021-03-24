@@ -341,6 +341,14 @@ describe("/ns2/organ", () => {
         });
     });
 
+    test("slotA.organ.type.value eq Vox and slotA.organ.preset1.vibrato.enabled eq true", async () => {
+        const file = "slotA.organ.type.value eq Vox and slotA.organ.preset1.vibrato.enabled eq true.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.organ.type.value eq Vox and slotA.organ.preset1.vibrato.mode.value eq Less (V1)", async () => {
         const file = "slotA.organ.type.value eq Vox and slotA.organ.preset1.vibrato.mode.value eq Less (V1).ns2p";
         const sut = await loadTestCase(root + file);
