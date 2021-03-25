@@ -155,16 +155,21 @@ const hideIfEqual = (from, to) => {
  * @ignore
  * @param buffer {Buffer}
  * @param id {number}
+ * @param commonOffset {number}
  * @param panelOffset {number}
  * @param global
  * @returns {{volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}}
  */
-exports.ns2Organ = (buffer, id, panelOffset, global) => {
-    const organOffset30 = buffer.readUInt8(0x30 + panelOffset);
-    const organOffset35 = buffer.readUInt8(0x35 + panelOffset);
-    const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
-    const organOffset37 = buffer.readUInt8(0x37 + panelOffset);
-    const organOffset39 = buffer.readUInt8(0x39 + panelOffset);
+exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
+
+    // common
+    const organOffset30 = buffer.readUInt8(0x30 + commonOffset);
+    const organOffset35 = buffer.readUInt8(0x35 + commonOffset);
+    const organOffset34 = buffer.readUInt8(0x34 + commonOffset);
+    const organOffset37 = buffer.readUInt8(0x37 + commonOffset);
+    const organOffset39 = buffer.readUInt8(0x39 + commonOffset);
+
+    // slot specific
     const organOffset43 = buffer.readUInt8(0x43 + panelOffset);
     const organOffset43Ww = buffer.readUInt32BE(0x43 + panelOffset);
     const organOffset46 = buffer.readUInt8(0x46 + panelOffset);

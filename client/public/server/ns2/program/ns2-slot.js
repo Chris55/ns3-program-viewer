@@ -42,11 +42,12 @@ exports.ns2Slot = function (buffer, id, versionOffset, global) {
     // versionOffset is added to read older version (header is version 0)
 
     // 249 (0xf9) is the magic number to shift to slot B
+    const commonOffset = versionOffset;
     const panelOffset = id * 249 + versionOffset;
 
     return {
         enabled: panelEnabled,
-        organ: ns2Organ(buffer, id, panelOffset, global),
+        organ: ns2Organ(buffer, id, commonOffset, panelOffset, global),
         piano: ns2Piano(buffer, id, panelOffset, global),
         synth: ns2Synth(buffer, id, panelOffset, global),
         extern: ns2Extern(buffer, panelOffset, global),
