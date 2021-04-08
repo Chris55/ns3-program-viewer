@@ -188,6 +188,18 @@
     min-width: 180px!important;
 }
 
+.nord-comment {
+    /*background-color: #cf1212;*/
+    background-color: #c23746; /*red*/
+    /*background-color: #a9d40f; !*green*!*/
+    color: white;
+    border-width: 0;
+    border-style: none;
+    border-color: black;
+    font-size: 80%;
+    padding: 2px;
+    margin: 2px;
+}
 
 .nord-morph-space {
     padding: 0!important;

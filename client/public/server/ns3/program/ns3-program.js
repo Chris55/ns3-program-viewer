@@ -357,5 +357,17 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     ns3.panelB.effects.rotarySpeaker.stopMode = ns3.panelA.effects.rotarySpeaker.stopMode;
     ns3.panelB.effects.rotarySpeaker.speed = ns3.panelA.effects.rotarySpeaker.speed;
 
+    // hotfix on synth oct shift for old OS...
+    // older programs (in 3.00 to 3.02) the Synth Oct shift shows -6 on panel A
+    // this is just something tested on few older program
+    // but I cannot anymore install these older OS to investigate it!
+
+    if (global.version.version < 303) { // &&
+        if (ns3.panelA.synth.octaveShift.value === -6) {
+          ns3.panelA.synth.octaveShift.value += 6;
+            ns3.panelA.synth.octaveShift.comment = "older OS version detected, not sure about this value."
+        }
+    }
+
     return ns3;
 };
