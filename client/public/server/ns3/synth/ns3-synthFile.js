@@ -138,7 +138,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
          */
         category: category, //synthCategoryMap.get(offset10) + " " + offset10,
 
-        synth: ns3Synth(buffer, 0, versionOffset, global),
+        synth: ns3Synth(buffer, 0, versionOffset, global, true),
     };
 
     return ns3SynthFile;

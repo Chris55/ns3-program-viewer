@@ -61,7 +61,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |      |              | Fixed NS3 panel starting offset
 |      |              | Added Stage 2 mapping
 |1.2   | 06-Feb-2021  | Cleanup
-
+|1.3   | 23-Apr-2021  | Added header details
 
 \newpage
 
@@ -86,15 +86,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OU
 
 This mapping corresponds to the Nord Stage 3 program file (file extension ns3f).
 
-The file version used is 3.04 (generated with OS v2.54), and the file length is 592 bytes.
-Some older versions have a length of 574 bytes and a smaller header.
+Offset 0x04 defines the file header format.
 
-Offset 0x04 defines the file format.
+| type  | size  | description
+| :---: | :---: | :------------------------
+| 0     |  574  | Legacy format no CRC (Byte 0x18 to 0x2B are missing).
+| 1     |  592  | New format with additional bytes 0x18 to 0x2B (20 bytes). All file saved with Nord Sound Manager v7.40 (2018-12-18) or later are using this version.
+
 
 Each memory offset corresponds to an 8-bit value.
 
 0x01 (hex) = 00000001 -> bit 0 is ‘1’
-
 0x84 (hex) = 10000100 -> bit 7 and 2 are ‘1’
 
 In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.

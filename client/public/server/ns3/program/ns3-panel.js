@@ -106,7 +106,7 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
         enabled: panelEnabled,
         organ: ns3Organ(buffer, id, panelOffset, global),
         piano: ns3Piano(buffer, id, panelOffset, global),
-        synth: ns3Synth(buffer, id, panelOffset, global),
+        synth: ns3Synth(buffer, id, panelOffset, global, false),
         extern: ns3Extern(buffer, panelOffset, global),
         effects: {
             rotarySpeaker: ns3RotarySpeakerEffect(buffer, panelOffset),

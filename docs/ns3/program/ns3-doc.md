@@ -1682,17 +1682,42 @@ Offset in file: 0x14 and 0x15
 **Example**  
 ```js
 16-bit integer value in Little Endian format, ex 304 = v3.04
-
-Notes:
 From [https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)
-
-Programs stored with OS version
-OS version          Program version
+OS version vs Program version
+------------------------------------
+OS version          Program   File changes
+                    version
+------------------  --------  -----------------------
 v0.92 (2017-06-15)  v3.00
-v1.36 (2018-02-07)  v3.01
-v1.50 (2018-10-22)  v3.02
-vx.xx               v3.03
-vx.xx               v3.04
+v0.94 (2017-06-20)  v3.00
+v0.96 (2017-06-22)  v3.00
+v1.00 (2017-07-07)  v3.00
+v1.04 (2017-07-22)  v3.00
+v1.12 (2017-09-20)  v3.00
+v1.14 (2017-09-26)  v3.00
+v1.22 (2017-10-18)  v3.00
+v1.24 (2017-11-01)  v3.00
+v1.26 (2017-11-16)  v3.00
+v1.28 (2017-12-07)  v3.00
+v1.32 (2017-12-15)  v3.00
+v1.36 (2018-02-07)  v3.01     Enhanced Delay Tap Tempo
+v1.40 (2018-04-10)  v3.01     Nord Sound Manager v7.28 (2018-02-15) or later is required
+v1.42 (2018-08-13)  v3.01
+v1.44 (2018-08-23)  v3.01
+v1.46 (2018-08-24)  v3.01
+v1.50 (2018-10-22)  v3.02     Enhanced Panel setting for Dual KB
+v1.52 (2018-10-26)  v3.02
+v1.60 (2018-11-22)  v3.02
+v2.00 (2018-12-18)  v3.03     New Piano Equalizer settings, Added Pitch Bend range options for Synth
+v2.02 (2019-01-07)  v3.03
+v2.10 (2019-02-27)  v3.04     A separate On/Off setting for pedal Volume was added to the Extern menu.
+v2.12 (2019-04-23)  v3.04
+v2.20 (2019-05-28)  v3.04
+v2.22 (2019-06-27)  v3.04
+v2.24 (2020-01-08)  v3.04
+v2.50 (2020-01-13)  v3.04
+v2.52 (2020-01-23)  v3.04
+v2.54 (2020-03-04)  v3.04
 ```
 <a name="module_NS3 File Format"></a>
 
@@ -1701,8 +1726,10 @@ Offset in file: 0x04
 
 **Example**  
 ```js
-0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
-1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
+0 = header type 0 - legacy format no CRC (Byte 0x18 to 0x2B are missing)
+1 = header type 1 - new format with additional bytes 0x18 to 0x2B (20 bytes).
+
+All files exported with Nord Sound Manager v7.40 (2018-12-18) or later are in type 1.
 ```
 <a name="module_NS3 Transpose"></a>
 
@@ -2385,7 +2412,9 @@ Offset in file: 0x57 (b5-0) and 0x58 (b7-4)
 
 **Example**  
 ```js
-Preset location:0-399:   user preset400-799: sample preset
+Preset location:
+0-399:   user preset
+400-799: sample preset
 ```
 <a name="module_NS3 Synth Preset Name"></a>
 
@@ -2394,5 +2423,14 @@ Offset in file: 0x58 (b3-0) to 0x6E (b7-4)
 
 **Example**  
 ```js
-User Preset names are limited to 16 characters,Sample Preset name are up to 22 characters.character 1: ((offset + 3) & 0xff) + 1character 2: (offset + 2) & 0xffcharacter 3: (offset + 1) & 0xffcharacter 4: (offset + 0) & 0x7fcharacter 5: ((offset + 3 + 4) & 0xff) + 1character 6: (offset + 2 + 4) & 0xff. . .
+User Preset names are limited to 16 characters,
+Sample Preset name are up to 22 characters.
+
+character 1: ((offset + 3) & 0xff) + 1
+character 2: (offset + 2) & 0xff
+character 3: (offset + 1) & 0xff
+character 4: (offset + 0) & 0x7f
+character 5: ((offset + 3 + 4) & 0xff) + 1
+character 6: (offset + 2 + 4) & 0xff
+. . .
 ```

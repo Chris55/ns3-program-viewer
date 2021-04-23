@@ -42,17 +42,42 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      *
      * @example
      * 16-bit integer value in Little Endian format, ex 304 = v3.04
-     *
-     * Notes:
      * From {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history}
-     *
-     * Programs stored with OS version
-     * OS version          Program version
+     * OS version vs Program version
+     * ------------------------------------
+     * OS version          Program   File changes
+     *                     version
+     * ------------------  --------  -----------------------
      * v0.92 (2017-06-15)  v3.00
-     * v1.36 (2018-02-07)  v3.01
-     * v1.50 (2018-10-22)  v3.02
-     * vx.xx               v3.03
-     * vx.xx               v3.04
+     * v0.94 (2017-06-20)  v3.00
+     * v0.96 (2017-06-22)  v3.00
+     * v1.00 (2017-07-07)  v3.00
+     * v1.04 (2017-07-22)  v3.00
+     * v1.12 (2017-09-20)  v3.00
+     * v1.14 (2017-09-26)  v3.00
+     * v1.22 (2017-10-18)  v3.00
+     * v1.24 (2017-11-01)  v3.00
+     * v1.26 (2017-11-16)  v3.00
+     * v1.28 (2017-12-07)  v3.00
+     * v1.32 (2017-12-15)  v3.00
+     * v1.36 (2018-02-07)  v3.01     Enhanced Delay Tap Tempo
+     * v1.40 (2018-04-10)  v3.01     Nord Sound Manager v7.28 (2018-02-15) or later is required
+     * v1.42 (2018-08-13)  v3.01
+     * v1.44 (2018-08-23)  v3.01
+     * v1.46 (2018-08-24)  v3.01
+     * v1.50 (2018-10-22)  v3.02     Enhanced Panel setting for Dual KB
+     * v1.52 (2018-10-26)  v3.02
+     * v1.60 (2018-11-22)  v3.02
+     * v2.00 (2018-12-18)  v3.03     New Piano Equalizer settings, Added Pitch Bend range options for Synth
+     * v2.02 (2019-01-07)  v3.03
+     * v2.10 (2019-02-27)  v3.04     A separate On/Off setting for pedal Volume was added to the Extern menu.
+     * v2.12 (2019-04-23)  v3.04
+     * v2.20 (2019-05-28)  v3.04
+     * v2.22 (2019-06-27)  v3.04
+     * v2.24 (2020-01-08)  v3.04
+     * v2.50 (2020-01-13)  v3.04
+     * v2.52 (2020-01-23)  v3.04
+     * v2.54 (2020-03-04)  v3.04
      *
      * @module NS3 File Version
      */
@@ -75,8 +100,10 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * Offset in file: 0x04
      *
      * @example
-     * 0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
-     * 1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
+     * 0 = header type 0 - legacy format no CRC (Byte 0x18 to 0x2B are missing)
+     * 1 = header type 1 - new format with additional bytes 0x18 to 0x2B (20 bytes).
+     *
+     * All files exported with Nord Sound Manager v7.40 (2018-12-18) or later are in type 1.
      *
      * @module NS3 File Format
      */
@@ -297,8 +324,6 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         value: mapping.ns3DualKeyboardStyleMap.get(offset3a & 0x03),
     };
 
-
-
     const ext = path.extname(filename).substr(1);
 
     const global = {
@@ -356,18 +381,6 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     ns3.panelB.effects.rotarySpeaker.drive = ns3.panelA.effects.rotarySpeaker.drive;
     ns3.panelB.effects.rotarySpeaker.stopMode = ns3.panelA.effects.rotarySpeaker.stopMode;
     ns3.panelB.effects.rotarySpeaker.speed = ns3.panelA.effects.rotarySpeaker.speed;
-
-    // hotfix on synth oct shift for old OS...
-    // older programs (in 3.00 to 3.02) the Synth Oct shift shows -6 on panel A
-    // this is just something tested on few older program
-    // but I cannot anymore install these older OS to investigate it!
-
-    if (global.version.version < 303) { // &&
-        if (ns3.panelA.synth.octaveShift.value === -6) {
-          ns3.panelA.synth.octaveShift.value += 6;
-            ns3.panelA.synth.octaveShift.comment = "older OS version detected, not sure about this value."
-        }
-    }
 
     return ns3;
 };

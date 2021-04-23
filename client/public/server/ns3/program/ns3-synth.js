@@ -44,18 +44,17 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @param id {number}
  * @param panelOffset {number}
  * @param global
+ * @param ns3y true is ns3y file
  * @returns {{voice: {value: *}, oscillators: {control: *, fastAttack: {enabled: boolean}, pitch: {midi: *, value: (string|string)}, type: {value: *}, waveForm1: *, config: {value: *}, modulations: {lfoAmount: {midi: *, morph: *, value: *}, modEnvAmount: {midi: *, morph: *, value: *}}}, debug: {lib: {valid: boolean, location: number, value: string, version: string, info: string}, sampleId: string, preset: {userPresetLocation: number, samplePresetLocation: number, presetName: string}}, unison: {value: *}, arpeggiator: {kbSync: {enabled: boolean}, rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, pattern: {value: *}, range: {value: *}, enabled: boolean}, kbZone: {array: string | string[] | boolean[], value: string | string[] | boolean[]}, sustainPedal: {enabled: boolean}, keyboardHold: {enabled: boolean}, preset: *, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: *, pitchStick: {enabled: boolean}, lfo: {rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, wave: {value: *}}, glide: {value: *}, envelopes: {modulation: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {enabled: boolean}}, amplifier: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {value: *}}}, vibrato: {value: *}}}
  */
-exports.ns3Synth = (buffer, id, panelOffset, global) => {
+exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
     let synthOffset3b = 0;
     let synthOffset52W = 0;
     let synthOffset56 = 0;
     let synthOffset57 = 0;
-    let isNs3yFile = true;
 
-    // when reading ns3y (synth file), these global settings are not available in the file
-    if (panelOffset >= 0) {
-        isNs3yFile = false;
+    // when reading ns3y (synth file), these global settings are not available in the file (forced for 0)
+    if (ns3yFile === false) {
         synthOffset3b = buffer.readUInt8(0x3b + panelOffset); // pitch stick range
         synthOffset52W = buffer.readUInt16BE(0x52 + panelOffset); //  synth kb zone, volume
         synthOffset56 = buffer.readUInt8(0x56 + panelOffset); // oct shift
@@ -162,7 +161,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
     const arpeggiatorRateMidi = (synthOffset81 & 0xfe) >>> 1;
     const arpeggiatorMasterClock = (synthOffset80 & 0x01) !== 0;
 
-    const synthEnabled = isNs3yFile || (synthOffset52W & 0x8000) !== 0;
+    const synthEnabled = ns3yFile || (synthOffset52W & 0x8000) !== 0;
     const synthKbZoneEnabled =
         id === 0
             ? synthEnabled
@@ -236,7 +235,6 @@ exports.ns3Synth = (buffer, id, panelOffset, global) => {
          * @module NS3 Synth Octave Shift
          */
         octaveShift: {
-            // for older OS version, please check the changes done in ns3-program.js
             value: (synthOffset56 & 0x0f) - 6,
         },
         /**
