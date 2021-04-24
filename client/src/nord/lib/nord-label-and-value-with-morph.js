@@ -19,7 +19,7 @@ export default class NordLabelAndValueWithMorph extends Component {
         return (
             <>
                 <tr className={enabled}>
-                    <td className="nord-label">
+                    <td className="nord-label" title={this.props.title}>
                         <NordLabel label={this.props.label} />
                     </td>
 

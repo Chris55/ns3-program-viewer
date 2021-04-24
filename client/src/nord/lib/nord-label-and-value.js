@@ -27,7 +27,7 @@ export default class NordLabelAndValue extends Component {
         if (this.props.table === true) {
             return (
                 <>
-                    <td className={labelClassName}>
+                    <td className={labelClassName} title={this.props.title}>
                         {this.props.label}
                     </td>
 

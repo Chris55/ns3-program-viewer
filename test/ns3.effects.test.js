@@ -285,32 +285,32 @@ describe("/ns3/effects", () => {
         });
     });
 
-    test("panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 0.0", async () => {
-        const file = "panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 0.0.ns3f";
+    test("panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 0 (0.0)", async () => {
+        const file = "panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 0 (0.0).ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 10.0", async () => {
-        const file = "panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 10.0.ns3f";
+    test("panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 127 (10.0)", async () => {
+        const file = "panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 127 (10.0).ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 2.0", async () => {
-        const file = "panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 2.0.ns3f";
+    test("panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 26 (2.0)", async () => {
+        const file = "panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 26 (2.0).ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 6.9", async () => {
-        const file = "panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 6.9.ns3f";
+    test("panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 88 (6.9)", async () => {
+        const file = "panelA.effects.effect1.masterClock.enabled eq false and panelA.effects.effect1.rate.value eq 88 (6.9).ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -357,16 +357,16 @@ describe("/ns3/effects", () => {
         });
     });
 
-    test("panelA.effects.effect1.rate.morph.controlPedal.to.value eq 10.0", async () => {
-        const file = "panelA.effects.effect1.rate.morph.controlPedal.to.value eq 10.0.ns3f";
+    test("panelA.effects.effect1.rate.morph.controlPedal.to.value eq 127 (10.0)", async () => {
+        const file = "panelA.effects.effect1.rate.morph.controlPedal.to.value eq 127 (10.0).ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.effects.effect1.rate.morph.wheel.to.value eq 6.4", async () => {
-        const file = "panelA.effects.effect1.rate.morph.wheel.to.value eq 6.4.ns3f";
+    test("panelA.effects.effect1.rate.morph.wheel.to.value eq 81 (6.4)", async () => {
+        const file = "panelA.effects.effect1.rate.morph.wheel.to.value eq 81 (6.4).ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -493,16 +493,16 @@ describe("/ns3/effects", () => {
         });
     });
 
-    test("panelA.effects.effect2.rate.value eq 0.0", async () => {
-        const file = "panelA.effects.effect2.rate.value eq 0.0.ns3f";
+    test("panelA.effects.effect2.rate.value eq 0 (0.0)", async () => {
+        const file = "panelA.effects.effect2.rate.value eq 0 (0.0).ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("panelA.effects.effect2.rate.value eq 10.0", async () => {
-        const file = "panelA.effects.effect2.rate.value eq 10.0.ns3f";
+    test("panelA.effects.effect2.rate.value eq 127 (10.0)", async () => {
+        const file = "panelA.effects.effect2.rate.value eq 127 (10.0).ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

@@ -125,7 +125,7 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
 
             value: effect1MasterClockUsed
                 ? mapping.ns3Effect1MasterClockDivisionMap.get(effect1RateMidi)
-                : converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, ""),
+                : effect1RateMidi + " (" + converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, "") + ")",
 
             morph: ns3Morph7Bits(
                 effectOffset10dWw >>> 7,
@@ -133,7 +133,7 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
                 (x) => {
                     return effect1MasterClockUsed
                         ? mapping.ns3Effect1MasterClockDivisionMap.get(x)
-                        : converter.midi2LinearStringValue(0, 10, x, 1, "");
+                        : x + " (" + converter.midi2LinearStringValue(0, 10, x, 1, "") + ")";
                 },
                 false
             ),

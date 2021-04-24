@@ -102,7 +102,7 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
          */
         rate: {
             midi: effect2RateMidi,
-            value: converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, ""),
+            value: effect2RateMidi + " (" + converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, "") + ")",
         },
     };
 };
