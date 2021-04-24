@@ -61,7 +61,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |      |              | Fixed NS3 panel starting offset
 |      |              | Added Stage 2 mapping
 |1.2   | 06-Feb-2021  | Cleanup
-|1.3   | 23-Apr-2021  | Added header details
+|1.4   | 24-Apr-2021  | Added header details
 
 \newpage
 

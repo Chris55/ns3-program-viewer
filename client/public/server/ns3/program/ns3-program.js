@@ -42,7 +42,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      *
      * @example
      * 16-bit integer value in Little Endian format, ex 304 = v3.04
-     * From {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history}
+     *
      * OS version vs Program version
      * ------------------------------------
      * OS version          Program   File changes
@@ -69,6 +69,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * v1.52 (2018-10-26)  v3.02
      * v1.60 (2018-11-22)  v3.02
      * v2.00 (2018-12-18)  v3.03     New Piano Equalizer settings, Added Pitch Bend range options for Synth
+     *                               Nord Sound Manager v7.42 (2019-02-12) or later is required
      * v2.02 (2019-01-07)  v3.03
      * v2.10 (2019-02-27)  v3.04     A separate On/Off setting for pedal Volume was added to the Extern menu.
      * v2.12 (2019-04-23)  v3.04
@@ -79,6 +80,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * v2.52 (2020-01-23)  v3.04
      * v2.54 (2020-03-04)  v3.04
      *
+     * @see {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history Nord Stage 3 - Update History}
      * @module NS3 File Version
      */
 

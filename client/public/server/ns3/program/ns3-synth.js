@@ -171,10 +171,6 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
     const synthKbZone = ns3KbZone(synthKbZoneEnabled, global, synthKbZoneValue);
     const preset = ns3SynthPreset(buffer, 0x57 + panelOffset);
 
-    // Note: Synth Pitch Shift Custom Range is available only if OS >= 2.0
-    // https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history
-    // Unfortunately it is not clearly documented if this correspond to file v3.03 or 3.04
-
     const pitchShiftRangeAvailable = global.version.version >= 303;
     const pitchShiftRange = (synthOffset3b & 0xf0) >>> 4;
 
@@ -252,7 +248,12 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
         /**
          * Offset in file: 0x3b (b7-4)
          *
+         * @see {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history Nord Stage 3 - Update History}
+         *
          * @example
+         * Synth Pitch Shift Custom Range is available only with OS >= v2.00 (2018-12-18)
+         * File version v3.03 or later
+         *
          * #include ns3SynthPitchShiftRangeMap
          *
          * @module NS3 Synth Pitch Stick Range
