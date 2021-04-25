@@ -119,5 +119,5 @@
         "build": "yarn react-build && yarn electron-build build -mw --publish never",
         "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
-    "version": "0.2.5"
+    "version": "0.2.6"
 }

@@ -260,20 +260,20 @@ This mapping corresponds to the Nord Stage 2 program file (file extension ns2p).
 | `0x00FC` | `rrrrrmmu` | [(m) synth glide-voice-mode](ns2-doc.md#ns2-synth-voice), [(u) synth unison](ns2-doc.md#ns2-synth-unison)
 | `0x00FD` | `uuvvv---` | [(v) synth vibrato](ns2-doc.md#ns2-synth-vibrato)
 | `0x00FE` | `--------` |
-| `0x00FF` | `mm------` | [(m) extern midi control](ns2-doc.md#ns2-extern-midi-control)
-| `0x0100` | `-wwwwwww` | [(w) extern midi cc morph wheel](ns2-doc.md#ns2-extern-midi-cc)
+| `0x00FF` | `mmcccccc` | [(m) extern midi control](ns2-doc.md#ns2-extern-midi-control), [(c) extern midi cc number](ns2-doc.md#ns2-extern-midi-cc-number)
+| `0x0100` | `cwwwwwww` | [(w) extern midi cc morph wheel](ns2-doc.md#ns2-extern-midi-cc)
 | `0x0101` | `waaaaaaa` | [(a) extern midi cc morph after touch](ns2-doc.md#ns2-extern-midi-cc)
 | `0x0102` | `appppppp` | [(p) extern midi cc morph control pedal](ns2-doc.md#ns2-extern-midi-cc)
 | `0x0103` | `pccccccc` | [(c) extern midi cc](ns2-doc.md#ns2-extern-midi-cc)
-| `0x0104` | `o-------` | [(o) extern midi cc on](ns2-doc.md#ns2-extern-midi-cc-on)
-| `0x0105` | `--------` |
-| `0x0106` | `-vvvvvvv` | [(v) extern midi program](ns2-doc.md#ns2-extern-midi-program)
-| `0x0107` | `o------w` | [(o) extern midi program on](ns2-doc.md#ns2-extern-midi-program-on), [(w) extern volume morph wheel](ns2-doc.md#ns2-extern-volume)
+| `0x0104` | `obbbbbbb` | [(o) extern midi cc on](ns2-doc.md#ns2-extern-midi-cc-on), [(b) extern midi bank select CC32](ns2-doc.md#ns2-extern-midi-bank-select-cc32)
+| `0x0105` | `obbbbbbb` | [(o) extern midi bank select CC32 enabled](ns2-doc.md#ns2-extern-midi-bank-select-cc32-enabled), [(b) extern midi bank select CC00](ns2-doc.md#ns2-extern-midi-bank-select-cc00)
+| `0x0106` | `ovvvvvvv` | [(o) extern midi bank select CC00 enabled](ns2-doc.md#ns2-extern-midi-bank-select-cc00-enabled), [(v) extern midi program](ns2-doc.md#ns2-extern-midi-program)
+| `0x0107` | `occcc-tw` | [(o) extern midi program on](ns2-doc.md#ns2-extern-midi-program-on), [(c) extern midi channel](ns2-doc.md#ns2-extern-midi-channel), [(t) extern midi channel type](ns2-doc.md#ns2-extern-midi-channel-type), [(w) extern volume morph wheel](ns2-doc.md#ns2-extern-volume)
 | `0x0108` | `wwwwwwwa` | [(a) extern volume morph after touch](ns2-doc.md#ns2-extern-volume)
 | `0x0109` | `aaaaaaap` | [(p) extern volume morph control pedal](ns2-doc.md#ns2-extern-volume)
 | `0x010A` | `pppppppv` | [(v) extern volume](ns2-doc.md#ns2-extern-volume)
-| `0x010B` | `vvvvvvo-` | [(o) extern midi volume on](ns2-doc.md#ns2-extern-midi-volume-on)
-| `0x010C` | `--------` |
+| `0x010B` | `vvvvvvow` | [(o) extern midi volume on](ns2-doc.md#ns2-extern-midi-volume-on), [(w) extern midi send wheel](ns2-doc.md#ns2-extern-midi-send-wheel)
+| `0x010C` | `ap-vvs--` | [(a) extern midi send aftertouch](ns2-doc.md#ns2-extern-midi-send-aftertouch), [(p) extern midi send control-pedal](ns2-doc.md#ns2-extern-midi-send-control-pedal), [(v) extern midi velocity curve](ns2-doc.md#ns2-extern-midi-velocity-curve), [(s) extern midi send swell](ns2-doc.md#ns2-extern-midi-send-swell)
 | `0x010D` | `--------` |
 | `0x010E` | `--------` |
 | `0x010F` | `ffossttt` | [(f) effect focus](ns2-doc.md#ns2-effect-focus), [(o) effect 1 on](ns2-doc.md#ns2-effect-1-on), [(s) effect-1-source](ns2-doc.md#ns2-effect-1-source), [(t) effect 1 type](ns2-doc.md#ns2-effect-1-type)

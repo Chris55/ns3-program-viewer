@@ -37,6 +37,42 @@
 <dt><a href="#module_NS2 Extern Volume">NS2 Extern Volume</a></dt>
 <dd><p>Offset in file: 0x10a (b0) and 0x10b (b7-2)</p>
 </dd>
+<dt><a href="#module_NS2 Extern Midi Channel">NS2 Extern Midi Channel</a></dt>
+<dd><p>Offset in file: 0x107 (b6-3)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Channel Type">NS2 Extern Midi Channel Type</a></dt>
+<dd><p>Offset in file: 0x107 (b1)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Bank Select CC00 Enabled">NS2 Extern Midi Bank Select CC00 Enabled</a></dt>
+<dd><p>Offset in file: 0x106 (b7)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Bank Select CC00">NS2 Extern Midi Bank Select CC00</a></dt>
+<dd><p>Offset in file: 0x105 (b6-0)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Bank Select CC32 Enabled">NS2 Extern Midi Bank Select CC32 Enabled</a></dt>
+<dd><p>Offset in file: 0x105 (b7)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Bank Select CC32">NS2 Extern Midi Bank Select CC32</a></dt>
+<dd><p>Offset in file: 0x104 (b6-0)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi CC Number">NS2 Extern Midi CC Number</a></dt>
+<dd><p>Offset in file: 0xff (b5-0) and 0x100 (b7)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Send Wheel">NS2 Extern Midi Send Wheel</a></dt>
+<dd><p>Offset in file: 0x10b (b0)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Send AfterTouch">NS2 Extern Midi Send AfterTouch</a></dt>
+<dd><p>Offset in file: 0x10c (b7)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Send Control Pedal">NS2 Extern Midi Send Control Pedal</a></dt>
+<dd><p>Offset in file: 0x10c (b6)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Send Swell">NS2 Extern Midi Send Swell</a></dt>
+<dd><p>Offset in file: 0x10c (b2)</p>
+</dd>
+<dt><a href="#module_NS2 Extern Midi Velocity Curve">NS2 Extern Midi Velocity Curve</a></dt>
+<dd><p>Offset in file: 0x10c (b4-3)</p>
+</dd>
 <dt><a href="#module_NS2 Amp Sim Eq On">NS2 Amp Sim Eq On</a></dt>
 <dd><p>Offset in file: 0x133 (b4)</p>
 </dd>
@@ -561,6 +597,122 @@ offset in file 0x108 (b0) and 0x109 (b7-1)
 
 EXTERN VOLUME Morph CONTROL PEDAL
 offset in file 0x109 (b0) and 0x10a (b7-1)
+```
+<a name="module_NS2 Extern Midi Channel"></a>
+
+## NS2 Extern Midi Channel
+Offset in file: 0x107 (b6-3)
+
+**Example**  
+```js
+O4-bit value = 1 to 16
+```
+<a name="module_NS2 Extern Midi Channel Type"></a>
+
+## NS2 Extern Midi Channel Type
+Offset in file: 0x107 (b1)
+
+**Example**  
+```js
+0 = MIDI
+1 = USB
+```
+<a name="module_NS2 Extern Midi Bank Select CC00 Enabled"></a>
+
+## NS2 Extern Midi Bank Select CC00 Enabled
+Offset in file: 0x106 (b7)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS2 Extern Midi Bank Select CC00"></a>
+
+## NS2 Extern Midi Bank Select CC00
+Offset in file: 0x105 (b6-0)
+
+**Example**  
+```js
+O7-bit value = 0 to 127
+```
+<a name="module_NS2 Extern Midi Bank Select CC32 Enabled"></a>
+
+## NS2 Extern Midi Bank Select CC32 Enabled
+Offset in file: 0x105 (b7)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS2 Extern Midi Bank Select CC32"></a>
+
+## NS2 Extern Midi Bank Select CC32
+Offset in file: 0x104 (b6-0)
+
+**Example**  
+```js
+O7-bit value = 0 to 127
+```
+<a name="module_NS2 Extern Midi CC Number"></a>
+
+## NS2 Extern Midi CC Number
+Offset in file: 0xff (b5-0) and 0x100 (b7)
+
+**Example**  
+```js
+O7-bit value = 0 to 119
+```
+<a name="module_NS2 Extern Midi Send Wheel"></a>
+
+## NS2 Extern Midi Send Wheel
+Offset in file: 0x10b (b0)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS2 Extern Midi Send AfterTouch"></a>
+
+## NS2 Extern Midi Send AfterTouch
+Offset in file: 0x10c (b7)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS2 Extern Midi Send Control Pedal"></a>
+
+## NS2 Extern Midi Send Control Pedal
+Offset in file: 0x10c (b6)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS2 Extern Midi Send Swell"></a>
+
+## NS2 Extern Midi Send Swell
+Offset in file: 0x10c (b2)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS2 Extern Midi Velocity Curve"></a>
+
+## NS2 Extern Midi Velocity Curve
+Offset in file: 0x10c (b4-3)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
 ```
 <a name="module_NS2 Amp Sim Eq On"></a>
 

@@ -1744,16 +1744,6 @@ exports.ns2AmpSimEqMidFilterFreqMap = new Map([
 ]);
 
 /***
- * Extern Control Types
- * @type {Map<number, string>}
- */
-exports.ns2ExternControlMap = new Map([
-    [0, "Midi CC"],
-    [1, "Program"],
-    [2, "Volume"],
-]);
-
-/***
  * Delay Tempo Map
  * @type {Map<number, (number|string)[]>}
  */
@@ -1924,20 +1914,20 @@ exports.ns2Effect1TypeMap = new Map([
 ]);
 
 /***
-* Effect 1 Master Clock Division Values
-* @type {Map<number, string>}
-*/
+ * Effect 1 Master Clock Division Values
+ * @type {Map<number, string>}
+ */
 exports.ns2Effect1MasterClockDivisionMap = new Map([
-    [0,  "4/1"],
-    [1,  "4/1T"],
-    [2,  "2/1"],
-    [3,  "2/1T"],
-    [4,  "1/1"],
-    [5,  "1/1T"],
-    [6,  "1/2"],
-    [7,  "1/2T"],
-    [8,  "1/4"],
-    [9,  "1/4T"],
+    [0, "4/1"],
+    [1, "4/1T"],
+    [2, "2/1"],
+    [3, "2/1T"],
+    [4, "1/1"],
+    [5, "1/1T"],
+    [6, "1/2"],
+    [7, "1/2T"],
+    [8, "1/4"],
+    [9, "1/4T"],
     [10, "1/8"],
     [11, "1/8T"],
     [12, "1/16"],
@@ -1956,4 +1946,24 @@ exports.ns2Effect2TypeMap = new Map([
     [3, "Vibe"],
     [4, "Chorus 1"],
     [5, "Chorus 2"],
+]);
+
+/***
+ * Extern Control Types
+ * @type {Map<number, string>}
+ */
+exports.ns2ExternControlMap = new Map([
+    [0, "Midi CC"],
+    [1, "Program"],
+    [2, "Volume"],
+]);
+
+/***
+ * Extern Midi Velocity Curve
+ * @type {Map<number, string>}
+ */
+exports.ns2ExternMidiVelocityCurveMap = new Map([
+    [0, "Soft"],
+    [1, "Normal"],
+    [2, "Hard"],
 ]);

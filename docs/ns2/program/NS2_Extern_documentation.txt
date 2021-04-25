@@ -97,3 +97,86 @@ EXTERN VOLUME ENABLE
 offset in file 0x10b (b1)
 0 = OFF
 1 = ON
+
+-------------------------------
+
+EXTERN A MIDI Channel
+Offset in file 0x107 (b6-3)
+0 = 1
+1 = 2
+2 = 3
+3 = 4
+4 = 5
+5 = 6
+6 = 7
+7 = 8
+8 = 9
+9 = 10
+10 = 11
+11 = 12
+12 = 13
+13 = 14
+14 = 15
+15 = 16
+
+EXTERN A MIDI Channel Type
+Offset in file 0x107 (b1)
+0 = MIDI
+1 = USB
+
+EXTERN A MIDI Bank Select CC00
+Offset in file 0x105 (b6-0)
+0 = 0
+1 = 1
+. . .
+127 = 127
+
+EXTERN A MIDI Bank Select CC00 Enable/Disable
+Offset in file 0x106 (b7)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Bank Select CC32
+Offset in file 0x104 (b6-0)
+0 = 0
+1 = 1
+. . .
+127 = 127
+
+EXTERN A MIDI Bank Select CC32 Enable/Disable
+Offset in file 0x105 (b7)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI CC Number
+Offset in file 0xff (b5-0) and 0x100 (b7)
+0 = 0
+1 = 1
+. . .
+119 = 119
+
+EXTERN A MIDI Send Wheel
+Offset in file 0x10b (b0)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Send Aftertouch
+Offset in file 0x10c (b7)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Send Control PEDAL
+Offset in file 0x10c (b6)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Send Swell
+Offset in file 0x10c (b2)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Velocity Curve
+Offset in file 0x10c (b4-3)
+0 = SOFT
+1 = NORMAL
+2 = HARD
