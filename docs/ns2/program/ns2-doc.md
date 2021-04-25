@@ -711,8 +711,7 @@ Offset in file: 0x10c (b4-3)
 
 **Example**  
 ```js
-0 = OFF
-1 = ON
+#include ns2ExternControlMap
 ```
 <a name="module_NS2 Amp Sim Eq On"></a>
 

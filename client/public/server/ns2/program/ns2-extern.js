@@ -5,13 +5,10 @@ const { ns2ExternControlMap, ns2ExternMidiVelocityCurveMap } = require("./ns2-ma
 
 /***
  * returns Extern section
- *
- * @class
- * @ignore
- * @param buffer {Buffer}
- * @param panelOffset {number}
+ * @param buffer
+ * @param panelOffset
  * @param global
- * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
+ * @returns {{cc: {text: string, value: number}, kbZone: {array, value}, wheel: {enabled: boolean}, sustainPedal: {enabled: boolean}, channel: {type: (string), value: number}, control: {value: string}, program: {midi: number, value: string, enabled: boolean}, velocity: {value: string}, octaveShift: {value: number}, swell: {enabled: boolean}, enabled: boolean, cc00: {value: number, enabled: boolean}, volume: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string, enabled: boolean}, cc32: {value: number, enabled: boolean}, afterTouch: {enabled: boolean}, pitchStick: {enabled: boolean}, controlPedal: {enabled: boolean}, midiCc: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string, enabled: boolean}}}
  */
 exports.ns2Extern = (buffer, panelOffset, global) => {
     const externOffset52 = buffer.readUInt8(0x52 + panelOffset);
@@ -37,10 +34,6 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
     const midiCc = externOffset103 & 0x7f;
     const midiProgram = externOffset106 & 0x7f;
     const volume = (externOffset10aW & 0x01fc) >>> 2;
-
-    const externMidiVelocityCurve = (externOffset10c & 0x18) >>> 3;
-    const externMidiVelocityCurveValue =
-        ns2ExternMidiVelocityCurveMap.get(externMidiVelocityCurve) || `Unknown ${externMidiVelocityCurve}`;
 
     const externCcValue = (externOffsetFfW & 0x3f80) >>> 7;
     const externCcValueText = midiControlChangeMap.get(externCcValue);
@@ -299,6 +292,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
             value: externCcValue,
             text: externCcValueText,
         },
+
         wheel: {
             /**
              * Offset in file: 0x10b (b0)
@@ -311,6 +305,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              */
             enabled: (externOffset10b & 0x01) !== 0,
         },
+
         afterTouch: {
             /**
              * Offset in file: 0x10c (b7)
@@ -323,6 +318,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              */
             enabled: (externOffset10c & 0x80) !== 0,
         },
+
         controlPedal: {
             /**
              * Offset in file: 0x10c (b6)
@@ -335,6 +331,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              */
             enabled: (externOffset10c & 0x40) !== 0,
         },
+
         swell: {
             /**
              * Offset in file: 0x10c (b2)
@@ -347,17 +344,17 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              */
             enabled: (externOffset10c & 0x04) !== 0,
         },
+
         velocity: {
             /**
              * Offset in file: 0x10c (b4-3)
              *
              * @example
-             * 0 = OFF
-             * 1 = ON
+             * #include ns2ExternControlMap
              *
              * @module NS2 Extern Midi Velocity Curve
              */
-            value: externMidiVelocityCurveValue,
+            value: ns2ExternMidiVelocityCurveMap.get((externOffset10c & 0x18) >>> 3),
         },
     };
 };

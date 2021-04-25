@@ -19,14 +19,53 @@
 <dt><a href="#module_NS3 Extern Midi Control">NS3 Extern Midi Control</a></dt>
 <dd><p>Offset in file: 0xF6 (b1-0)</p>
 </dd>
+<dt><a href="#module_NS3 Extern Midi Send User CC On Load">NS3 Extern Midi Send User CC On Load</a></dt>
+<dd><p>Offset in file: 0xfb (b1)</p>
+</dd>
 <dt><a href="#module_NS3 Extern Midi CC">NS3 Extern Midi CC</a></dt>
 <dd><p>Offset in file: 0xF7 (b0) and 0xF8 (b7-2)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Send Program On Load">NS3 Extern Midi Send Program On Load</a></dt>
+<dd><p>Offset in file: 0x101 (b1)</p>
 </dd>
 <dt><a href="#module_NS3 Extern Midi Program">NS3 Extern Midi Program</a></dt>
 <dd><p>Offset in file: 0xFD (b0) and 0xFE (b7-2)</p>
 </dd>
+<dt><a href="#module_NS3 Extern Midi Send Volume On Load">NS3 Extern Midi Send Volume On Load</a></dt>
+<dd><p>Offset in file: 0x105 (b1)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Send Volume">NS3 Extern Midi Send Volume</a></dt>
+<dd><p>Offset in file: 0x105 (b0)</p>
+</dd>
 <dt><a href="#module_NS3 Extern Volume">NS3 Extern Volume</a></dt>
 <dd><p>Offset in file: 0x101 (b0) and 0x102 (b7-2)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Channel">NS3 Extern Midi Channel</a></dt>
+<dd><p>Offset in file: 0xf5 (b4-0)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Bank Select CC00">NS3 Extern Midi Bank Select CC00</a></dt>
+<dd><p>Offset in file: 0xfc (b0) to 0xfd (b7-1)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Bank Select CC32">NS3 Extern Midi Bank Select CC32</a></dt>
+<dd><p>Offset in file: 0xfb (b0) to 0xfc (b7-1)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi CC Number">NS3 Extern Midi CC Number</a></dt>
+<dd><p>Offset in file: 0xf7 (b7-1)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Send Wheel">NS3 Extern Midi Send Wheel</a></dt>
+<dd><p>Offset in file: 0xf6 (b5)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Send AfterTouch">NS3 Extern Midi Send AfterTouch</a></dt>
+<dd><p>Offset in file: 0xf6 (b4)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Send Control Pedal">NS3 Extern Midi Send Control Pedal</a></dt>
+<dd><p>Offset in file: 0xf6 (b3)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Send Swell">NS3 Extern Midi Send Swell</a></dt>
+<dd><p>Offset in file: 0xf6 (b2)</p>
+</dd>
+<dt><a href="#module_NS3 Extern Midi Velocity Curve">NS3 Extern Midi Velocity Curve</a></dt>
+<dd><p>Offset in file: 0xf5 (b6-5)</p>
 </dd>
 <dt><a href="#module_NS3 Amp Sim Eq On">NS3 Amp Sim Eq On</a></dt>
 <dd><p>Offset in file: 0x129 (b2)</p>
@@ -490,6 +529,16 @@ Offset in file: 0xF6 (b1-0)
 ```js
 #include ns3ExternControlMap
 ```
+<a name="module_NS3 Extern Midi Send User CC On Load"></a>
+
+## NS3 Extern Midi Send User CC On Load
+Offset in file: 0xfb (b1)
+
+**Example**  
+```js
+(Send on Load)
+O = off, 1 = on
+```
 <a name="module_NS3 Extern Midi CC"></a>
 
 ## NS3 Extern Midi CC
@@ -497,7 +546,17 @@ Offset in file: 0xF7 (b0) and 0xF8 (b7-2)
 
 **Example**  
 ```js
-O7-bit value = 0/127
+7-bits value = 0/127
+```
+<a name="module_NS3 Extern Midi Send Program On Load"></a>
+
+## NS3 Extern Midi Send Program On Load
+Offset in file: 0x101 (b1)
+
+**Example**  
+```js
+(Send on Load)
+O = off, 1 = on
 ```
 <a name="module_NS3 Extern Midi Program"></a>
 
@@ -506,7 +565,26 @@ Offset in file: 0xFD (b0) and 0xFE (b7-2)
 
 **Example**  
 ```js
-O7-bit value = 0/127
+7-bits value = 0/127
+```
+<a name="module_NS3 Extern Midi Send Volume On Load"></a>
+
+## NS3 Extern Midi Send Volume On Load
+Offset in file: 0x105 (b1)
+
+**Example**  
+```js
+(Send on Load)
+O = off, 1 = on
+```
+<a name="module_NS3 Extern Midi Send Volume"></a>
+
+## NS3 Extern Midi Send Volume
+Offset in file: 0x105 (b0)
+
+**Example**  
+```js
+O = off, 1 = on
 ```
 <a name="module_NS3 Extern Volume"></a>
 
@@ -515,7 +593,101 @@ Offset in file: 0x101 (b0) and 0x102 (b7-2)
 
 **Example**  
 ```js
-O7-bit value = 0/127
+7-bits value = 0/127
+```
+<a name="module_NS3 Extern Midi Channel"></a>
+
+## NS3 Extern Midi Channel
+Offset in file: 0xf5 (b4-0)
+
+**Example**  
+```js
+5-bits value
+0 = 0FF
+1 = 1
+2 = 2....
+```
+<a name="module_NS3 Extern Midi Bank Select CC00"></a>
+
+## NS3 Extern Midi Bank Select CC00
+Offset in file: 0xfc (b0) to 0xfd (b7-1)
+
+**Example**  
+```js
+8-bits value
+0 = 0FF
+1 = 0
+2 = 1....
+```
+<a name="module_NS3 Extern Midi Bank Select CC32"></a>
+
+## NS3 Extern Midi Bank Select CC32
+Offset in file: 0xfb (b0) to 0xfc (b7-1)
+
+**Example**  
+```js
+8-bits value
+0 = 0FF
+1 = 0
+2 = 1....
+```
+<a name="module_NS3 Extern Midi CC Number"></a>
+
+## NS3 Extern Midi CC Number
+Offset in file: 0xf7 (b7-1)
+
+**Example**  
+```js
+7-bits value = 0 to 119
+```
+<a name="module_NS3 Extern Midi Send Wheel"></a>
+
+## NS3 Extern Midi Send Wheel
+Offset in file: 0xf6 (b5)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS3 Extern Midi Send AfterTouch"></a>
+
+## NS3 Extern Midi Send AfterTouch
+Offset in file: 0xf6 (b4)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS3 Extern Midi Send Control Pedal"></a>
+
+## NS3 Extern Midi Send Control Pedal
+Offset in file: 0xf6 (b3)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS3 Extern Midi Send Swell"></a>
+
+## NS3 Extern Midi Send Swell
+Offset in file: 0xf6 (b2)
+
+**Example**  
+```js
+0 = OFF
+1 = ON
+```
+<a name="module_NS3 Extern Midi Velocity Curve"></a>
+
+## NS3 Extern Midi Velocity Curve
+Offset in file: 0xf5 (b6-5)
+
+**Example**  
+```js
+#include ns3ExternMidiVelocityCurveMap
 ```
 <a name="module_NS3 Amp Sim Eq On"></a>
 

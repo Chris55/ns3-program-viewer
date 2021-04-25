@@ -1572,16 +1572,6 @@ exports.ns3Effect2TypeMap = new Map([
 ]);
 
 /***
- * Extern Control Types
- * @type {Map<number, string>}
- */
-exports.ns3ExternControlMap = new Map([
-    [0, "Midi CC"],
-    [1, "Program"],
-    [2, "Volume"],
-]);
-
-/***
  * Reverb Types
  * @type {Map<number, string>}
  */
@@ -2577,4 +2567,24 @@ exports.ns3ProgramOutputSourceMap = new Map([
     [1, "Organ"],
     [2, "Piano"],
     [3, "Synth"],
+]);
+
+/***
+ * Extern Control Types
+ * @type {Map<number, string>}
+ */
+exports.ns3ExternControlMap = new Map([
+    [0, "Midi CC"],
+    [1, "Program"],
+    [2, "Volume"],
+]);
+
+/***
+ * Extern Midi Velocity Curve
+ * @type {Map<number, string>}
+ */
+exports.ns3ExternMidiVelocityCurveMap = new Map([
+    [0, "Soft"],
+    [1, "Mid"],
+    [2, "Hard"],
 ]);

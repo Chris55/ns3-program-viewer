@@ -11,11 +11,7 @@ export default class NordLabelAndValueWithMorph extends Component {
             data.morph &&
             (data.morph.wheel.enabled || data.morph.afterTouch.enabled || data.morph.controlPedal.enabled);
 
-        const enabled = this.props.enabled === undefined
-            ? ""
-            : this.props.enabled === true
-                ? "nord-on"
-                : "nord-off";
+        const enabled = this.props.enabled === undefined ? "" : this.props.enabled === true ? "nord-on" : "nord-off";
         return (
             <>
                 <tr className={enabled}>
@@ -36,7 +32,7 @@ export default class NordLabelAndValueWithMorph extends Component {
                     </td>
                 </tr>
 
-                <tr className={data.morph.wheel.enabled ? "" : "d-none"}>
+                <tr className={data.morph.wheel.enabled ? enabled : "d-none"}>
                     <td colSpan="2" className="text-right nord-morph-space">
                         <span className="nord-morph">Wheel</span>
                     </td>
@@ -49,7 +45,7 @@ export default class NordLabelAndValueWithMorph extends Component {
                     </td>
                 </tr>
 
-                <tr className={data.morph.afterTouch.enabled ? "" : "d-none"}>
+                <tr className={data.morph.afterTouch.enabled ? enabled : "d-none"}>
                     <td colSpan="2" className="text-right nord-morph-space">
                         <span className="nord-morph">A-Touch</span>
                     </td>
@@ -62,7 +58,7 @@ export default class NordLabelAndValueWithMorph extends Component {
                     </td>
                 </tr>
 
-                <tr className={data.morph.controlPedal.enabled ? "" : "d-none"}>
+                <tr className={data.morph.controlPedal.enabled ? enabled : "d-none"}>
                     <td colSpan="2" className="text-right">
                         <span className="nord-morph">CtrlPed</span>
                     </td>

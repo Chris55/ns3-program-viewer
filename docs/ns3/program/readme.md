@@ -62,7 +62,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |      |              | Added Stage 2 mapping
 |1.2   | 06-Feb-2021  | Cleanup
 |1.4   | 24-Apr-2021  | Added header details
-|1.5Draft | xx-xxx-2021  | Added NS2 Extern menu details
+|1.5   | 25-Apr-2021  | Added NS2 and NS3 Extern menu details
 
 \newpage
 
@@ -350,23 +350,23 @@ In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
 | `0x00F2` | `--------` |
 | `0x00F3` | `--------` |
 | `0x00F4` | `ozzz--ss` | [(o) extern on](ns3-doc.md#ns3-extern-on), [(z) extern kb zone](ns3-doc.md#ns3-extern-kb-zone), [(s) extern octave shift](ns3-doc.md#ns3-extern-octave-shift)
-| `0x00F5` | `s-------` |
-| `0x00F6` | `ps----mm` | [(p) extern pitch stick](ns3-doc.md#ns3-extern-pitch-stick), [(s) extern sustain pedal](ns3-doc.md#ns3-extern-sustain-pedal), [(m) extern midi control](ns3-doc.md#ns3-extern-midi-control)
-| `0x00F7` | `-------v` | [(v) extern midi cc](ns3-doc.md#ns3-extern-midi-cc)
+| `0x00F5` | `svvccccc` | [(v) extern midi velocity curve](ns3-doc.md#ns3-extern-midi-velocity-curve), [(c) extern midi channel](ns3-doc.md#ns3-extern-midi-channel)
+| `0x00F6` | `pswaclmm` | [(p) extern pitch stick](ns3-doc.md#ns3-extern-pitch-stick), [(s) extern sustain pedal](ns3-doc.md#ns3-extern-sustain-pedal), [(w) extern midi send wheel](ns3-doc.md#ns3-extern-midi-send-wheel), [(a) extern midi send aftertouch](ns3-doc.md#ns3-extern-midi-send-aftertouch), [(c) extern midi send control pedal](ns3-doc.md#ns3-extern-midi-send-control-pedal), [(l) extern midi send swell](ns3-doc.md#ns3-extern-midi-send-swell), [(m) extern midi control](ns3-doc.md#ns3-extern-midi-control)
+| `0x00F7` | `cccccccv` | [(c) extern midi cc number](ns3-doc.md#ns3-extern-midi-cc-number), [(v) extern midi cc value](ns3-doc.md#ns3-extern-midi-cc)
 | `0x00F8` | `vvvvvvww` | [(w) extern midi cc morph wheel](ns3-doc.md#ns3-extern-midi-cc)
 | `0x00F9` | `wwwwwwaa` | [(a) extern midi cc morph after touch](ns3-doc.md#ns3-extern-midi-cc)
 | `0x00FA` | `aaaaaapp` | [(p) extern midi cc morph control pedal](ns3-doc.md#ns3-extern-midi-cc)
-| `0x00FB` | `pppppp--` |
-| `0x00FC` | `--------` |
-| `0x00FD` | `-------v` | [(v) extern midi program](ns3-doc.md#ns3-extern-midi-program)
-| `0x00FE` | `wwwwwwaa` | [(a) extern midi program after touch](ns3-doc.md#ns3-extern-midi-program)
-| `0x00FF` | `aaaaaapp` | [(p) extern midi program control pedal](ns3-doc.md#ns3-extern-midi-program)
-| `0x0100` | `pppppp--` |
-| `0x0101` | `-------v` | [(v) extern volume](ns3-doc.md#ns3-extern-volume)
+| `0x00FB` | `ppppppol` | [(o) extern midi send user cc on load](ns3-doc.md#ns3-extern-midi-send-user-cc-on-load), [(l) extern midi bank select CC32](ns3-doc.md#ns3-extern-midi-bank-select-cc32)
+| `0x00FC` | `lllllllm` |
+| `0x00FD` | `mmmmmmmv` | [(m) extern midi bank select CC00](ns3-doc.md#ns3-extern-midi-bank-select-cc00), [(v) extern midi program](ns3-doc.md#ns3-extern-midi-program)
+| `0x00FE` | `vvvvvvww` | [(a) extern midi program after touch](ns3-doc.md#ns3-extern-midi-program)
+| `0x00FF` | `wwwwwwaa` | [(p) extern midi program control pedal](ns3-doc.md#ns3-extern-midi-program)
+| `0x0100` | `aaaaaapp` | [(p) extern midi program control pedal](ns3-doc.md#ns3-extern-midi-program)
+| `0x0101` | `ppppppov` | [(o) extern midi send program on load](ns3-doc.md#ns3-extern-midi-send-program-on-load), [(v) extern volume](ns3-doc.md#ns3-extern-volume),
 | `0x0102` | `vvvvvvww` | [(w) extern volume morph wheel](ns3-doc.md#ns3-extern-volume)
 | `0x0103` | `wwwwwwaa` | [(a) extern volume morph after touch](ns3-doc.md#ns3-extern-volume)
 | `0x0104` | `aaaaaapp` | [(p) extern volume morph control pedal](ns3-doc.md#ns3-extern-volume)
-| `0x0105` | `pppppp--` |
+| `0x0105` | `ppppppls` | [(l) extern midi send volume on load](ns3-doc.md#ns3-extern-midi-send-volume-on-load), [(s) extern midi send volume](ns3-doc.md#ns3-extern-midi-send-volume)
 | `0x0106` | `--------` |
 | `0x0107` | `--------` |
 | `0x0108` | `--------` |
