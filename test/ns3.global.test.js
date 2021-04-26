@@ -261,6 +261,110 @@ describe("/ns3/global", () => {
         });
     });
 
+    test("panelB.output.main.value eq 1-2", async () => {
+        const file = "panelB.output.main.value eq 1-2.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.main.value eq 1-4", async () => {
+        const file = "panelB.output.main.value eq 1-4.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.main.value eq 3-4", async () => {
+        const file = "panelB.output.main.value eq 3-4.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.main.value eq 3", async () => {
+        const file = "panelB.output.main.value eq 3.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.main.value eq 4", async () => {
+        const file = "panelB.output.main.value eq 4.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.subDestination.value eq 1-2", async () => {
+        const file = "panelB.output.subDestination.value eq 1-2.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.subDestination.value eq 3-4", async () => {
+        const file = "panelB.output.subDestination.value eq 3-4.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.subDestination.value eq 3", async () => {
+        const file = "panelB.output.subDestination.value eq 3.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.subDestination.value eq 4", async () => {
+        const file = "panelB.output.subDestination.value eq 4.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.subSource.value eq Off", async () => {
+        const file = "panelB.output.subSource.value eq Off.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.subSource.value eq Organ", async () => {
+        const file = "panelB.output.subSource.value eq Organ.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.subSource.value eq Piano", async () => {
+        const file = "panelB.output.subSource.value eq Piano.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("panelB.output.subSource.value eq Synth", async () => {
+        const file = "panelB.output.subSource.value eq Synth.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("split.enabled eq false", async () => {
         const file = "split.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);

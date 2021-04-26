@@ -23,7 +23,6 @@ const { ns3Organ } = require("./ns3-organ");
 
 exports.ns3Panel = function (buffer, id, versionOffset, global) {
     const panelOffset31 = buffer.readUInt8(0x31 + versionOffset);
-    const offset144 = buffer.readUInt8(0x144 + versionOffset);
 
     /**
      * Offset in file 0x31
@@ -53,6 +52,7 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
     // versionOffset is added to read older version (header is version 0)
 
     const panelOffset = id * 263 + versionOffset;
+    const offset144 = buffer.readUInt8(0x144 + panelOffset);
 
     const output = {
         /**
