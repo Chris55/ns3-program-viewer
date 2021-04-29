@@ -7,10 +7,33 @@ import Ns2FxRotarySpeaker from "./ns2-fx-rotary-speaker";
 import Ns2SectionSynthArp from "./ns2-section-synth-arp";
 import Ns2FxDelay from "./ns2-fx-delay";
 import Ns2FxAmpSimEq from "./ns2-fx-amp-sim-eq";
-import Ns2Output2 from "./ns2-output";
 import Ns2Output from "./ns2-output";
 
+const getOrientation = () => {
+    //return window.matchMedia("(orientation: portrait)").matches ? "flex-column" : "flex-row";
+    return window.innerWidth < 430 ? "flex-column" : "flex-row";
+};
+
 export default class Ns2Fx extends Component {
+    state = {
+        width: window.innerWidth, //height: 0,
+        orientation: getOrientation(),
+    };
+
+    updateDimensions = () => {
+        this.setState({
+            width: window.innerWidth,
+            //height: window.innerHeight,
+            orientation: getOrientation(),
+        });
+    };
+    componentDidMount() {
+        window.addEventListener("resize", this.updateDimensions);
+    }
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions);
+    }
+
     render() {
         const data = this.props.data;
 
@@ -26,8 +49,10 @@ export default class Ns2Fx extends Component {
         return (
             <React.Fragment>
                 <div className={this.props.className}>
-                    <div className="d-flex flex-wrap align-items-start">
+                    <div className={`no-gutters d-flex flex-wrap ${this.state.orientation}`}>
                         {arp}
+
+                        {/*<div>{this.state.width}</div>*/}
 
                         <Ns2FxMulti1 className="ns3-section-fx" data={data.effect1} source={this.props.source} />
 

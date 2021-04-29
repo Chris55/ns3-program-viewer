@@ -13,7 +13,7 @@ export default class Ns3SectionSynthArp extends Component {
             <React.Fragment>
                 <div className={this.props.className}>
                     <div className="text-left">
-                        <div className={arp.enabled ? "nord-on" : "nord-off"}>
+                        <div className={arp.enabled ? "nord-on" : "d-none"}>
                             <div className="nord-option-title">ARP</div>
 
                             <table className="table-borderless">

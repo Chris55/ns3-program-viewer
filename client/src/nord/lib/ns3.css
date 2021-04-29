@@ -273,4 +273,10 @@ td > * {
     font-weight: lighter;
 }
 
+@media screen and (orientation:portrait) {
+
+}
+@media screen and (orientation:landscape) {
+
+}
 

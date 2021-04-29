@@ -740,7 +740,7 @@ exports.ns3Model = {
                 value: "Volume",
             },
             midiCc: {
-                enabled: false,
+                enabledOnLoad: false,
                 midi: 0,
                 value: "0",
                 morph: {
@@ -768,9 +768,9 @@ exports.ns3Model = {
                 },
             },
             program: {
-                enabled: false,
+                enabledOnLoad: false,
                 midi: 0,
-                value: "1",
+                value: "0",
                 morph: {
                     wheel: {
                         enabled: false,
@@ -796,7 +796,8 @@ exports.ns3Model = {
                 },
             },
             volume: {
-                enabled: false,
+                enabledOnLoad: false,
+                enabled: true,
                 midi: 0,
                 value: "0",
                 morph: {
@@ -824,35 +825,35 @@ exports.ns3Model = {
                 },
             },
             channel: {
-                enabled: false,
-                value: 8,
+                enabled: true,
+                value: 14,
             },
             cc00: {
                 enabled: false,
-                value: -1,
+                value: "",
             },
             cc32: {
-                enabled: true,
-                value: 125,
+                enabled: false,
+                value: "",
             },
             cc: {
-                value: 123,
-                text: "All Notes Off",
+                value: 2,
+                text: "Breath Controller",
             },
             wheel: {
-                enabled: false,
+                enabled: true,
             },
             afterTouch: {
-                enabled: false,
+                enabled: true,
             },
             controlPedal: {
-                enabled: false,
+                enabled: true,
             },
             swell: {
-                enabled: false,
+                enabled: true,
             },
             velocity: {
-                value: "Soft",
+                value: "Mid",
             },
         },
         effects: {
@@ -1925,7 +1926,7 @@ exports.ns3Model = {
                 value: "Volume",
             },
             midiCc: {
-                enabled: false,
+                enabledOnLoad: false,
                 midi: 0,
                 value: "0",
                 morph: {
@@ -1953,9 +1954,9 @@ exports.ns3Model = {
                 },
             },
             program: {
-                enabled: false,
+                enabledOnLoad: false,
                 midi: 0,
-                value: "1",
+                value: "0",
                 morph: {
                     wheel: {
                         enabled: false,
@@ -1981,7 +1982,8 @@ exports.ns3Model = {
                 },
             },
             volume: {
-                enabled: false,
+                enabledOnLoad: false,
+                enabled: true,
                 midi: 0,
                 value: "0",
                 morph: {
@@ -2010,34 +2012,34 @@ exports.ns3Model = {
             },
             channel: {
                 enabled: true,
-                value: 8,
+                value: 15,
             },
             cc00: {
                 enabled: false,
-                value: -1,
+                value: "",
             },
             cc32: {
-                enabled: true,
-                value: 125,
+                enabled: false,
+                value: "",
             },
             cc: {
-                value: 123,
-                text: "All Notes Off",
+                value: 2,
+                text: "Breath Controller",
             },
             wheel: {
-                enabled: false,
+                enabled: true,
             },
             afterTouch: {
-                enabled: false,
+                enabled: true,
             },
             controlPedal: {
-                enabled: false,
+                enabled: true,
             },
             swell: {
-                enabled: false,
+                enabled: true,
             },
             velocity: {
-                value: "Soft",
+                value: "Mid",
             },
         },
         effects: {

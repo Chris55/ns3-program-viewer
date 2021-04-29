@@ -1,15 +1,15 @@
 exports.ns2Model = {
-    name: "Enjoy_Sil_Intro",
-    filename: "Enjoy_Sil_Intro.ns2p",
+    name: "Power",
+    filename: "Power.ns2p",
     ext: "ns2p",
     description: "Nord Stage 2 Program",
     id: {
-        bank: 3,
-        location: 85,
-        name: "D:18:1",
-        value: 160,
+        bank: 0,
+        location: 1,
+        name: "A:01:2",
+        value: 1,
     },
-    category: "Synth",
+    category: "Grand",
     version: {
         majorVersion: 7,
         minorVersion: 0,
@@ -27,49 +27,49 @@ exports.ns2Model = {
     split: {
         enabled: true,
         low: {
-            note: "F3",
+            note: "F2",
         },
         high: {
             note: "--",
         },
     },
     dualKeyboard: {
-        enabled: false,
+        enabled: true,
     },
     compressor: {
-        enabled: true,
+        enabled: false,
         amount: {
-            midi: 103,
-            value: "8.1",
+            midi: 31,
+            value: "2.4",
         },
     },
     reverb: {
         enabled: true,
         type: {
-            value: "Hall 1",
+            value: "Hall 2",
         },
         amount: {
-            midi: 92,
-            value: "7.2",
+            midi: 16,
+            value: "1.3",
         },
     },
     slotA: {
         enabled: true,
         organ: {
-            enabled: false,
+            enabled: true,
             kbZone: {
-                array: [false, false, false],
-                value: "",
+                array: [true, true, true],
+                value: "LO UP HI",
             },
             volume: {
                 midi: 0,
                 value: "Off",
                 morph: {
                     wheel: {
-                        enabled: false,
+                        enabled: true,
                         to: {
-                            midi: 0,
-                            value: "none",
+                            midi: 125,
+                            value: "-0.3 dB",
                         },
                     },
                     afterTouch: {
@@ -80,16 +80,16 @@ exports.ns2Model = {
                         },
                     },
                     controlPedal: {
-                        enabled: false,
+                        enabled: true,
                         to: {
-                            midi: 0,
-                            value: "none",
+                            midi: 120,
+                            value: "-1.0 dB",
                         },
                     },
                 },
             },
             octaveShift: {
-                value: -2,
+                value: 0,
             },
             pitchStick: {
                 enabled: false,
@@ -107,6 +107,51 @@ exports.ns2Model = {
                 value: "B3",
             },
             preset1: {
+                enabled: true,
+                drawbars: {
+                    value: "88 8808 088",
+                    morph: {
+                        wheel: {
+                            enabled: false,
+                            to: {
+                                value: "-- ---- ---",
+                            },
+                        },
+                        afterTouch: {
+                            enabled: false,
+                            to: {
+                                value: "-- ---- ---",
+                            },
+                        },
+                        controlPedal: {
+                            enabled: false,
+                            to: {
+                                value: "-- ---- ---",
+                            },
+                        },
+                    },
+                },
+                vibrato: {
+                    enabled: true,
+                    mode: {
+                        value: "C2",
+                        label: "Chorus",
+                    },
+                },
+                percussion: {
+                    enabled: false,
+                    volumeSoft: {
+                        enabled: false,
+                    },
+                    decayFast: {
+                        enabled: true,
+                    },
+                    harmonicThird: {
+                        enabled: true,
+                    },
+                },
+            },
+            preset2: {
                 enabled: false,
                 drawbars: {
                     value: "88 8000 000",
@@ -133,98 +178,60 @@ exports.ns2Model = {
                 },
                 vibrato: {
                     enabled: false,
-                    mode: {
-                        value: "C3",
-                        label: "Chorus",
-                    },
                 },
                 percussion: {
                     enabled: false,
-                    volumeSoft: {
-                        enabled: true,
-                    },
-                    decayFast: {
-                        enabled: true,
-                    },
-                    harmonicThird: {
-                        enabled: true,
-                    },
                 },
             },
-            preset2: {
-                enabled: true,
-                drawbars: {
-                    value: "88 8050 000",
-                    morph: {
-                        wheel: {
-                            enabled: false,
-                            to: {
-                                value: "-- ---- ---",
-                            },
-                        },
-                        afterTouch: {
-                            enabled: false,
-                            to: {
-                                value: "-- ---- ---",
-                            },
-                        },
-                        controlPedal: {
-                            enabled: false,
-                            to: {
-                                value: "-- ---- ---",
-                            },
-                        },
-                    },
-                },
-                vibrato: {
-                    enabled: true,
-                },
-                percussion: {
-                    enabled: false,
-                },
+            output: {
+                value: "1&2",
             },
         },
         piano: {
             debug: {
-                sampleId: "d1accddd",
+                sampleId: "df256d94",
                 lib: {
                     valid: true,
-                    value: "DX7 FullTines Lrg",
-                    info: "",
-                    version: "v5.4",
-                    size: "11.8 MB",
+                    value: "Grand Lady D   Lrg",
+                    name: "Grand Lady D   Lrg",
+                    info: "Stw D",
+                    version: "v5.3",
+                    size: "82.4 MB",
                     location: 0,
-                    filename: "DX7 FullTines  Lrg 5.4",
+                    filename: "Grand Lady D   Stw D  Lrg 5.3",
+                    stringsRes: true,
+                    softRelease: true,
+                    pedalNoise: true,
                 },
             },
-            enabled: false,
+            enabled: true,
             kbZone: {
-                array: [false, false, false],
-                value: "",
+                array: [true, true, true],
+                value: "LO UP HI",
             },
             volume: {
-                midi: 43,
-                value: "-18.8 dB",
+                midi: 99,
+                value: "-4.3 dB",
                 morph: {
                     wheel: {
-                        enabled: false,
+                        enabled: true,
                         to: {
-                            midi: 43,
-                            value: "none",
+                            midi: 3,
+                            value: "-65.1 dB",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 43,
+                            midi: 99,
                             value: "none",
                         },
                     },
                     controlPedal: {
-                        enabled: false,
+                        enabled: true,
                         to: {
-                            midi: 43,
-                            value: "none",
+                            midi: 0,
+                            value: "Off",
                         },
                     },
                 },
@@ -239,37 +246,41 @@ exports.ns2Model = {
                 enabled: true,
             },
             latchPedal: {
-                enabled: false,
+                enabled: true,
             },
             kbGate: {
                 enabled: false,
             },
             type: {
-                value: "E Piano 2",
+                value: "Grand",
             },
             name: {
                 valid: true,
-                value: "DX7 FullTines Lrg",
-                info: "",
-                version: "v5.4",
-                size: "11.8 MB",
+                value: "Grand Lady D   Lrg",
+                name: "Grand Lady D   Lrg",
+                info: "Stw D",
+                version: "v5.3",
+                size: "82.4 MB",
                 location: 0,
-                filename: "DX7 FullTines  Lrg 5.4",
+                filename: "Grand Lady D   Stw D  Lrg 5.3",
+                stringsRes: true,
+                softRelease: true,
+                pedalNoise: true,
             },
             slotDetune: {
                 value: "Off",
             },
             longRelease: {
-                enabled: false,
+                enabled: true,
             },
             stringResonance: {
-                enabled: false,
+                enabled: true,
             },
             pedalNoise: {
-                enabled: false,
+                enabled: true,
             },
             dynamics: {
-                value: "1",
+                value: "0",
             },
             clavinetModel: {
                 enabled: false,
@@ -283,17 +294,21 @@ exports.ns2Model = {
                 enabled: false,
                 value: "Off",
             },
+            output: {
+                value: "1&2",
+            },
         },
         synth: {
             debug: {
-                sampleId: "521b950a",
+                sampleId: "30551d20",
                 lib: {
                     valid: false,
-                    value: "Unknown",
+                    value: "Sample 193",
+                    name: "Sample not found",
                     info: "",
                     version: "",
                     size: "",
-                    location: 0,
+                    location: 192,
                     filename: "",
                 },
                 preset: {
@@ -303,36 +318,36 @@ exports.ns2Model = {
                     userPresetLocationName: "1:01",
                     samplePresetLocationValue: 112,
                     samplePresetLocationName: "113",
-                    presetName: "",
+                    presetName: "\u0001",
                 },
             },
-            enabled: true,
+            enabled: false,
             kbZone: {
-                array: [true, false, false],
-                value: "LO",
+                array: [false, false, false],
+                value: "---",
             },
             volume: {
-                midi: 69,
-                value: "-10.6 dB",
+                midi: 102,
+                value: "-3.8 dB",
                 morph: {
                     wheel: {
                         enabled: false,
                         to: {
-                            midi: 69,
+                            midi: 102,
                             value: "none",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 69,
+                            midi: 102,
                             value: "none",
                         },
                     },
                     controlPedal: {
                         enabled: false,
                         to: {
-                            midi: 69,
+                            midi: 102,
                             value: "none",
                         },
                     },
@@ -345,7 +360,7 @@ exports.ns2Model = {
                 enabled: false,
             },
             sustainPedal: {
-                enabled: false,
+                enabled: true,
             },
             latchPedal: {
                 enabled: false,
@@ -354,7 +369,7 @@ exports.ns2Model = {
                 enabled: false,
             },
             keyboardHold: {
-                enabled: false,
+                enabled: true,
             },
             voice: {
                 value: "Off",
@@ -363,7 +378,7 @@ exports.ns2Model = {
                 value: "0.0",
             },
             unison: {
-                value: "1",
+                value: "Off",
             },
             vibrato: {
                 value: "Off",
@@ -374,44 +389,45 @@ exports.ns2Model = {
                 },
                 waveForm1: {
                     valid: false,
-                    value: "Unknown",
+                    value: "Sample 193",
+                    name: "Sample not found",
                     info: "",
                     version: "",
                     size: "",
-                    location: 0,
+                    location: 192,
                     filename: "",
                 },
                 shapeCtrl: {
-                    midi: 0,
-                    value: "0.0",
+                    midi: 27,
+                    value: "2.1",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 27,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 27,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 27,
                                 value: "none",
                             },
                         },
                     },
                 },
                 shapeMod: {
-                    midi: 77,
-                    value: "1.9",
-                    label: "Mod Env AMT",
+                    midi: 63,
+                    value: "0.0",
+                    label: "LFO/Env AMT",
                 },
                 skipSampleAttack: {
                     enabled: false,
@@ -425,27 +441,27 @@ exports.ns2Model = {
                     enabled: false,
                 },
                 frequency: {
-                    midi: 111,
-                    value: "8.7 kHz",
+                    midi: 86,
+                    value: "2.2 kHz",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 111,
+                                midi: 86,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 111,
+                                midi: 86,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 111,
+                                midi: 86,
                                 value: "none",
                             },
                         },
@@ -456,28 +472,28 @@ exports.ns2Model = {
                     value: "0.0",
                 },
                 modulation1: {
-                    midi: 0,
-                    value: "0.0",
+                    midi: 4,
+                    value: "0.3",
                 },
                 modulation2: {
-                    midi: 77,
-                    value: "1.9",
-                    label: "Mod Env AMT",
+                    midi: 64,
+                    value: "0.0",
+                    label: "VEL/Env AMT",
                 },
             },
             envelopes: {
                 modulation: {
                     attack: {
-                        midi: 0,
-                        value: "0.5 ms",
+                        midi: 35,
+                        value: "75 ms",
                     },
                     decay: {
-                        midi: 45,
-                        value: "368 ms",
+                        midi: 0,
+                        value: "3.0 ms",
                     },
                     release: {
-                        midi: 23,
-                        value: "50 ms",
+                        midi: 0,
+                        value: "3.0 ms",
                     },
                     velocity: {
                         enabled: false,
@@ -485,16 +501,16 @@ exports.ns2Model = {
                 },
                 amplifier: {
                     attack: {
-                        midi: 0,
-                        value: "0.5 ms",
+                        midi: 22,
+                        value: "16 ms",
                     },
                     decay: {
-                        midi: 75,
-                        value: "3.03 s",
+                        midi: 127,
+                        value: "45 s",
                     },
                     release: {
-                        midi: 67,
-                        value: "1.82 s",
+                        midi: 51,
+                        value: "588 ms",
                     },
                     velocity: {
                         enabled: false,
@@ -503,11 +519,11 @@ exports.ns2Model = {
             },
             lfo: {
                 wave: {
-                    value: "TRI",
+                    value: "SAW",
                 },
                 rate: {
-                    midi: 70,
-                    value: "6.5 Hz",
+                    midi: 0,
+                    value: "0.03 Hz",
                 },
                 masterClock: {
                     enabled: false,
@@ -516,8 +532,8 @@ exports.ns2Model = {
             arpeggiator: {
                 enabled: false,
                 rate: {
-                    midi: 0,
-                    value: "80 BPM",
+                    midi: 90,
+                    value: "120:16 BPM",
                 },
                 masterClock: {
                     enabled: false,
@@ -529,12 +545,15 @@ exports.ns2Model = {
                     value: "UP",
                 },
             },
+            output: {
+                value: "1&2",
+            },
         },
         extern: {
-            enabled: false,
+            enabled: true,
             kbZone: {
-                array: [false, false, false],
-                value: "",
+                array: [true, true, true],
+                value: "LO UP HI",
             },
             octaveShift: {
                 value: 0,
@@ -549,6 +568,7 @@ exports.ns2Model = {
                 value: "Midi CC",
             },
             midiCc: {
+                enabled: true,
                 midi: 0,
                 value: "0",
                 morph: {
@@ -576,45 +596,78 @@ exports.ns2Model = {
                 },
             },
             program: {
-                midi: 0,
-                value: "1",
+                enabled: true,
+                midi: 82,
+                value: "83",
             },
             volume: {
-                midi: 0,
-                value: "0",
+                enabled: false,
+                midi: 127,
+                value: "127",
                 morph: {
                     wheel: {
                         enabled: false,
                         to: {
-                            midi: 0,
+                            midi: 127,
                             value: "none",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 0,
+                            midi: 127,
                             value: "none",
                         },
                     },
                     controlPedal: {
                         enabled: false,
                         to: {
-                            midi: 0,
+                            midi: 127,
                             value: "none",
                         },
                     },
                 },
             },
+            channel: {
+                value: 2,
+                type: "MIDI",
+            },
+            cc00: {
+                enabled: false,
+                value: 117,
+            },
+            cc32: {
+                enabled: true,
+                value: 0,
+            },
+            cc: {
+                value: 119,
+                text: "Undefined",
+            },
+            wheel: {
+                enabled: false,
+            },
+            afterTouch: {
+                enabled: false,
+            },
+            controlPedal: {
+                enabled: false,
+            },
+            swell: {
+                enabled: false,
+            },
+            velocity: {
+                value: "Normal",
+            },
         },
         effects: {
             rotarySpeaker: {
-                enabled: false,
+                enabled: true,
                 source: {
                     value: "Organ",
                 },
                 drive: {
-                    value: "4.6",
+                    value: "3.6",
                 },
                 stopMode: {
                     enabled: false,
@@ -643,54 +696,54 @@ exports.ns2Model = {
                     value: "Panning",
                 },
                 amount: {
-                    midi: 37,
-                    value: "2.9",
+                    midi: 11,
+                    value: "0.9",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 37,
+                                midi: 11,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 37,
+                                midi: 11,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 37,
+                                midi: 11,
                                 value: "none",
                             },
                         },
                     },
                 },
                 rate: {
-                    midi: 32,
-                    value: "2.5",
+                    midi: 34,
+                    value: "34 (2.7)",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 32,
+                                midi: 34,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 32,
+                                midi: 34,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 32,
+                                midi: 34,
                                 value: "none",
                             },
                         },
@@ -701,62 +754,62 @@ exports.ns2Model = {
                 },
             },
             effect2: {
-                enabled: true,
+                enabled: false,
                 source: {
                     value: "Synth",
                 },
                 type: {
-                    value: "Chorus 1",
+                    value: "Phaser 1",
                 },
                 amount: {
-                    midi: 23,
-                    value: "1.8",
+                    midi: 39,
+                    value: "3.1",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 23,
+                                midi: 39,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 23,
+                                midi: 39,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 23,
+                                midi: 39,
                                 value: "none",
                             },
                         },
                     },
                 },
                 rate: {
-                    midi: 70,
-                    value: "5.5",
+                    midi: 12,
+                    value: "12 (0.9)",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 70,
+                                midi: 12,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 70,
+                                midi: 12,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 70,
+                                midi: 12,
                                 value: "none",
                             },
                         },
@@ -769,34 +822,34 @@ exports.ns2Model = {
             delay: {
                 enabled: false,
                 source: {
-                    value: "Synth",
+                    value: "Piano",
                 },
                 masterClock: {
                     enabled: false,
                 },
                 tempo: {
-                    midi: 52,
+                    midi: 30,
                     lsw: 0,
-                    value: "288 ms 104 bpm (x2)",
+                    value: "429 ms 140 bpm",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 30,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 30,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 30,
                                 value: "none",
                             },
                         },
@@ -806,31 +859,31 @@ exports.ns2Model = {
                     enabled: false,
                 },
                 feedback: {
-                    midi: 10,
-                    value: "0.8",
+                    midi: 64,
+                    value: "5.0",
                 },
                 amount: {
-                    midi: 41,
-                    value: "3.2",
+                    midi: 46,
+                    value: "3.6",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 41,
+                                midi: 46,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 41,
+                                midi: 46,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 41,
+                                midi: 46,
                                 value: "none",
                             },
                         },
@@ -838,32 +891,32 @@ exports.ns2Model = {
                 },
             },
             ampSimEq: {
-                enabled: true,
+                enabled: false,
                 source: {
-                    value: "Piano",
+                    value: "Synth",
                 },
                 ampType: {
                     value: "Off",
                 },
                 treble: {
-                    midi: 42,
-                    value: "-5.2 dB",
+                    midi: 63,
+                    value: "-0.2 dB",
                 },
                 mid: {
-                    midi: 64,
-                    value: "+0.0 dB",
+                    midi: 59,
+                    value: "-1.2 dB",
                 },
                 bass: {
-                    midi: 116,
-                    value: "+12.4 dB",
+                    midi: 57,
+                    value: "-1.6 dB",
                 },
                 midFilterFreq: {
-                    midi: 34,
-                    value: "470 Hz",
+                    midi: 0,
+                    value: "200 Hz",
                 },
                 overdrive: {
-                    midi: 0,
-                    value: "0.0",
+                    midi: 32,
+                    value: "2.5",
                 },
             },
         },
@@ -874,30 +927,30 @@ exports.ns2Model = {
             enabled: false,
             kbZone: {
                 array: [false, false, false],
-                value: "",
+                value: "---",
             },
             volume: {
-                midi: 18,
-                value: "-33.9 dB",
+                midi: 107,
+                value: "-3.0 dB",
                 morph: {
                     wheel: {
                         enabled: false,
                         to: {
-                            midi: 18,
+                            midi: 107,
                             value: "none",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 18,
+                            midi: 107,
                             value: "none",
                         },
                     },
                     controlPedal: {
                         enabled: false,
                         to: {
-                            midi: 18,
+                            midi: 107,
                             value: "none",
                         },
                     },
@@ -910,7 +963,7 @@ exports.ns2Model = {
                 enabled: false,
             },
             sustainPedal: {
-                enabled: true,
+                enabled: false,
             },
             latchPedal: {
                 enabled: false,
@@ -924,7 +977,7 @@ exports.ns2Model = {
             preset1: {
                 enabled: true,
                 drawbars: {
-                    value: "88 8030 000",
+                    value: "88 8000 000",
                     morph: {
                         wheel: {
                             enabled: false,
@@ -947,16 +1000,16 @@ exports.ns2Model = {
                     },
                 },
                 vibrato: {
-                    enabled: false,
+                    enabled: true,
                     mode: {
-                        value: "C3",
+                        value: "C2",
                         label: "Chorus",
                     },
                 },
                 percussion: {
                     enabled: false,
                     volumeSoft: {
-                        enabled: true,
+                        enabled: false,
                     },
                     decayFast: {
                         enabled: true,
@@ -992,60 +1045,67 @@ exports.ns2Model = {
                     },
                 },
                 vibrato: {
-                    enabled: false,
+                    enabled: true,
                 },
                 percussion: {
                     enabled: false,
                 },
             },
+            output: {
+                value: "1&2",
+            },
         },
         piano: {
             debug: {
-                sampleId: "d1accddd",
+                sampleId: "7dc7d01e",
                 lib: {
                     valid: true,
-                    value: "DX7 FullTines Lrg",
-                    info: "",
-                    version: "v5.4",
-                    size: "11.8 MB",
+                    value: "Italian Grand XL",
+                    name: "Italian Grand XL",
+                    info: "Faz",
+                    version: "v5.3",
+                    size: "191.0 MB",
                     location: 0,
-                    filename: "DX7 FullTines  Lrg 5.4",
+                    filename: "Italian Grand Faz XL 5.3",
+                    stringsRes: true,
+                    softRelease: true,
+                    pedalNoise: true,
                 },
             },
             enabled: false,
             kbZone: {
                 array: [false, false, false],
-                value: "",
+                value: "---",
             },
             volume: {
-                midi: 51,
-                value: "-15.8 dB",
+                midi: 127,
+                value: "0.0 dB",
                 morph: {
                     wheel: {
                         enabled: false,
                         to: {
-                            midi: 51,
+                            midi: 127,
                             value: "none",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 51,
+                            midi: 127,
                             value: "none",
                         },
                     },
                     controlPedal: {
                         enabled: false,
                         to: {
-                            midi: 51,
+                            midi: 127,
                             value: "none",
                         },
                     },
                 },
             },
             octaveShift: {
-                value: -1,
+                value: 0,
             },
             pitchStick: {
                 enabled: false,
@@ -1060,16 +1120,20 @@ exports.ns2Model = {
                 enabled: false,
             },
             type: {
-                value: "E Piano 2",
+                value: "Grand",
             },
             name: {
                 valid: true,
-                value: "DX7 FullTines Lrg",
-                info: "",
-                version: "v5.4",
-                size: "11.8 MB",
+                value: "Italian Grand XL",
+                name: "Italian Grand XL",
+                info: "Faz",
+                version: "v5.3",
+                size: "191.0 MB",
                 location: 0,
-                filename: "DX7 FullTines  Lrg 5.4",
+                filename: "Italian Grand Faz XL 5.3",
+                stringsRes: true,
+                softRelease: true,
+                pedalNoise: true,
             },
             slotDetune: {
                 value: "Off",
@@ -1084,7 +1148,7 @@ exports.ns2Model = {
                 enabled: false,
             },
             dynamics: {
-                value: "0",
+                value: "1",
             },
             clavinetModel: {
                 enabled: false,
@@ -1098,18 +1162,20 @@ exports.ns2Model = {
                 enabled: false,
                 value: "Off",
             },
+            output: {
+                value: "1&2",
+            },
         },
         synth: {
             debug: {
-                sampleId: "5abe6159",
+                sampleId: "0",
                 lib: {
                     valid: true,
-                    value: "Choir Aahs",
-                    info: "ste v2 BR",
-                    version: "v2.0",
-                    size: "4.3 MB",
-                    location: 269,
-                    filename: "Choir Aahs_ste v2 BR",
+                    value: "SAW ---",
+                    info: "",
+                    version: "",
+                    location: 0,
+                    filename: "",
                 },
                 preset: {
                     location: 512,
@@ -1123,38 +1189,38 @@ exports.ns2Model = {
             },
             enabled: true,
             kbZone: {
-                array: [false, true, false],
-                value: "UP",
+                array: [true, true, true],
+                value: "LO UP HI",
             },
             volume: {
-                midi: 71,
-                value: "-10.1 dB",
+                midi: 102,
+                value: "-3.8 dB",
                 morph: {
                     wheel: {
                         enabled: false,
                         to: {
-                            midi: 71,
+                            midi: 102,
                             value: "none",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 71,
+                            midi: 102,
                             value: "none",
                         },
                     },
                     controlPedal: {
                         enabled: false,
                         to: {
-                            midi: 71,
+                            midi: 102,
                             value: "none",
                         },
                     },
                 },
             },
             octaveShift: {
-                value: -1,
+                value: 0,
             },
             pitchStick: {
                 enabled: true,
@@ -1166,58 +1232,57 @@ exports.ns2Model = {
                 enabled: false,
             },
             kbGate: {
-                enabled: true,
+                enabled: false,
             },
             keyboardHold: {
                 enabled: false,
             },
             voice: {
-                value: "Off",
+                value: "Mono",
             },
             glide: {
-                value: "0.0",
+                value: "1.5",
             },
             unison: {
-                value: "Off",
+                value: "Multi 1",
             },
             vibrato: {
                 value: "Off",
             },
             oscillators: {
                 type: {
-                    value: "SAMPLE",
+                    value: "SAW",
                 },
                 waveForm1: {
                     valid: true,
-                    value: "Choir Aahs",
-                    info: "ste v2 BR",
-                    version: "v2.0",
-                    size: "4.3 MB",
-                    location: 269,
-                    filename: "Choir Aahs_ste v2 BR",
+                    value: "SAW ---",
+                    info: "",
+                    version: "",
+                    location: 0,
+                    filename: "",
                 },
                 shapeCtrl: {
-                    midi: 0,
-                    value: "0.0",
+                    midi: 127,
+                    value: "10.0",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 127,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 127,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 127,
                                 value: "none",
                             },
                         },
@@ -1234,10 +1299,10 @@ exports.ns2Model = {
             },
             filter: {
                 type: {
-                    value: "LP24",
+                    value: "LP12",
                 },
                 kbTrack: {
-                    enabled: false,
+                    enabled: true,
                 },
                 frequency: {
                     midi: 127,
@@ -1275,9 +1340,9 @@ exports.ns2Model = {
                     value: "0.0",
                 },
                 modulation2: {
-                    midi: 77,
-                    value: "1.9",
-                    label: "Mod Env AMT",
+                    midi: 1,
+                    value: "9.8",
+                    label: "VEL AMT",
                 },
             },
             envelopes: {
@@ -1287,12 +1352,12 @@ exports.ns2Model = {
                         value: "0.5 ms",
                     },
                     decay: {
-                        midi: 45,
-                        value: "368 ms",
+                        midi: 127,
+                        value: "45 s",
                     },
                     release: {
-                        midi: 23,
-                        value: "50 ms",
+                        midi: 0,
+                        value: "3.0 ms",
                     },
                     velocity: {
                         enabled: false,
@@ -1300,29 +1365,29 @@ exports.ns2Model = {
                 },
                 amplifier: {
                     attack: {
-                        midi: 2,
-                        value: "0.7 ms",
+                        midi: 0,
+                        value: "0.5 ms",
                     },
                     decay: {
-                        midi: 117,
-                        value: "29 s",
+                        midi: 127,
+                        value: "45 s",
                     },
                     release: {
-                        midi: 63,
-                        value: "1.39 s",
+                        midi: 0,
+                        value: "3.0 ms",
                     },
                     velocity: {
-                        enabled: true,
+                        enabled: false,
                     },
                 },
             },
             lfo: {
                 wave: {
-                    value: "TRI",
+                    value: "SAW",
                 },
                 rate: {
-                    midi: 70,
-                    value: "6.5 Hz",
+                    midi: 0,
+                    value: "0.03 Hz",
                 },
                 masterClock: {
                     enabled: false,
@@ -1344,12 +1409,15 @@ exports.ns2Model = {
                     value: "UP",
                 },
             },
+            output: {
+                value: "1&2",
+            },
         },
         extern: {
-            enabled: false,
+            enabled: true,
             kbZone: {
-                array: [false, false, false],
-                value: "",
+                array: [true, true, true],
+                value: "LO UP HI",
             },
             octaveShift: {
                 value: 0,
@@ -1364,37 +1432,40 @@ exports.ns2Model = {
                 value: "Midi CC",
             },
             midiCc: {
-                midi: 0,
-                value: "0",
+                enabled: true,
+                midi: 5,
+                value: "5",
                 morph: {
                     wheel: {
                         enabled: false,
                         to: {
-                            midi: 0,
+                            midi: 5,
                             value: "none",
                         },
                     },
                     afterTouch: {
                         enabled: false,
                         to: {
-                            midi: 0,
+                            midi: 5,
                             value: "none",
                         },
                     },
                     controlPedal: {
                         enabled: false,
                         to: {
-                            midi: 0,
+                            midi: 5,
                             value: "none",
                         },
                     },
                 },
             },
             program: {
-                midi: 0,
-                value: "1",
+                enabled: true,
+                midi: 82,
+                value: "83",
             },
             volume: {
+                enabled: false,
                 midi: 0,
                 value: "0",
                 morph: {
@@ -1421,15 +1492,46 @@ exports.ns2Model = {
                     },
                 },
             },
+            channel: {
+                value: 2,
+                type: "MIDI",
+            },
+            cc00: {
+                enabled: false,
+                value: 0,
+            },
+            cc32: {
+                enabled: true,
+                value: 0,
+            },
+            cc: {
+                value: 119,
+                text: "Undefined",
+            },
+            wheel: {
+                enabled: true,
+            },
+            afterTouch: {
+                enabled: true,
+            },
+            controlPedal: {
+                enabled: true,
+            },
+            swell: {
+                enabled: false,
+            },
+            velocity: {
+                value: "Normal",
+            },
         },
         effects: {
             rotarySpeaker: {
-                enabled: false,
+                enabled: true,
                 source: {
                     value: "Organ",
                 },
                 drive: {
-                    value: "4.6",
+                    value: "3.6",
                 },
                 stopMode: {
                     enabled: false,
@@ -1455,57 +1557,57 @@ exports.ns2Model = {
                     value: "Piano",
                 },
                 type: {
-                    value: "Auto-Wah 1",
+                    value: "Panning",
                 },
                 amount: {
-                    midi: 12,
-                    value: "0.9",
+                    midi: 64,
+                    value: "5.0",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 12,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 12,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 12,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                     },
                 },
                 rate: {
-                    midi: 104,
-                    value: "8.2",
+                    midi: 64,
+                    value: "64 (5.0)",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 104,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 104,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 104,
+                                midi: 64,
                                 value: "none",
                             },
                         },
@@ -1521,57 +1623,57 @@ exports.ns2Model = {
                     value: "Piano",
                 },
                 type: {
-                    value: "Chorus 1",
+                    value: "Phaser 1",
                 },
                 amount: {
-                    midi: 111,
-                    value: "8.7",
+                    midi: 64,
+                    value: "5.0",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 111,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 111,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 111,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                     },
                 },
                 rate: {
-                    midi: 27,
-                    value: "2.1",
+                    midi: 64,
+                    value: "64 (5.0)",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 27,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 27,
+                                midi: 64,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 27,
+                                midi: 64,
                                 value: "none",
                             },
                         },
@@ -1582,9 +1684,9 @@ exports.ns2Model = {
                 },
             },
             delay: {
-                enabled: false,
+                enabled: true,
                 source: {
-                    value: "Piano",
+                    value: "Synth",
                 },
                 masterClock: {
                     enabled: false,
@@ -1597,21 +1699,21 @@ exports.ns2Model = {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 56,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 0,
+                                midi: 56,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 31,
+                                midi: 56,
                                 value: "none",
                             },
                         },
@@ -1621,31 +1723,31 @@ exports.ns2Model = {
                     enabled: false,
                 },
                 feedback: {
-                    midi: 54,
-                    value: "4.3",
+                    midi: 4,
+                    value: "0.3",
                 },
                 amount: {
-                    midi: 26,
-                    value: "2.0",
+                    midi: 39,
+                    value: "3.1",
                     morph: {
                         wheel: {
                             enabled: false,
                             to: {
-                                midi: 26,
+                                midi: 39,
                                 value: "none",
                             },
                         },
                         afterTouch: {
                             enabled: false,
                             to: {
-                                midi: 26,
+                                midi: 39,
                                 value: "none",
                             },
                         },
                         controlPedal: {
                             enabled: false,
                             to: {
-                                midi: 26,
+                                midi: 39,
                                 value: "none",
                             },
                         },
@@ -1653,28 +1755,28 @@ exports.ns2Model = {
                 },
             },
             ampSimEq: {
-                enabled: false,
+                enabled: true,
                 source: {
-                    value: "Piano",
+                    value: "Synth",
                 },
                 ampType: {
                     value: "Off",
                 },
                 treble: {
-                    midi: 35,
-                    value: "-6.8 dB",
+                    midi: 83,
+                    value: "+4.5 dB",
                 },
                 mid: {
-                    midi: 40,
-                    value: "-5.6 dB",
+                    midi: 64,
+                    value: "+0.0 dB",
                 },
                 bass: {
-                    midi: 63,
-                    value: "-0.2 dB",
+                    midi: 64,
+                    value: "+0.0 dB",
                 },
                 midFilterFreq: {
-                    midi: 64,
-                    value: "999 Hz",
+                    midi: 127,
+                    value: "8.0 kHz",
                 },
                 overdrive: {
                     midi: 0,

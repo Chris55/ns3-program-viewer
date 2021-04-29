@@ -5,7 +5,6 @@ import NordLabelAndValue from "../lib/nord-label-and-value";
 import NordLabel from "../lib/nord-label";
 import Ns2FxCompressor from "./ns2-fx-compressor";
 import Ns2FxReverb from "./ns2-fx-reverb";
-import Ns2Output2 from "./ns2-output";
 
 export default class Ns2 extends Component {
     render() {
