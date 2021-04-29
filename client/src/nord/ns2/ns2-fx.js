@@ -7,6 +7,8 @@ import Ns2FxRotarySpeaker from "./ns2-fx-rotary-speaker";
 import Ns2SectionSynthArp from "./ns2-section-synth-arp";
 import Ns2FxDelay from "./ns2-fx-delay";
 import Ns2FxAmpSimEq from "./ns2-fx-amp-sim-eq";
+import Ns2Output2 from "./ns2-output";
+import Ns2Output from "./ns2-output";
 
 export default class Ns2Fx extends Component {
     render() {
@@ -40,6 +42,13 @@ export default class Ns2Fx extends Component {
                             data={data.rotarySpeaker}
                             source={this.props.source}
                         />
+
+                        <Ns2Output
+                            className="ns3-section-main-fx"
+                            menu={this.props.menu}
+                            other={false}
+                        />
+
                     </div>
                 </div>
             </React.Fragment>

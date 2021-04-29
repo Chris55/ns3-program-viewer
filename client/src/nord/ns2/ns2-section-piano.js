@@ -27,18 +27,20 @@ export default class Ns2SectionPiano extends Component {
                                         <div>
                                             {/*<div className="nord-name">{piano.name.value}</div>*/}
                                             <div className="nord-name">
-                                                <div >{piano.name.value}</div>
-                                                <div ><small>{piano.name.info} {piano.name.version}</small></div>
+                                                <div>{piano.name.value}</div>
+                                                <div>
+                                                    <small>
+                                                        {piano.name.info} {piano.name.version}
+                                                    </small>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div>
                                             <NordLabelAndValue label="Type" data={piano.type} />
-                                            <span className={piano.clavinetModel.enabled ? "": "d-none"}>
+                                            <span className={piano.clavinetModel.enabled ? "" : "d-none"}>
                                                 {" "}
-                                                <NordLabelAndValue
-                                                    data={piano.clavinetModel}
-                                                />
+                                                <NordLabelAndValue data={piano.clavinetModel} />
                                             </span>
                                         </div>
 
@@ -64,7 +66,7 @@ export default class Ns2SectionPiano extends Component {
                                             <NordValueOnOff label="Pedal Noise" data={piano.pedalNoise} />
                                         </div>
 
-                                        <div className={piano.clavinetModel.enabled ? "": "d-none"}>
+                                        <div className={piano.clavinetModel.enabled ? "" : "d-none"}>
                                             <NordLabelAndValue
                                                 enabled={piano.clavinetEq.value !== "Off"}
                                                 label="Eq"
@@ -79,7 +81,7 @@ export default class Ns2SectionPiano extends Component {
                                         </div>
                                     </div>
 
-                                    <Ns2Fx className="d-flex" data={this.props.effects} source="Piano" />
+                                    <Ns2Fx className="d-flex" data={this.props.effects} source="Piano" menu={piano} />
                                 </div>
                             </div>
                         </div>

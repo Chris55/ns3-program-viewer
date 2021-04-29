@@ -317,6 +317,198 @@ describe("/ns2/global", () => {
         });
     });
 
+    test("slotA.organ.output.value eq 1&2", async () => {
+        const file = "slotA.organ.output.value eq 1&2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.organ.output.value eq 3&4", async () => {
+        const file = "slotA.organ.output.value eq 3&4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.organ.output.value eq 3", async () => {
+        const file = "slotA.organ.output.value eq 3.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.organ.output.value eq 4", async () => {
+        const file = "slotA.organ.output.value eq 4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.piano.output.value eq 1&2", async () => {
+        const file = "slotA.piano.output.value eq 1&2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.piano.output.value eq 3&4", async () => {
+        const file = "slotA.piano.output.value eq 3&4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.piano.output.value eq 3", async () => {
+        const file = "slotA.piano.output.value eq 3.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.piano.output.value eq 4", async () => {
+        const file = "slotA.piano.output.value eq 4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.synth.output.value eq 1&2", async () => {
+        const file = "slotA.synth.output.value eq 1&2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.synth.output.value eq 3&4", async () => {
+        const file = "slotA.synth.output.value eq 3&4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.synth.output.value eq 3", async () => {
+        const file = "slotA.synth.output.value eq 3.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotA.synth.output.value eq 4", async () => {
+        const file = "slotA.synth.output.value eq 4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.organ.output.value eq 1&2", async () => {
+        const file = "slotB.organ.output.value eq 1&2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.organ.output.value eq 3&4", async () => {
+        const file = "slotB.organ.output.value eq 3&4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.organ.output.value eq 3", async () => {
+        const file = "slotB.organ.output.value eq 3.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.organ.output.value eq 4", async () => {
+        const file = "slotB.organ.output.value eq 4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.piano.output.value eq 1&2", async () => {
+        const file = "slotB.piano.output.value eq 1&2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.piano.output.value eq 3&4", async () => {
+        const file = "slotB.piano.output.value eq 3&4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.piano.output.value eq 3", async () => {
+        const file = "slotB.piano.output.value eq 3.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.piano.output.value eq 4", async () => {
+        const file = "slotB.piano.output.value eq 4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.synth.output.value eq 1&2", async () => {
+        const file = "slotB.synth.output.value eq 1&2.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.synth.output.value eq 3&4", async () => {
+        const file = "slotB.synth.output.value eq 3&4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.synth.output.value eq 3", async () => {
+        const file = "slotB.synth.output.value eq 3.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("slotB.synth.output.value eq 4", async () => {
+        const file = "slotB.synth.output.value eq 4.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("split.enabled eq false", async () => {
         const file = "split.enabled eq false.ns2p";
         const sut = await loadTestCase(root + file);

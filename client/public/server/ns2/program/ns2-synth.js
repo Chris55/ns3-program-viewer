@@ -1,6 +1,7 @@
 const mapping3 = require("../../ns3/program/ns3-mapping");
 const converter = require("../../common/converter");
 const mapping = require("./ns2-mapping");
+const { ns2ProgramOutputMap } = require("./ns2-mapping");
 const { ns2Filter } = require("./ns2-synth-filter");
 const { ns2OscShape } = require("./ns2-synth-osc-shape");
 const { ns2KbZone } = require("./ns2-utils");
@@ -46,7 +47,7 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @param id {number}
  * @param slotOffset {number}
  * @param global
- * @returns {{voice: {value: *}, oscillators: {control: *, fastAttack: {enabled: boolean}, pitch: {midi: *, value: (string|string)}, type: {value: *}, waveForm1: *, config: {value: *}, modulations: {lfoAmount: {midi: *, morph: *, value: *}, modEnvAmount: {midi: *, morph: *, value: *}}}, debug: {lib: {valid: boolean, location: number, value: string, version: string, info: string}, sampleId: string, preset: {userPresetLocation: number, samplePresetLocation: number, presetName: string}}, unison: {value: *}, arpeggiator: {kbSync: {enabled: boolean}, rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, pattern: {value: *}, range: {value: *}, enabled: boolean}, kbZone: {array: string | string[] | boolean[], value: string | string[] | boolean[]}, sustainPedal: {enabled: boolean}, keyboardHold: {enabled: boolean}, preset: *, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: *, pitchStick: {enabled: boolean}, lfo: {rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, wave: {value: *}}, glide: {value: *}, envelopes: {modulation: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {enabled: boolean}}, amplifier: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {value: *}}}, vibrato: {value: *}}}
+ * @returns {{voice: {value: string}, oscillators: {skipSampleAttack: {enabled: boolean}, type: {value: string}, waveForm1: {valid: boolean, filename: string, location: number, value: string, version: string, info: string}, shapeCtrl: {midi: number, value: string, morph: {afterTouch: {to: {midi: ({midi: *, value: string}|string), value: string}, enabled: boolean}, controlPedal: {to: {midi: ({midi: *, value: string}|string), value: string}, enabled: boolean}, wheel: {to: {midi: ({midi: *, value: string}|string), value: string}, enabled: boolean}}}, shapeMod: {midi: number, label: (string), value: string}}, debug: {lib: {valid: boolean, filename: string, location: number, value: string, version: string, info: string}, sampleId: string, preset: {userPresetLocation: number, samplePresetLocation: number, presetName: string}}, unison: {value: string}, arpeggiator: {rate: {midi: number, value: string}, masterClock: {enabled: boolean}, pattern: {value: string}, range: {value: string}, enabled: boolean}, kbZone: {array, value}, sustainPedal: {enabled: boolean}, keyboardHold: {enabled: boolean}, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: {type: {value: string}, resonance: {midi: number, value: string}, kbTrack: {enabled: boolean}, modulations: {mod2: {midi: number, label: string, value: string}, mod1: {midi: number, value: string}}, frequency: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}}, output: {value: string}, pitchStick: {enabled: boolean}, lfo: {rate: {midi: number, value: string}, masterClock: {enabled: boolean}, wave: {value: string}}, glide: {value: string}, envelopes: {modulation: {attack: {midi: number, value: string}, release: {midi: number, value: string}, decay: {midi: number, value: string}, velocity: {enabled: boolean}}, amplifier: {attack: {midi: number, value: string}, release: {midi: number, value: string}, decay: {midi: number, value: string}, velocity: {enabled: boolean}}}, latchPedal: {enabled: boolean}, kbGate: {enabled: boolean}, vibrato: {value: string}}}
  */
 exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthOffset4d = buffer.readUInt8(0x4d + slotOffset);
@@ -54,6 +55,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthOffset50W = buffer.readUInt16BE(0x50 + slotOffset);
     const synthOffset51 = buffer.readUInt8(0x51 + slotOffset);
     const synthOffset52 = buffer.readUInt8(0x52 + slotOffset);
+    const synthOffset59 = buffer.readUInt8(0x59 + slotOffset);
     const synthOffset5a = buffer.readUInt8(0x5a + slotOffset);
     const synthOffsetD9 = buffer.readUInt8(0xd9 + slotOffset);
     const synthOffsetDaW = buffer.readUInt16BE(0xda + slotOffset);
@@ -139,7 +141,6 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         : (synthOffsetDaW & 0x03f8) >>> 3;
     const arpeggiatorPattern = (synthOffsetDbW & 0x0600) >>> 9;
     const arpeggiatorRange = (synthOffsetDbW & 0x0180) >>> 7;
-
 
     const synthEnabled = (synthOffset4d & 0x40) !== 0;
     const synthKbZoneEnabled =
@@ -620,6 +621,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                 enabled: lfoRateMasterClock,
             },
         },
+
         arpeggiator: {
             /**
              * Offset in file: 0xd9 (b0)
@@ -682,6 +684,18 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             pattern: {
                 value: mapping.ns2ArpeggiatorPatternMap.get(arpeggiatorPattern),
             },
+        },
+
+        /**
+         * Offset in file 0x59 (b5-6)
+         *
+         * @example
+         * #include ns2ProgramOutputMap
+         *
+         * @module NS2 Synth Program Output
+         */
+        output: {
+            value: ns2ProgramOutputMap.get((synthOffset59 & 0x60) >>> 5),
         },
     };
 

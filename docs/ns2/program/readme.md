@@ -93,8 +93,8 @@ This mapping corresponds to the Nord Stage 2 program file (file extension ns2p).
 | `0x0055` | `--------` |
 | `0x0056` | `--zzzooo` | [(z) extern kb zone](ns2-doc.md#ns2-extern-kb-zone), [(o) extern octave shift](ns2-doc.md#ns2-extern-octave-shift)
 | `0x0057` | `ops-----` | [(p) extern pitch stick](ns2-doc.md#ns2-extern-pitch-stick), [(s) extern sustain pedal](ns2-doc.md#ns2-extern-sustain-pedal)
-| `0x0058` | `--------` |
-| `0x0059` | `------lg` | [(l) organ latch pedal](ns2-doc.md#ns2-organ-latch-pedal), [(g) organ kb gate](ns2-doc.md#ns2-organ-kb-gate)
+| `0x0058` | `------pp` | [(p) piano program output](ns2-doc.md#ns2-piano-program-output)
+| `0x0059` | `-ss-oolg` | [(s) synth program output](ns2-doc.md#ns2-synth-program-output), [(o) organ program output](ns2-doc.md#ns2-organ-program-output), [(l) organ latch pedal](ns2-doc.md#ns2-organ-latch-pedal), [(g) organ kb gate](ns2-doc.md#ns2-organ-kb-gate)
 | `0x005A` | `lgtk----` | [(l) piano latch pedal](ns2-doc.md#ns2-piano-latch-pedal), [(g) piano kb gate](ns2-doc.md#ns2-piano-kb-gate), [(t) synth latch pedal](ns2-doc.md#ns2-synth-latch-pedal), [(k) synth kb gate](ns2-doc.md#ns2-synth-kb-gate)
 | `0x005B` | `--------` |
 | `0x005C` | `b-------` | [(b) organ b3 preset II](ns2-doc.md#ns2-organ-b3-preset-2)

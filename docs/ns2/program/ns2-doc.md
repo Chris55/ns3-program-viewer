@@ -275,6 +275,9 @@
 </dd>
 <dt><a href="#module_NS2 Organ Drawbars Preset 2">NS2 Organ Drawbars Preset 2</a></dt>
 <dd></dd>
+<dt><a href="#module_NS2 Organ Program Output">NS2 Organ Program Output</a></dt>
+<dd><p>Offset in file 0x59 (b3-2)</p>
+</dd>
 <dt><a href="#module_NS2 Piano On">NS2 Piano On</a></dt>
 <dd><p>Offset in file: 0x48 (b7)</p>
 </dd>
@@ -328,6 +331,9 @@
 </dd>
 <dt><a href="#module_NS2 Piano Clavinet Eq">NS2 Piano Clavinet Eq</a></dt>
 <dd><p>Offset in file: 0xD0 (b7-6)</p>
+</dd>
+<dt><a href="#module_NS2 Piano Program Output">NS2 Piano Program Output</a></dt>
+<dd><p>Offset in file 0x58 (b1-0)</p>
 </dd>
 <dt><a href="#module_NS2 File Version">NS2 File Version</a></dt>
 <dd><p>Offset in file: 0x14 and 0x15</p>
@@ -472,6 +478,9 @@
 </dd>
 <dt><a href="#module_NS2 Synth Arp Pattern">NS2 Synth Arp Pattern</a></dt>
 <dd><p>Offset in file: 0xdb (b2-1)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Program Output">NS2 Synth Program Output</a></dt>
+<dd><p>Offset in file 0x59 (b5-6)</p>
 </dd>
 </dl>
 
@@ -1837,6 +1846,15 @@ Morph Wheel offset in file 0xcb (b7-6)
 Morph AT    offset in file 0xcb (b5-4)
 Morph Pedal offset in file 0xcb (b3-2)
 ```
+<a name="module_NS2 Organ Program Output"></a>
+
+## NS2 Organ Program Output
+Offset in file 0x59 (b3-2)
+
+**Example**  
+```js
+#include ns2ProgramOutputMap
+```
 <a name="module_NS2 Piano On"></a>
 
 ## NS2 Piano On
@@ -2023,6 +2041,15 @@ Offset in file: 0xD0 (b7-6)
 **Example**  
 ```js
 #include ns2PianoClavinetEqMap
+```
+<a name="module_NS2 Piano Program Output"></a>
+
+## NS2 Piano Program Output
+Offset in file 0x58 (b1-0)
+
+**Example**  
+```js
+#include ns2ProgramOutputMap
 ```
 <a name="module_NS2 File Version"></a>
 
@@ -2620,4 +2647,13 @@ Offset in file: 0xdb (b2-1)
 **Example**  
 ```js
 #include ns2ArpeggiatorPatternMap
+```
+<a name="module_NS2 Synth Program Output"></a>
+
+## NS2 Synth Program Output
+Offset in file 0x59 (b5-6)
+
+**Example**  
+```js
+#include ns2ProgramOutputMap
 ```

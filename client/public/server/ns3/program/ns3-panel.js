@@ -59,11 +59,7 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
          * Offset in file 0x144 (b7-5)
          *
          * @example
-         * 0 = 1-2
-         * 1 = 3-4
-         * 2 = 3
-         * 3 = 4
-         * 4 = 1-4
+         * #include ns3ProgramOutputMap
          *
          * @module NS3 Program Output Main
          */
@@ -75,10 +71,7 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
          * Offset in file 0x144 (b4-3)
          *
          * @example
-         * 0 = Off
-         * 1 = Organ
-         * 2 = Piano
-         * 3 = Synth
+         * #include ns3ProgramOutputSourceMap
          *
          * @module NS3 Program Output Sub Source
          */
@@ -90,10 +83,7 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
          * Offset in file 0x144 (b2-1)
          *
          * @example
-         * 0 = 1-2
-         * 1 = 3-4
-         * 2 = 3
-         * 3 = 4
+         * #include ns3ProgramOutputMap
          *
          * @module NS3 Program Output Sub Destination
          */
@@ -117,6 +107,6 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
             compressor: ns3Compressor(buffer, panelOffset),
             reverb: ns3Reverb(buffer, panelOffset),
         },
-        output: output,
+        output,
     };
 };

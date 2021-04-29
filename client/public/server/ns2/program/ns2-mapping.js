@@ -1967,3 +1967,14 @@ exports.ns2ExternMidiVelocityCurveMap = new Map([
     [1, "Normal"],
     [2, "Hard"],
 ]);
+
+/***
+ * Program Output Map
+ * @type {Map<number, string>}
+ */
+exports.ns2ProgramOutputMap = new Map([
+    [0, "1&2"],
+    [1, "3&4"],
+    [2, "3"],
+    [3, "4"],
+]);

@@ -1618,11 +1618,7 @@ Offset in file 0x144 (b7-5)
 
 **Example**  
 ```js
-0 = 1-2
-1 = 3-4
-2 = 3
-3 = 4
-4 = 1-4
+#include ns3ProgramOutputMap
 ```
 <a name="module_NS3 Program Output Sub Source"></a>
 
@@ -1631,10 +1627,7 @@ Offset in file 0x144 (b4-3)
 
 **Example**  
 ```js
-0 = Off
-1 = Organ
-2 = Piano
-3 = Synth
+#include ns3ProgramOutputSourceMap
 ```
 <a name="module_NS3 Program Output Sub Destination"></a>
 
@@ -1643,10 +1636,7 @@ Offset in file 0x144 (b2-1)
 
 **Example**  
 ```js
-0 = 1-2
-1 = 3-4
-2 = 3
-3 = 4
+#include ns3ProgramOutputMap
 ```
 <a name="module_NS3 Clavinet Model"></a>
 

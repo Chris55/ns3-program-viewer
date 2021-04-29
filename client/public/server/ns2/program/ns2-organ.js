@@ -1,5 +1,6 @@
 const mapping = require("./ns2-mapping");
-const {formatOrganDrawbars} = require("../../common/converter");
+const { ns2ProgramOutputMap } = require("./ns2-mapping");
+const { formatOrganDrawbars } = require("../../common/converter");
 const { ns2MorphOrganDrawbar } = require("./ns2-morph");
 const { ns2KbZone } = require("./ns2-utils");
 const { ns2VolumeEx } = require("./ns2-utils");
@@ -158,10 +159,9 @@ const hideIfEqual = (from, to) => {
  * @param commonOffset {number}
  * @param panelOffset {number}
  * @param global
- * @returns {{volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}}
+ * @returns {{volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, output: {value: string}, pitchStick: {enabled: boolean}, preset2: {drawbars: number[], percussion: {enabled: boolean}, enabled: boolean, vibrato: {enabled: boolean}}, kbZone: {array, value}, preset1: {drawbars: number[], percussion: {volumeSoft: {enabled: boolean}, harmonicThird: {enabled: boolean}, decayFast: {enabled: boolean}, enabled: boolean}, enabled: boolean, vibrato: {mode: {label: string, value: string}, enabled: boolean}}, sustainPedal: {enabled: boolean}, type: {value: string}, octaveShift: {value: number}, enabled: boolean, latchPedal: {enabled: boolean}, kbGate: {enabled: boolean}}}
  */
 exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
-
     // common
     const organOffset30 = buffer.readUInt8(0x30 + commonOffset);
     const organOffset35 = buffer.readUInt8(0x35 + commonOffset);
@@ -896,6 +896,18 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
             percussion: {
                 enabled: percussionPreset2,
             },
+        },
+
+        /**
+         * Offset in file 0x59 (b3-2)
+         *
+         * @example
+         * #include ns2ProgramOutputMap
+         *
+         * @module NS2 Organ Program Output
+         */
+        output: {
+            value: ns2ProgramOutputMap.get((organOffset59 & 0x0c) >>> 2),
         },
     };
 };

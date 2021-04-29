@@ -1,5 +1,6 @@
 const mapping = require("./ns2-mapping");
-const {getSampleIdNs2ToNs3} = require("../../library/ns3-library-service");
+const { ns2ProgramOutputMap } = require("./ns2-mapping");
+const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
 const { ns2VolumeEx } = require("./ns2-utils");
 const { ns2KbZone } = require("./ns2-utils");
 const { getSample } = require("../../library/ns3-library-service");
@@ -11,7 +12,7 @@ const { getSample } = require("../../library/ns3-library-service");
  * @param id
  * @param panelOffset
  * @param global
- * @returns {{debug: {lib: {size: string, value: (string|*), version: string, info: string}, sampleId: string}, kbZone: {array: string | string[] | boolean[], value: string | string[] | boolean[]}, longRelease: {enabled: boolean}, sustainPedal: {enabled: boolean}, type: {value: *}, clavinetEqHi: {value: *, enabled: *}, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, dynamics: {value: *}, pitchStick: {enabled: boolean}, slotDetune: {value: *}, stringResonance: {enabled: boolean}, name: *, pedalNoise: {enabled: boolean}, clavinetModel: {value: *, enabled: *}, latchPedal: {enabled: boolean}, kbGate: {enabled: boolean}, clavinetEq: {value: *, enabled: *}}}
+ * @returns {{debug: {lib: {size: string, value: (string|*), version: string, info: string}, sampleId: string}, kbZone: {array, value}, longRelease: {enabled: boolean}, sustainPedal: {enabled: boolean}, type: {value: string}, clavinetEqHi: {value: string, enabled: boolean}, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, output: {value: string}, dynamics: {value: string}, pitchStick: {enabled: boolean}, slotDetune: {value: string}, stringResonance: {enabled: boolean}, name: {size: string, value: (string|*), version: string, info: string}, pedalNoise: {enabled: boolean}, clavinetModel: {value: string, enabled: boolean}, latchPedal: {enabled: boolean}, kbGate: {enabled: boolean}, clavinetEq: {value: string, enabled: boolean}}}
  */
 exports.ns2Piano = (buffer, id, panelOffset, global) => {
     const pianoOffset3b = buffer.readUInt8(0x3b + panelOffset);
@@ -20,6 +21,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
     const pianoOffset4b = buffer.readUInt8(0x4b + panelOffset);
     const pianoOffset4c = buffer.readUInt8(0x4c + panelOffset);
     const pianoOffset4d = buffer.readUInt8(0x4d + panelOffset);
+    const pianoOffset58 = buffer.readUInt8(0x58 + panelOffset);
     const pianoOffset5a = buffer.readUInt8(0x5a + panelOffset);
     const pianoOffsetCd = buffer.readUInt8(0xcd + panelOffset);
     const pianoOffsetCeW = buffer.readUInt16BE(0xce + panelOffset);
@@ -30,7 +32,9 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
 
     const pianoEnabled = (pianoOffset48 & 0x80) !== 0;
     const pianoKbZoneEnabled =
-        id === 0 ? pianoEnabled : pianoEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Piano");
+        id === 0
+            ? pianoEnabled
+            : pianoEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Piano");
 
     const pianoTypeValue = (pianoOffsetCd & 0xe0) >>> 5;
     const pianoType = mapping.ns2PianoTypeMap.get(pianoTypeValue);
@@ -201,7 +205,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          * @module NS2 Piano Long Release
          */
         longRelease: {
-            enabled: ((pianoOffsetCf & 0x40) !== 0) && pianoLib.softRelease,
+            enabled: (pianoOffsetCf & 0x40) !== 0 && pianoLib.softRelease,
         },
         /**
          * Offset in file: 0xCF (b5)
@@ -214,7 +218,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          * @module NS2 Piano String Resonance
          */
         stringResonance: {
-            enabled: ((pianoOffsetCf & 0x20) !== 0) && pianoLib.stringsRes,
+            enabled: (pianoOffsetCf & 0x20) !== 0 && pianoLib.stringsRes,
         },
         /**
          * Offset in file: 0xCF (b4)
@@ -227,7 +231,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          * @module NS2 Piano Pedal Noise
          */
         pedalNoise: {
-            enabled: ((pianoOffsetCf & 0x10) !== 0) && pianoLib.pedalNoise,
+            enabled: (pianoOffsetCf & 0x10) !== 0 && pianoLib.pedalNoise,
         },
         /**
          * Offset in file: 0xCF (b3-2)
@@ -275,6 +279,18 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
         clavinetEq: {
             enabled: clavinetEnabled,
             value: mapping.ns2PianoClavinetEqMap.get((pianoOffsetD0 & 0xc0) >>> 6),
+        },
+
+        /**
+         * Offset in file 0x58 (b1-0)
+         *
+         * @example
+         * #include ns2ProgramOutputMap
+         *
+         * @module NS2 Piano Program Output
+         */
+        output: {
+            value: ns2ProgramOutputMap.get(pianoOffset58 & 0x03),
         },
     };
 

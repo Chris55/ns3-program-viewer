@@ -1,3 +1,4 @@
+const {ns2ProgramOutputMap} = require("./ns2-mapping");
 const { ns2Effect2 } = require("./ns2-fx-multi-effect-2");
 const { ns2Effect1 } = require("./ns2-fx-multi-effect-1");
 const { ns2Delay } = require("./ns2-fx-delay");

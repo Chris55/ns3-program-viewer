@@ -14,7 +14,8 @@ export default class Ns2SectionOrgan extends Component {
         const visible = organ.enabled;
         const dimmed = organ.dimmed === true;
 
-        const optionsEqual = organ.preset1.vibrato.enabled === organ.preset2.vibrato.enabled &&
+        const optionsEqual =
+            organ.preset1.vibrato.enabled === organ.preset2.vibrato.enabled &&
             organ.preset1.percussion.enabled === organ.preset2.percussion.enabled;
 
         return (
@@ -36,12 +37,20 @@ export default class Ns2SectionOrgan extends Component {
                                                         <NordLabelAndValueWithMorph
                                                             label="Preset I"
                                                             data={organ.preset1.drawbars}
-                                                            valueClass={organ.preset1.enabled ? "nord-font-monospace": "nord-font-monospace nord-off"}
+                                                            valueClass={
+                                                                organ.preset1.enabled
+                                                                    ? "nord-font-monospace"
+                                                                    : "nord-font-monospace nord-off"
+                                                            }
                                                         />
                                                         <NordLabelAndValueWithMorph
                                                             label="Preset II"
                                                             data={organ.preset2.drawbars}
-                                                            valueClass={organ.preset2.enabled ? "nord-font-monospace": "nord-font-monospace nord-off"}
+                                                            valueClass={
+                                                                organ.preset2.enabled
+                                                                    ? "nord-font-monospace"
+                                                                    : "nord-font-monospace nord-off"
+                                                            }
                                                         />
                                                     </tbody>
                                                 </table>
@@ -49,20 +58,19 @@ export default class Ns2SectionOrgan extends Component {
                                         </div>
 
                                         <div>
-                                            <NordLabelAndValue
-                                                label="Model"
-                                                data={organ.type}
-                                            />
+                                            <NordLabelAndValue label="Model" data={organ.type} />
                                         </div>
 
-                                        <div className={optionsEqual? "d-none": ""}>
+                                        <div className={optionsEqual ? "d-none" : ""}>
                                             <span className="m-1" />
                                             <div className="nord-label">Preset I</div>
                                         </div>
 
-
                                         <div>
-                                            <NordLabel enabled={organ.preset1.vibrato.enabled} label={organ.preset1.vibrato.mode.label} />
+                                            <NordLabel
+                                                enabled={organ.preset1.vibrato.enabled}
+                                                label={organ.preset1.vibrato.mode.label}
+                                            />
                                             <span className="m-1" />
                                             <NordLabelAndValue
                                                 label="Type"
@@ -75,10 +83,16 @@ export default class Ns2SectionOrgan extends Component {
                                             <NordValueOnOff label="Percussion" data={organ.preset1.percussion} />
                                         </div>
                                         <div>
-                                            <NordValueOnOff label="Volume Soft" data={organ.preset1.percussion.volumeSoft} />
+                                            <NordValueOnOff
+                                                label="Volume Soft"
+                                                data={organ.preset1.percussion.volumeSoft}
+                                            />
                                             <span className="m-1" />
 
-                                            <NordValueOnOff label="Decay Fast" data={organ.preset1.percussion.decayFast} />
+                                            <NordValueOnOff
+                                                label="Decay Fast"
+                                                data={organ.preset1.percussion.decayFast}
+                                            />
                                             <span className="m-1" />
 
                                             <NordValueOnOff
@@ -87,12 +101,15 @@ export default class Ns2SectionOrgan extends Component {
                                             />
                                         </div>
 
-                                        <div className={optionsEqual? "d-none": ""} >
+                                        <div className={optionsEqual ? "d-none" : ""}>
                                             <span className="m-1" />
                                             <div className="nord-label">Preset II</div>
 
                                             <div>
-                                                <NordLabel enabled={organ.preset2.vibrato.enabled} label={organ.preset1.vibrato.mode.label} />
+                                                <NordLabel
+                                                    enabled={organ.preset2.vibrato.enabled}
+                                                    label={organ.preset1.vibrato.mode.label}
+                                                />
                                                 <span className="m-1" />
                                                 <NordLabelAndValue
                                                     label="Type"
@@ -107,7 +124,7 @@ export default class Ns2SectionOrgan extends Component {
                                         </div>
                                     </div>
 
-                                    <Ns2Fx className="d-flex" data={this.props.effects} source="Organ" />
+                                    <Ns2Fx className="d-flex" data={this.props.effects} source="Organ" menu={organ} />
                                 </div>
                             </div>
                         </div>

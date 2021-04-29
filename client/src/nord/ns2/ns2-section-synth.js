@@ -112,6 +112,7 @@ export default class Ns2SectionSynth extends Component {
                                         data={this.props.effects}
                                         source="Synth"
                                         arp={synth.arpeggiator}
+                                        menu={synth}
                                     />
                                 </div>
                             </div>
