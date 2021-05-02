@@ -11,10 +11,18 @@ export default class NordLabel extends Component {
                 ? "nord-label nord-on"
                 : "nord-label nord-off";
 
-        return (
-            <>
-                <span className={className}>{this.props.label}</span>
-            </>
-        );
+        if (this.props.table === true) {
+            return (
+                <td>
+                    <span className={className}>{this.props.label}</span>
+                </td>
+            );
+        } else {
+            return (
+                <>
+                    <span className={className}>{this.props.label}</span>
+                </>
+            );
+        }
     }
 }

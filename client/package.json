@@ -26,7 +26,11 @@
         "extraResources": [],
         "afterSign": "./afterSignHook.js",
         "mac": {
-            "target": ["dmg", "mas", "zip"],
+            "target": [
+                "dmg",
+                "mas",
+                "zip"
+            ],
             "category": "public.app-category.music",
             "icon": "assets/icons/app.icns",
             "electronLanguages": [
@@ -38,7 +42,7 @@
             "gatekeeperAssess": false
         },
         "mas": {
-            "hardenedRuntime" : false,
+            "hardenedRuntime": false,
             "category": "public.app-category.music",
             "provisioningProfile": "embedded.provisionprofile",
             "entitlements": "build/entitlements.mas.plist",
@@ -53,10 +57,23 @@
         "dmg": {
             "sign": false
         },
+        "linux": {
+            "target": [
+                "deb",
+                "rpm"
+            ],
+            "maintainer": "christian.florentz@gmail.com",
+            "category": "Utility"
+        },
+        "deb": {},
+        "appImage": {},
         "fileAssociations": [
             {
-                "ext": ["ns3f", "ns2p"],
-                "name": "Plain Text",
+                "ext": [
+                    "ns3f",
+                    "ns3y",
+                    "ns2p"
+                ],
                 "role": "Viewer"
             }
         ]
@@ -70,6 +87,7 @@
     "description": "The unofficial Nord Stage 2/2EX/3 Program viewer tool.",
     "devDependencies": {
         "@react-pdf/renderer": "^1.6.12",
+        "@reduxjs/toolkit": "^1.5.1",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
@@ -80,6 +98,8 @@
         "electron": "^11.2.1",
         "electron-builder": "^22.9.1",
         "electron-notarize": "^1.0.0",
+        "html2canvas": "^1.0.0-rc.7",
+        "jspdf": "^2.3.0",
         "lodash.clonedeep": "^4.5.0",
         "nodemon": "^2.0.7",
         "prettier": "^2.2.1",
@@ -87,11 +107,11 @@
         "react-bootstrap": "^1.4.0",
         "react-dom": "^16.13.1",
         "react-json-tree": "^0.12.1",
+        "react-redux": "^7.2.4",
+        "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.3",
         "react-toastify": "^6.0.8",
-        "wait-on": "^5.2.1",
-        "html2canvas": "^1.0.0-rc.7",
-        "jspdf": "^2.3.0"
+        "wait-on": "^5.2.1"
     },
     "eslintConfig": {
         "extends": [
@@ -105,8 +125,8 @@
     "private": true,
     "proxy": "http://localhost:4000/",
     "repository": {
-        "type" : "git",
-        "url" : "https://github.com/Chris55/ns3-program-viewer.git"
+        "type": "git",
+        "url": "https://github.com/Chris55/ns3-program-viewer.git"
     },
     "scripts": {
         "react-start": "react-scripts start",
@@ -115,9 +135,9 @@
         "react-eject": "react-scripts eject",
         "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
         "electron-build": "electron-builder",
-        "deploy": "yarn react-build && yarn electron-build build -mw --publish=always",
-        "build": "yarn react-build && yarn electron-build build -mw --publish never",
+        "deploy": "yarn react-build && yarn electron-build build -mwl --publish=always",
+        "build": "yarn react-build && yarn electron-build build -mwl --publish never",
         "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
-    "version": "0.3.0"
+    "version": "0.3.1"
 }
