@@ -6,7 +6,7 @@ function AppName() {
         <>
             <span>File Viewer for </span>
             <span className="nord-font">
-                Nord<span className="nord-font-copyright">®</span>Stage
+                Nord<span className="nord-font-copyright">®</span> Stage
             </span>
         </>
     );

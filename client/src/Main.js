@@ -2,15 +2,14 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import FileUploaderButton from "./utils/file-uploader-button";
 import axios from "axios";
-import programIcon from "./nprog.icns.svg";
 import Container from "react-bootstrap/Container";
-import Figure from "react-bootstrap/Figure";
 import { ns3Model } from "./nord/ns3/model/ns3-model";
 import NordDevice from "./nord/nord-device";
 import Button from "react-bootstrap/Button";
 import { buildExport } from "./export/export-pdf";
+import Home from "./Home";
+import LoadButton from "./LoadButton";
 
 const clonedeep = require("lodash.clonedeep");
 
@@ -162,151 +161,78 @@ class Main extends Component {
     render() {
         return (
             <>
-                <div className=" d-flex flex-column min-vh-100">
-                    <div className=" flex-grow-1">
-                        {!this.state.loaded &&
-                        <div className="jumbotron jumbotron-fluid bg-light text-black">
+                {!this.state.loaded && (
+                    <Home loading={this.state.loading} loaded={this.state.loaded} handleFile={this.handleFile} />
+                )}
+
+                {this.state.loaded && (
+                    <div className=" d-flex flex-column min-vh-100">
+                        <div className=" flex-grow-1">
                             <Container>
-                                {/*<h1 className="display-5">*/}
-                                {/*    <span className="nord-font">*/}
-                                {/*        Nord<span className="nord-font-copyright">®</span> Stage*/}
-                                {/*    </span>{" "}*/}
-                                {/*    Program File Viewer*/}
-                                {/*</h1>*/}
-                                <p className="lead">
-                                    {isElectron ? "Offline" : "Online"} tool to review Nord Stage 2/2EX/3 program file
-                                    settings.
-                                </p>
+                                <div className="row mt-2">
+                                    {this.state.loaded && (
+                                        <>
+                                            <div className="col-auto align-self-start">
+                                                <LoadButton
+                                                    loading={this.state.loading}
+                                                    loaded={this.state.loaded}
+                                                    handleFile={this.handleFile}
+                                                />
+                                            </div>
 
-                                <blockquote className="blockquote">
-                                    <footer className="blockquote-footer">
-                                        {this.title} Handmade by Nord User Forum{" "}
-                                        <a
-                                            rel="noopener noreferrer"
-                                            target="_blank"
-                                            href="https://www.norduserforum.com/nord-stage-3-programs-ns3p-ns3pb-files-f32/ns3-program-viewer-t19939.html"
-                                        >
-                                            members
-                                        </a>
-                                    </footer>
-                                </blockquote>
+                                            <div className="col-auto align-self-center">
+                                                <span className="mr-2">Show All Instruments</span>
+
+                                                <Button
+                                                    type="button"
+                                                    variant="primary"
+                                                    className={this.state.showAll ? "mr-1" : "mr-1 disabled"}
+                                                    //className="mr-1"
+                                                    //disabled={!this.state.showAll}
+                                                    onClick={this.handleShowAll}
+                                                >
+                                                    On
+                                                </Button>
+                                                <Button
+                                                    type="button"
+                                                    variant="primary"
+                                                    className={this.state.showAll ? "mr-1 disabled" : "mr-1"}
+                                                    //className="mr-1"
+                                                    //disabled={this.state.showAll}
+                                                    onClick={this.handleShowAll}
+                                                >
+                                                    Off
+                                                </Button>
+                                            </div>
+
+                                            <div className="col-auto align-self-center" />
+
+                                            <div className="col-auto align-self-center">
+                                                <Button
+                                                    type="button"
+                                                    variant="primary"
+                                                    //className={this.state.exporting ? "disabled" : "active"}
+                                                    disabled={this.state.exporting}
+                                                    onClick={this.handleExport}
+                                                >
+                                                    {this.state.exporting
+                                                        ? "Saving " + this.state.exportDetails
+                                                        : "Save"}
+                                                </Button>
+                                            </div>
+                                        </>
+                                    )}
+                                </div>
                             </Container>
-                        </div>}
 
-                        <Container>
-                            <div className="row ">
-                                <div className="col-2-auto align-self-center">
-                                    <FileUploaderButton
-                                        className=""
-                                        title={this.state.loading ? "Loading..." : "Select"}
-                                        disabled={this.state.loading}
-                                        accept=".ns3f,.ns3y,.ns2p"
-                                        multiple={true}
-                                        handleFile={this.handleFile}
-                                    />
-                                </div>
-
-                                {/*<div className="col-auto align-self-center">*/}
-                                {/*    Nord Stage 3 Program File (ns3f) <span className="work-complete" /> (100% decoded)*/}
-                                {/*    <br />*/}
-                                {/*    Nord Stage 2 Program File (ns2p) <span className="work-in-progress" /> (in progress){" "}*/}
-                                {/*</div>*/}
-
-                                <div className="col-auto align-self-center">
-                                    Nord Stage 3 Program File (ns3f, ns3y)
-                                    <br />
-                                    Nord Stage 2 Program File (ns2p)
-                                </div>
-
-                                <div className="col-auto align-self-center mt-sm-2">
-                                    <Figure.Image width={64} height={64} alt="171x180" src={programIcon} />
-                                </div>
-
-                                {this.state.loaded && (
-                                    <>
-                                        <div className="col-auto align-self-center" />
-
-                                        <div className="col-auto align-self-center">
-                                            <span className="mr-2">Show All Instruments</span>
-
-                                            <Button
-                                                type="button"
-                                                variant="primary"
-                                                className={this.state.showAll ? "mr-1" : "mr-1 disabled"}
-                                                //className="mr-1"
-                                                //disabled={!this.state.showAll}
-                                                onClick={this.handleShowAll}
-                                            >
-                                                On
-                                            </Button>
-                                            <Button
-                                                type="button"
-                                                variant="primary"
-                                                className={this.state.showAll ? "mr-1 disabled" : "mr-1"}
-                                                //className="mr-1"
-                                                //disabled={this.state.showAll}
-                                                onClick={this.handleShowAll}
-                                            >
-                                                Off
-                                            </Button>
-                                        </div>
-
-                                        <div className="col-auto align-self-center" />
-
-                                        <div className="col-auto align-self-center">
-                                            <Button
-                                                type="button"
-                                                variant="primary"
-                                                //className={this.state.exporting ? "disabled" : "active"}
-                                                disabled={this.state.exporting}
-                                                onClick={this.handleExport}
-                                            >
-                                                {this.state.exporting ? "Saving " + this.state.exportDetails : "Save"}
-                                            </Button>
-                                        </div>
-                                    </>
-                                )}
-                            </div>
-                        </Container>
-
-                        <NordDevice data={this.state.data} showAll={this.state.showAll} production={this.production} />
+                            <NordDevice
+                                data={this.state.data}
+                                showAll={this.state.showAll}
+                                production={this.production}
+                            />
+                        </div>
                     </div>
-
-
-                    <div className="nord-footer">
-                        <small>
-                            {/*<div>*/}
-                            {/*    Privacy Policy: We don’t log or share your personal information. We don’t track you. We*/}
-                            {/*    don’t profile you.*/}
-                            {/*    {isElectron && (*/}
-                            {/*        <span>*/}
-                            {/*            {" "}*/}
-                            {/*            Downloaded files are stored locally only, nothing is send to a remote server.*/}
-                            {/*        </span>*/}
-                            {/*    )}*/}
-                            {/*    {!isElectron && (*/}
-                            {/*        <span>*/}
-                            {/*            {" "}*/}
-                            {/*            Uploaded files are stored on the server for processing only and deleted every*/}
-                            {/*            24h.*/}
-                            {/*        </span>*/}
-                            {/*    )}*/}
-                            {/*</div>*/}
-                            <div>
-                                Disclaimer: We are not affiliated, associated, endorsed by, or in any way officially
-                                connected with{" "}
-                                <a href="https://www.nordkeyboards.com">Nord Keyboards / Clavia DMI AB</a>, or any of
-                                its subsidiaries or its affiliates.
-                            </div>
-                            <div>
-                                The names Nord and Clavia as well as related names, marks, emblems and images are
-                                registered trademarks of their respective owners.
-                            </div>
-                        </small>
-                    </div>
-
-
-                </div>
+                )}
             </>
         );
     }

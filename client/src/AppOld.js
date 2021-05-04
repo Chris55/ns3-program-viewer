@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import FileUploaderButton from "./utils/file-uploader-button";
 import axios from "axios";
-import programIcon from "./nprog.icns.svg";
+import programIcon from "./assets/nprog.svg";
 import Container from "react-bootstrap/Container";
 import Figure from "react-bootstrap/Figure";
 import { ns3Model } from "./nord/ns3/model/ns3-model";

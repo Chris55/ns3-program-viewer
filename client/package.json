@@ -135,8 +135,8 @@
         "react-eject": "react-scripts eject",
         "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
         "electron-build": "electron-builder",
-        "deploy": "yarn react-build && yarn electron-build build -mwl --publish=always",
-        "build": "yarn react-build && yarn electron-build build -mwl --publish never",
+        "deploy": "yarn react-build && yarn electron-build build -mwl --publish=always && yarn electron-build build -l --arm64 --publish=always",
+        "build": "yarn react-build && yarn electron-build build -mwl --publish never && yarn electron-build build -l --arm64 --publish never",
         "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
     "version": "0.3.1"
