@@ -5,13 +5,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { menuSelector, setActiveKey } from "./features/menu/menuSliceReducer";
 import { Link } from "react-router-dom";
+import { nordSelector } from "./features/nord/nordSliceReducer";
 
-const isElectron = /electron/i.test(navigator.userAgent);
-console.log("Electron:", isElectron);
-
-function Menu() {
+const Menu = () => {
     const dispatch = useDispatch();
     const { activeKey } = useSelector(menuSelector);
+    const { isElectron } = useSelector(nordSelector);
 
     const handleSelect = (key) => {
         dispatch(setActiveKey(key));
@@ -20,9 +19,6 @@ function Menu() {
     return (
         <>
             <Navbar bg="dark" variant="dark" expand="lg">
-                <Navbar.Brand>
-                    {/*<AppName />*/}
-                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto" activeKey={activeKey} onSelect={handleSelect}>
@@ -48,6 +44,6 @@ function Menu() {
             </Navbar>
         </>
     );
-}
+};
 
 export default Menu;

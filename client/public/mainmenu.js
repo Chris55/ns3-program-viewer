@@ -48,6 +48,20 @@ if (isDev) {
                 },
             },
             {
+                label: "Go Back",
+                accelerator: "",
+                click(item, focusedWindow) {
+                    if (focusedWindow) focusedWindow.webContents.goBack();
+                },
+            },
+            {
+                label: "Go Forward",
+                accelerator: "",
+                click(item, focusedWindow) {
+                    if (focusedWindow) focusedWindow.webContents.goForward();
+                },
+            },
+            {
                 label: "Toggle Developer Tools",
                 accelerator: process.platform === "darwin" ? "Alt+Command+I" : "Ctrl+Shift+I",
                 click(item, focusedWindow) {
@@ -83,6 +97,20 @@ if (isDev) {
                 accelerator: "CmdOrCtrl+R",
                 click(item, focusedWindow) {
                     if (focusedWindow) focusedWindow.reload();
+                },
+            },
+            {
+                label: "Go Back",
+                accelerator: "",
+                click(item, focusedWindow) {
+                    if (focusedWindow) focusedWindow.webContents.goBack();
+                },
+            },
+            {
+                label: "Go Forward",
+                accelerator: "",
+                click(item, focusedWindow) {
+                    if (focusedWindow) focusedWindow.webContents.goForward();
                 },
             },
             // {
@@ -130,7 +158,8 @@ const helpSubMenu = [];
 
 if (process.platform !== "darwin") {
     helpSubMenu.push({
-        role: "about", label: "About",
+        role: "about",
+        label: "About",
     });
 }
 helpSubMenu.push({
@@ -153,7 +182,8 @@ if (process.platform === "darwin") {
         label: name,
         submenu: [
             {
-                role: "about", label: "About",
+                role: "about",
+                label: "About",
             },
             {
                 type: "separator",
@@ -166,10 +196,12 @@ if (process.platform === "darwin") {
                 type: "separator",
             },
             {
-                role: "hide", label: "Hide",
+                role: "hide",
+                label: "Hide",
             },
             {
-                role: "hideothers", label: "Hide Other",
+                role: "hideothers",
+                label: "Hide Other",
             },
             {
                 role: "unhide",
@@ -178,7 +210,8 @@ if (process.platform === "darwin") {
                 type: "separator",
             },
             {
-                role: "quit", label: "Quit",
+                role: "quit",
+                label: "Quit",
             },
         ],
     });

@@ -6,10 +6,12 @@ import * as serviceWorker from "./serviceWorker";
 import { configureStore } from "@reduxjs/toolkit";
 import menuSliceReducer from "./features/menu/menuSliceReducer";
 import { Provider } from "react-redux";
+import nordSliceReducer from "./features/nord/nordSliceReducer";
 
 const store = configureStore({
     reducer: {
         menuStore: menuSliceReducer,
+        nordStore: nordSliceReducer
     },
 });
 

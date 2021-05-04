@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -9,21 +9,24 @@ import About from "./About";
 import Privacy from "./Privacy";
 import Menu from "./Menu";
 import Offline from "./Offline";
+import { useSelector } from "react-redux";
+import { nordSelector } from "./features/nord/nordSliceReducer";
 
-const isElectron = /electron/i.test(navigator.userAgent);
-console.log("Electron:", isElectron);
+const App = () => {
+    const { error } = useSelector(nordSelector);
 
-function App() {
+    useEffect(() => {
+        if (error) {
+            toast.error(error);
+        }
+    }, [error]);
+
     return (
         <>
             <Router>
                 <Menu />
 
                 <Switch>
-                    {/*<Route path="/">*/}
-                    {/*    <Redirect to="/home" component={Main} />*/}
-                    {/*</Route>*/}
-
                     <Route exact path={["/", "/home"]} component={Main} />
 
                     <Route exact path="/privacy" component={Privacy} />
@@ -37,6 +40,6 @@ function App() {
             <ToastContainer />
         </>
     );
-}
+};
 
 export default App;
