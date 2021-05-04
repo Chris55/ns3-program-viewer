@@ -108,7 +108,7 @@ const onSuccess = (dispatch, data) => {
                 loaded: true,
                 loading: false,
                 data: data.data,
-                originalData: data.data, //clonedeep(data.data),
+                originalData: data.data,
                 error: null,
                 showAll: false,
             })
@@ -126,7 +126,7 @@ export const loadFiles = (files) => {
     return async (dispatch) => {
         dispatch(setLoading(true));
 
-        if (nordSelector.isElectron) {
+        if (initialState.isElectron) {
             try {
                 const bundle = [];
                 for (const file of files) {
