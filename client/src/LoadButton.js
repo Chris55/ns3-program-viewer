@@ -4,7 +4,7 @@ import FileUploaderButton from "./utils/file-uploader-button";
 import { useDispatch, useSelector } from "react-redux";
 import { loadFiles, nordSelector } from "./features/nord/nordSliceReducer";
 
-const LoadButton = () => {
+const LoadButton = (props) => {
     const dispatch = useDispatch();
     const { loading } = useSelector(nordSelector);
 
@@ -18,6 +18,7 @@ const LoadButton = () => {
         <>
             <FileUploaderButton
                 className=""
+                variant={props.variant}
                 title={loading ? "Loading..." : "Load"}
                 disabled={loading}
                 accept=".ns3f,.ns3y,.ns2p"
