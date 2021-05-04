@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ns3Model } from "../../nord/ns3/model/ns3-model";
 import axios from "axios";
 
+const production = process.env.NODE_ENV === "production";
+
 const initialState = {
-    production: process.env.NODE_ENV === "production",
+    production: production,
     isElectron: /electron/i.test(navigator.userAgent),
-    loaded: false,
+    loaded:  false, //!production,
     loading: false,
     data: [ns3Model],
     originalData: [ns3Model],

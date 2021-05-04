@@ -1,22 +1,33 @@
+@import "~bootstrap/scss/bootstrap";
+
+//$mynewcolor: #de0d49;
+//
+//.btn-primary {
+//    //background-image: url("nord/lib/red.png");
+//    //background-size: cover;
+//    //border: white;
+//    @include button-variant(
+//        $mynewcolor,
+//        darken($mynewcolor, 7.5%),
+//        darken($mynewcolor, 10%),
+//        lighten($mynewcolor, 5%),
+//        lighten($mynewcolor, 10%),
+//        darken($mynewcolor, 30%)
+//    );
+//}
+//
+//.btn-outline-primary {
+//    @include button-outline-variant($mynewcolor, #222222, lighten($mynewcolor, 5%), $mynewcolor);
+//}
 
 .App {
-  text-align: center;
-}
-
-.jumbotron {
-    /*margin-top: 0;*/
-    /*margin-bottom: 0;*/
-    /*padding-top: 0.3rem;*/
-    /*padding-bottom: 0.1rem;*/
+    text-align: center;
 }
 
 .ns3-program-logo {
-  //margin-right: 5px;
-  width: 64px;
-  height: 64px;
-  /*background-image: url("nprog.svg");*/
-  /*background-repeat: no-repeat;*/
-  /*background-size: cover;*/
+    //margin-right: 5px;
+    width: 64px;
+    height: 64px;
 }
 
 .nord-tree {
@@ -25,31 +36,28 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding-bottom: 10px;
+    background-color: #282c34;
+    min-height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding-bottom: 10px;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 /*
  Geneva
  Lucida Grande
  */
-
-
 
 .nord-footer {
     background-color: #f5f5f5;
@@ -59,7 +67,6 @@
 #page-content {
     flex: 1 0 auto;
 }
-
 
 .nord-font {
     /*font-family: Geneva*/

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./App.css";
+import "./App.scss";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Main from "./Main";
 import About from "./About";

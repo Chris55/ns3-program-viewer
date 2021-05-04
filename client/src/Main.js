@@ -14,13 +14,22 @@ import {
     setExportingDetail,
     toggleShowAll,
 } from "./features/nord/nordSliceReducer";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Main = () => {
     const dispatch = useDispatch();
     const { loaded, data, showAll, exporting, exportDetails, production } = useSelector(nordSelector);
 
     const handleShowAll = () => {
-        dispatch(toggleShowAll());
+        if (!showAll) {
+            dispatch(toggleShowAll());
+        }
+    };
+
+    const handleShowDefault = () => {
+        if (showAll) {
+            dispatch(toggleShowAll());
+        }
     };
 
     const handleExport = async () => {
@@ -37,41 +46,44 @@ const Main = () => {
             {!loaded && <Home />}
 
             {loaded && (
-                <div className=" d-flex flex-column min-vh-100">
-                    <div className=" flex-grow-1">
-                            <div className="row mt-1 p-1">
-                                <div className="col-auto m-1" >
-                                    <LoadButton variant="primary" />
-                                </div>
+                <div>
+                    <Container fluid className="p-2">
+                        <Row className="mt-2 mb-1 justify-content-start align-content-center">
+                            <Col md="auto">
+                                <LoadButton variant="primary" size="sm" />
+                            </Col>
 
-                                <div className="col-auto m-1">
-                                    <span className="mr-2">Show All Instruments</span>
+                            <Col md="auto">
+                                <Button variant="primary" size="sm" disabled={exporting} onClick={handleExport}>
+                                    {exporting ? "Exporting " + exportDetails : "Export"}
+                                </Button>
+                            </Col>
 
-                                    <Button
-                                        variant="primary"
-                                        className={showAll ? "mr-1" : "mr-1 disabled"}
-                                        onClick={handleShowAll}
-                                    >
-                                        On
-                                    </Button>
-                                    <Button
-                                        variant="primary"
-                                        className={showAll ? "mr-1 disabled" : "mr-1"}
-                                        onClick={handleShowAll}
-                                    >
-                                        Off
-                                    </Button>
-                                </div>
+                            <Col md="auto">
+                                <Button
+                                    variant="primary"
+                                    size="sm"
+                                    className={showAll ? "mr-1" : "mr-1 disabled"}
+                                    onClick={handleShowAll}
+                                >
+                                    Show All
+                                </Button>
+                            </Col>
 
-                                <div className="col-auto m-1">
-                                    <Button variant="primary" disabled={exporting} onClick={handleExport}>
-                                        {exporting ? "Saving " + exportDetails : "Save"}
-                                    </Button>
-                                </div>
-                            </div>
+                            <Col md="auto">
+                                <Button
+                                    variant="primary"
+                                    size="sm"
+                                    className={!showAll ? "mr-1" : "mr-1 disabled"}
+                                    onClick={handleShowDefault}
+                                >
+                                    Show Default
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Container>
 
-                        <NordDevice data={data} showAll={showAll} production={production} />
-                    </div>
+                    <NordDevice data={data} showAll={showAll} production={production} />
                 </div>
             )}
         </>
