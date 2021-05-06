@@ -61,6 +61,7 @@ const Main = () => {
                                     name="show"
                                     type="switch"
                                     id="id-show"
+                                    checked={showAll}
                                     onClick={handleToggleShow}
                                 />
                             </Form>

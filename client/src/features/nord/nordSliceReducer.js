@@ -7,7 +7,7 @@ const production = process.env.NODE_ENV === "production";
 // to test home page set this to false,
 // if true it shows the default model immediately
 
-const loadedDebug = false;
+const loadedDebug = true;
 
 const initialState = {
     production: production,
