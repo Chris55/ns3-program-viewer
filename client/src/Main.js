@@ -40,9 +40,6 @@ const Main = () => {
 
             {loaded && (
                 <div>
-                    <div>
-                        Loading: {loading ? "true": "false"}
-                    </div>
                     <Navbar className="bg-light">
                         <Navbar.Collapse className="">
                             <Form inline className="ml-n2">
