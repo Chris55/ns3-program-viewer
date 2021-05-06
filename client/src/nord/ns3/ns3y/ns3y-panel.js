@@ -10,7 +10,7 @@ export default class Ns3yPanel extends Component {
         return (
             <div className={visible ? "ns3-panel" : "d-none"}>
                 <div className="row no-gutters">
-                    <div className="col-sm-0-half d-flex flex-wrap ns3-panel-name justify-content-center">
+                    <div className="col-sm-0-half d-flex flex-wrap ns3-panel-skin justify-content-center">
                         <div className="" style={{ marginTop: "auto", marginBottom: "auto" }}>
                             <h6>{this.props.name}</h6>
                         </div>

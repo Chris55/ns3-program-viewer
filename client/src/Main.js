@@ -43,10 +43,10 @@ const Main = () => {
                     <Navbar className="bg-light">
                         <Navbar.Collapse className="">
                             <Form inline className="ml-n2">
-                                <LoadButton className="nav-link" variant="link" />
+                                <LoadButton className="nav-link" variant="light" />
                                 <Button
                                     className="nav-link"
-                                    variant="link"
+                                    variant="light"
                                     disabled={exporting || loading}
                                     onClick={handleExport}
                                 >

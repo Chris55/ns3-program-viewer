@@ -4,10 +4,15 @@ import axios from "axios";
 
 const production = process.env.NODE_ENV === "production";
 
+// to test home page set this to false,
+// if true it shows the default model immediately
+
+const loadedDebug = false;
+
 const initialState = {
     production: production,
     isElectron: /electron/i.test(navigator.userAgent),
-    loaded:  false, //!production,
+    loaded:  production ? false: loadedDebug,
     loading: false,
     data: [ns3Model],
     originalData: [ns3Model],

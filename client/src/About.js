@@ -6,9 +6,9 @@ const About = () => {
     return (
         <Container fluid>
             <Row className="justify-content-start align-content-stretch">
-                <Col xs={1} className="ns3-panel-name" />
+                <Col xs={1} className="ns3-panel-skin" />
                 <Col>
-                    <div className="mx-auto mt-3" style={{ width: "80vw", height: "100vh" }}>
+                    <div className="mx-sm-5 mx-sx-2 mt-3">
                         <Card className="border-0">
                             <Card.Body>
                                 <Card.Title>About</Card.Title>
@@ -24,7 +24,7 @@ const About = () => {
                                         here
                                     </a>
                                     . This is an online collaboration, and we put a huge amount of effort into this
-                                    viewer to be accurate, feel free to contact us if something is wrong.
+                                    viewer to be accurate, feel free to contact us on the forum if something is wrong.
                                 </Card.Text>
 
                                 <Card.Text>
@@ -76,12 +76,14 @@ const About = () => {
                                 </Card.Text>
                             </Card.Body>
 
-                            <Card.Body className="text-muted border-0">
+                            <Card.Body className="border-top mt-4">
                                 <Card.Text>
                                     <AppName /> (c) {new Date().getFullYear()} Christian Florentz
                                 </Card.Text>
                             </Card.Body>
                         </Card>
+
+                        <div style={{ height: "20vh" }} />
                     </div>
                 </Col>
             </Row>

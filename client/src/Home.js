@@ -15,9 +15,9 @@ const Home = () => {
     return (
         <Container fluid>
             <Row className="justify-content-start align-content-stretch">
-                <Col xs={1} className="ns3-panel-name" />
+                <Col xs={1} className="ns3-panel-skin" />
                 <Col>
-                    <div className="mx-auto mt-3" style={{ width: "80vw", height: "100vh" }}>
+                    <div className="mx-sm-5 mx-sx-2 mt-3">
                         <Card className="border-0">
                             <Card.Body>
                                 <Card.Title>
@@ -85,6 +85,8 @@ const Home = () => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
+
+                        <div style={{ height: "20vh" }} />
                     </div>
                 </Col>
             </Row>
