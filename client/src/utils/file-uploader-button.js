@@ -6,14 +6,23 @@ const FileUploaderButton = (props) => {
 
     const handleClick = () => {
         hiddenFileInput.current.click();
+        document.activeElement.blur();
     };
+
     const handleChange = (event) => {
         event.preventDefault();
         props.handleFiles(event.target.files);
     };
+
     return (
         <>
-            <Button variant={props.variant} size={props.size} disabled={props.disabled} onClick={handleClick}>
+            <Button
+                className={props.className}
+                variant={props.variant}
+                size={props.size}
+                disabled={props.disabled}
+                onClick={handleClick}
+            >
                 {props.title}
             </Button>
             <input
@@ -27,4 +36,5 @@ const FileUploaderButton = (props) => {
         </>
     );
 };
+
 export default FileUploaderButton;

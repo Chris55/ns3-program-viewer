@@ -1,24 +1,9 @@
+$primary: #c84f54;
+$link-color: #2c2c2c;
+$link-hover-color: #c84f54;
+
 @import "~bootstrap/scss/bootstrap";
 
-//$mynewcolor: #de0d49;
-//
-//.btn-primary {
-//    //background-image: url("nord/lib/red.png");
-//    //background-size: cover;
-//    //border: white;
-//    @include button-variant(
-//        $mynewcolor,
-//        darken($mynewcolor, 7.5%),
-//        darken($mynewcolor, 10%),
-//        lighten($mynewcolor, 5%),
-//        lighten($mynewcolor, 10%),
-//        darken($mynewcolor, 30%)
-//    );
-//}
-//
-//.btn-outline-primary {
-//    @include button-outline-variant($mynewcolor, #222222, lighten($mynewcolor, 5%), $mynewcolor);
-//}
 
 .App {
     text-align: center;

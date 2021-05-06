@@ -14,22 +14,15 @@ import {
     setExportingDetail,
     toggleShowAll,
 } from "./features/nord/nordSliceReducer";
-import { Col, Container, Row } from "react-bootstrap";
+import { Form, Navbar } from "react-bootstrap";
 
 const Main = () => {
     const dispatch = useDispatch();
-    const { loaded, data, showAll, exporting, exportDetails, production } = useSelector(nordSelector);
+    const { loading, loaded, data, showAll, exporting, exportDetails, production } = useSelector(nordSelector);
 
-    const handleShowAll = () => {
-        if (!showAll) {
-            dispatch(toggleShowAll());
-        }
-    };
-
-    const handleShowDefault = () => {
-        if (showAll) {
-            dispatch(toggleShowAll());
-        }
+    const handleToggleShow = () => {
+        console.log("tootle");
+        dispatch(toggleShowAll());
     };
 
     const handleExport = async () => {
@@ -47,41 +40,35 @@ const Main = () => {
 
             {loaded && (
                 <div>
-                    <Container fluid className="p-2">
-                        <Row className="mt-2 mb-1 justify-content-start align-content-center">
-                            <Col md="auto">
-                                <LoadButton variant="primary" size="sm" />
-                            </Col>
-
-                            <Col md="auto">
-                                <Button variant="primary" size="sm" disabled={exporting} onClick={handleExport}>
+                    <div>
+                        Loading: {loading ? "true": "false"}
+                    </div>
+                    <Navbar className="bg-light">
+                        <Navbar.Collapse className="">
+                            <Form inline className="ml-n2">
+                                <LoadButton className="nav-link" variant="link" />
+                                <Button
+                                    className="nav-link"
+                                    variant="link"
+                                    disabled={exporting || loading}
+                                    onClick={handleExport}
+                                >
                                     {exporting ? "Exporting " + exportDetails : "Export"}
                                 </Button>
-                            </Col>
-
-                            <Col md="auto">
-                                <Button
-                                    variant="primary"
-                                    size="sm"
-                                    className={showAll ? "mr-1" : "mr-1 disabled"}
-                                    onClick={handleShowAll}
-                                >
-                                    Show All
-                                </Button>
-                            </Col>
-
-                            <Col md="auto">
-                                <Button
-                                    variant="primary"
-                                    size="sm"
-                                    className={!showAll ? "mr-1" : "mr-1 disabled"}
-                                    onClick={handleShowDefault}
-                                >
-                                    Show Default
-                                </Button>
-                            </Col>
-                        </Row>
-                    </Container>
+                            </Form>
+                        </Navbar.Collapse>
+                        <Navbar.Collapse className="justify-content-end">
+                            <Form inline className="">
+                                <Form.Check
+                                    label="Show All"
+                                    name="show"
+                                    type="switch"
+                                    id="id-show"
+                                    onClick={handleToggleShow}
+                                />
+                            </Form>
+                        </Navbar.Collapse>
+                    </Navbar>
 
                     <NordDevice data={data} showAll={showAll} production={production} />
                 </div>
