@@ -100,11 +100,16 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     };
     switch (oscillatorType) {
         case "TRI":
+            waveForm.value = oscillatorType + " " + mapping.ns2SynthOscillatorTriStyleWaveFormsMap.get(waveForm.location);
+            waveForm.valid = mapping.ns2SynthOscillatorTriStyleWaveFormsMap.get(waveForm.location) !== undefined;
+            break;
         case "SAW":
+            waveForm.value = oscillatorType + " " + mapping.ns2SynthOscillatorSawStyleWaveFormsMap.get(waveForm.location);
+            waveForm.valid = mapping.ns2SynthOscillatorSawStyleWaveFormsMap.get(waveForm.location) !== undefined;
+            break;
         case "PULSE":
-            waveForm.value =
-                oscillatorType + " " + mapping.ns2SynthOscillatorAnalogStyleWaveFormsMap.get(waveForm.location);
-            waveForm.valid = waveForm.value !== undefined;
+            waveForm.value = oscillatorType + " " + mapping.ns2SynthOscillatorPulseStyleWaveFormsMap.get(waveForm.location);
+            waveForm.valid = mapping.ns2SynthOscillatorPulseStyleWaveFormsMap.get(waveForm.location) !== undefined;
             break;
         case "SAMPLE":
             waveForm = getSample(sampleId, 0, waveForm.location);
@@ -113,12 +118,12 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             }
             break;
         case "FM":
-            waveForm.value = "FM " + mapping.ns2SynthOscillatorFmStyleWaveFormsMap.get(waveForm.location);
-            waveForm.valid = waveForm.value !== undefined;
+            waveForm.value = oscillatorType + " " + mapping.ns2SynthOscillatorFmStyleWaveFormsMap.get(waveForm.location);
+            waveForm.valid = mapping.ns2SynthOscillatorFmStyleWaveFormsMap.get(waveForm.location) !== undefined;
             break;
         case "WAVE":
-            waveForm.value = "WAVE " + (waveForm.location + 1);
-            waveForm.valid = waveForm.value !== undefined;
+            waveForm.value = oscillatorType + " " + (waveForm.location + 1) + " - " + mapping.ns2SynthOscillatorWaveStyleWaveFormsMap.get(waveForm.location);
+            waveForm.valid = mapping.ns2SynthOscillatorWaveStyleWaveFormsMap.get(waveForm.location) !== undefined;
             break;
     }
 
@@ -320,7 +325,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
          */
         oscillators: {
             /**
-             * Offset in file: 0xe1 (b1-0) and 0xe2 (b7)
+             * Offset in file: 0xe1 (b1-0) and 0xe2               (b7)
              *
              * @example
              * #include ns2SynthOscillatorTypeMap
@@ -331,80 +336,87 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                 value: oscillatorType,
             },
             /**
-             * Offset in file: 0xe2 (b6-0) and 0xe3 (b7-5)
+             * Offset in file: 0xe2 (b6-0) and 0xe3               (b7-5)
              *
              * @example
              *
-             * ID   | TRI  | SAW    | PULSE  | SAMPLE  | FM   | WAVE  |
-             * -----|------|--------|--------|---------|------|-------|
-             * O    | ---  | ---    | ---    | 1       | Sin  |  1    |
-             * 1    | ShP  | ShP    | ShP    | 2       | 1 1  |  2    |
-             * 2    | dtn  | dtn    | dtn    | 3       | 2 1  |  3    |
-             * 3    | Snc  | Snc    | Snc    | 4       | 3 1  |  4    |
-             * 4    |      |        |        | 5       | 4 1  |  5    |
-             * 5    |      |        |        | 6       | 5 1  |  6    |
-             * 6    |      |        |        | 7       | 6 1  |  7    |
-             * 7    |      |        |        | 8       | 7 1  |  8    |
-             * 8    |      |        |        | 9       | 8 1  |  9    |
-             * 9    |      |        |        | 10      | 9 1  | 10    |
-             * 10   |      |        |        | 11      | 1.1  | 11    |
-             * 11   |      |        |        | 12      | 2.1  | 12    |
-             * 12   |      |        |        | 13      | 3.1  | 13    |
-             * 13   |      |        |        | 14      | 4.1  | 14    |
-             * 14   |      |        |        | 15      | 5.1  | 15    |
-             * 15   |      |        |        | 16      | 6.1  | 16    |
-             * 16   |      |        |        | 17      | 7.1  | 17    |
-             * 17   |      |        |        | 18      | 8.1  | 18    |
-             * 18   |      |        |        | 19      | 9.1  | 19    |
-             * 19   |      |        |        | 20      | 111  | 20    |
-             * 20   |      |        |        | 21      | 211  | 21    |
-             * 21   |      |        |        | 22      | 311  | 22    |
-             * 22   |      |        |        | 23      | 511  | 23    |
-             * 23   |      |        |        | 24      | 911  | 24    |
-             * 24   |      |        |        | 25      | 221  | 25    |
-             * 25   |      |        |        | 26      | 421  | 26    |
-             * 26   |      |        |        | 27      | 821  | 27    |
-             * 27   |      |        |        | 28      | 1.11 | 28    |
-             * 28   |      |        |        | 29      | 1.21 | 29    |
-             * 29   |      |        |        | 30      | 1.31 | 30    |
-             * 30   |      |        |        | 31      | 1.51 | 31    |
-             * 31   |      |        |        | 32      | 1.91 | 32    |
-             * 32   |      |        |        | 33      | 1.12 | 33    |
-             * 33   |      |        |        | 34      | 2.12 | 34    |
-             * 34   |      |        |        | 35      | 3.12 | 35    |
-             * 35   |      |        |        | 36      | 5.12 | 36    |
-             * 36   |      |        |        | 37      | 9.12 | 37    |
-             * 37   |      |        |        | 38      |      | 38    |
-             * 38   |      |        |        | 39      |      | 39    |
-             * 39   |      |        |        | 40      |      | 40    |
-             * 40   |      |        |        | 41      |      | 41    |
-             * 41   |      |        |        | 42      |      | 42    |
-             * 42   |      |        |        | 43      |      | 43    |
-             * 43   |      |        |        | 44      |      | 44    |
-             * 44   |      |        |        | 45      |      | 45    |
-             * 45   |      |        |        | 46      |      | 46    |
-             * 46   |      |        |        | 47      |      | 47    |
-             * 47   |      |        |        | 48      |      | 48    |
-             * 48   |      |        |        | 49      |      | 49    |
-             * 49   |      |        |        | 50      |      | 50    |
-             * 50   |      |        |        | 51      |      | 51    |
-             * 51   |      |        |        | 52      |      | 52    |
-             * 52   |      |        |        | 53      |      | 53    |
-             * 53   |      |        |        | 54      |      | 54    |
-             * 54   |      |        |        | 55      |      | 55    |
-             * 55   |      |        |        | 56      |      | 56    |
-             * 56   |      |        |        | 57      |      | 57    |
-             * 57   |      |        |        | 58      |      | 58    |
-             * 58   |      |        |        | 59      |      | 59    |
-             * 59   |      |        |        | 60      |      | 60    |
-             * 60   |      |        |        | 61      |      | 61    |
-             * 61   |      |        |        | 62      |      | 62    |
-             * 62   |      |        |        | 63      |      | 63    |
-             * 63   |      |        |        | 64      |      |       |
-             * ...  |      |        |        |         |      |       |
-             * 998  |      |        |        | 999     |      |       |
-             * ...  |      |        |        |         |      |       |
-             * 1023 |      |        |        |         |      |       |
+             * ID   | TRI               | SAW              | PULSE              |
+             * -----|------|------------|-----|------------|-----|--------------|
+             * O    | ---               | ---              | ---                |
+             * 1    | ShP  | Shape Tri  | ShP | Shape Saw  | ShP | Square Pulse |
+             * 2    | dtn  | Detune Tri | dtn | Detune Saw | dtn | Detune Pulse |
+             * 3    | Snc  | Tri Synced | Snc | Saw Synced | Snc | Pulse Synced |
+             *
+             * ID   | SAMPLE | FM                      | WAVE              |
+             * -----|--------|------|------------------|----|--------------|
+             * O    | 1      | Sin  | 1-OP (+FB)       | 1  | Organ1       |
+             * 1    | 2      | 1 1  | 2-OP 1:1         | 2  | Organ2       |
+             * 2    | 3      | 2 1  | 2-OP 2:1         | 3  | Organ3       |
+             * 3    | 4      | 3 1  | 2-OP 3:1         | 4  | Organ4       |
+             * 4    | 5      | 4 1  | 2-OP 4:1         | 5  | Organ5       |
+             * 5    | 6      | 5 1  | 2-OP 5:1         | 6  | Organ6       |
+             * 6    | 7      | 6 1  | 2-OP 6:1         | 7  | Organ7       |
+             * 7    | 8      | 7 1  | 2-OP 7:1         | 8  | Organ8       |
+             * 8    | 9      | 8 1  | 2-OP 8:1         | 9  | Organ9       |
+             * 9    | 10     | 9 1  | 2-OP 9:1         | 10 | EP1          |
+             * 10   | 11     | 1.1  | 2-OP 1:1 (+FB)   | 11 | EP2          |
+             * 11   | 12     | 2.1  | 2-OP 2:1 (+FB)   | 12 | Tine         |
+             * 12   | 13     | 3.1  | 2-OP 3:1 (+FB)   | 13 | Bar          |
+             * 13   | 14     | 4.1  | 2-OP 4:1 (+FB)   | 14 | Bell         |
+             * 14   | 15     | 5.1  | 2-OP 5:1 (+FB)   | 15 | saw-spectra1 |
+             * 15   | 16     | 6.1  | 2-OP 6:1 (+FB)   | 16 | saw-spectra2 |
+             * 16   | 17     | 7.1  | 2-OP 7:1 (+FB)   | 17 | 2nd-spectra  |
+             * 17   | 18     | 8.1  | 2-OP 8:1 (+FB)   | 18 | 3rd-spectra  |
+             * 18   | 19     | 9.1  | 2-OP 9:1 (+FB)   | 19 | 4th-spectra  |
+             * 19   | 20     | 111  | 3-OP 1:1:1       | 20 | 6th-spectra  |
+             * 20   | 21     | 211  | 3-OP 2:1:1       | 21 | Sting        |
+             * 21   | 22     | 311  | 3-OP 3:1:1       | 22 | HighDensity  |
+             * 22   | 23     | 511  | 3-OP 5:1:1       | 23 | NoMid        |
+             * 23   | 24     | 911  | 3-OP 9:1:1       | 24 | Wave         |
+             * 24   | 25     | 221  | 3-OP 2:2:1       | 25 | 32Flat       |
+             * 25   | 26     | 421  | 3-OP 4:2:1       | 26 | 64Flat       |
+             * 26   | 27     | 821  | 3-OP 8:2:1       | 27 | Box          |
+             * 27   | 28     | 1.11 | 3-OP 1:1:1 (+FB) | 28 | Triplets     |
+             * 28   | 29     | 1.21 | 3-OP 1:2:1 (+FB) | 29 | SoftBright   |
+             * 29   | 30     | 1.31 | 3-OP 1:3:1 (+FB) | 30 | Clav         |
+             * 30   | 31     | 1.51 | 3-OP 1:5:1 (+FB) | 31 | DX1          |
+             * 31   | 32     | 1.91 | 3-OP 1:9:1 (+FB) | 32 | DX2          |
+             * 32   | 33     | 1.12 | 3-OP 1:1:2 (+FB) | 33 | DX3          |
+             * 33   | 34     | 2.12 | 3-OP 2:1:2 (+FB) | 34 | NoFundSaw    |
+             * 34   | 35     | 3.12 | 3-OP 3:1:2 (+FB) | 35 | Ice1         |
+             * 35   | 36     | 5.12 | 3-OP 5:1:2 (+FB) | 36 | Ice2         |
+             * 36   | 37     | 9.12 | 3-OP 9:1:2 (+FB) | 37 | SoftClav     |
+             * 37   | 38     |                         | 38 | Bright       |
+             * 38   | 39     |                         | 39 | Frog         |
+             * 39   | 40     |                         | 40 | HighFlat     |
+             * 40   | 41     |                         | 41 | Linear       |
+             * 41   | 42     |                         | 42 | FM_Organ     |
+             * 42   | 43     |                         | 43 | Reso1        |
+             * 43   | 44     |                         | 44 | Reso2        |
+             * 44   | 45     |                         | 45 | Reso3        |
+             * 45   | 46     |                         | 46 | Reso4        |
+             * 46   | 47     |                         | 47 | Reso5        |
+             * 47   | 48     |                         | 48 | Reso6        |
+             * 48   | 49     |                         | 49 | Reso7        |
+             * 49   | 50     |                         | 50 | Reso8        |
+             * 50   | 51     |                         | 51 | Reso9        |
+             * 51   | 52     |                         | 52 | Reso10       |
+             * 52   | 53     |                         | 53 | Reso11       |
+             * 53   | 54     |                         | 54 | Reso12       |
+             * 54   | 55     |                         | 55 | Reso13       |
+             * 55   | 56     |                         | 56 | Reso14       |
+             * 56   | 57     |                         | 57 | Reso15       |
+             * 57   | 58     |                         | 58 | Reso16       |
+             * 58   | 59     |                         | 59 | Reso17       |
+             * 59   | 60     |                         | 60 | Reso18       |
+             * 60   | 61     |                         | 61 | Reso19       |
+             * 61   | 62     |                         | 62 | Reso20       |
+             * 62   | 63     |                         | 63 |              |
+             * 63   | 64     |                         |                   |
+             * ...  |        |                         |                   |
+             * 998  | 999    |                         |                   |
+             * ...  |        |                         |                   |
+             * 1023 |        |                         |                   |
              *
              * @module NS2 Synth Osc WaveForm
              */

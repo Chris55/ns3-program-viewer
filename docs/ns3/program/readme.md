@@ -64,6 +64,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |1.4   | 24-Apr-2021  | Added header details
 |1.5   | 25-Apr-2021  | Added NS2 and NS3 Extern menu details
 |1.6   | 29-Apr-2021  | Added NS2 and NS3 Output Routing
+|1.7D  | 03-Jun-2021  | Added NS2 Wave long names
 
 \newpage
 

@@ -1,12 +1,15 @@
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import AppName from "./AppName";
+import Handmade from "./Handmade";
 
 const About = () => {
     return (
         <Container fluid>
             <Row className="justify-content-start align-content-stretch">
-                <Col xs={1} className="ns3-panel-skin" />
+                <Col xs={1} className="ns3-panel-skin handmade-container">
+                    <Handmade/>
+                </Col>
                 <Col>
                     <div className="mx-sm-5 mx-sx-2 mt-3">
                         <Card className="border-0">
@@ -83,7 +86,7 @@ const About = () => {
                             </Card.Body>
                         </Card>
 
-                        <div style={{ height: "20vh" }} />
+                        {/*<div style={{ height: "20vh" }} />*/}
                     </div>
                 </Col>
             </Row>

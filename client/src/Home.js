@@ -14,12 +14,10 @@ const Home = () => {
     const {isElectron} = useSelector(nordSelector);
 
     return (
-        <Container fluid className="">
-            <Row className="">
+        <Container fluid>
+            <Row>
                 <Col xs={1} className="ns3-panel-skin handmade-container">
-                    <div className="">
-                        <Handmade/>
-                    </div>
+                    <Handmade/>
                 </Col>
                 <Col>
                     <div className="mx-sm-5 mx-sx-2 mt-3">

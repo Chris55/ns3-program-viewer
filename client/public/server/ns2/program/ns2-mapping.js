@@ -213,14 +213,36 @@ exports.ns2SynthOscillatorTypeMap = new Map([
 ]);
 
 /***
- * Synth Oscillator Analog Style WaveForms
+ * Synth Oscillator TRI Style WaveForms
  * @type {Map<number, string>}
  */
-exports.ns2SynthOscillatorAnalogStyleWaveFormsMap = new Map([
+exports.ns2SynthOscillatorTriStyleWaveFormsMap = new Map([
     [0, "---"],
-    [1, "ShP"],
-    [2, "dtn"],
-    [3, "Snc"],
+    [1, "ShP - Shape Tri"],
+    [2, "dtn - Detune Tri"],
+    [3, "Snc - Tri Synced"],
+]);
+
+/***
+ * Synth Oscillator SAW Style WaveForms
+ * @type {Map<number, string>}
+ */
+exports.ns2SynthOscillatorSawStyleWaveFormsMap = new Map([
+    [0, "---"],
+    [1, "ShP - Shape Saw"],
+    [2, "dtn - Detune Saw"],
+    [3, "Snc - Saw Synced"],
+]);
+
+/***
+ * Synth Oscillator PULSE Style WaveForms
+ * @type {Map<number, string>}
+ */
+exports.ns2SynthOscillatorPulseStyleWaveFormsMap = new Map([
+    [0, "---"],
+    [1, "ShP - Square Pulse"],
+    [2, "dtn - Detune Pulse"],
+    [3, "Snc - Pulse Synced"],
 ]);
 
 /***
@@ -228,43 +250,112 @@ exports.ns2SynthOscillatorAnalogStyleWaveFormsMap = new Map([
  * @type {Map<number, string>}
  */
 exports.ns2SynthOscillatorFmStyleWaveFormsMap = new Map([
-    [0, "Sin"],
-    [1, "1 1"],
-    [2, "2 1"],
-    [3, "3 1"],
-    [4, "4 1"],
-    [5, "5 1"],
-    [6, "6 1"],
-    [7, "7 1"],
-    [8, "8 1"],
-    [9, "9 1"],
-    [10, "1.1"],
-    [11, "2.1"],
-    [12, "3.1"],
-    [13, "4.1"],
-    [14, "5.1"],
-    [15, "6.1"],
-    [16, "7.1"],
-    [17, "8.1"],
-    [18, "9.1"],
-    [19, "111"],
-    [20, "211"],
-    [21, "311"],
-    [22, "511"],
-    [23, "911"],
-    [24, "221"],
-    [25, "421"],
-    [26, "821"],
-    [27, "1.11"],
-    [28, "1.21"],
-    [29, "1.31"],
-    [30, "1.51"],
-    [31, "1.91"],
-    [32, "1.12"],
-    [33, "2.12"],
-    [34, "3.12"],
-    [35, "5.12"],
-    [36, "9.12"],
+    [0, "Sin - 1-OP (+FB)"],
+    [1, "1 1 - 2-OP 1:1"],
+    [2, "2 1 - 2-OP 2:1"],
+    [3, "3 1 - 2-OP 3:1"],
+    [4, "4 1 - 2-OP 4:1"],
+    [5, "5 1 - 2-OP 5:1"],
+    [6, "6 1 - 2-OP 6:1"],
+    [7, "7 1 - 2-OP 7:1"],
+    [8, "8 1 - 2-OP 8:1"],
+    [9, "9 1 - 2-OP 9:1"],
+    [10, "1.1 - 2-OP 1:1 (+FB)"],
+    [11, "2.1 - 2-OP 2:1 (+FB)"],
+    [12, "3.1 - 2-OP 3:1 (+FB)"],
+    [13, "4.1 - 2-OP 4:1 (+FB)"],
+    [14, "5.1 - 2-OP 5:1 (+FB)"],
+    [15, "6.1 - 2-OP 6:1 (+FB)"],
+    [16, "7.1 - 2-OP 7:1 (+FB)"],
+    [17, "8.1 - 2-OP 8:1 (+FB)"],
+    [18, "9.1 - 2-OP 9:1 (+FB)"],
+    [19, "111 - 3-OP 1:1:1"],
+    [20, "211 - 3-OP 2:1:1"],
+    [21, "311 - 3-OP 3:1:1"],
+    [22, "511 - 3-OP 5:1:1"],
+    [23, "911 - 3-OP 9:1:1"],
+    [24, "221 - 3-OP 2:2:1"],
+    [25, "421 - 3-OP 4:2:1"],
+    [26, "821 - 3-OP 8:2:1"],
+    [27, "1.11 - 3-OP 1:1:1 (+FB)"],
+    [28, "1.21 - 3-OP 1:2:1 (+FB)"],
+    [29, "1.31 - 3-OP 1:3:1 (+FB)"],
+    [30, "1.51 - 3-OP 1:5:1 (+FB)"],
+    [31, "1.91 - 3-OP 1:9:1 (+FB)"],
+    [32, "1.12 - 3-OP 1:1:2 (+FB)"],
+    [33, "2.12 - 3-OP 2:1:2 (+FB)"],
+    [34, "3.12 - 3-OP 3:1:2 (+FB)"],
+    [35, "5.12 - 3-OP 5:1:2 (+FB)"],
+    [36, "9.12 - 3-OP 9:1:2 (+FB)"],
+]);
+
+/***
+ * Synth Oscillator WAVE Style WaveForms
+ * @type {Map<number, string>}
+ */
+exports.ns2SynthOscillatorWaveStyleWaveFormsMap = new Map([
+    [0,  "Organ1"],
+    [1,  "Organ2"],
+    [2,  "Organ3"],
+    [3,  "Organ4"],
+    [4,  "Organ5"],
+    [5,  "Organ6"],
+    [6,  "Organ7"],
+    [7,  "Organ8"],
+    [8,  "Organ9"],
+    [9,  "EP1"],
+    [10, "EP2"],
+    [11, "Tine"],
+    [12, "Bar"],
+    [13, "Bell"],
+    [14, "saw-spectra1"],
+    [15, "saw-spectra2"],
+    [16, "2nd-spectra"],
+    [17, "3rd-spectra"],
+    [18, "4th-spectra"],
+    [19, "6th-spectra"],
+    [20, "Sting"],
+    [21, "HighDensity"],
+    [22, "NoMid"],
+    [23, "Wave"],
+    [24, "32Flat"],
+    [25, "64Flat"],
+    [26, "Box"],
+    [27, "Triplets"],
+    [28, "SoftBright"],
+    [29, "Clav"],
+    [30, "DX1"],
+    [31, "DX2"],
+    [32, "DX3"],
+    [33, "NoFundSaw"],
+    [34, "Ice1"],
+    [35, "Ice2"],
+    [36, "SoftClav"],
+    [37, "Bright"],
+    [38, "Frog"],
+    [39, "HighFlat"],
+    [40, "Linear"],
+    [41, "FM_Organ"],
+    [42, "Reso1"],
+    [43, "Reso2"],
+    [44, "Reso3"],
+    [45, "Reso4"],
+    [46, "Reso5"],
+    [47, "Reso6"],
+    [48, "Reso7"],
+    [49, "Reso8"],
+    [50, "Reso9"],
+    [51, "Reso10"],
+    [52, "Reso11"],
+    [53, "Reso12"],
+    [54, "Reso13"],
+    [55, "Reso14"],
+    [56, "Reso15"],
+    [57, "Reso16"],
+    [58, "Reso17"],
+    [59, "Reso18"],
+    [60, "Reso19"],
+    [61, "Reso20"],
 ]);
 
 /***
