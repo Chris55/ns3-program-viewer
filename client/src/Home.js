@@ -4,25 +4,28 @@ import "react-toastify/dist/ReactToastify.css";
 import nordLogoProgram from "./assets/nord-logo-program.svg";
 import nordLogoSynth from "./assets/nord-logo-synth.svg";
 import AppName from "./AppName";
-import { Card, Col, Container, Media, Row } from "react-bootstrap";
+import {Card, Col, Container, Media, Row} from "react-bootstrap";
 import LoadButton from "./LoadButton";
-import { useSelector } from "react-redux";
-import { nordSelector } from "./features/nord/nordSliceReducer";
+import {useSelector} from "react-redux";
+import {nordSelector} from "./features/nord/nordSliceReducer";
+import Handmade from "./Handmade";
 
 const Home = () => {
-    const { isElectron } = useSelector(nordSelector);
+    const {isElectron} = useSelector(nordSelector);
 
     return (
         <Container fluid>
             <Row className="justify-content-start align-content-stretch">
-                <Col xs={1} className="ns3-panel-skin" />
+                <Col xs={1} className="ns3-panel-skin d-flex align-items-end">
+                    <Handmade/>
+                </Col>
                 <Col>
                     <div className="mx-sm-5 mx-sx-2 mt-3">
                         <Card className="border-0">
                             <Card.Body>
                                 <Card.Title>
                                     <h2>
-                                        <AppName />
+                                        <AppName/>
                                     </h2>
                                 </Card.Title>
 
@@ -43,7 +46,7 @@ const Home = () => {
                                         <h6 className="mb-2 text-muted">Program Files</h6>
                                         <p className="text-muted mt-2">
                                             Nord Stage 2 Program File (ns2p)
-                                            <br />
+                                            <br/>
                                             Nord Stage 3 Program File (ns3f)
                                         </p>
                                     </Media.Body>
@@ -68,7 +71,7 @@ const Home = () => {
                         <Card className="border-0">
                             <Card.Body>
                                 <Card.Title>Let's get started</Card.Title>
-                                <LoadButton variant="primary" />
+                                <LoadButton variant="primary"/>
                             </Card.Body>
                         </Card>
 
@@ -86,7 +89,7 @@ const Home = () => {
                             </Card.Body>
                         </Card>
 
-                        <div style={{ height: "20vh" }} />
+                        <div style={{height: "20vh"}}/>
                     </div>
                 </Col>
             </Row>

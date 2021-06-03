@@ -62,6 +62,26 @@ $primary: #c84f54;
     vertical-align: 70%;
 }
 
+.handmade {
+    position: absolute;
+    right: 0.2rem;
+    bottom: 0;
+    transform: rotate(-90deg) translate(100%, 0);
+    transform-origin: right bottom;
+    text-transform: uppercase;
+    font-size: x-small;
+    white-space: nowrap;
+    overflow: visible;
+    border: solid #dbd9d9;
+    border-width: 0.3rem 0 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: transparent;
+}
+
+.handmade a:any-link    {color:white;}
+
+
 .work-complete {
     height: 10px;
     width: 10px;
