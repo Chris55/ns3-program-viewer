@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { toast, ToastContainer } from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import {HashRouter, BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 import Main from "./Main";
 import About from "./About";
 import Privacy from "./Privacy";
 import Menu from "./Menu";
 import Offline from "./Offline";
-import { useSelector } from "react-redux";
-import { nordSelector } from "./features/nord/nordSliceReducer";
+import {useSelector} from "react-redux";
+import {nordSelector} from "./features/nord/nordSliceReducer";
 
 const App = () => {
-    const { error } = useSelector(nordSelector);
+    const {error} = useSelector(nordSelector);
 
     useEffect(() => {
         if (error) {
@@ -21,23 +21,41 @@ const App = () => {
         }
     }, [error]);
 
+    const isElectron = /electron/i.test(navigator.userAgent);
+
+    const details = (
+        <>
+            <Menu/>
+            <Switch>
+                <Route exact path="/" component={Main}/>
+
+                <Route exact path="/privacy" component={Privacy}/>
+
+                <Route exact path="/offline" component={Offline}/>
+
+                <Route exact path="/about" component={About}/>
+
+                <Route exact path="/media" component={null}/>
+
+                <Route path={["/", "/home"]} >
+                    <Redirect to="/"/>
+                </Route>
+            </Switch>
+        </>);
+
     return (
         <>
-            <Router>
-                <Menu />
-
-                <Switch>
-                    <Route exact path={["/", "/home"]} component={Main} />
-
-                    <Route exact path="/privacy" component={Privacy} />
-
-                    <Route exact path="/offline" component={Offline} />
-
-                    <Route exact path="/about" component={About} />
-                </Switch>
-            </Router>
-
-            <ToastContainer />
+            {isElectron &&
+            <HashRouter>
+                {details}
+            </HashRouter>
+            }
+            {!isElectron &&
+            <BrowserRouter>
+                {details}
+            </BrowserRouter>
+            }
+            <ToastContainer/>
         </>
     );
 };

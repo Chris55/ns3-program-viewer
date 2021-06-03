@@ -62,6 +62,10 @@ $primary: #c84f54;
     vertical-align: 70%;
 }
 
+.handmade-container {
+    height: calc(100vh - 56px);
+}
+
 .handmade {
     position: absolute;
     right: 0.2rem;
@@ -71,7 +75,7 @@ $primary: #c84f54;
     text-transform: uppercase;
     font-size: x-small;
     white-space: nowrap;
-    overflow: visible;
+    overflow: hidden;
     border: solid #dbd9d9;
     border-width: 0.3rem 0 0;
     padding-left: 0.5rem;

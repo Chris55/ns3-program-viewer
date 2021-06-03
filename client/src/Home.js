@@ -14,10 +14,12 @@ const Home = () => {
     const {isElectron} = useSelector(nordSelector);
 
     return (
-        <Container fluid>
-            <Row className="justify-content-start align-content-stretch">
-                <Col xs={1} className="ns3-panel-skin d-flex align-items-end">
-                    <Handmade/>
+        <Container fluid className="">
+            <Row className="">
+                <Col xs={1} className="ns3-panel-skin handmade-container">
+                    <div className="">
+                        <Handmade/>
+                    </div>
                 </Col>
                 <Col>
                     <div className="mx-sm-5 mx-sx-2 mt-3">
@@ -89,7 +91,7 @@ const Home = () => {
                             </Card.Body>
                         </Card>
 
-                        <div style={{height: "20vh"}}/>
+                        {/*<div style={{height: "20vh"}}/>*/}
                     </div>
                 </Col>
             </Row>
