@@ -181,16 +181,16 @@ describe("/ns2/synth/oscillators", () => {
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq ShP - Shape Tri", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq ShP - Shape Tri.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq ShP - Shape Sqr", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq ShP - Shape Sqr.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq ShP - Square Sqr", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq ShP - Square Sqr.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq ShP - Shape Tri", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq ShP - Shape Tri.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

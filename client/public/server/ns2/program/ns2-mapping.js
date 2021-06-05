@@ -243,7 +243,7 @@ exports.ns2SynthOscillatorSawStyleWaveFormsMap = new Map([
  */
 exports.ns2SynthOscillatorPulseStyleWaveFormsMap = new Map([
     [0, ["---", "---"]],
-    [1, ["ShP", "Square Sqr"]],
+    [1, ["ShP", "Shape Sqr"]],
     [2, ["dtn", "Detune Sqr"]],
     [3, ["Snc", "Pulse Synced"]],
 ]);
