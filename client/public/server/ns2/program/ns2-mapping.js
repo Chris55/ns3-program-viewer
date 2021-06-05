@@ -218,10 +218,10 @@ exports.ns2SynthOscillatorTypeMap = new Map([
  * @type {Map<number, [string, string]>}
  */
 exports.ns2SynthOscillatorTriStyleWaveFormsMap = new Map([
-    [0, ["---", "---"]],
-    [1, ["ShP", "Shape Tri"]],
-    [2, ["dtn", "Detune Tri"]],
-    [3, ["Snc", "Tri Synced"]],
+    [0, ["---", "Analog Tri"]],
+    [1, ["ShP", "Analog Shape Tri"]],
+    [2, ["dtn", "Analog Detune Tri"]],
+    [3, ["Snc", "Analog Tri Synced"]],
 ]);
 
 /***
@@ -230,10 +230,10 @@ exports.ns2SynthOscillatorTriStyleWaveFormsMap = new Map([
  * @type {Map<number, [string, string]>}
  */
 exports.ns2SynthOscillatorSawStyleWaveFormsMap = new Map([
-    [0, ["---", "---"]],
-    [1, ["ShP", "Shape Saw"]],
-    [2, ["dtn", "Detune Saw"]],
-    [3, ["Snc", "Saw Synced"]],
+    [0, ["---", "Analog Saw"]],
+    [1, ["ShP", "Analog Shape Saw"]],
+    [2, ["dtn", "Analog Detune Saw"]],
+    [3, ["Snc", "Analog Saw Synced"]],
 ]);
 
 /***
@@ -242,10 +242,10 @@ exports.ns2SynthOscillatorSawStyleWaveFormsMap = new Map([
  * @type {Map<number, [string, string]>}
  */
 exports.ns2SynthOscillatorPulseStyleWaveFormsMap = new Map([
-    [0, ["---", "---"]],
-    [1, ["ShP", "Shape Sqr"]],
-    [2, ["dtn", "Detune Sqr"]],
-    [3, ["Snc", "Pulse Synced"]],
+    [0, ["---", "Analog Sqr"]],
+    [1, ["ShP", "Analog Shape Sqr"]],
+    [2, ["dtn", "Analog Detune Sqr"]],
+    [3, ["Snc", "Analog Pulse Synced"]],
 ]);
 
 /***

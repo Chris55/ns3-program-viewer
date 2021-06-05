@@ -103,8 +103,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         const valid = items !== undefined && items.length === 2;
         let value = "";
         if (valid) {
+            // 0 is the LCD, 1 is main display
             if (items[0] !== items[1]) {
-                value += items[0] + " - " + items[1];
+                value += items[1] + " (" + items[0] + ")";
             } else {
                 value += items[0];
             }
@@ -156,7 +157,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             const items = mapping.ns2SynthOscillatorWaveStyleWaveFormsMap.get(waveForm.location);
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
-            waveForm.value = "WAVE " + label.value;
+            waveForm.value = "Wavetable " + label.value;
             break;
         }
     }

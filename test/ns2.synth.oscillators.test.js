@@ -109,16 +109,16 @@ describe("/ns2/synth/oscillators", () => {
         });
     });
 
-    test("slotA.synth.oscillators.type.value eq SAW and slotA.synth.oscillators.waveForm1.value eq ---", async () => {
-        const file = "slotA.synth.oscillators.type.value eq SAW and slotA.synth.oscillators.waveForm1.value eq ---.ns2p";
+    test("slotA.synth.oscillators.type.value eq SAW and slotA.synth.oscillators.waveForm1.value eq Analog Saw (---)", async () => {
+        const file = "slotA.synth.oscillators.type.value eq SAW and slotA.synth.oscillators.waveForm1.value eq Analog Saw (---).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.type.value eq TRI and slotA.synth.oscillators.waveForm1.value eq ---", async () => {
-        const file = "slotA.synth.oscillators.type.value eq TRI and slotA.synth.oscillators.waveForm1.value eq ---.ns2p";
+    test("slotA.synth.oscillators.type.value eq TRI and slotA.synth.oscillators.waveForm1.value eq Analog Tri (---)", async () => {
+        const file = "slotA.synth.oscillators.type.value eq TRI and slotA.synth.oscillators.waveForm1.value eq Analog Tri (---).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
@@ -149,96 +149,96 @@ describe("/ns2/synth/oscillators", () => {
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq FM 9.1 - 2-OP 9:1 (+FB)", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq FM 9.1 - 2-OP 9:1 (+FB).ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq Analog Detune Saw (dtn)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq Analog Detune Saw (dtn).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq FM 9.12 - 3-OP 9:1:2 (+FB)", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq FM 9.12 - 3-OP 9:1:2 (+FB).ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq Analog Detune Sqr (dtn)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq Analog Detune Sqr (dtn).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq FM Sin - 1-OP (+FB)", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq FM Sin - 1-OP (+FB).ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq Analog Detune Tri (dtn)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq Analog Detune Tri (dtn).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq ShP - Shape Saw", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq ShP - Shape Saw.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq Analog Pulse Synced (Snc)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq Analog Pulse Synced (Snc).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq ShP - Shape Sqr", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq ShP - Shape Sqr.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq Analog Saw Synced (Snc)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq Analog Saw Synced (Snc).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq ShP - Shape Tri", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq ShP - Shape Tri.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq Analog Shape Saw (ShP)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq Analog Shape Saw (ShP).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq Snc - Pulse Synced", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq Snc - Pulse Synced.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq Analog Shape Sqr (ShP)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq Analog Shape Sqr (ShP).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq Snc - Saw Synced", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq Snc - Saw Synced.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq Analog Shape Tri (ShP)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq Analog Shape Tri (ShP).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq Snc - Tri Synced", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq Snc - Tri Synced.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq Analog Tri Synced (Snc)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq Analog Tri Synced (Snc).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq dtn - Detune Saw", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq dtn - Detune Saw.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq FM 1-OP (+FB) (Sin)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq FM 1-OP (+FB) (Sin).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq dtn - Detune Sqr", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq dtn - Detune Sqr.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq FM 2-OP 9:1 (+FB) (9.1)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq FM 2-OP 9:1 (+FB) (9.1).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.synth.oscillators.waveForm1.value eq dtn - Detune Tri", async () => {
-        const file = "slotA.synth.oscillators.waveForm1.value eq dtn - Detune Tri.ns2p";
+    test("slotA.synth.oscillators.waveForm1.value eq FM 3-OP 9:1:2 (+FB) (9.12)", async () => {
+        const file = "slotA.synth.oscillators.waveForm1.value eq FM 3-OP 9:1:2 (+FB) (9.12).ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
