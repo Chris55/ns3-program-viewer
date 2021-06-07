@@ -97,6 +97,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         version: "",
         location: (synthOffsetE2W & 0x7fe0) >>> 5,
         filename: "",
+        useShapeKnob: true,
     };
 
     const buildWaveFormLabel = (ot, items) => {
@@ -158,6 +159,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = "Wavetable " + label.value;
+            waveForm.useShapeKnob = false;
             break;
         }
     }

@@ -9,6 +9,14 @@ export default class Ns2SectionSynthOscillators extends Component {
     render() {
         const osc = this.props.data;
 
+        const ctrl = osc.waveForm1.useShapeKnob ? (
+            <NordLabelAndValueWithMorph label="Shape Ctrl" data={osc.shapeCtrl} />
+        ) : (
+            <tr>
+                <NordLabelAndValue enabled={false} label="Shape Ctrl" data={{ value: "" }} table={true} />
+            </tr>
+        );
+
         return (
             <React.Fragment>
                 <div className={this.props.className}>
@@ -22,7 +30,7 @@ export default class Ns2SectionSynthOscillators extends Component {
                                         <NordLabelAndValue label="Type" data={osc.type} table={true} />
                                     </tr>
 
-                                    <NordLabelAndValueWithMorph label="Shape Ctrl" data={osc.shapeCtrl} />
+                                    {ctrl}
 
                                     <tr>
                                         <NordLabelAndValue label={osc.shapeMod.label} data={osc.shapeMod} table={true} />
