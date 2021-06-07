@@ -44,6 +44,8 @@ export default class Ns3SectionSynthFilter extends Component {
                                                     <NordLabelAndValue label="Type" data={filter.type} table={true} />
                                                 </tr>
 
+                                                <tr style={{height: "1.25rem"}}/>
+
                                                 <NordLabelAndValueWithMorph
                                                     label="LFO Amt"
                                                     data={filter.modulations.lfoAmount}
