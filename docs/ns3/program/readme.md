@@ -65,6 +65,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |1.5   | 25-Apr-2021  | Added NS2 and NS3 Extern menu details
 |1.6   | 29-Apr-2021  | Added NS2 and NS3 Output Routing
 |1.7   | 05-Jun-2021  | Added NS2 Wave details on LCD and main display
+|1.8   | 08-Jun-2021  | Added NS2 Analog Wave Detune Shape details
 
 \newpage
 

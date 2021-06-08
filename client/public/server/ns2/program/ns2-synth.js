@@ -102,19 +102,11 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
 
     const buildWaveFormLabel = (ot, items) => {
         const valid = items !== undefined && items.length === 2;
-        let value = "";
-        if (valid) {
-            // 0 is the LCD, 1 is main display
-            if (items[0] !== items[1]) {
-                value += items[1] + " (" + items[0] + ")";
-            } else {
-                value += items[0];
-            }
-        } else {
-            value += "??";
-        }
+        // 0 is the LCD, 1 is main display
+        const value = valid ? items[1] : "??";
+        const info = valid ? items[0] : "??";
         return {
-            valid, value,
+            valid, value, info,
         }
     }
 
@@ -124,6 +116,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = label.value;
+            waveForm.info = label.info;
             break;
         }
         case "SAW": {
@@ -131,13 +124,15 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = label.value;
+            waveForm.info = label.info;
             break;
         }
-        case "PULSE": {
+        case "SQR": {
             const items = mapping.ns2SynthOscillatorPulseStyleWaveFormsMap.get(waveForm.location);
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = label.value;
+            waveForm.info = label.info;
             break;
         }
         case "SAMPLE": {
@@ -152,6 +147,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = "FM " + label.value;
+            waveForm.info = label.info;
             break;
         }
         case "WAVE": {
@@ -159,6 +155,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = "Wavetable " + label.value;
+            waveForm.info = label.info;
             waveForm.useShapeKnob = false;
             break;
         }
@@ -362,7 +359,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
          */
         oscillators: {
             /**
-             * Offset in file: 0xe1 (b1-0) and 0xe2               (b7)
+             * Offset in file: 0xe1 (b1-0) and 0xe2 (b7)
              *
              * @example
              * #include ns2SynthOscillatorTypeMap
@@ -373,7 +370,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                 value: oscillatorType,
             },
             /**
-             * Offset in file: 0xe2 (b6-0) and 0xe3               (b7-5)
+             * Offset in file: 0xe2 (b6-0) and 0xe3 (b7-5)
              *
              * @example
              *
@@ -399,7 +396,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              * Offset in file: 0xe6 (b4-0) and 0xe7 (7-6)
              *
              * @example
-             * 0/127 value = 0 / 10
+             * For '---', 'Shp', and 'Snc':
+             *
+             * 7-bits value = 0 / 10
              *
              * Morph Wheel:
              * Offset in file 0xe3 (b4-0) 0xe4 (b7-5)
@@ -410,9 +409,34 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              * Morph Control Pedal:
              * Offset in file 0xe5 (b4-0) 0xe6 (b7-5)
              *
+             * For 'dtn':
+             * Offset in file: 0xeb (b5-0)
+             * 5-bits value = -12 / +12
+             *
              * @module NS2 Synth Shape
              */
-            shapeCtrl: ns2OscShape(buffer, slotOffset),
+
+            /**
+             * Offset in file: 0xeb (b5-0)
+             *
+             * @example
+             * For 'dtn':
+             *
+             * 5-bits value = -12 / +12
+             * @example
+             *
+             * Morph Wheel:
+             * Offset in file
+             *
+             * Morph After Touch:
+             * Offset in file
+             *
+             * Morph Control Pedal:
+             * Offset in file
+             *
+             * @module NS2 Synth Shape Detune
+             */
+            shapeCtrl: ns2OscShape(buffer, slotOffset, waveForm.info),
 
             /**
              * Offset in file: 0xe7 (b5-0) and 0xe8 (b7)

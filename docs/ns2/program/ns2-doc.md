@@ -419,13 +419,16 @@
 <dd><p>Offset in file: 0xfd (b5-3)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Osc Mode">NS2 Synth Osc Mode</a></dt>
-<dd><p>Offset in file: 0xe1 (b1-0) and 0xe2               (b7)</p>
+<dd><p>Offset in file: 0xe1 (b1-0) and 0xe2 (b7)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Osc WaveForm">NS2 Synth Osc WaveForm</a></dt>
-<dd><p>Offset in file: 0xe2 (b6-0) and 0xe3               (b7-5)</p>
+<dd><p>Offset in file: 0xe2 (b6-0) and 0xe3 (b7-5)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Shape">NS2 Synth Shape</a></dt>
 <dd><p>Offset in file: 0xe6 (b4-0) and 0xe7 (7-6)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Shape Detune">NS2 Synth Shape Detune</a></dt>
+<dd><p>Offset in file: 0xeb (b5-0)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Shape Mod">NS2 Synth Shape Mod</a></dt>
 <dd><p>Offset in file: 0xe7 (b5-0) and 0xe8 (b7)</p>
@@ -2377,7 +2380,7 @@ Offset in file: 0xfd (b5-3)
 <a name="module_NS2 Synth Osc Mode"></a>
 
 ## NS2 Synth Osc Mode
-Offset in file: 0xe1 (b1-0) and 0xe2               (b7)
+Offset in file: 0xe1 (b1-0) and 0xe2 (b7)
 
 **Example**  
 ```js
@@ -2386,7 +2389,7 @@ Offset in file: 0xe1 (b1-0) and 0xe2               (b7)
 <a name="module_NS2 Synth Osc WaveForm"></a>
 
 ## NS2 Synth Osc WaveForm
-Offset in file: 0xe2 (b6-0) and 0xe3               (b7-5)
+Offset in file: 0xe2 (b6-0) and 0xe3 (b7-5)
 
 **Example**  
 ```js
@@ -2412,7 +2415,9 @@ Offset in file: 0xe6 (b4-0) and 0xe7 (7-6)
 
 **Example**  
 ```js
-0/127 value = 0 / 10
+For '---', 'Shp', and 'Snc':
+
+7-bits value = 0 / 10
 
 Morph Wheel:
 Offset in file 0xe3 (b4-0) 0xe4 (b7-5)
@@ -2422,6 +2427,32 @@ Offset in file 0xe4 (b4-0) 0xe5 (b7-5)
 
 Morph Control Pedal:
 Offset in file 0xe5 (b4-0) 0xe6 (b7-5)
+
+For 'dtn':
+Offset in file: 0xeb (b5-0)
+5-bits value = -12 / +12
+```
+<a name="module_NS2 Synth Shape Detune"></a>
+
+## NS2 Synth Shape Detune
+Offset in file: 0xeb (b5-0)
+
+**Example**  
+```js
+For 'dtn':
+
+5-bits value = -12 / +12
+```
+**Example**  
+```js
+Morph Wheel:
+Offset in file
+
+Morph After Touch:
+Offset in file
+
+Morph Control Pedal:
+Offset in file
 ```
 <a name="module_NS2 Synth Shape Mod"></a>
 

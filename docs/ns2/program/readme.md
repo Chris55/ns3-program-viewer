@@ -237,10 +237,10 @@ This mapping corresponds to the Nord Stage 2 program file (file extension ns2p).
 | `0x00E5` | `aaaccccc` | [(c) synth shape morph control pedal](ns2-doc.md#ns2-synth-shape)
 | `0x00E6` | `cccsssss` | [(s) synth shape](ns2-doc.md#ns2-synth-shape)
 | `0x00E7` | `ssmmmmmm` | [(m) synth shape mod](ns2-doc.md#ns2-synth-shape-mod)
-| `0x00E8` | `m-------` |
-| `0x00E9` | `--------` |
-| `0x00EA` | `--------` |
-| `0x00EB` | `--------` |
+| `0x00E8` | `mwwwwwww` | [(w) synth shape detune morph wheel](ns2-doc.md#ns2-synth-shape-detune)
+| `0x00E9` | `waaaaaaa` | [(a) synth shape detune morph after touch](ns2-doc.md#ns2-synth-shape-detune)
+| `0x00EA` | `accccccc` | [(c) synth shape detune morph control pedal](ns2-doc.md#ns2-synth-shape-detune)
+| `0x00EB` | `cddddddd` | [(d) synth shape detune](ns2-doc.md#ns2-synth-shape-detune)
 | `0x00EC` | `------sw` | [(s) synth skip sample attack](ns2-doc.md#ns2-synth-skip-sample-attack), [(w) synth filter freq morph wheel](ns2-doc.md#ns2-synth-filter-freq)
 | `0x00ED` | `wwwwwwwa` | [(a) synth filter freq morph after touch](ns2-doc.md#ns2-synth-filter-freq)
 | `0x00EE` | `aaaaaaac` | [(c) synth filter freq morph control pedal](ns2-doc.md#ns2-synth-filter-freq)

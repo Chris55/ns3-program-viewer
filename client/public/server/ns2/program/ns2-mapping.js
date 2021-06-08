@@ -206,7 +206,7 @@ exports.ns2SynthVibratoMap = new Map([
 exports.ns2SynthOscillatorTypeMap = new Map([
     [0, "TRI"],
     [1, "SAW"],
-    [2, "PULSE"],
+    [2, "SQR"],
     [3, "SAMPLE"],
     [4, "FM"],
     [5, "WAVE"],
