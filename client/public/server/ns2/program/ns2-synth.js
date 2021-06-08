@@ -137,6 +137,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         }
         case "SAMPLE": {
             waveForm = getSample(sampleId, 0, waveForm.location);
+            waveForm.useShapeKnob = true;
             if (waveForm.version.startsWith("v3.")) {
                 waveForm.version = waveForm.version.replace("v3.", "v2.");
             }
