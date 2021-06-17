@@ -22,6 +22,8 @@ exports.ns2Filter = (buffer, slotOffset) => {
     const filterModulation1Midi = (synthOffsetF2W & 0x0fe0) >>> 5;
     const filterModulation2Midi = (synthOffsetF1W & 0x07f0) >>> 4;
 
+    const kbTrack = (synthOffsetF3 & 0x10) !== 0;
+
     return {
         /**
          * Offset in file: 0xf3 (b3-1)
@@ -33,6 +35,8 @@ exports.ns2Filter = (buffer, slotOffset) => {
          */
         type: {
             value: filterType,
+
+            isDefault: filterType === mapping.ns2SynthFilterTypeMap.get(0),
         },
         /**
          * Offset in file: 0xf3 (b4)
@@ -44,7 +48,9 @@ exports.ns2Filter = (buffer, slotOffset) => {
          * @module NS2 Synth Filter Kb Track
          */
         kbTrack: {
-            enabled: (synthOffsetF3 & 0x10) !== 0,
+            enabled: kbTrack,
+
+            isDefault: kbTrack === false,
         },
 
         /**
@@ -69,7 +75,11 @@ exports.ns2Filter = (buffer, slotOffset) => {
          */
         frequency: {
             midi: filterFrequencyMidi,
+
+            isDefault: filterFrequencyMidi === 127,
+
             value: mapping.ns2SynthFilterFrequencyMap.get(filterFrequencyMidi),
+
             morph: ns2Morph7Bits(
                 synthOffsetEcWw >>> 1,
                 filterFrequencyMidi,
@@ -90,6 +100,9 @@ exports.ns2Filter = (buffer, slotOffset) => {
          */
         resonance: {
             midi: filterResonanceMidi,
+
+            isDefault: filterResonanceMidi === 0,
+
             value: converter.midi2LinearStringValue(0, 10, filterResonanceMidi, 1, ""),
         },
 
@@ -103,6 +116,9 @@ exports.ns2Filter = (buffer, slotOffset) => {
          */
         modulation1: {
             midi: filterModulation1Midi,
+
+            isDefault: filterModulation1Midi === 0,
+
             value: converter.midi2LinearStringValue(0, 10, filterModulation1Midi, 1, ""),
         },
 
@@ -119,7 +135,11 @@ exports.ns2Filter = (buffer, slotOffset) => {
          */
         modulation2: {
             midi: filterModulation2Midi,
+
+            isDefault: filterModulation2Midi === 64,
+
             value: mapping.ns2SynthFilterFrequencyMod2Map.get(filterModulation2Midi),
+
             label: (filterModulation2Midi === 63 || filterModulation2Midi === 64)
                 ? "VEL/Env AMT"
                 : (filterModulation2Midi < 64 ? "VEL AMT": "Mod Env AMT"),

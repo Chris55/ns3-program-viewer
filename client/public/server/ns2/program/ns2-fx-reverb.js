@@ -12,6 +12,7 @@ exports.ns2Reverb = (buffer, offset) => {
     const reverbOffset3dW = buffer.readUInt16BE(0x3d + offset);
 
     const reverbAmountMidi = (reverbOffset3dW & 0x0fe0) >>> 5;
+    const reverbType = mapping.ns2ReverbTypeMap.get((reverbOffset3dW & 0x7000) >>> 12);
 
     return {
         /**
@@ -38,7 +39,8 @@ exports.ns2Reverb = (buffer, offset) => {
          * @module NS2 Reverb Type
          */
         type: {
-            value: mapping.ns2ReverbTypeMap.get((reverbOffset3dW & 0x7000) >>> 12),
+            value: reverbType,
+            isDefault: reverbType === mapping.ns2ReverbTypeMap.get(2),
         },
 
         /**
@@ -51,7 +53,7 @@ exports.ns2Reverb = (buffer, offset) => {
          */
         amount: {
             midi: reverbAmountMidi,
-
+            isDefault: reverbAmountMidi === 64,
             value: converter.midi2LinearStringValue(0, 10, reverbAmountMidi, 1, ""),
         },
     };

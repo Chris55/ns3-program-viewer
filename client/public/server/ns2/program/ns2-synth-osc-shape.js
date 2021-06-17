@@ -1,4 +1,4 @@
-const converter = require("../../common/converter");
+const { getMorphModel, midi2LinearStringValue } = require("../../common/converter");
 const { ns2Morph7Bits } = require("./ns2-morph");
 
 /***
@@ -19,39 +19,80 @@ exports.ns2OscShape = (buffer, slotOffset, shapeMode) => {
     const oscShapeMidiDetune = synthOffsetEb & 0x1f;
     const isShapeDetune = shapeMode === "dtn";
 
+    const midi = isShapeDetune ? oscShapeMidiDetune : oscShapeMidi;
+
     return {
         /***
          * Synth Oscillator Shape Midi Value
          */
-        midi: isShapeDetune ? oscShapeMidiDetune: oscShapeMidi,
+        midi: midi,
+
+        isDefault: midi === 0,
 
         /***
          * Synth Oscillator Shape value
          */
-        value: isShapeDetune
-            ?  oscShapeMidiDetune - 12
-            : converter.midi2LinearStringValue(0, 10, oscShapeMidi, 1, ""),
+        value: isShapeDetune ? oscShapeMidiDetune - 12 : midi2LinearStringValue(0, 10, oscShapeMidi, 1, ""),
 
         /***
          * Morphing settings
          */
         morph: isShapeDetune
-            ?
-            ns2Morph7Bits(
-            synthOffsetE8Ww >>> 7,
-                oscShapeMidiDetune,
-            (x) => {
-                return x - 12;
-            },
-            false
-        )
-        : ns2Morph7Bits(
-                synthOffsetE3Ww >>> 5,
-                oscShapeMidi,
-                (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
-                },
-                false
-            ),
+            ? ns2Morph7Bits(
+                  synthOffsetE8Ww >>> 7,
+                  oscShapeMidiDetune,
+                  (x) => {
+                      return x - 12;
+                  },
+                  false
+              )
+            : ns2Morph7Bits(
+                  synthOffsetE3Ww >>> 5,
+                  oscShapeMidi,
+                  (x) => {
+                      return midi2LinearStringValue(0, 10, x, 1, "");
+                  },
+                  false
+              ),
+    };
+};
+
+exports.ns2SkipSampleAttack = (buffer, slotOffset, oscillatorType) => {
+    const synthOffsetEc = buffer.readUInt8(0xec + slotOffset);
+
+    const skipSampleAttack = oscillatorType === "SAMPLE" && (synthOffsetEc & 2) !== 0;
+    const wheel = (synthOffsetEc & 0xc0) >>> 6;
+    const afterTouch = (synthOffsetEc & 0x30) >>> 4;
+    const controlPedal = (synthOffsetEc & 0x0c) >>> 2;
+
+    const morph = [
+        {
+            enabled: wheel !== 0,
+            midiTo: wheel === 1,
+        },
+        {
+            enabled: afterTouch !== 0,
+            midiTo: afterTouch === 1,
+        },
+        {
+            enabled: controlPedal !== 0,
+            midiTo: controlPedal === 1,
+        },
+    ];
+
+    return {
+        enabled: skipSampleAttack,
+
+        isDefault: skipSampleAttack === false,
+
+        /***
+         * Skip Sample Attack value
+         */
+        value: skipSampleAttack ? "On" : "Off",
+
+        /***
+         * Skip Sample Attack Morphing settings
+         */
+        morph: getMorphModel(morph, (x) => (x ? "On" : "Off")),
     };
 };

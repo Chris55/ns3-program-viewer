@@ -14,6 +14,10 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
     const rotarySpeakerOffset40 = buffer.readUInt8(0x40 + panelOffset);
     const rotarySpeakerOffset41 = buffer.readUInt8(0x41 + panelOffset);
 
+    const drive = (rotarySpeakerOffset3fW & 0x03f8) >>> 3;
+    const speed = mapping.ns2RotarySpeakerSpeedMap.get((rotarySpeakerOffset40 & 0x02) >>> 1);
+    const stopMode = ((rotarySpeakerOffset40 & 0x04) !== 0);
+
     return {
         /**
          * Offset in file: 0x3f (b4)
@@ -48,7 +52,9 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
          * @module NS2 Rotary Speaker Drive
          */
         drive: {
-            value: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset3fW & 0x03f8) >>> 3, 1, ""),
+            value: converter.midi2LinearStringValue(0, 10, drive, 1, ""),
+
+            isDefault: drive === 0,
         },
 
         /**
@@ -62,7 +68,9 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
          * @module NS2 Rotary Speaker Stop Mode
          */
         stopMode: {
-            enabled: ((rotarySpeakerOffset40 & 0x04) !== 0),
+            enabled: stopMode,
+
+            isDefault: stopMode === false,
         },
 
         /**
@@ -81,7 +89,10 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
          */
 
         speed: {
-            value: mapping.ns2RotarySpeakerSpeedMap.get((rotarySpeakerOffset40 & 0x02) >>> 1),
+            value: speed,
+
+            isDefault: speed === mapping.ns2RotarySpeakerSpeedMap.get(0),
+
             morph: {
                 wheel: {
                     enabled: (rotarySpeakerOffset40 & 0x01) !== 0,

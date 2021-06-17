@@ -1,4 +1,4 @@
-exports.ns3Model = {
+exports.model = {
     name: "For 1 Musician",
     filename: "For 1 Musician.ns3f",
     ext: "ns3f",

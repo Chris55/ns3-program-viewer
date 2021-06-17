@@ -48,6 +48,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
     const pianoSampleId = getSampleIdNs2ToNs3(ns2PianoSampleId);
 
     let pianoLib = getSample(pianoSampleId, clavinetVariation);
+    const routing = ns2ProgramOutputMap.get(pianoOffset58 & 0x03);
 
     const piano = {
         debug: {
@@ -290,7 +291,8 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          * @module NS2 Piano Program Output
          */
         output: {
-            value: ns2ProgramOutputMap.get(pianoOffset58 & 0x03),
+            value: routing,
+            isDefault: routing === ns2ProgramOutputMap.get(0),
         },
     };
 

@@ -1,13 +1,11 @@
 const path = require("path");
 const mapping = require("./ns2-mapping");
-const mapping3 = require("../../ns3/program/ns3-mapping");
 const { ns2Reverb } = require("./ns2-fx-reverb");
 const { ns2Compressor } = require("./ns2-fx-compressor");
 const { zeroPad } = require("../../common/converter");
 const { programCategoryMap } = require("../../common/nord-mapping");
 const { ns2Slot } = require("./ns2-slot");
 const { nordFileExtMap } = require("../../common/nord-mapping");
-const { getVersion } = require("../../common/converter");
 
 /***
  * returns Nord Stage 3 program data

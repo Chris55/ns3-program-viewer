@@ -73,6 +73,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
 
     const delayFeedbackMidi = (delayOffset132W & 0x0fe0) >>> 5;
     const delayAmountMidi = (delayOffset131W & 0x07f0) >>> 4;
+    const pingPong = (delayOffset125 & 0x04) !== 0;
 
     return {
         /**
@@ -107,6 +108,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
          */
         masterClock: {
             enabled: delayMasterClock,
+            isDefault: delayMasterClock === false,
         },
 
         /**
@@ -159,6 +161,8 @@ exports.ns2Delay = (buffer, panelOffset) => {
                 ? mapping.ns2DelayTempoMasterClockDivisionMap.get(delayTempoClockOnMidiValue)
                 : getTempo(delayTempoClockOffMidiValue, delayTempoTapValue),
 
+            isDefault: delayTempoMidiValue === 64,
+
             morph: delayMasterClock
                 ? ns2Morph4Bits(
                       delayOffset124Ww >>> 2,
@@ -178,7 +182,8 @@ exports.ns2Delay = (buffer, panelOffset) => {
          *  @module NS2 Delay Ping Pong
          */
         pingPong: {
-            enabled: (delayOffset125 & 0x04) !== 0,
+            enabled: pingPong,
+            isDefault: pingPong === false,
         },
 
         /**
@@ -191,7 +196,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
          */
         feedback: {
             midi: delayFeedbackMidi,
-
+            isDefault: delayFeedbackMidi === 64,
             value: converter.midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
         },
 
@@ -214,7 +219,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
          */
         amount: {
             midi: delayAmountMidi,
-
+            isDefault: delayAmountMidi === 64,
             value: converter.midi2LinearStringValue(0, 10, delayAmountMidi, 1, ""),
 
             morph: ns2Morph7Bits(

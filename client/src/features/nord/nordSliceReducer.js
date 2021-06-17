@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ns3Model } from "../../nord/ns3/model/ns3-model";
+import { model } from "../../nord/ns2/model/ns2-model";
 import axios from "axios";
 
 const production = process.env.NODE_ENV === "production";
@@ -7,15 +7,15 @@ const production = process.env.NODE_ENV === "production";
 // to test home page set this to false,
 // if true it shows the default model immediately
 
-const loadedDebug = false;
+const loadedDebug = true;
 
 const initialState = {
     production: production,
     isElectron: /electron/i.test(navigator.userAgent),
     loaded:  production ? false: loadedDebug,
     loading: false,
-    data: [ns3Model],
-    originalData: [ns3Model],
+    data: [model],
+    originalData: [model],
     error: null,
     showAll: false,
     exporting: false,

@@ -4,19 +4,24 @@ import "./ns3.css";
 
 export default class NordLabelAndValue extends Component {
     render() {
-        const labelClassName =
+        let labelClassName =
             this.props.enabled === undefined
                 ? "nord-label nord-on"
                 : this.props.enabled === true
                 ? "nord-label nord-on"
                 : "nord-label nord-off";
 
-        const valueClassName =
+        let valueClassName =
             this.props.enabled === undefined
                 ? "nord-value nord-on"
                 : this.props.enabled === true
                 ? "nord-value nord-on"
                 : "nord-value nord-off";
+
+        if (this.props.data.isDefault !== undefined ) {
+            // labelClassName += this.props.data.isDefault ? " nord-default-value" : " nord-non-default-value";
+            valueClassName += this.props.data.isDefault ? " nord-default-value" : " nord-non-default-value";
+        }
 
         const customValueClassName = this.props.valueClass || "";
 

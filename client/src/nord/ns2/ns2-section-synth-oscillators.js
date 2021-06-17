@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
 import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph";
-import NordValueOnOff from "../lib/nord-value-on-off";
 import NordLabelAndValue from "../lib/nord-label-and-value";
 
 export default class Ns2SectionSynthOscillators extends Component {
@@ -17,6 +16,10 @@ export default class Ns2SectionSynthOscillators extends Component {
             </tr>
         );
 
+        const shapeModLabel = osc.shapeMod.label.startsWith("Mod")
+            ? "Shape " + osc.shapeMod.label
+            : "Shape Mod " + osc.shapeMod.label;
+
         return (
             <React.Fragment>
                 <div className={this.props.className}>
@@ -30,14 +33,22 @@ export default class Ns2SectionSynthOscillators extends Component {
                                         <NordLabelAndValue label="Type" data={osc.type} table={true} />
                                     </tr>
 
-                                    {ctrl}
+                                    {osc.waveForm1.useShapeKnob && ctrl}
+
+                                    {!osc.waveForm1.useShapeKnob && (
+                                        <NordLabelAndValueWithMorph
+                                            label="Skip Samp Atk"
+                                            enabled={!osc.waveForm1.useShapeKnob}
+                                            data={osc.skipSampleAttack}
+                                        />
+                                    )}
 
                                     <tr>
-                                        <NordLabelAndValue label={osc.shapeMod.label} data={osc.shapeMod} table={true} />
-                                    </tr>
-
-                                    <tr>
-                                        <NordValueOnOff label="Skip Samp Atk" data={osc.skipSampleAttack} table={true} />
+                                        <NordLabelAndValue
+                                            label={shapeModLabel}
+                                            data={osc.shapeMod}
+                                            table={true}
+                                        />
                                     </tr>
                                 </tbody>
                             </table>

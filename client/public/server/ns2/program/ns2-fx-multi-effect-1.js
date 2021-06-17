@@ -79,6 +79,8 @@ exports.ns2Effect1 = (buffer, panelOffset) => {
          */
         type: {
             value: effect1Type,
+
+            isDefault: effect1Type === mapping.ns2Effect1TypeMap.get(0),
         },
 
         /**
@@ -100,6 +102,8 @@ exports.ns2Effect1 = (buffer, panelOffset) => {
          */
         amount: {
             midi: effect1AmountMidi,
+
+            isDefault: effect1AmountMidi === 64,
 
             value: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
 
@@ -151,6 +155,8 @@ exports.ns2Effect1 = (buffer, panelOffset) => {
         rate: {
             midi: effect1RateMidi,
 
+            isDefault: effect1RateMidi === 64,
+
             value: effect1MasterClockUsed
                 ? mapping.ns2Effect1MasterClockDivisionMap.get(effect1RateMidi)
                 : effect1RateMidi + " (" + converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, "") + ")",
@@ -180,6 +186,7 @@ exports.ns2Effect1 = (buffer, panelOffset) => {
          */
         masterClock: {
             enabled: effect1MasterClockUsed,
+            isDefault: effect1MasterClockUsed === false,
         },
     };
 };

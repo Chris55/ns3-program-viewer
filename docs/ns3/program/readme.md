@@ -66,6 +66,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |1.6   | 29-Apr-2021  | Added NS2 and NS3 Output Routing
 |1.7   | 05-Jun-2021  | Added NS2 Wave details on LCD and main display
 |1.8   | 08-Jun-2021  | Added NS2 Analog Wave Detune Shape details
+|1.9   | 17-Jun-2021  | Added NS2 Synth skip sample attack morph
 
 \newpage
 
@@ -98,12 +99,13 @@ Offset 0x04 defines the file header format.
 | 1     |  592  | New format with additional bytes 0x18 to 0x2B (20 bytes). All file saved with Nord Sound Manager v7.40 (2018-12-18) or later are using this version.
 
 
-Each memory offset corresponds to an 8-bit value.
+Each memory offset corresponds to an 8-bit value, example:
 
 0x01 (hex) = 00000001 -> bit 0 is ‘1’
+
 0x84 (hex) = 10000100 -> bit 7 and 2 are ‘1’
 
-In the documentation `--xxxxxx` (b5-0) means Bit5 to Bit0.
+In the documentation below `--xxxxxx` (b5-0) means Bit5 to Bit0 are used.
 
 
 | offset   | bits       | description

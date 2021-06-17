@@ -342,6 +342,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
 
     const organKbZone = ns2KbZone(organKbZoneEnabled, global, (organOffset47 & 0xe0) >>> 5);
 
+    const routing = ns2ProgramOutputMap.get((organOffset59 & 0x0c) >>> 2);
+
     return {
         /**
          * Offset in file: 0x43 (b7)
@@ -907,7 +909,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          * @module NS2 Organ Program Output
          */
         output: {
-            value: ns2ProgramOutputMap.get((organOffset59 & 0x0c) >>> 2),
+            value: routing,
+            isDefault: routing === ns2ProgramOutputMap.get(0)
         },
     };
 };

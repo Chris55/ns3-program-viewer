@@ -33,7 +33,7 @@ exports.ns2Compressor = (buffer, offset) => {
          */
         amount: {
             midi: compressorAmountMidi,
-
+            isDefault: compressorAmountMidi === 0,
             value: converter.midi2LinearStringValue(0, 10, compressorAmountMidi, 1, ""),
         },
     };

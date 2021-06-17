@@ -107,12 +107,21 @@
     opacity: 0.23;
 }
 
+/*panel disable*/
 .nord-off-2 {
     opacity: 0.6;
 }
 
 .nord-dimmed {
     opacity: 0.6;
+}
+
+.nord-default-value {
+    /*color: indianred;*/
+}
+
+.nord-non-default-value {
+
 }
 
 

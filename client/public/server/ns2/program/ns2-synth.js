@@ -1,9 +1,8 @@
-const mapping3 = require("../../ns3/program/ns3-mapping");
 const converter = require("../../common/converter");
 const mapping = require("./ns2-mapping");
 const { ns2ProgramOutputMap } = require("./ns2-mapping");
 const { ns2Filter } = require("./ns2-synth-filter");
-const { ns2OscShape } = require("./ns2-synth-osc-shape");
+const { ns2OscShape, ns2SkipSampleAttack } = require("./ns2-synth-osc-shape");
 const { ns2KbZone } = require("./ns2-utils");
 const { ns2VolumeEx } = require("./ns2-utils");
 const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
@@ -98,6 +97,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         location: (synthOffsetE2W & 0x7fe0) >>> 5,
         filename: "",
         useShapeKnob: true,
+        isDefault: false,
     };
 
     const buildWaveFormLabel = (ot, items) => {
@@ -117,6 +117,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             waveForm.valid = label.valid;
             waveForm.value = label.value;
             waveForm.info = label.info;
+            waveForm.isDefault = true;
             break;
         }
         case "SAW": {
@@ -137,7 +138,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         }
         case "SAMPLE": {
             waveForm = getSample(sampleId, 0, waveForm.location);
-            waveForm.useShapeKnob = true;
+            waveForm.useShapeKnob = false; // skip sample attack is used instead
             if (waveForm.version.startsWith("v3.")) {
                 waveForm.version = waveForm.version.replace("v3.", "v2.");
             }
@@ -157,7 +158,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             waveForm.valid = label.valid;
             waveForm.value = "Wavetable " + label.value;
             waveForm.info = label.info;
-            waveForm.useShapeKnob = false;
+            waveForm.useShapeKnob = true;
             break;
         }
     }
@@ -191,6 +192,12 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthKbZoneValue = (synthOffset51 & 0x70) >>> 4;
     const synthKbZone = ns2KbZone(synthKbZoneEnabled, global, synthKbZoneValue);
     const preset = ns3SynthPreset(buffer, 0x57 + slotOffset);
+
+    const modulationVelocity = (synthOffsetE1W & 0x0400) !== 0;
+    const amplifierVelocity = (synthOffsetF6W & 0x0800) !== 0;
+    const lfoWave = (synthOffsetF7 & 0x0c) >>> 2;
+
+    const routing = ns2ProgramOutputMap.get((synthOffset59 & 0x60) >>> 5);
 
     const synth = {
         debug: {
@@ -369,6 +376,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              */
             type: {
                 value: oscillatorType,
+                isDefault: oscillatorType === "TRI",
             },
             /**
              * Offset in file: 0xe2 (b6-0) and 0xe3 (b7-5)
@@ -418,7 +426,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              */
 
             /**
-             * Offset in file: 0xeb (b5-0)
+             * Offset in file: 0xEB (b5-0)
              *
              * @example
              * For 'dtn':
@@ -427,13 +435,13 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              * @example
              *
              * Morph Wheel:
-             * Offset in file
+             * Offset in file: 0xE8 (b6-0) and 0xE9 (b7)
              *
              * Morph After Touch:
-             * Offset in file
+             * Offset in file: 0xE9 (b6-0) and 0xEA (b7)
              *
              * Morph Control Pedal:
-             * Offset in file
+             * Offset in file: 0xEA (b6-0) and 0xEB (b7)
              *
              * @module NS2 Synth Shape Detune
              */
@@ -454,6 +462,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  */
                 midi: oscModMidi,
 
+                isDefault: oscModMidi === 63 || oscModMidi === 64,
+
                 /***
                  * Synth Shape Mod Value
                  */
@@ -472,11 +482,24 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              * @example
              * O = off, 1 = on
              *
+             * (only used on SAMPLE)
+             *
+             * Morph Wheel:
+             * Offset in file:  0xec (b7-6)
+             *
+             * Morph After Touch:
+             * Offset in file:  0xec (b5-4)
+             *
+             * Morph Control Pedal:
+             * Offset in file:  0xec (b3-2)
+             *
+             * 0x00 = Morph disabled
+             * 0x01 = Morph to on
+             * 0x11 = Morph to off
+             *
              * @module NS2 Synth Skip Sample Attack
              */
-            skipSampleAttack: {
-                enabled: oscillatorType === "SAMPLE" && (synthOffsetEc & 2) !== 0,
-            },
+            skipSampleAttack: ns2SkipSampleAttack(buffer, slotOffset, oscillatorType),
         },
 
         filter: ns2Filter(buffer, slotOffset),
@@ -493,6 +516,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  */
                 attack: {
                     midi: envModAttackMidi,
+
+                    isDefault: envModAttackMidi === 0,
+
                     value: mapping.ns2SynthEnvAttackMap.get(envModAttackMidi),
                 },
 
@@ -506,6 +532,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  */
                 decay: {
                     midi: envModDecayMidi,
+
+                    isDefault: envModDecayMidi === 127,
+
                     value: synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
                 },
 
@@ -519,6 +548,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  */
                 release: {
                     midi: envModReleaseMidi,
+
+                    isDefault: envModReleaseMidi === 0,
+
                     value: synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
                 },
 
@@ -531,7 +563,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  * @module NS2 Synth Mod Env Velocity
                  */
                 velocity: {
-                    enabled: (synthOffsetE1W & 0x0400) !== 0,
+                    enabled: modulationVelocity,
+
+                    isDefault: modulationVelocity === false,
                 },
             },
             amplifier: {
@@ -545,6 +579,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  */
                 attack: {
                     midi: envAmpAttackMidi,
+
+                    isDefault: envAmpAttackMidi === 0,
+
                     value: mapping.ns2SynthEnvAttackMap.get(envAmpAttackMidi),
                 },
 
@@ -558,6 +595,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  */
                 decay: {
                     midi: envAmpDecayMidi,
+
+                    isDefault: envAmpDecayMidi === 127,
+
                     value: synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
                 },
 
@@ -571,6 +611,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  */
                 release: {
                     midi: envAmpReleaseMidi,
+
+                    isDefault: envAmpReleaseMidi === 0,
+
                     value: synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
                 },
 
@@ -583,7 +626,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                  * @module NS2 Synth Amp Env Velocity
                  */
                 velocity: {
-                    enabled: (synthOffsetF6W & 0x0800) !== 0,
+                    enabled: amplifierVelocity,
+
+                    isDefault: amplifierVelocity === false,
                 },
             },
         },
@@ -597,7 +642,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              * @module NS2 Synth Lfo Wave
              */
             wave: {
-                value: mapping.ns2SynthLfoWaveMap.get((synthOffsetF7 & 0x0c) >>> 2),
+                value: mapping.ns2SynthLfoWaveMap.get(lfoWave),
+
+                isDefault: lfoWave === 0,
             },
             /**
              * @example
@@ -615,6 +662,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             rate: {
                 midi: lfoRateMidi,
 
+                isDefault: lfoRateMidi === 0,
+
                 value: lfoRateMasterClock
                     ? mapping.ns2SynthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
                     : mapping.ns2SynthLfoRateMap.get(lfoRateMidi),
@@ -630,6 +679,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              */
             masterClock: {
                 enabled: lfoRateMasterClock,
+
+                isDefault: lfoRateMasterClock === false,
             },
         },
 
@@ -657,6 +708,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
             rate: {
                 midi: arpeggiatorRateMidi,
 
+                isDefault: arpeggiatorRateMidi === 0,
+
                 value: arpeggiatorMasterClock
                     ? mapping.ns2SynthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
                     : mapping.ns2SynthArpRateMap.get(arpeggiatorRateMidi),
@@ -672,6 +725,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              */
             masterClock: {
                 enabled: arpeggiatorMasterClock,
+
+                isDefault: arpeggiatorMasterClock === false,
             },
             /**
              * Offset in file: 0xdb (b0) and 0xdc (b7)
@@ -683,6 +738,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              */
             range: {
                 value: mapping.ns2ArpeggiatorRangeMap.get(arpeggiatorRange),
+
+                isDefault: arpeggiatorRange === 0,
             },
             /**
              * Offset in file: 0xdb (b2-1)
@@ -694,6 +751,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
              */
             pattern: {
                 value: mapping.ns2ArpeggiatorPatternMap.get(arpeggiatorPattern),
+
+                isDefault: arpeggiatorPattern === 0,
             },
         },
 
@@ -706,7 +765,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
          * @module NS2 Synth Program Output
          */
         output: {
-            value: ns2ProgramOutputMap.get((synthOffset59 & 0x60) >>> 5),
+            value: routing,
+            isDefault: routing === ns2ProgramOutputMap.get(0),
         },
     };
 

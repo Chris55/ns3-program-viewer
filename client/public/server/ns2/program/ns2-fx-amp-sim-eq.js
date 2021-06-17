@@ -56,6 +56,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
          */
         ampType: {
             value: ampSimType,
+            isDefault: ampSimType === mapping.ns2AmpSimTypeMap.get(0),
         },
 
         /**
@@ -69,7 +70,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
          */
         treble: {
             midi: trebleMidi,
-
+            isDefault: trebleMidi === 64,
             value: mapping.ns2AmpSimEqdBMap.get(trebleMidi),
         },
 
@@ -83,7 +84,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
          */
         mid: {
             midi: midMidi,
-
+            isDefault: midMidi === 64,
             value: mapping.ns2AmpSimEqdBMap.get(midMidi),
         },
 
@@ -98,7 +99,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
          */
         bass: {
             midi: bassMidi,
-
+            isDefault: bassMidi === 64,
             value: mapping.ns2AmpSimEqdBMap.get(bassMidi),
         },
 
@@ -114,7 +115,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
          */
         midFilterFreq: {
             midi: midFilterFreqMidi,
-
+            isDefault: midFilterFreqMidi === 64,
             value: mapping.ns2AmpSimEqMidFilterFreqMap.get(midFilterFreqMidi),
         },
 
@@ -128,7 +129,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
          */
         overdrive: {
             midi: driveMidi,
-
+            isDefault: driveMidi === 0,
             value: converter.midi2LinearStringValue(0, 10, driveMidi, 1, ""),
         },
     };
