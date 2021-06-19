@@ -1,8 +1,7 @@
 const mapping = require("./ns2-mapping");
 const { ns2ProgramOutputMap } = require("./ns2-mapping");
 const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
-const { ns2VolumeEx } = require("./ns2-utils");
-const { ns2KbZone } = require("./ns2-utils");
+const { ns2VolumeEx, ns2OctaveShift, ns2KbZone, ns2BooleanValue } = require("./ns2-utils");
 const { getSample } = require("../../library/ns3-library-service");
 
 /***
@@ -49,6 +48,26 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
 
     let pianoLib = getSample(pianoSampleId, clavinetVariation);
     const routing = ns2ProgramOutputMap.get(pianoOffset58 & 0x03);
+
+    /**
+     * Offset in file: 0x3B (b7-5)
+     *
+     * @example
+     * #include ns2PianoSlotDetuneMap
+     *
+     * @module NS2 Piano Slot Detune
+     */
+    const slotDetune = (pianoOffset3b & 0xe0) >>> 5;
+
+    /**
+     * Offset in file: 0xCF (b3-2)
+     *
+     * @example
+     * #include ns2PianoDynamicsMap
+     *
+     * @module NS2 Piano Dynamics
+     */
+    const dynamics = (pianoOffsetCf & 0x0c) >>> 2;
 
     const piano = {
         debug: {
@@ -119,9 +138,8 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Piano Octave Shift
          */
-        octaveShift: {
-            value: ((pianoOffset4c & 0x1e) >>> 1) - 7,
-        },
+        octaveShift: ns2OctaveShift((pianoOffset4c & 0x1e) >>> 1),
+
         /**
          * Offset in file: 0x4C (b0)
          *
@@ -130,9 +148,8 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Piano Pitch Stick
          */
-        pitchStick: {
-            enabled: (pianoOffset4c & 0x01) !== 0,
-        },
+        pitchStick: ns2BooleanValue((pianoOffset4c & 0x01) !== 0, false),
+
         /**
          * Offset in file: 0x4D (b7)
          *
@@ -141,9 +158,8 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Piano Sustain Pedal
          */
-        sustainPedal: {
-            enabled: (pianoOffset4d & 0x80) !== 0,
-        },
+        sustainPedal: ns2BooleanValue((pianoOffset4d & 0x80) !== 0, true),
+
         /**
          * Offset in file: 0x5A (b7)
          *
@@ -152,9 +168,8 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Piano Latch Pedal
          */
-        latchPedal: {
-            enabled: (pianoOffset5a & 0x80) !== 0,
-        },
+        latchPedal: ns2BooleanValue((pianoOffset5a & 0x80) !== 0, true),
+
         /**
          * Offset in file: 0x5A (b6)
          *
@@ -163,9 +178,8 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Piano Kb Gate
          */
-        kbGate: {
-            enabled: (pianoOffset5a & 0x40) !== 0,
-        },
+        kbGate: ns2BooleanValue((pianoOffset5a & 0x40) !== 0, false),
+
         /**
          * Offset in file: 0xCD (b7-5)
          *
@@ -176,6 +190,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          */
         type: {
             value: pianoType,
+            isDefault: pianoTypeValue === 0,
         },
         /**
          * Offset in file: 0xD0 (b5-0), 0xD1/0xD3 (b7-0), and 0xD4 (b7-6)
@@ -186,16 +201,11 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          * @module NS2 Piano Sample ID
          */
         name: pianoLib,
-        /**
-         * Offset in file: 0x3B (b7-5)
-         *
-         * @example
-         * #include ns2PianoSlotDetuneMap
-         *
-         * @module NS2 Piano Slot Detune
-         */
+
         slotDetune: {
-            value: mapping.ns2PianoSlotDetuneMap.get((pianoOffset3b & 0xe0) >>> 5),
+            midi: slotDetune,
+            value: mapping.ns2PianoSlotDetuneMap.get(slotDetune),
+            isDefault: slotDetune === 0,
         },
         /**
          * Offset in file: 0xCF (b6)
@@ -205,9 +215,8 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Piano Long Release
          */
-        longRelease: {
-            enabled: (pianoOffsetCf & 0x40) !== 0 && pianoLib.softRelease,
-        },
+        longRelease: ns2BooleanValue((pianoOffsetCf & 0x40) !== 0 && pianoLib.softRelease, false),
+
         /**
          * Offset in file: 0xCF (b5)
          *
@@ -218,9 +227,8 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Piano String Resonance
          */
-        stringResonance: {
-            enabled: (pianoOffsetCf & 0x20) !== 0 && pianoLib.stringsRes,
-        },
+        stringResonance: ns2BooleanValue((pianoOffsetCf & 0x20) !== 0 && pianoLib.stringsRes, false),
+
         /**
          * Offset in file: 0xCF (b4)
          *
@@ -231,19 +239,12 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS2 Piano Pedal Noise
          */
-        pedalNoise: {
-            enabled: (pianoOffsetCf & 0x10) !== 0 && pianoLib.pedalNoise,
-        },
-        /**
-         * Offset in file: 0xCF (b3-2)
-         *
-         * @example
-         * #include ns2PianoDynamicsMap
-         *
-         * @module NS2 Piano Dynamics
-         */
+        pedalNoise: ns2BooleanValue((pianoOffsetCf & 0x10) !== 0 && pianoLib.pedalNoise, false),
+
         dynamics: {
-            value: mapping.ns2PianoDynamicsMap.get((pianoOffsetCf & 0x0c) >>> 2),
+            midi: dynamics,
+            value: mapping.ns2PianoDynamicsMap.get(dynamics),
+            isDefault: dynamics === 0,
         },
         /**
          * Offset in file: 0xCE (b0) and 0xCF (b7)
@@ -256,6 +257,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
         clavinetModel: {
             enabled: clavinetEnabled,
             value: clavinetModel,
+            isDefault: false,
         },
         /**
          * Offset in file: 0xCF (b1-0)
@@ -268,6 +270,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
         clavinetEqHi: {
             enabled: clavinetEnabled,
             value: mapping.ns2PianoClavinetEqHiMap.get(pianoOffsetCf & 0x03),
+            isDefault: false,
         },
         /**
          * Offset in file: 0xD0 (b7-6)
@@ -280,6 +283,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
         clavinetEq: {
             enabled: clavinetEnabled,
             value: mapping.ns2PianoClavinetEqMap.get((pianoOffsetD0 & 0xc0) >>> 6),
+            isDefault: false,
         },
 
         /**

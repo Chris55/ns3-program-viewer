@@ -3,8 +3,7 @@ const mapping = require("./ns2-mapping");
 const { ns2ProgramOutputMap } = require("./ns2-mapping");
 const { ns2Filter } = require("./ns2-synth-filter");
 const { ns2OscShape, ns2SkipSampleAttack } = require("./ns2-synth-osc-shape");
-const { ns2KbZone } = require("./ns2-utils");
-const { ns2VolumeEx } = require("./ns2-utils");
+const { ns2VolumeEx, ns2OctaveShift, ns2KbZone, ns2BooleanValue } = require("./ns2-utils");
 const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
 const { ns3SynthPreset } = require("../../ns3/program/ns3-utils");
 const { getSample } = require("../../library/ns3-library-service");
@@ -106,9 +105,11 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         const value = valid ? items[1] : "??";
         const info = valid ? items[0] : "??";
         return {
-            valid, value, info,
-        }
-    }
+            valid,
+            value,
+            info,
+        };
+    };
 
     switch (oscillatorType) {
         case "TRI": {
@@ -199,6 +200,56 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
 
     const routing = ns2ProgramOutputMap.get((synthOffset59 & 0x60) >>> 5);
 
+    /**
+     * Offset in file: 0xfc (b2-1)
+     *
+     * @example
+     * #include ns2SynthVoiceMap
+     *
+     * @module NS2 Synth Voice
+     */
+    const voice = (synthOffsetFcW & 0x0600) >>> 9;
+
+    /**
+     * Offset in file: 0xfb (b1-0) and 0xfc (b7-3)
+     *
+     * @example
+     * 0/127 value = 0 / 10
+     *
+     * @module NS2 Synth Glide
+     */
+    const glide = (synthOffsetFbW & 0x03f8) >>> 3;
+
+    /**
+     * Offset in file: 0xfc (b0) and 0xfd (b7-6)
+     *
+     * @example
+     * #include ns2SynthUnisonMap
+     *
+     * @module NS2 Synth Unison
+     */
+    const unison = (synthOffsetFcW & 0x01c0) >>> 6;
+
+    /**
+     * Offset in file: 0xfd (b5-3)
+     *
+     * @example
+     * #include ns2SynthVibratoMap
+     *
+     * @module NS2 Synth Vibrato
+     */
+    const vibrato = (synthOffsetFcW & 0x0038) >>> 3;
+
+    /**
+     * Offset in file: 0xd9 (b0)
+     *
+     * @example
+     * O = off, 1 = on
+     *
+     * @module NS2 Synth Arp On
+     */
+    const arpeggiatorEnabled = (synthOffsetD9 & 0x01) !== 0;
+
     const synth = {
         debug: {
             sampleId: sampleId.toString(16),
@@ -260,9 +311,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
          *
          * @module NS2 Synth Octave Shift
          */
-        octaveShift: {
-            value: (synthOffset51 & 0x0f) - 7,
-        },
+        octaveShift: ns2OctaveShift(synthOffset51 & 0x0f),
+
         /**
          * Offset in file: 0x52 (b7)
          *
@@ -271,9 +321,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
          *
          * @module NS2 Synth Pitch Stick
          */
-        pitchStick: {
-            enabled: (synthOffset52 & 0x80) !== 0,
-        },
+        pitchStick: ns2BooleanValue((synthOffset52 & 0x80) !== 0, true),
+
         /**
          * Offset in file: 0x52 (b6)
          *
@@ -282,9 +331,9 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
          *
          * @module NS2 Synth Sustain Pedal
          */
-        sustainPedal: {
-            enabled: (synthOffset52 & 0x40) !== 0,
-        },
+        sustainPedal: ns2BooleanValue((synthOffset52 & 0x40) !== 0, true),
+
+
         /**
          * Offset in file: 0x5a (b5)
          *
@@ -293,9 +342,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
          *
          * @module NS2 Synth Latch Pedal
          */
-        latchPedal: {
-            enabled: (synthOffset5a & 0x20) !== 0,
-        },
+        latchPedal: ns2BooleanValue((synthOffset5a & 0x20) !== 0, false),
+
         /**
          * Offset in file: 0x5a (b4)
          *
@@ -304,9 +352,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
          *
          * @module NS2 Synth Kb Gate
          */
-        kbGate: {
-            enabled: (synthOffset5a & 0x10) !== 0,
-        },
+        kbGate: ns2BooleanValue((synthOffset5a & 0x10) !== 0, false),
+
         /**
          * Offset in file: 0xdc (b1)
          *
@@ -315,53 +362,32 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
          *
          * @module NS2 Synth Kb Hold
          */
-        keyboardHold: {
-            enabled: (synthOffsetDc & 0x02) !== 0,
-        },
-        /**
-         * Offset in file: 0xfc (b2-1)
-         *
-         * @example
-         * #include ns2SynthVoiceMap
-         *
-         * @module NS2 Synth Voice
-         */
+        keyboardHold: ns2BooleanValue((synthOffsetDc & 0x02) !== 0, false),
+
         voice: {
-            value: mapping.ns2SynthVoiceMap.get((synthOffsetFcW & 0x0600) >>> 9),
+            midi: voice,
+            value: mapping.ns2SynthVoiceMap.get(voice),
+            isDefault: voice === 0,
         },
-        /**
-         * Offset in file: 0xfb (b1-0) and 0xfc (b7-3)
-         *
-         * @example
-         * 0/127 value = 0 / 10
-         *
-         * @module NS2 Synth Glide
-         */
+
         glide: {
-            value: converter.midi2LinearStringValue(0, 10, (synthOffsetFbW & 0x03f8) >>> 3, 1, ""),
+            midi: glide,
+            value: converter.midi2LinearStringValue(0, 10, glide, 1, ""),
+            isDefault: glide === 0,
         },
-        /**
-         * Offset in file: 0xfc (b0) and 0xfd (b7-6)
-         *
-         * @example
-         * #include ns2SynthUnisonMap
-         *
-         * @module NS2 Synth Unison
-         */
+
         unison: {
-            value: mapping.ns2SynthUnisonMap.get((synthOffsetFcW & 0x01c0) >>> 6),
+            midi: unison,
+            value: mapping.ns2SynthUnisonMap.get(unison),
+            isDefault: unison === 0,
         },
-        /**
-         * Offset in file: 0xfd (b5-3)
-         *
-         * @example
-         * #include ns2SynthVibratoMap
-         *
-         * @module NS2 Synth Vibrato
-         */
+
         vibrato: {
-            value: mapping.ns2SynthVibratoMap.get((synthOffsetFcW & 0x0038) >>> 3),
+            midi: vibrato,
+            value: mapping.ns2SynthVibratoMap.get(vibrato),
+            isDefault: vibrato === 0,
         },
+
         /***
          * Synth Oscillators Definition
          */
@@ -632,6 +658,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
                 },
             },
         },
+
         lfo: {
             /**
              * Offset in file: 0xf7 (b3-2)
@@ -685,15 +712,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
         },
 
         arpeggiator: {
-            /**
-             * Offset in file: 0xd9 (b0)
-             *
-             * @example
-             * O = off, 1 = on
-             *
-             * @module NS2 Synth Arp On
-             */
-            enabled: (synthOffsetD9 & 0x01) !== 0,
+            enabled: arpeggiatorEnabled,
+            isDefault: arpeggiatorEnabled === false,
 
             /**
              * @example

@@ -9,8 +9,6 @@ import NordLabel from "../lib/nord-label";
 export default class Ns2VolumeAndMore extends Component {
     render() {
         const section = this.props.data;
-        const octaveShift =
-            (section.octaveShift.value >= 0 ? "+" + section.octaveShift.value : section.octaveShift.value) + " oct";
 
         const options =
             this.props.name === "EXTERN" ? (
@@ -61,7 +59,7 @@ export default class Ns2VolumeAndMore extends Component {
                     </div>
 
                     <div className="">
-                        <NordLabelAndValue enabled={section.octaveShift.value !== 0} data={{ value: octaveShift }} />
+                        <NordLabelAndValue enabled={section.octaveShift.value !== 0} data={section.octaveShift} />
                     </div>
 
                     {options}

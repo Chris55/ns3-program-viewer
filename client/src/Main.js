@@ -12,17 +12,20 @@ import {
     setError,
     setExporting,
     setExportingDetail,
-    toggleShowAll,
+    toggleShowAll, toggleShowDefault,
 } from "./features/nord/nordSliceReducer";
 import { Form, Navbar } from "react-bootstrap";
 
 const Main = () => {
     const dispatch = useDispatch();
-    const { loading, loaded, data, showAll, exporting, exportDetails, production } = useSelector(nordSelector);
+    const { loading, loaded, data, showAll, showDefault, exporting, exportDetails, production } = useSelector(nordSelector);
 
     const handleToggleShow = () => {
-        console.log("tootle");
         dispatch(toggleShowAll());
+    };
+
+    const handleToggleDefault = () => {
+        dispatch(toggleShowDefault());
     };
 
     const handleExport = async () => {
@@ -55,14 +58,26 @@ const Main = () => {
                             </Form>
                         </Navbar.Collapse>
                         <Navbar.Collapse className="justify-content-end">
-                            <Form inline className="">
+                            <Form inline >
                                 <Form.Check
-                                    label="Show All"
+                                    className="mr-5"
+                                    label="Smart"
+                                    name="default"
+                                    type="switch"
+                                    id="id-default"
+                                    disabled={false}
+                                    checked={showDefault}
+                                    onClick={handleToggleDefault}
+                                    title="Highlight all non-init values"
+                                />
+                                <Form.Check
+                                    label="All"
                                     name="show"
                                     type="switch"
                                     id="id-show"
                                     checked={showAll}
                                     onClick={handleToggleShow}
+                                    title="Show all instruments"
                                 />
                             </Form>
                         </Navbar.Collapse>

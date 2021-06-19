@@ -18,6 +18,7 @@ const initialState = {
     originalData: [model],
     error: null,
     showAll: false,
+    showDefault: false,
     exporting: false,
     exportDetails: "",
 };
@@ -45,6 +46,9 @@ const nordSlice = createSlice({
         },
         setError: (state, { payload }) => {
             state.error = payload;
+        },
+        toggleShowDefault: (state, { payload }) => {
+            state.showDefault = !state.showDefault;
         },
         toggleShowAll: (state, { payload }) => {
             if (!state.showAll) {
@@ -98,6 +102,7 @@ export const {
     setLoadingSuccess,
     setLoadingError,
     setError,
+    toggleShowDefault,
     toggleShowAll,
     setExporting,
     setExportingDetail,

@@ -1,32 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
+import { useSelector } from "react-redux";
+import { nordSelector } from "../../features/nord/nordSliceReducer";
 
-export default class NordValueOnOff extends Component {
-    render() {
+const NordValueOnOff = ({ label, data, upperCase, table }) => {
+    const { showDefault } = useSelector(nordSelector);
 
-        let className = this.props.data.enabled? "nord-value nord-on" : "nord-value nord-off"
+    let className = data.enabled ? "nord-value nord-on" : "nord-value nord-off";
 
-        const upperCase = this.props.upperCase === false ? "nord-no-upper-case" : "nord-upper-case";
+    const upperCase1 = upperCase === false ? "nord-no-upper-case" : "nord-upper-case";
 
-        if (this.props.data.isDefault !== undefined ) {
-             className += this.props.data.isDefault ? " nord-default-value" : " nord-non-default-value";
-        }
+    if (showDefault && data.isDefault !== undefined) {
+        className += data.isDefault ? " nord-default-value" : " nord-non-default-value";
+    }
 
-        if (this.props.table === true) {
-            return (
-                <>
-                    <td colSpan="3" className={className + " " + upperCase}>
-                        <span>{this.props.label}</span>
-                    </td>
-                </>
-            );
-        }
-
+    if (table === true) {
         return (
             <>
-                <span className={className + " " + upperCase}>{this.props.label}</span>
+                <td colSpan="3" className={className + " " + upperCase1}>
+                    <span>{label}</span>
+                </td>
             </>
         );
     }
-}
+
+    return (
+        <>
+            <span className={className + " " + upperCase1}>{label}</span>
+        </>
+    );
+};
+
+export default NordValueOnOff;

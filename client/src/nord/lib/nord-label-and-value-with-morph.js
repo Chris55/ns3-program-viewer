@@ -41,6 +41,7 @@ export default class NordLabelAndValueWithMorph extends Component {
                             data={data.morph.wheel.to}
                             upperCase={this.props.upperCase}
                             valueClass={this.props.valueClass}
+                            isDefault={false}
                         />
                     </td>
                 </tr>
@@ -54,6 +55,7 @@ export default class NordLabelAndValueWithMorph extends Component {
                             data={data.morph.afterTouch.to}
                             upperCase={this.props.upperCase}
                             valueClass={this.props.valueClass}
+                            isDefault={false}
                         />
                     </td>
                 </tr>
@@ -67,6 +69,7 @@ export default class NordLabelAndValueWithMorph extends Component {
                             data={data.morph.controlPedal.to}
                             upperCase={this.props.upperCase}
                             valueClass={this.props.valueClass}
+                            isDefault={false}
                         />
                     </td>
                 </tr>

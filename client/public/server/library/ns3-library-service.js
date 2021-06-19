@@ -91,13 +91,18 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     // fallback if piano name is unknown
     // special case is if sampleId = 0 (this happens when program init is used and new piano not saved...)
     if (!sampleLib) {
-        if (sampleId === 0) {
+        // if (sampleId === 0) {
+        //     sample.value = "Sample 1 (Program Init)";
+        // } else if (location) {
+        //     sample.value = "Sample " + (location + 1);
+        // } else {
+        //     // on NS2 the location is not available in the program !
+        //     sample.value = "Unknown";
+        // }
+        if (sampleId === 0 && location === undefined) {
             sample.value = "Sample 1 (Program Init)";
-        } else if (location) {
-            sample.value = "Sample " + (location + 1);
         } else {
-            // on NS2 the location is not available in the program !
-            sample.value = "Unknown";
+            sample.value = "Sample " + (location + 1);
         }
     }
 

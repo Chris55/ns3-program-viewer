@@ -1,57 +1,77 @@
-import React, { Component } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
+import { useSelector } from "react-redux";
+import { nordSelector } from "../../features/nord/nordSliceReducer";
 
-export default class NordLabelAndValue extends Component {
-    render() {
-        let labelClassName =
-            this.props.enabled === undefined
-                ? "nord-label nord-on"
-                : this.props.enabled === true
-                ? "nord-label nord-on"
-                : "nord-label nord-off";
+/***
+ * returns Label & Value
+ *
+ * @param enabled
+ * @param label
+ * @param title
+ * @param data
+ * @param upperCase
+ * @param valueClass
+ * @param table
+ * @param isDefault
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const NordLabelAndValue = ({ enabled, label, title, data, upperCase, valueClass, table, isDefault}) => {
+    const { showDefault } = useSelector(nordSelector);
 
-        let valueClassName =
-            this.props.enabled === undefined
-                ? "nord-value nord-on"
-                : this.props.enabled === true
-                ? "nord-value nord-on"
-                : "nord-value nord-off";
+    let labelClassName =
+        enabled === undefined
+            ? "nord-label nord-on"
+            : enabled === true
+            ? "nord-label nord-on"
+            : "nord-label nord-off";
 
-        if (this.props.data.isDefault !== undefined ) {
-            // labelClassName += this.props.data.isDefault ? " nord-default-value" : " nord-non-default-value";
-            valueClassName += this.props.data.isDefault ? " nord-default-value" : " nord-non-default-value";
-        }
+    let valueClassName =
+        enabled === undefined
+            ? "nord-value nord-on"
+            : enabled === true
+            ? "nord-value nord-on"
+            : "nord-value nord-off";
 
-        const customValueClassName = this.props.valueClass || "";
+    const isDefault1 = data.isDefault !== undefined ?  data.isDefault: isDefault;
 
-        const upperCase = this.props.upperCase === false ? "nord-no-upper-case" : "nord-upper-case";
+    if (showDefault && isDefault1 !== undefined) {
+        // labelClassName += data.isDefault ? " nord-default-value" : " nord-non-default-value";
+        valueClassName += isDefault1? " nord-default-value" : " nord-non-default-value";
+    }
 
-        const label = this.props.label === undefined ? "" : this.props.label + " ";
+    const customValueClassName = valueClass || "";
 
-        if (this.props.table === true) {
-            return (
-                <>
-                    <td className={labelClassName} title={this.props.title}>
-                        {this.props.label}
-                    </td>
+    const upperCase1 = upperCase === false ? "nord-no-upper-case" : "nord-upper-case";
 
-                    <td />
+    const label1 = label === undefined ? "" : label + " ";
 
-                    <td className={upperCase + " " + valueClassName + " " + customValueClassName}>
-                       {this.props.data.value}
-                    </td>
-                </>
-            );
-        }
-
+    if (table === true) {
         return (
             <>
-                <span className={labelClassName}>{label}</span>
-                <span className={upperCase + " " + valueClassName + " " + customValueClassName}>
-                    {this.props.data.value}
-                </span>
+                <td className={labelClassName} title={title}>
+                    {label1}
+                </td>
+
+                <td />
+
+                <td className={upperCase1 + " " + valueClassName + " " + customValueClassName}>
+                    {data.value}
+                </td>
             </>
         );
     }
-}
+
+    return (
+        <>
+            <span className={labelClassName}>{label1}</span>
+            <span className={upperCase1 + " " + valueClassName + " " + customValueClassName}>
+                {data.value}
+            </span>
+        </>
+    );
+};
+
+export default NordLabelAndValue;

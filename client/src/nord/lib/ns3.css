@@ -117,11 +117,12 @@
 }
 
 .nord-default-value {
-    /*color: indianred;*/
+    /*color: #c23746;*/
 }
 
 .nord-non-default-value {
-
+    font-weight: bold !important;
+    color: #c23746;
 }
 
 

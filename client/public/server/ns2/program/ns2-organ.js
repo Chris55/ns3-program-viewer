@@ -2,8 +2,7 @@ const mapping = require("./ns2-mapping");
 const { ns2ProgramOutputMap } = require("./ns2-mapping");
 const { formatOrganDrawbars } = require("../../common/converter");
 const { ns2MorphOrganDrawbar } = require("./ns2-morph");
-const { ns2KbZone } = require("./ns2-utils");
-const { ns2VolumeEx } = require("./ns2-utils");
+const { ns2KbZone, ns2OctaveShift, ns2VolumeEx, ns2BooleanValue } = require("./ns2-utils");
 
 /***
  * return B3 and Vox Drawbars Preset and Morph
@@ -400,9 +399,7 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          *
          * @module NS2 Organ Octave Shift
          */
-        octaveShift: {
-            value: ((organOffset47 & 0x1e) >>> 1) - 7,
-        },
+        octaveShift: ns2OctaveShift((organOffset47 & 0x1e) >>> 1),
 
         /**
          * Offset in file: 0x30 (b6)
@@ -412,9 +409,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          *
          * @module NS2 Organ Pitch Stick
          */
-        pitchStick: {
-            enabled: (organOffset30 & 0x40) !== 0,
-        },
+        pitchStick: ns2BooleanValue((organOffset30 & 0x40) !== 0, false),
+
         /**
          * Offset in file: 0x47 (b0)
          *
@@ -423,9 +419,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          *
          * @module NS2 Organ Sustain Pedal
          */
-        sustainPedal: {
-            enabled: (organOffset47 & 0x01) !== 0,
-        },
+        sustainPedal: ns2BooleanValue((organOffset47 & 0x01) !== 0, false),
+
         /**
          * Offset in file: 0x59 (b1)
          *
@@ -434,9 +429,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          *
          * @module NS2 Organ Latch Pedal
          */
-        latchPedal: {
-            enabled: (organOffset59 & 0x02) !== 0,
-        },
+        latchPedal: ns2BooleanValue((organOffset59 & 0x02) !== 0, false),
+
         /**
          * Offset in file: 0x59 (b0)
          *
@@ -445,9 +439,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          *
          * @module NS2 Organ Kb Gate
          */
-        kbGate: {
-            enabled: (organOffset59 & 0x01) !== 0,
-        },
+        kbGate: ns2BooleanValue((organOffset59 & 0x01) !== 0, false),
+
         /**
          * Offset in file: 0x34 (b7-6)
          *
@@ -457,7 +450,9 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          * @module NS2 Organ Model
          */
         type: {
+            midi: organTypeValue,
             value: organType,
+            isDefault: organTypeValue === 0,
         },
 
         preset1: {
@@ -910,7 +905,7 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          */
         output: {
             value: routing,
-            isDefault: routing === ns2ProgramOutputMap.get(0)
+            isDefault: routing === ns2ProgramOutputMap.get(0),
         },
     };
 };

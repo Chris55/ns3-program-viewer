@@ -258,17 +258,18 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     // All these settings are common for Slot A & B
 
     // noinspection JSPrimitiveTypeWrapperUsage
-    ns2.slotB.piano.slotDetune.value = ns2.slotA.piano.slotDetune.value;
+    ns2.slotB.piano.slotDetune = ns2.slotA.piano.slotDetune;
 
-    ns2.slotB.organ.pitchStick.enabled = ns2.slotA.organ.pitchStick.enabled;
-    ns2.slotB.organ.type.value = ns2.slotA.organ.type.value;
-    ns2.slotB.organ.preset1.vibrato.enabled = ns2.slotA.organ.preset1.vibrato.enabled;
-    ns2.slotB.organ.preset1.vibrato.mode = ns2.slotA.organ.preset1.vibrato.mode;
-    ns2.slotB.organ.preset2.vibrato.enabled = ns2.slotA.organ.preset1.vibrato.enabled;
+    ns2.slotB.organ.pitchStick = ns2.slotA.organ.pitchStick;
+    ns2.slotB.organ.type = ns2.slotA.organ.type;
+    // noinspection JSPrimitiveTypeWrapperUsage
+    ns2.slotB.organ.preset1.vibrato = ns2.slotA.organ.preset1.vibrato;
+    // noinspection JSPrimitiveTypeWrapperUsage
+    ns2.slotB.organ.preset2.vibrato = ns2.slotA.organ.preset1.vibrato;
 
-    ns2.slotB.organ.preset1.percussion.volumeSoft.enabled = ns2.slotA.organ.preset1.percussion.volumeSoft.enabled;
-    ns2.slotB.organ.preset1.percussion.decayFast.enabled = ns2.slotA.organ.preset1.percussion.decayFast.enabled;
-    ns2.slotB.organ.preset1.percussion.harmonicThird.enabled = ns2.slotA.organ.preset1.percussion.harmonicThird.enabled;
+    ns2.slotB.organ.preset1.percussion.volumeSoft = ns2.slotA.organ.preset1.percussion.volumeSoft;
+    ns2.slotB.organ.preset1.percussion.decayFast = ns2.slotA.organ.preset1.percussion.decayFast;
+    ns2.slotB.organ.preset1.percussion.harmonicThird = ns2.slotA.organ.preset1.percussion.harmonicThird;
 
     // NS2 User Manual:
     // The percussion can be used on Slot A or on Slot B provided that

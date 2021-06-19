@@ -229,24 +229,24 @@ describe("/ns2/piano", () => {
         });
     });
 
-    test("slotA.piano.octaveShift.value eq -7", async () => {
-        const file = "slotA.piano.octaveShift.value eq -7.ns2p";
+    test("slotA.piano.octaveShift.value eq -7 oct", async () => {
+        const file = "slotA.piano.octaveShift.value eq -7 oct.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.octaveShift.value eq 0", async () => {
-        const file = "slotA.piano.octaveShift.value eq 0.ns2p";
+    test("slotA.piano.octaveShift.value eq @p0 oct", async () => {
+        const file = "slotA.piano.octaveShift.value eq @p0 oct.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
         });
     });
 
-    test("slotA.piano.octaveShift.value eq 6", async () => {
-        const file = "slotA.piano.octaveShift.value eq 6.ns2p";
+    test("slotA.piano.octaveShift.value eq @p6 oct", async () => {
+        const file = "slotA.piano.octaveShift.value eq @p6 oct.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);
