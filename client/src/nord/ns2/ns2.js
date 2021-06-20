@@ -5,6 +5,7 @@ import NordLabelAndValue from "../lib/nord-label-and-value";
 import NordLabel from "../lib/nord-label";
 import Ns2FxCompressor from "./ns2-fx-compressor";
 import Ns2FxReverb from "./ns2-fx-reverb";
+import NordValueOnOff from "../lib/nord-value-on-off";
 
 export default class Ns2 extends Component {
     render() {
@@ -50,9 +51,8 @@ export default class Ns2 extends Component {
                         </table>
                     </div>
                     <div className="col-1 text-right nord-option-on">
-                        <NordLabel enabled={data.dualKeyboard.enabled} label="Dual KB" />
-                        {/*<br />*/}
-                        {/*<NordLabelAndValue enabled={data.dualKeyboard.enabled} data={data.dualKeyboard} />*/}
+                        <NordValueOnOff data={data.dualKeyboard} label="Dual KB" />
+                        {/*<NordLabel enabled={data.dualKeyboard.enabled} label="Dual KB" />*/}
                     </div>
                 </div>
 

@@ -1,5 +1,6 @@
 const path = require("path");
 const mapping = require("./ns2-mapping");
+const {ns2BooleanValue} = require("./ns2-utils");
 const { ns2Reverb } = require("./ns2-fx-reverb");
 const { ns2Compressor } = require("./ns2-fx-compressor");
 const { zeroPad } = require("../../common/converter");
@@ -129,6 +130,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const transpose = {
         enabled: transposeEnabled,
         value: transposeEnabled ? mapping.ns2TransposeMap.get(transposeValue) : "",
+        isDefault: transposeValue === 6,
     };
 
     /**
@@ -197,20 +199,18 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
      */
     const tempo = ((offset31W & 0x1fe0) >>> 5) + 30;
 
-    const dualKeyboard = {
-        /**
-         * Offset in file 0x2e (b5)
-         *
-         * @example
-         * 0 = Off
-         * 1 = On
-         *
-         * Note: if Dual Keyboard is On, both panel are enabled.
-         *
-         * @module NS2 Dual Keyboard
-         */
-        enabled: (offset2e & 0x20) !== 0,
-    };
+    /**
+     * Offset in file 0x2e (b5)
+     *
+     * @example
+     * 0 = Off
+     * 1 = On
+     *
+     * Note: if Dual Keyboard is On, both panel are enabled.
+     *
+     * @module NS2 Dual Keyboard
+     */
+    const dualKeyboard = ns2BooleanValue((offset2e & 0x20) !== 0, false);
 
     const ext = path.extname(filename).substr(1);
 
@@ -219,6 +219,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         masterClock: {
             rate: {
                 value: tempo + " bpm",
+                isDefault: tempo === 120,
             },
             //keyboardSync: '' // this is a global setting
         },
@@ -287,10 +288,12 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
        // if (ns2.slotB.organ.preset1.percussion.enabled || ns2.slotB.organ.preset2.percussion.enabled) {
         if (ns2.slotA.organ.enabled && ns2.slotB.organ.enabled) {
             ns2.slotA.organ.preset1.percussion.enabled = false;
-            ns2.slotA.organ.preset1.percussion.volumeSoft.enabled = false;
-            ns2.slotA.organ.preset1.percussion.decayFast.enabled = false;
-            ns2.slotA.organ.preset1.percussion.harmonicThird.enabled = false;
+            ns2.slotA.organ.preset1.percussion.isDefault = true;
+            ns2.slotA.organ.preset1.percussion.volumeSoft = ns2BooleanValue(false, false);
+            ns2.slotA.organ.preset1.percussion.decayFast = ns2BooleanValue(false, false);
+            ns2.slotA.organ.preset1.percussion.harmonicThird = ns2BooleanValue(false, false);
             ns2.slotA.organ.preset2.percussion.enabled = false;
+            ns2.slotA.organ.preset2.percussion.isDefault = true;
         }
     }
 

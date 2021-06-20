@@ -123,6 +123,7 @@
 .nord-non-default-value {
     font-weight: bold !important;
     color: #c23746;
+    background-color: rgb(246, 246, 246);
 }
 
 

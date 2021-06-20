@@ -640,8 +640,13 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
             vibrato: {
                 enabled: vibratoPreset1,
 
+                isDefault: vibratoPreset1 === false,
+
                 mode: {
                     value: organVibratoMode,
+
+                    isDefault: organVibratoMode === "C3",
+
                     label: vibratoChorusModeLabel,
                 },
             },
@@ -651,6 +656,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
              */
             percussion: {
                 enabled: percussionPreset1,
+
+                isDefault: percussionPreset1 === false,
 
                 /**
                  * Offset in file: 0x35 (b2)
@@ -662,9 +669,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
                  *
                  * @module NS2 Organ B3 Volume Soft
                  */
-                volumeSoft: {
-                    enabled: organTypeIsB3 && !((organOffset35 & 0x04) !== 0),
-                },
+                volumeSoft: ns2BooleanValue(organTypeIsB3 && !((organOffset35 & 0x04) !== 0), false),
+
                 /**
                  * Offset in file: 0x35 (b3)
                  *
@@ -675,9 +681,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
                  *
                  * @module NS2 Organ B3 Decay Fast
                  */
-                decayFast: {
-                    enabled: organTypeIsB3 && (organOffset35 & 0x08) !== 0,
-                },
+                decayFast: ns2BooleanValue(organTypeIsB3 && (organOffset35 & 0x08) !== 0, false),
+
                 /**
                  * Offset in file:  0x35 (b4)
                  *
@@ -688,9 +693,7 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
                  *
                  * @module NS2 Organ B3 Harmonic Third
                  */
-                harmonicThird: {
-                    enabled: organTypeIsB3 && (organOffset35 & 0x10) !== 0,
-                },
+                harmonicThird: ns2BooleanValue(organTypeIsB3 && (organOffset35 & 0x10) !== 0, false),
             },
         },
         preset2: {
@@ -703,6 +706,8 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
              * @module NS3 Organ Preset 2 On
              */
             enabled: organPreset2Enabled,
+
+            isDefault: organPreset2Enabled === false,
 
             /**
              * @example
@@ -885,6 +890,7 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
 
             vibrato: {
                 enabled: vibratoPreset2,
+                isDefault: vibratoPreset2 === false,
             },
 
             /***
@@ -892,6 +898,7 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
              */
             percussion: {
                 enabled: percussionPreset2,
+                isDefault: percussionPreset2 === false,
             },
         },
 
