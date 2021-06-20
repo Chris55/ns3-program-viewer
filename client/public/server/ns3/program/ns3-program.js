@@ -1,9 +1,8 @@
 const path = require("path");
 const mapping = require("./ns3-mapping");
-const { programCategoryMap } = require("../../common/nord-mapping");
+const { getName, getVersion } = require("../../common/converter");
+const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 const { ns3ProgramLocation } = require("./ns3-utils");
-const { nordFileExtMap } = require("../../common/nord-mapping");
-const { getVersion } = require("../../common/converter");
 const { ns3Panel } = require("./ns3-panel");
 
 /***
@@ -344,7 +343,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
 
     const ns3 = {
         // program file
-        name: filename.replace(/\.[^/.]+$/, ""),
+        name: getName(filename.replace(/\.[^/.]+$/, "")),
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),

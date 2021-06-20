@@ -1,12 +1,11 @@
 const path = require("path");
 const mapping = require("./ns2-mapping");
-const {ns2BooleanValue} = require("./ns2-utils");
+const { ns2BooleanValue } = require("./ns2-utils");
 const { ns2Reverb } = require("./ns2-fx-reverb");
 const { ns2Compressor } = require("./ns2-fx-compressor");
-const { zeroPad } = require("../../common/converter");
-const { programCategoryMap } = require("../../common/nord-mapping");
+const { zeroPad, getName } = require("../../common/converter");
+const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 const { ns2Slot } = require("./ns2-slot");
-const { nordFileExtMap } = require("../../common/nord-mapping");
 
 /***
  * returns Nord Stage 3 program data
@@ -233,7 +232,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
 
     const ns2 = {
         // program file
-        name: filename.replace(/\.[^/.]+$/, ""),
+        name: getName(filename.replace(/\.[^/.]+$/, "")),
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
@@ -285,7 +284,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     // Then SlotB takes precedence, in SlotA the parameters can not be used anymore.
 
     if ((ns2.slotA.enabled && ns2.slotB.enabled) || ns2.dualKeyboard.enabled) {
-       // if (ns2.slotB.organ.preset1.percussion.enabled || ns2.slotB.organ.preset2.percussion.enabled) {
+        // if (ns2.slotB.organ.preset1.percussion.enabled || ns2.slotB.organ.preset2.percussion.enabled) {
         if (ns2.slotA.organ.enabled && ns2.slotB.organ.enabled) {
             ns2.slotA.organ.preset1.percussion.enabled = false;
             ns2.slotA.organ.preset1.percussion.isDefault = true;

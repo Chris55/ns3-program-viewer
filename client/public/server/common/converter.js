@@ -140,7 +140,7 @@ exports.formatOrganDrawbars = (d, type) => {
     if (type !== "B3") return d;
 
     return `${d.substr(0, 2)} ${d.substr(2, 4)} ${d.substr(6, 3)}`;
-}
+};
 
 /***
  * returns morph model
@@ -205,4 +205,31 @@ exports.getMorphModel = (result, labelCallBack) => {
             },
         },
     };
-}
+};
+
+/***
+ * returns valid Nord program name
+ *
+ * @param name
+ * @returns {string}
+ */
+exports.getName = (name) => {
+    if (!name) {
+        return "Unnamed";
+    }
+
+    const max = 16;
+    let valid = "";
+
+    let regx = new RegExp(/[ a-zA-Z0-9-]/);
+
+    for (let i = 0; i < name.length && i < max; i++) {
+        if (regx.test(name[i])) {
+            valid += name[i];
+        } else {
+            valid += "-";
+        }
+    }
+
+    return valid;
+};
