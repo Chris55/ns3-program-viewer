@@ -232,7 +232,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
 
     const ns2 = {
         // program file
-        name: getName(filename.replace(/\.[^/.]+$/, "")),
+        name: getName(filename),
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),

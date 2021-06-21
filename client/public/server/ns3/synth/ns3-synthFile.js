@@ -1,9 +1,8 @@
 const path = require("path");
 const { ns3SynthLocation } = require("../program/ns3-utils");
-const { synthCategoryMap } = require("../../common/nord-mapping");
+const { synthCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 const { ns3Synth } = require("../program/ns3-synth");
-const { nordFileExtMap } = require("../../common/nord-mapping");
-const { getVersion } = require("../../common/converter");
+const { getVersion, getName } = require("../../common/converter");
 
 /***
  * returns Nord Stage 3 synth data
@@ -28,7 +27,6 @@ exports.loadNs3SynthFile = (buffer, filename) => {
         throw new Error("Invalid file, unexpected file length");
     }
 
-    // const fileId = buffer.readUInt16BE(0x0e);
     const offset04 = buffer.readUInt8(0x04);
 
     const synthCategoryValue = buffer.readUInt8(0x12);
@@ -117,9 +115,10 @@ exports.loadNs3SynthFile = (buffer, filename) => {
         },
     };
 
+    // noinspection UnnecessaryLocalVariableJS
     const ns3SynthFile = {
         // program file
-        name: filename.replace(/\.[^/.]+$/, ""),
+        name: getName(filename),
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),

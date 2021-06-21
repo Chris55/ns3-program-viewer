@@ -208,15 +208,27 @@ exports.getMorphModel = (result, labelCallBack) => {
 };
 
 /***
- * returns valid Nord program name
+ * returns a valid Nord program name from a filename
+ * files from NUF 1624224019581-hello.ns3f returns hello
  *
- * @param name
+ * @param filename
  * @returns {string}
  */
-exports.getName = (name) => {
-    if (!name) {
+exports.getName = (filename) => {
+    if (!filename) {
         return "Unnamed";
     }
+
+    // remove the extension
+    let name = filename.replace(/\.[^/.]+$/, "");
+
+    // removes NUF header
+    const regxForum = new RegExp(/^[0-9]{13}-/);
+    if (regxForum.test(name)) {
+        name = name.substr(14);
+    }
+
+    // valid size and characters
 
     const max = 16;
     let valid = "";

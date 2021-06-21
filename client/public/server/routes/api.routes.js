@@ -11,7 +11,15 @@ const storage = multer.diskStorage({
         cb(null, DIR);
     },
     filename: (req, file, cb) => {
-        const fileName = file.originalname.toLowerCase().split(" ").join("-");
+        let originalName = file.originalname;
+
+        // removes NUF header
+        const regxForum = new RegExp(/^[0-9]{13}-/);
+        if (regxForum.test(originalName)) {
+            originalName = originalName.substr(14);
+        }
+
+        const fileName = originalName.toLowerCase().split(" ").join("-");
         cb(null, Date.now() + "-" + fileName);
     },
 });
@@ -50,7 +58,6 @@ router.post("/upload", upload.array("nordFiles", 100), async (req, res, next) =>
             if (process.env.NODE_ENV !== "production") {
                 // in dev cleanup all files
                 // in prod: no cleanup required heroku free dyno restart every 24h and cleanup everything
-                // this allows to monitor in /media the last 24h site usage
                 await fs.unlink(file.path).catch(next);
             }
 
