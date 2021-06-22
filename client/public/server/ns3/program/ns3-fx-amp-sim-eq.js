@@ -89,7 +89,7 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
         treble: {
             midi: midi2LinearValue(0, 127, trebleRawValue, 0, 0, 120),
 
-            isDefault: trebleRawValue === 64,
+            isDefault: trebleRawValue === 60,
 
             value: mapping.ns3AmpSimEqdBMap.get(trebleRawValue),
         },
@@ -107,7 +107,7 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
         midRes: {
             midi: midResMidi,
 
-            isDefault: midResMidi === 64,
+            isDefault: redOptions ? midResMidi === 64: midResRawValue === 60,
 
             value:
                 redOptions === true
@@ -128,7 +128,7 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
         bassDryWet: {
             midi: bassDryWetMidi,
 
-            isDefault: bassDryWetMidi === 64,
+            isDefault: redOptions ? bassDryWetMidi === 64: bassDryWetRawValue === 60,
 
             value:
                 redOptions === true
