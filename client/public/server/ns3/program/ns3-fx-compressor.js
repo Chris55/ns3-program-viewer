@@ -1,4 +1,5 @@
 const converter = require("../../common/converter");
+const { ns3BooleanValue } = require("./ns3-utils");
 
 /***
  * returns Compressor
@@ -35,6 +36,8 @@ exports.ns3Compressor = (buffer, panelOffset) => {
         amount: {
             midi: compressorAmountMidi,
 
+            isDefault: compressorAmountMidi === 0,
+
             value: converter.midi2LinearStringValue(0, 10, compressorAmountMidi, 1, ""),
         },
 
@@ -46,8 +49,6 @@ exports.ns3Compressor = (buffer, panelOffset) => {
          *
          *  @module NS3 Compressor Fast
          */
-        fast: {
-            enabled: (effectOffset139W & 0x0020) !== 0,
-        },
+        fast: ns3BooleanValue((effectOffset139W & 0x0020) !== 0, false),
     };
 };

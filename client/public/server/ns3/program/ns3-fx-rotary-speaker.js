@@ -1,5 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
+const { ns3BooleanValue } = require("./ns3-utils");
 
 /***
  * returns Rotary Speaker Effect section
@@ -14,6 +15,9 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
     const organOffset35W = buffer.readUInt16BE(0x35 + panelOffset);
     const rotarySpeakerOffset39W = buffer.readUInt16BE(0x39 + panelOffset);
     const rotarySpeakerOffset10B = buffer.readUInt8(0x10b + panelOffset);
+
+    const drive = (rotarySpeakerOffset39W & 0b0000011111110000) >>> 4;
+    const speed = organOffset34 & 0x01;
 
     return {
         /**
@@ -49,7 +53,9 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
          * @module NS3 Rotary Speaker Drive
          */
         drive: {
-            value: converter.midi2LinearStringValue(0, 10, (rotarySpeakerOffset39W & 0b0000011111110000) >>> 4, 1, ""),
+            value: converter.midi2LinearStringValue(0, 10, drive, 1, ""),
+
+            isDefault: drive === 0,
         },
 
         /**
@@ -62,9 +68,7 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
          *
          * @module NS3 Rotary Speaker Stop Mode
          */
-        stopMode: {
-            enabled: !((organOffset35 & 0x80) >>> 7 !== 0),
-        },
+        stopMode: ns3BooleanValue(!((organOffset35 & 0x80) >>> 7 !== 0), false),
 
         /**
          * Offset in file: 0x34 (bit0)
@@ -101,7 +105,10 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
          */
 
         speed: {
-            value: mapping.ns3RotarySpeakerSpeedMap.get(organOffset34 & 0x01),
+            value: mapping.ns3RotarySpeakerSpeedMap.get(speed),
+
+            isDefault: speed === 0,
+
             morph: {
                 wheel: {
                     enabled: (organOffset35W & 0x7000) >>> 12 !== 0x03,

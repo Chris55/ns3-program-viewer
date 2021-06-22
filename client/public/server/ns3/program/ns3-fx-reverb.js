@@ -1,5 +1,6 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
+const { ns3BooleanValue } = require("./ns3-utils");
 const { ns3Morph7Bits } = require("./ns3-morph");
 
 /***
@@ -16,6 +17,8 @@ exports.ns3Reverb = (buffer, panelOffset) => {
     const reverbOffset136Ww = buffer.readUInt32BE(0x136 + panelOffset);
 
     const reverbAmountMidi = (reverbOffset135W & 0x1fc0) >>> 6;
+
+    const type = (reverbOffset134W & 0x01c0) >>> 6;
 
     return {
         /**
@@ -42,7 +45,8 @@ exports.ns3Reverb = (buffer, panelOffset) => {
          * @module NS3 Reverb Type
          */
         type: {
-            value: mapping.ns3ReverbTypeMap.get((reverbOffset134W & 0x01c0) >>> 6),
+            value: mapping.ns3ReverbTypeMap.get(type),
+            isDefault: type === 0,
         },
 
         /**
@@ -67,6 +71,8 @@ exports.ns3Reverb = (buffer, panelOffset) => {
         amount: {
             midi: reverbAmountMidi,
 
+            isDefault: reverbAmountMidi === 64,
+
             value: converter.midi2LinearStringValue(0, 10, reverbAmountMidi, 1, ""),
 
             morph: ns3Morph7Bits(
@@ -87,8 +93,6 @@ exports.ns3Reverb = (buffer, panelOffset) => {
          *
          *  @module NS3 Reverb Bright
          */
-        bright: {
-            enabled: (reverbOffset134W & 0x0020) !== 0,
-        },
+        bright: ns3BooleanValue((reverbOffset134W & 0x0020) !== 0, false),
     };
 };

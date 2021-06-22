@@ -150,6 +150,11 @@ exports.ns3VolumeEx = (buffer, offset) => {
         value: dBMap.get(midi),
 
         /***
+         * Default values status
+         */
+        isDefault: midi === 127,
+
+        /***
          * Morphing settings
          */
         morph: morph,
@@ -288,5 +293,37 @@ exports.ns3SynthPreset = (buffer, offset) => {
          * @module NS3 Synth Preset Name
          */
         presetName: name.trim(),
+    };
+};
+
+/***
+ * returns NS3 Octave Shift obj
+ *
+ * @param rawValue
+ * @returns {{midi, isDefault: boolean, value: string}}
+ */
+exports.ns3OctaveShift = (rawValue) => {
+    const offsetShiftOffset = -6;
+    const octaveShift = rawValue + offsetShiftOffset;
+
+    return {
+        midi: rawValue,
+        value: `${octaveShift >= 0 ? `+${octaveShift}` : `${octaveShift}`} oct`,
+        isDefault: octaveShift === 0,
+    };
+};
+
+/***
+ * returns NS3 Boolean obj
+ *
+ * @param rawValue
+ * @param defaultValue
+ * @returns {{midi: (number), isDefault: boolean, enabled}}
+ */
+exports.ns3BooleanValue = (rawValue, defaultValue) => {
+    return {
+        midi: rawValue ? 127 : 0,
+        enabled: rawValue,
+        isDefault: rawValue === defaultValue,
     };
 };

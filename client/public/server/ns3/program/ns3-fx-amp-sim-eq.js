@@ -21,7 +21,8 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
     const eqOffset130W = buffer.readUInt16BE(0x130 + panelOffset);
     const eqOffset131Ww = buffer.readUInt32BE(0x131 + panelOffset);
 
-    const ampSimType = mapping.ns3AmpSimTypeMap.get((eqOffset12a & 0xe0) >>> 5);
+    const ampSimTypeRawValue = (eqOffset12a & 0xe0) >>> 5;
+    const ampSimType = mapping.ns3AmpSimTypeMap.get(ampSimTypeRawValue);
     const redOptions = (ampSimType === "LP24") || (ampSimType === "HP24");
 
     const trebleRawValue = (eqOffset12aW & 0x1fc0) >> 6;
@@ -73,6 +74,7 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
         ampType: {
             value: ampSimType,
             redOptions: redOptions,
+            isDefault: ampSimTypeRawValue === 0,
         },
 
         /**
@@ -86,6 +88,8 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
          */
         treble: {
             midi: midi2LinearValue(0, 127, trebleRawValue, 0, 0, 120),
+
+            isDefault: trebleRawValue === 64,
 
             value: mapping.ns3AmpSimEqdBMap.get(trebleRawValue),
         },
@@ -102,6 +106,8 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
          */
         midRes: {
             midi: midResMidi,
+
+            isDefault: midResMidi === 64,
 
             value:
                 redOptions === true
@@ -121,6 +127,8 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
          */
         bassDryWet: {
             midi: bassDryWetMidi,
+
+            isDefault: bassDryWetMidi === 64,
 
             value:
                 redOptions === true
@@ -151,6 +159,8 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
          */
         midFilterFreq: {
             midi: midFilterFreqMidi,
+
+            isDefault: midFilterFreqMidi === 64,
 
             value: mapping.ns3AmpSimEqMidFilterFreqMap.get(midFilterFreqMidi),
 
@@ -185,6 +195,8 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
          */
         overdrive: {
             midi: drive,
+
+            isDefault: drive === 0,
 
             value: converter.midi2LinearStringValue(0, 10, drive, 1, ""),
 

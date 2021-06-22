@@ -1,6 +1,5 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
-const { getMorph2 } = require("./ns3-morph");
 const { ns3Morph7Bits } = require("./ns3-morph");
 const { ns3KnobDualValues } = require("./ns3-utils");
 
@@ -22,8 +21,12 @@ exports.ns3Filter = (buffer, panelOffset) => {
     const synthOffsetA4W = buffer.readUInt16BE(0xa4 + panelOffset);
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
 
-    const filterType = mapping.ns3SynthFilterTypeMap.get((synthOffset98 & 0x1c) >>> 2);
+    const filterTypeRaw = (synthOffset98 & 0x1c) >>> 2;
+    const filterType = mapping.ns3SynthFilterTypeMap.get(filterTypeRaw);
     const filterTypeIsLpHp = filterType === "LP+HP";
+
+    const kbTrack = (synthOffsetA5W & 0x3000) >>> 12;
+    const drive = (synthOffsetA5W & 0x0c00) >>> 10;
 
     const filterModulation1KnobMidi = (synthOffsetA0W & 0x0fe0) >>> 5;
     const filterModulation2Knob = ns3KnobDualValues((synthOffsetA4W & 0x1fc0) >>> 6);
@@ -48,6 +51,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
          */
         type: {
             value: filterType,
+            isDefault: filterTypeRaw === 0,
         },
         /**
          * Offset in file: 0xA5 (b5-4)
@@ -61,7 +65,8 @@ exports.ns3Filter = (buffer, panelOffset) => {
          * @module NS3 Synth Filter Kb Track
          */
         kbTrack: {
-            value: mapping.ns3SynthFilterKbTrackMap.get((synthOffsetA5W & 0x3000) >>> 12),
+            value: mapping.ns3SynthFilterKbTrackMap.get(kbTrack),
+            isDefault: kbTrack === 0,
         },
         /**
          * Offset in file: 0xA5 (b3-2)
@@ -75,8 +80,10 @@ exports.ns3Filter = (buffer, panelOffset) => {
          * @module NS3 Synth Filter Drive
          */
         drive: {
-            value: mapping.ns3SynthFilterDriveMap.get((synthOffsetA5W & 0x0c00) >>> 10),
+            value: mapping.ns3SynthFilterDriveMap.get(drive),
+            isDefault: drive === 0,
         },
+
         modulations: {
             /**
              * Offset in file: 0xA0 (b3-0) and 0xA1 (b7-5)
@@ -99,6 +106,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
              */
             lfoAmount: {
                 midi: filterModulation1KnobMidi,
+                isDefault: filterModulation1KnobMidi === 0,
                 value: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
                 morph: ns3Morph7Bits(
                     synthOffsetA1Ww >>> 5,
@@ -124,11 +132,13 @@ exports.ns3Filter = (buffer, panelOffset) => {
              */
             velAmount: {
                 rawValue: filterModulation2Knob.fromValueRange120,
+                isDefault: filterModulation2Knob.fromValueRange120 === 60,
                 midi: filterModulation2Knob.leftMidi,
                 value: filterModulation2Knob.leftLabel,
             },
             modEnvAmount: {
                 rawValue: filterModulation2Knob.fromValueRange120,
+                isDefault: filterModulation2Knob.fromValueRange120 === 60,
                 midi: filterModulation2Knob.rightMidi,
                 value: filterModulation2Knob.rightLabel,
             },
@@ -156,6 +166,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
          */
         cutoffFrequency: {
             midi: filterCutoffFreqKnobMidi,
+            isDefault: filterCutoffFreqKnobMidi === 127,
             value: mapping.ns3SynthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
             morph: ns3Morph7Bits(
                 synthOffset99Ww >>> 3,
@@ -184,6 +195,8 @@ exports.ns3Filter = (buffer, panelOffset) => {
         highPassCutoffFrequency: {
             midi: filterTypeIsLpHp ? filterResFreqHpKnobMidi : 0,
 
+            isDefault: filterResFreqHpKnobMidi === 0,
+
             value: filterTypeIsLpHp ? mapping.ns3SynthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
 
             morph: ns3Morph7Bits(
@@ -198,6 +211,8 @@ exports.ns3Filter = (buffer, panelOffset) => {
 
         resonance: {
             midi: filterTypeIsLpHp ? 0 : filterResFreqHpKnobMidi,
+
+            isDefault: filterResFreqHpKnobMidi === 0,
 
             value: filterTypeIsLpHp ? "0.0" : converter.midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
 

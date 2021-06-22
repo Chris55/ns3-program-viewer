@@ -78,6 +78,8 @@ exports.ns3OscControl = (buffer, offset, oscConfig) => {
          */
         midi: oscControlMidi,
 
+        isDefault: oscControlMidi === 0,
+
         /***
          * Synth Oscillator Control value
          */

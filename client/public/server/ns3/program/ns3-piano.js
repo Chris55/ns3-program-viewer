@@ -1,7 +1,6 @@
 const mapping = require("./ns3-mapping");
 const { getSample } = require("../../library/ns3-library-service");
-const { ns3KbZone } = require("./ns3-utils");
-const { ns3VolumeEx } = require("./ns3-utils");
+const { ns3KbZone, ns3OctaveShift, ns3VolumeEx } = require("./ns3-utils");
 
 /***
  * returns Piano section
@@ -121,9 +120,8 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Piano Octave Shift
          */
-        octaveShift: {
-            value: (pianoOffset47 & 0x0f) - 6,
-        },
+        octaveShift: ns3OctaveShift(pianoOffset47 & 0x0f),
+
         /**
          * Offset in file: 0x48 (b7)
          *

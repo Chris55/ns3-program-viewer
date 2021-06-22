@@ -1,8 +1,7 @@
 const mapping = require("./ns3-mapping");
 const {formatOrganDrawbars} = require("../../common/converter");
 const { ns3MorphOrganDrawbar } = require("./ns3-morph");
-const { ns3KbZone } = require("./ns3-utils");
-const { ns3VolumeEx } = require("./ns3-utils");
+const { ns3KbZone, ns3OctaveShift, ns3VolumeEx } = require("./ns3-utils");
 
 /***
  * return Drawbars Preset and Morph
@@ -299,9 +298,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Organ Octave Shift
          */
-        octaveShift: {
-            value: (organOffsetBa & 0x0f) - 6,
-        },
+        octaveShift: ns3OctaveShift(organOffsetBa & 0x0f),
 
         /**
          * Offset in file: 0x34 (b4)

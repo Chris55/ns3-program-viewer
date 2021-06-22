@@ -54,6 +54,10 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
     const panelOffset = id * 263 + versionOffset;
     const offset144 = buffer.readUInt8(0x144 + panelOffset);
 
+    const outputMain = (offset144 & 0xe0) >>> 5;
+    const outputSubSource = (offset144 & 0x18) >>> 3;
+    const outputSubDestination = (offset144 & 0x06) >>> 1;
+
     const output = {
         /**
          * Offset in file 0x144 (b7-5)
@@ -64,7 +68,8 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
          * @module NS3 Program Output Main
          */
         main: {
-            value: mapping.ns3ProgramOutputMap.get((offset144 & 0xe0) >>> 5),
+            value: mapping.ns3ProgramOutputMap.get(outputMain),
+            isDefault: outputMain === 0,
         },
 
         /**
@@ -76,7 +81,8 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
          * @module NS3 Program Output Sub Source
          */
         subSource: {
-            value: mapping.ns3ProgramOutputSourceMap.get((offset144 & 0x18) >>> 3),
+            value: mapping.ns3ProgramOutputSourceMap.get(outputSubSource),
+            isDefault: outputSubSource === 0,
         },
 
         /**
@@ -88,7 +94,8 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
          * @module NS3 Program Output Sub Destination
          */
         subDestination: {
-            value: mapping.ns3ProgramOutputMap.get((offset144 & 0x06) >>> 1),
+            value: mapping.ns3ProgramOutputMap.get(outputSubDestination),
+            isDefault: outputSubDestination === 1,
         },
     };
 

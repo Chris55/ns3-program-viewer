@@ -1,14 +1,17 @@
 const mapping = require("./ns3-mapping");
 const converter = require("../../common/converter");
-const { ns3SynthPreset } = require("./ns3-utils");
+const {
+    ns3VolumeEx,
+    ns3KbZone,
+    ns3KnobDualValues,
+    ns3SynthPreset,
+    ns3OctaveShift,
+    ns3BooleanValue,
+} = require("./ns3-utils");
 const { getSample } = require("../../library/ns3-library-service");
-const { ns3MorphSynthOscillatorModulation } = require("./ns3-morph");
-const { ns3Morph7Bits } = require("./ns3-morph");
+const { ns3Morph7Bits, ns3MorphSynthOscillatorModulation } = require("./ns3-morph");
 const { ns3Filter } = require("./ns3-synth-filter");
 const { ns3OscControl } = require("./ns3-synth-osc-control");
-const { ns3VolumeEx } = require("./ns3-utils");
-const { ns3KbZone } = require("./ns3-utils");
-const { ns3KnobDualValues } = require("./ns3-utils");
 
 /***
  * Synth Envelope Decay / Release value
@@ -44,7 +47,7 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @param id {number}
  * @param panelOffset {number}
  * @param global
- * @param ns3y true is ns3y file
+ * @param ns3yFile
  * @returns {{voice: {value: *}, oscillators: {control: *, fastAttack: {enabled: boolean}, pitch: {midi: *, value: (string|string)}, type: {value: *}, waveForm1: *, config: {value: *}, modulations: {lfoAmount: {midi: *, morph: *, value: *}, modEnvAmount: {midi: *, morph: *, value: *}}}, debug: {lib: {valid: boolean, location: number, value: string, version: string, info: string}, sampleId: string, preset: {userPresetLocation: number, samplePresetLocation: number, presetName: string}}, unison: {value: *}, arpeggiator: {kbSync: {enabled: boolean}, rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, pattern: {value: *}, range: {value: *}, enabled: boolean}, kbZone: {array: string | string[] | boolean[], value: string | string[] | boolean[]}, sustainPedal: {enabled: boolean}, keyboardHold: {enabled: boolean}, preset: *, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: *, pitchStick: {enabled: boolean}, lfo: {rate: {midi: *, morph: *, value: *}, masterClock: {enabled: *}, wave: {value: *}}, glide: {value: *}, envelopes: {modulation: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {enabled: boolean}}, amplifier: {attack: {midi: *, value: *}, release: {midi: *, value: *}, decay: {midi: *, value: *}, velocity: {value: *}}}, vibrato: {value: *}}}
  */
 exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
@@ -107,6 +110,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
         version: "",
         location: 0,
         useConfigAndPitch: oscConfigValue !== 0,
+        isDefault: false,
     };
     switch (oscillatorType) {
         case "Classic":
@@ -174,6 +178,18 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
     const pitchShiftRangeAvailable = global.version.version >= 303;
     const pitchShiftRange = (synthOffset3b & 0xf0) >>> 4;
 
+    const voice = (synthOffset84W & 0x0180) >>> 7;
+    const glide = synthOffset84W & 0x007f;
+    const unison = (synthOffset86 & 0xc0) >>> 6;
+    const vibrato = (synthOffset86 & 0x38) >>> 3;
+
+    const amplifierVelocity= (synthOffsetA8 & 0x18) >>> 3;
+
+    const lfoWave = synthOffset86 & 0x07;
+
+    const arpeggiatorEnabled = (synthOffset80 & 0x40) !== 0;
+
+
     const synth = {
         debug: {
             sampleId: sampleId.toString(16),
@@ -230,9 +246,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
          *
          * @module NS3 Synth Octave Shift
          */
-        octaveShift: {
-            value: (synthOffset56 & 0x0f) - 6,
-        },
+        octaveShift: ns3OctaveShift(synthOffset56 & 0x0f),
+
         /**
          * Offset in file: 0x57 (b7)
          *
@@ -241,9 +256,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
          *
          * @module NS3 Synth Pitch Stick
          */
-        pitchStick: {
-            enabled: (synthOffset57 & 0x80) !== 0,
-        },
+        pitchStick: ns3BooleanValue((synthOffset57 & 0x80) !== 0, true),
 
         /**
          * Offset in file: 0x3b (b7-4)
@@ -261,6 +274,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
         pitchStickRange: {
             visible: pitchShiftRangeAvailable && pitchShiftRange !== 1,
             value: pitchShiftRangeAvailable ? mapping.ns3SynthPitchShiftRangeMap.get(pitchShiftRange) : 0,
+            isDefault: pitchShiftRange === 1,
         },
         /**
          * Offset in file: 0x57 (b6)
@@ -270,9 +284,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
          *
          * @module NS3 Synth Sustain Pedal
          */
-        sustainPedal: {
-            enabled: (synthOffset57 & 0x40) !== 0,
-        },
+        sustainPedal: ns3BooleanValue((synthOffset57 & 0x40) !== 0, true),
+
         /**
          * Offset in file: 0x80 (b7)
          *
@@ -281,9 +294,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
          *
          * @module NS3 Synth Kb Hold
          */
-        keyboardHold: {
-            enabled: (synthOffset80 & 0x80) !== 0,
-        },
+        keyboardHold: ns3BooleanValue((synthOffset80 & 0x80) !== 0, false),
+
         /**
          * Offset in file: 0x84 (b0) and 0x85 (b7)
          *
@@ -295,7 +307,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
          * @module NS3 Synth Voice
          */
         voice: {
-            value: mapping.ns3SynthVoiceMap.get((synthOffset84W & 0x0180) >>> 7),
+            value: mapping.ns3SynthVoiceMap.get(voice),
+            isDefault: voice === 0,
         },
         /**
          * Offset in file: 0x85 (b6-0) 7 bits, range 0/10
@@ -306,7 +319,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
          * @module NS3 Synth Glide
          */
         glide: {
-            value: converter.midi2LinearStringValue(0, 10, synthOffset84W & 0x007f, 1, ""),
+            value: converter.midi2LinearStringValue(0, 10, glide, 1, ""),
+            isDefault: glide === 0,
         },
         /**
          * Offset in file: 0x86 (b7-6)
@@ -320,7 +334,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
          * @module NS3 Synth Unison
          */
         unison: {
-            value: mapping.ns3SynthUnisonMap.get((synthOffset86 & 0xc0) >>> 6),
+            value: mapping.ns3SynthUnisonMap.get(unison),
+            isDefault: unison === 0,
         },
         /**
          * Offset in file: 0x86 (b5-3)
@@ -336,7 +351,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
          * @module NS3 Synth Vibrato
          */
         vibrato: {
-            value: mapping.ns3SynthVibratoMap.get((synthOffset86 & 0x38) >>> 3),
+            value: mapping.ns3SynthVibratoMap.get(vibrato),
+            isDefault: vibrato === 0,
         },
         /***
          * Synth Preset
@@ -360,6 +376,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              */
             type: {
                 value: oscillatorType,
+                isDefault: oscillatorType === "Classic",
             },
             /**
              * Offset in file: 0x8E (b3-0) and 0x8F (b7/6)
@@ -443,6 +460,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              */
             config: {
                 value: oscConfig,
+                isDefault: oscConfigValue === 0,
             },
             /**
              * Offset in file: 0x90 (b2-0) and 0x91 (b7-4)
@@ -486,6 +504,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                  */
                 midi: osc2PitchMidi,
 
+                isDefault: osc2Pitch === 0,
+
                 /***
                  * Synth Pitch value
                  */
@@ -518,6 +538,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                 lfoAmount: {
                     midi: oscModulation.leftMidi,
                     value: oscModulation.leftLabel,
+                    isDefault: oscModulation.fromValueRange120 === 60,
                     morph: ns3MorphSynthOscillatorModulation(
                         synthOffset95Ww >>> 5,
                         oscModulation.fromValueRange120,
@@ -530,6 +551,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                 modEnvAmount: {
                     midi: oscModulation.rightMidi,
                     value: oscModulation.rightLabel,
+                    isDefault: oscModulation.fromValueRange120 === 60,
                     morph: ns3MorphSynthOscillatorModulation(
                         synthOffset95Ww >>> 5,
                         oscModulation.fromValueRange120,
@@ -545,9 +567,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              *
              * @module NS3 Synth Fast Attack
              */
-            fastAttack: {
-                enabled: oscillatorType === "Sample" && (synthOffsetAc & 0x04) !== 0,
-            },
+            fastAttack: ns3BooleanValue(oscillatorType === "Sample" && (synthOffsetAc & 0x04) !== 0, false),
         },
 
         filter: ns3Filter(buffer, panelOffset),
@@ -565,6 +585,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                  */
                 attack: {
                     midi: envModAttackMidi,
+                    isDefault: envModAttackMidi === 0,
                     value: mapping.ns3SynthEnvAttackMap.get(envModAttackMidi),
                 },
 
@@ -579,6 +600,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                  */
                 decay: {
                     midi: envModDecayMidi,
+                    isDefault: envModDecayMidi === 59,
                     value: synthEnvDecayOrReleaseLabel(envModDecayMidi, "mod.decay"),
                 },
 
@@ -593,6 +615,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                  */
                 release: {
                     midi: envModReleaseMidi,
+                    isDefault: envModReleaseMidi === 59,
                     value: synthEnvDecayOrReleaseLabel(envModReleaseMidi, "mod.release"),
                 },
 
@@ -604,9 +627,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                  *
                  * @module NS3 Synth Mod Env Velocity
                  */
-                velocity: {
-                    enabled: (synthOffset8dW & 0x0400) !== 0,
-                },
+                velocity: ns3BooleanValue((synthOffset8dW & 0x0400) !== 0, false),
             },
             amplifier: {
                 /**
@@ -620,6 +641,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                  */
                 attack: {
                     midi: envAmpAttackMidi,
+                    isDefault: envAmpAttackMidi === 0,
                     value: mapping.ns3SynthEnvAttackMap.get(envAmpAttackMidi),
                 },
 
@@ -634,6 +656,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                  */
                 decay: {
                     midi: envAmpDecayMidi,
+                    isDefault: envAmpDecayMidi === 127,
                     value: synthEnvDecayOrReleaseLabel(envAmpDecayMidi, "amp.decay"),
                 },
 
@@ -648,6 +671,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                  */
                 release: {
                     midi: envAmpReleaseMidi,
+                    isDefault: envAmpReleaseMidi === 0,
                     value: synthEnvDecayOrReleaseLabel(envAmpReleaseMidi, "amp.release"),
                 },
 
@@ -663,7 +687,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                  * @module NS3 Synth Amp Env Velocity
                  */
                 velocity: {
-                    value: mapping.ns3SynthAmpEnvelopeVelocityMap.get((synthOffsetA8 & 0x18) >>> 3),
+                    value: mapping.ns3SynthAmpEnvelopeVelocityMap.get(amplifierVelocity),
+                    isDefault: amplifierVelocity === 0,
                 },
             },
         },
@@ -681,7 +706,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              * @module NS3 Synth Lfo Wave
              */
             wave: {
-                value: mapping.ns3SynthLfoWaveMap.get(synthOffset86 & 0x07),
+                value: mapping.ns3SynthLfoWaveMap.get(lfoWave),
+                isDefault: lfoWave === 0,
             },
             /**
              * Offset in file: 0x87 (b6-0)
@@ -709,6 +735,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
             rate: {
                 midi: lfoRateMidi,
 
+                isDefault: lfoRateMidi === 0,
+
                 value: lfoRateMasterClock
                     ? mapping.ns3SynthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
                     : mapping.ns3SynthLfoRateMap.get(lfoRateMidi),
@@ -735,6 +763,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              */
             masterClock: {
                 enabled: lfoRateMasterClock,
+                isDefault: lfoRateMasterClock === false,
             },
         },
         arpeggiator: {
@@ -746,7 +775,9 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              *
              * @module NS3 Synth Arp On
              */
-            enabled: (synthOffset80 & 0x40) !== 0,
+            enabled: arpeggiatorEnabled,
+
+            isDefault: arpeggiatorEnabled === false,
 
             /**
              * Offset in file: 0x81 (b7-1)
@@ -774,6 +805,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
             rate: {
                 midi: arpeggiatorRateMidi,
 
+                isDefault: arpeggiatorRateMidi === 54,
+
                 value: arpeggiatorMasterClock
                     ? mapping.ns3SynthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
                     : mapping.ns3SynthArpRateMap.get(arpeggiatorRateMidi),
@@ -798,9 +831,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              *
              * @module NS3 Synth Arp Kb Sync
              */
-            kbSync: {
-                enabled: (synthOffset80 & 0x20) !== 0,
-            },
+            kbSync: ns3BooleanValue((synthOffset80 & 0x20) !== 0, false),
+
             /**
              * Offset in file: 0x80 (b0)
              *
@@ -809,9 +841,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              *
              * @module NS3 Synth Arp Master Clock
              */
-            masterClock: {
-                enabled: arpeggiatorMasterClock,
-            },
+            masterClock: ns3BooleanValue(arpeggiatorMasterClock, false),
+
             /**
              * Offset in file: 0x80 (b4-3)
              *
@@ -825,6 +856,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              */
             range: {
                 value: mapping.ns3ArpeggiatorRangeMap.get(arpeggiatorRange),
+                isDefault: arpeggiatorRange === 0,
             },
             /**
              * Offset in file: 0x80 (b2-1)
@@ -839,6 +871,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
              */
             pattern: {
                 value: mapping.ns3ArpeggiatorPatternMap.get(arpeggiatorPattern),
+                isDefault: arpeggiatorPattern === 0,
             },
         },
     };

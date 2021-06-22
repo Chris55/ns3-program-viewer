@@ -17,7 +17,8 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
     const effectOffset110 = buffer.readUInt8(0x110 + panelOffset);
     const effectOffset110Ww = buffer.readUInt32BE(0x110 + panelOffset);
 
-    const effect1Type = mapping.ns3Effect1TypeMap.get((effectOffset10bW & 0x0380) >>> 7);
+    const effect1TypeMidi = (effectOffset10bW & 0x0380) >>> 7;
+    const effect1Type = mapping.ns3Effect1TypeMap.get(effect1TypeMidi);
     const effect1AmountMidi = effectOffset110 & 0x7f;
     const effect1RateMidi = (effectOffset10cW & 0x3f80) >>> 7;
 
@@ -62,6 +63,7 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
          */
         type: {
             value: effect1Type,
+            isDefault: effect1TypeMidi === 0,
         },
 
         /**
@@ -85,6 +87,8 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
          */
         amount: {
             midi: effect1AmountMidi,
+
+            isDefault: effect1AmountMidi === 64,
 
             value: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
 
@@ -123,9 +127,11 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
         rate: {
             midi: effect1RateMidi,
 
+            isDefault: effect1RateMidi === 64,
+
             value: effect1MasterClockUsed
                 ? mapping.ns3Effect1MasterClockDivisionMap.get(effect1RateMidi)
-                : effect1RateMidi + " (" + converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, "") + ")",
+                :  `${converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, "")} (${effect1RateMidi})`,
 
             morph: ns3Morph7Bits(
                 effectOffset10dWw >>> 7,
@@ -133,7 +139,7 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
                 (x) => {
                     return effect1MasterClockUsed
                         ? mapping.ns3Effect1MasterClockDivisionMap.get(x)
-                        : x + " (" + converter.midi2LinearStringValue(0, 10, x, 1, "") + ")";
+                        : `${converter.midi2LinearStringValue(0, 10, x, 1, "")} (${x})`;
                 },
                 false
             ),
@@ -149,6 +155,8 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
          */
         masterClock: {
             enabled: effect1MasterClockUsed,
+
+            isDefault: effect1MasterClockUsed === false,
         },
     };
 };

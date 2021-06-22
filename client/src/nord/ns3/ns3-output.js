@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
+import NordValueOnOff from "../lib/nord-value-on-off";
+import NordLabelAndValue from "../lib/nord-label-and-value";
 
 export default class Ns3Output extends Component {
     render() {
@@ -25,7 +27,7 @@ export default class Ns3Output extends Component {
 
                                         </td>
                                         <td>
-                                            {output.main.value}
+                                            <NordLabelAndValue label="" data={output.main} table={false} />
                                         </td>
                                     </tr>
                                     <tr>
@@ -33,10 +35,10 @@ export default class Ns3Output extends Component {
                                             Sub
                                         </td>
                                         <td style={{padding: "0 0.5rem"}}>
-                                            {output.subSource.value}
+                                            <NordLabelAndValue label="" data={output.subSource} table={false} />
                                         </td>
                                         <td className={output.subSource.value === "Off" ? "nord-off": ""}>
-                                            {output.subDestination.value}
+                                            <NordLabelAndValue label="" data={output.subDestination} table={false} />
                                         </td>
                                     </tr>
                                 </tbody>

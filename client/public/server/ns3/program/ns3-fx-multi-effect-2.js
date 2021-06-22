@@ -15,6 +15,7 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
     const effectOffset115W = buffer.readUInt16BE(0x115 + panelOffset);
     const effectOffset116Ww = buffer.readUInt32BE(0x116 + panelOffset);
 
+    const effect2Type = (effectOffset114 & 0x1c) >>> 2;
     const effect2AmountMidi = (effectOffset115W & 0x07f0) >>> 4;
     const effect2RateMidi = (effectOffset114W & 0x03f8) >>> 3;
 
@@ -55,7 +56,8 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
          * @module NS3 Effect 2 Type
          */
         type: {
-            value: mapping.ns3Effect2TypeMap.get((effectOffset114 & 0x1c) >>> 2),
+            value: mapping.ns3Effect2TypeMap.get(effect2Type),
+            isDefault: effect2Type === 0,
         },
 
         /**
@@ -80,6 +82,8 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
         amount: {
             midi: effect2AmountMidi,
 
+            isDefault: effect2AmountMidi === 64,
+
             value: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
 
             morph: ns3Morph7Bits(
@@ -102,7 +106,10 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
          */
         rate: {
             midi: effect2RateMidi,
-            value: effect2RateMidi + " (" + converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, "") + ")",
+
+            isDefault: effect2RateMidi === 64,
+
+            value: `${converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, "")} (${effect2RateMidi})`,
         },
     };
 };

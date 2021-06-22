@@ -15,8 +15,8 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
     const rotarySpeakerOffset41 = buffer.readUInt8(0x41 + panelOffset);
 
     const drive = (rotarySpeakerOffset3fW & 0x03f8) >>> 3;
-    const speed = mapping.ns2RotarySpeakerSpeedMap.get((rotarySpeakerOffset40 & 0x02) >>> 1);
-    const stopMode = ((rotarySpeakerOffset40 & 0x04) !== 0);
+    const speed = (rotarySpeakerOffset40 & 0x02) >>> 1;
+    const stopMode = (rotarySpeakerOffset40 & 0x04) !== 0;
 
     return {
         /**
@@ -89,9 +89,9 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
          */
 
         speed: {
-            value: speed,
+            value: mapping.ns2RotarySpeakerSpeedMap.get(speed),
 
-            isDefault: speed === mapping.ns2RotarySpeakerSpeedMap.get(0),
+            isDefault: speed === 0,
 
             morph: {
                 wheel: {

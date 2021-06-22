@@ -1,8 +1,8 @@
 const converter = require("../../common/converter");
 const mapping = require("./ns3-mapping");
+const {ns3BooleanValue} = require("./ns3-utils");
 const { getLinearInterpolation } = require("../../common/converter");
-const { ns3Morph14Bits } = require("./ns3-morph");
-const { ns3Morph7Bits } = require("./ns3-morph");
+const { ns3Morph7Bits, ns3Morph14Bits } = require("./ns3-morph");
 
 /***
  * replace the note by unicode value
@@ -102,6 +102,8 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
     const delayFeedbackMidi = (delayOffset125W & 0x07f0) >>> 4;
     const delayMixMidi = (delayOffset121W & 0x1fc0) >>> 6;
 
+    const filter = (delayOffset125 & 0x18) >>> 3;
+
     return {
         /**
          * Offset in file: 0x119 (b3)
@@ -135,6 +137,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
          */
         masterClock: {
             enabled: delayMasterClock,
+            isDefault: delayMasterClock === false,
         },
 
         /**
@@ -175,6 +178,8 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
 
             value: fixSignature(getTempo(delayMasterClock, delayTempoMidiValue, delayTempoTapValue)),
 
+            isDefault: delayTempoMidiValue === 64,
+
             morph:
                 global.version.version <= 300
                     ? ns3Morph7Bits(
@@ -204,9 +209,8 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
          *
          *  @module NS3 Delay Ping Pong
          */
-        pingPong: {
-            enabled: (delayOffset125 & 0x20) !== 0,
-        },
+        pingPong: ns3BooleanValue((delayOffset125 & 0x20) !== 0, false),
+
 
         /**
          *  Offset in file: 0x125 (b4-3)
@@ -217,7 +221,8 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
          *  @module NS3 Delay Filter
          */
         filter: {
-            value: mapping.ns3DelayFilterMap.get((delayOffset125 & 0x18) >>> 3),
+            value: mapping.ns3DelayFilterMap.get(filter),
+            isDefault: filter === 0,
         },
 
         /**
@@ -228,9 +233,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
          *
          *  @module NS3 Delay Analog Mode
          */
-        analogMode: {
-            enabled: (delayOffset129 & 0x08) !== 0,
-        },
+        analogMode: ns3BooleanValue((delayOffset129 & 0x08) !== 0, false),
 
         /**
          * Offset in file: 0x125 (b2-0) and 0x126 (b7-4)
@@ -255,6 +258,8 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
             midi: delayFeedbackMidi,
 
             value: converter.midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
+
+            isDefault: delayFeedbackMidi === 64,
 
             morph: ns3Morph7Bits(
                 delayOffset126Ww >>> 4,
@@ -289,6 +294,8 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
             midi: delayMixMidi,
 
             value: converter.midi2LinearStringValue(0, 10, delayMixMidi, 1, ""),
+
+            isDefault: delayMixMidi === 64,
 
             morph: ns3Morph7Bits(
                 delayOffset122Ww >>> 6,
