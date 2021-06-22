@@ -157,6 +157,8 @@ exports.ns2Effect1 = (buffer, panelOffset) => {
 
             isDefault: effect1RateMidi === 64,
 
+            comment: "2nd value is equivalent to Nord Stage 3",
+
             value: effect1MasterClockUsed
                 ? mapping.ns2Effect1MasterClockDivisionMap.get(effect1RateMidi)
                 : effect1RateMidi + " (" + converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, "") + ")",

@@ -110,6 +110,8 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
             isDefault: effect2RateMidi === 64,
 
             value: `${converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, "")} (${effect2RateMidi})`,
+
+            comment: "2nd value is equivalent to Nord Stage 2",
         },
     };
 };

@@ -291,3 +291,32 @@ td > * {
 
 }
 
+/* Tooltip container */
+.nord-tooltip {
+    position: relative;
+    /*display: inline-block;*/
+    /*border-bottom: 1px dotted black; */
+}
+
+/* Tooltip text */
+.nord-tooltip .nord-tooltip-text {
+    visibility: hidden;
+    background-color: #3b4047;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 999;
+
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+
+.nord-tooltip:hover .nord-tooltip-text {
+    visibility: visible;
+}
+

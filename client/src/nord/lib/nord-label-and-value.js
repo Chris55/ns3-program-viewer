@@ -48,6 +48,10 @@ const NordLabelAndValue = ({ enabled, label, title, data, upperCase, valueClass,
 
     const label1 = label === undefined ? "" : label + " ";
 
+    const infoClassName =  data.comment ? "nord-tooltip": "";
+    const info = data.comment ? <span>{"*"}<span className="nord-tooltip-text">{data.comment}</span></span>
+        : <></>
+
     if (table === true) {
         return (
             <>
@@ -57,8 +61,9 @@ const NordLabelAndValue = ({ enabled, label, title, data, upperCase, valueClass,
 
                 <td />
 
-                <td className={upperCase1 + " " + valueClassName + " " + customValueClassName}>
+                <td className={`${upperCase1} ${valueClassName} ${customValueClassName} ${infoClassName}`}>
                     {data.value}
+                    {info}
                 </td>
             </>
         );
@@ -66,9 +71,10 @@ const NordLabelAndValue = ({ enabled, label, title, data, upperCase, valueClass,
 
     return (
         <>
-            <span className={labelClassName}>{label1}</span>
-            <span className={upperCase1 + " " + valueClassName + " " + customValueClassName}>
+            <span className={labelClassName} title={data.comment}>{label1}</span>
+            <span className={`${upperCase1} ${valueClassName} ${customValueClassName} ${infoClassName}`}>
                 {data.value}
+                {info}
             </span>
         </>
     );

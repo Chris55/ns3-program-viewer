@@ -9,8 +9,6 @@ import NordLabel from "../lib/nord-label";
 export default class Ns3VolumeAndMore extends Component {
     render() {
         const section = this.props.data;
-        const octaveShift =
-            (section.octaveShift.value >= 0 ? "+" + section.octaveShift.value : section.octaveShift.value) + " oct";
 
         const pitchStickRangeAvailable = this.props.name === "SYNTH";
         const pitchStickRangeVisible = pitchStickRangeAvailable && section.pitchStickRange?.visible;
