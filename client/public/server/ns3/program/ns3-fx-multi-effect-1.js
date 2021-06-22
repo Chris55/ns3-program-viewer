@@ -133,7 +133,7 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
                 ? mapping.ns3Effect1MasterClockDivisionMap.get(effect1RateMidi)
                 :  `${converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, "")} (${effect1RateMidi})`,
 
-            comment: "2nd value is equivalent to Nord Stage 2",
+            comment: effect1MasterClockUsed ? "": "2nd value is equivalent to Nord Stage 2",
 
             morph: ns3Morph7Bits(
                 effectOffset10dWw >>> 7,
