@@ -1,6 +1,6 @@
 const mapping = require("./ns3-mapping");
 const { getSample } = require("../../library/ns3-library-service");
-const { ns3KbZone, ns3OctaveShift, ns3VolumeEx } = require("./ns3-utils");
+const { ns3KbZone, ns3OctaveShift, ns3VolumeEx, ns3BooleanValue } = require("./ns3-utils");
 
 /***
  * returns Piano section
@@ -11,7 +11,7 @@ const { ns3KbZone, ns3OctaveShift, ns3VolumeEx } = require("./ns3-utils");
  * @param id {number}
  * @param panelOffset {number}
  * @param global
- * @returns {{kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}}
+ * @returns {{kbTouch: {isDefault: boolean, value: string}, debug: {lib: {size: string, value: (string|*), version: string, info: string}, sampleId: string, sampleVariation: number}, kbZone: {array, value}, softRelease: {midi: number, isDefault: boolean, enabled}, sustainPedal: {midi: number, isDefault: boolean, enabled}, type: {isDefault: boolean, value: string}, octaveShift: {midi, isDefault: boolean, value: string}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: {isDefault: boolean, value: (string|string)}, pitchStick: {midi: number, isDefault: boolean, enabled}, stringResonance: {midi: number, isDefault: boolean, enabled}, name: {size: string, value: (string|*), version: string, info: string}, model: {isDefault: boolean, value: number}, pedalNoise: {midi: number, isDefault: boolean, enabled}, layerDetune: {isDefault: boolean, value: string}}}
  */
 exports.ns3Piano = (buffer, id, panelOffset, global) => {
     const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
@@ -54,7 +54,8 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
     const pianoSampleId = Number((pianoOffset49WW & 0x0ffffffff0000000n) >> 28n);
     const pianoLib = getSample(pianoSampleId, pianoSampleVariation, pianoModel);
 
-    const pianoTimbreValues = mapping.ns3PianoTimbreMap.get((pianoOffset4e & 0x38) >>> 3);
+    const pianoTimbreRaw = (pianoOffset4e & 0x38) >>> 3;
+    const pianoTimbreValues = mapping.ns3PianoTimbreMap.get(pianoTimbreRaw);
 
     // Timbre are different for each Piano type
     // with one subtle Harpsi case:
@@ -63,6 +64,10 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
     const pianoTypeForTimbre = pianoTypeValue === 3 && pianoLib.value.includes("Harpsi") ? 0 : pianoTypeValue;
 
     const pianoTimbre = pianoTypeValue >= 0 && pianoTypeValue < 6 ? pianoTimbreValues[pianoTypeForTimbre] : "None";
+
+    const kbTouch = (pianoOffset4dW & 0x0180) >>> 7;
+
+    const layerDetune = (pianoOffset34 & 0x60) >>> 5;
 
     const piano = {
         debug: {
@@ -130,9 +135,8 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Piano Pitch Stick
          */
-        pitchStick: {
-            enabled: (pianoOffset48 & 0x80) !== 0,
-        },
+        pitchStick: ns3BooleanValue((pianoOffset48 & 0x80) !== 0, false),
+
         /**
          * Offset in file: 0x48 (b6)
          *
@@ -141,9 +145,8 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Piano Sustain Pedal
          */
-        sustainPedal: {
-            enabled: (pianoOffset48 & 0x40) !== 0,
-        },
+        sustainPedal: ns3BooleanValue((pianoOffset48 & 0x40) !== 0, true),
+
         /**
          * Offset in file: 0x48 (b5-3)
          *
@@ -159,6 +162,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          */
         type: {
             value: pianoType,
+            isDefault: pianoType === "Grand",
         },
         /**
          * Offset in file:  0x48 (b2-0) and 0x49 (b7-6)
@@ -173,6 +177,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          */
         model: {
             value: pianoModel,
+            isDefault: pianoModel === 0,
         },
         /**
          * Offset in file: 0x49 (b3-0) to 0x4D (b7-3)
@@ -215,6 +220,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          */
         timbre: {
             value: pianoTimbre,
+            isDefault: pianoTimbreRaw === 0,
         },
         /**
          * Offset in file: 0x4D (b0) and 0x4E (b7)
@@ -228,7 +234,8 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * @module NS3 Piano KB Touch
          */
         kbTouch: {
-            value: mapping.ns3PianoKbTouchMap.get((pianoOffset4dW & 0x0180) >>> 7),
+            value: mapping.ns3PianoKbTouchMap.get(kbTouch),
+            isDefault: kbTouch === 0,
         },
         /**
          * Offset in file: 0x34 (b6-5)
@@ -244,7 +251,8 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * @module NS3 Piano Layer Detune
          */
         layerDetune: {
-            value: mapping.ns3PianoLayerDetuneMap.get((pianoOffset34 & 0x60) >>> 5),
+            value: mapping.ns3PianoLayerDetuneMap.get(layerDetune),
+            isDefault: layerDetune === 0,
         },
         /**
          * Offset in file: 0x4D (b4)
@@ -256,9 +264,8 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Piano Soft Release
          */
-        softRelease: {
-            enabled: ((pianoOffset4d & 0x08) !== 0) && pianoLib.softRelease,
-        },
+        softRelease: ns3BooleanValue((pianoOffset4d & 0x08) !== 0 && pianoLib.softRelease, false),
+
         /**
          * Offset in file: 0x4D (b2)
          *
@@ -269,9 +276,8 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Piano Pedal Noise
          */
-        pedalNoise: {
-            enabled: ((pianoOffset4d & 0x02) !== 0) && pianoLib.pedalNoise,
-        },
+        pedalNoise: ns3BooleanValue((pianoOffset4d & 0x02) !== 0 && pianoLib.pedalNoise, false),
+
         /**
          * Offset in file: 0x4D (b3)
          *
@@ -282,9 +288,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Piano String Resonance
          */
-        stringResonance: {
-            enabled: ((pianoOffset4d & 0x04) !== 0)  && pianoLib.stringsRes,
-        },
+        stringResonance: ns3BooleanValue((pianoOffset4d & 0x04) !== 0 && pianoLib.stringsRes, false),
     };
 
     if (process.env.NODE_ENV === "production") {
