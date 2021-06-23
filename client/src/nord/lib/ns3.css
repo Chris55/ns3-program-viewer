@@ -130,7 +130,7 @@
 .dot {
     height: 10px;
     width: 10px;
-    background-color: lightgrey;
+    background-color: #eaeaea;
     border-style: solid;
     border-width: thin;
     border-radius: 50%;
