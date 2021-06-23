@@ -33,8 +33,13 @@ const Main = () => {
             dispatch(setExportingDetail(name));
         };
         dispatch(setExporting(true));
-        await buildExport(data, showAll, callback).catch((e) => dispatch(setError(e.message)));
-        dispatch(setExporting(false));
+        try {
+            await buildExport(data, showAll, callback);
+        } catch(e) {
+            dispatch(setError(e.message));
+        } finally {
+            dispatch(setExporting(false));
+        }
     };
 
     return (
@@ -67,7 +72,7 @@ const Main = () => {
                                     id="id-default"
                                     disabled={false}
                                     checked={showDefault}
-                                    onClick={handleToggleDefault}
+                                    onChange={handleToggleDefault}
                                     title="Highlight all non-init values"
                                 />
                                 <Form.Check
@@ -76,7 +81,7 @@ const Main = () => {
                                     type="switch"
                                     id="id-show"
                                     checked={showAll}
-                                    onClick={handleToggleShow}
+                                    onChange={handleToggleShow}
                                     title="Show all instruments"
                                 />
                             </Form>

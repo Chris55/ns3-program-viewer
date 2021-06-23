@@ -3,17 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { configureStore } from "@reduxjs/toolkit";
-import menuSliceReducer from "./features/menu/menuSliceReducer";
 import { Provider } from "react-redux";
-import nordSliceReducer from "./features/nord/nordSliceReducer";
-
-const store = configureStore({
-    reducer: {
-        menuStore: menuSliceReducer,
-        nordStore: nordSliceReducer
-    },
-});
+import { store } from "./features/store";
 
 ReactDOM.render(
     <React.StrictMode>

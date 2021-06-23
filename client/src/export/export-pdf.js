@@ -4,6 +4,8 @@ import jsPDF from "jspdf";
 import React from "react";
 import NordDevice from "../nord/nord-device";
 import { handy, isSafari } from "../utils/handy";
+import { store } from "../features/store";
+import { Provider } from "react-redux";
 
 export const getImages = async (data, showAll, callback) => {
     // svg are not rendered by html2canvas in Safari
@@ -13,7 +15,12 @@ export const getImages = async (data, showAll, callback) => {
 
     for (let p = 0; p < data.length; p++) {
         callback(`rendering ${p + 1}/${data.length}`);
-        const doc = <NordDevice data={[data[p]]} showAll={showAll} production={true} />;
+        const doc = (
+            <Provider store={store}>
+                <NordDevice data={[data[p]]} showAll={showAll} production={true} />;
+            </Provider>
+        );
+
         const output = document.createElement("div");
         const staticElement = await renderToStaticMarkup(doc);
         output.innerHTML = `<div>${staticElement}</div>`;
@@ -34,7 +41,7 @@ export const getImages = async (data, showAll, callback) => {
     }
 
     return images;
-}
+};
 
 export const buildExport = async (data, showAll, callback) => {
     // svg are not rendered by html2canvas in Safari
@@ -50,7 +57,7 @@ export const buildExport = async (data, showAll, callback) => {
         orientation: "portrait", // landscape or portrait
         unit: "mm",
         format: "a4",
-        compress: true
+        compress: true,
     });
 
     for (let p = 0; p < images.length; p++) {
@@ -77,7 +84,7 @@ export const buildExport = async (data, showAll, callback) => {
         pdf.addImage(imgData, "JPEG", x, y, w, h, undefined, "FAST");
     }
 
-    const name = data.length === 1 ? data[0].name: "nord";
+    const name = data.length === 1 ? data[0].name : "nord";
     pdf.save(name + ".pdf");
     return "";
 };
