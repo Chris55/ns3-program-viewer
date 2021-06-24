@@ -1,7 +1,7 @@
 const mapping = require("./ns3-mapping");
-const {formatOrganDrawbars} = require("../../common/converter");
+const { formatOrganDrawbars } = require("../../common/converter");
 const { ns3MorphOrganDrawbar } = require("./ns3-morph");
-const { ns3KbZone, ns3OctaveShift, ns3VolumeEx } = require("./ns3-utils");
+const { ns3KbZone, ns3OctaveShift, ns3VolumeEx, ns3BooleanValue } = require("./ns3-utils");
 
 /***
  * return Drawbars Preset and Morph
@@ -182,7 +182,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
     const organKbZoneEnabled =
         id === 0
             ? organEnabled
-            : organEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Organ");
+            : organEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.style.value !== "Organ");
 
     const organModeValue = (organOffset34 & 0x0e) >>> 1;
     let vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue) || "";
@@ -199,7 +199,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
 
         case "Vox":
             vibratoChorusModeLabel = "Vibrato";
-            if (vibratoChorusModeShortName === "C1" ||
+            if (
+                vibratoChorusModeShortName === "C1" ||
                 vibratoChorusModeShortName === "C2" ||
                 vibratoChorusModeShortName === "C3"
             ) {
@@ -213,7 +214,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
             if (vibratoChorusModeShortName === "C1" || vibratoChorusModeShortName === "V3") {
                 vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue + 1);
             }
-            vibratoChorusModeLongName = " - " + mapping.ns3OrganFarfisaVibratoModeMap.get(vibratoChorusModeShortName) || "";
+            vibratoChorusModeLongName =
+                " - " + mapping.ns3OrganFarfisaVibratoModeMap.get(vibratoChorusModeShortName) || "";
             break;
 
         case "Pipe1":
@@ -225,7 +227,6 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
         default:
             vibratoChorusModeLabel = "Unknown Organ Type";
     }
-
 
     const organKbZone = ns3KbZone(organKbZoneEnabled, global, (organOffsetB6W & 0x7800) >>> 11);
     const organPreset2Enabled = (organOffsetBb & 0x04) !== 0;
@@ -310,9 +311,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Organ Pitch Stick
          */
-        pitchStick: {
-            enabled: (organOffset34 & 0x10) !== 0,
-        },
+        pitchStick: ns3BooleanValue((organOffset34 & 0x10) !== 0, false),
+
         /**
          * Offset in file: 0xBB (b7)
          *
@@ -321,9 +321,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Organ Sustain Pedal
          */
-        sustainPedal: {
-            enabled: (organOffsetBb & 0x80) !== 0,
-        },
+        sustainPedal: ns3BooleanValue((organOffsetBb & 0x80) !== 0, false),
+
         /**
          * Offset in file: 0xBB (b6-4)
          *
@@ -338,6 +337,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
          */
         type: {
             value: organType,
+            isDefault: organType === "B3",
         },
 
         preset1: {
@@ -418,7 +418,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Vibrato On
                  */
-                enabled: (organOffsetD3 & 0x10) !== 0,
+                ...ns3BooleanValue((organOffsetD3 & 0x10) !== 0, false),
 
                 /**
                  * Offset in file: 0x34 (b3-1)
@@ -441,6 +441,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                 mode: {
                     value: vibratoChorusModeShortName + vibratoChorusModeLongName,
                     label: vibratoChorusModeLabel,
+                    isDefault: vibratoChorusModeShortName + vibratoChorusModeLongName === "V1",
                 },
             },
 
@@ -458,7 +459,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Percussion On
                  */
-                enabled: organTypeIsB3 && (organOffsetD3 & 0x08) !== 0,
+                ...ns3BooleanValue(organTypeIsB3 && (organOffsetD3 & 0x08) !== 0, false),
 
                 /**
                  * Offset in file: 0xD3 (b0)
@@ -470,9 +471,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Percussion Volume Soft
                  */
-                volumeSoft: {
-                    enabled: organTypeIsB3 && (organOffsetD3 & 0x01) !== 0,
-                },
+                volumeSoft: ns3BooleanValue(organTypeIsB3 && (organOffsetD3 & 0x01) !== 0, true),
+
                 /**
                  * Offset in file: 0xD3 (b1)
                  *
@@ -483,9 +483,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Percussion Decay Fast
                  */
-                decayFast: {
-                    enabled: organTypeIsB3 && (organOffsetD3 & 0x02) !== 0,
-                },
+                decayFast: ns3BooleanValue(organTypeIsB3 && (organOffsetD3 & 0x02) !== 0, true),
+
                 /**
                  * Offset in file: 0xD3 (b2)
                  *
@@ -496,9 +495,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Percussion Harmonic Third
                  */
-                harmonicThird: {
-                    enabled: organTypeIsB3 && (organOffsetD3 & 0x04) !== 0,
-                },
+                harmonicThird: ns3BooleanValue(organTypeIsB3 && (organOffsetD3 & 0x04) !== 0, true),
             },
         },
         preset2: {
@@ -581,7 +578,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Preset 2 Vibrato On
                  */
-                enabled: (organOffsetEe & 0x10) !== 0,
+                ...ns3BooleanValue((organOffsetEe & 0x10) !== 0, false),
             },
 
             /***
@@ -598,7 +595,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Preset 2 Percussion On
                  */
-                enabled: organTypeIsB3 && (organOffsetEe & 0x08) !== 0,
+                ...ns3BooleanValue(organTypeIsB3 && (organOffsetEe & 0x08) !== 0, false),
 
                 /**
                  * Offset in file: 0xEE (b0)
@@ -610,9 +607,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Preset 2 Percussion Volume Soft
                  */
-                volumeSoft: {
-                    enabled: organTypeIsB3 && (organOffsetEe & 0x01) !== 0,
-                },
+                volumeSoft: ns3BooleanValue(organTypeIsB3 && (organOffsetEe & 0x01) !== 0, true),
+
                 /**
                  * Offset in file: 0xEE (b1)
                  *
@@ -623,9 +619,8 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Preset 2 Percussion Decay Fast
                  */
-                decayFast: {
-                    enabled: organTypeIsB3 && (organOffsetEe & 0x02) !== 0,
-                },
+                decayFast: ns3BooleanValue(organTypeIsB3 && (organOffsetEe & 0x02) !== 0, true),
+
                 /**
                  * Offset in file: 0xEE (b2)
                  *
@@ -636,9 +631,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                  *
                  * @module NS3 Organ Preset 2 Percussion Harmonic Third
                  */
-                harmonicThird: {
-                    enabled: organTypeIsB3 && (organOffsetEe & 0x04) !== 0,
-                },
+                harmonicThird: ns3BooleanValue(organTypeIsB3 && (organOffsetEe & 0x04) !== 0, true),
             },
         },
 
@@ -651,8 +644,6 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Organ Live Mode
          */
-        live: {
-            enabled: (organOffsetBb & 0x08) !== 0,
-        },
+        live: ns3BooleanValue((organOffsetBb & 0x08) !== 0, false),
     };
 };

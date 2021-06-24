@@ -33,7 +33,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
     const pianoKbZoneEnabled =
         id === 0
             ? pianoEnabled
-            : pianoEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Piano");
+            : pianoEnabled && (global.dualKeyboard.enabled === false); // || global.dualKeyboard.value !== "Piano");
 
     const pianoTypeValue = (pianoOffsetCd & 0xe0) >>> 5;
     const pianoType = mapping.ns2PianoTypeMap.get(pianoTypeValue);

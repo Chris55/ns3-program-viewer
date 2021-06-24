@@ -188,7 +188,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global) => {
     const synthKbZoneEnabled =
         id === 0
             ? synthEnabled
-            : synthEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Synth");
+            : synthEnabled && (global.dualKeyboard.enabled === false); // || global.dualKeyboard.value !== "Synth");
 
     const synthKbZoneValue = (synthOffset51 & 0x70) >>> 4;
     const synthKbZone = ns2KbZone(synthKbZoneEnabled, global, synthKbZoneValue);

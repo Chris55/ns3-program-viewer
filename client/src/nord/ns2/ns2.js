@@ -52,7 +52,6 @@ export default class Ns2 extends Component {
                     </div>
                     <div className="col-1 text-right nord-option-on">
                         <NordValueOnOff data={data.dualKeyboard} label="Dual KB" />
-                        {/*<NordLabel enabled={data.dualKeyboard.enabled} label="Dual KB" />*/}
                     </div>
                 </div>
 

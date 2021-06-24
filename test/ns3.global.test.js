@@ -157,6 +157,46 @@ describe("/ns3/global", () => {
         });
     });
 
+    test("dualKeyboard.enabled eq false", async () => {
+        const file = "dualKeyboard.enabled eq false.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("dualKeyboard.enabled eq true and dualKeyboard.style.value eq Organ", async () => {
+        const file = "dualKeyboard.enabled eq true and dualKeyboard.style.value eq Organ.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("dualKeyboard.enabled eq true and dualKeyboard.style.value eq Panel", async () => {
+        const file = "dualKeyboard.enabled eq true and dualKeyboard.style.value eq Panel.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("dualKeyboard.enabled eq true and dualKeyboard.style.value eq Piano", async () => {
+        const file = "dualKeyboard.enabled eq true and dualKeyboard.style.value eq Piano.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("dualKeyboard.enabled eq true and dualKeyboard.style.value eq Synth", async () => {
+        const file = "dualKeyboard.enabled eq true and dualKeyboard.style.value eq Synth.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("id.name eq A@c11", async () => {
         const file = "id.name eq A@c11.ns3f";
         const sut = await loadTestCase(root + file);

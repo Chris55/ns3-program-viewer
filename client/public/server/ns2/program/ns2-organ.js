@@ -337,7 +337,7 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
     const organKbZoneEnabled =
         id === 0
             ? organEnabled
-            : organEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Organ");
+            : organEnabled && (global.dualKeyboard.enabled === false); // || global.dualKeyboard.value !== "Organ");
 
     const organKbZone = ns2KbZone(organKbZoneEnabled, global, (organOffset47 & 0xe0) >>> 5);
 

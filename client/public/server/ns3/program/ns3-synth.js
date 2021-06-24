@@ -169,7 +169,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
     const synthKbZoneEnabled =
         id === 0
             ? synthEnabled
-            : synthEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Synth");
+            : synthEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.style.value !== "Synth");
 
     const synthKbZoneValue = (synthOffset52W & 0x7800) >>> 11;
     const synthKbZone = ns3KbZone(synthKbZoneEnabled, global, synthKbZoneValue);

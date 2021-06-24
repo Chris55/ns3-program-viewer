@@ -3,6 +3,7 @@ import "../lib/ns3.css";
 import Ns3Panel from "./ns3-panel";
 import NordLabelAndValue from "../lib/nord-label-and-value";
 import NordLabel from "../lib/nord-label";
+import NordValueOnOff from "../lib/nord-value-on-off";
 
 export default class Ns3 extends Component {
     render() {
@@ -65,9 +66,9 @@ export default class Ns3 extends Component {
                                 </table>
                             </div>
                             <div className="col-1 text-right nord-option-on">
-                                <NordLabel enabled={data.dualKeyboard.enabled} label="Dual KB" />
+                                <NordValueOnOff data={data.dualKeyboard} label="Dual KB" />
                                 <br />
-                                <NordLabelAndValue enabled={data.dualKeyboard.enabled} data={data.dualKeyboard} />
+                                <NordLabelAndValue enabled={data.dualKeyboard.enabled} data={data.dualKeyboard.style} />
                             </div>
                         </div>
                     </div>

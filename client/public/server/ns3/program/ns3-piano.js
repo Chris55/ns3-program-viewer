@@ -29,7 +29,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
     const pianoKbZoneEnabled =
         id === 0
             ? pianoEnabled
-            : pianoEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.value !== "Piano");
+            : pianoEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.style.value !== "Piano");
 
     const pianoTypeValue = (pianoOffset48 & 0x38) >>> 3;
     const pianoType = mapping.ns3PianoTypeMap.get(pianoTypeValue);
