@@ -61,7 +61,7 @@ const Home = () => {
                                         alt="logo"
                                     />
                                     <Media.Body>
-                                        <h6 className="mb-2 text-muted">Synth File</h6>
+                                        <h6 className="mb-2 text-muted">Synth Files</h6>
                                         <p className="text-muted mt-2">
                                             Nord Stage 2 (ns2s)
                                             <br/>
