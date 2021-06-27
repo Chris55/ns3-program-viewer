@@ -5,7 +5,7 @@ const { ns3Synth } = require("../program/ns3-synth");
 const { getVersion, getName } = require("../../common/converter");
 
 /***
- * returns Nord Stage 3 synth data
+ * returns Nord Stage 3 synth file
  *
  * @param buffer {Buffer}
  * @param filename
@@ -19,7 +19,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
         }
         const fileExt = buffer.toString("utf8", 8, 12);
         if (fileExt !== "ns3y") {
-            throw new Error(fileExt + " file are not supported, select a valid ns3f file");
+            throw new Error(fileExt + " file is not supported, select a valid ns3f file");
         }
     }
 
@@ -46,7 +46,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
     const locationValue = buffer.readUInt8(0x0e);
     const programLocation = ns3SynthLocation(bankValue, locationValue);
 
-    /**
+    /***
      * Offset in file: 0x14 and 0x15
      *
      * @example
@@ -65,14 +65,9 @@ exports.loadNs3SynthFile = (buffer, filename) => {
         throw new Error("Unexpected file revision, only v3.00 to v3.04 are supported... file is v" + version.version);
     }
 
-    /**
-     * Offset in file: 0x04
-     *
-     * @example
-     * 0 = header type 0 - legacy mode no CRC (Byte 0x18 to 0x2B are missing)
-     * 1 = header type 1 - default mode with additional bytes 0x18 to 0x2B (20 bytes).
-     *
-     * @module NS3 File Format
+    /***
+     * versionOffset is used normally used to manage the header size.
+     * Here we fake a ns3f file to be able to read the synth section.
      */
     let versionOffset = -79;
 
@@ -128,7 +123,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
 
         ...global,
 
-        /**
+        /***
          * Offset in file: 0x10
          *
          * @example

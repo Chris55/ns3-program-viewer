@@ -1,5 +1,5 @@
 \newpage
-## Nord Stage 2 File Structure
+## Nord Stage 2 Program File Structure
 
 This mapping corresponds to the Nord Stage 2 program file (file extension ns2p).
 
@@ -344,5 +344,12 @@ This mapping corresponds to the Nord Stage 2 program file (file extension ns2p).
 | `0x0232` | `--------` |
 | `0x0233` | `--------` |
 | `0x0234` | `--------` |
+
+\newpage
+## Nord Stage 2 Synth File Structure
+
+NS2 Synth file (ns2s) is a subset of the Program file (0x00DF to 0x00FE).
+Header structure is similar to ns2f file.
+note: Arpeggiator settings are not included.
 
 \newpage

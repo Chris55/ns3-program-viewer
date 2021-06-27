@@ -18,7 +18,7 @@ const build = async(folder, testFilename) => {
     for (let filename of filenames) {
 
         const ext = path.extname(filename);
-        if (ext === '.ns3f' || ext === '.ns3y' || ext === '.ns2p')  {
+        if (ext === '.ns3f' || ext === '.ns3y' || ext === '.ns2p' || ext === '.ns2s')  {
 
             const description = path.parse(filename).name;
 
@@ -49,6 +49,8 @@ const buildAll = async() => {
     await build("/ns2/synth/filter", "ns2.synth.filter.test.js");
     await build("/ns2/synth/lfo", "ns2.synth.lfo.test.js");
     await build("/ns2/synth/oscillators", "ns2.synth.oscillators.test.js");
+
+    await build("/ns2/ns2s", "ns2s.test.js");
 
     await build("/ns3/effects", "ns3.effects.test.js");
     await build("/ns3/extern", "ns3.extern.test.js");

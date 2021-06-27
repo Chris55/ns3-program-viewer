@@ -45,9 +45,9 @@ const Home = () => {
                                     <Media.Body>
                                         <h6 className="mb-2 text-muted">Program Files</h6>
                                         <p className="text-muted mt-2">
-                                            Nord Stage 2 Program File (ns2p)
+                                            Nord Stage 2 (ns2p)
                                             <br/>
-                                            Nord Stage 3 Program File (ns3f)
+                                            Nord Stage 3 (ns3f)
                                         </p>
                                     </Media.Body>
                                 </Media>
@@ -62,7 +62,10 @@ const Home = () => {
                                     />
                                     <Media.Body>
                                         <h6 className="mb-2 text-muted">Synth File</h6>
-                                        <p className="text-muted mt-2">Nord Stage 3 Synth File (ns3y)</p>
+                                        <p className="text-muted mt-2">
+                                            Nord Stage 2 (ns2s)
+                                            <br/>
+                                            Nord Stage 3 (ns3y)</p>
                                     </Media.Body>
                                 </Media>
                             </Card.Body>

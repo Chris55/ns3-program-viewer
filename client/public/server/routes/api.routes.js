@@ -49,8 +49,7 @@ router.post("/upload", upload.array("nordFiles", 100), async (req, res, next) =>
     try {
         const bundle = [];
 
-        for(const file of req.files) {
-
+        for (const file of req.files) {
             console.log(file.path);
 
             const buffer = await fs.readFile(file.path);
@@ -62,7 +61,10 @@ router.post("/upload", upload.array("nordFiles", 100), async (req, res, next) =>
             }
 
             const data = loadNordFile(buffer, file.originalname);
-            bundle.push(data);
+            bundle.push({
+                timestamp: new Date().getTime(),
+                ...data,
+            });
         }
         const response = {
             success: true,
@@ -70,7 +72,6 @@ router.post("/upload", upload.array("nordFiles", 100), async (req, res, next) =>
             data: bundle,
         };
         res.send(response);
-
     } catch (err) {
         console.error(err, err.stack);
         next(err);

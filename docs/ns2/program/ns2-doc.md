@@ -278,6 +278,12 @@
 <dt><a href="#module_NS2 Organ Program Output">NS2 Organ Program Output</a></dt>
 <dd><p>Offset in file 0x59 (b3-2)</p>
 </dd>
+<dt><a href="#module_NS2 Piano Slot Detune">NS2 Piano Slot Detune</a></dt>
+<dd><p>Offset in file: 0x3B (b7-5)</p>
+</dd>
+<dt><a href="#module_NS2 Piano Dynamics">NS2 Piano Dynamics</a></dt>
+<dd><p>Offset in file: 0xCF (b3-2)</p>
+</dd>
 <dt><a href="#module_NS2 Piano On">NS2 Piano On</a></dt>
 <dd><p>Offset in file: 0x48 (b7)</p>
 </dd>
@@ -308,9 +314,6 @@
 <dt><a href="#module_NS2 Piano Sample ID">NS2 Piano Sample ID</a></dt>
 <dd><p>Offset in file: 0xD0 (b5-0), 0xD1/0xD3 (b7-0), and 0xD4 (b7-6)</p>
 </dd>
-<dt><a href="#module_NS2 Piano Slot Detune">NS2 Piano Slot Detune</a></dt>
-<dd><p>Offset in file: 0x3B (b7-5)</p>
-</dd>
 <dt><a href="#module_NS2 Piano Long Release">NS2 Piano Long Release</a></dt>
 <dd><p>Offset in file: 0xCF (b6)</p>
 </dd>
@@ -319,9 +322,6 @@
 </dd>
 <dt><a href="#module_NS2 Piano Pedal Noise">NS2 Piano Pedal Noise</a></dt>
 <dd><p>Offset in file: 0xCF (b4)</p>
-</dd>
-<dt><a href="#module_NS2 Piano Dynamics">NS2 Piano Dynamics</a></dt>
-<dd><p>Offset in file: 0xCF (b3-2)</p>
 </dd>
 <dt><a href="#module_NS2 Piano Clavinet Model">NS2 Piano Clavinet Model</a></dt>
 <dd><p>Offset in file: 0xCE (b0) and 0xCF (b7)</p>
@@ -379,6 +379,21 @@
 <dt><a href="#module_NS2 Synth Sample ID">NS2 Synth Sample ID</a></dt>
 <dd><p>Offset in file: 0xf7 (b1-0) to 0xfb (b7-2)</p>
 </dd>
+<dt><a href="#module_NS2 Synth Voice">NS2 Synth Voice</a></dt>
+<dd><p>Offset in file: 0xfc (b2-1)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Glide">NS2 Synth Glide</a></dt>
+<dd><p>Offset in file: 0xfb (b1-0) and 0xfc (b7-3)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Unison">NS2 Synth Unison</a></dt>
+<dd><p>Offset in file: 0xfc (b0) and 0xfd (b7-6)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Vibrato">NS2 Synth Vibrato</a></dt>
+<dd><p>Offset in file: 0xfd (b5-3)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Arp On">NS2 Synth Arp On</a></dt>
+<dd><p>Offset in file: 0xd9 (b0)</p>
+</dd>
 <dt><a href="#module_NS2 Synth On">NS2 Synth On</a></dt>
 <dd><p>Offset in file: 0x4d (b6)</p>
 </dd>
@@ -406,18 +421,6 @@
 <dt><a href="#module_NS2 Synth Kb Hold">NS2 Synth Kb Hold</a></dt>
 <dd><p>Offset in file: 0xdc (b1)</p>
 </dd>
-<dt><a href="#module_NS2 Synth Voice">NS2 Synth Voice</a></dt>
-<dd><p>Offset in file: 0xfc (b2-1)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Glide">NS2 Synth Glide</a></dt>
-<dd><p>Offset in file: 0xfb (b1-0) and 0xfc (b7-3)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Unison">NS2 Synth Unison</a></dt>
-<dd><p>Offset in file: 0xfc (b0) and 0xfd (b7-6)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Vibrato">NS2 Synth Vibrato</a></dt>
-<dd><p>Offset in file: 0xfd (b5-3)</p>
-</dd>
 <dt><a href="#module_NS2 Synth Osc Mode">NS2 Synth Osc Mode</a></dt>
 <dd><p>Offset in file: 0xe1 (b1-0) and 0xe2 (b7)</p>
 </dd>
@@ -428,7 +431,7 @@
 <dd><p>Offset in file: 0xe6 (b4-0) and 0xe7 (7-6)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Shape Detune">NS2 Synth Shape Detune</a></dt>
-<dd><p>Offset in file: 0xeb (b5-0)</p>
+<dd><p>Offset in file: 0xEB (b5-0)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Shape Mod">NS2 Synth Shape Mod</a></dt>
 <dd><p>Offset in file: 0xe7 (b5-0) and 0xe8 (b7)</p>
@@ -467,9 +470,6 @@
 <dd></dd>
 <dt><a href="#module_NS2 Synth Lfo Master Clock">NS2 Synth Lfo Master Clock</a></dt>
 <dd><p>Offset in file: 0xdc (b6)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Arp On">NS2 Synth Arp On</a></dt>
-<dd><p>Offset in file: 0xd9 (b0)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Arp Rate">NS2 Synth Arp Rate</a></dt>
 <dd></dd>
@@ -1858,6 +1858,24 @@ Offset in file 0x59 (b3-2)
 ```js
 #include ns2ProgramOutputMap
 ```
+<a name="module_NS2 Piano Slot Detune"></a>
+
+## NS2 Piano Slot Detune
+Offset in file: 0x3B (b7-5)
+
+**Example**  
+```js
+#include ns2PianoSlotDetuneMap
+```
+<a name="module_NS2 Piano Dynamics"></a>
+
+## NS2 Piano Dynamics
+Offset in file: 0xCF (b3-2)
+
+**Example**  
+```js
+#include ns2PianoDynamicsMap
+```
 <a name="module_NS2 Piano On"></a>
 
 ## NS2 Piano On
@@ -1969,15 +1987,6 @@ Offset in file: 0xD0 (b5-0), 0xD1/0xD3 (b7-0), and 0xD4 (b7-6)
 ```js
 32-bit Nord Sample ID
 ```
-<a name="module_NS2 Piano Slot Detune"></a>
-
-## NS2 Piano Slot Detune
-Offset in file: 0x3B (b7-5)
-
-**Example**  
-```js
-#include ns2PianoSlotDetuneMap
-```
 <a name="module_NS2 Piano Long Release"></a>
 
 ## NS2 Piano Long Release
@@ -2008,15 +2017,6 @@ Offset in file: 0xCF (b4)
 O = off, 1 = on
 
 Only on Acoustic and Electric piano.
-```
-<a name="module_NS2 Piano Dynamics"></a>
-
-## NS2 Piano Dynamics
-Offset in file: 0xCF (b3-2)
-
-**Example**  
-```js
-#include ns2PianoDynamicsMap
 ```
 <a name="module_NS2 Piano Clavinet Model"></a>
 
@@ -2248,6 +2248,51 @@ Offset in file: 0xf7 (b1-0) to 0xfb (b7-2)
 ```js
 32-bit synth sample hash code.
 ```
+<a name="module_NS2 Synth Voice"></a>
+
+## NS2 Synth Voice
+Offset in file: 0xfc (b2-1)
+
+**Example**  
+```js
+#include ns2SynthVoiceMap
+```
+<a name="module_NS2 Synth Glide"></a>
+
+## NS2 Synth Glide
+Offset in file: 0xfb (b1-0) and 0xfc (b7-3)
+
+**Example**  
+```js
+0/127 value = 0 / 10
+```
+<a name="module_NS2 Synth Unison"></a>
+
+## NS2 Synth Unison
+Offset in file: 0xfc (b0) and 0xfd (b7-6)
+
+**Example**  
+```js
+#include ns2SynthUnisonMap
+```
+<a name="module_NS2 Synth Vibrato"></a>
+
+## NS2 Synth Vibrato
+Offset in file: 0xfd (b5-3)
+
+**Example**  
+```js
+#include ns2SynthVibratoMap
+```
+<a name="module_NS2 Synth Arp On"></a>
+
+## NS2 Synth Arp On
+Offset in file: 0xd9 (b0)
+
+**Example**  
+```js
+O = off, 1 = on
+```
 <a name="module_NS2 Synth On"></a>
 
 ## NS2 Synth On
@@ -2341,42 +2386,6 @@ Offset in file: 0xdc (b1)
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Synth Voice"></a>
-
-## NS2 Synth Voice
-Offset in file: 0xfc (b2-1)
-
-**Example**  
-```js
-#include ns2SynthVoiceMap
-```
-<a name="module_NS2 Synth Glide"></a>
-
-## NS2 Synth Glide
-Offset in file: 0xfb (b1-0) and 0xfc (b7-3)
-
-**Example**  
-```js
-0/127 value = 0 / 10
-```
-<a name="module_NS2 Synth Unison"></a>
-
-## NS2 Synth Unison
-Offset in file: 0xfc (b0) and 0xfd (b7-6)
-
-**Example**  
-```js
-#include ns2SynthUnisonMap
-```
-<a name="module_NS2 Synth Vibrato"></a>
-
-## NS2 Synth Vibrato
-Offset in file: 0xfd (b5-3)
-
-**Example**  
-```js
-#include ns2SynthVibratoMap
-```
 <a name="module_NS2 Synth Osc Mode"></a>
 
 ## NS2 Synth Osc Mode
@@ -2435,7 +2444,7 @@ Offset in file: 0xeb (b5-0)
 <a name="module_NS2 Synth Shape Detune"></a>
 
 ## NS2 Synth Shape Detune
-Offset in file: 0xeb (b5-0)
+Offset in file: 0xEB (b5-0)
 
 **Example**  
 ```js
@@ -2446,13 +2455,13 @@ For 'dtn':
 **Example**  
 ```js
 Morph Wheel:
-Offset in file
+Offset in file: 0xE8 (b6-0) and 0xE9 (b7)
 
 Morph After Touch:
-Offset in file
+Offset in file: 0xE9 (b6-0) and 0xEA (b7)
 
 Morph Control Pedal:
-Offset in file
+Offset in file: 0xEA (b6-0) and 0xEB (b7)
 ```
 <a name="module_NS2 Synth Shape Mod"></a>
 
@@ -2472,6 +2481,21 @@ Offset in file: 0xec (b1)
 **Example**  
 ```js
 O = off, 1 = on
+
+(only used on SAMPLE)
+
+Morph Wheel:
+Offset in file:  0xec (b7-6)
+
+Morph After Touch:
+Offset in file:  0xec (b5-4)
+
+Morph Control Pedal:
+Offset in file:  0xec (b3-2)
+
+0x00 = Morph disabled
+0x01 = Morph to on
+0x11 = Morph to off
 ```
 <a name="module_NS2 Synth Mod Env Attack"></a>
 
@@ -2571,15 +2595,6 @@ Offset in file: 0xf6 (b2-0) 0xf7 (b7-4) (if LFO MST CLOCK = OFF)
 
 ## NS2 Synth Lfo Master Clock
 Offset in file: 0xdc (b6)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS2 Synth Arp On"></a>
-
-## NS2 Synth Arp On
-Offset in file: 0xd9 (b0)
 
 **Example**  
 ```js

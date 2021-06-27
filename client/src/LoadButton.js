@@ -21,7 +21,7 @@ const LoadButton = (props) => {
                 size={props.size}
                 title={loading ? "Loading..." : "Load"}
                 disabled={loading}
-                accept=".ns3f,.ns3y,.ns2p"
+                accept=".ns3f,.ns3y,.ns2p,.ns2s"
                 multiple={true}
                 handleFiles={handleFiles}
             />

@@ -50,7 +50,7 @@ exports.ns2Slot = function (buffer, id, versionOffset, global) {
         enabled: panelEnabled,
         organ: ns2Organ(buffer, id, commonOffset, panelOffset, global),
         piano: ns2Piano(buffer, id, panelOffset, global),
-        synth: ns2Synth(buffer, id, panelOffset, global),
+        synth: ns2Synth(buffer, id, panelOffset, global, false),
         extern: ns2Extern(buffer, panelOffset, global),
         effects: {
             rotarySpeaker: ns2RotarySpeakerEffect(buffer, panelOffset),

@@ -14,7 +14,9 @@ import Ns2SectionSynthOscillators from "./ns2-section-synth-oscillators";
 export default class Ns2SectionSynth extends Component {
     render() {
         const synth = this.props.data;
-        const visible = synth.enabled;
+        const ns2s = this.props.ns2s;
+
+        const visible = synth.enabled || ns2s;
         const dimmed = synth.dimmed === true;
 
         const presetName = "";
@@ -26,7 +28,8 @@ export default class Ns2SectionSynth extends Component {
                         <div className="">
                             <div className="no-gutters d-flex flex-row flex-wrap align-items-stretch">
                                 <div className="">
-                                    <Ns2VolumeAndMore name={"SYNTH"} data={synth} />
+                                    {ns2s && <div style={{ width: "2rem" }} />}
+                                    {!ns2s && <Ns2VolumeAndMore name={"SYNTH"} data={synth} />}
                                 </div>
 
                                 <div className="row no-gutters flex-column m-1">
@@ -98,13 +101,14 @@ export default class Ns2SectionSynth extends Component {
                                     </div>
                                 </div>
 
-                                <Ns2Fx
+                                {!ns2s && <Ns2Fx
                                     className=""
                                     data={this.props.effects}
                                     source="Synth"
                                     arp={synth.arpeggiator}
                                     menu={synth}
-                                />
+                                />}
+
                             </div>
                         </div>
                     </div>

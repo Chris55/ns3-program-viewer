@@ -167,7 +167,7 @@ exports.loadNs3SampleFile = (buffer, filename) => {
         }
         const fileExt = buffer.toString("utf8", 8, 12);
         if (fileExt !== "npno" && fileExt !== "nsmp" && fileExt !== "nsmp3") {
-            throw new Error(fileExt + " file are not supported, select a valid npno/nsmp/nsmp3 file");
+            throw new Error(fileExt + " file is not supported, select a valid npno/nsmp/nsmp3 file");
         }
         isPiano = fileExt === "npno";
     }

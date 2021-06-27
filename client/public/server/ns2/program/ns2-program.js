@@ -22,7 +22,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         }
         const fileExt = buffer.toString("utf8", 8, 12);
         if (fileExt !== "ns2p") {
-            throw new Error(fileExt + " file are not supported, select a valid ns2p file");
+            throw new Error(fileExt + " file is not supported, select a valid ns2p file");
         }
     }
 

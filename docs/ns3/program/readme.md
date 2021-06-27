@@ -29,9 +29,10 @@ Source is located here: [https://github.com/Chris55/ns3-program-viewer](https://
 - [Contributors](#contributors)
 - [License](#license)
 - [Revision](#revision)
-- [Nord Stage 3 File Structure](#nord-stage-3-file-structure)
-- [Nord Stage 2 File Structure](#nord-stage-2-file-structure)
-
+- [Nord Stage 3 Program File Structure](#nord-stage-3-program-file-structure)
+- [Nord Stage 3 Synth File Structure](#nord-stage-3-synth-file-structure)
+- [Nord Stage 2 Program File Structure](#nord-stage-2-program-file-structure)
+- [Nord Stage 2 Synth File Structure](#nord-stage-2-synth-file-structure)
 
 
 ## Disclaimer
@@ -67,6 +68,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |1.7   | 05-Jun-2021  | Added NS2 Wave details on LCD and main display
 |1.8   | 08-Jun-2021  | Added NS2 Analog Wave Detune Shape details
 |1.9   | 17-Jun-2021  | Added NS2 Synth skip sample attack morph
+|1.10  | 27-Jun-2021  | Added ns2s & ns3y Synth file details
 
 \newpage
 
@@ -87,7 +89,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTH
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 \newpage
-## Nord Stage 3 File Structure
+## Nord Stage 3 Program File Structure
 
 This mapping corresponds to the Nord Stage 3 program file (file extension ns3f).
 
@@ -459,6 +461,12 @@ In the documentation below `--xxxxxx` (b5-0) means Bit5 to Bit0 are used.
 | `0x024E` | `--------` | 0
 | `0x024F` | `--------` | 0
 
+
+\newpage
+## Nord Stage 3 Synth File Structure
+
+NS3 Synth file (ns3y) is a subset of the Program file (0x0080 to 0x00AC).
+Header structure is similar to ns3f file.
 
 \newpage
 

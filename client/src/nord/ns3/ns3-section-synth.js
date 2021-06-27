@@ -19,9 +19,6 @@ export default class Ns3SectionSynth extends Component {
         const dimmed = synth.dimmed === true;
         const ns3y = this.props.ns3y;
 
-        // const presetName =
-        //     synth.preset?.presetName !== synth.oscillators.waveForm1.value ? synth.preset?.presetName : "";
-
         return (
             <React.Fragment>
                 <div className={visible ? this.props.className : "d-none"}>

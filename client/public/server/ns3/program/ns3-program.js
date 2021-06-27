@@ -21,7 +21,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         }
         const fileExt = buffer.toString("utf8", 8, 12);
         if (fileExt !== "ns3f") {
-            throw new Error(fileExt + " file are not supported, select a valid ns3f file");
+            throw new Error(fileExt + " file is not supported, select a valid ns3f file");
         }
     }
 
