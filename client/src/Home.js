@@ -30,7 +30,7 @@ const Home = () => {
                                 </Card.Title>
 
                                 <Card.Subtitle className="text-muted">
-                                    {isElectron ? "Offline" : "Online"} tool to review Nord Stage 2/2EX/3 program file
+                                    {isElectron ? "Offline" : "Online"} tool to review Nord Stage 2/2EX/3 program and synth file
                                     settings. Following files are supported:
                                 </Card.Subtitle>
 
