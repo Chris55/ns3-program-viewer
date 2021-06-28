@@ -1,6 +1,6 @@
 const { midiControlChangeMap } = require("../../common/midi-mapping");
 const { ns2Morph7Bits } = require("./ns2-morph");
-const { ns2KbZone } = require("./ns2-utils");
+const { ns2KbZone, ns2OctaveShift, ns2BooleanValue } = require("./ns2-utils");
 const { ns2ExternControlMap, ns2ExternMidiVelocityCurveMap } = require("./ns2-mapping");
 
 /***
@@ -38,6 +38,12 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
     const externCcValue = (externOffsetFfW & 0x3f80) >>> 7;
     const externCcValueText = midiControlChangeMap.get(externCcValue);
 
+    const channel = ((externOffset107 & 0x78) >>> 3) + 1;
+    const channelType = (externOffset107 & 0x02) !== 0 ? "USB" : "MIDI";
+    const cc00 = externOffset105 & 0x7f;
+    const cc32 = externOffset104 & 0x7f;
+    const velocity = (externOffset10c & 0x18) >>> 3;
+
     return {
         /**
          * Offset in file: 0x52 (b5)
@@ -68,9 +74,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
          *
          * @module NS2 Extern Octave Shift
          */
-        octaveShift: {
-            value: ((externOffset56W & 0x0780) >>> 7) - 7,
-        },
+        octaveShift: ns2OctaveShift((externOffset56W & 0x0780) >>> 7),
 
         /**
          * Offset in file: 0x57 (b6)
@@ -80,9 +84,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
          *
          * @module NS2 Extern Pitch Stick
          */
-        pitchStick: {
-            enabled: (externOffset57 & 0x40) !== 0,
-        },
+        pitchStick: ns2BooleanValue((externOffset57 & 0x40) !== 0, true),
 
         /**
          * Offset in file: 0x57 (b5)
@@ -92,9 +94,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
          *
          * @module NS2 Extern Sustain Pedal
          */
-        sustainPedal: {
-            enabled: (externOffset57 & 0x20) !== 0,
-        },
+        sustainPedal: ns2BooleanValue((externOffset57 & 0x20) !== 0, true),
 
         /**
          * Offset in file: 0xff (b7-6)
@@ -136,6 +136,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              */
             midi: midiCc,
             value: midiCc.toString(),
+            isDefault: midiCc === 0,
 
             morph: ns2Morph7Bits(
                 externOffset100Ww >>> 7,
@@ -168,6 +169,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              */
             midi: midiProgram,
             value: (midiProgram + 1).toString(),
+            isDefault: midiProgram === 0,
         },
 
         volume: {
@@ -200,6 +202,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              */
             midi: volume,
             value: volume.toString(),
+            isDefault: volume === 0,
 
             morph: ns2Morph7Bits(
                 externOffset107Ww >>> 1,
@@ -220,7 +223,8 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              *
              * @module NS2 Extern Midi Channel
              */
-            value: ((externOffset107 & 0x78) >>> 3) + 1,
+            value: channel,
+            isDefault: (channel === 14) && (channelType === "MIDI"),
 
             /**
              * Offset in file: 0x107 (b1)
@@ -231,7 +235,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              *
              * @module NS2 Extern Midi Channel Type
              */
-            type: (externOffset107 & 0x02) !== 0 ? "USB" : "MIDI",
+            type: channelType,
         },
 
         cc00: {
@@ -254,7 +258,8 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              *
              * @module NS2 Extern Midi Bank Select CC00
              */
-            value: externOffset105 & 0x7f,
+            value: cc00,
+            isDefault: cc00 === 0,
         },
 
         cc32: {
@@ -277,7 +282,8 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              *
              * @module NS2 Extern Midi Bank Select CC32
              */
-            value: externOffset104 & 0x7f,
+            value: cc32,
+            isDefault: cc32 === 0,
         },
 
         cc: {
@@ -291,59 +297,52 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              */
             value: externCcValue,
             text: externCcValueText,
+            isDefault: externCcValue === 2,
         },
 
-        wheel: {
-            /**
-             * Offset in file: 0x10b (b0)
-             *
-             * @example
-             * 0 = OFF
-             * 1 = ON
-             *
-             * @module NS2 Extern Midi Send Wheel
-             */
-            enabled: (externOffset10b & 0x01) !== 0,
-        },
+        /**
+         * Offset in file: 0x10b (b0)
+         *
+         * @example
+         * 0 = OFF
+         * 1 = ON
+         *
+         * @module NS2 Extern Midi Send Wheel
+         */
+        wheel: ns2BooleanValue((externOffset10b & 0x01) !== 0, true),
 
-        afterTouch: {
-            /**
-             * Offset in file: 0x10c (b7)
-             *
-             * @example
-             * 0 = OFF
-             * 1 = ON
-             *
-             * @module NS2 Extern Midi Send AfterTouch
-             */
-            enabled: (externOffset10c & 0x80) !== 0,
-        },
+        /**
+         * Offset in file: 0x10c (b7)
+         *
+         * @example
+         * 0 = OFF
+         * 1 = ON
+         *
+         * @module NS2 Extern Midi Send AfterTouch
+         */
+        afterTouch: ns2BooleanValue((externOffset10c & 0x80) !== 0, true),
 
-        controlPedal: {
-            /**
-             * Offset in file: 0x10c (b6)
-             *
-             * @example
-             * 0 = OFF
-             * 1 = ON
-             *
-             * @module NS2 Extern Midi Send Control Pedal
-             */
-            enabled: (externOffset10c & 0x40) !== 0,
-        },
+        /**
+         * Offset in file: 0x10c (b6)
+         *
+         * @example
+         * 0 = OFF
+         * 1 = ON
+         *
+         * @module NS2 Extern Midi Send Control Pedal
+         */
+        controlPedal: ns2BooleanValue((externOffset10c & 0x40) !== 0, true),
 
-        swell: {
-            /**
-             * Offset in file: 0x10c (b2)
-             *
-             * @example
-             * 0 = OFF
-             * 1 = ON
-             *
-             * @module NS2 Extern Midi Send Swell
-             */
-            enabled: (externOffset10c & 0x04) !== 0,
-        },
+        /**
+         * Offset in file: 0x10c (b2)
+         *
+         * @example
+         * 0 = OFF
+         * 1 = ON
+         *
+         * @module NS2 Extern Midi Send Swell
+         */
+        swell: ns2BooleanValue((externOffset10c & 0x04) !== 0, true),
 
         velocity: {
             /**
@@ -354,7 +353,8 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              *
              * @module NS2 Extern Midi Velocity Curve
              */
-            value: ns2ExternMidiVelocityCurveMap.get((externOffset10c & 0x18) >>> 3),
+            value: ns2ExternMidiVelocityCurveMap.get(velocity),
+            isDefault: velocity === 1,
         },
     };
 };

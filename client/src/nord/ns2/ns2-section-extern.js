@@ -14,10 +14,12 @@ export default class Ns2SectionExtern extends Component {
         const dimmed = extern.dimmed === true;
         const channel = {
             value: `${extern.channel.type} ${extern.channel.value}`,
+            isDefault: extern.channel.isDefault,
         };
 
         const cc = {
             value: `${extern.cc.value} ${extern.cc.text}`,
+            isDefault: extern.cc.isDefault,
         };
 
         return (
