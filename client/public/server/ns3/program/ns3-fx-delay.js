@@ -152,7 +152,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
          * LSW 0x11A (b0) and 0x11B (b7-2): 7-bit value
          * LSW used for fine tempo value (only used with Tag Tempo)
          *
-         * When Tempo knob is used, LSW is always 0, possible MSW value:
+         * When Tempo knob is not used, LSW is always 0, possible MSW value:
          * #include ns3DelayTempoMap
          *
          * Note: When Tap Tempo is used, LSW is different from 0.

@@ -69,6 +69,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |1.8   | 08-Jun-2021  | Added NS2 Analog Wave Detune Shape details
 |1.9   | 17-Jun-2021  | Added NS2 Synth skip sample attack morph
 |1.10  | 27-Jun-2021  | Added ns2s & ns3y Synth file details
+|1.11  | 28-Jun-2021  | Fixed typo in NS3 Delay Tempo
 
 \newpage
 
