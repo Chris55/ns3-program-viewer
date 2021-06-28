@@ -16,7 +16,7 @@ export default class Ns2SectionSynth extends Component {
         const synth = this.props.data;
         const ns2s = this.props.ns2s;
 
-        const visible = synth.enabled || ns2s;
+        const visible = synth.enabled;
         const dimmed = synth.dimmed === true;
 
         const presetName = "";

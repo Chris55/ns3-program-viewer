@@ -44,10 +44,10 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @param id {number} - 0 = Slot A, 1 = Slot B
  * @param slotOffset {number} - 0 or Slot B offset
  * @param global - global section
- * @param ns2s - true if input file is ns2s else ns2p file is expected
+ * @param ns2sFile - true if input file is ns2s else ns2p file is expected
  * @returns {{voice: {midi: number, isDefault: boolean, value: string}, oscillators: {skipSampleAttack: {isDefault: boolean, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled}, controlPedal: {to: {midi: *, value: (*|string)}, enabled}, wheel: {to: {midi: *, value: (*|string)}, enabled}}, value: string, enabled: *}, type: {isDefault: boolean, value: string}, waveForm1: {valid: boolean, isDefault: boolean, filename: string, location: number, value: string, version: string, useShapeKnob: boolean, info: string}, shapeCtrl: {midi: number, value: string, morph: {afterTouch: {to: {midi: ({midi: *, value: string}|string), value: string}, enabled: boolean}, controlPedal: {to: {midi: ({midi: *, value: string}|string), value: string}, enabled: boolean}, wheel: {to: {midi: ({midi: *, value: string}|string), value: string}, enabled: boolean}}}, shapeMod: {midi: number, isDefault: boolean, label: (string), value: string}}, debug: {lib: {valid: boolean, isDefault: boolean, filename: string, location: number, value: string, version: string, useShapeKnob: boolean, info: string}, sampleId: string}, unison: {midi: number, isDefault: boolean, value: string}, arpeggiator: {isDefault: boolean, rate: {midi: number, isDefault: boolean, value: string}, masterClock: {isDefault: boolean, enabled: boolean}, pattern: {isDefault: boolean, value: string}, range: {isDefault: boolean, value: string}, enabled: boolean}, kbZone: {array, value}, sustainPedal: {midi: number, isDefault: boolean, enabled}, keyboardHold: {midi: number, isDefault: boolean, enabled}, octaveShift: {midi, isDefault: boolean, value: string}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: {type: {value: string}, resonance: {midi: number, value: string}, kbTrack: {enabled: boolean}, modulations: {mod2: {midi: number, label: string, value: string}, mod1: {midi: number, value: string}}, frequency: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}}, output: {isDefault: boolean, value: string}, pitchStick: {midi: number, isDefault: boolean, enabled}, lfo: {rate: {midi: number, isDefault: boolean, value: string}, masterClock: {isDefault: boolean, enabled: boolean}, wave: {isDefault: boolean, value: string}}, glide: {midi: number, isDefault: boolean, value: string}, envelopes: {modulation: {attack: {midi: number, isDefault: boolean, value: string}, release: {midi: number, isDefault: boolean, value: string}, decay: {midi: number, isDefault: boolean, value: string}, velocity: {isDefault: boolean, enabled: boolean}}, amplifier: {attack: {midi: number, isDefault: boolean, value: string}, release: {midi: number, isDefault: boolean, value: string}, decay: {midi: number, isDefault: boolean, value: string}, velocity: {isDefault: boolean, enabled: boolean}}}, latchPedal: {midi: number, isDefault: boolean, enabled}, kbGate: {midi: number, isDefault: boolean, enabled}, vibrato: {midi: number, isDefault: boolean, value: string}}}
  */
-exports.ns2Synth = (buffer, id, slotOffset, global, ns2s) => {
+exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
     let synthOffset4d = 0;
     let synthOffset4dWw = 0;
     let synthOffset50W = 0;
@@ -61,7 +61,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2s) => {
     let synthOffsetDc = 0;
 
     // when reading ns2s (synth file), these global settings are not available in the file (forced for 0)
-    if (ns2s === false) {
+    if (ns2sFile === false) {
         synthOffset4d = buffer.readUInt8(0x4d + slotOffset);
         synthOffset4dWw = buffer.readUInt32BE(0x4d + slotOffset);
         synthOffset50W = buffer.readUInt16BE(0x50 + slotOffset);
@@ -200,7 +200,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2s) => {
     const arpeggiatorPattern = (synthOffsetDbW & 0x0600) >>> 9;
     const arpeggiatorRange = (synthOffsetDbW & 0x0180) >>> 7;
 
-    const synthEnabled = (synthOffset4d & 0x40) !== 0;
+    const synthEnabled = ns2sFile || (synthOffset4d & 0x40) !== 0;
     const synthKbZoneEnabled = id === 0 ? synthEnabled : synthEnabled && global.dualKeyboard.enabled === false; // || global.dualKeyboard.value !== "Synth");
 
     const synthKbZoneValue = (synthOffset51 & 0x70) >>> 4;
