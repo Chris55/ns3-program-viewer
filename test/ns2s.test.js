@@ -5,8 +5,8 @@ const { loadTestCase } = require("./helpers");
 const root = __dirname + "/ns2/ns2s/";
 
 describe("/ns2/ns2s", () => {
-    test("id.name eq A@c14@c1", async () => {
-        const file = "id.name eq A@c14@c1.ns2s";
+    test("id.name eq 200", async () => {
+        const file = "id.name eq 200.ns2s";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
             expect(d.actual).toEqual(d.expected);

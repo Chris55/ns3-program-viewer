@@ -31,14 +31,13 @@ exports.loadNs2SynthFile = (buffer, filename) => {
     const offset14W = buffer.readUInt16LE(0x14);
 
     const bankValue = buffer.readUInt8(0x0c) & 0x03;
-    const locationValue = buffer.readUInt8(0x0e) & 0x7f;
-    const locationDigit1 = Math.trunc(locationValue / 5) + 1; // * 10;
-    const locationDigit2 = (locationValue % 5) + 1;
+    const locationValue = buffer.readUInt16LE(0x0e);
+
     const programLocation = {
         bank: bankValue,
         location: locationValue,
-        name: String.fromCharCode(65 + bankValue) + ":" + zeroPad(locationDigit1, 2) + ":" + locationDigit2,
-        value: bankValue * 25 + locationValue,
+        name: locationValue + 1,
+        value: locationValue,
     };
 
     /***
