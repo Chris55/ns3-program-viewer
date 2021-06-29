@@ -15,6 +15,7 @@ export default class Ns3SectionExtern extends Component {
 
         const cc = {
             value: `${extern.cc.value} ${extern.cc.text}`,
+            isDefault: extern.cc.isDefault,
         };
 
         return (

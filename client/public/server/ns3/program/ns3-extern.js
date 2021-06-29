@@ -2,7 +2,7 @@ const { ns3ExternMidiVelocityCurveMap } = require("./ns3-mapping");
 const { midiControlChangeMap } = require("../../common/midi-mapping");
 const { ns3ExternControlMap } = require("./ns3-mapping");
 const { ns3Morph7Bits } = require("./ns3-morph");
-const { ns3KbZone } = require("./ns3-utils");
+const { ns3OctaveShift, ns3KbZone, ns3BooleanValue } = require("./ns3-utils");
 
 /***
  * returns Extern section
@@ -42,6 +42,8 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
     const externCcValue = (externOffsetF7 & 0xfe) >>> 1;
     const externCcValueText = midiControlChangeMap.get(externCcValue);
 
+    const velocity = (externOffsetF5 & 0x60) >>> 5;
+
     return {
         /**
          * Offset in file: 0xF4 (b7)
@@ -72,9 +74,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
          *
          * @module NS3 Extern Octave Shift
          */
-        octaveShift: {
-            value: ((externOffsetF4W & 0x0380) >>> 7) - 6,
-        },
+        octaveShift: ns3OctaveShift((externOffsetF4W & 0x0380) >>> 7),
 
         /**
          * Offset in file: 0xF6 (b7)
@@ -84,9 +84,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
          *
          * @module NS3 Extern Pitch Stick
          */
-        pitchStick: {
-            enabled: (externOffsetF6 & 0x80) !== 0,
-        },
+        pitchStick: ns3BooleanValue((externOffsetF6 & 0x80) !== 0, false),
 
         /**
          * Offset in file: 0xF6 (b6)
@@ -96,9 +94,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
          *
          * @module NS3 Extern Sustain Pedal
          */
-        sustainPedal: {
-            enabled: (externOffsetF6 & 0x40) !== 0,
-        },
+        sustainPedal: ns3BooleanValue((externOffsetF6 & 0x40) !== 0, true),
 
         /**
          * Offset in file: 0xF6 (b1-0)
@@ -133,6 +129,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              */
             midi: midiCc,
             value: midiCc.toString(),
+            isDefault: midiCc === 0,
 
             morph: ns3Morph7Bits(
                 externOffsetF8Ww >>> 2,
@@ -166,6 +163,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              */
             midi: midiProgram,
             value: midiProgram.toString(),
+            isDefault: midiProgram === 0,
 
             morph: ns3Morph7Bits(
                 externOffsetFeWw >>> 2,
@@ -209,6 +207,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              */
             midi: volume,
             value: volume.toString(),
+            isDefault: volume === 0,
 
             morph: ns3Morph7Bits(
                 externOffset102Ww >>> 2,
@@ -234,6 +233,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              */
             enabled: channel !== 0,
             value: channel !== 0 ? channel : "",
+            isDefault: channel === 0,
         },
 
         cc00: {
@@ -250,6 +250,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              */
             enabled: cc00 !== 0,
             value: cc00 !== 0 ? cc00 - 1 : "",
+            isDefault: cc00 === 0,
         },
 
         cc32: {
@@ -266,6 +267,7 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              */
             enabled: cc32 !== 0,
             value: cc32 !== 0 ? cc32 - 1 : "",
+            isDefault: cc32 === 0,
         },
 
         cc: {
@@ -279,59 +281,52 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              */
             value: externCcValue,
             text: externCcValueText,
+            isDefault: externCcValue === 2,
         },
 
-        wheel: {
-            /**
-             * Offset in file: 0xf6 (b5)
-             *
-             * @example
-             * 0 = OFF
-             * 1 = ON
-             *
-             * @module NS3 Extern Midi Send Wheel
-             */
-            enabled: (externOffsetF6 & 0x20) !== 0,
-        },
+        /**
+         * Offset in file: 0xf6 (b5)
+         *
+         * @example
+         * 0 = OFF
+         * 1 = ON
+         *
+         * @module NS3 Extern Midi Send Wheel
+         */
+        wheel: ns3BooleanValue((externOffsetF6 & 0x20) !== 0, true),
 
-        afterTouch: {
-            /**
-             * Offset in file: 0xf6 (b4)
-             *
-             * @example
-             * 0 = OFF
-             * 1 = ON
-             *
-             * @module NS3 Extern Midi Send AfterTouch
-             */
-            enabled: (externOffsetF6 & 0x10) !== 0,
-        },
+        /**
+         * Offset in file: 0xf6 (b4)
+         *
+         * @example
+         * 0 = OFF
+         * 1 = ON
+         *
+         * @module NS3 Extern Midi Send AfterTouch
+         */
+        afterTouch: ns3BooleanValue((externOffsetF6 & 0x10) !== 0, true),
 
-        controlPedal: {
-            /**
-             * Offset in file: 0xf6 (b3)
-             *
-             * @example
-             * 0 = OFF
-             * 1 = ON
-             *
-             * @module NS3 Extern Midi Send Control Pedal
-             */
-            enabled: (externOffsetF6 & 0x08) !== 0,
-        },
+        /**
+         * Offset in file: 0xf6 (b3)
+         *
+         * @example
+         * 0 = OFF
+         * 1 = ON
+         *
+         * @module NS3 Extern Midi Send Control Pedal
+         */
+        controlPedal: ns3BooleanValue((externOffsetF6 & 0x08) !== 0, true),
 
-        swell: {
-            /**
-             * Offset in file: 0xf6 (b2)
-             *
-             * @example
-             * 0 = OFF
-             * 1 = ON
-             *
-             * @module NS3 Extern Midi Send Swell
-             */
-            enabled: (externOffsetF6 & 0x04) !== 0,
-        },
+        /**
+         * Offset in file: 0xf6 (b2)
+         *
+         * @example
+         * 0 = OFF
+         * 1 = ON
+         *
+         * @module NS3 Extern Midi Send Swell
+         */
+        swell: ns3BooleanValue((externOffsetF6 & 0x04) !== 0, true),
 
         velocity: {
             /**
@@ -342,7 +337,8 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
              *
              * @module NS3 Extern Midi Velocity Curve
              */
-            value: ns3ExternMidiVelocityCurveMap.get((externOffsetF5 & 0x60) >>> 5),
+            value: ns3ExternMidiVelocityCurveMap.get(velocity),
+            isDefault: velocity === 1,
         },
     };
 };

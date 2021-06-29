@@ -101,7 +101,13 @@ export default class NordDevice extends Component {
             return true;
         }
         for (let i = 0; i < this.props.data.length; i++) {
+
             if (this.props.data[i].timestamp !== nextProps.data[i].timestamp) {
+                console.log("render device", this.props.data[i].name, "->", nextProps.data[i].name);
+                return true;
+            }
+            // name is updated when Show all is selected
+            if (this.props.data[i].name !== nextProps.data[i].name) {
                 console.log("render device", this.props.data[i].name, "->", nextProps.data[i].name);
                 return true;
             }
