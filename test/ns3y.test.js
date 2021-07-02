@@ -21,5 +21,13 @@ describe("/ns3/ns3y", () => {
         });
     });
 
+    test("version.value eq 3.00", async () => {
+        const file = "version.value eq 3.00.ns3y";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
 });
 

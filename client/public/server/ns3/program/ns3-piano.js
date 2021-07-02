@@ -115,7 +115,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Piano Volume
          */
-        volume: ns3VolumeEx(buffer, 0x43 + panelOffset),
+        volume: ns3VolumeEx(buffer, 0x43 + panelOffset, false),
 
         /**
          * Offset in file: 0x47 (b3-0)

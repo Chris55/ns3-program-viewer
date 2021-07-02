@@ -230,6 +230,12 @@
     font-size: 0.75rem;
 }
 
+.nord-value:hover {
+    /*color: red;*/
+    background-color: #eceaea !important;
+    cursor: pointer;
+}
+
 .nord-upper-case {
     text-transform: uppercase;
 }

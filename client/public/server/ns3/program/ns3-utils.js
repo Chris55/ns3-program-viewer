@@ -119,11 +119,17 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
  *
  * @param buffer {Buffer}
  * @param offset
+ * @param ns3yFile
  * @returns {{midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}}
  */
-exports.ns3VolumeEx = (buffer, offset) => {
-    const organOffsetB6W = buffer.readUInt16BE(offset); // 0xB6
-    const morphOffsetB7Ww = buffer.readUInt32BE(offset + 1); // 0xB7
+exports.ns3VolumeEx = (buffer, offset, ns3yFile) => {
+    let organOffsetB6W = 0;
+    let morphOffsetB7Ww = 0;
+
+    if (!ns3yFile) {
+        organOffsetB6W = buffer.readUInt16BE(offset); // 0xB6
+        morphOffsetB7Ww = buffer.readUInt32BE(offset + 1); // 0xB7
+    }
 
     // From value
     const midi = (organOffsetB6W & 0x07f0) >>> 4;
@@ -197,7 +203,7 @@ exports.ns3SynthLocation = (bankValue, locationValue) => {
     return {
         bank: bankValue,
         location: locationValue,
-        name: (bankValue + 1) + ":" + zeroPad(locationValue + 1, 2),
+        name: bankValue + 1 + ":" + zeroPad(locationValue + 1, 2),
         value: bankValue * 50 + locationValue,
     };
 };
@@ -207,11 +213,15 @@ exports.ns3SynthLocation = (bankValue, locationValue) => {
  *
  * @param buffer {Buffer}
  * @param offset {number}
+ * @param ns3yFile
  * @returns {{userPresetLocation: number, samplePresetLocation: number, presetName: string}}
  */
-exports.ns3SynthPreset = (buffer, offset) => {
-    const offset57W = buffer.readUInt16BE(offset);
-    const location = (offset57W & 0x3ff0) >>> 4;
+exports.ns3SynthPreset = (buffer, offset, ns3yFile) => {
+    let location = 0;
+    if (!ns3yFile) {
+        const offset57W = buffer.readUInt16BE(offset);
+        location = (offset57W & 0x3ff0) >>> 4;
+    }
 
     const userPreset = location < 400;
     const userPresetLocationValue = location >= 400 ? 0 : location;
@@ -233,28 +243,30 @@ exports.ns3SynthPreset = (buffer, offset) => {
     //   d  c  b  a
 
     let name = "";
-    for (let i = 0; i < 22; i++) {
-        const four = Math.trunc(i / 4) * 4;
-        const pos = four + 3 - (i % 4);
-        const value = buffer.readUInt16BE(offset + 1 + pos);
-        let ch;
-        switch (i % 4) {
-            case 0:
-                ch = ((value & 0x0ff0) >>> 4) + 1;
+    if (!ns3yFile) {
+        for (let i = 0; i < 22; i++) {
+            const four = Math.trunc(i / 4) * 4;
+            const pos = four + 3 - (i % 4);
+            const value = buffer.readUInt16BE(offset + 1 + pos);
+            let ch;
+            switch (i % 4) {
+                case 0:
+                    ch = ((value & 0x0ff0) >>> 4) + 1;
+                    break;
+                case 1:
+                case 2:
+                    ch = (value & 0x0ff0) >>> 4;
+                    break;
+                case 3:
+                    ch = (value & 0x07f0) >>> 4;
+                    break;
+            }
+            if (ch === 0) {
                 break;
-            case 1:
-            case 2:
-                ch = (value & 0x0ff0) >>> 4;
-                break;
-            case 3:
-                ch = (value & 0x07f0) >>> 4;
-                break;
-        }
-        if (ch === 0) {
-            break;
-        }
-        if (ch < 255 && ch !== 127) {
-            name += String.fromCharCode(ch);
+            }
+            if (ch < 255 && ch !== 127) {
+                name += String.fromCharCode(ch);
+            }
         }
     }
 

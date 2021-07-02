@@ -289,7 +289,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
          *
          * @module NS3 Organ Volume
          */
-        volume: ns3VolumeEx(buffer, 0xb6 + panelOffset),
+        volume: ns3VolumeEx(buffer, 0xb6 + panelOffset, false),
 
         /**
          * Offset in file: 0xBA (b3-0)

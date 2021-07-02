@@ -173,7 +173,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
 
     const synthKbZoneValue = (synthOffset52W & 0x7800) >>> 11;
     const synthKbZone = ns3KbZone(synthKbZoneEnabled, global, synthKbZoneValue);
-    const preset = ns3SynthPreset(buffer, 0x57 + panelOffset);
+    const preset = ns3SynthPreset(buffer, 0x57 + panelOffset, ns3yFile);
 
     const pitchShiftRangeAvailable = global.version.version >= 303;
     const pitchShiftRange = (synthOffset3b & 0xf0) >>> 4;
@@ -236,7 +236,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
          *
          * @module NS3 Synth Volume
          */
-        volume: ns3VolumeEx(buffer, 0x52 + panelOffset),
+        volume: ns3VolumeEx(buffer, 0x52 + panelOffset, ns3yFile),
 
         /**
          * Offset in file: 0x56 (b3-0)
