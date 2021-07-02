@@ -293,6 +293,22 @@ describe("/ns2/global", () => {
         });
     });
 
+    test("size eq 547", async () => {
+        const file = "size eq 547.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("size eq 565", async () => {
+        const file = "size eq 565.ns2p";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("slotA.enabled eq false and slotB.enabled eq true", async () => {
         const file = "slotA.enabled eq false and slotB.enabled eq true.ns2p";
         const sut = await loadTestCase(root + file);

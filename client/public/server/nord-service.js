@@ -21,20 +21,33 @@ exports.loadNordFile = (buffer, filename) => {
     }
 
     const fileExt = buffer.toString("utf8", 8, 12);
+    let data = {};
+
     switch (fileExt) {
         case "ns3f": {
-            return loadNs3ProgramFile(buffer, filename);
+            data = loadNs3ProgramFile(buffer, filename);
+            break;
         }
         case "ns3y": {
-            return loadNs3SynthFile(buffer, filename);
+            data = loadNs3SynthFile(buffer, filename);
+            break;
         }
         case "ns2p": {
-            return loadNs2ProgramFile(buffer, filename);
+            data = loadNs2ProgramFile(buffer, filename);
+            break;
         }
         case "ns2s": {
-            return loadNs2SynthFile(buffer, filename);
+            data = loadNs2SynthFile(buffer, filename);
+            break;
+        }
+        default: {
+            throw new Error(fileExt + " file is not supported, select a valid Nord file");
         }
     }
 
-    throw new Error(fileExt + " file is not supported, select a valid Nord file");
+    return {
+        timestamp: new Date().getTime(),
+        size: buffer.length,
+        ...data,
+    };
 };

@@ -13,6 +13,22 @@ describe("/ns2/ns2s", () => {
         });
     });
 
+    test("size eq 60", async () => {
+        const file = "size eq 60.ns2s";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("size eq 78", async () => {
+        const file = "size eq 78.ns2s";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("synth.oscillators.type.value eq WAVE", async () => {
         const file = "synth.oscillators.type.value eq WAVE.ns2s";
         const sut = await loadTestCase(root + file);

@@ -405,6 +405,22 @@ describe("/ns3/global", () => {
         });
     });
 
+    test("size eq 574", async () => {
+        const file = "size eq 574.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
+    test("size eq 592", async () => {
+        const file = "size eq 592.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("split.enabled eq false", async () => {
         const file = "split.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);

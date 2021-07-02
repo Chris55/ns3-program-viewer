@@ -61,10 +61,7 @@ router.post("/upload", upload.array("nordFiles", 100), async (req, res, next) =>
             }
 
             const data = loadNordFile(buffer, file.originalname);
-            bundle.push({
-                timestamp: new Date().getTime(),
-                ...data,
-            });
+            bundle.push(data);
         }
         const response = {
             success: true,
