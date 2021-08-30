@@ -10,7 +10,7 @@
         "serve-index": "^1.9.1",
         "uuid": "^8.3.0"
     },
-    "description": "Nord Stage file parser",
+    "description": "The unofficial Nord Stage 2/2EX/3 Program viewer tool.",
     "devDependencies": {
         "@types/jest": "^26.0.10",
         "better-docs": "^2.3.1",
