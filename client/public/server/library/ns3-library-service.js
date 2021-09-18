@@ -103,8 +103,10 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         // }
         if (sampleId === 0 && location === undefined) {
             sample.value = "Sample 1 (Program Init)";
-        } else {
+        } else if (location !== undefined) {
             sample.value = "Sample " + (location + 1);
+        } else {
+            sample.value = "Sample Unknown";
         }
     }
 
