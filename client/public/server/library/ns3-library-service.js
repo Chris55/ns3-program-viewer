@@ -6,6 +6,7 @@ const { ns3NordSampleLibrary3 } = require("./ns3-nord-sample-library-3");
 const { ns3NordPianoLibrary } = require("./ns3-nord-piano-library");
 const { ns3ProductLibraries } = require("./ns3-product-libraries");
 const { ns3NordSampleLibraryArchive } = require("./ns3-nord-sample-library-archive");
+const { ns3RedLibrary } = require("./ns3-red-library");
 
 /***
  *
@@ -50,7 +51,8 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         ns3NordSampleLibraryArchive.get(sampleId) ||
         ns3ProductLibraries.get(sampleId) ||
         ns3UserLibraries.get(sampleId) ||
-        ns3ScSoundsLibraries.get(sampleId);
+        ns3ScSoundsLibraries.get(sampleId) ||
+        ns3RedLibrary.get(sampleId);
 
     // note for the user manuals:
     // String Resonance: Not applicable to the small (Sml) versions of the grand pianos and uprights, or the electric pianos.
