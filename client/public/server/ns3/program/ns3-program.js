@@ -79,6 +79,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * v2.50 (2020-01-13)  v3.04
      * v2.52 (2020-01-23)  v3.04
      * v2.54 (2020-03-04)  v3.04
+     * v2.60 (2021-09-23)  v3.04
      *
      * @see {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history Nord Stage 3 - Update History}
      * @module NS3 File Version
