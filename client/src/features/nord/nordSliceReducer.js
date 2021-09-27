@@ -7,7 +7,7 @@ const production = process.env.NODE_ENV === "production";
 // to test home page set this to false,
 // if true it shows the default model immediately
 
-const loadedDebug = false;
+const loadedDebug = true;
 
 const initialState = {
     production: production,
@@ -21,6 +21,7 @@ const initialState = {
     showDefault: false,
     exporting: false,
     exportDetails: "",
+    programs: [{name: "prg1", location: "Bank A"}, {name: "prg2", location: "Bank A"}]
 };
 
 const nordSlice = createSlice({

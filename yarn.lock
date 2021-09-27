@@ -566,6 +566,18 @@ acorn@^7.1.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
+ag-grid-community@^26.0.0:
+  version "26.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-26.0.0.tgz#2f26d4e89f5d2b8264065e8a542c42973e1cb306"
+  integrity sha512-ewm640koOut+1nl+rDf/pUyM6/V2xbZ8T7VTzM0NZQNhn8TFG3grKs5iEzsKel8mwMWCSIO82xr356QNE11Hog==
+
+ag-grid-react@^26.0.0:
+  version "26.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-26.0.0.tgz#5d4f39a0b26452c7d195502e674069688cf4d1e6"
+  integrity sha512-u/8PS1Y9tZFPo8CTd8Ucq8DAPI4LY0HZRmPOYuXzaInDzM+P7nFdZFG+nm2KAGE/8Eko3eW85pVM251ghJsxjg==
+  dependencies:
+    prop-types "^15.6.2"
+
 ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
@@ -4811,7 +4823,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.7.2:
+prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==

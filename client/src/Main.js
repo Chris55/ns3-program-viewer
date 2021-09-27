@@ -1,24 +1,35 @@
-import React from "react";
+import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import "ag-grid-community/dist/styles/ag-grid.css";
+import "ag-grid-community/dist/styles/ag-theme-bootstrap.css";
 import NordDevice from "./nord/nord-device";
 import Button from "react-bootstrap/Button";
-import { buildExport } from "./export/export-pdf";
+import {buildExport} from "./export/export-pdf";
 import Home from "./Home";
 import LoadButton from "./LoadButton";
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {
     nordSelector,
     setError,
     setExporting,
     setExportingDetail,
-    toggleShowAll, toggleShowDefault,
+    toggleShowAll,
+    toggleShowDefault,
 } from "./features/nord/nordSliceReducer";
-import { Form, Navbar } from "react-bootstrap";
+import {Form, Navbar} from "react-bootstrap";
+import SplitterLayout from "react-splitter-layout";
+import "react-splitter-layout/lib/index.css";
+import {AgGridColumn, AgGridReact} from "ag-grid-react";
 
 const Main = () => {
+    const [gridApi, setGridApi] = useState(null);
+    const [gridColumnApi, setGridColumnApi] = useState(null);
+
     const dispatch = useDispatch();
-    const { loading, loaded, data, showAll, showDefault, exporting, exportDetails, production } = useSelector(nordSelector);
+    const {loading, loaded, data, showAll, showDefault, exporting, exportDetails, production, programs} = useSelector(
+        nordSelector
+    );
 
     const handleToggleShow = () => {
         dispatch(toggleShowAll());
@@ -35,23 +46,37 @@ const Main = () => {
         dispatch(setExporting(true));
         try {
             await buildExport(data, showAll, callback);
-        } catch(e) {
+        } catch (e) {
             dispatch(setError(e.message));
         } finally {
             dispatch(setExporting(false));
         }
     };
 
+    const onRowClicked = () => {
+    };
+
+    const onGridReady = (params) => {
+        setGridApi(params.api);
+        setGridColumnApi(params.columnApi);
+    };
+
+    const onGridSizeChanged = () => {
+        if (gridApi) {
+            gridApi.sizeColumnsToFit();
+        }
+    };
+
     return (
         <>
-            {!loaded && <Home />}
+            {!loaded && <Home/>}
 
             {loaded && (
                 <div>
                     <Navbar className="bg-light">
                         <Navbar.Collapse className="">
                             <Form inline className="ml-n2">
-                                <LoadButton className="nav-link" variant="light" />
+                                <LoadButton className="nav-link" variant="light"/>
                                 <Button
                                     className="nav-link"
                                     variant="light"
@@ -63,7 +88,7 @@ const Main = () => {
                             </Form>
                         </Navbar.Collapse>
                         <Navbar.Collapse className="justify-content-end">
-                            <Form inline >
+                            <Form inline>
                                 <Form.Check
                                     className="mr-5"
                                     label="Smart"
@@ -88,7 +113,38 @@ const Main = () => {
                         </Navbar.Collapse>
                     </Navbar>
 
-                    <NordDevice data={data} showAll={showAll} production={production} />
+                    <SplitterLayout
+                        primaryIndex={1}
+                        percentage={false}
+                        secondaryInitialSize={250}
+                        secondaryMinSize={10}
+                    >
+                        <div>
+
+                            <div
+                                className="ag-theme-bootstrap"
+                                style={{
+                                    height: "100px",
+                                    width: "100%",
+                                }}
+                            >
+                                <AgGridReact
+                                    onGridReady={onGridReady}
+                                    onGridSizeChanged={onGridSizeChanged}
+                                    onRowClicked={onRowClicked}
+                                    rowData={programs}
+                                    rowHeight={30}
+                                >
+                                    {/*<AgGridColumn field="location" sortable={true}/>*/}
+                                    <AgGridColumn field="name" sortable={true}/>
+                                </AgGridReact>
+                            </div>
+
+                        </div>
+                        <div>
+                            <NordDevice data={data} showAll={showAll} production={production}/>
+                        </div>
+                    </SplitterLayout>
                 </div>
             )}
         </>
