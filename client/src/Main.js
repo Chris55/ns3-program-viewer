@@ -13,7 +13,7 @@ import {
     nordSelector,
     setError,
     setExporting,
-    setExportingDetail,
+    setExportingDetail, setLoadingSuccess,
     toggleShowAll,
     toggleShowDefault,
 } from "./features/nord/nordSliceReducer";
@@ -53,7 +53,19 @@ const Main = () => {
         }
     };
 
-    const onRowClicked = () => {
+    const onRowClicked = (event) => {
+        if (event) {
+            dispatch(
+                setLoadingSuccess({
+                    loaded: true,
+                    loading: false,
+                    data: [event.data.model],
+                    originalData: [event.data.model],
+                    error: null,
+                    showAll: false,
+                })
+            );
+        }
     };
 
     const onGridReady = (params) => {
@@ -113,6 +125,7 @@ const Main = () => {
                         </Navbar.Collapse>
                     </Navbar>
 
+                    {programs.length !== 0 &&
                     <SplitterLayout
                         primaryIndex={1}
                         percentage={false}
@@ -124,7 +137,7 @@ const Main = () => {
                             <div
                                 className="ag-theme-bootstrap"
                                 style={{
-                                    height: "100px",
+                                    height: "80vh",
                                     width: "100%",
                                 }}
                             >
@@ -134,9 +147,32 @@ const Main = () => {
                                     onRowClicked={onRowClicked}
                                     rowData={programs}
                                     rowHeight={30}
+                                    domLayout={"autoHeight"}
                                 >
-                                    {/*<AgGridColumn field="location" sortable={true}/>*/}
-                                    <AgGridColumn field="name" sortable={true}/>
+                                    <AgGridColumn
+                                        headerName="Loc"
+                                        field="location"
+                                        flex={1}
+                                        sort={"asc"}
+                                        sortable={true}/>
+                                    <AgGridColumn
+                                        field="name"
+                                        flex={5}
+                                        sortable={true}
+                                        comparator={customComparator}
+                                    />
+                                    <AgGridColumn
+                                        field="category"
+                                        flex={3}
+                                        sortable={true}
+                                        comparator={customComparator}
+                                    />
+                                    <AgGridColumn
+                                        field="version"
+                                        flex={1}
+                                        sortable={true}
+                                        comparator={customComparator}
+                                    />
                                 </AgGridReact>
                             </div>
 
@@ -145,10 +181,16 @@ const Main = () => {
                             <NordDevice data={data} showAll={showAll} production={production}/>
                         </div>
                     </SplitterLayout>
+                    }
+                    {programs.length === 0 && <NordDevice data={data} showAll={showAll} production={production}/> }
                 </div>
             )}
         </>
     );
+};
+
+const customComparator = (valueA, valueB) => {
+    return valueA.toLowerCase().localeCompare(valueB.toLowerCase());
 };
 
 export default Main;

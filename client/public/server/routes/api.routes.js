@@ -36,7 +36,7 @@ const upload = multer({
     },
 });
 
-router.post("/upload", upload.array("nordFiles", 100), async (req, res, next) => {
+router.post("/upload", upload.array("nordFiles", 500), async (req, res, next) => {
     if (!req.files) {
         next(Error("Unsupported file"));
         return;
