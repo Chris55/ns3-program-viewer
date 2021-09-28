@@ -21,13 +21,15 @@ import {Form, Navbar} from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
 import {AgGridColumn, AgGridReact} from "ag-grid-react";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
 
 const Main = () => {
     const [gridApi, setGridApi] = useState(null);
     const [gridColumnApi, setGridColumnApi] = useState(null);
 
     const dispatch = useDispatch();
-    const {loading, loaded, data, showAll, showDefault, exporting, exportDetails, production, programs} = useSelector(
+    const {loading, loaded, data, showAll, showDefault, exporting, exportDetails, production, programs, synths} = useSelector(
         nordSelector
     );
 
@@ -79,6 +81,8 @@ const Main = () => {
         }
     };
 
+    const showManager = programs.length !== 0 || synths.length !== 0;
+
     return (
         <>
             {!loaded && <Home/>}
@@ -125,56 +129,112 @@ const Main = () => {
                         </Navbar.Collapse>
                     </Navbar>
 
-                    {programs.length !== 0 &&
+                    {showManager &&
                     <SplitterLayout
                         primaryIndex={1}
                         percentage={false}
-                        secondaryInitialSize={250}
+                        secondaryInitialSize={350}
                         secondaryMinSize={10}
                     >
                         <div>
+                            <Tabs id="manager">
+                                <Tab eventKey="program" title="Program">
+                                    <div
+                                        className="ag-theme-bootstrap"
+                                        style={{
+                                            height: "80vh",
+                                            width: "100%",
+                                        }}
+                                    >
+                                        <AgGridReact
+                                            onGridReady={onGridReady}
+                                            onGridSizeChanged={onGridSizeChanged}
+                                            onRowClicked={onRowClicked}
+                                            rowData={programs}
+                                            rowHeight={30}
+                                            rowSelection={"single"}
+                                        >
+                                            <AgGridColumn
+                                                headerName="Loc"
+                                                field="location"
+                                                width={90}
+                                                sort={"asc"}
+                                                resizable={true}
+                                                sortable={true}/>
+                                            <AgGridColumn
+                                                field="name"
+                                                width={180}
+                                                sortable={true}
+                                                resizable={true}
+                                                comparator={customComparator}
+                                            />
+                                            <AgGridColumn
+                                                field="category"
+                                                width={120}
+                                                sortable={true}
+                                                resizable={true}
+                                                comparator={customComparator}
+                                            />
+                                            <AgGridColumn
+                                                field="version"
+                                                width={80}
+                                                sortable={true}
+                                                resizable={true}
+                                                comparator={customComparator}
+                                            />
+                                        </AgGridReact>
+                                    </div>
+                                </Tab>
 
-                            <div
-                                className="ag-theme-bootstrap"
-                                style={{
-                                    height: "80vh",
-                                    width: "100%",
-                                }}
-                            >
-                                <AgGridReact
-                                    onGridReady={onGridReady}
-                                    onGridSizeChanged={onGridSizeChanged}
-                                    onRowClicked={onRowClicked}
-                                    rowData={programs}
-                                    rowHeight={30}
-                                    domLayout={"autoHeight"}
-                                >
-                                    <AgGridColumn
-                                        headerName="Loc"
-                                        field="location"
-                                        flex={1}
-                                        sort={"asc"}
-                                        sortable={true}/>
-                                    <AgGridColumn
-                                        field="name"
-                                        flex={5}
-                                        sortable={true}
-                                        comparator={customComparator}
-                                    />
-                                    <AgGridColumn
-                                        field="category"
-                                        flex={3}
-                                        sortable={true}
-                                        comparator={customComparator}
-                                    />
-                                    <AgGridColumn
-                                        field="version"
-                                        flex={1}
-                                        sortable={true}
-                                        comparator={customComparator}
-                                    />
-                                </AgGridReact>
-                            </div>
+                                <Tab eventKey="synth" title="Synth" disabled={false}>
+                                    <div
+                                        className="ag-theme-bootstrap"
+                                        style={{
+                                            height: "80vh",
+                                            width: "100%",
+                                        }}
+                                    >
+                                        <AgGridReact
+                                            onGridReady={onGridReady}
+                                            onGridSizeChanged={onGridSizeChanged}
+                                            onRowClicked={onRowClicked}
+                                            rowData={synths}
+                                            rowHeight={30}
+                                            rowSelection={"single"}
+                                        >
+                                            <AgGridColumn
+                                                headerName="Loc"
+                                                field="location"
+                                                width={90}
+                                                sort={"asc"}
+                                                resizable={true}
+                                                sortable={true}/>
+                                            <AgGridColumn
+                                                field="name"
+                                                width={180}
+                                                sortable={true}
+                                                resizable={true}
+                                                comparator={customComparator}
+                                            />
+                                            <AgGridColumn
+                                                field="category"
+                                                width={120}
+                                                sortable={true}
+                                                resizable={true}
+                                                comparator={customComparator}
+                                            />
+                                            <AgGridColumn
+                                                field="version"
+                                                width={80}
+                                                sortable={true}
+                                                resizable={true}
+                                                comparator={customComparator}
+                                            />
+                                        </AgGridReact>
+                                    </div>
+                                </Tab>
+                            </Tabs>
+
 
                         </div>
                         <div>
@@ -182,7 +242,7 @@ const Main = () => {
                         </div>
                     </SplitterLayout>
                     }
-                    {programs.length === 0 && <NordDevice data={data} showAll={showAll} production={production}/> }
+                    {!showManager && <NordDevice data={data} showAll={showAll} production={production}/> }
                 </div>
             )}
         </>

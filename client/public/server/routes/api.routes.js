@@ -36,7 +36,9 @@ const upload = multer({
     },
 });
 
-router.post("/upload", upload.array("nordFiles", 500), async (req, res, next) => {
+// max is 400 program + 400 synth files
+
+router.post("/upload", upload.array("nordFiles", 1000), async (req, res, next) => {
     if (!req.files) {
         next(Error("Unsupported file"));
         return;
