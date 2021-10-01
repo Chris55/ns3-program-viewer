@@ -119,6 +119,8 @@ exports.loadNs2SynthFile = (buffer, filename) => {
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
+        isProgram: false,
+        isSynth: true,
 
         // program location
         id: programLocation,

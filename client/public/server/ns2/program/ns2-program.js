@@ -236,6 +236,8 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
+        isProgram: true,
+        isSynth: false,
 
         // program location
         id: programLocation,
