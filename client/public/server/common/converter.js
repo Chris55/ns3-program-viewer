@@ -245,3 +245,12 @@ exports.getName = (filename) => {
 
     return valid;
 };
+
+/***
+ * returns filename extension (includes the dot)
+ * @param fileName
+ * @returns {string}
+ */
+exports.getExtension = (fileName) => {
+    return fileName.slice(Math.max(0, fileName.name.lastIndexOf(".")) || Infinity).toLowerCase();
+}

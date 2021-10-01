@@ -3,8 +3,9 @@ const log = require("electron-log");
 const { autoUpdater } = require("electron-updater");
 const path = require("path");
 const isDev = require("electron-is-dev");
-const { promises: fs } = require("fs");
 const { loadNordFile } = require("./server/nord-service");
+const unzipper = require("unzipper");
+const fs = require("fs");
 
 let mainWindow;
 
@@ -80,15 +81,52 @@ app.on("ready", async () => {
     await autoUpdater.checkForUpdatesAndNotify();
 });
 
-ipcMain.handle("download-files", async (event, args) => {
+/***
+ * returns JSON data of all Nord files
+ */
+ipcMain.handle("download-files", async (event, files) => {
     try {
         const bundle = [];
-        for(const file of args) {
-            console.log(file.path);
-            const buffer = await fs.readFile(file.path);
+        for (const file of files) {
+            const buffer = await fs.promises.readFile(file.path);
             const data = loadNordFile(buffer, file.name);
             bundle.push(data);
         }
+
+        return {
+            success: true,
+            error: "",
+            data: bundle,
+        };
+    } catch (e) {
+        return {
+            success: false,
+            error: e.message,
+        };
+    }
+});
+
+/***
+ * returns JSON data of all supported Nord file included in the zip (backup or bundle file)
+ */
+ipcMain.handle("download-backup", async (event, file, supportedProgramTypes) => {
+    try {
+        const bundle = [];
+
+        const directory = await unzipper.Open.file(file);
+
+        const task = async (entry) => {
+            const fileName = path.basename(entry.path);
+            const ext = path.extname(entry.path);
+            if (entry.type === "File" && supportedProgramTypes.includes(ext)) {
+                const buffer = await entry.buffer();
+                const data = loadNordFile(buffer, fileName);
+                bundle.push(data);
+            }
+        }
+
+        await Promise.all(directory.files.map(x => task(x)));
+
 
         return {
             success: true,

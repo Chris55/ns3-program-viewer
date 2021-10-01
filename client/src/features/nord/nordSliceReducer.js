@@ -84,7 +84,7 @@ const nordSlice = createSlice({
             if (!state.showAll) {
                 const newData = state.data;
                 for (const item of newData) {
-                    if (item.ext === "ns3f" || item.ext === "ns2p") {
+                    if (item.isProgram) {
                         item.name += " - (All Instruments Visible)";
                         const panelA = item.panelA || item.slotA;
                         const panelB = item.panelB || item.slotB;
@@ -167,6 +167,10 @@ const onError = (dispatch, err) => {
     dispatch(setLoadingError({ error: err.error }));
 };
 
+const getExtension = (fileName) => {
+    return fileName.slice(Math.max(0, fileName.lastIndexOf(".")) || Infinity).toLowerCase();
+}
+
 export const loadFiles = (files) => {
     return async (dispatch) => {
         dispatch(setLoading(true));
@@ -175,7 +179,7 @@ export const loadFiles = (files) => {
         const backupFiles = [];
 
         for (const file of files) {
-            const ext = file.name.slice(Math.max(0, file.name.lastIndexOf(".")) || Infinity).toLowerCase();
+            const ext = getExtension(file.name);
             if (supportedProgramTypes.includes(ext)) {
                 programFiles.push(ext);
             } else if (supportedBackupTypes.includes(ext)) {
@@ -192,7 +196,11 @@ export const loadFiles = (files) => {
         }
 
         if (backupFiles.length >= 1) {
-            await loadBackupFiles(dispatch, files);
+            if (backupFiles.length > 1) {
+                onError(dispatch, { error: "Please select only one backup/bundle file..." });
+                return;
+            }
+            await loadBackupFile(dispatch, files[0]);
             return;
         }
 
@@ -229,26 +237,33 @@ export const loadFiles = (files) => {
     };
 };
 
-const loadBackupFiles = async (dispatch, files) => {
-    for (const file of files) {
-        const reader = new ZipReader(new BlobReader(file));
-        const entries = await reader.getEntries();
+const loadBackupFile = async (dispatch, file) => {
+    const reader = new ZipReader(new BlobReader(file));
+    const entries = await reader.getEntries();
 
-        const formData = new FormData();
-        let count = 0;
-        for (const entry of entries) {
-            if (entry.filename.startsWith("Program") || entry.filename.startsWith("Synth")) {
-                count++;
-                const items = entry.filename.split("/");
-                const rawData = await entry.getData(
-                    //new Uint8ArrayWriter()
-                    new BlobWriter()
-                );
-                formData.append("nordFiles", rawData, items[2]);
-            }
+    const formData = new FormData();
+    let count = 0;
+    for (const entry of entries) {
+        const ext = getExtension(entry.filename);
+        if (supportedProgramTypes.includes(ext)) {
+            count++;
+            const items = entry.filename.split("/");
+            const rawData = await entry.getData(
+                //new Uint8ArrayWriter()
+                new BlobWriter()
+            );
+            formData.append("nordFiles", rawData, items[2]);
         }
-        reader.close();
+    }
+    reader.close();
 
+    let json = {};
+
+    if (initialState.isElectron) {
+        // onError(dispatch, { error: "not yet implemented..." });
+        // return;
+        json = await window.electron.downloadBackup(file.path, supportedProgramTypes);
+    } else {
         const url = production
             ? "https://ns3-program-viewer.herokuapp.com/api/upload"
             : "http://localhost:3000/api/upload";
@@ -258,48 +273,49 @@ const loadBackupFiles = async (dispatch, files) => {
             body: formData,
         });
 
-        const programs = [];
-        const synths = [];
-
         if (response.ok) {
-            const json = await response.json();
-            if (json.success) {
-                for (const data of json.data) {
-                    const nordItem = {
-                        name: data.name,
-                        location: data.id.name,
-                        version: data.version.value,
-                        category: data.category,
-                        model: data,
-                    };
-                    if (data.ext === "ns2p" || data.ext === "ns3f") {
-                        programs.push(nordItem);
-                    } else {
-                        synths.push(nordItem);
-                    }
-                    // dispatch(
-                    //     setLoadingBackupInProgress({
-                    //         programs: [program]
-                    //     })
-                    // );
-                }
-            } else {
-                onError(dispatch, { error: json.error });
-                return;
-            }
+            json = await response.json();
         } else {
             onError(dispatch, { error: response.statusText });
             return;
         }
-        dispatch(
-            setLoadingBackupSuccess({
-                loaded: true,
-                loading: false,
-                error: null,
-                showAll: false,
-                programs: programs,
-                synths: synths,
-            })
-        );
     }
+    const programs = [];
+    const synths = [];
+
+    if (json.success) {
+        for (const data of json.data) {
+            const nordItem = {
+                name: data.name,
+                location: data.id.name,
+                version: data.version.value,
+                category: data.category,
+                model: data,
+            };
+            if (data.isProgram) {
+                programs.push(nordItem);
+            } else {
+                synths.push(nordItem);
+            }
+            // dispatch(
+            //     setLoadingBackupInProgress({
+            //         programs: [program]
+            //     })
+            // );
+        }
+    } else {
+        onError(dispatch, { error: json.error });
+        return;
+    }
+
+    dispatch(
+        setLoadingBackupSuccess({
+            loaded: true,
+            loading: false,
+            error: null,
+            showAll: false,
+            programs: programs,
+            synths: synths,
+        })
+    );
 };

@@ -1,3 +1,16 @@
+// ag-grid.scss defines structural styles and should be imported first
+@import "~ag-grid-community/src/styles/ag-grid.scss";
+@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+.ag-theme-custom-react {
+    @include ag-theme-alpine((
+        //header-background-color: #282c34,
+        alpine-active-color: #282c34
+
+    ));
+
+}
+
 $primary: #c84f54;
 //$link-color: #2c2c2c;
 //$link-hover-color: #c84f54;
@@ -112,3 +125,12 @@ $primary: #c84f54;
     margin: 2px;
     background-color: orange;
 }
+
+#manager-tab-program {
+    color: #282c34;
+}
+
+#manager-tab-synth {
+    color: #282c34;
+}
+
