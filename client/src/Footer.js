@@ -5,7 +5,7 @@ import AppName from "./AppName";
 const Footer = () => {
     return (
         <Row>
-            <Col className="flex-grow-1 text-muted text-right mx-5">
+            <Col className="flex-grow-1 text-muted text-right mx-sm-5 mx-sx-2">
                 <hr />
                 <div className="">
                     <small>
