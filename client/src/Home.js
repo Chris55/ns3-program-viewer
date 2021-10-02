@@ -3,6 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import nordLogoProgram from "./assets/nord-logo-program.svg";
 import nordLogoSynth from "./assets/nord-logo-synth.svg";
+import nordLogoProgramBundle from "./assets/nord-logo-program-bundle.svg";
+import nordLogoSynthBundle from "./assets/nord-logo-synth-bundle.svg";
+import nordLogoBackup from "./assets/nord-logo-backup.svg";
 import AppName from "./AppName";
 import {Card, Col, Container, Media, Row} from "react-bootstrap";
 import LoadButton from "./LoadButton";
@@ -34,40 +37,98 @@ const Home = () => {
                                     settings. Following files are supported:
                                 </Card.Subtitle>
 
-                                <Media className="mt-4">
-                                    <img
-                                        width={48}
-                                        height={48}
-                                        className="align-self-center mr-3"
-                                        src={nordLogoProgram}
-                                        alt="logo"
-                                    />
-                                    <Media.Body>
-                                        <h6 className="mb-2 text-muted">Program Files</h6>
-                                        <p className="text-muted mt-2">
-                                            Nord Stage 2 (ns2p)
-                                            <br/>
-                                            Nord Stage 3 (ns3f)
-                                        </p>
-                                    </Media.Body>
-                                </Media>
+                                <Row className="mt-4">
+                                    <Col md="auto">
+                                        <Media className="">
+                                            <img
+                                                width={48}
+                                                height={48}
+                                                className="align-self-center mr-3"
+                                                src={nordLogoProgram}
+                                                alt="logo"
+                                            />
+                                            <Media.Body>
+                                                <h6 className="mb-2 text-muted">Program Files</h6>
+                                                <p className="text-muted mt-2">
+                                                    (ns2p, ns3f)
+                                                </p>
+                                            </Media.Body>
+                                        </Media>
 
-                                <Media className="mt-2">
-                                    <img
-                                        width={48}
-                                        height={48}
-                                        className="align-self-center mr-3"
-                                        src={nordLogoSynth}
-                                        alt="logo"
-                                    />
-                                    <Media.Body>
-                                        <h6 className="mb-2 text-muted">Synth Files</h6>
-                                        <p className="text-muted mt-2">
-                                            Nord Stage 2 (ns2s)
-                                            <br/>
-                                            Nord Stage 3 (ns3y)</p>
-                                    </Media.Body>
-                                </Media>
+                                        <Media className="">
+                                            <img
+                                                width={48}
+                                                height={48}
+                                                className="align-self-center mr-3"
+                                                src={nordLogoProgramBundle}
+                                                alt="logo"
+                                            />
+                                            <Media.Body>
+                                                <h6 className="mb-2 text-muted">Program Bundle Files</h6>
+                                                <p className="text-muted mt-2">
+                                                    (ns2pb, ns2synthpb, ns3fb, ns3synthpb)
+                                                </p>
+                                            </Media.Body>
+                                        </Media>
+                                    </Col>
+                                    <Col>
+                                        <Media className="">
+                                            <img
+                                                width={48}
+                                                height={48}
+                                                className="align-self-center mr-3"
+                                                src={nordLogoSynth}
+                                                alt="logo"
+                                            />
+                                            <Media.Body>
+                                                <h6 className="mb-2 text-muted">Synth Files</h6>
+                                                <p className="text-muted mt-2">
+                                                    (ns2s, ns3y)
+                                                </p>
+                                            </Media.Body>
+                                        </Media>
+
+                                        <Media className="">
+                                            <img
+                                                width={48}
+                                                height={48}
+                                                className="align-self-center mr-3"
+                                                src={nordLogoSynthBundle}
+                                                alt="logo"
+                                            />
+                                            <Media.Body>
+                                                <h6 className="mb-2 text-muted">Synth Bundle Files</h6>
+                                                <p className="text-muted mt-2">
+                                                    (ns2synthpb, ns3synthpb)
+                                                </p>
+                                            </Media.Body>
+                                        </Media>
+
+
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col md="auto">
+                                        <Media className="">
+                                            <img
+                                                width={48}
+                                                height={48}
+                                                className="align-self-center mr-3"
+                                                src={nordLogoBackup}
+                                                alt="logo"
+                                            />
+                                            <Media.Body>
+                                                <h6 className="mb-2 text-muted">Backup Files</h6>
+                                                <p className="text-muted mt-2">
+                                                    (ns2b, ns2exb, ns3b)
+                                                </p>
+                                            </Media.Body>
+                                        </Media>
+
+
+                                    </Col>
+                                </Row>
+
                             </Card.Body>
                         </Card>
 
