@@ -13,7 +13,7 @@ class NordList extends Component {
             let result;
             if (data && data.ext === "ns3f") {
                 result = (
-                    <div className="mt-2">
+                    <div className="mb-2">
                         {this.props.production && <Ns3 data={data} />}
 
                         {!this.props.production && (
@@ -31,7 +31,7 @@ class NordList extends Component {
                 );
             } else if (data && data.ext === "ns2p") {
                 result = (
-                    <div className="mt-2">
+                    <div className="mb-2">
                         {this.props.production && <Ns2 data={data} />}
 
                         {!this.props.production && (
@@ -49,7 +49,7 @@ class NordList extends Component {
                 );
             } else if (data && data.ext === "ns3y") {
                 result = (
-                    <div className="mt-2">
+                    <div className="mb-2">
                         {this.props.production && <Ns3y data={data} />}
 
                         {!this.props.production && (
@@ -67,7 +67,7 @@ class NordList extends Component {
                 );
             } else if (data && data.ext === "ns2s") {
                 result = (
-                    <div className="mt-2">
+                    <div className="mb-2">
                         {this.props.production && <Ns2s data={data} />}
 
                         {!this.props.production && (
