@@ -5,12 +5,13 @@ import appleLogo from "./assets/os-logo-apple.png";
 import microsoftLogo from "./assets/os-logo-microsoft.png";
 import linuxLogo from "./assets/os-logo-linux.png";
 import Handmade from "./Handmade";
+import Footer from "./Footer";
 
 const Offline = () => {
     return (
         <Container fluid>
-            <Row className="">
-                <Col xs={1} className="ns3-panel-skin handmade-container">
+            <Row className="handmade-container">
+                <Col xs={1} className="ns3-panel-skin flex-grow-1">
                     <Handmade/>
                 </Col>
                 <Col>
@@ -80,6 +81,8 @@ const Offline = () => {
                         </Media>
                         {/*<div style={{ height: "20vh" }} />*/}
                     </div>
+
+                    <Footer/>
                 </Col>
             </Row>
         </Container>

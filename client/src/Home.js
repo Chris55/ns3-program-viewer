@@ -7,20 +7,21 @@ import nordLogoProgramBundle from "./assets/nord-logo-program-bundle.svg";
 import nordLogoSynthBundle from "./assets/nord-logo-synth-bundle.svg";
 import nordLogoBackup from "./assets/nord-logo-backup.svg";
 import AppName from "./AppName";
-import {Card, Col, Container, Media, Row} from "react-bootstrap";
+import { Card, Col, Container, Media, Row } from "react-bootstrap";
 import LoadButton from "./LoadButton";
-import {useSelector} from "react-redux";
-import {nordSelector} from "./features/nord/nordSliceReducer";
+import { useSelector } from "react-redux";
+import { nordSelector } from "./features/nord/nordSliceReducer";
 import Handmade from "./Handmade";
+import Footer from "./Footer";
 
 const Home = () => {
-    const {isElectron} = useSelector(nordSelector);
+    const { isElectron } = useSelector(nordSelector);
 
     return (
         <Container fluid>
-            <Row>
-                <Col xs={1} className="ns3-panel-skin handmade-container">
-                    <Handmade/>
+            <Row className="handmade-container">
+                <Col xs={1} className="ns3-panel-skin flex-grow-1">
+                    <Handmade />
                 </Col>
                 <Col>
                     <div className="mx-sm-5 mx-sx-2 mt-3">
@@ -28,17 +29,30 @@ const Home = () => {
                             <Card.Body>
                                 <Card.Title>
                                     <h2>
-                                        <AppName/>
+                                        <AppName />
                                     </h2>
                                 </Card.Title>
 
                                 <Card.Subtitle className="text-muted">
-                                    {isElectron ? "Offline" : "Online"} tool to review Nord Stage 2/2EX/3 program and synth file
-                                    settings. Following files are supported:
+                                    {isElectron ? "Offline" : "Online"} tool to review Nord Stage 2/2EX/3 program and
+                                    synth file settings.
                                 </Card.Subtitle>
+                            </Card.Body>
+                        </Card>
+
+                        <Card className="border-0">
+                            <Card.Body>
+                                <Card.Title>Let's get started</Card.Title>
+                                <LoadButton variant="primary" />
+                            </Card.Body>
+                        </Card>
+
+                        <Card className="border-0 mt-4">
+                            <Card.Body>
+                                <Card.Subtitle className="text-muted">Following files are supported:</Card.Subtitle>
 
                                 <Row className="mt-4">
-                                    <Col md="auto">
+                                    <Col md={4}>
                                         <Media className="">
                                             <img
                                                 width={48}
@@ -49,12 +63,11 @@ const Home = () => {
                                             />
                                             <Media.Body>
                                                 <h6 className="mb-2 text-muted">Program Files</h6>
-                                                <p className="text-muted mt-2">
-                                                    (ns2p, ns3f)
-                                                </p>
+                                                <p className="text-muted mt-2">(ns2p, ns3f)</p>
                                             </Media.Body>
                                         </Media>
-
+                                    </Col>
+                                    <Col>
                                         <Media className="">
                                             <img
                                                 width={48}
@@ -71,7 +84,9 @@ const Home = () => {
                                             </Media.Body>
                                         </Media>
                                     </Col>
-                                    <Col>
+                                </Row>
+                                <Row className="mt-2">
+                                    <Col md={4}>
                                         <Media className="">
                                             <img
                                                 width={48}
@@ -82,12 +97,11 @@ const Home = () => {
                                             />
                                             <Media.Body>
                                                 <h6 className="mb-2 text-muted">Synth Files</h6>
-                                                <p className="text-muted mt-2">
-                                                    (ns2s, ns3y)
-                                                </p>
+                                                <p className="text-muted mt-2">(ns2s, ns3y)</p>
                                             </Media.Body>
                                         </Media>
-
+                                    </Col>
+                                    <Col>
                                         <Media className="">
                                             <img
                                                 width={48}
@@ -98,16 +112,13 @@ const Home = () => {
                                             />
                                             <Media.Body>
                                                 <h6 className="mb-2 text-muted">Synth Bundle Files</h6>
-                                                <p className="text-muted mt-2">
-                                                    (ns2synthpb, ns3synthpb)
-                                                </p>
+                                                <p className="text-muted mt-2">(ns2synthpb, ns3synthpb)</p>
                                             </Media.Body>
                                         </Media>
-
-
                                     </Col>
                                 </Row>
-                                <Row>
+                                <Row className="mt-2">
+                                    <Col md={4}></Col>
                                     <Col md="auto">
                                         <Media className="">
                                             <img
@@ -119,29 +130,17 @@ const Home = () => {
                                             />
                                             <Media.Body>
                                                 <h6 className="mb-2 text-muted">Backup Files</h6>
-                                                <p className="text-muted mt-2">
-                                                    (ns2b, ns2exb, ns3b)
-                                                </p>
+                                                <p className="text-muted mt-2">(ns2b, ns2exb, ns3b)</p>
                                             </Media.Body>
                                         </Media>
-
-
                                     </Col>
                                 </Row>
-
-                            </Card.Body>
-                        </Card>
-
-                        <Card className="border-0">
-                            <Card.Body>
-                                <Card.Title>Let's get started</Card.Title>
-                                <LoadButton variant="primary"/>
                             </Card.Body>
                         </Card>
 
                         <Card className="border-0 text-muted">
                             <Card.Body>
-                                <Card.Subtitle className="mt-5">Disclaimer</Card.Subtitle>
+                                <Card.Subtitle className="mt-4">Disclaimer</Card.Subtitle>
 
                                 <Card.Text>
                                     We are not affiliated, associated, endorsed by, or in any way officially connected
@@ -152,9 +151,8 @@ const Home = () => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-
-                        {/*<div style={{height: "20vh"}}/>*/}
                     </div>
+                    <Footer />
                 </Col>
             </Row>
         </Container>

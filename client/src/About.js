@@ -2,12 +2,13 @@ import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import AppName from "./AppName";
 import Handmade from "./Handmade";
+import Footer from "./Footer";
 
 const About = () => {
     return (
         <Container fluid>
-            <Row className="justify-content-start align-content-stretch">
-                <Col xs={1} className="ns3-panel-skin handmade-container">
+            <Row className="handmade-container">
+                <Col xs={1} className="ns3-panel-skin flex-grow-1">
                     <Handmade/>
                 </Col>
                 <Col>
@@ -78,15 +79,9 @@ const About = () => {
                                     registered trademarks of their respective owners.
                                 </Card.Text>
                             </Card.Body>
-
-                            <Card.Body className="border-top mt-4">
-                                <Card.Text>
-                                    <AppName /> (c) {new Date().getFullYear()} Christian Florentz
-                                </Card.Text>
-                            </Card.Body>
                         </Card>
 
-                        {/*<div style={{ height: "20vh" }} />*/}
+                        <Footer/>
                     </div>
                 </Col>
             </Row>

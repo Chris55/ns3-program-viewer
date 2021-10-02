@@ -4,14 +4,15 @@ import AppName from "./AppName";
 import { useSelector } from "react-redux";
 import { nordSelector } from "./features/nord/nordSliceReducer";
 import Handmade from "./Handmade";
+import Footer from "./Footer";
 
 const Privacy = () => {
     const { isElectron } = useSelector(nordSelector);
 
     return (
         <Container fluid>
-            <Row className="justify-content-start align-content-stretch">
-                <Col xs={1} className="ns3-panel-skin handmade-container">
+            <Row className="handmade-container">
+                <Col xs={1} className="ns3-panel-skin flex-grow-1">
                     <Handmade/>
                 </Col>
                 <Col>
@@ -74,6 +75,8 @@ const Privacy = () => {
                                 {/*<div style={{ height: "20vh" }} />*/}
                             </Card.Body>
                         </Card>
+
+                        <Footer/>
                     </div>
                 </Col>
             </Row>
