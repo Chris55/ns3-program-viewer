@@ -22,7 +22,7 @@ import {
     toggleShowAll,
     toggleShowDefault,
 } from "./features/nord/nordSliceReducer";
-import { Form, Navbar } from "react-bootstrap";
+import { Col, Form, Navbar, Row } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
@@ -75,7 +75,7 @@ const Main = () => {
             .sort((a, b) => {
                 return a.rowIndex - b.rowIndex;
             })
-            .map((node) => node.data.model)
+            .map((node) => node.data.model);
 
         dispatch(
             setLoadingSuccess({
@@ -102,6 +102,15 @@ const Main = () => {
 
     const showManager = programs.length !== 0 || synths.length !== 0;
     const gridClass = "ag-theme-custom-react";
+
+    // empty space is added to 'hide' the export process
+    const nordDevice = (
+        <div>
+            <NordDevice data={data} showAll={showAll} production={production} />
+            <div style={{ height: "75vh" }} />
+            <div id="exportTag" />
+        </div>
+    );
 
     return (
         <>
@@ -257,12 +266,10 @@ const Main = () => {
                                     </Tab>
                                 </Tabs>
                             </div>
-                            <div>
-                                <NordDevice data={data} showAll={showAll} production={production} />
-                            </div>
+                            {nordDevice}
                         </SplitterLayout>
                     )}
-                    {!showManager && <NordDevice data={data} showAll={showAll} production={production} />}
+                    {!showManager && nordDevice}
                 </div>
             )}
         </>

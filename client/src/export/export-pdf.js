@@ -7,24 +7,23 @@ import { handy, isSafari } from "../utils/handy";
 import { store } from "../features/store";
 import { Provider } from "react-redux";
 
-export const getImages = async (data, showAll, callback) => {
-    // svg are not rendered by html2canvas in Safari
-    if (isSafari) throw Error("Safari not fully supported...., please use Chrome ;)");
-
+const getImages = async (data, showAll, callback) => {
     const images = [];
 
     for (let p = 0; p < data.length; p++) {
         callback(`rendering ${p + 1}/${data.length}`);
         const doc = (
             <Provider store={store}>
-                <NordDevice data={[data[p]]} showAll={showAll} production={true} />;
+                <NordDevice data={[data[p]]} showAll={showAll} production={true} />
             </Provider>
         );
 
         const output = document.createElement("div");
-        const staticElement = await renderToStaticMarkup(doc);
+        //output.style.cssText = 'z-index:-1';
+        const staticElement = renderToStaticMarkup(doc);
         output.innerHTML = `<div>${staticElement}</div>`;
-        document.body.append(output);
+        const tag = document.getElementById("exportTag");
+        tag.appendChild(output);
 
         const canvas = await html2canvas(output, {
             logging: false,
@@ -37,7 +36,7 @@ export const getImages = async (data, showAll, callback) => {
         const imgData = canvas.toDataURL("image/jpeg", 0.5);
         images.push(imgData);
 
-        document.body.removeChild(output);
+        tag.removeChild(output);
     }
 
     return images;
@@ -45,6 +44,9 @@ export const getImages = async (data, showAll, callback) => {
 
 export const buildExport = async (data, showAll, callback) => {
     // svg are not rendered by html2canvas in Safari
+    // now working in v1.3.2, but still issues
+    // https://github.com/niklasvh/html2canvas/issues/2699
+
     if (isSafari) throw Error("Safari not fully supported...., please use Chrome ;)");
 
     // workaround to disable the save button
