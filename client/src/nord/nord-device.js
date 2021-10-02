@@ -90,7 +90,7 @@ class NordList extends Component {
                 </li>
             );
         });
-        return <ul className="list-group list-group-flush">{listItems}</ul>;
+        return <ul className="list-group list-group-flush">{listItems}</ul>
     }
 }
 
@@ -117,6 +117,6 @@ export default class NordDevice extends Component {
     }
 
     render() {
-        return <NordList data={this.props.data} production={this.props.production} />;
+        return <NordList data={this.props.data} production={this.props.production} />
     }
 }
