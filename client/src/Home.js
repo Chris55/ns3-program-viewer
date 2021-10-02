@@ -79,7 +79,7 @@ const Home = () => {
                                             <Media.Body>
                                                 <h6 className="mb-2 text-muted">Program Bundle Files</h6>
                                                 <p className="text-muted mt-2">
-                                                    (ns2pb, ns2synthpb, ns3fb, ns3synthpb)
+                                                    (ns2pb, ns3fb)
                                                 </p>
                                             </Media.Body>
                                         </Media>
