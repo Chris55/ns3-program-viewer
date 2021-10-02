@@ -3,12 +3,12 @@
 @import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
 
 .ag-theme-custom-react {
-    @include ag-theme-alpine((
-        //header-background-color: #282c34,
-        alpine-active-color: #282c34
-
-    ));
-
+    @include ag-theme-alpine(
+        (
+            //header-background-color: #282c34,
+            alpine-active-color: #282c34
+        )
+    );
 }
 
 $primary: #c84f54;
@@ -16,7 +16,6 @@ $primary: #c84f54;
 //$link-hover-color: #c84f54;
 
 @import "~bootstrap/scss/bootstrap";
-
 
 .App {
     text-align: center;
@@ -80,7 +79,14 @@ $primary: #c84f54;
 }
 
 .main-area {
-    height: 92%;
+    height: 96%;
+}
+
+hr.footer-line {
+    background: linear-gradient(to right, white, grey);
+    height: 0.1rem;
+    border: 0;
+    margin: 0;
 }
 
 .handmade {
@@ -95,13 +101,14 @@ $primary: #c84f54;
     overflow: hidden;
     border: solid #dbd9d9;
     border-width: 0.3rem 0 0;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: transparent;
 }
 
-.handmade a:any-link    {color:white;}
-
+.handmade a:any-link {
+    color: white;
+}
 
 .work-complete {
     height: 10px;
@@ -136,4 +143,3 @@ $primary: #c84f54;
 #manager-tab-synth {
     color: #282c34;
 }
-
