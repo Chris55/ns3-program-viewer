@@ -45,7 +45,7 @@ const Home = () => {
                             <Card className="border-0">
                                 <Card.Body>
                                     <Card.Title>Let's get started</Card.Title>
-                                    <LoadButton variant="primary" />
+                                    <LoadButton className="nav-link" variant="primary" />
                                 </Card.Body>
                             </Card>
 
