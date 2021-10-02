@@ -79,7 +79,7 @@ const Home = () => {
                                                     alt="logo"
                                                 />
                                                 <Media.Body>
-                                                    <h6 className="mb-2 text-muted">Program Bundle Files</h6>
+                                                    <h6 className="mb-2 text-muted">Program Bundle Files (*)</h6>
                                                     <p className="text-muted mt-2">(ns2pb, ns3fb)</p>
                                                 </Media.Body>
                                             </Media>
@@ -111,7 +111,7 @@ const Home = () => {
                                                     alt="logo"
                                                 />
                                                 <Media.Body>
-                                                    <h6 className="mb-2 text-muted">Synth Bundle Files</h6>
+                                                    <h6 className="mb-2 text-muted">Synth Bundle Files (*)</h6>
                                                     <p className="text-muted mt-2">(ns2synthpb, ns3synthpb)</p>
                                                 </Media.Body>
                                             </Media>
@@ -129,12 +129,17 @@ const Home = () => {
                                                     alt="logo"
                                                 />
                                                 <Media.Body>
-                                                    <h6 className="mb-2 text-muted">Backup Files</h6>
+                                                    <h6 className="mb-2 text-muted">Backup Files (*)</h6>
                                                     <p className="text-muted mt-2">(ns2b, ns2exb, ns3b)</p>
                                                 </Media.Body>
                                             </Media>
+
+                                            <small className="text-muted mt-2">(*) samples are not loaded from bundle/backup files to improve loading time</small>
+
                                         </Col>
                                     </Row>
+
+
                                 </Card.Body>
                             </Card>
 
