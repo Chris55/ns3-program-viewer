@@ -12,7 +12,8 @@ const About = () => {
                     <Handmade/>
                 </Col>
                 <Col>
-                    <div className="mx-sm-5 mx-sx-2 mt-3">
+                    <Row className="main-area">
+                        <div className="mx-sm-5 mx-sx-2 mt-3">
                         <Card className="border-0">
                             <Card.Body>
                                 <Card.Title>About</Card.Title>
@@ -80,9 +81,9 @@ const About = () => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-
-                        <Footer/>
                     </div>
+                    </Row>
+                    <Footer/>
                 </Col>
             </Row>
         </Container>

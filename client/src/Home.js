@@ -23,135 +23,137 @@ const Home = () => {
                 <Col xs={1} className="ns3-panel-skin flex-grow-1">
                     <Handmade />
                 </Col>
+
                 <Col>
-                    <div className="mx-sm-5 mx-sx-2 mt-3">
-                        <Card className="border-0">
-                            <Card.Body>
-                                <Card.Title>
-                                    <h2>
-                                        <AppName />
-                                    </h2>
-                                </Card.Title>
+                    <Row className="main-area">
+                        <div className="mx-sm-5 mx-sx-2 mt-3">
+                            <Card className="border-0">
+                                <Card.Body>
+                                    <Card.Title>
+                                        <h2>
+                                            <AppName />
+                                        </h2>
+                                    </Card.Title>
 
-                                <Card.Subtitle className="text-muted">
-                                    {isElectron ? "Offline" : "Online"} tool to review Nord Stage 2/2EX/3 program and
-                                    synth file settings.
-                                </Card.Subtitle>
-                            </Card.Body>
-                        </Card>
+                                    <Card.Subtitle className="text-muted">
+                                        {isElectron ? "Offline" : "Online"} tool to review Nord Stage 2/2EX/3 program
+                                        and synth file settings.
+                                    </Card.Subtitle>
+                                </Card.Body>
+                            </Card>
 
-                        <Card className="border-0">
-                            <Card.Body>
-                                <Card.Title>Let's get started</Card.Title>
-                                <LoadButton variant="primary" />
-                            </Card.Body>
-                        </Card>
+                            <Card className="border-0">
+                                <Card.Body>
+                                    <Card.Title>Let's get started</Card.Title>
+                                    <LoadButton variant="primary" />
+                                </Card.Body>
+                            </Card>
 
-                        <Card className="border-0 mt-4">
-                            <Card.Body>
-                                <Card.Subtitle className="text-muted">Following files are supported:</Card.Subtitle>
+                            <Card className="border-0 mt-4">
+                                <Card.Body>
+                                    <Card.Subtitle className="text-muted">Following files are supported:</Card.Subtitle>
 
-                                <Row className="mt-4">
-                                    <Col md={4}>
-                                        <Media className="">
-                                            <img
-                                                width={48}
-                                                height={48}
-                                                className="align-self-center mr-3"
-                                                src={nordLogoProgram}
-                                                alt="logo"
-                                            />
-                                            <Media.Body>
-                                                <h6 className="mb-2 text-muted">Program Files</h6>
-                                                <p className="text-muted mt-2">(ns2p, ns3f)</p>
-                                            </Media.Body>
-                                        </Media>
-                                    </Col>
-                                    <Col>
-                                        <Media className="">
-                                            <img
-                                                width={48}
-                                                height={48}
-                                                className="align-self-center mr-3"
-                                                src={nordLogoProgramBundle}
-                                                alt="logo"
-                                            />
-                                            <Media.Body>
-                                                <h6 className="mb-2 text-muted">Program Bundle Files</h6>
-                                                <p className="text-muted mt-2">
-                                                    (ns2pb, ns3fb)
-                                                </p>
-                                            </Media.Body>
-                                        </Media>
-                                    </Col>
-                                </Row>
-                                <Row className="mt-2">
-                                    <Col md={4}>
-                                        <Media className="">
-                                            <img
-                                                width={48}
-                                                height={48}
-                                                className="align-self-center mr-3"
-                                                src={nordLogoSynth}
-                                                alt="logo"
-                                            />
-                                            <Media.Body>
-                                                <h6 className="mb-2 text-muted">Synth Files</h6>
-                                                <p className="text-muted mt-2">(ns2s, ns3y)</p>
-                                            </Media.Body>
-                                        </Media>
-                                    </Col>
-                                    <Col>
-                                        <Media className="">
-                                            <img
-                                                width={48}
-                                                height={48}
-                                                className="align-self-center mr-3"
-                                                src={nordLogoSynthBundle}
-                                                alt="logo"
-                                            />
-                                            <Media.Body>
-                                                <h6 className="mb-2 text-muted">Synth Bundle Files</h6>
-                                                <p className="text-muted mt-2">(ns2synthpb, ns3synthpb)</p>
-                                            </Media.Body>
-                                        </Media>
-                                    </Col>
-                                </Row>
-                                <Row className="mt-2">
-                                    <Col md={4}></Col>
-                                    <Col md="auto">
-                                        <Media className="">
-                                            <img
-                                                width={48}
-                                                height={48}
-                                                className="align-self-center mr-3"
-                                                src={nordLogoBackup}
-                                                alt="logo"
-                                            />
-                                            <Media.Body>
-                                                <h6 className="mb-2 text-muted">Backup Files</h6>
-                                                <p className="text-muted mt-2">(ns2b, ns2exb, ns3b)</p>
-                                            </Media.Body>
-                                        </Media>
-                                    </Col>
-                                </Row>
-                            </Card.Body>
-                        </Card>
+                                    <Row className="mt-4">
+                                        <Col md={4}>
+                                            <Media className="">
+                                                <img
+                                                    width={48}
+                                                    height={48}
+                                                    className="align-self-center mr-3"
+                                                    src={nordLogoProgram}
+                                                    alt="logo"
+                                                />
+                                                <Media.Body>
+                                                    <h6 className="mb-2 text-muted">Program Files</h6>
+                                                    <p className="text-muted mt-2">(ns2p, ns3f)</p>
+                                                </Media.Body>
+                                            </Media>
+                                        </Col>
+                                        <Col>
+                                            <Media className="">
+                                                <img
+                                                    width={48}
+                                                    height={48}
+                                                    className="align-self-center mr-3"
+                                                    src={nordLogoProgramBundle}
+                                                    alt="logo"
+                                                />
+                                                <Media.Body>
+                                                    <h6 className="mb-2 text-muted">Program Bundle Files</h6>
+                                                    <p className="text-muted mt-2">(ns2pb, ns3fb)</p>
+                                                </Media.Body>
+                                            </Media>
+                                        </Col>
+                                    </Row>
+                                    <Row className="mt-2">
+                                        <Col md={4}>
+                                            <Media className="">
+                                                <img
+                                                    width={48}
+                                                    height={48}
+                                                    className="align-self-center mr-3"
+                                                    src={nordLogoSynth}
+                                                    alt="logo"
+                                                />
+                                                <Media.Body>
+                                                    <h6 className="mb-2 text-muted">Synth Files</h6>
+                                                    <p className="text-muted mt-2">(ns2s, ns3y)</p>
+                                                </Media.Body>
+                                            </Media>
+                                        </Col>
+                                        <Col>
+                                            <Media className="">
+                                                <img
+                                                    width={48}
+                                                    height={48}
+                                                    className="align-self-center mr-3"
+                                                    src={nordLogoSynthBundle}
+                                                    alt="logo"
+                                                />
+                                                <Media.Body>
+                                                    <h6 className="mb-2 text-muted">Synth Bundle Files</h6>
+                                                    <p className="text-muted mt-2">(ns2synthpb, ns3synthpb)</p>
+                                                </Media.Body>
+                                            </Media>
+                                        </Col>
+                                    </Row>
+                                    <Row className="mt-2">
+                                        <Col md={4}></Col>
+                                        <Col md="auto">
+                                            <Media className="">
+                                                <img
+                                                    width={48}
+                                                    height={48}
+                                                    className="align-self-center mr-3"
+                                                    src={nordLogoBackup}
+                                                    alt="logo"
+                                                />
+                                                <Media.Body>
+                                                    <h6 className="mb-2 text-muted">Backup Files</h6>
+                                                    <p className="text-muted mt-2">(ns2b, ns2exb, ns3b)</p>
+                                                </Media.Body>
+                                            </Media>
+                                        </Col>
+                                    </Row>
+                                </Card.Body>
+                            </Card>
 
-                        <Card className="border-0 text-muted">
-                            <Card.Body>
-                                <Card.Subtitle className="mt-4">Disclaimer</Card.Subtitle>
+                            <Card className="border-0 text-muted">
+                                <Card.Body>
+                                    <Card.Subtitle className="mt-4">Disclaimer</Card.Subtitle>
 
-                                <Card.Text>
-                                    We are not affiliated, associated, endorsed by, or in any way officially connected
-                                    with <a href="https://www.nordkeyboards.com">Nord Keyboards / Clavia DMI AB</a>, or
-                                    any of its subsidiaries or its affiliates. The names Nord and Clavia as well as
-                                    related names, marks, emblems and images are registered trademarks of their
-                                    respective owners.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
+                                    <Card.Text>
+                                        We are not affiliated, associated, endorsed by, or in any way officially
+                                        connected with{" "}
+                                        <a href="https://www.nordkeyboards.com">Nord Keyboards / Clavia DMI AB</a>, or
+                                        any of its subsidiaries or its affiliates. The names Nord and Clavia as well as
+                                        related names, marks, emblems and images are registered trademarks of their
+                                        respective owners.
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    </Row>
                     <Footer />
                 </Col>
             </Row>

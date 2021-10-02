@@ -16,7 +16,8 @@ const Privacy = () => {
                     <Handmade/>
                 </Col>
                 <Col>
-                    <div className="mx-sm-5 mx-sx-2 mt-3">
+                    <Row className="main-area">
+                        <div className="mx-sm-5 mx-sx-2 mt-3">
                         <Card className="border-0">
                             <Card.Body>
                                 <Card.Title>Privacy Policy</Card.Title>
@@ -72,12 +73,11 @@ const Privacy = () => {
                                 {/*    <AppName />. That’s all.*/}
                                 {/*</Card.Text>*/}
                                 <Card.Text>That’s all. Have a nice day!</Card.Text>
-                                {/*<div style={{ height: "20vh" }} />*/}
                             </Card.Body>
                         </Card>
-
-                        <Footer/>
                     </div>
+                    </Row>
+                    <Footer />
                 </Col>
             </Row>
         </Container>

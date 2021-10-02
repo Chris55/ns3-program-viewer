@@ -1,18 +1,19 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import AppName from "./AppName";
 
 const Footer = () => {
     return (
-        <Card className="border-0 mt-3">
-            <Card.Body className="border-top">
-                <Card.Subtitle className="text-muted text-right">
+        <Row>
+            <Col className="flex-grow-1 text-muted text-right mx-5">
+                <hr />
+                <div className="">
                     <small>
                         <AppName /> (c) {new Date().getFullYear()} Christian Florentz
                     </small>
-                </Card.Subtitle>
-            </Card.Body>
-        </Card>
+                </div>
+            </Col>
+        </Row>
     );
 };
 
