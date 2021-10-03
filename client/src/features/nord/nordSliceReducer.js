@@ -7,7 +7,7 @@ export const supportedProgramTypes = [".ns3f", ".ns3y", ".ns2p", ".ns2s"];
 export const supportedBackupTypes = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb"];
 export const allSupportedTypes = [...supportedProgramTypes, ...supportedBackupTypes];
 
-const production = process.env.NODE_ENV === "production";
+const production = true; //process.env.NODE_ENV === "production";
 
 // to test home page set this to false,
 // if true it shows the default model immediately
@@ -26,6 +26,7 @@ const initialState = {
     showDefault: false,
     exporting: false,
     exportDetails: "",
+    managerTitle: "",
     programs: [
         // {name: "prg1", location: "Bank A"}, {name: "prg2", location: "Bank A"}, {
         //     name: "prg3",
@@ -64,6 +65,12 @@ const nordSlice = createSlice({
             state.showAll = payload.showAll;
             state.programs = payload.programs;
             state.synths = payload.synths;
+            state.managerTitle = payload.managerTitle;
+        },
+        clearBackupData: (state, { }) => {
+            state.programs = [];
+            state.synths = [];
+            state.managerTitle = "";
         },
         setLoadingBackupInProgress: (state, { payload }) => {
             state.programs = [...state.programs, ...payload.programs];
@@ -131,6 +138,7 @@ export const {
     setLoading,
     setLoadingSuccess,
     setLoadingBackupSuccess,
+    clearBackupData,
     setLoadingBackupInProgress,
     setLoadingError,
     setError,
@@ -147,6 +155,8 @@ export default nordSlice.reducer;
 const onSuccess = (dispatch, data) => {
     //console.log("success: ", data);
     if (data.success) {
+        dispatch(clearBackupData());
+
         dispatch(
             setLoadingSuccess({
                 loaded: true,
@@ -316,6 +326,7 @@ const loadBackupFile = async (dispatch, file) => {
             showAll: false,
             programs: programs,
             synths: synths,
+            managerTitle: file.name
         })
     );
 };
