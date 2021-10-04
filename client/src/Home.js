@@ -145,7 +145,7 @@ const Home = () => {
 
                             <Card className="border-0 text-muted">
                                 <Card.Body>
-                                    <Card.Subtitle className="mt-4">Disclaimer</Card.Subtitle>
+                                    <Card.Subtitle className="mt-3">Disclaimer</Card.Subtitle>
 
                                     <Card.Text>
                                         We are not affiliated, associated, endorsed by, or in any way officially
