@@ -8,11 +8,10 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { useDispatch, useSelector } from "react-redux";
 import { nordSelector, setError, setLoadingSuccess } from "../features/nord/nordSliceReducer";
-import { Col, Container, Dropdown, DropdownButton, Row } from "react-bootstrap";
+import { Dropdown, DropdownButton, Row } from "react-bootstrap";
 import "react-splitter-layout/lib/index.css";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
 import { Search } from "react-bootstrap-icons";
-import { toast } from "react-toastify";
 
 const NordManager = () => {
     const { programs, synths } = useSelector(nordSelector);
@@ -25,7 +24,7 @@ const NordManager = () => {
 
     const dispatch = useDispatch();
 
-    const onRowClicked = (event) => {
+    const onSelectionChanged = (event) => {
         let selectedNodes = event.api.getSelectedNodes();
         let selectedData = selectedNodes
             .sort((a, b) => {
@@ -57,6 +56,7 @@ const NordManager = () => {
     };
 
     const onFilterTextBoxChanged = (e) => {
+        setSearch(e.target.value);
         gridApi.setQuickFilter(e.target.value);
     };
 
@@ -107,14 +107,14 @@ const NordManager = () => {
             <div
                 className={gridClass}
                 style={{
-                    height: "85vh",
+                    height: "77vh",
                     width: "100%",
                 }}
             >
                 <AgGridReact
                     onGridReady={onGridReady}
                     onGridSizeChanged={onGridSizeChanged}
-                    onRowClicked={onRowClicked}
+                    onSelectionChanged={onSelectionChanged}
                     rowData={currentPrograms}
                     defaultColDef={{
                         sortable: true,
