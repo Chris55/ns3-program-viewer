@@ -5,6 +5,7 @@ import nordLogoProgram from "./assets/nord-logo-program.svg";
 import nordLogoSynth from "./assets/nord-logo-synth.svg";
 import nordLogoProgramBundle from "./assets/nord-logo-program-bundle.svg";
 import nordLogoSynthBundle from "./assets/nord-logo-synth-bundle.svg";
+import nordLogoListBundle from "./assets/nord-logo-list-bundle.svg";
 import nordLogoBackup from "./assets/nord-logo-backup.svg";
 import AppName from "./AppName";
 import { Card, Col, Container, Media, Row } from "react-bootstrap";
@@ -125,6 +126,24 @@ const Home = () => {
                                                     width={48}
                                                     height={48}
                                                     className="align-self-center mr-3"
+                                                    src={nordLogoListBundle}
+                                                    alt="logo"
+                                                />
+                                                <Media.Body>
+                                                    <h6 className="mb-2 text-muted">Song Bundle Files (*)</h6>
+                                                    <p className="text-muted mt-2">(ns3sbundle)</p>
+                                                </Media.Body>
+                                            </Media>
+                                        </Col>
+                                    </Row>
+                                    <Row className="mt-2">
+                                        <Col md={4}></Col>
+                                        <Col md="auto">
+                                            <Media className="">
+                                                <img
+                                                    width={48}
+                                                    height={48}
+                                                    className="align-self-center mr-3"
                                                     src={nordLogoBackup}
                                                     alt="logo"
                                                 />
@@ -138,7 +157,6 @@ const Home = () => {
 
                                         </Col>
                                     </Row>
-
 
                                 </Card.Body>
                             </Card>

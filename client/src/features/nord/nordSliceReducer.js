@@ -4,7 +4,7 @@ import axios from "axios";
 import { BlobReader, BlobWriter, ZipReader } from "@zip.js/zip.js";
 
 export const supportedProgramTypes = [".ns3f", ".ns3y", ".ns2p", ".ns2s"];
-export const supportedBackupTypes = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb"];
+export const supportedBackupTypes = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
 export const allSupportedTypes = [...supportedProgramTypes, ...supportedBackupTypes];
 
 const production = true; //process.env.NODE_ENV === "production";
