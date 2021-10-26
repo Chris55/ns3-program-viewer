@@ -2,7 +2,7 @@
     "author": "Christian Florentz (christian.florentz@gmail.com)",
     "dependencies": {
         "body-parser": "^1.18.3",
-        "byte-size": "^7.0.0",
+        "byte-size": "^7.0.1",
         "cors": "^2.8.5",
         "express": "^4.17.1",
         "lodash.clonedeep": "^4.5.0",

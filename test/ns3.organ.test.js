@@ -189,6 +189,14 @@ describe("/ns3/organ", () => {
         });
     });
 
+    test("panelA.organ.preset1.drawbars.value eq 74 7532 236 and panelA.organ.preset1.drawbars.morph.controlPedal.to.value eq 88 8888 888", async () => {
+        const file = "panelA.organ.preset1.drawbars.value eq 74 7532 236 and panelA.organ.preset1.drawbars.morph.controlPedal.to.value eq 88 8888 888.ns3f";
+        const sut = await loadTestCase(root + file);
+        sut.data.forEach((d) => {
+            expect(d.actual).toEqual(d.expected);
+        });
+    });
+
     test("panelA.organ.preset1.drawbars.value eq 80 8643 338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6- 046- 08-", async () => {
         const file = "panelA.organ.preset1.drawbars.value eq 80 8643 338 and panelA.organ.preset1.drawbars.morph.wheel.to.value eq 6- 046- 08-.ns3f";
         const sut = await loadTestCase(root + file);
