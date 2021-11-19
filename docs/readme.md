@@ -38,12 +38,13 @@ Offset in file 0x3d (b7)
 means bit7 of byte 0x3d is 1 when Reverb is enabled… (the number here are not from the A1, just an example)
 
 
+On the Stage, memory is optimised. I expect the same on the A1. Each bit (not byte) is used. For example a single byte can contain multiple settings, example bit 0 is used for reverb on/off, and bit 1 to 3 for the reverb type (3 bits), and bit 4 to 7 used for another parameter…
+
+
 ### STEP 4
 Share both program files on the GoogleDrive and add the text file with the mapping details.
 
 
-
-On the Stage, memory is optimised. I expect the same on the A1. Each bit (not byte) is used. For example a single byte can contain multiple settings, example bit 0 is used for reverb on/off, and bit 1 to 3 for the reverb type (3 bits), and bit 4 to 7 used for another parameter…
 
 That's it !
 
