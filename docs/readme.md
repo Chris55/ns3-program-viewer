@@ -43,6 +43,9 @@ means bit7 of byte 0x3d is 1 when Reverb is enabled… (the number here are not 
 
 On the Stage, memory is optimised. I expect the same on the A1. Each bit (not byte) is used. For example a single byte can contain multiple settings, example bit 0 is used for reverb on/off, and bit 1 to 3 for the reverb type (3 bits), and bit 4 to 7 used for another parameter…
 
+Note: additional bytes may change, even if you change only a single parameter:
+in 0x0E: typically this is the LSB program location
+in 0x18 to 0x1B, this is the file checksum added by latest Nord Sound Manager.
 
 ### STEP 4
 Share both program files and add the text file with the mapping details.
