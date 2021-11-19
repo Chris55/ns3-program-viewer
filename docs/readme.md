@@ -56,7 +56,9 @@ That's it !
 - Doc will be used to code the A1 viewer app, the details are also added as comment in the source code. Once complete, all comments are automatically extracted to generate a mapping pdf file.
 - Done.
 
-This is a simple on/off example but a good starter for each of you to learn the process.
+This is a simple on/off example, other settings are more tricky but this is a good starter for each of you to learn the process.
+
+One final thought. On the Stage some settings may be different in the program file and the final view on the Keyboard (Split setting is a good example). This is due to the Keyboard OS that valid sometimes inputs according last user selection. This is an advanced topic that can be checked only during validation and app testing.
 
 
 Contact me if interested to collaborate, and to add more Nord Product in this app.
