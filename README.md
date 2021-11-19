@@ -36,6 +36,8 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 - [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal)
 - Thanks to other NUF members: @rpossemo, @cookie, @gordon, @Hobster
 
+Want to collaborate? Read [this](./docs/readme.md).
+
 ## FAQ
 
 - Is that legal, what is Nord position regarding this publication?
