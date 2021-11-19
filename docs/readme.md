@@ -12,7 +12,7 @@ The 'must have' feature is the compare file option. This allows a quick compare 
 
 Google search like 'hex viewer with file compare’ gives a good starting point.
 
-I’m on Mac and used HEX Fiend, https://hexfiend.com very basic but worked fine to decode the Nord Stage structure.
+I’m on Mac and used HEX Fiend, https://hexfiend.com very simple but worked great to decode the Nord Stage structure.
 The most important feature is:
 > Binary diff: Hex Fiend can show the differences between files, taking into account insertions or deletions.
 
@@ -22,10 +22,10 @@ Now, how to proceed ?
 Simple example how to decode the Reverb options:
 
 ### STEP 1
-From any init config, generate a 1st NLAS file with Reverb on on slot A, export it with NSM call it AReverbOn.nlas
+From any init config, generate a 1st NLAS file with Reverb enabled on slot A, export it with [Nord Sound Manager](https://www.nordkeyboards.com/software-tools/nord-sound-manager)  call it AReverbOn.nlas
 
 ### STEP 2
-Use this program as starting point, disable the reverb in Slot A, and save it in another location, export it with NSM, call it AReverbOff.nlas
+Use this program as starting point, disable the reverb in Slot A, and save it in another location, export it with [Nord Sound Manager](https://www.nordkeyboards.com/software-tools/nord-sound-manager), call it AReverbOff.nlas
 
 ### STEP 3
 Load both programs in your hex viewer, and run the compare feature. bingo you have your 1st setting :)
@@ -57,13 +57,15 @@ Share both program files and add the text file with the mapping details.
 That's it !
 
 ## After on the dev side:
+
+- Doc will be used to code the A1 viewer app. Details are also added as comment in the source code. Once complete, all comments are automatically extracted to generate a mapping pdf file.
 - Both programs will be added to the viewer app for automated unit test,
-- Doc will be used to code the A1 viewer app, the details are also added as comment in the source code. Once complete, all comments are automatically extracted to generate a mapping pdf file.
-- Done.
+
 
 This is a simple on/off example, other settings are more tricky but this is a good starter for each of you to learn the process.
 
-One final thought. On the Stage some settings may be different in the program file and the final view on the Keyboard (Split setting is a good example). This is due to the Keyboard OS that valid sometimes inputs according last user selection. This is an advanced topic that can be checked only during validation and app testing.
+### Final thought
+On the Stage some settings may be different in the program file and the final view on the Keyboard (Split setting is a good example). This is due to the Keyboard OS that valid sometimes inputs according last user selection. This is an advanced topic that can be checked only during validation and app testing.
 
 
 Contact me if interested to collaborate, and to add more Nord Product in this app.
