@@ -38,6 +38,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 
 Want to collaborate? Read [this](./docs/readme.md).
 
+
 ## FAQ
 
 - Is that legal, what is Nord position regarding this publication?
