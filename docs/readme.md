@@ -30,7 +30,9 @@ Use this program as starting point, disable the reverb in Slot A, and save it in
 ### STEP 3
 Load both programs in your hex viewer, and run the compare feature. bingo you have your 1st setting :)
 
-Here it will be a single bit change in a byte somewhere. Document it in a text file with all you other findings, using this format:
+Document the bit changes in a text file. Please create a simple text file like [this](./ns2/program/NS2_FX_Multi.txt).
+
+Here it will be a single bit change in a byte somewhere, document it like this:
 ```
 REVERB
 Offset in file 0x3d (b7)
@@ -38,12 +40,13 @@ Offset in file 0x3d (b7)
 1 = ON
 ```
 
-means bit7 of byte 0x3d is 1 when Reverb is enabled… (the number here are not from the A1, just an example)
+It means bit7 of byte 0x3d is 1 when Reverb is enabled… (the number here are not from the A1, just an example)
 
 
-On the Stage, memory is optimised. I expect the same on the A1. Each bit (not byte) is used. For example a single byte can contain multiple settings, example bit 0 is used for reverb on/off, and bit 1 to 3 for the reverb type (3 bits), and bit 4 to 7 used for another parameter…
+Remarks
+- On Nord Stage, memory is optimised. I expect the same on the A1. Each bit (not byte) is used. For example a single byte can contain multiple settings, example bit 0 is used for reverb on/off, and bit 1 to 3 for the reverb type (3 bits), and bit 4 to 7 used for another parameter…
 
-Note: additional bytes may change, even if you change only a single parameter:
+- Additional bytes may change, even if you change only a single parameter:
 ```
 0x0E: typically this is the LSB program location
 0x18 to 0x1B: this is the file checksum added by latest Nord Sound Manager.
