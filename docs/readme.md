@@ -4,17 +4,20 @@ Looking for collaboration to decode other Nord familly Keyboards.
 
 Example for Nord Lead A1 owner:
 
-For each one of you that want to help to decode the NLAS file structure, the most important is to install and learn to use a simple HEX editor, the must have feature is the compare file option. This allows a quick compare of two NLAS file where you changed only a single setting.
+For each one of you that want to help to decode the NLAS file structure, the most important is to install and learn to use a simple HEX editor.
+
+The 'must have' feature is the compare file option. This allows a quick compare of two NLAS file where you changed only a single setting.
 
 
-The important feature to have is ‘File Compare’.
 
 Google search like 'hex viewer with file compare’ gives a good starting point.
 
 I’m on Mac and used HEX Fiend, https://hexfiend.com very basic but worked fine to decode the Nord Stage structure.
+The most important feature is:
+> Binary diff: Hex Fiend can show the differences between files, taking into account insertions or deletions.
 
 
-Now how to proceed ?
+Now, how to proceed ?
 
 Simple example how to decode the Reverb options:
 
@@ -42,7 +45,7 @@ On the Stage, memory is optimised. I expect the same on the A1. Each bit (not by
 
 
 ### STEP 4
-Share both program files on the GoogleDrive and add the text file with the mapping details.
+Share both program files and add the text file with the mapping details.
 
 
 
