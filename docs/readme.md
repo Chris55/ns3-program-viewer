@@ -1,6 +1,6 @@
 # Want to collaborate?
 
-Looking for collaboration to decode other Nord familly Keyboards.
+Looking for collaboration to decode more Nord Keyboards file structure.
 
 Example for Nord Lead A1 owner:
 
@@ -68,10 +68,10 @@ That's it !
 This is a simple on/off example, other settings are more tricky but this is a good starter for each of you to learn the process.
 
 ### Final thought
-On the Stage some settings may be different in the program file and the final view on the Keyboard (Split setting is a good example). This is due to the Keyboard OS that valid sometimes inputs according last user selection. This is an advanced topic that can be checked only during validation and app testing.
+On the Nord Stage some settings are slightly different in the program file and the final view on the Keyboard (Split setting is a good example). This is due to the Keyboard OS that valid sometimes inputs according last user selection. This is an advanced topic that can be checked only during validation and app testing.
 
 
-Contact me if interested to collaborate, and to add more Nord Product in this app.
+Contact me if interested to collaborate, and to add more Nord Product to this app.
 
 @Chris55
 
