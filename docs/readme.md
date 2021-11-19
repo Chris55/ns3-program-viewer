@@ -1,4 +1,4 @@
-#Want to collaborate?
+# Want to collaborate?
 
 Looking for collaboration to decode other Nord familly Keyboards.
 
