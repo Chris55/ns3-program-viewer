@@ -83,6 +83,25 @@ class NordList extends Component {
                         )}
                     </div>
                 );
+            } else if (data && data.ext === "nlas") {
+                result = (
+                    <div className="mb-2">
+                        <NordTree data={data} />
+                        {/*{this.props.production && <Ns2s data={data} />}*/}
+
+                        {/*{!this.props.production && (*/}
+                        {/*    <Tabs id="uncontrolled-tab-example">*/}
+                        {/*        <Tab eventKey="panel" title="Panel" disabled={false}>*/}
+                        {/*            <Ns2s data={data} />*/}
+                        {/*        </Tab>*/}
+
+                        {/*        <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">*/}
+                        {/*            <NordTree data={data} />*/}
+                        {/*        </Tab>*/}
+                        {/*    </Tabs>*/}
+                        {/*)}*/}
+                    </div>
+                );
             }
             return (
                 <li className="list-group-item" key={data.name} style={{ padding: "0" }}>
@@ -90,7 +109,7 @@ class NordList extends Component {
                 </li>
             );
         });
-        return <ul className="list-group list-group-flush">{listItems}</ul>
+        return <ul className="list-group list-group-flush">{listItems}</ul>;
     }
 }
 
@@ -101,7 +120,6 @@ export default class NordDevice extends Component {
             return true;
         }
         for (let i = 0; i < this.props.data.length; i++) {
-
             if (this.props.data[i].timestamp !== nextProps.data[i].timestamp) {
                 console.log("render device", this.props.data[i].name, "->", nextProps.data[i].name);
                 return true;
@@ -117,6 +135,6 @@ export default class NordDevice extends Component {
     }
 
     render() {
-        return <NordList data={this.props.data} production={this.props.production} />
+        return <NordList data={this.props.data} production={this.props.production} />;
     }
 }

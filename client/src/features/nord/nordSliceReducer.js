@@ -3,11 +3,21 @@ import { model } from "../../nord/ns2/model/ns2-model";
 import axios from "axios";
 import { BlobReader, BlobWriter, ZipReader } from "@zip.js/zip.js";
 
-export const supportedProgramTypes = [".ns3f", ".ns3y", ".ns2p", ".ns2s"];
-export const supportedBackupTypes = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
+export const supportedProgramTypes = [".ns3f", ".ns3y", ".ns2p", ".ns2s", ".nlas"];
+export const supportedBackupTypes = [
+    ".ns3b",
+    ".ns3fb",
+    ".ns3synthpb",
+    ".ns2pb",
+    ".ns2exb",
+    ".ns2b",
+    ".ns2synthpb",
+    ".ns3sbundle",
+    ".nlasbundle",
+];
 export const allSupportedTypes = [...supportedProgramTypes, ...supportedBackupTypes];
 
-const production = true; //process.env.NODE_ENV === "production";
+const production = process.env.NODE_ENV === "production";
 
 // to test home page set this to false,
 // if true it shows the default model immediately
@@ -67,7 +77,7 @@ const nordSlice = createSlice({
             state.synths = payload.synths;
             state.managerTitle = payload.managerTitle;
         },
-        clearBackupData: (state, { }) => {
+        clearBackupData: (state, {}) => {
             state.programs = [];
             state.synths = [];
             state.managerTitle = "";
@@ -179,7 +189,7 @@ const onError = (dispatch, err) => {
 
 const getExtension = (fileName) => {
     return fileName.slice(Math.max(0, fileName.lastIndexOf(".")) || Infinity).toLowerCase();
-}
+};
 
 export const loadFiles = (files) => {
     return async (dispatch) => {
@@ -326,7 +336,7 @@ const loadBackupFile = async (dispatch, file) => {
             showAll: false,
             programs: programs,
             synths: synths,
-            managerTitle: file.name
+            managerTitle: file.name,
         })
     );
 };

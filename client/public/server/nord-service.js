@@ -2,13 +2,13 @@ const { loadNs2SynthFile } = require("./ns2/synth/ns2-synthFile");
 const { loadNs3SynthFile } = require("./ns3/synth/ns3-synthFile");
 const { loadNs2ProgramFile } = require("./ns2/program/ns2-program");
 const { loadNs3ProgramFile } = require("./ns3/program/ns3-program");
+const { loadNla1ProgramFile } = require("./nla1/program/nla1-program");
 
 /***
  * returns Nord file mapping object
- *
- * @param buffer {Buffer}
+ * @param buffer
  * @param filename
- * @returns {{split: *, panelA: *, masterClock: {rate: {value: string}}, panelB: *, name: *, transpose: *, category: *, version: string}}
+ * @returns {{size, timestamp: number}}
  */
 exports.loadNordFile = (buffer, filename) => {
     if (buffer.length > 16) {
@@ -38,6 +38,10 @@ exports.loadNordFile = (buffer, filename) => {
         }
         case "ns2s": {
             data = loadNs2SynthFile(buffer, filename);
+            break;
+        }
+        case "nlas": {
+            data = loadNla1ProgramFile(buffer, filename);
             break;
         }
         default: {
