@@ -14,6 +14,7 @@ export const supportedBackupTypes = [
     ".ns2synthpb",
     ".ns3sbundle",
     ".nlasbundle",
+    ".nlab",
 ];
 export const allSupportedTypes = [...supportedProgramTypes, ...supportedBackupTypes];
 

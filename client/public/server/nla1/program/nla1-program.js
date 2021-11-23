@@ -112,7 +112,7 @@ exports.loadNla1ProgramFile = (buffer, filename) => {
          * #include programCategoryMap
          * @module NLA1 Program Category
          */
-        category: programCategoryMap.get(offset10),
+        category: programCategoryMap.get(offset10) ?? "Unknown",
 
         ...global,
     };
