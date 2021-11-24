@@ -49,6 +49,8 @@ const initialState = {
         // }, {name: "prg4", location: "Bank A"},
     ],
     synths: [],
+    managerSelectedIndexes: {},
+    managerTabSelection: "Program",
 };
 
 const nordSlice = createSlice({
@@ -77,10 +79,24 @@ const nordSlice = createSlice({
             state.programs = payload.programs;
             state.synths = payload.synths;
             state.managerTitle = payload.managerTitle;
+            state.managerSelectedIndexes = {};
+            if (payload.synths.length > 0 && payload.programs.length === 0) {
+                state.managerTabSelection = "Synth";
+            } else {
+                state.managerTabSelection = "Program";
+            }
+        },
+        setManagerSelection: (state, { payload }) => {
+            state.managerTabSelection = payload.managerTabSelection;
+            if (payload.indexes) {
+                state.managerSelectedIndexes[payload.managerTabSelection] = payload.indexes;
+            }
         },
         clearBackupData: (state, {}) => {
             state.programs = [];
             state.synths = [];
+            state.programSelectedIndexes = [];
+            state.synthSelectedIndexes = [];
             state.managerTitle = "";
         },
         setLoadingBackupInProgress: (state, { payload }) => {
@@ -157,6 +173,7 @@ export const {
     toggleShowAll,
     setExporting,
     setExportingDetail,
+    setManagerSelection,
 } = nordSlice.actions;
 
 export const nordSelector = (state) => state.nordStore;

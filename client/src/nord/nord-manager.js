@@ -7,22 +7,32 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 //import "ag-grid-community/dist/styles/ag-theme-bootstrap.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { useDispatch, useSelector } from "react-redux";
-import { nordSelector, setError, setLoadingSuccess } from "../features/nord/nordSliceReducer";
+import { nordSelector, setLoadingSuccess, setManagerSelection } from "../features/nord/nordSliceReducer";
 import { Dropdown, DropdownButton, Row } from "react-bootstrap";
 import "react-splitter-layout/lib/index.css";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
 import { Search } from "react-bootstrap-icons";
 
 const NordManager = () => {
-    const { programs, synths } = useSelector(nordSelector);
+    const { programs, synths, managerSelectedIndexes, managerTabSelection } = useSelector(nordSelector);
 
     const [gridApi, setGridApi] = useState(null);
     //const [gridColumnApi, setGridColumnApi] = useState(null);
-    const [search, setSearch] = useState(null);
-    const [programType, setProgramType] = useState("Program");
+    const [search, setSearch] = useState("");
     const [currentPrograms, setCurrentPrograms] = useState(programs);
 
     const dispatch = useDispatch();
+
+    const saveIndexes = (e) => {
+        let selectedNodes = e.api.getSelectedNodes();
+        const indexes = selectedNodes.map((node) => node.data.name);
+        dispatch(
+            setManagerSelection({
+                managerTabSelection,
+                indexes,
+            })
+        );
+    };
 
     const onSelectionChanged = (event) => {
         let selectedNodes = event.api.getSelectedNodes();
@@ -31,6 +41,8 @@ const NordManager = () => {
                 return a.rowIndex - b.rowIndex;
             })
             .map((node) => node.data.model);
+
+        saveIndexes(event);
 
         dispatch(
             setLoadingSuccess({
@@ -55,6 +67,27 @@ const NordManager = () => {
         }
     };
 
+    const onRowDataLoaded = (e) => {
+        const selection =
+            managerSelectedIndexes[managerTabSelection] && managerSelectedIndexes[managerTabSelection].length > 0;
+        let firstSelectedNode;
+
+        e.api.forEachNode((node) => {
+            let selected;
+            if (selection) {
+                selected = managerSelectedIndexes[managerTabSelection].includes(node.data.name);
+            } else {
+                selected = node.rowIndex === 0;
+            }
+            node.setSelected(selected);
+            if (selected && !firstSelectedNode) {
+                firstSelectedNode = node;
+                e.api.ensureNodeVisible(node, "middle");
+            }
+        });
+
+    };
+
     const onFilterTextBoxChanged = (e) => {
         setSearch(e.target.value);
         gridApi.setQuickFilter(e.target.value);
@@ -67,13 +100,21 @@ const NordManager = () => {
         if (eventKey === "Synth") {
             setCurrentPrograms(synths);
         }
-        setProgramType(eventKey);
+        dispatch(
+            setManagerSelection({
+                managerTabSelection: eventKey,
+            })
+        );
+    };
+
+    const onSortChanged = (e) => {
+        //saveIndexes(e);
     };
 
     const gridClass = "ag-theme-custom-react";
 
     useEffect(() => {
-        onSelectProgramDropdown(programType);
+        onSelectProgramDropdown(managerTabSelection);
     }, [programs, synths]);
 
     return (
@@ -96,7 +137,7 @@ const NordManager = () => {
                         onSelect={onSelectProgramDropdown}
                         id="dropdown-program"
                         variant="dark"
-                        title={programType}
+                        title={managerTabSelection}
                     >
                         <Dropdown.Item eventKey="Program">Program</Dropdown.Item>
                         <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>
@@ -115,6 +156,8 @@ const NordManager = () => {
                     onGridReady={onGridReady}
                     onGridSizeChanged={onGridSizeChanged}
                     onSelectionChanged={onSelectionChanged}
+                    onRowDataChanged={onRowDataLoaded}
+                    onSortChanged={onSortChanged}
                     rowData={currentPrograms}
                     defaultColDef={{
                         sortable: true,
