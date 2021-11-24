@@ -108,7 +108,7 @@ const NordManager = () => {
     };
 
     const onSortChanged = (e) => {
-        //saveIndexes(e);
+        onRowDataLoaded(e);
     };
 
     const gridClass = "ag-theme-custom-react";
