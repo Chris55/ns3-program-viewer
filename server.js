@@ -20,7 +20,7 @@ app.use(
         directives: {
             defaultSrc: ["'self'"],
             styleSrc: ["'self'", "'unsafe-inline'"],
-            scriptSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'"],
             fontSrc: ["'self'", "data:"],
             imgSrc: ["'self'", "data:"],
             "frame-src": ["'self'"],
