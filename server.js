@@ -16,17 +16,18 @@ app.use(
     })
 );
 app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ["'self'"],
-            styleSrc: ["'self'", "'unsafe-inline'"],
-            scriptSrc: ["'self'", "'unsafe-inline'"],
-            fontSrc: ["'self'", "data:"],
-            imgSrc: ["'self'", "data:"],
-            "frame-src": ["'self'"],
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                styleSrc: ["'self'", "'unsafe-inline'"],
+                scriptSrc: ["'self'", "'unsafe-inline'"],
+                fontSrc: ["'self'", "data:"],
+                imgSrc: ["'self'", "data:"],
+                "frame-src": ["'self'"],
+            },
         },
-    }),
-    helmet()
+    })
 );
 app.use(cors());
 
