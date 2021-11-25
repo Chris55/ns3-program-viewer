@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const api = require("./client/public/server/routes/api.routes");
 const serveIndex = require("serve-index");
+const helmet = require("helmet");
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -14,6 +15,7 @@ app.use(
         extended: true,
     })
 );
+app.use(helmet());
 app.use(cors());
 
 app.use("/api", api);
