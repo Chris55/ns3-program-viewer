@@ -167,7 +167,7 @@ const NordManager = () => {
                     sortingOrder={["desc", "asc"]}
                     rowSelection={"multiple"}
                     overlayNoRowsTemplate={
-                        '<span style="padding: 10px; border: 1px solid #444; background: lightgoldenrodyellow;">No Programs To Show</span>'
+                        '<span style="padding: 10px; border: 1px solid #444; background: lightgoldenrodyellow;">Nothing To Show</span>'
                     }
                 >
                     <AgGridColumn headerName="Loc" field="location" width={116} sort={"asc"} />
