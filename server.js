@@ -15,7 +15,19 @@ app.use(
         extended: true,
     })
 );
-app.use(helmet());
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self'"],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            scriptSrc: ["'self'"],
+            fontSrc: ["'self'", "data:"],
+            imgSrc: ["'self'", "data:"],
+            "frame-src": ["'self'"],
+        },
+    }),
+    helmet()
+);
 app.use(cors());
 
 app.use("/api", api);
