@@ -1,4 +1,3 @@
-\newpage
 ## Nord Lead A1 Program File Structure
 
 This mapping corresponds to the Nord Lead A1 program file (file extension nlas).
