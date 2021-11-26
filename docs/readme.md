@@ -62,7 +62,7 @@ That's it !
 ## After on the dev side:
 
 - Doc will be used to code the A1 viewer app. Details are also added as comment in the source code. Once complete, all comments are automatically extracted to generate a mapping pdf file.
-- Both programs will be added to the viewer app for automated unit test,
+- Both programs will be added to the viewer app for automated unit test.
 
 
 This is a simple on/off example, other settings are more tricky but this is a good starter for each of you to learn the process.
