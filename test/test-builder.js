@@ -4,10 +4,10 @@ const path = require('path');
 
 const build = async(folder, testFilename) => {
     const testFile = "./" + testFilename;
-    const ns3Folder = __dirname + folder;
-    const filenames = await fs.readdir(ns3Folder);
+    const testFolder = __dirname + folder;
+    const filenames = await fs.readdir(testFolder);
 
-    let file = "// this file is auto-generated with builder.js" + os.EOL + os.EOL;
+    let file = "// this file is auto-generated with test-builder.js" + os.EOL + os.EOL;
     file += 'const { loadTestCase } = require("./helpers");' + os.EOL;
     file += os.EOL;
 
@@ -15,10 +15,12 @@ const build = async(folder, testFilename) => {
 
     file += 'describe("' + folder + '", () => {' + os.EOL;
 
+    const supportedExt = ['.ns3f','.ns3y','.ns2p','.ns2s', '.nlas'];
+
     for (let filename of filenames) {
 
         const ext = path.extname(filename);
-        if (ext === '.ns3f' || ext === '.ns3y' || ext === '.ns2p' || ext === '.ns2s')  {
+        if (supportedExt.includes(ext))  {
 
             const description = path.parse(filename).name;
 
@@ -29,6 +31,8 @@ const build = async(folder, testFilename) => {
             file += '            expect(d.actual).toEqual(d.expected);' + os.EOL;
             file += '        });' + os.EOL;
             file += '    });' + os.EOL + os.EOL;
+        } else {
+            throw new Error(`Unsupported file format ${ext}`);
         }
     }
 
@@ -38,6 +42,8 @@ const build = async(folder, testFilename) => {
 }
 
 const buildAll = async() => {
+    await build("/nla1/effects", "nla1.effects.test.js");
+
     await build("/ns2/effects", "ns2.effects.test.js");
     await build("/ns2/extern", "ns2.extern.test.js");
     await build("/ns2/global", "ns2.global.test.js");

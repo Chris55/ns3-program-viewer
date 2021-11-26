@@ -253,4 +253,28 @@ exports.getName = (filename) => {
  */
 exports.getExtension = (fileName) => {
     return fileName.slice(Math.max(0, fileName.name.lastIndexOf(".")) || Infinity).toLowerCase();
-}
+};
+
+/***
+ * Throw exception if invalid signature or invalid file size
+ *
+ * @param buffer {Buffer}
+ * @param signature {string}
+ * @param supportedSizes {number[]}
+ */
+exports.checkHeader = (buffer, signature, supportedSizes) => {
+    if (buffer.length > 16) {
+        const claviaSignature = buffer.toString("utf8", 0, 4);
+        if (claviaSignature !== "CBIN") {
+            throw new Error("Invalid Nord file");
+        }
+        const fileExt = buffer.toString("utf8", 8, 12);
+        if (fileExt !== signature) {
+            throw new Error(`${fileExt} file is not supported, select a valid ${signature} file`);
+        }
+    }
+
+    if (supportedSizes.includes(buffer.length) === false) {
+        throw new Error("Invalid file, unexpected file length");
+    }
+};

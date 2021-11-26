@@ -87,9 +87,10 @@
         "test": "jest --coverage && jest-coverage-badges",
         "doc:1ns3": "jsdoc2md client/public/server/ns3/program/*.js > docs/ns3/program/ns3-doc.md",
         "doc:1ns2": "jsdoc2md client/public/server/ns2/program/*.js > docs/ns2/program/ns2-doc.md",
-        "doc:1": "npm run doc:1ns3 && npm run doc:1ns2",
+        "doc:1nla1": "jsdoc2md client/public/server/nla1/program/*.js > docs/nla1/program/nla1-doc.md",
+        "doc:1": "npm run doc:1ns3 && npm run doc:1ns2 && npm run doc:1nla1",
         "doc:2": "node ./automation/docs/build-doc.js",
-        "doc:3": "pandoc ./docs/ns3/program/header.yaml ./automation/docs/out/*.md -s -o ./docs/nord-mapping.pdf --css=./../pandoc2.css -V geometry:margin=2cm -V geometry:a4paper -V linkcolor:blue",
+        "doc:3": "pandoc ./docs/ns3/program/header.yaml ./automation/docs/out/*.md -s -o ./docs/nord-mapping-beta.pdf --css=./../pandoc2.css -V geometry:margin=2cm -V geometry:a4paper -V linkcolor:blue",
         "doc": "npm run doc:1 && npm run doc:2 && npm run doc:3"
     },
     "version": "1.0.0"

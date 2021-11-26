@@ -1,6 +1,6 @@
 const path = require("path");
 const { ns2Synth } = require("../program/ns2-synth");
-const { zeroPad, getName } = require("../../common/converter");
+const { zeroPad, getName, checkHeader} = require("../../common/converter");
 const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 
 /***
@@ -11,20 +11,8 @@ const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mappin
  * @returns {{split: *, panelA: *, masterClock: {rate: {value: string}}, panelB: *, name: *, transpose: *, category: *, version: string}}
  */
 exports.loadNs2SynthFile = (buffer, filename) => {
-    if (buffer.length > 16) {
-        const claviaSignature = buffer.toString("utf8", 0, 4);
-        if (claviaSignature !== "CBIN") {
-            throw new Error("Invalid Nord file");
-        }
-        const fileExt = buffer.toString("utf8", 8, 12);
-        if (fileExt !== "ns2s") {
-            throw new Error(fileExt + " file is not supported, select a valid ns2p file");
-        }
-    }
-
-    if (buffer.length !== 60 && buffer.length !== 78) {
-        throw new Error("Invalid file, unexpected file length");
-    }
+    // throw exception if invalid signature or invalid file size
+    checkHeader(buffer, "ns2s", [60, 78]);
 
     const offset04 = buffer.readUInt8(0x04);
     const offset10 = buffer.readUInt8(0x10);

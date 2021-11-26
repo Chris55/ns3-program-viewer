@@ -2,7 +2,7 @@ const path = require("path");
 const { ns3SynthLocation } = require("../program/ns3-utils");
 const { synthCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 const { ns3Synth } = require("../program/ns3-synth");
-const { getVersion, getName } = require("../../common/converter");
+const { getVersion, getName, checkHeader} = require("../../common/converter");
 
 /***
  * returns Nord Stage 3 synth file
@@ -12,20 +12,8 @@ const { getVersion, getName } = require("../../common/converter");
  * @returns {{ext: string, synth: *, filename: *, name: *, description: unknown, id: *, category: string | undefined}}
  */
 exports.loadNs3SynthFile = (buffer, filename) => {
-    if (buffer.length > 16) {
-        const claviaSignature = buffer.toString("utf8", 0, 4);
-        if (claviaSignature !== "CBIN") {
-            throw new Error("Invalid Nord file");
-        }
-        const fileExt = buffer.toString("utf8", 8, 12);
-        if (fileExt !== "ns3y") {
-            throw new Error(fileExt + " file is not supported, select a valid ns3f file");
-        }
-    }
-
-    if (buffer.length !== 102 && buffer.length !== 84) {
-        throw new Error("Invalid file, unexpected file length");
-    }
+    // throw exception if invalid signature or invalid file size
+    checkHeader(buffer, "ns3y", [84, 102]);
 
     const offset04 = buffer.readUInt8(0x04);
 

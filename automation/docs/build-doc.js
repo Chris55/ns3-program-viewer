@@ -74,11 +74,17 @@ const convert = (model, inputFile, outputFile, remove) => {
 const pathOutput = __dirname + "/../../automation/docs/out/";
 const pathInputNs2 = __dirname + "/../../docs/ns2/program/";
 const pathInputNs3 = __dirname + "/../../docs/ns3/program/";
+const pathInputNla1 = __dirname + "/../../docs/nla1/program/";
+
+// outfile file are sorted to be added as required in the file pfd file.
+// 00 is the first...
 
 convert("ns3", pathInputNs3 + "readme.md", pathOutput + "00-readme.md", false);
-convert("ns3", pathInputNs3 + "ns3-doc.md", pathOutput + "20-doc.md", true);
+convert("ns3", pathInputNs3 + "ns3-doc.md", pathOutput + "10-doc.md", true);
 
 
-convert("ns2", pathInputNs2 + "readme.md", pathOutput + "10-readme.md", false);
+convert("ns2", pathInputNs2 + "readme.md", pathOutput + "20-readme.md", false);
 convert("ns2", pathInputNs2 + "ns2-doc.md", pathOutput + "30-doc.md", true);
 
+convert("nla1", pathInputNla1 + "readme.md", pathOutput + "40-readme.md", false);
+convert("nla1", pathInputNla1 + "nla1-doc.md", pathOutput + "50-doc.md", true);
