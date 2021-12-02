@@ -129,11 +129,11 @@ const Main = () => {
 
                                     <Dropdown.Menu>
                                         <Dropdown.Item onClick={handleExportPdf} disabled={exportDisabled}>
-                                            As PDF File
+                                            PDF File
                                         </Dropdown.Item>
-                                        <Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>
-                                            As CSV File
-                                        </Dropdown.Item>
+                                        {/*<Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>*/}
+                                        {/*    CSV File*/}
+                                        {/*</Dropdown.Item>*/}
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Form>
