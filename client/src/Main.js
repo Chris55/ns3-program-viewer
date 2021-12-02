@@ -3,11 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
 import NordDevice from "./nord/nord-device";
-import Button from "react-bootstrap/Button";
-import {buildExport} from "./export/export-pdf";
+import { buildExportPdf } from "./export/export-pdf";
 import Home from "./Home";
 import LoadButton from "./LoadButton";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
     nordSelector,
     setError,
@@ -16,11 +15,11 @@ import {
     toggleShowAll,
     toggleShowDefault,
 } from "./features/nord/nordSliceReducer";
-import {Form, Navbar} from "react-bootstrap";
+import { Dropdown, Form, Navbar } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
 import NordManager from "./nord/nord-manager";
-
+import { buildExportCsv } from "./export/export-csv";
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -35,6 +34,8 @@ const Main = () => {
         production,
         programs,
         synths,
+        lives,
+        performances,
         managerTitle,
     } = useSelector(nordSelector);
 
@@ -46,13 +47,44 @@ const Main = () => {
         dispatch(toggleShowDefault());
     };
 
-    const handleExport = async () => {
+    const handleExportPdf = async () => {
         const callback = (name) => {
             dispatch(setExportingDetail(name));
         };
         dispatch(setExporting(true));
         try {
-            await buildExport(data, showAll, callback);
+            await buildExportPdf(data, showAll, callback);
+        } catch (e) {
+            dispatch(setError(e.message));
+        } finally {
+            dispatch(setExporting(false));
+        }
+    };
+
+    const handleExportCsv = async () => {
+        const callback = (name) => {
+            dispatch(setExportingDetail(name));
+        };
+        dispatch(setExporting(true));
+        try {
+            if (managerTitle) {
+                await buildExportCsv(
+                    [
+                        ...programs.map((x) => x.model),
+                        ...synths.map((x) => x.model),
+                        ...lives.map((x) => x.model),
+                        ...performances.map((x) => x.model),
+                    ],
+                    callback,
+                    managerTitle
+                );
+            } else {
+                await buildExportCsv(
+                    data,
+                    callback,
+                    data.length === 1 ? data[0].filename: "Nord"
+                );
+            }
         } catch (e) {
             dispatch(setError(e.message));
         } finally {
@@ -82,14 +114,28 @@ const Main = () => {
                         <Navbar.Collapse className="">
                             <Form inline className="ml-n2">
                                 <LoadButton className="nav-link" variant="light" />
-                                <Button
-                                    className="nav-link"
-                                    variant="light"
-                                    disabled={exportDisabled}
-                                    onClick={handleExport}
-                                >
-                                    {exporting ? "Exporting " + exportDetails : "Export"}
-                                </Button>
+                                {/*<Button*/}
+                                {/*    className="nav-link"*/}
+                                {/*    variant="light"*/}
+                                {/*    disabled={exportDisabled}*/}
+                                {/*    onClick={handleExport}*/}
+                                {/*>*/}
+                                {/*    {exporting ? "Exporting " + exportDetails : "Export"}*/}
+                                {/*</Button>*/}
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="light" id="dropdown-basic">
+                                        {exporting ? "Exporting " + exportDetails : "Export"}
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item onClick={handleExportPdf} disabled={exportDisabled}>
+                                            As PDF File
+                                        </Dropdown.Item>
+                                        <Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>
+                                            As CSV File
+                                        </Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
                             </Form>
                         </Navbar.Collapse>
                         <h5>{managerTitle}</h5>
@@ -126,7 +172,7 @@ const Main = () => {
                             secondaryInitialSize={350}
                             secondaryMinSize={10}
                         >
-                            <NordManager/>
+                            <NordManager />
                             {nordDeviceAndSpace}
                         </SplitterLayout>
                     )}

@@ -42,7 +42,7 @@ const getImages = async (data, showAll, callback) => {
     return images;
 };
 
-export const buildExport = async (data, showAll, callback) => {
+export const buildExportPdf = async (data, showAll, callback) => {
     // svg are not rendered by html2canvas in Safari
     // now working in v1.3.2, but still issues
     // https://github.com/niklasvh/html2canvas/issues/2699
