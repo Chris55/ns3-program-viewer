@@ -3,7 +3,6 @@ const mapping = require("./ns3-mapping");
 const {ns3BooleanValue} = require("./ns3-utils");
 const { getName, getVersion, checkHeader} = require("../../common/converter");
 const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
-const { ns3ProgramLocation } = require("./ns3-utils");
 const { ns3Panel } = require("./ns3-panel");
 
 /***
@@ -15,15 +14,32 @@ const { ns3Panel } = require("./ns3-panel");
  */
 exports.loadNs3ProgramFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
-    checkHeader(buffer, "ns3f", [574, 592]);
+    checkHeader(buffer, ["ns3f", "ns3l"], [574, 592]);
 
     // const fileId = buffer.readUInt16BE(0x0e);
     const offset04 = buffer.readUInt8(0x04);
     const offset10 = buffer.readUInt8(0x10);
 
+    const ext = path.extname(filename).substr(1).toLowerCase();
+
     const bankValue = buffer.readUInt8(0x0c);
     const locationValue = buffer.readUInt8(0x0e);
-    const programLocation = ns3ProgramLocation(bankValue, locationValue);
+
+    // bankValue should be between 0 and 15 (A...P)
+    // locationValue should be between 0 and 24 (11,12...,54,55)
+    // but on older program coding was maybe different
+    // example in v3.00
+    // https://www.norduserforum.com/viewtopic.php?t=14414
+    // Uptown_Funk.ns3f location value = 45 !!!
+    const valid = bankValue <= 15 && locationValue <= 24;
+    const locationDigit1 = (Math.trunc(locationValue / 5) + 1) * 10;
+    const locationDigit2 = (locationValue % 5) + 1;
+    const programLocation = {
+        bank: bankValue,
+        location: locationValue,
+        name: valid && ext === "ns3f" ? String.fromCharCode(65 + bankValue) + ":" + (locationDigit1 + locationDigit2) : (locationValue + 1).toString(),
+        value: bankValue * 25 + locationValue,
+    };
 
     /**
      * Offset in file: 0x14 and 0x15
@@ -68,6 +84,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      * v2.52 (2020-01-23)  v3.04
      * v2.54 (2020-03-04)  v3.04
      * v2.60 (2021-09-23)  v3.04
+     * v2.62 (2021-11-16)  v3.04
      *
      * @see {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history Nord Stage 3 - Update History}
      * @module NS3 File Version
@@ -98,10 +115,8 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
      *
      * @module NS3 File Format
      */
-    let versionOffset = 0; // default all coding is done as per v3.04
-    // if (minorVersion < 3) {
-    //     versionOffset = -20;
-    // }
+    let versionOffset = 0; // by default all address mapping are done as per latest NSM export (header type 1)
+
     // offset 0x04 defines the file format, and not the minor version as initially supposed
     // example:
     // https://www.norduserforum.com/nord-stage-forum-f3/doubts-about-buying-nord-stage-3-t18621-10.html?sid=bc221ba562cb5071ff9d0f1f0c3e300d
@@ -322,8 +337,6 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         }
     };
 
-    const ext = path.extname(filename).substr(1);
-
     const global = {
         version: version,
         masterClock: {
@@ -345,8 +358,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
-        isProgram: true,
-        isSynth: false,
+        type: ext === "ns3f" ? "Program": "Live",
 
         // program location
         id: programLocation,

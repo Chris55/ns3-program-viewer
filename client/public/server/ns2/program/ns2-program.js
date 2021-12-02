@@ -16,12 +16,14 @@ const { ns2Slot } = require("./ns2-slot");
  */
 exports.loadNs2ProgramFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
-    checkHeader(buffer, "ns2p", [547, 565]);
+    checkHeader(buffer, ["ns2p", "ns2l"], [547, 565]);
 
     // const fileId = buffer.readUInt16BE(0x0e);
     const offset04 = buffer.readUInt8(0x04);
     const offset10 = buffer.readUInt8(0x10);
     const offset14W = buffer.readUInt16LE(0x14);
+
+    const ext = path.extname(filename).substr(1).toLowerCase();
 
     const bankValue = buffer.readUInt8(0x0c) & 0x03;
     const locationValue = buffer.readUInt8(0x0e) & 0x7f;
@@ -30,7 +32,9 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const programLocation = {
         bank: bankValue,
         location: locationValue,
-        name: String.fromCharCode(65 + bankValue) + ":" + zeroPad(locationDigit1, 2) + ":" + locationDigit2,
+        name: ext === "ns2p"
+            ? String.fromCharCode(65 + bankValue) + ":" + zeroPad(locationDigit1, 2) + ":" + locationDigit2
+            : (locationValue + 1).toString(),
         value: bankValue * 25 + locationValue,
     };
     /**
@@ -85,8 +89,8 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
      *
      * @module NS2 File Format
      */
-    let versionOffset = 0;
-    // offset 0x04 defines the file format, and not the minor version as initially supposed
+    let versionOffset = 0; // by default all address mapping are done as per latest NSM export (header type 1)
+
     if (offset04 !== 1) {
         console.log("Offset 0x04 <> 1 switched to legacy mode");
         versionOffset = -20;
@@ -199,8 +203,6 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
      */
     const dualKeyboard = ns2BooleanValue((offset2e & 0x20) !== 0, false);
 
-    const ext = path.extname(filename).substr(1);
-
     const global = {
         version: version,
         masterClock: {
@@ -224,8 +226,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
-        isProgram: true,
-        isSynth: false,
+        type: ext === "ns2p" ? "Program": "Live",
 
         // program location
         id: programLocation,

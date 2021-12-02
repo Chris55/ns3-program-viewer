@@ -1,8 +1,8 @@
-const fs = require('fs').promises;
+const fs = require("fs").promises;
 const os = require("os");
-const path = require('path');
+const path = require("path");
 
-const build = async(folder, testFilename) => {
+const build = async (folder, testFilename) => {
     const testFile = "./" + testFilename;
     const testFolder = __dirname + folder;
     const filenames = await fs.readdir(testFolder);
@@ -15,33 +15,33 @@ const build = async(folder, testFilename) => {
 
     file += 'describe("' + folder + '", () => {' + os.EOL;
 
-    const supportedExt = ['.ns3f','.ns3y','.ns2p','.ns2s', '.nlas'];
+    const supportedExt = [".ns3f", ".ns3l", ".ns3y", ".ns2p", ".ns2l", ".ns2s", ".nlas"];
 
     for (let filename of filenames) {
-
         const ext = path.extname(filename);
-        if (supportedExt.includes(ext))  {
-
+        if (supportedExt.includes(ext)) {
             const description = path.parse(filename).name;
 
             file += '    test("' + description + '", async () => {' + os.EOL;
             file += '        const file = "' + filename + '";' + os.EOL;
-            file += '        const sut = await loadTestCase(root + file);' + os.EOL;
-            file += '        sut.data.forEach((d) => {' + os.EOL;
-            file += '            expect(d.actual).toEqual(d.expected);' + os.EOL;
-            file += '        });' + os.EOL;
-            file += '    });' + os.EOL + os.EOL;
+            file += "        const sut = await loadTestCase(root + file);" + os.EOL;
+            file += "        sut.data.forEach((d) => {" + os.EOL;
+            file += "            expect(d.actual).toEqual(d.expected);" + os.EOL;
+            file += "        });" + os.EOL;
+            file += "    });" + os.EOL + os.EOL;
         } else {
-            throw new Error(`Unsupported file format ${ext}`);
+            if (ext) {
+                throw new Error(`Unsupported file format ${ext}`);
+            }
         }
     }
 
-    file += '});' + os.EOL + os.EOL;
+    file += "});" + os.EOL + os.EOL;
 
     await fs.writeFile(testFile, file);
-}
+};
 
-const buildAll = async() => {
+const buildAll = async () => {
     await build("/nla1/effects", "nla1.effects.test.js");
 
     await build("/ns2/effects", "ns2.effects.test.js");
@@ -56,6 +56,7 @@ const buildAll = async() => {
     await build("/ns2/synth/lfo", "ns2.synth.lfo.test.js");
     await build("/ns2/synth/oscillators", "ns2.synth.oscillators.test.js");
 
+    await build("/ns2/live", "ns2.live.test.js");
     await build("/ns2/ns2s", "ns2s.test.js");
 
     await build("/ns3/effects", "ns3.effects.test.js");
@@ -70,7 +71,8 @@ const buildAll = async() => {
     await build("/ns3/synth/lfo", "ns3.synth.lfo.test.js");
     await build("/ns3/synth/oscillators", "ns3.synth.oscillators.test.js");
 
+    await build("/ns3/live", "ns3.live.test.js");
     await build("/ns3/ns3y", "ns3y.test.js");
-}
+};
 
-buildAll().catch(console.error)
+buildAll().catch(console.error);

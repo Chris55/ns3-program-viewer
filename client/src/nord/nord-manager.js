@@ -13,8 +13,20 @@ import "react-splitter-layout/lib/index.css";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
 import { Search } from "react-bootstrap-icons";
 
+const showPerformance = [".nlasbundle", ".nlab"];
+const showSynth = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
+const showLive = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
+
 const NordManager = () => {
-    const { programs, synths, managerSelectedIndexes, managerTabSelection } = useSelector(nordSelector);
+    const {
+        programs,
+        synths,
+        lives,
+        performances,
+        managerSelectedIndexes,
+        managerTabSelection,
+        managerFileExt,
+    } = useSelector(nordSelector);
 
     const [gridApi, setGridApi] = useState(null);
     //const [gridColumnApi, setGridColumnApi] = useState(null);
@@ -85,7 +97,6 @@ const NordManager = () => {
                 e.api.ensureNodeVisible(node, "middle");
             }
         });
-
     };
 
     const onFilterTextBoxChanged = (e) => {
@@ -94,12 +105,20 @@ const NordManager = () => {
     };
 
     const onSelectProgramDropdown = (eventKey) => {
-        if (eventKey === "Program") {
-            setCurrentPrograms(programs);
+        switch (eventKey) {
+            case "Synth":
+                setCurrentPrograms(synths);
+                break;
+            case "Live":
+                setCurrentPrograms(lives);
+                break;
+            case "Performance":
+                setCurrentPrograms(performances);
+                break;
+            default:
+                setCurrentPrograms(programs);
         }
-        if (eventKey === "Synth") {
-            setCurrentPrograms(synths);
-        }
+
         dispatch(
             setManagerSelection({
                 managerTabSelection: eventKey,
@@ -140,7 +159,18 @@ const NordManager = () => {
                         title={managerTabSelection}
                     >
                         <Dropdown.Item eventKey="Program">Program</Dropdown.Item>
-                        <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>
+
+                        {showSynth.includes(managerFileExt) && (
+                            <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>
+                        )}
+
+                        {showLive.includes(managerFileExt) && (
+                            <Dropdown.Item eventKey="Live">Live</Dropdown.Item>
+                        )}
+
+                        {showPerformance.includes(managerFileExt) && (
+                            <Dropdown.Item eventKey="Performance">Performance</Dropdown.Item>
+                        )}
                     </DropdownButton>
                 </div>
             </div>

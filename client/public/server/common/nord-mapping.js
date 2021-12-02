@@ -62,6 +62,8 @@ exports.nordFileExtMap = new Map([
     ["nwb", "Nord Wave Backup"],
     ["nwi", "Nord Wave Instrument"],
     ["nwp", "Nord Wave Program"],
+    ["ns2l", "Nord Stage 2 Live"],
+    ["ns3l", "Nord Stage 3 Live"],
 ]);
 
 /***

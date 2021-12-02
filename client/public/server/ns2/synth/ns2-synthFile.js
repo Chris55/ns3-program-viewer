@@ -12,7 +12,7 @@ const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mappin
  */
 exports.loadNs2SynthFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
-    checkHeader(buffer, "ns2s", [60, 78]);
+    checkHeader(buffer, ["ns2s"], [60, 78]);
 
     const offset04 = buffer.readUInt8(0x04);
     const offset10 = buffer.readUInt8(0x10);
@@ -49,6 +49,7 @@ exports.loadNs2SynthFile = (buffer, filename) => {
      * Here we fake a ns2p file to be able to read the synth section.
      */
     let versionOffset = -177; // 0x1B
+
     if (offset04 !== 1) {
         console.log("Offset 0x04 <> 1 switched to legacy mode");
         versionOffset -= 20;
@@ -81,7 +82,7 @@ exports.loadNs2SynthFile = (buffer, filename) => {
         },
     };
 
-    const ext = path.extname(filename).substr(1);
+    const ext = path.extname(filename).substr(1).toLowerCase();
 
     const global = {
         version: version,
@@ -107,8 +108,7 @@ exports.loadNs2SynthFile = (buffer, filename) => {
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
-        isProgram: false,
-        isSynth: true,
+        type: "Synth",
 
         // program location
         id: programLocation,

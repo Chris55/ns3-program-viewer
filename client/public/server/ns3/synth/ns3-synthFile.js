@@ -13,7 +13,7 @@ const { getVersion, getName, checkHeader} = require("../../common/converter");
  */
 exports.loadNs3SynthFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
-    checkHeader(buffer, "ns3y", [84, 102]);
+    checkHeader(buffer, ["ns3y"], [84, 102]);
 
     const offset04 = buffer.readUInt8(0x04);
 
@@ -64,7 +64,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
         versionOffset -= 20;
     }
 
-    const ext = path.extname(filename).substr(1);
+    const ext = path.extname(filename).substr(1).toLowerCase();
 
     const global = {
         version: version,
@@ -105,8 +105,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
-        isProgram: false,
-        isSynth: true,
+        type: "Synth",
 
         // program location
         id: programLocation,

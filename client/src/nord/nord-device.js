@@ -11,7 +11,7 @@ class NordList extends Component {
     render() {
         const listItems = this.props.data.map((data) => {
             let result;
-            if (data && data.ext === "ns3f") {
+            if (data && (data.ext === "ns3f" || data.ext === "ns3l")) {
                 result = (
                     <div className="mb-2">
                         {this.props.production && <Ns3 data={data} />}
@@ -29,7 +29,7 @@ class NordList extends Component {
                         )}
                     </div>
                 );
-            } else if (data && data.ext === "ns2p") {
+            } else if (data && (data.ext === "ns2p" || data.ext === "ns2l")) {
                 result = (
                     <div className="mb-2">
                         {this.props.production && <Ns2 data={data} />}

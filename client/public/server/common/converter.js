@@ -1,3 +1,5 @@
+const path = require("path");
+
 /***
  * generic round function
  * @param value
@@ -220,7 +222,9 @@ exports.getName = (filename) => {
     }
 
     // remove the extension
-    let name = filename.replace(/\.[^/.]+$/, "");
+    //let name = filename.replace(/\.[^/.]+$/, "");
+    // remove path and ext
+    let name = path.parse(filename).name;
 
     // removes NUF header
     const regxForum = new RegExp(/^[0-9]{13}-/);
@@ -259,18 +263,18 @@ exports.getExtension = (fileName) => {
  * Throw exception if invalid signature or invalid file size
  *
  * @param buffer {Buffer}
- * @param signature {string}
+ * @param supportedSignatures {string[]}
  * @param supportedSizes {number[]}
  */
-exports.checkHeader = (buffer, signature, supportedSizes) => {
+exports.checkHeader = (buffer, supportedSignatures, supportedSizes) => {
     if (buffer.length > 16) {
         const claviaSignature = buffer.toString("utf8", 0, 4);
         if (claviaSignature !== "CBIN") {
             throw new Error("Invalid Nord file");
         }
-        const fileExt = buffer.toString("utf8", 8, 12);
-        if (fileExt !== signature) {
-            throw new Error(`${fileExt} file is not supported, select a valid ${signature} file`);
+        const signature = buffer.toString("utf8", 8, 12);
+        if (supportedSignatures.includes(signature) === false) {
+            throw new Error(`${signature} file is not supported - ${supportedSignatures.join(",")} type expected.`);
         }
     }
 

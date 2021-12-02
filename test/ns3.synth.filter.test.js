@@ -1,4 +1,4 @@
-// this file is auto-generated with builder.js
+// this file is auto-generated with test-builder.js
 
 const { loadTestCase } = require("./helpers");
 

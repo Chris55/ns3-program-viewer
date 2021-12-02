@@ -71,6 +71,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 |1.10  | 27-Jun-2021  | Added ns2s & ns3y Synth file details
 |1.11  | 28-Jun-2021  | Fixed typo in NS3 Delay Tempo
 |1.12  | 24-Sep-2021  | Added NS3 OS 2.60
+|1.13  | 02-Dec-2021  | Added NS3 OS 2.62
 
 \newpage
 

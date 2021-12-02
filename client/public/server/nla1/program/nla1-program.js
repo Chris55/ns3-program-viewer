@@ -13,7 +13,7 @@ const { nla1Reverb } = require("./nla1-fx-reverb");
  */
 exports.loadNla1ProgramFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
-    checkHeader(buffer, "nlas", [123, 141]);
+    checkHeader(buffer, ["nlas"], [123, 141]);
 
     const offset04 = buffer.readUInt8(0x04);
     const offset10 = buffer.readUInt8(0x10);
@@ -61,7 +61,7 @@ exports.loadNla1ProgramFile = (buffer, filename) => {
      *
      * @module NLA1 File Format
      */
-    let versionOffset = 0; // default all coding is done as per v3.04
+    let versionOffset = 0; // by default all address mapping are done as per latest NSM export (header type 1)
 
     if (offset04 !== 1) {
         console.log("Offset 0x04 <> 1 switched to legacy mode");
@@ -76,7 +76,7 @@ exports.loadNla1ProgramFile = (buffer, filename) => {
     // const offset38 = buffer.readUInt8(0x38 + versionOffset);
     // const offset3a = buffer.readUInt8(0x3a + versionOffset);
 
-    const ext = path.extname(filename).substr(1);
+    const ext = path.extname(filename).substr(1).toLowerCase();
 
     const global = {
         version: version,
@@ -88,8 +88,7 @@ exports.loadNla1ProgramFile = (buffer, filename) => {
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
-        isProgram: true,
-        isSynth: false,
+        type: "Program",
 
         // program location
         id: programLocation,
@@ -110,7 +109,7 @@ exports.loadNla1ProgramFile = (buffer, filename) => {
         effects: {
             //effect: ns2Effect1(buffer, panelOffset),
             //delay: ns2Delay(buffer, panelOffset),
-            reverb: nla1Reverb(buffer, 0),
+            reverb: nla1Reverb(buffer, versionOffset),
         },
     };
 

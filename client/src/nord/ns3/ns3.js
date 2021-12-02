@@ -14,7 +14,7 @@ export default class Ns3 extends Component {
                 <div className="row no-gutters ns3-header justify-content-between d-flex flex-wrap">
                     <div className="col align-self-center">
                         <h3 className="ns3-header-name">
-                            {data.id.name} {data.name}
+                            {data.type === "Program" ? data.id.name: ""} {data.name}
                         </h3>
                         <div className="nord-option-on">
                             {data.description} ({data.ext})   <small>Version</small> {data.version.value}   <small>Category</small> {data.category}

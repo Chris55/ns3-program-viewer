@@ -3,7 +3,7 @@ import { model } from "../../nord/ns2/model/ns2-model";
 import axios from "axios";
 import { BlobReader, BlobWriter, ZipReader } from "@zip.js/zip.js";
 
-export const supportedProgramTypes = [".ns3f", ".ns3y", ".ns2p", ".ns2s", ".nlas"];
+export const supportedProgramTypes = [".ns3f", ".ns3y", ".ns3l", ".ns2p", ".ns2s", ".ns2l", ".nlas"];
 export const supportedBackupTypes = [
     ".ns3b",
     ".ns3fb",
@@ -38,6 +38,7 @@ const initialState = {
     exporting: false,
     exportDetails: "",
     managerTitle: "",
+    managerFileExt: "",
     programs: [
         // {name: "prg1", location: "Bank A"}, {name: "prg2", location: "Bank A"}, {
         //     name: "prg3",
@@ -49,6 +50,8 @@ const initialState = {
         // }, {name: "prg4", location: "Bank A"},
     ],
     synths: [],
+    lives: [],
+    performances: [],
     managerSelectedIndexes: {},
     managerTabSelection: "Program",
 };
@@ -77,11 +80,22 @@ const nordSlice = createSlice({
             state.error = null;
             state.showAll = payload.showAll;
             state.programs = payload.programs;
+            state.lives = payload.lives;
+            state.performances = payload.performances;
             state.synths = payload.synths;
             state.managerTitle = payload.managerTitle;
+            state.managerFileExt = payload.managerFileExt;
             state.managerSelectedIndexes = {};
-            if (payload.synths.length > 0 && payload.programs.length === 0) {
-                state.managerTabSelection = "Synth";
+            if (payload.programs.length === 0) {
+                if (payload.synths.length > 0) {
+                    state.managerTabSelection = "Synth";
+                } else if (payload.performances.length > 0) {
+                    state.managerTabSelection = "Performances";
+                } else if (payload.lives.length > 0) {
+                    state.managerTabSelection = "Live";
+                } else {
+                    state.managerTabSelection = "Program";
+                }
             } else {
                 state.managerTabSelection = "Program";
             }
@@ -95,6 +109,8 @@ const nordSlice = createSlice({
         clearBackupData: (state, {}) => {
             state.programs = [];
             state.synths = [];
+            state.performances = [];
+            state.lives = [];
             state.programSelectedIndexes = [];
             state.synthSelectedIndexes = [];
             state.managerTitle = "";
@@ -118,7 +134,7 @@ const nordSlice = createSlice({
             if (!state.showAll) {
                 const newData = state.data;
                 for (const item of newData) {
-                    if (item.isProgram) {
+                    if (item.type === "Program" || item.type === "Live") {
                         item.name += " - (All Instruments Visible)";
                         const panelA = item.panelA || item.slotA;
                         const panelB = item.panelB || item.slotB;
@@ -319,6 +335,8 @@ const loadBackupFile = async (dispatch, file) => {
         }
     }
     const programs = [];
+    const lives = [];
+    const performances = [];
     const synths = [];
 
     if (json.success) {
@@ -330,16 +348,23 @@ const loadBackupFile = async (dispatch, file) => {
                 category: data.category,
                 model: data,
             };
-            if (data.isProgram) {
-                programs.push(nordItem);
-            } else {
-                synths.push(nordItem);
+            switch(data.type) {
+                case "Program":
+                    programs.push(nordItem);
+                    break;
+                case "Performance":
+                    performances.push(nordItem);
+                    break;
+                case "Live":
+                    lives.push(nordItem);
+                    break;
+                case "Synth":
+                    synths.push(nordItem);
+                    break;
+                default:
+                    onError(dispatch, { error: data.type + " is not implemented..." });
+                    return;
             }
-            // dispatch(
-            //     setLoadingBackupInProgress({
-            //         programs: [program]
-            //     })
-            // );
         }
     } else {
         onError(dispatch, { error: json.error });
@@ -352,9 +377,12 @@ const loadBackupFile = async (dispatch, file) => {
             loading: false,
             error: null,
             showAll: false,
-            programs: programs,
-            synths: synths,
+            programs,
+            performances,
+            lives,
+            synths,
             managerTitle: file.name,
+            managerFileExt: getExtension(file.name),
         })
     );
 };
