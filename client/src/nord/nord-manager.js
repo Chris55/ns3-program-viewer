@@ -11,7 +11,9 @@ import { nordSelector, setLoadingSuccess, setManagerSelection } from "../feature
 import { Dropdown, DropdownButton, Row } from "react-bootstrap";
 import "react-splitter-layout/lib/index.css";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
-import { Search } from "react-bootstrap-icons";
+import {BsSearch, FiSearch, RiSearch2Line} from "react-icons/all";
+
+
 
 const showPerformance = [".nlasbundle", ".nlab"];
 const showSynth = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
@@ -136,7 +138,7 @@ const NordManager = () => {
         <>
             <div className="manager-search-area d-flex justify-content-between">
                 <div className="form-group has-search mt-2 ml-2">
-                    <Search className="form-control-feedback" />
+                    <BsSearch className="form-control-feedback" />
                     <input
                         type="text"
                         className="form-control"

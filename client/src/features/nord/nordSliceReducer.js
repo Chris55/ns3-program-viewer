@@ -371,10 +371,15 @@ const loadBackupFile = async (dispatch, file) => {
             managerFileExt: getExtension(file.name),
         })
     );
+
+    fadeOutProgressBar(dispatch);
+};
+
+export const fadeOutProgressBar = (dispatch) => {
     setTimeout(() => {
         dispatch(setProgress({ progress: 0 }));
     }, 4000);
-};
+}
 
 const onSuccess = (dispatch, data) => {
     //console.log("success: ", data);
@@ -389,9 +394,7 @@ const onSuccess = (dispatch, data) => {
             })
         );
 
-        setTimeout(() => {
-            dispatch(setProgress({ progress: 0 }));
-        }, 4000);
+        fadeOutProgressBar(dispatch);
     } else {
         dispatch(setLoadingError(data));
     }

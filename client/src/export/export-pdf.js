@@ -11,7 +11,7 @@ const getImages = async (data, showAll, callback) => {
     const images = [];
 
     for (let p = 0; p < data.length; p++) {
-        callback(`rendering ${p + 1}/${data.length}`);
+        callback(`rendering ${p + 1}/${data.length}`, 0, 2, p, data.length);
         const doc = (
             <Provider store={store}>
                 <NordDevice data={[data[p]]} showAll={showAll} production={true} />
@@ -63,7 +63,7 @@ export const buildExportPdf = async (data, showAll, callback) => {
     });
 
     for (let p = 0; p < images.length; p++) {
-        callback(`saving ${p + 1}/${data.length}`);
+        callback(`saving ${p + 1}/${data.length}`, 1, 2, p, images.length);
 
         const imgData = images[p];
 

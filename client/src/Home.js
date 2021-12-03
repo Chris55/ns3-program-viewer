@@ -77,7 +77,7 @@ const Home = () => {
                                                     />
                                                     <Media.Body>
                                                         <h6 className="mb-2 text-muted">Program Files</h6>
-                                                        <p className="text-muted mt-2">(ns2p, ns3f)</p>
+                                                        <p className="text-muted mt-2">(ns2p, ns2l, ns3f, ns3l)</p>
                                                     </Media.Body>
                                                 </Media>
                                             </Col>

@@ -8,10 +8,12 @@ import Home from "./Home";
 import LoadButton from "./LoadButton";
 import { useDispatch, useSelector } from "react-redux";
 import {
+    fadeOutProgressBar,
     nordSelector,
     setError,
     setExporting,
     setExportingDetail,
+    setProgress,
     toggleShowAll,
     toggleShowDefault,
 } from "./features/nord/nordSliceReducer";
@@ -21,6 +23,7 @@ import "react-splitter-layout/lib/index.css";
 import NordManager from "./nord/nord-manager";
 import { buildExportCsv } from "./export/export-csv";
 import cx from "classnames";
+import { BsFileEarmarkPdf, GrDocumentCsv } from "react-icons/all";
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -49,24 +52,30 @@ const Main = () => {
         dispatch(toggleShowDefault());
     };
 
+    const exportCallback = (title, currentStep, numberOfSteps, currentValue, maxValue) => {
+        const stepSize = 100 / numberOfSteps;
+        const progress = currentStep * stepSize + ((currentValue + 1) * stepSize) / maxValue;
+        dispatch(setExportingDetail(title));
+        dispatch(
+            setProgress({
+                progress,
+            })
+        );
+    };
+
     const handleExportPdf = async () => {
-        const callback = (name) => {
-            dispatch(setExportingDetail(name));
-        };
         dispatch(setExporting(true));
         try {
-            await buildExportPdf(data, showAll, callback);
+            await buildExportPdf(data, showAll, exportCallback);
         } catch (e) {
             dispatch(setError(e.message));
         } finally {
             dispatch(setExporting(false));
+            fadeOutProgressBar(dispatch);
         }
     };
 
     const handleExportCsv = async () => {
-        const callback = (name) => {
-            dispatch(setExportingDetail(name));
-        };
         dispatch(setExporting(true));
         try {
             if (managerTitle) {
@@ -77,16 +86,17 @@ const Main = () => {
                         ...lives.map((x) => x.model),
                         ...performances.map((x) => x.model),
                     ],
-                    callback,
+                    exportCallback,
                     managerTitle
                 );
             } else {
-                await buildExportCsv(data, callback, data.length === 1 ? data[0].filename : "Nord");
+                await buildExportCsv(data, exportCallback, data.length === 1 ? data[0].filename : "Nord");
             }
         } catch (e) {
             dispatch(setError(e.message));
         } finally {
             dispatch(setExporting(false));
+            fadeOutProgressBar(dispatch);
         }
     };
 
@@ -128,16 +138,30 @@ const Main = () => {
                                 {/*    {exporting ? "Exporting " + exportDetails : "Export"}*/}
                                 {/*</Button>*/}
                                 <Dropdown>
-                                    <Dropdown.Toggle variant="light" id="dropdown-basic">
-                                        {exporting ? "Exporting " + exportDetails : "Export"}
+                                    <Dropdown.Toggle variant="light" id="dropdown-basic" >
+                                        {exporting ? "Exporting" : "Export"}
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
                                         <Dropdown.Item onClick={handleExportPdf} disabled={exportDisabled}>
-                                            PDF File
+                                            <div className="d-flex justify-content-between">
+                                                <div className="mr-4">
+                                                    As PDF File
+                                                </div>
+                                                <div>
+                                                    <BsFileEarmarkPdf />
+                                                </div>
+                                            </div>
                                         </Dropdown.Item>
                                         {/*<Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>*/}
-                                        {/*    CSV File*/}
+                                        {/*    <div className="d-flex justify-content-between">*/}
+                                        {/*        <div>*/}
+                                        {/*            As CSV File*/}
+                                        {/*        </div>*/}
+                                        {/*        <div>*/}
+                                        {/*            <GrDocumentCsv />*/}
+                                        {/*        </div>*/}
+                                        {/*    </div>*/}
                                         {/*</Dropdown.Item>*/}
                                     </Dropdown.Menu>
                                 </Dropdown>
