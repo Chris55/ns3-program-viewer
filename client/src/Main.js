@@ -15,17 +15,19 @@ import {
     toggleShowAll,
     toggleShowDefault,
 } from "./features/nord/nordSliceReducer";
-import { Dropdown, Form, Navbar } from "react-bootstrap";
+import { Dropdown, Form, Navbar, ProgressBar } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
 import NordManager from "./nord/nord-manager";
 import { buildExportCsv } from "./export/export-csv";
+import cx from "classnames";
 
 const Main = () => {
     const dispatch = useDispatch();
     const {
         loading,
         loaded,
+        progress,
         data,
         showAll,
         showDefault,
@@ -79,11 +81,7 @@ const Main = () => {
                     managerTitle
                 );
             } else {
-                await buildExportCsv(
-                    data,
-                    callback,
-                    data.length === 1 ? data[0].filename: "Nord"
-                );
+                await buildExportCsv(data, callback, data.length === 1 ? data[0].filename : "Nord");
             }
         } catch (e) {
             dispatch(setError(e.message));
@@ -110,6 +108,13 @@ const Main = () => {
 
             {loaded && (
                 <div>
+                    <ProgressBar
+                        className={cx("bg-light", {
+                            "progress-fadeOut": progress === 100,
+                        })}
+                        now={progress}
+                    />
+
                     <Navbar className="bg-light">
                         <Navbar.Collapse className="">
                             <Form inline className="ml-n2">

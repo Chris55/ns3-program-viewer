@@ -24,8 +24,7 @@ export const buildExportCsv = async (data, callback, managerTitle) => {
     const blobWriter = new BlobWriter("application/zip");
     const writer = new ZipWriter(blobWriter);
 
-    for (let p = 0; p < data.length; p++) {
-        const program = data[p];
+    for (const [p, program] of data.entries()) {
 
         callback(`${(p + 1) * 100 / data.length} %`);
         const str = getFlatObject(program);

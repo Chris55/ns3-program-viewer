@@ -58,12 +58,8 @@ const NordManager = () => {
 
         dispatch(
             setLoadingSuccess({
-                loaded: true,
-                loading: false,
                 data: selectedData,
                 originalData: selectedData,
-                error: null,
-                showAll: false,
             })
         );
     };

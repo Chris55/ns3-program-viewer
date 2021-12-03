@@ -5,7 +5,8 @@ import { allSupportedTypes, loadFiles, nordSelector } from "./features/nord/nord
 
 const LoadButton = (props) => {
     const dispatch = useDispatch();
-    const { loading } = useSelector(nordSelector);
+    const { loading, exporting } = useSelector(nordSelector);
+    const disabled = loading || exporting;
 
     const handleFiles = (files) => {
         if (files) {
@@ -20,7 +21,7 @@ const LoadButton = (props) => {
                 variant={props.variant}
                 size={props.size}
                 title={loading ? "Loading..." : "Load"}
-                disabled={loading}
+                disabled={disabled}
                 accept={allSupportedTypes}
                 multiple={true}
                 handleFiles={handleFiles}

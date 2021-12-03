@@ -233,4 +233,22 @@ hr.footer-line {
 //    box-shadow: none;
 //}
 
+.progress {
+    height: 0.2rem;
+}
+.progress-bar {
+    background-color: $primary;
+}
+
+.progress-fadeOut {
+    opacity: 0;
+    transition: opacity 1000ms linear 1500ms;
+}
+
+// https://github.com/react-bootstrap/react-bootstrap/issues/4981#issuecomment-584240544
+.progress-bar[aria-valuenow="0"] {
+    transition: none;
+}
+
+
 

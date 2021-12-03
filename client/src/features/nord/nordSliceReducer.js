@@ -30,6 +30,7 @@ const initialState = {
     isElectron: /electron/i.test(navigator.userAgent),
     loaded: production ? false : loadedDebug,
     loading: false,
+    progress: 0,
     data: [model],
     originalData: [model],
     error: null,
@@ -61,24 +62,30 @@ const nordSlice = createSlice({
     initialState,
     reducers: {
         setLoading: (state, { payload }) => {
-            state.loading = payload;
+            state.loading = true;
+            state.progress = payload.progress;
+        },
+        setProgress: (state, { payload }) => {
+            state.progress = payload.progress;
         },
         setLoadingSuccess: (state, { payload }) => {
-            state.loaded = payload.loaded;
-            state.loading = payload.loading;
+            state.loaded = true;
+            state.loading = false;
+            state.progress = 100;
             state.data = payload.data;
             state.originalData = payload.data;
             state.error = null;
-            state.showAll = payload.showAll;
+            state.showAll = false;
             //state.programs = [];
         },
         setLoadingBackupSuccess: (state, { payload }) => {
-            state.loaded = payload.loaded;
-            state.loading = payload.loading;
+            state.loaded = true;
+            state.loading = false;
+            state.progress = 100;
             state.data = [];
             state.originalData = [];
             state.error = null;
-            state.showAll = payload.showAll;
+            state.showAll = false;
             state.programs = payload.programs;
             state.lives = payload.lives;
             state.performances = payload.performances;
@@ -121,6 +128,7 @@ const nordSlice = createSlice({
         setLoadingError: (state, { payload }) => {
             state.loaded = false;
             state.loading = false;
+            state.progress = 0;
             state.error = payload.error;
             state.showAll = false;
         },
@@ -179,6 +187,7 @@ const nordSlice = createSlice({
 
 export const {
     setLoading,
+    setProgress,
     setLoadingSuccess,
     setLoadingBackupSuccess,
     clearBackupData,
@@ -196,30 +205,7 @@ export const nordSelector = (state) => state.nordStore;
 
 export default nordSlice.reducer;
 
-const onSuccess = (dispatch, data) => {
-    //console.log("success: ", data);
-    if (data.success) {
-        dispatch(clearBackupData());
 
-        dispatch(
-            setLoadingSuccess({
-                loaded: true,
-                loading: false,
-                data: data.data,
-                originalData: data.data,
-                error: null,
-                showAll: false,
-                programs: data.programs,
-            })
-        );
-    } else {
-        dispatch(setLoadingError(data));
-    }
-};
-
-const onError = (dispatch, err) => {
-    dispatch(setLoadingError({ error: err.error }));
-};
 
 const getExtension = (fileName) => {
     return fileName.slice(Math.max(0, fileName.lastIndexOf(".")) || Infinity).toLowerCase();
@@ -227,7 +213,7 @@ const getExtension = (fileName) => {
 
 export const loadFiles = (files) => {
     return async (dispatch) => {
-        dispatch(setLoading(true));
+        dispatch(setLoading({ loading: true, progress: 10 }));
 
         const programFiles = [];
         const backupFiles = [];
@@ -248,6 +234,8 @@ export const loadFiles = (files) => {
             onError(dispatch, { error: "Please do not mix backup and program files..." });
             return;
         }
+
+        dispatch(setLoading({ loading: true, progress: 40 }));
 
         if (backupFiles.length >= 1) {
             if (backupFiles.length > 1) {
@@ -313,6 +301,8 @@ const loadBackupFile = async (dispatch, file) => {
 
     let json = {};
 
+    dispatch(setLoading({ loading: true, progress: 60 }));
+
     if (initialState.isElectron) {
         // onError(dispatch, { error: "not yet implemented..." });
         // return;
@@ -348,7 +338,7 @@ const loadBackupFile = async (dispatch, file) => {
                 category: data.category,
                 model: data,
             };
-            switch(data.type) {
+            switch (data.type) {
                 case "Program":
                     programs.push(nordItem);
                     break;
@@ -373,10 +363,6 @@ const loadBackupFile = async (dispatch, file) => {
 
     dispatch(
         setLoadingBackupSuccess({
-            loaded: true,
-            loading: false,
-            error: null,
-            showAll: false,
             programs,
             performances,
             lives,
@@ -385,4 +371,32 @@ const loadBackupFile = async (dispatch, file) => {
             managerFileExt: getExtension(file.name),
         })
     );
+    setTimeout(() => {
+        dispatch(setProgress({ progress: 0 }));
+    }, 4000);
+};
+
+const onSuccess = (dispatch, data) => {
+    //console.log("success: ", data);
+    if (data.success) {
+        dispatch(clearBackupData());
+
+        dispatch(
+            setLoadingSuccess({
+                data: data.data,
+                originalData: data.data,
+                programs: data.programs,
+            })
+        );
+
+        setTimeout(() => {
+            dispatch(setProgress({ progress: 0 }));
+        }, 4000);
+    } else {
+        dispatch(setLoadingError(data));
+    }
+};
+
+const onError = (dispatch, err) => {
+    dispatch(setLoadingError({ error: err.error }));
 };

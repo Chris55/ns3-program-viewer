@@ -11,9 +11,10 @@ import Menu from "./Menu";
 import Offline from "./Offline";
 import { useDispatch, useSelector } from "react-redux";
 import { nordSelector, setError } from "./features/nord/nordSliceReducer";
+import { ProgressBar } from "react-bootstrap";
 
 const App = () => {
-    const { error } = useSelector(nordSelector);
+    const { error, progress } = useSelector(nordSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
