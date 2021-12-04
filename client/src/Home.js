@@ -35,7 +35,7 @@ const Home = () => {
                             })}
                             now={progress}
                         />
-                        <Row className="main-area">
+                        <Row className="main-area px-4">
                             <div className="mx-sm-5 mx-sx-2 mt-3">
                                 <Card className="border-0">
                                     <Card.Body>
