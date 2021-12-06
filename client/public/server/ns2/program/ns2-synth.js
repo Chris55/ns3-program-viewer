@@ -398,8 +398,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
                     oscModMidi === 63 || oscModMidi === 64
                         ? "LFO/Env AMT"
                         : oscModMidi < 64
-                            ? "LFO AMT"
-                            : "Mod Env AMT",
+                        ? "LFO AMT"
+                        : "Mod Env AMT",
             },
             /**
              * Offset in file: 0xec (b1)
