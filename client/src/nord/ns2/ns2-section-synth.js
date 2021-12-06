@@ -16,7 +16,7 @@ export default class Ns2SectionSynth extends Component {
         const synth = this.props.data;
         const ns2s = this.props.ns2s;
 
-        const visible = synth.enabled;
+        const visible = ns2s || synth.enabled;
         const dimmed = synth.dimmed === true;
 
         const presetName = "";
@@ -54,7 +54,7 @@ export default class Ns2SectionSynth extends Component {
                                             data={synth.vibrato}
                                         />
                                         <span className="m-1" />
-                                        <NordValueOnOff label="Hold" data={synth.keyboardHold} />
+                                        {!ns2s && <NordValueOnOff label="Hold" data={synth.keyboardHold} />}
                                     </div>
                                     <div className="nord-name">
                                         <div className={presetName !== "" ? "" : "d-none"}>
@@ -101,14 +101,15 @@ export default class Ns2SectionSynth extends Component {
                                     </div>
                                 </div>
 
-                                {!ns2s && <Ns2Fx
-                                    className=""
-                                    data={this.props.effects}
-                                    source="Synth"
-                                    arp={synth.arpeggiator}
-                                    menu={synth}
-                                />}
-
+                                {!ns2s && (
+                                    <Ns2Fx
+                                        className=""
+                                        data={this.props.effects}
+                                        source="Synth"
+                                        arp={synth.arpeggiator}
+                                        menu={synth}
+                                    />
+                                )}
                             </div>
                         </div>
                     </div>

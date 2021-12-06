@@ -15,9 +15,9 @@ import { Ns3SectionSynthDisplay } from "./ns3-section-synth-display";
 export default class Ns3SectionSynth extends Component {
     render() {
         const synth = this.props.data;
-        const visible = synth.enabled;
-        const dimmed = synth.dimmed === true;
         const ns3y = this.props.ns3y;
+        const visible = ns3y || synth.enabled;
+        const dimmed = synth.dimmed === true;
 
         return (
             <React.Fragment>
@@ -52,28 +52,9 @@ export default class Ns3SectionSynth extends Component {
                                             data={synth.vibrato}
                                         />
                                         <span className="m-1" />
-                                        <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />
+
+                                        {!ns3y && <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />}
                                     </div>
-                                    {/*<div className="nord-name">*/}
-                                    {/*    <div className={presetName !== "" ? "" : "d-none"}>*/}
-                                    {/*        <div*/}
-                                    {/*            className={*/}
-                                    {/*                synth.oscillators.waveForm1.valid ? "nord-font-small" : ""*/}
-                                    {/*            }*/}
-                                    {/*        >*/}
-                                    {/*            {presetName}*/}
-                                    {/*        </div>*/}
-                                    {/*    </div>*/}
-                                    {/*    <div className={synth.oscillators.waveForm1.valid ? "" : "nord-font-small"}>*/}
-                                    {/*        {synth.oscillators.waveForm1.value}*/}
-                                    {/*    </div>*/}
-                                    {/*    <div>*/}
-                                    {/*        <small>*/}
-                                    {/*            {synth.oscillators.waveForm1.info}{" "}*/}
-                                    {/*            {synth.oscillators.waveForm1.version}*/}
-                                    {/*        </small>*/}
-                                    {/*    </div>*/}
-                                    {/*</div>*/}
 
                                     <div className="ns3-lcd-synth">
                                         {!ns3y && synth.preset.userPreset && synth.preset.presetName && (
@@ -142,14 +123,16 @@ export default class Ns3SectionSynth extends Component {
                                     </div>
                                 </div>
 
-                                <div className="">
-                                    <Ns3Fx
-                                        className=""
-                                        data={this.props.effects}
-                                        source="Synth"
-                                        arp={synth.arpeggiator}
-                                    />
-                                </div>
+                                {!ns3y && (
+                                    <div className="">
+                                        <Ns3Fx
+                                            className=""
+                                            data={this.props.effects}
+                                            source="Synth"
+                                            arp={synth.arpeggiator}
+                                        />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

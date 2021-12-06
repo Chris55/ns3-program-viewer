@@ -262,118 +262,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
      */
     const arpeggiatorEnabled = (synthOffsetD9 & 0x01) !== 0;
 
-    const synth = {
-        debug: {
-            sampleId: sampleId.toString(16),
-            lib: waveForm,
-        },
-
-        /**
-         * Offset in file: 0x4d (b6)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS2 Synth On
-         */
-        enabled: synthEnabled,
-
-        /**
-         * Offset in file: 0x51 (b6-4)
-         *
-         * @example
-         * 0 = LO
-         * 1 = LO UP
-         * 2 = UP
-         * 3 = UP HI
-         * 4 = HI
-         * 5 = LO UP HI
-         *
-         * @module NS2 Synth Kb Zone
-         */
-        kbZone: {
-            array: synthKbZone[1],
-            value: synthKbZone[0],
-        },
-
-        /**
-         * Offset in file: 0x50 (b5-0) and 0x51 (b7)
-         *
-         * @example
-         *
-         * Morph Wheel:
-         * offset in file 0x4d (b5-0) 0x4e (b7-6)
-         *
-         * Morph After Touch:
-         * offset in file 0x4e (b5-0) 0x4f (b7-6)
-         *
-         * Morph Control Pedal:
-         * offset in file 0x4f (b5-0) 0x50 (b7-6)
-         *
-         * @module NS2 Synth Volume
-         */
-        volume: ns2VolumeEx(buffer, (synthOffset50W & 0x3f80) >>> 7, synthOffset4dWw >>> 6),
-
-        /**
-         * Offset in file: 0x51 (b3-0)
-         *
-         * @example
-         * Octave Shift = value - 7
-         *
-         * @module NS2 Synth Octave Shift
-         */
-        octaveShift: ns2OctaveShift(synthOffset51 & 0x0f),
-
-        /**
-         * Offset in file: 0x52 (b7)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS2 Synth Pitch Stick
-         */
-        pitchStick: ns2BooleanValue((synthOffset52 & 0x80) !== 0, true),
-
-        /**
-         * Offset in file: 0x52 (b6)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS2 Synth Sustain Pedal
-         */
-        sustainPedal: ns2BooleanValue((synthOffset52 & 0x40) !== 0, true),
-
-        /**
-         * Offset in file: 0x5a (b5)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS2 Synth Latch Pedal
-         */
-        latchPedal: ns2BooleanValue((synthOffset5a & 0x20) !== 0, false),
-
-        /**
-         * Offset in file: 0x5a (b4)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS2 Synth Kb Gate
-         */
-        kbGate: ns2BooleanValue((synthOffset5a & 0x10) !== 0, false),
-
-        /**
-         * Offset in file: 0xdc (b1)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS2 Synth Kb Hold
-         */
-        keyboardHold: ns2BooleanValue((synthOffsetDc & 0x02) !== 0, false),
-
+    const ns2s = {
         voice: {
             midi: voice,
             value: mapping.ns2SynthVoiceMap.get(voice),
@@ -509,8 +398,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
                     oscModMidi === 63 || oscModMidi === 64
                         ? "LFO/Env AMT"
                         : oscModMidi < 64
-                        ? "LFO AMT"
-                        : "Mod Env AMT",
+                            ? "LFO AMT"
+                            : "Mod Env AMT",
             },
             /**
              * Offset in file: 0xec (b1)
@@ -720,6 +609,123 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
                 isDefault: lfoRateMasterClock === false,
             },
         },
+    };
+
+    if (ns2sFile) return ns2s;
+
+    const synth = {
+        debug: {
+            sampleId: sampleId.toString(16),
+            lib: waveForm,
+        },
+
+        /**
+         * Offset in file: 0x4d (b6)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS2 Synth On
+         */
+        enabled: synthEnabled,
+
+        /**
+         * Offset in file: 0x51 (b6-4)
+         *
+         * @example
+         * 0 = LO
+         * 1 = LO UP
+         * 2 = UP
+         * 3 = UP HI
+         * 4 = HI
+         * 5 = LO UP HI
+         *
+         * @module NS2 Synth Kb Zone
+         */
+        kbZone: {
+            array: synthKbZone[1],
+            value: synthKbZone[0],
+        },
+
+        /**
+         * Offset in file: 0x50 (b5-0) and 0x51 (b7)
+         *
+         * @example
+         *
+         * Morph Wheel:
+         * offset in file 0x4d (b5-0) 0x4e (b7-6)
+         *
+         * Morph After Touch:
+         * offset in file 0x4e (b5-0) 0x4f (b7-6)
+         *
+         * Morph Control Pedal:
+         * offset in file 0x4f (b5-0) 0x50 (b7-6)
+         *
+         * @module NS2 Synth Volume
+         */
+        volume: ns2VolumeEx(buffer, (synthOffset50W & 0x3f80) >>> 7, synthOffset4dWw >>> 6),
+
+        /**
+         * Offset in file: 0x51 (b3-0)
+         *
+         * @example
+         * Octave Shift = value - 7
+         *
+         * @module NS2 Synth Octave Shift
+         */
+        octaveShift: ns2OctaveShift(synthOffset51 & 0x0f),
+
+        /**
+         * Offset in file: 0x52 (b7)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS2 Synth Pitch Stick
+         */
+        pitchStick: ns2BooleanValue((synthOffset52 & 0x80) !== 0, true),
+
+        /**
+         * Offset in file: 0x52 (b6)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS2 Synth Sustain Pedal
+         */
+        sustainPedal: ns2BooleanValue((synthOffset52 & 0x40) !== 0, true),
+
+        /**
+         * Offset in file: 0x5a (b5)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS2 Synth Latch Pedal
+         */
+        latchPedal: ns2BooleanValue((synthOffset5a & 0x20) !== 0, false),
+
+        /**
+         * Offset in file: 0x5a (b4)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS2 Synth Kb Gate
+         */
+        kbGate: ns2BooleanValue((synthOffset5a & 0x10) !== 0, false),
+
+        /**
+         * Offset in file: 0xdc (b1)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS2 Synth Kb Hold
+         */
+        keyboardHold: ns2BooleanValue((synthOffsetDc & 0x02) !== 0, false),
+
+        ...ns2s,
 
         arpeggiator: {
             enabled: arpeggiatorEnabled,

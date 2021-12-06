@@ -122,7 +122,8 @@ exports.loadNs2SynthFile = (buffer, filename) => {
          */
         category: programCategoryMap.get(offset10),
 
-        ...global,
+        //...global,
+        version,
 
         synth: ns2Synth(buffer, 0, versionOffset, global, true),
     };

@@ -189,112 +189,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
 
     const arpeggiatorEnabled = (synthOffset80 & 0x40) !== 0;
 
-
-    const synth = {
-        debug: {
-            sampleId: sampleId.toString(16),
-            lib: waveForm1,
-            preset: preset,
-        },
-
-        /**
-         * Offset in file: 0x52 (b7)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS3 Synth On
-         */
-        enabled: synthEnabled,
-
-        /**
-         * Offset in file: 0x52 (b6-3)
-         * @see {@link ns3-doc.md#ns3-organ-kb-zone Organ Kb Zone} for detailed explanation.
-         *
-         * @module NS3 Synth Kb Zone
-         */
-        kbZone: {
-            array: synthKbZone[1],
-            value: synthKbZone[0],
-        },
-
-        /**
-         * Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
-         *
-         * @example
-         *
-         * Morph Wheel:
-         * 0x53 (b3-b0), 0x54 (b7-b4): 8-bit raw value
-         *
-         * Morph After Touch:
-         * 0x54 (b3-b0), 0x55 (b7-b4): 8-bit raw value
-         *
-         * Morph Control Pedal:
-         * 0x55 (b3-b0), 0x56 (b7-b4): 8-bit raw value
-         *
-         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed explanation.
-         *
-         * @module NS3 Synth Volume
-         */
-        volume: ns3VolumeEx(buffer, 0x52 + panelOffset, ns3yFile),
-
-        /**
-         * Offset in file: 0x56 (b3-0)
-         *
-         * @example
-         * Octave Shift = value - 6
-         *
-         * @module NS3 Synth Octave Shift
-         */
-        octaveShift: ns3OctaveShift(synthOffset56 & 0x0f),
-
-        /**
-         * Offset in file: 0x57 (b7)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS3 Synth Pitch Stick
-         */
-        pitchStick: ns3BooleanValue((synthOffset57 & 0x80) !== 0, true),
-
-        /**
-         * Offset in file: 0x3b (b7-4)
-         *
-         * @see {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history Nord Stage 3 - Update History}
-         *
-         * @example
-         * Synth Pitch Shift Custom Range is available only with OS >= v2.00 (2018-12-18)
-         * File version v3.03 or later
-         *
-         * #include ns3SynthPitchShiftRangeMap
-         *
-         * @module NS3 Synth Pitch Stick Range
-         */
-        pitchStickRange: {
-            visible: pitchShiftRangeAvailable && pitchShiftRange !== 1,
-            value: pitchShiftRangeAvailable ? mapping.ns3SynthPitchShiftRangeMap.get(pitchShiftRange) : 0,
-            isDefault: pitchShiftRange === 1,
-        },
-        /**
-         * Offset in file: 0x57 (b6)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS3 Synth Sustain Pedal
-         */
-        sustainPedal: ns3BooleanValue((synthOffset57 & 0x40) !== 0, true),
-
-        /**
-         * Offset in file: 0x80 (b7)
-         *
-         * @example
-         * O = off, 1 = on
-         *
-         * @module NS3 Synth Kb Hold
-         */
-        keyboardHold: ns3BooleanValue((synthOffset80 & 0x80) !== 0, false),
+    const ns3y = {
 
         /**
          * Offset in file: 0x84 (b0) and 0x85 (b7)
@@ -354,10 +249,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
             value: mapping.ns3SynthVibratoMap.get(vibrato),
             isDefault: vibrato === 0,
         },
-        /***
-         * Synth Preset
-         */
-        preset: preset,
+
         /***
          * Synth Oscillators Definition
          */
@@ -766,6 +658,122 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                 isDefault: lfoRateMasterClock === false,
             },
         },
+
+    };
+
+    if (ns3yFile) return ns3y;
+
+    const synth = {
+        debug: {
+            sampleId: sampleId.toString(16),
+            lib: waveForm1,
+            preset: preset,
+        },
+
+        /**
+         * Offset in file: 0x52 (b7)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS3 Synth On
+         */
+        enabled: synthEnabled,
+
+        /**
+         * Offset in file: 0x52 (b6-3)
+         * @see {@link ns3-doc.md#ns3-organ-kb-zone Organ Kb Zone} for detailed explanation.
+         *
+         * @module NS3 Synth Kb Zone
+         */
+        kbZone: {
+            array: synthKbZone[1],
+            value: synthKbZone[0],
+        },
+
+        /**
+         * Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
+         *
+         * @example
+         *
+         * Morph Wheel:
+         * 0x53 (b3-b0), 0x54 (b7-b4): 8-bit raw value
+         *
+         * Morph After Touch:
+         * 0x54 (b3-b0), 0x55 (b7-b4): 8-bit raw value
+         *
+         * Morph Control Pedal:
+         * 0x55 (b3-b0), 0x56 (b7-b4): 8-bit raw value
+         *
+         * @see {@link ns3-doc.md#ns3-organ-volume Organ Volume} for detailed explanation.
+         *
+         * @module NS3 Synth Volume
+         */
+        volume: ns3VolumeEx(buffer, 0x52 + panelOffset, ns3yFile),
+
+        /**
+         * Offset in file: 0x56 (b3-0)
+         *
+         * @example
+         * Octave Shift = value - 6
+         *
+         * @module NS3 Synth Octave Shift
+         */
+        octaveShift: ns3OctaveShift(synthOffset56 & 0x0f),
+
+        /**
+         * Offset in file: 0x57 (b7)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS3 Synth Pitch Stick
+         */
+        pitchStick: ns3BooleanValue((synthOffset57 & 0x80) !== 0, true),
+
+        /**
+         * Offset in file: 0x3b (b7-4)
+         *
+         * @see {@link https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history Nord Stage 3 - Update History}
+         *
+         * @example
+         * Synth Pitch Shift Custom Range is available only with OS >= v2.00 (2018-12-18)
+         * File version v3.03 or later
+         *
+         * #include ns3SynthPitchShiftRangeMap
+         *
+         * @module NS3 Synth Pitch Stick Range
+         */
+        pitchStickRange: {
+            visible: pitchShiftRangeAvailable && pitchShiftRange !== 1,
+            value: pitchShiftRangeAvailable ? mapping.ns3SynthPitchShiftRangeMap.get(pitchShiftRange) : 0,
+            isDefault: pitchShiftRange === 1,
+        },
+        /**
+         * Offset in file: 0x57 (b6)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS3 Synth Sustain Pedal
+         */
+        sustainPedal: ns3BooleanValue((synthOffset57 & 0x40) !== 0, true),
+
+        /**
+         * Offset in file: 0x80 (b7)
+         *
+         * @example
+         * O = off, 1 = on
+         *
+         * @module NS3 Synth Kb Hold
+         */
+        keyboardHold: ns3BooleanValue((synthOffset80 & 0x80) !== 0, false),
+
+        /***
+         * Synth Preset
+         */
+        preset: preset,
+
         arpeggiator: {
             /**
              * Offset in file: 0x80 (b6)
@@ -874,6 +882,8 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                 isDefault: arpeggiatorPattern === 0,
             },
         },
+
+        ...ns3y,
     };
 
     if (process.env.NODE_ENV === "production") {

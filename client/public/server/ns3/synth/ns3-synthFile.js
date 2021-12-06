@@ -2,7 +2,7 @@ const path = require("path");
 const { ns3SynthLocation } = require("../program/ns3-utils");
 const { synthCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 const { ns3Synth } = require("../program/ns3-synth");
-const { getVersion, getName, checkHeader} = require("../../common/converter");
+const { getVersion, getName, checkHeader } = require("../../common/converter");
 
 /***
  * returns Nord Stage 3 synth file
@@ -66,6 +66,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
 
     const ext = path.extname(filename).substr(1).toLowerCase();
 
+    // used only to pass to ns3Synth(), but not in final output object.
     const global = {
         version: version,
         masterClock: {
@@ -110,7 +111,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
         // program location
         id: programLocation,
 
-        ...global,
+        version,
 
         /***
          * Offset in file: 0x10
@@ -119,7 +120,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
          * #include synthCategoryMap
          * @module NS3 Synth Category
          */
-        category: category, //synthCategoryMap.get(offset10) + " " + offset10,
+        category: category,
 
         synth: ns3Synth(buffer, 0, versionOffset, global, true),
     };
