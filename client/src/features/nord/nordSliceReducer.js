@@ -205,8 +205,6 @@ export const nordSelector = (state) => state.nordStore;
 
 export default nordSlice.reducer;
 
-
-
 const getExtension = (fileName) => {
     return fileName.slice(Math.max(0, fileName.lastIndexOf(".")) || Infinity).toLowerCase();
 };
@@ -308,9 +306,7 @@ const loadBackupFile = async (dispatch, file) => {
         // return;
         json = await window.electron.downloadBackup(file.path, supportedProgramTypes);
     } else {
-        const url = production
-            ? "https://ns3-program-viewer.herokuapp.com/api/upload"
-            : "http://localhost:3000/api/upload";
+        const url = production ? window.location.origin + "/api/upload" : "http://localhost:3000/api/upload";
 
         const response = await fetch(url, {
             method: "POST",
@@ -379,7 +375,7 @@ export const fadeOutProgressBar = (dispatch) => {
     setTimeout(() => {
         dispatch(setProgress({ progress: 0 }));
     }, 4000);
-}
+};
 
 const onSuccess = (dispatch, data) => {
     //console.log("success: ", data);
