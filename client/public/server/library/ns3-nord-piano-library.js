@@ -2111,6 +2111,20 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: false },
         },
     ],
+    // https://www.norduserforum.com/viewtopic.php?t=12968
+    [
+        0x8934a0f2,
+        {
+            name: "DX7 FullTines Lrg",
+            info: "",
+            version: "5.4",
+            category: "None",
+            size: 11773292,
+            filename: "DX7_FullTines_Lrg_5.4",
+            ext: "npno",
+        },
+    ],
+
     [
         0xb38628a9,
         {

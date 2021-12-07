@@ -1,7 +1,7 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {model} from "../../nord/ns2/model/ns2-model";
+import { createSlice } from "@reduxjs/toolkit";
+import { model } from "../../nord/ns2/model/ns2-model";
 import axios from "axios";
-import {BlobReader, BlobWriter, ZipReader} from "@zip.js/zip.js";
+import { BlobReader, BlobWriter, ZipReader } from "@zip.js/zip.js";
 
 export const supportedProgramTypes = [".ns3f", ".ns3y", ".ns3l", ".ns2p", ".ns2s", ".ns2l", ".nlas"];
 export const supportedBackupTypes = [
@@ -170,10 +170,10 @@ export default nordSlice.reducer;
 
 const getExtension = (fileName) => {
     return fileName.slice(Math.max(0, fileName.lastIndexOf(".")) || Infinity).toLowerCase();
-}
+};
 
 const setAll = (data, originalData, showAll) => {
-    if (showAll === false)    {
+    if (showAll === false) {
         return originalData;
     }
     const newData = data;
@@ -207,7 +207,7 @@ const setAll = (data, originalData, showAll) => {
         }
     }
     return newData;
-}
+};
 
 export const loadFiles = (files) => {
     return async (dispatch) => {
