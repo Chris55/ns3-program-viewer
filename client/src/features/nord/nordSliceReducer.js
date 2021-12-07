@@ -74,6 +74,7 @@ const nordSlice = createSlice({
             state.data = payload.data;
             state.originalData = payload.data;
             state.error = null;
+            state.showAll = false;
         },
         setLoadingBackupSuccess: (state, { payload }) => {
             state.loaded = true;
@@ -81,6 +82,7 @@ const nordSlice = createSlice({
             state.data = [];
             state.originalData = [];
             state.error = null;
+            state.showAll = false;
             state.programs = payload.programs;
             state.lives = payload.lives;
             state.performances = payload.performances;
@@ -134,42 +136,45 @@ const nordSlice = createSlice({
             state.showDefault = !state.showDefault;
         },
         toggleShowAll: (state, { payload }) => {
-            if (!state.showAll) {
-                const newData = state.data;
-                for (const item of newData) {
-                    if (item.type === "Program" || item.type === "Live") {
-                        item.name += " - (All Instruments Visible)";
-                        const panelA = item.panelA || item.slotA;
-                        const panelB = item.panelB || item.slotB;
-
-                        panelA.organ.dimmed = !panelA.enabled || !panelA.organ.enabled;
-                        panelA.piano.dimmed = !panelA.enabled || !panelA.piano.enabled;
-                        panelA.synth.dimmed = !panelA.enabled || !panelA.synth.enabled;
-                        panelA.extern.dimmed = !panelA.enabled || !panelA.extern.enabled;
-
-                        panelA.enabled = true;
-                        panelA.organ.enabled = true;
-                        panelA.piano.enabled = true;
-                        panelA.synth.enabled = true;
-                        panelA.extern.enabled = true;
-
-                        panelB.organ.dimmed = !panelB.enabled || !panelB.organ.enabled;
-                        panelB.piano.dimmed = !panelB.enabled || !panelB.piano.enabled;
-                        panelB.synth.dimmed = !panelB.enabled || !panelB.synth.enabled;
-                        panelB.extern.dimmed = !panelB.enabled || !panelB.extern.enabled;
-
-                        panelB.enabled = true;
-                        panelB.organ.enabled = true;
-                        panelB.piano.enabled = true;
-                        panelB.synth.enabled = true;
-                        panelB.extern.enabled = true;
-                    }
-                }
-                state.showAll = true;
-            } else {
-                state.data = state.originalData;
-                state.showAll = false;
-            }
+            const newData = setAll(state.data, state.originalData, !state.showAll);
+            state.data = newData;
+            state.showAll = !state.showAll;
+            // if (!state.showAll) {
+            //     const newData = state.data;
+            //     for (const item of newData) {
+            //         if (item.type === "Program" || item.type === "Live") {
+            //             item.name += " - (All Instruments Visible)";
+            //             const panelA = item.panelA || item.slotA;
+            //             const panelB = item.panelB || item.slotB;
+            //
+            //             panelA.organ.dimmed = !panelA.enabled || !panelA.organ.enabled;
+            //             panelA.piano.dimmed = !panelA.enabled || !panelA.piano.enabled;
+            //             panelA.synth.dimmed = !panelA.enabled || !panelA.synth.enabled;
+            //             panelA.extern.dimmed = !panelA.enabled || !panelA.extern.enabled;
+            //
+            //             panelA.enabled = true;
+            //             panelA.organ.enabled = true;
+            //             panelA.piano.enabled = true;
+            //             panelA.synth.enabled = true;
+            //             panelA.extern.enabled = true;
+            //
+            //             panelB.organ.dimmed = !panelB.enabled || !panelB.organ.enabled;
+            //             panelB.piano.dimmed = !panelB.enabled || !panelB.piano.enabled;
+            //             panelB.synth.dimmed = !panelB.enabled || !panelB.synth.enabled;
+            //             panelB.extern.dimmed = !panelB.enabled || !panelB.extern.enabled;
+            //
+            //             panelB.enabled = true;
+            //             panelB.organ.enabled = true;
+            //             panelB.piano.enabled = true;
+            //             panelB.synth.enabled = true;
+            //             panelB.extern.enabled = true;
+            //         }
+            //     }
+            //     state.showAll = true;
+            // } else {
+            //     state.data = state.originalData;
+            //     state.showAll = false;
+            // }
         },
         setExporting: (state, { payload }) => {
             state.exporting = payload;
@@ -202,7 +207,44 @@ export default nordSlice.reducer;
 
 const getExtension = (fileName) => {
     return fileName.slice(Math.max(0, fileName.lastIndexOf(".")) || Infinity).toLowerCase();
-};
+}
+
+const setAll = (data, originalData, showAll) => {
+    if (showAll === false)    {
+        return originalData;
+    }
+    const newData = data;
+    for (const item of newData) {
+        if (item.type === "Program" || item.type === "Live") {
+            item.name += " - (All Instruments Visible)";
+            const panelA = item.panelA || item.slotA;
+            const panelB = item.panelB || item.slotB;
+
+            panelA.organ.dimmed = !panelA.enabled || !panelA.organ.enabled;
+            panelA.piano.dimmed = !panelA.enabled || !panelA.piano.enabled;
+            panelA.synth.dimmed = !panelA.enabled || !panelA.synth.enabled;
+            panelA.extern.dimmed = !panelA.enabled || !panelA.extern.enabled;
+
+            panelA.enabled = true;
+            panelA.organ.enabled = true;
+            panelA.piano.enabled = true;
+            panelA.synth.enabled = true;
+            panelA.extern.enabled = true;
+
+            panelB.organ.dimmed = !panelB.enabled || !panelB.organ.enabled;
+            panelB.piano.dimmed = !panelB.enabled || !panelB.piano.enabled;
+            panelB.synth.dimmed = !panelB.enabled || !panelB.synth.enabled;
+            panelB.extern.dimmed = !panelB.enabled || !panelB.extern.enabled;
+
+            panelB.enabled = true;
+            panelB.organ.enabled = true;
+            panelB.piano.enabled = true;
+            panelB.synth.enabled = true;
+            panelB.extern.enabled = true;
+        }
+    }
+    return newData;
+}
 
 export const loadFiles = (files) => {
     return async (dispatch) => {
@@ -371,7 +413,7 @@ export const fadeOutProgressBar = (dispatch) => {
 
     setTimeout(() => {
         dispatch(setProgress({ progress: 0 }));
-    }, 4000);
+    }, 3000);
 };
 
 const onSuccess = (dispatch, data) => {

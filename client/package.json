@@ -152,5 +152,5 @@
         "build:arm": "yarn react-build && yarn electron-build build -l --arm64 --publish never",
         "dev": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
-    "version": "0.4.3"
+    "version": "1.4.3"
 }
