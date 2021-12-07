@@ -35,7 +35,6 @@ const Main = () => {
         showAll,
         showDefault,
         exporting,
-        exportDetails,
         production,
         programs,
         synths,
@@ -129,14 +128,7 @@ const Main = () => {
                         <Navbar.Collapse className="">
                             <Form inline className="ml-n2">
                                 <LoadButton className="nav-link" variant="light" />
-                                {/*<Button*/}
-                                {/*    className="nav-link"*/}
-                                {/*    variant="light"*/}
-                                {/*    disabled={exportDisabled}*/}
-                                {/*    onClick={handleExport}*/}
-                                {/*>*/}
-                                {/*    {exporting ? "Exporting " + exportDetails : "Export"}*/}
-                                {/*</Button>*/}
+
                                 <Dropdown>
                                     <Dropdown.Toggle variant="light" id="dropdown-basic" >
                                         {exporting ? "Exporting" : "Export"}
@@ -153,16 +145,16 @@ const Main = () => {
                                                 </div>
                                             </div>
                                         </Dropdown.Item>
-                                        {/*<Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>*/}
-                                        {/*    <div className="d-flex justify-content-between">*/}
-                                        {/*        <div>*/}
-                                        {/*            As CSV File*/}
-                                        {/*        </div>*/}
-                                        {/*        <div>*/}
-                                        {/*            <GrDocumentCsv />*/}
-                                        {/*        </div>*/}
-                                        {/*    </div>*/}
-                                        {/*</Dropdown.Item>*/}
+                                        <Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>
+                                            <div className="d-flex justify-content-between">
+                                                <div>
+                                                    As CSV File
+                                                </div>
+                                                <div>
+                                                    <GrDocumentCsv />
+                                                </div>
+                                            </div>
+                                        </Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Form>

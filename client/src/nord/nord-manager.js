@@ -8,12 +8,10 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { useDispatch, useSelector } from "react-redux";
 import { nordSelector, setLoadingSuccess, setManagerSelection } from "../features/nord/nordSliceReducer";
-import { Dropdown, DropdownButton, Row } from "react-bootstrap";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 import "react-splitter-layout/lib/index.css";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
-import {BsSearch, FiSearch, RiSearch2Line} from "react-icons/all";
-
-
+import { BsSearch } from "react-icons/all";
 
 const showPerformance = [".nlasbundle", ".nlab"];
 const showSynth = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
@@ -39,7 +37,7 @@ const NordManager = () => {
 
     const saveIndexes = (e) => {
         let selectedNodes = e.api.getSelectedNodes();
-        const indexes = selectedNodes.map((node) => node.data.name);
+        const indexes = selectedNodes.map((node) => node.data.model.uuid);
         dispatch(
             setManagerSelection({
                 managerTabSelection,
@@ -85,11 +83,12 @@ const NordManager = () => {
         e.api.forEachNode((node) => {
             let selected;
             if (selection) {
-                selected = managerSelectedIndexes[managerTabSelection].includes(node.data.name);
+                selected = managerSelectedIndexes[managerTabSelection].includes(node.data.model.uuid);
             } else {
                 selected = node.rowIndex === 0;
             }
             node.setSelected(selected);
+
             if (selected && !firstSelectedNode) {
                 firstSelectedNode = node;
                 e.api.ensureNodeVisible(node, "middle");
@@ -125,6 +124,7 @@ const NordManager = () => {
     };
 
     const onSortChanged = (e) => {
+        console.log("onSortChanged()");
         onRowDataLoaded(e);
     };
 
@@ -158,13 +158,9 @@ const NordManager = () => {
                     >
                         <Dropdown.Item eventKey="Program">Program</Dropdown.Item>
 
-                        {showSynth.includes(managerFileExt) && (
-                            <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>
-                        )}
+                        {showSynth.includes(managerFileExt) && <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>}
 
-                        {showLive.includes(managerFileExt) && (
-                            <Dropdown.Item eventKey="Live">Live</Dropdown.Item>
-                        )}
+                        {showLive.includes(managerFileExt) && <Dropdown.Item eventKey="Live">Live</Dropdown.Item>}
 
                         {showPerformance.includes(managerFileExt) && (
                             <Dropdown.Item eventKey="Performance">Performance</Dropdown.Item>
@@ -208,8 +204,8 @@ const NordManager = () => {
     );
 };
 
-const customComparator = (valueA, valueB) => {
-    return valueA.toLowerCase().localeCompare(valueB.toLowerCase());
-};
+// const customComparator = (valueA, valueB) => {
+//     return valueA.toLowerCase().localeCompare(valueB.toLowerCase());
+// };
 
 export default NordManager;

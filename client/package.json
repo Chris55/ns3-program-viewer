@@ -121,6 +121,7 @@
         "react-splitter-layout": "^4.0.0",
         "react-toastify": "^6.0.8",
         "sass": "^1.42.1",
+        "uuid": "^8.3.2",
         "wait-on": "^6.0.0"
     },
     "eslintConfig": {

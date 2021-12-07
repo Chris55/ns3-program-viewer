@@ -3,12 +3,13 @@ const { loadNs3SynthFile } = require("./ns3/synth/ns3-synthFile");
 const { loadNs2ProgramFile } = require("./ns2/program/ns2-program");
 const { loadNs3ProgramFile } = require("./ns3/program/ns3-program");
 const { loadNla1ProgramFile } = require("./nla1/program/nla1-program");
+const { v4: uuidv4 } = require('uuid');
 
 /***
  * returns Nord file mapping object
  * @param buffer
  * @param filename
- * @returns {{size, timestamp: number}}
+ * @returns {{size, uuid: (*|string)}}
  */
 exports.loadNordFile = (buffer, filename) => {
     if (buffer.length > 16) {
@@ -52,7 +53,7 @@ exports.loadNordFile = (buffer, filename) => {
     }
 
     return {
-        timestamp: new Date().getTime(),
+        uuid: uuidv4(),
         size: buffer.length,
         ...data,
     };

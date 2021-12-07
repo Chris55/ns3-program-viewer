@@ -104,7 +104,7 @@ class NordList extends Component {
                 );
             }
             return (
-                <li className="list-group-item" key={data.name} style={{ padding: "0" }}>
+                <li className="list-group-item" key={data.uuid} style={{ padding: "0" }}>
                     {result}
                 </li>
             );
@@ -116,21 +116,21 @@ class NordList extends Component {
 export default class NordDevice extends Component {
     shouldComponentUpdate(nextProps, nextState, nextContent) {
         if (this.props.data.length !== nextProps.data.length) {
-            console.log("render device, size changed");
+            //console.log("render device, size changed");
             return true;
         }
         for (let i = 0; i < this.props.data.length; i++) {
-            if (this.props.data[i].timestamp !== nextProps.data[i].timestamp) {
-                console.log("render device", this.props.data[i].name, "->", nextProps.data[i].name);
+            if (this.props.data[i].uuid !== nextProps.data[i].uuid) {
+                //console.log("render device", this.props.data[i].name, "->", nextProps.data[i].name);
                 return true;
             }
             // name is updated when Show all is selected
             if (this.props.data[i].name !== nextProps.data[i].name) {
-                console.log("render device", this.props.data[i].name, "->", nextProps.data[i].name);
+                //console.log("render device", this.props.data[i].name, "->", nextProps.data[i].name);
                 return true;
             }
         }
-        console.log("no render device");
+        //console.log("no render device");
         return false;
     }
 

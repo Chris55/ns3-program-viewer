@@ -18,7 +18,7 @@ export const supportedBackupTypes = [
 ];
 export const allSupportedTypes = [...supportedProgramTypes, ...supportedBackupTypes];
 
-const production = process.env.NODE_ENV === "production";
+const production = true; //process.env.NODE_ENV === "production";
 
 // to test home page set this to false,
 // if true it shows the default model immediately
@@ -71,21 +71,16 @@ const nordSlice = createSlice({
         setLoadingSuccess: (state, { payload }) => {
             state.loaded = true;
             state.loading = false;
-            state.progress = 100;
             state.data = payload.data;
             state.originalData = payload.data;
             state.error = null;
-            state.showAll = false;
-            //state.programs = [];
         },
         setLoadingBackupSuccess: (state, { payload }) => {
             state.loaded = true;
             state.loading = false;
-            state.progress = 100;
             state.data = [];
             state.originalData = [];
             state.error = null;
-            state.showAll = false;
             state.programs = payload.programs;
             state.lives = payload.lives;
             state.performances = payload.performances;
@@ -113,7 +108,7 @@ const nordSlice = createSlice({
                 state.managerSelectedIndexes[payload.managerTabSelection] = payload.indexes;
             }
         },
-        clearBackupData: (state, {}) => {
+        clearBackupData: (state) => {
             state.programs = [];
             state.synths = [];
             state.performances = [];
@@ -282,11 +277,11 @@ const loadBackupFile = async (dispatch, file) => {
     const entries = await reader.getEntries();
 
     const formData = new FormData();
-    let count = 0;
+    //let count = 0;
     for (const entry of entries) {
         const ext = getExtension(entry.filename);
         if (supportedProgramTypes.includes(ext)) {
-            count++;
+            //count++;
             const items = entry.filename.split("/");
             const rawData = await entry.getData(
                 //new Uint8ArrayWriter()
@@ -372,6 +367,8 @@ const loadBackupFile = async (dispatch, file) => {
 };
 
 export const fadeOutProgressBar = (dispatch) => {
+    dispatch(setProgress({ progress: 100 }));
+
     setTimeout(() => {
         dispatch(setProgress({ progress: 0 }));
     }, 4000);
