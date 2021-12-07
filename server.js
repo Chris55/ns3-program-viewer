@@ -25,7 +25,7 @@ app.use(
                 fontSrc: ["'self'", "data:"],
                 imgSrc: ["'self'", "data:"],
                 "frame-src": ["'self'"],
-                "worker-src": ["'blob'"],
+                "worker-src": ["blob:"],
             },
         },
     })
