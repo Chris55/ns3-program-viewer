@@ -35,7 +35,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         name: ext === "ns2p"
             ? String.fromCharCode(65 + bankValue) + ":" + zeroPad(locationDigit1, 2) + ":" + locationDigit2
             : (locationValue + 1).toString(),
-        value: bankValue * 25 + locationValue,
+        value: bankValue * 100 + locationValue,
     };
     /**
      * Nord Stage 2 EX - OS Update
