@@ -19,13 +19,13 @@ app.use(
     helmet({
         contentSecurityPolicy: {
             directives: {
-                defaultSrc: ["'self'"],
+                defaultSrc: ["'self'", "blob:"],
                 styleSrc: ["'self'", "'unsafe-inline'"],
                 scriptSrc: ["'self'", "'unsafe-inline'"],
                 fontSrc: ["'self'", "data:"],
                 imgSrc: ["'self'", "data:"],
                 "frame-src": ["'self'"],
-                "worker-src": ["blob:"],    // required by Chrome to export csv
+               // "worker-src": ["blob:"],    // required by Chrome to export csv (but Unrecognized in Safari)
                 "child-src":  ["blob:"],    // required by Safari to export csv
             },
         },
