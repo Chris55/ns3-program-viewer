@@ -15,7 +15,6 @@ const { loadNs2ProgramFile } = require("../../client/public/server/ns2/program/n
 //const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
 const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
 
-
 const samplesByFilename = new Map(); // key is the sample file name as defined in meta.xml file
 const programsByFileName = new Map(); // key is the program file name  as defined in meta.xml file
 const metadata = new Map(); // key is the program file name as defined in meta.xml file
