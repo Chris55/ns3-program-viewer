@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { model } from "../../nord/ns2/model/ns2-model";
+import {createSlice} from "@reduxjs/toolkit";
+import {model} from "../../nord/ns2/model/ns2-model";
 import axios from "axios";
-import { BlobReader, BlobWriter, ZipReader } from "@zip.js/zip.js";
+import {BlobReader, BlobWriter, ZipReader} from "@zip.js/zip.js";
 
 export const supportedProgramTypes = [".ns3f", ".ns3y", ".ns3l", ".ns2p", ".ns2s", ".ns2l", ".nlas"];
 export const supportedBackupTypes = [
@@ -136,45 +136,8 @@ const nordSlice = createSlice({
             state.showDefault = !state.showDefault;
         },
         toggleShowAll: (state, { payload }) => {
-            const newData = setAll(state.data, state.originalData, !state.showAll);
-            state.data = newData;
+            state.data = setAll(state.data, state.originalData, !state.showAll);
             state.showAll = !state.showAll;
-            // if (!state.showAll) {
-            //     const newData = state.data;
-            //     for (const item of newData) {
-            //         if (item.type === "Program" || item.type === "Live") {
-            //             item.name += " - (All Instruments Visible)";
-            //             const panelA = item.panelA || item.slotA;
-            //             const panelB = item.panelB || item.slotB;
-            //
-            //             panelA.organ.dimmed = !panelA.enabled || !panelA.organ.enabled;
-            //             panelA.piano.dimmed = !panelA.enabled || !panelA.piano.enabled;
-            //             panelA.synth.dimmed = !panelA.enabled || !panelA.synth.enabled;
-            //             panelA.extern.dimmed = !panelA.enabled || !panelA.extern.enabled;
-            //
-            //             panelA.enabled = true;
-            //             panelA.organ.enabled = true;
-            //             panelA.piano.enabled = true;
-            //             panelA.synth.enabled = true;
-            //             panelA.extern.enabled = true;
-            //
-            //             panelB.organ.dimmed = !panelB.enabled || !panelB.organ.enabled;
-            //             panelB.piano.dimmed = !panelB.enabled || !panelB.piano.enabled;
-            //             panelB.synth.dimmed = !panelB.enabled || !panelB.synth.enabled;
-            //             panelB.extern.dimmed = !panelB.enabled || !panelB.extern.enabled;
-            //
-            //             panelB.enabled = true;
-            //             panelB.organ.enabled = true;
-            //             panelB.piano.enabled = true;
-            //             panelB.synth.enabled = true;
-            //             panelB.extern.enabled = true;
-            //         }
-            //     }
-            //     state.showAll = true;
-            // } else {
-            //     state.data = state.originalData;
-            //     state.showAll = false;
-            // }
         },
         setExporting: (state, { payload }) => {
             state.exporting = payload;

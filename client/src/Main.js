@@ -145,16 +145,16 @@ const Main = () => {
                                                 </div>
                                             </div>
                                         </Dropdown.Item>
-                                        <Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>
-                                            <div className="d-flex justify-content-between">
-                                                <div>
-                                                    As CSV File
-                                                </div>
-                                                <div>
-                                                    <GrDocumentCsv />
-                                                </div>
-                                            </div>
-                                        </Dropdown.Item>
+                                        {/*<Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>*/}
+                                        {/*    <div className="d-flex justify-content-between">*/}
+                                        {/*        <div>*/}
+                                        {/*            As CSV File*/}
+                                        {/*        </div>*/}
+                                        {/*        <div>*/}
+                                        {/*            <GrDocumentCsv />*/}
+                                        {/*        </div>*/}
+                                        {/*    </div>*/}
+                                        {/*</Dropdown.Item>*/}
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Form>
