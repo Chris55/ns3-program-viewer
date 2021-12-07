@@ -26,7 +26,7 @@ app.use(
                 imgSrc: ["'self'", "data:"],
                 "frame-src": ["'self'"],
                 "worker-src": ["blob:"],    // required by Chrome to export csv
-                "child-src":  ["blob:"],    // required ny Safari to export csv
+                "child-src":  ["blob:"],    // required by Safari to export csv
             },
         },
     })
