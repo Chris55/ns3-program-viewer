@@ -38,6 +38,7 @@ const initialState = {
     showDefault: false,
     exporting: false,
     exportDetails: "",
+    exportRange: "selection",
     managerTitle: "",
     managerFileExt: "",
     programs: [
@@ -145,6 +146,9 @@ const nordSlice = createSlice({
         setExportingDetail: (state, { payload }) => {
             state.exportDetails = payload;
         },
+        setExportOptions: (state, { payload }) => {
+            state.exportRange = payload.range;
+        },
     },
 });
 
@@ -161,6 +165,7 @@ export const {
     toggleShowAll,
     setExporting,
     setExportingDetail,
+    setExportOptions,
     setManagerSelection,
 } = nordSlice.actions;
 

@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import { nordSelector } from "../../features/nord/nordSliceReducer";
 
 const NordValueOnOff = ({ label, data, upperCase, table }) => {
+    // console waring during PDF rendering
+    // Warning: useLayoutEffect does nothing on the server,
+    // because its effect cannot be encoded into the server renderer's output format
     const { showDefault } = useSelector(nordSelector);
 
     let className = data.enabled ? "nord-value nord-on" : "nord-value nord-off";

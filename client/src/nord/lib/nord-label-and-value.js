@@ -19,6 +19,9 @@ import { nordSelector } from "../../features/nord/nordSliceReducer";
  * @constructor
  */
 const NordLabelAndValue = ({ enabled, label, title, data, upperCase, valueClass, table, isDefault}) => {
+    // console waring during PDF rendering
+    // Warning: useLayoutEffect does nothing on the server,
+    // because its effect cannot be encoded into the server renderer's output format
     const { showDefault } = useSelector(nordSelector);
 
     let labelClassName =

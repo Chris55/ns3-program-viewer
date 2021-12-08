@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
@@ -17,13 +17,14 @@ import {
     toggleShowAll,
     toggleShowDefault,
 } from "./features/nord/nordSliceReducer";
-import { Dropdown, Form, Navbar, ProgressBar } from "react-bootstrap";
+import {Dropdown, Form, Modal, Navbar, ProgressBar} from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
 import NordManager from "./nord/nord-manager";
 import { buildExportCsv } from "./export/export-csv";
 import cx from "classnames";
 import { BsFileEarmarkPdf, GrDocumentCsv } from "react-icons/all";
+import {ExportDialog} from "./export/ExportDialog";
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -41,7 +42,10 @@ const Main = () => {
         lives,
         performances,
         managerTitle,
+        exportRange,
     } = useSelector(nordSelector);
+
+    const [showExportDialog, setShowExportDialog] = useState(false);
 
     const handleToggleShow = () => {
         dispatch(toggleShowAll());
@@ -72,12 +76,24 @@ const Main = () => {
             dispatch(setExporting(false));
             fadeOutProgressBar(dispatch);
         }
-    };
+    }
 
     const handleExportCsv = async () => {
+        if (managerTitle) {
+            setShowExportDialog(true);
+        } else {
+            await runExportCsv(true);
+        }
+    }
+
+    const runExportCsv = async (ok) => {
+        setShowExportDialog(false);
+
+        if (!ok) return;
+
         dispatch(setExporting(true));
         try {
-            if (managerTitle) {
+            if (managerTitle && exportRange === "all") {
                 await buildExportCsv(
                     [
                         ...programs.map((x) => x.model),
@@ -97,7 +113,7 @@ const Main = () => {
             dispatch(setExporting(false));
             fadeOutProgressBar(dispatch);
         }
-    };
+    }
 
     const exportDisabled = exporting || loading || data.length === 0;
     const showManager = programs.length !== 0 || synths.length !== 0;
@@ -113,6 +129,8 @@ const Main = () => {
 
     return (
         <>
+            <ExportDialog show={showExportDialog} handleClose={runExportCsv}/>
+
             {!loaded && <Home />}
 
             {loaded && (
@@ -145,16 +163,16 @@ const Main = () => {
                                                 </div>
                                             </div>
                                         </Dropdown.Item>
-                                        {/*<Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>*/}
-                                        {/*    <div className="d-flex justify-content-between">*/}
-                                        {/*        <div>*/}
-                                        {/*            As CSV File*/}
-                                        {/*        </div>*/}
-                                        {/*        <div>*/}
-                                        {/*            <GrDocumentCsv />*/}
-                                        {/*        </div>*/}
-                                        {/*    </div>*/}
-                                        {/*</Dropdown.Item>*/}
+                                        <Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>
+                                            <div className="d-flex justify-content-between">
+                                                <div>
+                                                    As CSV File
+                                                </div>
+                                                <div>
+                                                    <GrDocumentCsv />
+                                                </div>
+                                            </div>
+                                        </Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Form>
