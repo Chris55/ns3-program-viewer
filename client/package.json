@@ -83,7 +83,8 @@
         "electron-is-dev": "^1.2.0",
         "electron-log": "^4.3.1",
         "electron-updater": "^4.3.5",
-        "unzipper": "^0.10.11"
+        "unzipper": "^0.10.11",
+        "uuid": "^8.3.2"
     },
     "description": "The unofficial Nord Stage 2/2EX/3 Program viewer tool.",
     "devDependencies": {
@@ -121,7 +122,6 @@
         "react-splitter-layout": "^4.0.0",
         "react-toastify": "^6.0.8",
         "sass": "^1.42.1",
-        "uuid": "^8.3.2",
         "wait-on": "^6.0.0"
     },
     "eslintConfig": {
