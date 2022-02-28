@@ -3626,4 +3626,105 @@ exports.ns3UserLibraries = new Map([
             ext: "nsmp3",
         },
     ],
+    //
+    // Strings & Orchestral Samples:
+    // https://www.norduserforum.com/nord-user-samples-nsmp-samples-f14/strings-orchestral-samples-t13849.html#p90077
+    [
+        0x83fdd6df,
+        {
+            name: "THO-BigOrchPiz",
+            info: "",
+            version: "3.0",
+            category: "Misc",
+            size: 1566572,
+            filename: "THO-BigOrchPiz",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0x51d558f7,
+        {
+            name: "THO-BigOrchStc",
+            info: "",
+            version: "3.0",
+            category: "Misc",
+            size: 1364460,
+            filename: "THO-BigOrchStc",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xa2399546,
+        {
+            name: "THO-BigOrchSus",
+            info: "",
+            version: "3.0",
+            category: "Misc",
+            size: 3502060,
+            filename: "THO-BigOrchSus",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0x9152314c,
+        {
+            name: "THO-FullStrMrc",
+            info: "",
+            version: "3.0",
+            category: "Misc",
+            size: 3181804,
+            filename: "THO-FullStrMrc",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0x362b3658,
+        {
+            name: "THO-FullStrPiz",
+            info: "",
+            version: "3.0",
+            category: "Misc",
+            size: 1538412,
+            filename: "THO-FullStrPiz",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0x7305bdd1,
+        {
+            name: "THO-FullStrStc",
+            info: "",
+            version: "3.0",
+            category: "Misc",
+            size: 1339628,
+            filename: "THO-FullStrStc",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xd3569ee5,
+        {
+            name: "THO-FullStrSus",
+            info: "",
+            version: "3.0",
+            category: "Misc",
+            size: 3212268,
+            filename: "THO-FullStrSus",
+            ext: "nsmp3",
+        },
+    ],
+
+    // https://www.norduserforum.com/post87726.html?hilit=Function_Brass_Motif#p87726
+    [
+        0xd8bee40,
+        {
+            name: "Function Brass",
+            info: "Motif",
+            version: "3.0",
+            category: "Misc",
+            size: 1840620,
+            filename: "Function_Brass_Motif",
+            ext: "nsmp3",
+        },
+    ],
 ]);

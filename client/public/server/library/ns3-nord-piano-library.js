@@ -1340,6 +1340,58 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
         },
     ],
+    [
+        0xb8c763e4,
+        {
+            name: "Felt Upright Lrg",
+            info: "Ya SU118",
+            version: "6.1",
+            category: "None",
+            size: 120168656,
+            filename: "Felt Upright Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xe89016ca,
+        {
+            name: "Felt Upright Med",
+            info: "Ya SU118",
+            version: "6.1",
+            category: "None",
+            size: 101447660,
+            filename: "Felt Upright Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x87568774,
+        {
+            name: "Felt Upright Sml",
+            info: "Ya SU118",
+            version: "6.1",
+            category: "None",
+            size: 63768564,
+            filename: "Felt Upright Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xaff7e428,
+        {
+            name: "Felt Upright XL",
+            info: "Ya SU118",
+            version: "6.1",
+            category: "None",
+            size: 194468056,
+            filename: "Felt Upright XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
 
     // Electric
 
