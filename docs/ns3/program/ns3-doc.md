@@ -362,30 +362,6 @@
 <dt><a href="#module_NS3 Synth Sample ID">NS3 Synth Sample ID</a></dt>
 <dd><p>Offset in file: 0xA8 (b2-0) to 0xAC (b7-b3)</p>
 </dd>
-<dt><a href="#module_NS3 Synth On">NS3 Synth On</a></dt>
-<dd><p>Offset in file: 0x52 (b7)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Kb Zone">NS3 Synth Kb Zone</a></dt>
-<dd><p>Offset in file: 0x52 (b6-3)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Volume">NS3 Synth Volume</a></dt>
-<dd><p>Offset in file: 0x52 (b2-0) and 0x53 (b7-4)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Octave Shift">NS3 Synth Octave Shift</a></dt>
-<dd><p>Offset in file: 0x56 (b3-0)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Pitch Stick">NS3 Synth Pitch Stick</a></dt>
-<dd><p>Offset in file: 0x57 (b7)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Pitch Stick Range">NS3 Synth Pitch Stick Range</a></dt>
-<dd><p>Offset in file: 0x3b (b7-4)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Sustain Pedal">NS3 Synth Sustain Pedal</a></dt>
-<dd><p>Offset in file: 0x57 (b6)</p>
-</dd>
-<dt><a href="#module_NS3 Synth Kb Hold">NS3 Synth Kb Hold</a></dt>
-<dd><p>Offset in file: 0x80 (b7)</p>
-</dd>
 <dt><a href="#module_NS3 Synth Voice">NS3 Synth Voice</a></dt>
 <dd><p>Offset in file: 0x84 (b0) and 0x85 (b7)</p>
 </dd>
@@ -451,6 +427,30 @@
 </dd>
 <dt><a href="#module_NS3 Synth Lfo Master Clock">NS3 Synth Lfo Master Clock</a></dt>
 <dd><p>Offset in file: 0x87 (b7)</p>
+</dd>
+<dt><a href="#module_NS3 Synth On">NS3 Synth On</a></dt>
+<dd><p>Offset in file: 0x52 (b7)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Kb Zone">NS3 Synth Kb Zone</a></dt>
+<dd><p>Offset in file: 0x52 (b6-3)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Volume">NS3 Synth Volume</a></dt>
+<dd><p>Offset in file: 0x52 (b2-0) and 0x53 (b7-4)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Octave Shift">NS3 Synth Octave Shift</a></dt>
+<dd><p>Offset in file: 0x56 (b3-0)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Pitch Stick">NS3 Synth Pitch Stick</a></dt>
+<dd><p>Offset in file: 0x57 (b7)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Pitch Stick Range">NS3 Synth Pitch Stick Range</a></dt>
+<dd><p>Offset in file: 0x3b (b7-4)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Sustain Pedal">NS3 Synth Sustain Pedal</a></dt>
+<dd><p>Offset in file: 0x57 (b6)</p>
+</dd>
+<dt><a href="#module_NS3 Synth Kb Hold">NS3 Synth Kb Hold</a></dt>
+<dd><p>Offset in file: 0x80 (b7)</p>
 </dd>
 <dt><a href="#module_NS3 Synth Arp On">NS3 Synth Arp On</a></dt>
 <dd><p>Offset in file: 0x80 (b6)</p>
@@ -2138,87 +2138,6 @@ Offset in file: 0xA8 (b2-0) to 0xAC (b7-b3)
 ```js
 32-bit synth sample hash code.
 ```
-<a name="module_NS3 Synth On"></a>
-
-## NS3 Synth On
-Offset in file: 0x52 (b7)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS3 Synth Kb Zone"></a>
-
-## NS3 Synth Kb Zone
-Offset in file: 0x52 (b6-3)
-
-**See**: [Organ Kb Zone](ns3-doc.md#ns3-organ-kb-zone) for detailed explanation.  
-<a name="module_NS3 Synth Volume"></a>
-
-## NS3 Synth Volume
-Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
-
-**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed explanation.  
-**Example**  
-```js
-Morph Wheel:
-0x53 (b3-b0), 0x54 (b7-b4): 8-bit raw value
-
-Morph After Touch:
-0x54 (b3-b0), 0x55 (b7-b4): 8-bit raw value
-
-Morph Control Pedal:
-0x55 (b3-b0), 0x56 (b7-b4): 8-bit raw value
-```
-<a name="module_NS3 Synth Octave Shift"></a>
-
-## NS3 Synth Octave Shift
-Offset in file: 0x56 (b3-0)
-
-**Example**  
-```js
-Octave Shift = value - 6
-```
-<a name="module_NS3 Synth Pitch Stick"></a>
-
-## NS3 Synth Pitch Stick
-Offset in file: 0x57 (b7)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS3 Synth Pitch Stick Range"></a>
-
-## NS3 Synth Pitch Stick Range
-Offset in file: 0x3b (b7-4)
-
-**See**: [Nord Stage 3 - Update History](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)  
-**Example**  
-```js
-Synth Pitch Shift Custom Range is available only with OS >= v2.00 (2018-12-18)
-File version v3.03 or later
-
-#include ns3SynthPitchShiftRangeMap
-```
-<a name="module_NS3 Synth Sustain Pedal"></a>
-
-## NS3 Synth Sustain Pedal
-Offset in file: 0x57 (b6)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS3 Synth Kb Hold"></a>
-
-## NS3 Synth Kb Hold
-Offset in file: 0x80 (b7)
-
-**Example**  
-```js
-O = off, 1 = on
-```
 <a name="module_NS3 Synth Voice"></a>
 
 ## NS3 Synth Voice
@@ -2535,6 +2454,87 @@ Morph Control Pedal:
 
 ## NS3 Synth Lfo Master Clock
 Offset in file: 0x87 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth On"></a>
+
+## NS3 Synth On
+Offset in file: 0x52 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Kb Zone"></a>
+
+## NS3 Synth Kb Zone
+Offset in file: 0x52 (b6-3)
+
+**See**: [Organ Kb Zone](ns3-doc.md#ns3-organ-kb-zone) for detailed explanation.  
+<a name="module_NS3 Synth Volume"></a>
+
+## NS3 Synth Volume
+Offset in file: 0x52 (b2-0) and 0x53 (b7-4)
+
+**See**: [Organ Volume](ns3-doc.md#ns3-organ-volume) for detailed explanation.  
+**Example**  
+```js
+Morph Wheel:
+0x53 (b3-b0), 0x54 (b7-b4): 8-bit raw value
+
+Morph After Touch:
+0x54 (b3-b0), 0x55 (b7-b4): 8-bit raw value
+
+Morph Control Pedal:
+0x55 (b3-b0), 0x56 (b7-b4): 8-bit raw value
+```
+<a name="module_NS3 Synth Octave Shift"></a>
+
+## NS3 Synth Octave Shift
+Offset in file: 0x56 (b3-0)
+
+**Example**  
+```js
+Octave Shift = value - 6
+```
+<a name="module_NS3 Synth Pitch Stick"></a>
+
+## NS3 Synth Pitch Stick
+Offset in file: 0x57 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Pitch Stick Range"></a>
+
+## NS3 Synth Pitch Stick Range
+Offset in file: 0x3b (b7-4)
+
+**See**: [Nord Stage 3 - Update History](https://www.nordkeyboards.com/products/nord-stage-3/nord-stage-3-update-history)  
+**Example**  
+```js
+Synth Pitch Shift Custom Range is available only with OS >= v2.00 (2018-12-18)
+File version v3.03 or later
+
+#include ns3SynthPitchShiftRangeMap
+```
+<a name="module_NS3 Synth Sustain Pedal"></a>
+
+## NS3 Synth Sustain Pedal
+Offset in file: 0x57 (b6)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS3 Synth Kb Hold"></a>
+
+## NS3 Synth Kb Hold
+Offset in file: 0x80 (b7)
 
 **Example**  
 ```js
