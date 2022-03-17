@@ -8,6 +8,10 @@
 //
 // https://blog.mifi.no/2020/03/31/automated-electron-build-with-release-to-mac-app-store-microsoft-store-snapcraft/
 
+// app store: https://appstoreconnect.apple.com
+// certificates & profiles: https://developer.apple.com/account/resources/certificates/list
+
+
 const fs = require('fs');
 const path = require('path');
 const electron_notarize = require('electron-notarize');
