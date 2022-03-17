@@ -1,6 +1,6 @@
 import { BlobWriter, TextReader, ZipWriter } from "@zip.js/zip.js";
-import os from "os";
 const FileSaver = require("file-saver");
+const eol = "\r\n";
 
 const getFlatObject = (object) => {
     let path = "";
@@ -12,7 +12,7 @@ const getFlatObject = (object) => {
             });
             return;
         }
-        path += p.join(".") + "," + o + os.EOL;
+        path += p.join(".") + "," + o + eol;
     };
 
     iter(object, []);
@@ -27,7 +27,7 @@ export const buildExportCsv = async (data, callback, managerTitle) => {
         callback(`${((p + 1) * 100) / data.length} %`, 0, 1, p, data.length);
 
         const str = getFlatObject(program);
-        const csv = "name,value" + os.EOL + str + os.EOL;
+        const csv = "name,value" + eol + str + eol;
 
         const name = program.id.name.toString().replace(/:/g, "-");
         const filename = `${program.type}/${name} ${program.filename}.csv`;

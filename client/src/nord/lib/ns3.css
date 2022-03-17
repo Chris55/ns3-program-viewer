@@ -18,22 +18,19 @@
     /*margin: 2px;*/
 }
 
-
-
 .ns3-header-name {
 }
 
-.outer{
+.outer {
     writing-mode: tb-rl;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 0 0 10px;
 }
-.inner{
+.inner {
     transform: rotate(180deg);
     /*transition: transform 1s ease-in-out;*/
-
 }
 
 .ns3-panel-skin {
@@ -96,9 +93,8 @@
     /*max-width: 150px!important;*/
     background-color: #f3f3f1;
     margin: 5px 5px 5px 0;
-    padding: 5px
+    padding: 5px;
 }
-
 
 .nord-on {
     opacity: 1;
@@ -126,7 +122,6 @@
     color: #c23746;
     background-color: rgb(246, 246, 246);
 }
-
 
 .dot {
     height: 10px;
@@ -166,8 +161,8 @@
 }
 
 .ns3-lcd-synth {
-/*font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;*/
-/*font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;*/
+    /*font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;*/
+    /*font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;*/
     font-size: 1rem;
     font-stretch: normal;
     font-weight: bold;
@@ -185,7 +180,6 @@
     margin: 5px;
 }
 
-
 .nord-morph {
     /*background-color: #cf1212;*/
     background-color: #c23746; /*red*/
@@ -197,7 +191,7 @@
     font-size: 80%;
     padding: 0 1px;
     margin-right: 2px;
-    min-width: 180px!important;
+    min-width: 180px !important;
 }
 
 .nord-comment {
@@ -214,11 +208,9 @@
 }
 
 .nord-morph-space {
-    padding: 0!important;
-    margin: 0!important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
-
-
 
 .nord-label {
     /*color: blue;*/
@@ -251,22 +243,22 @@
     text-transform: uppercase;
 }
 
-.nord-font-monospace  {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+.nord-font-monospace {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 1rem;
 }
 
 .nord-delay-tempo {
 }
 
-.col-sm-0-half  {
+.col-sm-0-half {
     position: relative;
     min-height: 1px;
     float: left;
     width: 4.1666666666%;
 }
 
-.col-sm-1-half  {
+.col-sm-1-half {
     position: relative;
     min-height: 1px;
     float: left;
@@ -286,16 +278,14 @@ td > * {
     vertical-align: top;
 }
 
-.nord-font-small  {
+.nord-font-small {
     font-size: small;
     font-weight: lighter;
 }
 
-@media screen and (orientation:portrait) {
-
+@media screen and (orientation: portrait) {
 }
-@media screen and (orientation:landscape) {
-
+@media screen and (orientation: landscape) {
 }
 
 /* Tooltip container */
@@ -322,8 +312,6 @@ td > * {
     margin-left: -60px;
 }
 
-
 .nord-tooltip:hover .nord-tooltip-text {
     visibility: visible;
 }
-

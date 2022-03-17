@@ -44,11 +44,7 @@ export default class Ns2SectionSynthOscillators extends Component {
                                     )}
 
                                     <tr>
-                                        <NordLabelAndValue
-                                            label={shapeModLabel}
-                                            data={osc.shapeMod}
-                                            table={true}
-                                        />
+                                        <NordLabelAndValue label={shapeModLabel} data={osc.shapeMod} table={true} />
                                     </tr>
                                 </tbody>
                             </table>

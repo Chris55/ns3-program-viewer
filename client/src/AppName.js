@@ -4,8 +4,8 @@ const AppName = () => (
     <>
         <span>File Viewer for </span>
         <span className="nord-font">
-                Nord<span className="nord-font-copyright">®</span> Stage
-            </span>
+            Nord<span className="nord-font-copyright">®</span> Stage
+        </span>
     </>
 );
 

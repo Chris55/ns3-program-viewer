@@ -19,24 +19,18 @@ export default class Ns3Output extends Component {
                             <table className="table-borderless nord-label">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            Main
-                                        </td>
-                                        <td>
-
-                                        </td>
+                                        <td>Main</td>
+                                        <td></td>
                                         <td>
                                             <NordLabelAndValue label="" data={output.main} table={false} />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            Sub
-                                        </td>
-                                        <td style={{padding: "0 0.5rem"}}>
+                                        <td>Sub</td>
+                                        <td style={{ padding: "0 0.5rem" }}>
                                             <NordLabelAndValue label="" data={output.subSource} table={false} />
                                         </td>
-                                        <td className={output.subSource.value === "Off" ? "nord-off": ""}>
+                                        <td className={output.subSource.value === "Off" ? "nord-off" : ""}>
                                             <NordLabelAndValue label="" data={output.subDestination} table={false} />
                                         </td>
                                     </tr>

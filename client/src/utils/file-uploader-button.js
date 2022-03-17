@@ -15,7 +15,7 @@ const FileUploaderButton = (props) => {
             props.handleFiles(event.target.files);
         }
         // this is required to be able to reselect the same file...
-        event.target.value = '';
+        event.target.value = "";
     };
 
     return (

@@ -21,7 +21,6 @@ const Home = () => {
 
     return (
         <>
-
             <Container fluid>
                 <Row className="handmade-container">
                     <Col xs={1} className="ns3-panel-skin flex-grow-1">

@@ -14,14 +14,13 @@ export default class Ns2s extends Component {
                             {data.id.name} {data.name}
                         </h3>
                         <div className="nord-option-on">
-                            {data.description} ({data.ext})   <small>Version</small> {data.version.value}   <small>Category</small> {data.category}
+                            {data.description} ({data.ext}) <small>Version</small> {data.version.value}{" "}
+                            <small>Category</small> {data.category}
                         </div>
                     </div>
 
                     <div className="col">
-                        <div className="row no-gutters justify-content-between d-flex flex-wrap">
-
-                        </div>
+                        <div className="row no-gutters justify-content-between d-flex flex-wrap"></div>
                     </div>
                 </div>
 

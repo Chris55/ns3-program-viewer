@@ -40,7 +40,6 @@
         },
         "extends": [
             "eslint:recommended",
-            "plugin:mocha/recommended",
             "plugin:@typescript-eslint/recommended",
             "prettier/@typescript-eslint",
             "plugin:prettier/recommended"
@@ -88,5 +87,5 @@
         "doc:stage": "./docs/build-doc.sh stage",
         "doc:lead": "./docs/build-doc.sh lead"
     },
-    "version": "1.5.1"
+    "version": "1.5.2"
 }

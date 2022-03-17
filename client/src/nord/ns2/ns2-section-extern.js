@@ -91,11 +91,19 @@ export default class Ns2SectionExtern extends Component {
                                                 </tr>
 
                                                 <tr className={extern.cc00.enabled ? "" : "nord-off"}>
-                                                    <NordLabelAndValue label="MSB (CC 0)" data={extern.cc00} table={true} />
+                                                    <NordLabelAndValue
+                                                        label="MSB (CC 0)"
+                                                        data={extern.cc00}
+                                                        table={true}
+                                                    />
                                                 </tr>
 
                                                 <tr className={extern.cc32.enabled ? "" : "nord-off"}>
-                                                    <NordLabelAndValue label="LSB (CC 32)" data={extern.cc32} table={true} />
+                                                    <NordLabelAndValue
+                                                        label="LSB (CC 32)"
+                                                        data={extern.cc32}
+                                                        table={true}
+                                                    />
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -16,7 +16,12 @@ export default class Ns3SectionSynthAmpEnv extends Component {
                         <table className="table-borderless">
                             <tbody>
                                 <tr>
-                                    <NordLabelAndValue label="Attack" data={env.attack} table={true} upperCase={false} />
+                                    <NordLabelAndValue
+                                        label="Attack"
+                                        data={env.attack}
+                                        table={true}
+                                        upperCase={false}
+                                    />
                                 </tr>
                                 <tr>
                                     <NordLabelAndValue label="Decay" data={env.decay} table={true} upperCase={false} />

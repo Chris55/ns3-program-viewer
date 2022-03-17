@@ -41,9 +41,7 @@ export default class Ns2Fx extends Component {
         if (this.props.arp === undefined) {
             arp = <> </>;
         } else {
-            arp = <Ns2SectionSynthArp
-                className="nord-synth-sub-feature"
-                data={this.props.arp} />;
+            arp = <Ns2SectionSynthArp className="nord-synth-sub-feature" data={this.props.arp} />;
         }
 
         return (
@@ -68,12 +66,7 @@ export default class Ns2Fx extends Component {
                             source={this.props.source}
                         />
 
-                        <Ns2Output
-                            className="ns3-section-main-fx"
-                            menu={this.props.menu}
-                            other={false}
-                        />
-
+                        <Ns2Output className="ns3-section-main-fx" menu={this.props.menu} other={false} />
                     </div>
                 </div>
             </React.Fragment>

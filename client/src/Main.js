@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
@@ -17,14 +17,15 @@ import {
     toggleShowAll,
     toggleShowDefault,
 } from "./features/nord/nordSliceReducer";
-import {Dropdown, Form, Modal, Navbar, ProgressBar} from "react-bootstrap";
+import { Dropdown, Form, Navbar, ProgressBar } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
 import NordManager from "./nord/nord-manager";
 import { buildExportCsv } from "./export/export-csv";
 import cx from "classnames";
-import { BsFileEarmarkPdf, GrDocumentCsv } from "react-icons/all";
-import {ExportDialog} from "./export/ExportDialog";
+import { BsFileEarmarkPdf } from "react-icons/bs";
+import { GrDocumentCsv } from "react-icons/gr";
+import { ExportDialog } from "./export/ExportDialog";
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -76,7 +77,7 @@ const Main = () => {
             dispatch(setExporting(false));
             fadeOutProgressBar(dispatch);
         }
-    }
+    };
 
     const handleExportCsv = async () => {
         if (managerTitle) {
@@ -84,7 +85,7 @@ const Main = () => {
         } else {
             await runExportCsv(true);
         }
-    }
+    };
 
     const runExportCsv = async (ok) => {
         setShowExportDialog(false);
@@ -113,7 +114,7 @@ const Main = () => {
             dispatch(setExporting(false));
             fadeOutProgressBar(dispatch);
         }
-    }
+    };
 
     const exportDisabled = exporting || loading || data.length === 0;
     const showManager = programs.length !== 0 || synths.length !== 0;
@@ -129,7 +130,7 @@ const Main = () => {
 
     return (
         <>
-            <ExportDialog show={showExportDialog} handleClose={runExportCsv}/>
+            <ExportDialog show={showExportDialog} handleClose={runExportCsv} />
 
             {!loaded && <Home />}
 
@@ -148,16 +149,14 @@ const Main = () => {
                                 <LoadButton className="nav-link" variant="light" />
 
                                 <Dropdown>
-                                    <Dropdown.Toggle variant="light" id="dropdown-basic" >
+                                    <Dropdown.Toggle variant="light" id="dropdown-basic">
                                         {exporting ? "Exporting" : "Export"}
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
                                         <Dropdown.Item onClick={handleExportPdf} disabled={exportDisabled}>
                                             <div className="d-flex justify-content-between">
-                                                <div className="mr-4">
-                                                    As PDF File
-                                                </div>
+                                                <div className="mr-4">As PDF File</div>
                                                 <div>
                                                     <BsFileEarmarkPdf />
                                                 </div>
@@ -165,9 +164,7 @@ const Main = () => {
                                         </Dropdown.Item>
                                         <Dropdown.Item onClick={handleExportCsv} disabled={exportDisabled}>
                                             <div className="d-flex justify-content-between">
-                                                <div>
-                                                    As CSV File
-                                                </div>
+                                                <div>As CSV File</div>
                                                 <div>
                                                     <GrDocumentCsv />
                                                 </div>

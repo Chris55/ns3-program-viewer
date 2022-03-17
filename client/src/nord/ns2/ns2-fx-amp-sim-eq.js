@@ -20,7 +20,7 @@ export default class Ns2FxAmpSimEq extends Component {
                                         <NordLabelAndValue label="Amp Type" data={fx.ampType} table={true} />
                                     </tr>
                                     <tr>
-                                        <NordLabelAndValue label="Drive" data={fx.overdrive} table={true}/>
+                                        <NordLabelAndValue label="Drive" data={fx.overdrive} table={true} />
                                     </tr>
                                     <tr>
                                         <NordLabelAndValue
@@ -49,12 +49,7 @@ export default class Ns2FxAmpSimEq extends Component {
                                     </tr>
 
                                     <tr>
-                                        <NordLabelAndValue
-                                            label="Bass"
-                                            data={fx.bass}
-                                            upperCase={false}
-                                            table={true}
-                                        />
+                                        <NordLabelAndValue label="Bass" data={fx.bass} upperCase={false} table={true} />
                                     </tr>
                                 </tbody>
                             </table>

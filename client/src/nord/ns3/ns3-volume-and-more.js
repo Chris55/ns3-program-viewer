@@ -39,10 +39,11 @@ export default class Ns3VolumeAndMore extends Component {
 
                     <div className="">
                         <NordLabelAndValue enabled={section.octaveShift.value !== 0} data={section.octaveShift} />
-                        {section.octaveShift.comment
-                        && <span
-                            className="nord-comment"
-                            title={section.octaveShift.comment}>?</span>}
+                        {section.octaveShift.comment && (
+                            <span className="nord-comment" title={section.octaveShift.comment}>
+                                ?
+                            </span>
+                        )}
                     </div>
 
                     <div>

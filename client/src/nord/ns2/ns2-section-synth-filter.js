@@ -32,7 +32,11 @@ export default class Ns2SectionSynthFilter extends Component {
                                                 />
 
                                                 <tr>
-                                                    <NordLabelAndValue label="Res" data={filter.resonance} table={true} />
+                                                    <NordLabelAndValue
+                                                        label="Res"
+                                                        data={filter.resonance}
+                                                        table={true}
+                                                    />
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -45,7 +49,6 @@ export default class Ns2SectionSynthFilter extends Component {
                                                 <tr>
                                                     <NordValueOnOff label="Kb Trk" data={filter.kbTrack} table={true} />
                                                 </tr>
-
 
                                                 <tr>
                                                     <NordLabelAndValue

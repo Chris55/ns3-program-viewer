@@ -7,11 +7,11 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 //import "ag-grid-community/dist/styles/ag-theme-bootstrap.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { useDispatch, useSelector } from "react-redux";
-import { nordSelector, setAll, setLoadingSuccess, setManagerSelection } from "../features/nord/nordSliceReducer";
+import { nordSelector, setLoadingSuccess, setManagerSelection } from "../features/nord/nordSliceReducer";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import "react-splitter-layout/lib/index.css";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
-import { BsSearch } from "react-icons/all";
+import { BsSearch } from "react-icons/bs";
 
 const showPerformance = [".nlasbundle", ".nlab"];
 const showSynth = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
