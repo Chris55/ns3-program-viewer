@@ -28,8 +28,6 @@ const App = () => {
     const details = (
         <>
             <Routes>
-                {/*<Route path="/media" element={null} />*/}
-
                 <Route path="/" element={<Menu />}>
                     <Route path="privacy" element={<Privacy />} />
 
