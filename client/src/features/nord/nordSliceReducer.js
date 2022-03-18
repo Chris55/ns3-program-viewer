@@ -18,7 +18,7 @@ export const supportedBackupTypes = [
 ];
 export const allSupportedTypes = [...supportedProgramTypes, ...supportedBackupTypes];
 
-const production = true; //process.env.NODE_ENV === "production";
+const production = process.env.NODE_ENV === "production";
 
 // to test home page set this to false,
 // if true it shows the default model immediately

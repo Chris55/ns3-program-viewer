@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { menuSelector, setActiveKey } from "./features/menu/menuSliceReducer";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { nordSelector } from "./features/nord/nordSliceReducer";
 
 const Menu = () => {
@@ -22,7 +22,7 @@ const Menu = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto" activeKey={activeKey} onSelect={handleSelect}>
-                        <Nav.Link eventKey="home" as={Link} to="/">
+                        <Nav.Link eventKey="home" as={Link} to="/home">
                             Home
                         </Nav.Link>
                         <Nav.Link eventKey="privacy" as={Link} to="/privacy">
@@ -42,6 +42,7 @@ const Menu = () => {
                     <Navbar.Text>version {process.env.REACT_APP_VERSION}</Navbar.Text>
                 </Navbar.Collapse>
             </Navbar>
+            <Outlet />
         </>
     );
 };

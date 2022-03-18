@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
-import { HashRouter, BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { HashRouter, BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Main from "./Main";
 import About from "./About";
 import Privacy from "./Privacy";
@@ -27,22 +27,21 @@ const App = () => {
 
     const details = (
         <>
-            <Menu />
-            <Switch>
-                <Route exact path="/" component={Main} />
+            <Routes>
+                {/*<Route path="/media" element={null} />*/}
 
-                <Route exact path="/privacy" component={Privacy} />
+                <Route path="/" element={<Menu />}>
+                    <Route path="privacy" element={<Privacy />} />
 
-                <Route exact path="/offline" component={Offline} />
+                    <Route path="offline" element={<Offline />} />
 
-                <Route exact path="/about" component={About} />
+                    <Route path="about" element={<About />} />
 
-                <Route exact path="/media" component={null} />
+                    <Route path="" element={<Main />} />
 
-                <Route path={["/", "/home"]}>
-                    <Redirect to="/" />
+                    <Route path="*" element={<Main />} />
                 </Route>
-            </Switch>
+            </Routes>
         </>
     );
 

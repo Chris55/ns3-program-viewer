@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import JSONTree from "react-json-tree";
+import { JSONTree } from "react-json-tree";
 
 export default class NordTree extends Component {
     render() {
