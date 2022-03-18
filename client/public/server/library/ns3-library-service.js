@@ -1,4 +1,3 @@
-const byteSize = require("byte-size");
 const { ns3ScSoundsLibraries } = require("./ns3-sc-sounds-libraries");
 const { ns3UserLibraries } = require("./ns3-user-libraries");
 const { ns3NordSampleLibrary2 } = require("./ns3-nord-sample-library-2");
@@ -7,6 +6,7 @@ const { ns3NordPianoLibrary } = require("./ns3-nord-piano-library");
 const { ns3ProductLibraries } = require("./ns3-product-libraries");
 const { ns3NordSampleLibraryArchive } = require("./ns3-nord-sample-library-archive");
 const { ns3RedLibrary } = require("./ns3-red-library");
+//const byteSize = require("byte-size");
 
 /***
  *
@@ -89,7 +89,8 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         sample.name = sampleLib.name;
         sample.version = sampleLib.version ? "v" + sampleLib.version : "";
         sample.info = sampleLib.info;
-        sample.size = sampleLib.size ? byteSize(sampleLib.size).toString() : "";
+        //sample.size = sampleLib.size ? byteSize(sampleLib.size).toString() : "";
+        sample.size = sampleLib.size ? sampleLib.size.toString() : "";
         sample.filename = sampleLib.filename;
     }
     // fallback if piano name is unknown
