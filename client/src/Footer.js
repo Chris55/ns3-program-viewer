@@ -9,7 +9,7 @@ const Footer = () => {
                 <hr className="footer-line" />
 
                 <div style={{ fontSize: "0.9rem" }}>
-                    <AppName /> (c) {new Date().getFullYear()} Christian Florentz
+                    <AppName /> (c) 2020 - {new Date().getFullYear()} Christian Florentz
                 </div>
             </Col>
         </Row>
