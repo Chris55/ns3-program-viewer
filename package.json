@@ -14,8 +14,8 @@
     "devDependencies": {
         "@types/jest": "^27.4.1",
         "better-docs": "^2.7.2",
-        "concurrently": "^7.0.0",
-        "eslint": "^8.11.0",
+        "concurrently": "^7.1.0",
+        "eslint": "^8.12.0",
         "jest": "^27.5.1",
         "jest-coverage-badges": "^1.1.2",
         "jsdoc": "^3.6.10",
@@ -23,7 +23,7 @@
         "markdown-magic": "^2.6.0",
         "node-pandoc": "^0.3.0",
         "nodemon": "^2.0.15",
-        "prettier": "^2.6.0",
+        "prettier": "^2.6.1",
         "showdown": "^2.0.3",
         "unzipper": "^0.10.11",
         "xml-js": "^1.6.11"
