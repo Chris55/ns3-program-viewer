@@ -4,9 +4,7 @@ upload/
 /client/userdata/
 
 
-/client/public/entitlements.mas.inherit.plist
 /client/public/entitlements.mas.plist
-/client/public/entitlements.mas.loginhelper.plist
 /client/dev.provisionprofile
 /client/prod.provisionprofile
 /client/embedded.provisionprofile
@@ -82,7 +80,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+#.env
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)
