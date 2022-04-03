@@ -1,7 +1,7 @@
 {
     "author": "Christian Florentz (christian.florentz@gmail.com)",
     "dependencies": {
-        "body-parser": "^1.19.2",
+        "body-parser": "^1.20.0",
         "byte-size": "^8.1.0",
         "cors": "^2.8.5",
         "express": "^4.17.3",
@@ -15,9 +15,9 @@
         "@types/jest": "^27.4.1",
         "better-docs": "^2.7.2",
         "concurrently": "^7.1.0",
+        "coverage-badge-creator": "^1.0.11",
         "eslint": "^8.12.0",
         "jest": "^27.5.1",
-        "jest-coverage-badges": "^1.1.2",
         "jsdoc": "^3.6.10",
         "jsdoc-to-markdown": "^7.1.1",
         "markdown-magic": "^2.6.0",
@@ -44,7 +44,7 @@
         "coverageReporters": [
             "json-summary",
             "text",
-            "lcov"
+            "text-summary"
         ]
     },
     "keywords": [
@@ -63,7 +63,7 @@
         "start": "NODE_ENV=production node server.js",
         "build": "cd client && yarn install && yarn react-build",
         "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run react-build",
-        "test": "jest --coverage && jest-coverage-badges",
+        "test": "jest --coverage && coverage-badge-creator",
         "doc:stage": "./docs/build-doc.sh stage",
         "doc:lead": "./docs/build-doc.sh lead"
     },
