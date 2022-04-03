@@ -67,5 +67,5 @@
         "doc:stage": "./docs/build-doc.sh stage",
         "doc:lead": "./docs/build-doc.sh lead"
     },
-    "version": "1.5.3"
+    "version": "1.5.4"
 }

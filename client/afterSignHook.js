@@ -34,7 +34,7 @@ module.exports = async function (params) {
     //console.error("notarize is DISABLE FOR NOW");
     //return;
 
-    console.log("afterSign hook triggered", params);
+    //console.log("afterSign hook triggered", params);
 
     // Same appId in electron-builder.
     let appId = "com.chris55.nord-file-viewer";
