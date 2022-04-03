@@ -23,7 +23,7 @@
         "markdown-magic": "^2.6.0",
         "node-pandoc": "^0.3.0",
         "nodemon": "^2.0.15",
-        "prettier": "^2.6.1",
+        "prettier": "^2.6.2",
         "showdown": "^2.0.3",
         "unzipper": "^0.10.11",
         "xml-js": "^1.6.11"
