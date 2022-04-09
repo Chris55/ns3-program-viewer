@@ -61,8 +61,7 @@
         "server": "nodemon server.js",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "start": "NODE_ENV=production node server.js",
-        "build": "cd client && yarn install && yarn react-build",
-        "heroku-postbuild-old": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run react-build",
+        "build": "NODE_ENV=production cd client && yarn install && yarn react-build",
         "test": "jest --coverage && coverage-badge-creator",
         "doc:stage": "./docs/build-doc.sh stage",
         "doc:lead": "./docs/build-doc.sh lead"
