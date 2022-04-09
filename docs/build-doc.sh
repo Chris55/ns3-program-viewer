@@ -5,7 +5,8 @@ if [ "$1" != "stage" ] && [ "$1" != "lead" ]; then
     exit -1
 fi
 
-rm ./automation/docs/out/*
+rm -rf ./automation/docs/out
+mkdir ./automation/docs/out
 
 # extract all online doc from the source code and save it as markdown files
 
