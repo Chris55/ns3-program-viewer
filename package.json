@@ -31,12 +31,6 @@
     "engines": {
         "node": "16.x"
     },
-    "eslintConfig": {
-        "root": true,
-        "extends": [
-            "prettier"
-        ]
-    },
     "jest": {
         "modulePathIgnorePatterns": [
             "client"
@@ -56,6 +50,10 @@
     "license": "MIT",
     "name": "ns-file-parser",
     "prettier": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Chris55/ns3-program-viewer.git"
+    },
     "scripts": {
         "client": "cd client && yarn react-start",
         "server": "nodemon server.js",

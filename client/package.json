@@ -125,21 +125,11 @@
         "sass": "^1.49.11",
         "wait-on": "^6.0.1"
     },
-    "eslintConfig": {
-        "root": true,
-        "extends": [
-            "prettier"
-        ]
-    },
     "homepage": "./",
     "main": "public/electron.js",
     "name": "ns3-file-parser-client",
     "private": true,
     "proxy": "http://localhost:4000/",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Chris55/ns3-program-viewer.git"
-    },
     "scripts": {
         "react-start": "react-scripts start",
         "react-build": "react-scripts build",
