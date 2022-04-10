@@ -42,4 +42,4 @@ fi
 
 # build doc web site
 
-cat ./automation/docs/out/*-stage.md >>./docs/index.md
+cat ./automation/docs/out/*-stage.md >./docs/index.md
