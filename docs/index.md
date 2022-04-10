@@ -1,7 +1,7 @@
 
 ## Let's get started
 
-This file documents the Nord Stage program file structure. It is handmade by [NUF](https://www.norduserforum.com) users and is not officially supported by Nord Keyboards / Clavia DMI AB.
+This file documents the Nord Stage program file structure. It is handmade by [NUF](https://www.norduserforum.com/nord-stage-forum-f3/ns3-program-viewer-t19939.html) users and is not officially supported by Nord Keyboards / Clavia DMI AB.
 While we certainly hope this document is useful, none of the authors or contributors place any guarantees as to the accuracy of the data.
 
 We contacted Nord Keyboards / Clavia DMI AB support about this project, answer from the support
