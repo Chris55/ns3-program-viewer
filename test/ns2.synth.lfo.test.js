@@ -5,7 +5,7 @@ const { loadTestCase } = require("./test-helpers");
 const root = __dirname + "/ns2/synth/lfo/";
 
 describe("/ns2/synth/lfo", () => {
-    test("./test/ns2/synth/lfo/slotA.synth.lfo.masterClock.enabled eq false.ns2p", async () => {
+    test("test/ns2/synth/lfo/slotA.synth.lfo.masterClock.enabled eq false.ns2p", async () => {
         const file = "slotA.synth.lfo.masterClock.enabled eq false.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -13,7 +13,7 @@ describe("/ns2/synth/lfo", () => {
         });
     });
 
-    test("./test/ns2/synth/lfo/slotA.synth.lfo.masterClock.enabled eq true.ns2p", async () => {
+    test("test/ns2/synth/lfo/slotA.synth.lfo.masterClock.enabled eq true.ns2p", async () => {
         const file = "slotA.synth.lfo.masterClock.enabled eq true.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -21,7 +21,7 @@ describe("/ns2/synth/lfo", () => {
         });
     });
 
-    test("./test/ns2/synth/lfo/slotA.synth.lfo.rate.value eq 1.0 Hz.ns2p", async () => {
+    test("test/ns2/synth/lfo/slotA.synth.lfo.rate.value eq 1.0 Hz.ns2p", async () => {
         const file = "slotA.synth.lfo.rate.value eq 1.0 Hz.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -29,7 +29,7 @@ describe("/ns2/synth/lfo", () => {
         });
     });
 
-    test("./test/ns2/synth/lfo/slotA.synth.lfo.rate.value eq 15 Hz.ns2p", async () => {
+    test("test/ns2/synth/lfo/slotA.synth.lfo.rate.value eq 15 Hz.ns2p", async () => {
         const file = "slotA.synth.lfo.rate.value eq 15 Hz.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -37,7 +37,7 @@ describe("/ns2/synth/lfo", () => {
         });
     });
 
-    test("./test/ns2/synth/lfo/slotA.synth.lfo.rate.value eq 1@a1.ns2p", async () => {
+    test("test/ns2/synth/lfo/slotA.synth.lfo.rate.value eq 1@a1.ns2p", async () => {
         const file = "slotA.synth.lfo.rate.value eq 1@a1.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -45,7 +45,7 @@ describe("/ns2/synth/lfo", () => {
         });
     });
 
-    test("./test/ns2/synth/lfo/slotA.synth.lfo.rate.value eq 1@a4T.ns2p", async () => {
+    test("test/ns2/synth/lfo/slotA.synth.lfo.rate.value eq 1@a4T.ns2p", async () => {
         const file = "slotA.synth.lfo.rate.value eq 1@a4T.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -53,7 +53,7 @@ describe("/ns2/synth/lfo", () => {
         });
     });
 
-    test("./test/ns2/synth/lfo/slotA.synth.lfo.wave.value eq S@aH.ns2p", async () => {
+    test("test/ns2/synth/lfo/slotA.synth.lfo.wave.value eq S@aH.ns2p", async () => {
         const file = "slotA.synth.lfo.wave.value eq S@aH.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -61,7 +61,7 @@ describe("/ns2/synth/lfo", () => {
         });
     });
 
-    test("./test/ns2/synth/lfo/slotA.synth.lfo.wave.value eq SAW.ns2p", async () => {
+    test("test/ns2/synth/lfo/slotA.synth.lfo.wave.value eq SAW.ns2p", async () => {
         const file = "slotA.synth.lfo.wave.value eq SAW.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -69,7 +69,7 @@ describe("/ns2/synth/lfo", () => {
         });
     });
 
-    test("./test/ns2/synth/lfo/slotA.synth.lfo.wave.value eq TRI.ns2p", async () => {
+    test("test/ns2/synth/lfo/slotA.synth.lfo.wave.value eq TRI.ns2p", async () => {
         const file = "slotA.synth.lfo.wave.value eq TRI.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {

@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { EOL } = require("os");
+//const { EOL } = require("os");
 const { prettyName } = require("./test-helpers");
 
 class MyMarkDownReporter {
@@ -10,9 +10,10 @@ class MyMarkDownReporter {
     }
 
     onRunComplete(contexts, results) {
+        const EOL = "  \n";
         const filename = this._options.filename || "./docs/test-result.md";
         let data = "";
-        data += `${EOL}#${results.numPassedTests}/${results.numTotalTests} tests passed${EOL}`;
+        data += `${EOL}# ${results.numPassedTests}/${results.numTotalTests} tests passed${EOL}`;
 
         results.testResults.sort((a, b) =>
             a.testFilePath > b.testFilePath ? 1 : b.testFilePath > a.testFilePath ? -1 : 0
@@ -21,7 +22,7 @@ class MyMarkDownReporter {
         for (const suite of results.testResults) {
             let title = path.parse(suite.testFilePath).name;
             title = title.replace(/\./g, " ").toUpperCase();
-            data += `##${title}${EOL}`;
+            data += `## ${title}${EOL}`;
             data += `| status  | setting tested            | file |${EOL}`;
             data += `|:-------:|:--------------------------|------|${EOL}`;
             for (const test of suite.testResults) {

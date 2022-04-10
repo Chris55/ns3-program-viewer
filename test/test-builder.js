@@ -20,7 +20,7 @@ const build = async (folder, testFilename) => {
     for (let filename of filenames) {
         const ext = path.extname(filename);
         if (supportedExt.includes(ext)) {
-            const description = "./test" + folder + "/" + filename;
+            const description = "test" + folder + "/" + filename;
             file += '    test("' + description + '", async () => {' + os.EOL;
             file += '        const file = "' + filename + '";' + os.EOL;
             file += "        const sut = await loadTestCase(root + file);" + os.EOL;
