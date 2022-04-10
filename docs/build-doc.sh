@@ -23,6 +23,7 @@ fi
 
 node ./automation/docs/build-doc.js
 
+
 # build pdf file
 
 PANDOC_OPT="--css=./../pandoc2.css -V geometry:margin=2cm -V geometry:a4paper -V linkcolor:blue"
@@ -38,3 +39,7 @@ if [ "$1" == "lead" ]; then
     pandoc ./docs/nla1/header.yaml ./automation/docs/out/*-lead.md -s -o $PANDOC_OUT $PANDOC_OPT
     echo Nord Lead A1 documentation updated, $PANDOC_OUT
 fi
+
+# build doc web site
+
+cat ./automation/docs/out/*-stage.md >>./docs/index.md
