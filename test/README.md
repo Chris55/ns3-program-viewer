@@ -25,6 +25,6 @@ The API should return:
 - ":" is replaced by @c
 
 ## Automated Tests
-Complete list of tested program configuration is available [here](test-result.md).
+Complete list of tested program configuration is available [here](../docs/test-result.md).
 
 
