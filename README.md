@@ -13,11 +13,11 @@ Offline version also available as standalone desktop application
 - Windows: https://github.com/Chris55/ns3-program-viewer/releases
 - Mac: AppStore - https://apps.apple.com/app/id1549939673
 
-This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com).
+This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com/nord-stage-forum-f3/ns3-program-viewer-t19939.html).
 
 ## Documentation
 Handmade unofficial Nord Stage 2/3 Program File Documentation:
-- [Nord Stage Program mapping](https://github.com/Chris55/ns3-program-viewer/tree/master/docs)
+- [Nord Stage Program mapping](https://chris55.github.io/ns3-program-viewer/)
 
 
 
