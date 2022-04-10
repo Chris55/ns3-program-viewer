@@ -177,7 +177,7 @@ exports.loadNs3SampleFile = (buffer, filename) => {
 
     let versionOffset = 0; // default latest version
     if (offset04 !== 1) {
-        //console.log("Offset 0x04 <> 1 switched to legacy mode");
+        // console.log("Offset 0x04 <> 1 switched to legacy mode");
         versionOffset = -20;
     }
 

@@ -60,7 +60,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
     let versionOffset = -79;
 
     if (offset04 !== 1) {
-        console.log("Offset 0x04 <> 1 switched to legacy mode");
+        // console.log("Offset 0x04 <> 1 switched to legacy mode");
         versionOffset -= 20;
     }
 

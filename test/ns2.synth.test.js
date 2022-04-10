@@ -1,11 +1,11 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./helpers");
+const { loadTestCase } = require("./test-helpers");
 
 const root = __dirname + "/ns2/synth/";
 
 describe("/ns2/synth", () => {
-    test("slotA.synth.glide.value eq 0.0", async () => {
+    test("./test/ns2/synth/slotA.synth.glide.value eq 0.0.ns2p", async () => {
         const file = "slotA.synth.glide.value eq 0.0.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -13,7 +13,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.glide.value eq 10.0", async () => {
+    test("./test/ns2/synth/slotA.synth.glide.value eq 10.0.ns2p", async () => {
         const file = "slotA.synth.glide.value eq 10.0.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -21,7 +21,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.glide.value eq 5.0", async () => {
+    test("./test/ns2/synth/slotA.synth.glide.value eq 5.0.ns2p", async () => {
         const file = "slotA.synth.glide.value eq 5.0.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -29,7 +29,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.glide.value eq 7.5", async () => {
+    test("./test/ns2/synth/slotA.synth.glide.value eq 7.5.ns2p", async () => {
         const file = "slotA.synth.glide.value eq 7.5.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -37,7 +37,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.kbGate.enabled eq false", async () => {
+    test("./test/ns2/synth/slotA.synth.kbGate.enabled eq false.ns2p", async () => {
         const file = "slotA.synth.kbGate.enabled eq false.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -45,7 +45,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.kbGate.enabled eq true", async () => {
+    test("./test/ns2/synth/slotA.synth.kbGate.enabled eq true.ns2p", async () => {
         const file = "slotA.synth.kbGate.enabled eq true.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -53,7 +53,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.kbZone.value eq HI", async () => {
+    test("./test/ns2/synth/slotA.synth.kbZone.value eq HI.ns2p", async () => {
         const file = "slotA.synth.kbZone.value eq HI.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -61,7 +61,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.kbZone.value eq LO UP HI", async () => {
+    test("./test/ns2/synth/slotA.synth.kbZone.value eq LO UP HI.ns2p", async () => {
         const file = "slotA.synth.kbZone.value eq LO UP HI.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -69,7 +69,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.kbZone.value eq LO UP", async () => {
+    test("./test/ns2/synth/slotA.synth.kbZone.value eq LO UP.ns2p", async () => {
         const file = "slotA.synth.kbZone.value eq LO UP.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -77,7 +77,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.kbZone.value eq LO", async () => {
+    test("./test/ns2/synth/slotA.synth.kbZone.value eq LO.ns2p", async () => {
         const file = "slotA.synth.kbZone.value eq LO.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -85,7 +85,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.kbZone.value eq UP HI", async () => {
+    test("./test/ns2/synth/slotA.synth.kbZone.value eq UP HI.ns2p", async () => {
         const file = "slotA.synth.kbZone.value eq UP HI.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -93,7 +93,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.kbZone.value eq UP", async () => {
+    test("./test/ns2/synth/slotA.synth.kbZone.value eq UP.ns2p", async () => {
         const file = "slotA.synth.kbZone.value eq UP.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -101,7 +101,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.latchPedal.enabled eq false", async () => {
+    test("./test/ns2/synth/slotA.synth.latchPedal.enabled eq false.ns2p", async () => {
         const file = "slotA.synth.latchPedal.enabled eq false.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -109,7 +109,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.latchPedal.enabled eq true", async () => {
+    test("./test/ns2/synth/slotA.synth.latchPedal.enabled eq true.ns2p", async () => {
         const file = "slotA.synth.latchPedal.enabled eq true.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -117,7 +117,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.octaveShift.value eq -7 oct", async () => {
+    test("./test/ns2/synth/slotA.synth.octaveShift.value eq -7 oct.ns2p", async () => {
         const file = "slotA.synth.octaveShift.value eq -7 oct.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -125,7 +125,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.octaveShift.value eq @p0 oct", async () => {
+    test("./test/ns2/synth/slotA.synth.octaveShift.value eq @p0 oct.ns2p", async () => {
         const file = "slotA.synth.octaveShift.value eq @p0 oct.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -133,7 +133,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.octaveShift.value eq @p6 oct", async () => {
+    test("./test/ns2/synth/slotA.synth.octaveShift.value eq @p6 oct.ns2p", async () => {
         const file = "slotA.synth.octaveShift.value eq @p6 oct.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -141,7 +141,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.pitchStick.enabled eq false", async () => {
+    test("./test/ns2/synth/slotA.synth.pitchStick.enabled eq false.ns2p", async () => {
         const file = "slotA.synth.pitchStick.enabled eq false.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -149,7 +149,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.pitchStick.enabled eq true", async () => {
+    test("./test/ns2/synth/slotA.synth.pitchStick.enabled eq true.ns2p", async () => {
         const file = "slotA.synth.pitchStick.enabled eq true.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -157,7 +157,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.sustainPedal.enabled eq false", async () => {
+    test("./test/ns2/synth/slotA.synth.sustainPedal.enabled eq false.ns2p", async () => {
         const file = "slotA.synth.sustainPedal.enabled eq false.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -165,7 +165,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.sustainPedal.enabled eq true", async () => {
+    test("./test/ns2/synth/slotA.synth.sustainPedal.enabled eq true.ns2p", async () => {
         const file = "slotA.synth.sustainPedal.enabled eq true.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -173,7 +173,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.unison.value eq 1", async () => {
+    test("./test/ns2/synth/slotA.synth.unison.value eq 1.ns2p", async () => {
         const file = "slotA.synth.unison.value eq 1.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -181,7 +181,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.unison.value eq 2", async () => {
+    test("./test/ns2/synth/slotA.synth.unison.value eq 2.ns2p", async () => {
         const file = "slotA.synth.unison.value eq 2.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -189,7 +189,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.unison.value eq 3", async () => {
+    test("./test/ns2/synth/slotA.synth.unison.value eq 3.ns2p", async () => {
         const file = "slotA.synth.unison.value eq 3.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -197,7 +197,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.unison.value eq Multi 1", async () => {
+    test("./test/ns2/synth/slotA.synth.unison.value eq Multi 1.ns2p", async () => {
         const file = "slotA.synth.unison.value eq Multi 1.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -205,7 +205,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.unison.value eq Multi 2", async () => {
+    test("./test/ns2/synth/slotA.synth.unison.value eq Multi 2.ns2p", async () => {
         const file = "slotA.synth.unison.value eq Multi 2.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -213,7 +213,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.unison.value eq Multi 3", async () => {
+    test("./test/ns2/synth/slotA.synth.unison.value eq Multi 3.ns2p", async () => {
         const file = "slotA.synth.unison.value eq Multi 3.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -221,7 +221,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.unison.value eq Off", async () => {
+    test("./test/ns2/synth/slotA.synth.unison.value eq Off.ns2p", async () => {
         const file = "slotA.synth.unison.value eq Off.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -229,7 +229,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.vibrato.value eq AT", async () => {
+    test("./test/ns2/synth/slotA.synth.vibrato.value eq AT.ns2p", async () => {
         const file = "slotA.synth.vibrato.value eq AT.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -237,7 +237,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.vibrato.value eq Delay 1", async () => {
+    test("./test/ns2/synth/slotA.synth.vibrato.value eq Delay 1.ns2p", async () => {
         const file = "slotA.synth.vibrato.value eq Delay 1.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -245,7 +245,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.vibrato.value eq Delay 2", async () => {
+    test("./test/ns2/synth/slotA.synth.vibrato.value eq Delay 2.ns2p", async () => {
         const file = "slotA.synth.vibrato.value eq Delay 2.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -253,7 +253,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.vibrato.value eq Delay 3", async () => {
+    test("./test/ns2/synth/slotA.synth.vibrato.value eq Delay 3.ns2p", async () => {
         const file = "slotA.synth.vibrato.value eq Delay 3.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -261,7 +261,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.vibrato.value eq Off", async () => {
+    test("./test/ns2/synth/slotA.synth.vibrato.value eq Off.ns2p", async () => {
         const file = "slotA.synth.vibrato.value eq Off.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -269,7 +269,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.vibrato.value eq Wheel", async () => {
+    test("./test/ns2/synth/slotA.synth.vibrato.value eq Wheel.ns2p", async () => {
         const file = "slotA.synth.vibrato.value eq Wheel.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -277,7 +277,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.voice.value eq Legato", async () => {
+    test("./test/ns2/synth/slotA.synth.voice.value eq Legato.ns2p", async () => {
         const file = "slotA.synth.voice.value eq Legato.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -285,7 +285,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.voice.value eq Mono", async () => {
+    test("./test/ns2/synth/slotA.synth.voice.value eq Mono.ns2p", async () => {
         const file = "slotA.synth.voice.value eq Mono.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -293,7 +293,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.voice.value eq Off", async () => {
+    test("./test/ns2/synth/slotA.synth.voice.value eq Off.ns2p", async () => {
         const file = "slotA.synth.voice.value eq Off.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -301,7 +301,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.afterTouch.to.value eq Off", async () => {
+    test("./test/ns2/synth/slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.afterTouch.to.value eq Off.ns2p", async () => {
         const file = "slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.afterTouch.to.value eq Off.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -309,7 +309,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.controlPedal.to.value eq Off", async () => {
+    test("./test/ns2/synth/slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.controlPedal.to.value eq Off.ns2p", async () => {
         const file = "slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.controlPedal.to.value eq Off.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -317,7 +317,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.wheel.to.value eq Off", async () => {
+    test("./test/ns2/synth/slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.wheel.to.value eq Off.ns2p", async () => {
         const file = "slotA.synth.volume.value eq 0.0 dB and slotA.synth.volume.morph.wheel.to.value eq Off.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -325,7 +325,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.volume.value eq Off and slotA.synth.volume.morph.afterTouch.to.value eq 0.0 dB", async () => {
+    test("./test/ns2/synth/slotA.synth.volume.value eq Off and slotA.synth.volume.morph.afterTouch.to.value eq 0.0 dB.ns2p", async () => {
         const file = "slotA.synth.volume.value eq Off and slotA.synth.volume.morph.afterTouch.to.value eq 0.0 dB.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -333,7 +333,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.volume.value eq Off and slotA.synth.volume.morph.controlPedal.to.value eq 0.0 dB", async () => {
+    test("./test/ns2/synth/slotA.synth.volume.value eq Off and slotA.synth.volume.morph.controlPedal.to.value eq 0.0 dB.ns2p", async () => {
         const file = "slotA.synth.volume.value eq Off and slotA.synth.volume.morph.controlPedal.to.value eq 0.0 dB.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -341,7 +341,7 @@ describe("/ns2/synth", () => {
         });
     });
 
-    test("slotA.synth.volume.value eq Off and slotA.synth.volume.morph.wheel.to.value eq 0.0 dB", async () => {
+    test("./test/ns2/synth/slotA.synth.volume.value eq Off and slotA.synth.volume.morph.wheel.to.value eq 0.0 dB.ns2p", async () => {
         const file = "slotA.synth.volume.value eq Off and slotA.synth.volume.morph.wheel.to.value eq 0.0 dB.ns2p";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {

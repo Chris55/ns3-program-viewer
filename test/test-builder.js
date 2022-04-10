@@ -8,7 +8,7 @@ const build = async (folder, testFilename) => {
     const filenames = await fs.readdir(testFolder);
 
     let file = "// this file is auto-generated with test-builder.js" + os.EOL + os.EOL;
-    file += 'const { loadTestCase } = require("./helpers");' + os.EOL;
+    file += 'const { loadTestCase } = require("./test-helpers");' + os.EOL;
     file += os.EOL;
 
     file += 'const root = __dirname + "' + folder + '/";' + os.EOL + os.EOL;
@@ -20,8 +20,7 @@ const build = async (folder, testFilename) => {
     for (let filename of filenames) {
         const ext = path.extname(filename);
         if (supportedExt.includes(ext)) {
-            const description = path.parse(filename).name;
-
+            const description = "./test" + folder + "/" + filename;
             file += '    test("' + description + '", async () => {' + os.EOL;
             file += '        const file = "' + filename + '";' + os.EOL;
             file += "        const sut = await loadTestCase(root + file);" + os.EOL;
@@ -42,7 +41,7 @@ const build = async (folder, testFilename) => {
 };
 
 const buildAll = async () => {
-    await build("/nla1/effects", "nla1.effects.test.js");
+    //await build("/nla1/effects", "nla1.effects.test.js");
 
     await build("/ns2/effects", "ns2.effects.test.js");
     await build("/ns2/extern", "ns2.extern.test.js");

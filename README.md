@@ -2,7 +2,7 @@
 
 ![Build](https://travis-ci.com/Chris55/ns3-program-viewer.svg?branch=master)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer?ref=badge_shield)
-![](https://img.shields.io/badge/Coverage-92%25-83A603.svg?prefix=$coverage$)
+![](https://img.shields.io/badge/Coverage-91%25-83A603.svg?prefix=$coverage$)
 
 
 The unofficial Nord Stage 2/2EX/3 Program viewer tool.
@@ -49,3 +49,4 @@ We contacted Nord Keyboards / Clavia DMI AB support about this project, answer f
 - Is the mapping accurate?
 
 This is an online collaboration, feel free to contact us if something is wrong. While we certainly hope this application is useful, none of the authors or contributors place any guarantees as to the accuracy of the data.
+Complete list of tested program configuration is available [here](./docs/test-result.md).

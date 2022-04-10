@@ -124,7 +124,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     // Usually 3.01 version are smaller with header type 0, but this example shows that the version
     // is not the trigger to define the format...
     if (offset04 !== 1) {
-        console.log("Offset 0x04 <> 1 switched to legacy mode");
+        // console.log("Offset 0x04 <> 1 switched to legacy mode");
         versionOffset = -20;
     }
 

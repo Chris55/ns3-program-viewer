@@ -15,19 +15,23 @@ const getNestedObject = (nestedObj, pathArr) => {
     throw new Error("something wrong with the api, actual value of " + pathArr.join(".") + " is undefined !!");
 };
 
-exports.loadTestCase = async (filename) => {
+const prettyName = (filename) => {
+    let result = filename.replace(/@a/g, "/");
+    result = result.replace("@=", "±");
+    result = result.replace("@p", "+");
+    result = result.replace("@c", ":");
+    result = result.replace("@c", ":");
+    return result;
+};
+
+const loadTestCase = async (filename) => {
     // load Nord File
     const buffer = await fs.readFile(filename);
     const sut = loadNordFile(buffer, filename);
 
     // decode expression from filename
 
-    let basename = path.basename(filename, path.extname(filename));
-    basename = basename.replace(/@a/g, "/");
-    basename = basename.replace("@=", "±");
-    basename = basename.replace("@p", "+");
-    basename = basename.replace("@c", ":");
-    basename = basename.replace("@c", ":");
+    let basename = prettyName(path.basename(filename, path.extname(filename)));
 
     const ands = basename.split(" and ");
     const data = [];
@@ -46,4 +50,9 @@ exports.loadTestCase = async (filename) => {
         sut: sut,
         data: data,
     };
+};
+
+module.exports = {
+    loadTestCase,
+    prettyName,
 };

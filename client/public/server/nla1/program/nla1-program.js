@@ -64,7 +64,7 @@ exports.loadNla1ProgramFile = (buffer, filename) => {
     let versionOffset = 0; // by default all address mapping are done as per latest NSM export (header type 1)
 
     if (offset04 !== 1) {
-        console.log("Offset 0x04 <> 1 switched to legacy mode");
+        // console.log("Offset 0x04 <> 1 switched to legacy mode");
         versionOffset = -20;
     }
 

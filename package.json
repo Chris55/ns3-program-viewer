@@ -39,6 +39,11 @@
             "json-summary",
             "text",
             "text-summary"
+        ],
+        "verbose": true,
+        "reporters": [
+            "default",
+            "./test/test-md-reporter.js"
         ]
     },
     "keywords": [
