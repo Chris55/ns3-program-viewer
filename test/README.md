@@ -1,5 +1,5 @@
 
-## test file naming convention
+## Test file naming convention
 
 This test folder contains all the test files (ns2p, ns2s, ns3f, ns3y, nlas...). test-builder.js is browsing all sub-folders and auto-generate a test case for each file. test-builder.js must be rerun if you add a new file or rename one.
 
@@ -23,4 +23,8 @@ The API should return:
 - "±" is replaced by @=
 - "+" is replaced by @p
 - ":" is replaced by @c
+
+## Automated Tests
+Complete list of tested program configuration is available [here](./docs/test-result.md).
+
 
