@@ -30,7 +30,7 @@ class MyMarkDownReporter {
                 title = title.replace(/\seq\s/gi, " = '");
                 title = title.replace(/\sand\s/gi, "' AND ");
                 const file = test.title.replace(/\s/g, "%20");
-                const url = "[" + path.parse(test.title).name + "](" + file + ")";
+                const url = "[" + path.parse(test.title).base + "](" + "../" + file + ")";
                 data += `|${test.status === "passed" ? "✅" : "❌"}|${title}|${url}|${EOL}`;
             }
         }
