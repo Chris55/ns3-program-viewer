@@ -84,7 +84,7 @@
         "@zip.js/zip.js": "^2.4.9",
         "ag-grid-community": "^27.1.0",
         "ag-grid-react": "^27.1.0",
-        "axios": "^0.26.1",
+        "axios": "^0.27.2",
         "bootstrap": "^4.6.1",
         "byte-size": "^8.1.0",
         "classnames": "^2.3.1",
