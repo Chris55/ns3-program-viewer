@@ -63,14 +63,15 @@
         "pug": "^3.0.1"
     },
     "scripts": {
-        "client": "cd client && yarn react-start",
-        "server": "nodemon server.js",
-        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-        "start": "NODE_ENV=production node server.js",
         "build": "NODE_ENV=production cd client && yarn install && yarn react-build",
-        "test": "jest --coverage && coverage-badge-creator",
+        "client": "cd client && yarn react-start",
+        "deploy:web": "heroku git:remote -a ns3-program-viewer && git push heroku master:main",
+        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+        "doc:lead": "./docs/build-doc.sh lead",
         "doc:stage": "./docs/build-doc.sh stage",
-        "doc:lead": "./docs/build-doc.sh lead"
+        "server": "nodemon server.js",
+        "start": "NODE_ENV=production node server.js",
+        "test": "jest --coverage && coverage-badge-creator"
     },
     "version": "1.5.5"
 }
