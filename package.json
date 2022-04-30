@@ -22,7 +22,7 @@
         "jsdoc-to-markdown": "^7.1.1",
         "markdown-magic": "^2.6.0",
         "node-pandoc": "^0.3.0",
-        "nodemon": "^2.0.15",
+        "nodemon": "^2.0.16",
         "prettier": "^2.6.2",
         "showdown": "^2.0.3",
         "unzipper": "^0.10.11",
