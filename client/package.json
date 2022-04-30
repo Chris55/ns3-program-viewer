@@ -131,6 +131,7 @@
     "private": true,
     "proxy": "http://localhost:4000/",
     "resolutions": {
+        "async": "^2.6.4",
         "nth-check": "^2.0.1"
     },
     "scripts": {
