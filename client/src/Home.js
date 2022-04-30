@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import { ReactComponent as DonateLogo } from "./assets/bmc-logo.svg";
 import nordLogoProgram from "./assets/nord-logo-program.svg";
 import nordLogoSynth from "./assets/nord-logo-synth.svg";
 import nordLogoProgramBundle from "./assets/nord-logo-program-bundle.svg";
@@ -8,13 +9,17 @@ import nordLogoSynthBundle from "./assets/nord-logo-synth-bundle.svg";
 import nordLogoListBundle from "./assets/nord-logo-list-bundle.svg";
 import nordLogoBackup from "./assets/nord-logo-backup.svg";
 import AppName from "./AppName";
-import { Card, Col, Container, Media, ProgressBar, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Media, ProgressBar, Row } from "react-bootstrap";
 import LoadButton from "./LoadButton";
 import { useSelector } from "react-redux";
 import { nordSelector } from "./features/nord/nordSliceReducer";
 import Handmade from "./Handmade";
 import Footer from "./Footer";
 import cx from "classnames";
+import { openUrl } from "./utils/handy";
+import { nordUrl } from "./constants";
+
+const donateUrl = "https://www.buymeacoffee.com/christianfI";
 
 const Home = () => {
     const { isElectron, progress } = useSelector(nordSelector);
@@ -129,7 +134,7 @@ const Home = () => {
                                             </Col>
                                         </Row>
                                         <Row className="mt-2">
-                                            <Col md={4}></Col>
+                                            <Col md={4} />
                                             <Col md="auto">
                                                 <Media className="">
                                                     <img
@@ -147,7 +152,7 @@ const Home = () => {
                                             </Col>
                                         </Row>
                                         <Row className="mt-2">
-                                            <Col md={4}></Col>
+                                            <Col md={4} />
                                             <Col md="auto">
                                                 <Media className="">
                                                     <img
@@ -172,6 +177,18 @@ const Home = () => {
                                     </Card.Body>
                                 </Card>
 
+                                <Card className="border-0 mt-4">
+                                    <Card.Body>
+                                        <Card.Subtitle className="text-muted">
+                                            If you have enjoyed this application and would like to buy me a coffee you
+                                            can do it here
+                                        </Card.Subtitle>
+
+                                        <Button variant="warning" className="mt-2" onClick={() => openUrl(donateUrl)}>
+                                            <DonateLogo width={30} height={"2rem"} /> Buy Me a Coffee
+                                        </Button>
+                                    </Card.Body>
+                                </Card>
                                 <Card className="border-0 text-muted">
                                     <Card.Body>
                                         <Card.Subtitle className="mt-3">Disclaimer</Card.Subtitle>
@@ -179,8 +196,10 @@ const Home = () => {
                                         <Card.Text>
                                             We are not affiliated, associated, endorsed by, or in any way officially
                                             connected with{" "}
-                                            <a href="https://www.nordkeyboards.com">Nord Keyboards / Clavia DMI AB</a>,
-                                            or any of its subsidiaries or its affiliates. The names Nord and Clavia as
+                                            <a onClick={() => openUrl(nordUrl)} className="btn-link pointer">
+                                                Nord Keyboards / Clavia DMI AB
+                                            </a>
+                                            , or any of its subsidiaries or its affiliates. The names Nord and Clavia as
                                             well as related names, marks, emblems and images are registered trademarks
                                             of their respective owners.
                                         </Card.Text>

@@ -1,12 +1,15 @@
-const { ipcRenderer, contextBridge } = require('electron');
+const { ipcRenderer, contextBridge, shell } = require("electron");
 
-contextBridge.exposeInMainWorld('electron', {
+contextBridge.exposeInMainWorld("electron", {
     // Invoke Methods
     downloadFiles: async (args) => {
-        return await ipcRenderer.invoke('download-files', args);
+        return await ipcRenderer.invoke("download-files", args);
     },
     downloadBackup: async (path, supportedProgramTypes) => {
-        return await ipcRenderer.invoke('download-backup', path, supportedProgramTypes);
+        return await ipcRenderer.invoke("download-backup", path, supportedProgramTypes);
+    },
+    openExternal: async (url) => {
+        await shell.openExternal(url);
     },
     // Send Methods
     //testSend: (args) => ipcRenderer.send('test-send', args),

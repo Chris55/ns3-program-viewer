@@ -11,3 +11,13 @@ export const isSafari =
     navigator.userAgent &&
     navigator.userAgent.indexOf("CriOS") === -1 &&
     navigator.userAgent.indexOf("FxiOS") === -1;
+
+export const openUrl = async (url) => {
+    const isElectron = /electron/i.test(navigator.userAgent);
+
+    if (isElectron) {
+        await window.electron.openExternal(url);
+    } else {
+        window.open(url);
+    }
+};
