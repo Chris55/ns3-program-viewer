@@ -307,8 +307,6 @@ const loadBackupFile = async (dispatch, file) => {
     dispatch(setLoading({ loading: true, progress: 60 }));
 
     if (initialState.isElectron) {
-        // onError(dispatch, { error: "not yet implemented..." });
-        // return;
         json = await window.electron.downloadBackup(file.path, supportedProgramTypes);
     } else {
         const url = production ? window.location.origin + "/api/upload" : "http://localhost:3000/api/upload";
@@ -325,55 +323,14 @@ const loadBackupFile = async (dispatch, file) => {
             return;
         }
     }
-    const programs = [];
-    const lives = [];
-    const performances = [];
-    const synths = [];
 
     if (json.success) {
-        for (const data of json.data) {
-            const nordItem = {
-                name: data.name,
-                location: data.id.name,
-                version: data.version.value,
-                category: data.category,
-                model: data,
-            };
-            switch (data.type) {
-                case "Program":
-                    programs.push(nordItem);
-                    break;
-                case "Performance":
-                    performances.push(nordItem);
-                    break;
-                case "Live":
-                    lives.push(nordItem);
-                    break;
-                case "Synth":
-                    synths.push(nordItem);
-                    break;
-                default:
-                    onError(dispatch, { error: data.type + " is not implemented..." });
-                    return;
-            }
-        }
+        const managerData = toManagerData(dispatch, json.data, file.name);
+        dispatch(setLoadingBackupSuccess({ ...managerData }));
+        fadeOutProgressBar(dispatch);
     } else {
         onError(dispatch, { error: json.error });
-        return;
     }
-
-    dispatch(
-        setLoadingBackupSuccess({
-            programs,
-            performances,
-            lives,
-            synths,
-            managerTitle: file.name,
-            managerFileExt: getExtension(file.name),
-        })
-    );
-
-    fadeOutProgressBar(dispatch);
 };
 
 export const fadeOutProgressBar = (dispatch) => {
@@ -384,22 +341,64 @@ export const fadeOutProgressBar = (dispatch) => {
     }, 3000);
 };
 
-const onSuccess = (dispatch, data) => {
-    //console.log("success: ", data);
-    if (data.success) {
-        dispatch(clearBackupData());
+const toManagerData = (dispatch, dataArray, filename) => {
+    const programs = [];
+    const lives = [];
+    const performances = [];
+    const synths = [];
+    for (const data of dataArray) {
+        const nordItem = {
+            name: data.name,
+            location: data.id.name,
+            version: data.version.value,
+            category: data.category,
+            model: data,
+        };
+        switch (data.type) {
+            case "Program":
+                programs.push(nordItem);
+                break;
+            case "Performance":
+                performances.push(nordItem);
+                break;
+            case "Live":
+                lives.push(nordItem);
+                break;
+            case "Synth":
+                synths.push(nordItem);
+                break;
+            default:
+                onError(dispatch, { error: data.type + " is not implemented..." });
+                return;
+        }
+    }
+    return {
+        programs,
+        performances,
+        lives,
+        synths,
+        managerTitle: filename,
+        managerFileExt: getExtension(filename),
+    };
+};
 
-        dispatch(
-            setLoadingSuccess({
-                data: data.data,
-                originalData: data.data,
-                programs: data.programs,
-            })
-        );
+const onSuccess = (dispatch, response) => {
+    if (response.success) {
+        // dispatch(clearBackupData());
+        //
+        // dispatch(
+        //     setLoadingSuccess({
+        //         data: data.data,
+        //         originalData: data.data,
+        //         programs: data.programs,
+        //     })
+        // );
+        const managerData = toManagerData(dispatch, response.data, "");
+        dispatch(setLoadingBackupSuccess({ ...managerData }));
 
         fadeOutProgressBar(dispatch);
     } else {
-        dispatch(setLoadingError(data));
+        dispatch(setLoadingError(response));
     }
 };
 
