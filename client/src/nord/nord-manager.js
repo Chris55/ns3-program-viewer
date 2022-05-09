@@ -18,15 +18,8 @@ const showSynth = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b
 const showLive = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
 
 const NordManager = () => {
-    const {
-        programs,
-        synths,
-        lives,
-        performances,
-        managerSelectedIndexes,
-        managerTabSelection,
-        managerFileExt,
-    } = useSelector(nordSelector);
+    const { programs, synths, lives, performances, managerSelectedIndexes, managerTabSelection, managerFileExt } =
+        useSelector(nordSelector);
 
     const [gridApi, setGridApi] = useState(null);
     //const [gridColumnApi, setGridColumnApi] = useState(null);
@@ -158,7 +151,10 @@ const NordManager = () => {
                     >
                         <Dropdown.Item eventKey="Program">Program</Dropdown.Item>
 
-                        {showSynth.includes(managerFileExt) && <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>}
+                        {managerFileExt === "" ||
+                            (showSynth.includes(managerFileExt) && (
+                                <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>
+                            ))}
 
                         {showLive.includes(managerFileExt) && <Dropdown.Item eventKey="Live">Live</Dropdown.Item>}
 

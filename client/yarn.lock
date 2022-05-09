@@ -1183,19 +1183,19 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@eslint/eslintrc@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-1.2.2.tgz#4989b9e8c0216747ee7cca314ae73791bb281aae"
-  integrity sha512-lTVWHs7O2hjBFZunXTZYnYqtB9GakA1lnxIf+gKq2nY5gxkkNi/lQvveW6t8gFdOHTg6nG50Xs95PrLqVpcaLg==
+"@eslint/eslintrc@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-1.2.3.tgz#fcaa2bcef39e13d6e9e7f6271f4cc7cae1174886"
+  integrity sha512-uGo44hIwoLGNyduRpjdEpovcbMdd+Nv7amtmJxnKmI8xj6yd5LncmSwDa5NgX/41lIFJtkjD6YdVfgEzPfJ5UA==
   dependencies:
     ajv "^6.12.4"
     debug "^4.3.2"
-    espree "^9.3.1"
+    espree "^9.3.2"
     globals "^13.9.0"
     ignore "^5.2.0"
     import-fresh "^3.2.1"
     js-yaml "^4.1.0"
-    minimatch "^3.0.4"
+    minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
 "@hapi/hoek@^9.0.0":
@@ -1888,10 +1888,10 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react@^13.1.1":
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-13.1.1.tgz#6c1635e25acca8ca5be8ee3b19ad1391681c5846"
-  integrity sha512-8mirlAa0OKaUvnqnZF6MdAh2tReYA2KtWVw1PKvaF5EcCZqgK5pl8iF+3uW90JdG5Ua2c2c2E2wtLdaug3dsVg==
+"@testing-library/react@^13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-13.2.0.tgz#2db00bc94d71c4e90e5c25582e90a650ae2925bf"
+  integrity sha512-Bprbz/SZVONCJy5f7hcihNCv313IJXdYiv0nSJklIs1SQCIHHNlnGNkosSXnGZTmesyGIcBGNppYhXcc11pb7g==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^8.5.0"
@@ -2555,10 +2555,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zip.js/zip.js@^2.4.10":
-  version "2.4.10"
-  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.4.10.tgz#1ba214465f20c9c3064dcd91761d0fc868f77e7f"
-  integrity sha512-lhlDPfkG8iMsAE7CNTu6fqFZp/qySEUIGBLXQQA0RNfNtgCt7SlkaGAwX0nKaCwMMNqw+wDrTJIP8gOR7uxqEg==
+"@zip.js/zip.js@^2.4.11":
+  version "2.4.11"
+  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.4.11.tgz#8f5b40ba35d7043c6c102a02d676dcb264a629dc"
+  integrity sha512-foZOFEdy1ZSxUvy4a3k/FlZqFTX7/1Dw7ji/plohTNcDid/XuAtsIWKcANRwZL5JLpSfndtz5M5oAF8oKfwfIw==
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
@@ -2596,7 +2596,7 @@ acorn-import-assertions@^1.7.6:
   resolved "https://registry.yarnpkg.com/acorn-import-assertions/-/acorn-import-assertions-1.8.0.tgz#ba2b5939ce62c238db6d93d81c9b111b29b855e9"
   integrity sha512-m7VZ3jwz4eK6A4Vtt8Ew1/mNbP24u0FhdyfA7fSvnJR6LMdfOYnmuIrrJAgrYfYJ10F/otaHTtrtrtmHdMNzEw==
 
-acorn-jsx@^5.3.1:
+acorn-jsx@^5.3.1, acorn-jsx@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
   integrity sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==
@@ -2624,6 +2624,11 @@ acorn@^8.2.4, acorn@^8.4.1, acorn@^8.5.0, acorn@^8.7.0:
   version "8.7.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.7.0.tgz#90951fde0f8f09df93549481e5fc141445b791cf"
   integrity sha512-V/LGr1APy+PXIwKebEWrkZPwoeoF+w1jiOBUmuxuiUIaOHtob8Qc9BTrYo7VuI5fR8tqsy+buA2WFooR5olqvQ==
+
+acorn@^8.7.1:
+  version "8.7.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.7.1.tgz#0197122c843d1bf6d0a5e83220a788f278f63c30"
+  integrity sha512-Xx54uLJQZ19lKygFXOWsscKUbsBZW0CPykPhVQdhIeIwrbPmJzqeASDInc8nKBnp/JT6igTs82qPXz069H8I/A==
 
 address@^1.0.1, address@^1.1.2:
   version "1.1.2"
@@ -4614,10 +4619,10 @@ electron-is-dev@^2.0.0:
   resolved "https://registry.yarnpkg.com/electron-is-dev/-/electron-is-dev-2.0.0.tgz#833487a069b8dad21425c67a19847d9064ab19bd"
   integrity sha512-3X99K852Yoqu9AcW50qz3ibYBWY79/pBhlMCab8ToEWS48R0T9tyxRiQhwylE7zQdXrMnx2JKqUJyMPmt5FBqA==
 
-electron-log@^4.4.6:
-  version "4.4.6"
-  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-4.4.6.tgz#e7824fc725370384f6edaaac0480c423e570dc69"
-  integrity sha512-nirYgRdY+F+vclr8ijdwy2vW03IzFpDHTaKNWu76dEN21Y76+smcES5knS7cgHUUB0qNLOi8vZO36taakjbSXA==
+electron-log@^4.4.7:
+  version "4.4.7"
+  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-4.4.7.tgz#d55b7232c019521694c3503d2109e5a49cb49dd0"
+  integrity sha512-uFZQdgevOp9Fn5lDOrJMU/bmmYxDLZitbIHJM7VXN+cpB59ZnPt1FQL4bOf/Dl2gaIMPYJEfXx38GvJma5iV6A==
 
 electron-notarize@^1.2.1:
   version "1.2.1"
@@ -5018,12 +5023,12 @@ eslint-webpack-plugin@^3.1.1:
     normalize-path "^3.0.0"
     schema-utils "^3.1.1"
 
-eslint@^8.14.0:
-  version "8.14.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.14.0.tgz#62741f159d9eb4a79695b28ec4989fcdec623239"
-  integrity sha512-3/CE4aJX7LNEiE3i6FeodHmI/38GZtWCsAtsymScmzYapx8q1nVVb+eLcLSzATmCPXw5pT4TqVs1E0OmxAd9tw==
+eslint@^8.15.0:
+  version "8.15.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.15.0.tgz#fea1d55a7062da48d82600d2e0974c55612a11e9"
+  integrity sha512-GG5USZ1jhCu8HJkzGgeK8/+RGnHaNYZGrGDzUtigK3BsGESW/rs2az23XqE0WVwDxy1VRvvjSSGu5nB0Bu+6SA==
   dependencies:
-    "@eslint/eslintrc" "^1.2.2"
+    "@eslint/eslintrc" "^1.2.3"
     "@humanwhocodes/config-array" "^0.9.2"
     ajv "^6.10.0"
     chalk "^4.0.0"
@@ -5034,7 +5039,7 @@ eslint@^8.14.0:
     eslint-scope "^7.1.1"
     eslint-utils "^3.0.0"
     eslint-visitor-keys "^3.3.0"
-    espree "^9.3.1"
+    espree "^9.3.2"
     esquery "^1.4.0"
     esutils "^2.0.2"
     fast-deep-equal "^3.1.3"
@@ -5050,7 +5055,7 @@ eslint@^8.14.0:
     json-stable-stringify-without-jsonify "^1.0.1"
     levn "^0.4.1"
     lodash.merge "^4.6.2"
-    minimatch "^3.0.4"
+    minimatch "^3.1.2"
     natural-compare "^1.4.0"
     optionator "^0.9.1"
     regexpp "^3.2.0"
@@ -5107,6 +5112,15 @@ espree@^9.3.1:
   dependencies:
     acorn "^8.7.0"
     acorn-jsx "^5.3.1"
+    eslint-visitor-keys "^3.3.0"
+
+espree@^9.3.2:
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/espree/-/espree-9.3.2.tgz#f58f77bd334731182801ced3380a8cc859091596"
+  integrity sha512-D211tC7ZwouTIuY5x9XnS0E9sWNChB7IYKX/Xp5eQj3nFXhqmiUDB9q27y76oFl8jTg3pXcQx/bpxMfs3CIZbA==
+  dependencies:
+    acorn "^8.7.1"
+    acorn-jsx "^5.3.2"
     eslint-visitor-keys "^3.3.0"
 
 esprima@^4.0.0, esprima@^4.0.1:
@@ -8940,10 +8954,10 @@ react-splitter-layout@^4.0.0:
   resolved "https://registry.yarnpkg.com/react-splitter-layout/-/react-splitter-layout-4.0.0.tgz#70b43ca6a78c056f5e5fbf29c67b597f040fbf2e"
   integrity sha512-SLqOjBOxRuizWUa83w6q5/u9cDWa9/yj9Iko9V9JFN8x+cqIXiDlUFWSx+icz3IIgvsN/oRIw3za5/32RjIwrA==
 
-react-toastify@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-8.2.0.tgz#ef7d56bdfdc6272ca6b228368ab564721c3a3244"
-  integrity sha512-Pg2Ju7NngAamarFvLwqrFomJ57u/Ay6i6zfLurt/qPynWkAkOthu6vxfqYpJCyNhHRhR4hu7+bySSeWWJu6PAg==
+react-toastify@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.0.1.tgz#2f3abd26a75efd55a82cb9c0a897c865218ea420"
+  integrity sha512-c2zeZHkCX+WXuItS/JRqQ/8CH8Qm/je+M0rt09xe9fnu5YPJigtNOdD8zX4fwLA093V2am3abkGfOowwpkrwOQ==
   dependencies:
     clsx "^1.1.1"
 
