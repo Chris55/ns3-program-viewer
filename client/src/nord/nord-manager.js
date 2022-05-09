@@ -149,18 +149,25 @@ const NordManager = () => {
                         variant="dark"
                         title={managerTabSelection}
                     >
-                        <Dropdown.Item eventKey="Program">Program</Dropdown.Item>
+                        <Dropdown.Item key="Program" eventKey="Program">
+                            Program
+                        </Dropdown.Item>
+                        <Dropdown.Item key="Synth" eventKey="Synth">
+                            Synth
+                        </Dropdown.Item>
+                        <Dropdown.Item key="Live" eventKey="Live">
+                            Live
+                        </Dropdown.Item>
+                        {/*{managerFileExt === "" ||*/}
+                        {/*    (showSynth.includes(managerFileExt) && (*/}
+                        {/*        <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>*/}
+                        {/*    ))}*/}
 
-                        {managerFileExt === "" ||
-                            (showSynth.includes(managerFileExt) && (
-                                <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>
-                            ))}
+                        {/*{showLive.includes(managerFileExt) && <Dropdown.Item eventKey="Live">Live</Dropdown.Item>}*/}
 
-                        {showLive.includes(managerFileExt) && <Dropdown.Item eventKey="Live">Live</Dropdown.Item>}
-
-                        {showPerformance.includes(managerFileExt) && (
-                            <Dropdown.Item eventKey="Performance">Performance</Dropdown.Item>
-                        )}
+                        {/*{showPerformance.includes(managerFileExt) && (*/}
+                        {/*    <Dropdown.Item eventKey="Performance">Performance</Dropdown.Item>*/}
+                        {/*)}*/}
                     </DropdownButton>
                 </div>
             </div>
