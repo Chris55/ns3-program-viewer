@@ -27,15 +27,15 @@ The official Nord Keyboards website can be found at https://www.nordkeyboards.co
 The names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.
 
 ## Author
-- [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) (@florence)
+- [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) / [@florence](https://www.norduserforum.com/member26720.html)
 
 ## Contributors (NUF members)
 
-- [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal),
-- @rpossemo,
-- @cookie,
-- @gordon,
-- @Hobster
+- [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) / [@gaaal](https://www.norduserforum.com/member17851.html),
+- [@rpossemo](https://www.norduserforum.com/member29445.html),
+- [@cookie](https://www.norduserforum.com/member2298.html),
+- [@gordon](https://www.norduserforum.com/member9895.html),
+- [@Hobster](https://www.norduserforum.com/member15701.html)
 
 Want to collaborate? Read [this](./docs/readme.md).
 
