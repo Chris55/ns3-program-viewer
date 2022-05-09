@@ -26,12 +26,16 @@ We are not affiliated, associated, endorsed by, or in any way officially connect
 The official Nord Keyboards website can be found at https://www.nordkeyboards.com
 The names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.
 
-
-
-## Contributors
+## Author
 - [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) (@florence)
-- [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal)
-- Thanks to other NUF members: @rpossemo, @cookie, @gordon, @Hobster
+
+## Contributors (NUF members)
+
+- [Andreas Gallenmueller](https://www.linkedin.com/in/andreas-gallenmueller-0b09721/) (@gaaal),
+- @rpossemo,
+- @cookie,
+- @gordon,
+- @Hobster
 
 Want to collaborate? Read [this](./docs/readme.md).
 
