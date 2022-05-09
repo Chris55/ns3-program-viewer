@@ -65,7 +65,7 @@
     "scripts": {
         "build": "NODE_ENV=production cd client && yarn install && yarn react-build",
         "client": "cd client && yarn react-start",
-        "deploy:web": "heroku git:remote -a ns3-program-viewer && git push heroku master:main",
+        "deploy:web": "heroku git:remote -a ns3-program-viewer && git push heroku main:main",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "doc:lead": "./docs/build-doc.sh lead",
         "doc:stage": "./docs/build-doc.sh stage",
