@@ -4,7 +4,18 @@ import AppName from "./AppName";
 import Handmade from "./Handmade";
 import Footer from "./Footer";
 import { openUrl } from "./utils/handy";
-import { andreasUrl, meUrl, nordUrl, nufUrl } from "./constants";
+import {
+    andreasUrl,
+    cookieNuf,
+    florenceNuf,
+    gaaalNuf,
+    gordonNuf,
+    hobsterNuf,
+    meUrl,
+    nordUrl,
+    nufUrl,
+    rpossemoNuf,
+} from "./constants";
 
 const About = () => {
     return (
@@ -53,20 +64,49 @@ const About = () => {
                                             <a onClick={() => openUrl(meUrl)} className="btn-link pointer">
                                                 Christian Florentz
                                             </a>{" "}
-                                            (@florence)
+                                            / (
+                                            <a onClick={() => openUrl(florenceNuf)} className="btn-link pointer">
+                                                @florence
+                                            </a>
+                                            )
                                         </li>
                                     </ul>
                                     <Card.Title className="mt-5">Contributors</Card.Title>
                                     <ul>
                                         <li>
-                                            Special thanks to{" "}
                                             <a onClick={() => openUrl(andreasUrl)} className="btn-link pointer">
                                                 Andreas Gallenmueller
                                             </a>{" "}
-                                            (@gaaal)
+                                            / (
+                                            <a onClick={() => openUrl(gaaalNuf)} className="btn-link pointer">
+                                                @gaaal
+                                            </a>
+                                            )
                                         </li>
 
-                                        <li>Thanks to other NUF members: @cookie, @gordon, @rpossemo, @hobster</li>
+                                        <li>
+                                            <a onClick={() => openUrl(rpossemoNuf)} className="btn-link pointer">
+                                                @rpossemo
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a onClick={() => openUrl(cookieNuf)} className="btn-link pointer">
+                                                @cookie
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a onClick={() => openUrl(gordonNuf)} className="btn-link pointer">
+                                                @gordon
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a onClick={() => openUrl(hobsterNuf)} className="btn-link pointer">
+                                                @Hobster
+                                            </a>
+                                        </li>
                                     </ul>
                                     <Card.Title className="mt-5">Disclaimer</Card.Title>
                                     <Card.Text>
