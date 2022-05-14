@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
-const api = require("./client/public/server/routes/api.routes");
+const api = require("./public/server/routes/api.routes");
 const serveIndex = require("serve-index");
 const helmet = require("helmet");
 
@@ -25,8 +25,8 @@ app.use(
                 fontSrc: ["'self'", "data:"],
                 imgSrc: ["'self'", "data:"],
                 "frame-src": ["'self'"],
-               // "worker-src": ["blob:"],    // required by Chrome to export csv (but Unrecognized in Safari)
-                "child-src":  ["blob:"],    // required by Safari to export csv
+                // "worker-src": ["blob:"],    // required by Chrome to export csv (but Unrecognized in Safari)
+                "child-src": ["blob:"], // required by Safari to export csv
             },
         },
     })
@@ -41,11 +41,11 @@ app.use("/media", express.static("upload"), serveIndex("upload", { icons: true, 
 
 if (process.env.NODE_ENV === "production") {
     // Serve any static files
-    app.use(express.static(path.join(__dirname, "client/build")));
+    app.use(express.static(path.join(__dirname, "build")));
 
     // Handle React routing, return all requests to React app
     app.get("*", function (req, res) {
-        res.sendFile(path.join(__dirname, "client/build", "index.html"));
+        res.sendFile(path.join(__dirname, "build", "index.html"));
     });
 }
 

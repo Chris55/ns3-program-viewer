@@ -1,5 +1,17 @@
 {
     "author": "Christian Florentz (christian.florentz@gmail.com)",
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
     "dependencies": {
         "body-parser": "^1.20.0",
         "byte-size": "^8.1.0",
@@ -8,7 +20,32 @@
         "helmet": "^5.0.2",
         "multer": "^1.4.4",
         "serve-index": "^1.9.1",
-        "uuid": "^8.3.2"
+        "uuid": "^8.3.2",
+        "@react-pdf/renderer": "^2.1.1",
+        "@reduxjs/toolkit": "^1.8.1",
+        "@zip.js/zip.js": "^2.4.11",
+        "ag-grid-community": "^27.2.1",
+        "ag-grid-react": "^27.2.1",
+        "axios": "^0.27.2",
+        "bootstrap": "^4.6.1",
+        "classnames": "^2.3.1",
+        "electron-is-dev": "^2.0.0",
+        "electron-log": "^4.4.7",
+        "electron-updater": "^5.0.1",
+        "file-saver": "^2.0.5",
+        "html2canvas": "^1.4.1",
+        "jspdf": "^2.5.1",
+        "react": "^18.1.0",
+        "react-bootstrap": "1.6.5",
+        "react-dom": "^18.1.0",
+        "react-icons": "^4.3.1",
+        "react-json-tree": "^0.16.1",
+        "react-redux": "^8.0.1",
+        "react-router-dom": "^6.3.0",
+        "react-scripts": "^5.0.1",
+        "react-splitter-layout": "^4.0.0",
+        "react-toastify": "^9.0.1",
+        "unzipper": "^0.10.11"
     },
     "description": "The unofficial Nord Stage 2/2EX/3 Program viewer tool.",
     "devDependencies": {
@@ -26,7 +63,18 @@
         "prettier": "^2.6.2",
         "showdown": "^2.1.0",
         "unzipper": "^0.10.11",
-        "xml-js": "^1.6.11"
+        "xml-js": "^1.6.11",
+        "@testing-library/jest-dom": "^5.16.3",
+        "@testing-library/react": "^13.2.0",
+        "@testing-library/user-event": "^14.1.1",
+        "cross-env": "^7.0.3",
+        "electron": "^18.2.3",
+        "electron-builder": "^23.0.3",
+        "electron-notarize": "^1.2.1",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "sass": "^1.51.0",
+        "wait-on": "^6.0.1"
     },
     "engines": {
         "node": "16.x"
@@ -52,6 +100,16 @@
         "NS3",
         "File"
     ],
+    "homepage": "./",
+    "main": "public/electron.js",
+    "private": true,
+    "proxy": "http://localhost:4000/",
+    "resolutions": {
+        "pug": "^3.0.1",
+        "async": "^2.6.4",
+        "ejs": "^3.1.7",
+        "nth-check": "^2.0.1"
+    },
     "license": "MIT",
     "name": "ns-file-parser",
     "prettier": {},
@@ -59,19 +117,30 @@
         "type": "git",
         "url": "https://github.com/Chris55/ns3-program-viewer.git"
     },
-    "resolutions": {
-        "pug": "^3.0.1"
-    },
     "scripts": {
-        "build": "NODE_ENV=production cd client && yarn install && yarn react-build",
-        "client": "cd client && yarn react-start",
+        "build": "NODE_ENV=production && yarn install && yarn react-build",
+        "client": "yarn react-start",
         "deploy:web": "heroku git:remote -a ns3-program-viewer && git push heroku main:main",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "doc:lead": "./docs/build-doc.sh lead",
         "doc:stage": "./docs/build-doc.sh stage",
+        "doc": "yarn doc:stage",
         "server": "nodemon server.js",
         "start": "NODE_ENV=production node server.js",
-        "test": "jest --coverage && coverage-badge-creator"
+        "test": "jest --coverage && coverage-badge-creator",
+        "react-start": "react-scripts start",
+        "react-build": "react-scripts build",
+        "react-test": "react-scripts test --env=jsdom",
+        "react-eject": "react-scripts eject",
+        "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
+        "electron-build": "electron-builder",
+        "build:x64": "yarn react-build && yarn electron-build build -mwl --publish never",
+        "build:arm": "yarn react-build && yarn electron-build build -l --arm64 --publish never",
+        "build:electron": "yarn build:x64 && yarn build:arm",
+        "deploy:x64": "yarn react-build && yarn electron-build build -mwl --publish=always",
+        "deploy:arm": "yarn react-build && yarn electron-build build -l --arm64 --publish=always",
+        "deploy:electron": "yarn deploy:x64 && yarn deploy:arm",
+        "dev:electron": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
     },
     "version": "1.5.6"
 }

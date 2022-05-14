@@ -11,12 +11,12 @@ mkdir ./automation/docs/out
 # extract all online doc from the source code and save it as markdown files
 
 if [ "$1" == "stage" ]; then
-    jsdoc2md client/public/server/ns3/program/*.js > docs/ns3/program/ns3-doc.md
-    jsdoc2md client/public/server/ns2/program/*.js > docs/ns2/program/ns2-doc.md
+    jsdoc2md public/server/ns3/program/*.js > docs/ns3/program/ns3-doc.md
+    jsdoc2md public/server/ns2/program/*.js > docs/ns2/program/ns2-doc.md
 fi
 
 if [ "$1" == "lead" ]; then
-    jsdoc2md ./client/public/server/nla1/program/*.js > docs/nla1/program/nla1-doc.md
+    jsdoc2md ./public/server/nla1/program/*.js > docs/nla1/program/nla1-doc.md
 fi
 
 # cleanup markdown files

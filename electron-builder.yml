@@ -1,0 +1,59 @@
+---
+appId: com.chris55.nord-file-viewer
+productName: File Viewer for Nord Stage
+copyright: |-
+    Copyright © 2020-2022 ${author}
+
+    Special thanks to Andreas Gallenmueller (@gaaal)
+    Thanks to other NUF members: @rpossemo, @cookie, @gordon, @Hobster
+
+
+    Disclaimer: We are not affiliated, associated, endorsed by, or in any way officially connected with Nord Keyboards / Clavia DMI AB, or any of its subsidiaries or its affiliates.
+    The names Nord and Clavia as well as related names, marks, emblems and images are registered trademarks of their respective owners.
+publish:
+    - provider: github
+      owner: Chris55
+      repo: ns3-program-viewer
+extraResources: []
+afterSign: "./afterSignHook.js"
+mac:
+    target:
+        - dmg
+        - mas
+        - zip
+    category: public.app-category.music
+    icon: assets/icons/app.icns
+    electronLanguages:
+        - en
+    entitlements: "./build/entitlements.mac.plist"
+    entitlementsInherit: "./build/entitlements.mac.plist"
+    hardenedRuntime: true
+    gatekeeperAssess: false
+mas:
+    hardenedRuntime: false
+    category: public.app-category.music
+    provisioningProfile: embedded.provisionprofile
+    entitlements: build/entitlements.mas.plist
+    entitlementsInherit: build/entitlements.mas.inherit.plist
+    gatekeeperAssess: false
+    icon: assets/icons/app.icns
+win:
+    target: nsis
+    icon: assets/icons/app.ico
+dmg:
+    sign: false
+linux:
+    target:
+        - deb
+        - rpm
+    maintainer: christian.florentz@gmail.com
+    category: Utility
+deb: {}
+appImage: {}
+fileAssociations:
+    - ext:
+          - ns3f
+          - ns3y
+          - ns2p
+      role: Viewer
+

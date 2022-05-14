@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { loadNordFile } = require("../../client/public/server/nord-service");
+const { loadNordFile } = require("../../public/server/nord-service");
 const homedir = require("os").homedir();
 
 const inputFolder = homedir + "/downloads/ns3/officials";
@@ -63,7 +63,6 @@ inputsFiles.forEach((x) => {
             }
         }
     }
-
 });
 
 console.log(unknownSamples.length, " unknown samples detected");
@@ -71,5 +70,3 @@ console.log(unknownSamples.length, " unknown samples detected");
 unknownSamples.forEach((x) => {
     console.warn(x);
 });
-
-

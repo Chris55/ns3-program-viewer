@@ -1,5 +1,29 @@
   
-# 1078/1078 tests passed  
+# 1096/1096 tests passed  
+## CONVERTER TEST  
+| status  | setting tested            | file |  
+|:-------:|:--------------------------|------|  
+|✅|midi linear 127 to equal 100%'|[midi linear 127 to equal 100%](../midi%20linear%20127%20to%20equal%20100%)|  
+|✅|midi linear 64 to equal 50%'|[midi linear 64 to equal 50%](../midi%20linear%2064%20to%20equal%2050%)|  
+|✅|midi linear 0 to equal 0%'|[midi linear 0 to equal 0%](../midi%20linear%200%20to%20equal%200%)|  
+|✅|tempo 50 interpolation'|[tempo 50 interpolation](../tempo%2050%20interpolation)|  
+|✅|tempo 42 interpolation'|[tempo 42 interpolation](../tempo%2042%20interpolation)|  
+|✅|round 1'|[round 1.233](../round%201.233)|  
+|✅|round 1'|[round 1.238](../round%201.238)|  
+|✅|round 1'|[round 1.235](../round%201.235)|  
+|✅|round 1'|[round 1.005](../round%201.005)|  
+## CONVERTER TEST  
+| status  | setting tested            | file |  
+|:-------:|:--------------------------|------|  
+|✅|midi linear 127 to equal 100%'|[midi linear 127 to equal 100%](../midi%20linear%20127%20to%20equal%20100%)|  
+|✅|midi linear 64 to equal 50%'|[midi linear 64 to equal 50%](../midi%20linear%2064%20to%20equal%2050%)|  
+|✅|midi linear 0 to equal 0%'|[midi linear 0 to equal 0%](../midi%20linear%200%20to%20equal%200%)|  
+|✅|tempo 50 interpolation'|[tempo 50 interpolation](../tempo%2050%20interpolation)|  
+|✅|tempo 42 interpolation'|[tempo 42 interpolation](../tempo%2042%20interpolation)|  
+|✅|round 1'|[round 1.233](../round%201.233)|  
+|✅|round 1'|[round 1.238](../round%201.238)|  
+|✅|round 1'|[round 1.235](../round%201.235)|  
+|✅|round 1'|[round 1.005](../round%201.005)|  
 ## NS2 EFFECTS TEST  
 | status  | setting tested            | file |  
 |:-------:|:--------------------------|------|  

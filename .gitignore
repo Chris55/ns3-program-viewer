@@ -1,13 +1,13 @@
 upload/
 !upload/readme.md
-/client/build/
-/client/userdata/
+build/
+userdata/
 
 
-/client/public/entitlements.mas.plist
-/client/dev.provisionprofile
-/client/prod.provisionprofile
-/client/embedded.provisionprofile
+**/entitlements.mas.plist
+**/dev.provisionprofile
+**/prod.provisionprofile
+**/embedded.provisionprofile
 
 # Logs
 logs
