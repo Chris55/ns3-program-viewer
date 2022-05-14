@@ -1,9 +1,9 @@
 const readline = require("readline");
 const fs = require("fs");
 const os = require("os");
-const ns2Mapping = require("../../client/public/server/ns2/program/ns2-mapping");
-const ns3Mapping = require("../../client/public/server/ns3/program/ns3-mapping");
-const commonMapping = require("../../client/public/server/common/nord-mapping");
+const ns2Mapping = require("../../public/server/ns2/program/ns2-mapping");
+const ns3Mapping = require("../../public/server/ns3/program/ns3-mapping");
+const commonMapping = require("../../public/server/common/nord-mapping");
 
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, "g"), replace);
@@ -81,7 +81,6 @@ const pathInputNla1 = __dirname + "/../../docs/nla1/program/";
 
 convert("ns3", pathInputNs3 + "readme.md", pathOutput + "00-readme-stage.md", false);
 convert("ns3", pathInputNs3 + "ns3-doc.md", pathOutput + "10-doc-stage.md", true);
-
 
 convert("ns2", pathInputNs2 + "readme.md", pathOutput + "20-readme-stage.md", false);
 convert("ns2", pathInputNs2 + "ns2-doc.md", pathOutput + "30-doc-stage.md", true);

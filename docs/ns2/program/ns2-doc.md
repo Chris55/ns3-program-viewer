@@ -394,33 +394,6 @@
 <dt><a href="#module_NS2 Synth Arp On">NS2 Synth Arp On</a></dt>
 <dd><p>Offset in file: 0xd9 (b0)</p>
 </dd>
-<dt><a href="#module_NS2 Synth On">NS2 Synth On</a></dt>
-<dd><p>Offset in file: 0x4d (b6)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Kb Zone">NS2 Synth Kb Zone</a></dt>
-<dd><p>Offset in file: 0x51 (b6-4)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Volume">NS2 Synth Volume</a></dt>
-<dd><p>Offset in file: 0x50 (b5-0) and 0x51 (b7)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Octave Shift">NS2 Synth Octave Shift</a></dt>
-<dd><p>Offset in file: 0x51 (b3-0)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Pitch Stick">NS2 Synth Pitch Stick</a></dt>
-<dd><p>Offset in file: 0x52 (b7)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Sustain Pedal">NS2 Synth Sustain Pedal</a></dt>
-<dd><p>Offset in file: 0x52 (b6)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Latch Pedal">NS2 Synth Latch Pedal</a></dt>
-<dd><p>Offset in file: 0x5a (b5)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Kb Gate">NS2 Synth Kb Gate</a></dt>
-<dd><p>Offset in file: 0x5a (b4)</p>
-</dd>
-<dt><a href="#module_NS2 Synth Kb Hold">NS2 Synth Kb Hold</a></dt>
-<dd><p>Offset in file: 0xdc (b1)</p>
-</dd>
 <dt><a href="#module_NS2 Synth Osc Mode">NS2 Synth Osc Mode</a></dt>
 <dd><p>Offset in file: 0xe1 (b1-0) and 0xe2 (b7)</p>
 </dd>
@@ -470,6 +443,33 @@
 <dd></dd>
 <dt><a href="#module_NS2 Synth Lfo Master Clock">NS2 Synth Lfo Master Clock</a></dt>
 <dd><p>Offset in file: 0xdc (b6)</p>
+</dd>
+<dt><a href="#module_NS2 Synth On">NS2 Synth On</a></dt>
+<dd><p>Offset in file: 0x4d (b6)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Kb Zone">NS2 Synth Kb Zone</a></dt>
+<dd><p>Offset in file: 0x51 (b6-4)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Volume">NS2 Synth Volume</a></dt>
+<dd><p>Offset in file: 0x50 (b5-0) and 0x51 (b7)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Octave Shift">NS2 Synth Octave Shift</a></dt>
+<dd><p>Offset in file: 0x51 (b3-0)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Pitch Stick">NS2 Synth Pitch Stick</a></dt>
+<dd><p>Offset in file: 0x52 (b7)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Sustain Pedal">NS2 Synth Sustain Pedal</a></dt>
+<dd><p>Offset in file: 0x52 (b6)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Latch Pedal">NS2 Synth Latch Pedal</a></dt>
+<dd><p>Offset in file: 0x5a (b5)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Kb Gate">NS2 Synth Kb Gate</a></dt>
+<dd><p>Offset in file: 0x5a (b4)</p>
+</dd>
+<dt><a href="#module_NS2 Synth Kb Hold">NS2 Synth Kb Hold</a></dt>
+<dd><p>Offset in file: 0xdc (b1)</p>
 </dd>
 <dt><a href="#module_NS2 Synth Arp Rate">NS2 Synth Arp Rate</a></dt>
 <dd></dd>
@@ -2293,99 +2293,6 @@ Offset in file: 0xd9 (b0)
 ```js
 O = off, 1 = on
 ```
-<a name="module_NS2 Synth On"></a>
-
-## NS2 Synth On
-Offset in file: 0x4d (b6)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS2 Synth Kb Zone"></a>
-
-## NS2 Synth Kb Zone
-Offset in file: 0x51 (b6-4)
-
-**Example**  
-```js
-0 = LO
-1 = LO UP
-2 = UP
-3 = UP HI
-4 = HI
-5 = LO UP HI
-```
-<a name="module_NS2 Synth Volume"></a>
-
-## NS2 Synth Volume
-Offset in file: 0x50 (b5-0) and 0x51 (b7)
-
-**Example**  
-```js
-Morph Wheel:
-offset in file 0x4d (b5-0) 0x4e (b7-6)
-
-Morph After Touch:
-offset in file 0x4e (b5-0) 0x4f (b7-6)
-
-Morph Control Pedal:
-offset in file 0x4f (b5-0) 0x50 (b7-6)
-```
-<a name="module_NS2 Synth Octave Shift"></a>
-
-## NS2 Synth Octave Shift
-Offset in file: 0x51 (b3-0)
-
-**Example**  
-```js
-Octave Shift = value - 7
-```
-<a name="module_NS2 Synth Pitch Stick"></a>
-
-## NS2 Synth Pitch Stick
-Offset in file: 0x52 (b7)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS2 Synth Sustain Pedal"></a>
-
-## NS2 Synth Sustain Pedal
-Offset in file: 0x52 (b6)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS2 Synth Latch Pedal"></a>
-
-## NS2 Synth Latch Pedal
-Offset in file: 0x5a (b5)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS2 Synth Kb Gate"></a>
-
-## NS2 Synth Kb Gate
-Offset in file: 0x5a (b4)
-
-**Example**  
-```js
-O = off, 1 = on
-```
-<a name="module_NS2 Synth Kb Hold"></a>
-
-## NS2 Synth Kb Hold
-Offset in file: 0xdc (b1)
-
-**Example**  
-```js
-O = off, 1 = on
-```
 <a name="module_NS2 Synth Osc Mode"></a>
 
 ## NS2 Synth Osc Mode
@@ -2595,6 +2502,99 @@ Offset in file: 0xf6 (b2-0) 0xf7 (b7-4) (if LFO MST CLOCK = OFF)
 
 ## NS2 Synth Lfo Master Clock
 Offset in file: 0xdc (b6)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Synth On"></a>
+
+## NS2 Synth On
+Offset in file: 0x4d (b6)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Synth Kb Zone"></a>
+
+## NS2 Synth Kb Zone
+Offset in file: 0x51 (b6-4)
+
+**Example**  
+```js
+0 = LO
+1 = LO UP
+2 = UP
+3 = UP HI
+4 = HI
+5 = LO UP HI
+```
+<a name="module_NS2 Synth Volume"></a>
+
+## NS2 Synth Volume
+Offset in file: 0x50 (b5-0) and 0x51 (b7)
+
+**Example**  
+```js
+Morph Wheel:
+offset in file 0x4d (b5-0) 0x4e (b7-6)
+
+Morph After Touch:
+offset in file 0x4e (b5-0) 0x4f (b7-6)
+
+Morph Control Pedal:
+offset in file 0x4f (b5-0) 0x50 (b7-6)
+```
+<a name="module_NS2 Synth Octave Shift"></a>
+
+## NS2 Synth Octave Shift
+Offset in file: 0x51 (b3-0)
+
+**Example**  
+```js
+Octave Shift = value - 7
+```
+<a name="module_NS2 Synth Pitch Stick"></a>
+
+## NS2 Synth Pitch Stick
+Offset in file: 0x52 (b7)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Synth Sustain Pedal"></a>
+
+## NS2 Synth Sustain Pedal
+Offset in file: 0x52 (b6)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Synth Latch Pedal"></a>
+
+## NS2 Synth Latch Pedal
+Offset in file: 0x5a (b5)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Synth Kb Gate"></a>
+
+## NS2 Synth Kb Gate
+Offset in file: 0x5a (b4)
+
+**Example**  
+```js
+O = off, 1 = on
+```
+<a name="module_NS2 Synth Kb Hold"></a>
+
+## NS2 Synth Kb Hold
+Offset in file: 0xdc (b1)
 
 **Example**  
 ```js

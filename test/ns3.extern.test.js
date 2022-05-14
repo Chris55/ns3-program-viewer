@@ -1,11 +1,11 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./helpers");
+const { loadTestCase } = require("./test-helpers");
 
 const root = __dirname + "/ns3/extern/";
 
 describe("/ns3/extern", () => {
-    test("panelA.extern.afterTouch.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.afterTouch.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.afterTouch.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -13,7 +13,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.afterTouch.enabled eq true", async () => {
+    test("test/ns3/extern/panelA.extern.afterTouch.enabled eq true.ns3f", async () => {
         const file = "panelA.extern.afterTouch.enabled eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -21,7 +21,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc.value eq 2", async () => {
+    test("test/ns3/extern/panelA.extern.cc.value eq 2.ns3f", async () => {
         const file = "panelA.extern.cc.value eq 2.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -29,7 +29,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc.value eq 3", async () => {
+    test("test/ns3/extern/panelA.extern.cc.value eq 3.ns3f", async () => {
         const file = "panelA.extern.cc.value eq 3.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -37,7 +37,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc00.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.cc00.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.cc00.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -45,7 +45,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc00.enabled eq true", async () => {
+    test("test/ns3/extern/panelA.extern.cc00.enabled eq true.ns3f", async () => {
         const file = "panelA.extern.cc00.enabled eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -53,7 +53,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc00.value eq 0", async () => {
+    test("test/ns3/extern/panelA.extern.cc00.value eq 0.ns3f", async () => {
         const file = "panelA.extern.cc00.value eq 0.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -61,7 +61,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc00.value eq 127", async () => {
+    test("test/ns3/extern/panelA.extern.cc00.value eq 127.ns3f", async () => {
         const file = "panelA.extern.cc00.value eq 127.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -69,7 +69,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc32.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.cc32.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.cc32.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -77,7 +77,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc32.enabled eq true", async () => {
+    test("test/ns3/extern/panelA.extern.cc32.enabled eq true.ns3f", async () => {
         const file = "panelA.extern.cc32.enabled eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -85,7 +85,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc32.value eq 0", async () => {
+    test("test/ns3/extern/panelA.extern.cc32.value eq 0.ns3f", async () => {
         const file = "panelA.extern.cc32.value eq 0.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -93,7 +93,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.cc32.value eq 127", async () => {
+    test("test/ns3/extern/panelA.extern.cc32.value eq 127.ns3f", async () => {
         const file = "panelA.extern.cc32.value eq 127.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -101,7 +101,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.channel.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.channel.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.channel.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -109,7 +109,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.channel.value eq 1", async () => {
+    test("test/ns3/extern/panelA.extern.channel.value eq 1.ns3f", async () => {
         const file = "panelA.extern.channel.value eq 1.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -117,7 +117,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.channel.value eq 16", async () => {
+    test("test/ns3/extern/panelA.extern.channel.value eq 16.ns3f", async () => {
         const file = "panelA.extern.channel.value eq 16.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -125,7 +125,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.channel.value eq 2", async () => {
+    test("test/ns3/extern/panelA.extern.channel.value eq 2.ns3f", async () => {
         const file = "panelA.extern.channel.value eq 2.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -133,7 +133,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.control.value eq Midi CC", async () => {
+    test("test/ns3/extern/panelA.extern.control.value eq Midi CC.ns3f", async () => {
         const file = "panelA.extern.control.value eq Midi CC.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -141,7 +141,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.control.value eq Program", async () => {
+    test("test/ns3/extern/panelA.extern.control.value eq Program.ns3f", async () => {
         const file = "panelA.extern.control.value eq Program.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -149,7 +149,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.control.value eq Volume", async () => {
+    test("test/ns3/extern/panelA.extern.control.value eq Volume.ns3f", async () => {
         const file = "panelA.extern.control.value eq Volume.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -157,7 +157,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.controlPedal.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.controlPedal.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.controlPedal.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -165,7 +165,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.controlPedal.enabled eq true", async () => {
+    test("test/ns3/extern/panelA.extern.controlPedal.enabled eq true.ns3f", async () => {
         const file = "panelA.extern.controlPedal.enabled eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -173,7 +173,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -181,7 +181,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.enabled eq true and panelA.extern.kbZone.value eq -OO-", async () => {
+    test("test/ns3/extern/panelA.extern.enabled eq true and panelA.extern.kbZone.value eq -OO-.ns3f", async () => {
         const file = "panelA.extern.enabled eq true and panelA.extern.kbZone.value eq -OO-.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -189,7 +189,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.enabled eq true and panelA.extern.kbZone.value eq 0000", async () => {
+    test("test/ns3/extern/panelA.extern.enabled eq true and panelA.extern.kbZone.value eq 0000.ns3f", async () => {
         const file = "panelA.extern.enabled eq true and panelA.extern.kbZone.value eq 0000.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -197,7 +197,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.midiCc.enabledOnLoad eq false", async () => {
+    test("test/ns3/extern/panelA.extern.midiCc.enabledOnLoad eq false.ns3f", async () => {
         const file = "panelA.extern.midiCc.enabledOnLoad eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -205,7 +205,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.midiCc.enabledOnLoad eq true", async () => {
+    test("test/ns3/extern/panelA.extern.midiCc.enabledOnLoad eq true.ns3f", async () => {
         const file = "panelA.extern.midiCc.enabledOnLoad eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -213,7 +213,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.midiCc.midi eq 0", async () => {
+    test("test/ns3/extern/panelA.extern.midiCc.midi eq 0.ns3f", async () => {
         const file = "panelA.extern.midiCc.midi eq 0.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -221,7 +221,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.midiCc.midi eq 127", async () => {
+    test("test/ns3/extern/panelA.extern.midiCc.midi eq 127.ns3f", async () => {
         const file = "panelA.extern.midiCc.midi eq 127.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -229,7 +229,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.octaveShift.value eq -1 oct", async () => {
+    test("test/ns3/extern/panelA.extern.octaveShift.value eq -1 oct.ns3f", async () => {
         const file = "panelA.extern.octaveShift.value eq -1 oct.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -237,7 +237,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.octaveShift.value eq @p0 oct", async () => {
+    test("test/ns3/extern/panelA.extern.octaveShift.value eq @p0 oct.ns3f", async () => {
         const file = "panelA.extern.octaveShift.value eq @p0 oct.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -245,7 +245,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.octaveShift.value eq @p1 oct", async () => {
+    test("test/ns3/extern/panelA.extern.octaveShift.value eq @p1 oct.ns3f", async () => {
         const file = "panelA.extern.octaveShift.value eq @p1 oct.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -253,7 +253,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.pitchStick.enabled eq false and panelA.extern.sustainPedal.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.pitchStick.enabled eq false and panelA.extern.sustainPedal.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.pitchStick.enabled eq false and panelA.extern.sustainPedal.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -261,7 +261,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.pitchStick.enabled eq true", async () => {
+    test("test/ns3/extern/panelA.extern.pitchStick.enabled eq true.ns3f", async () => {
         const file = "panelA.extern.pitchStick.enabled eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -269,7 +269,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.program.enabledOnLoad eq false", async () => {
+    test("test/ns3/extern/panelA.extern.program.enabledOnLoad eq false.ns3f", async () => {
         const file = "panelA.extern.program.enabledOnLoad eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -277,7 +277,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.program.enabledOnLoad eq true", async () => {
+    test("test/ns3/extern/panelA.extern.program.enabledOnLoad eq true.ns3f", async () => {
         const file = "panelA.extern.program.enabledOnLoad eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -285,7 +285,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.program.midi eq 0", async () => {
+    test("test/ns3/extern/panelA.extern.program.midi eq 0.ns3f", async () => {
         const file = "panelA.extern.program.midi eq 0.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -293,7 +293,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.program.midi eq 127", async () => {
+    test("test/ns3/extern/panelA.extern.program.midi eq 127.ns3f", async () => {
         const file = "panelA.extern.program.midi eq 127.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -301,7 +301,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.sustainPedal.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.sustainPedal.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.sustainPedal.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -309,7 +309,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.sustainPedal.enabled eq true", async () => {
+    test("test/ns3/extern/panelA.extern.sustainPedal.enabled eq true.ns3f", async () => {
         const file = "panelA.extern.sustainPedal.enabled eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -317,7 +317,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.swell.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.swell.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.swell.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -325,7 +325,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.swell.enabled eq true", async () => {
+    test("test/ns3/extern/panelA.extern.swell.enabled eq true.ns3f", async () => {
         const file = "panelA.extern.swell.enabled eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -333,7 +333,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.velocity.value eq Hard", async () => {
+    test("test/ns3/extern/panelA.extern.velocity.value eq Hard.ns3f", async () => {
         const file = "panelA.extern.velocity.value eq Hard.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -341,7 +341,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.velocity.value eq Mid", async () => {
+    test("test/ns3/extern/panelA.extern.velocity.value eq Mid.ns3f", async () => {
         const file = "panelA.extern.velocity.value eq Mid.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -349,7 +349,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.velocity.value eq Soft", async () => {
+    test("test/ns3/extern/panelA.extern.velocity.value eq Soft.ns3f", async () => {
         const file = "panelA.extern.velocity.value eq Soft.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -357,7 +357,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.volume.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.volume.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -365,7 +365,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.enabled eq true", async () => {
+    test("test/ns3/extern/panelA.extern.volume.enabled eq true.ns3f", async () => {
         const file = "panelA.extern.volume.enabled eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -373,7 +373,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.enabledOnLoad eq false", async () => {
+    test("test/ns3/extern/panelA.extern.volume.enabledOnLoad eq false.ns3f", async () => {
         const file = "panelA.extern.volume.enabledOnLoad eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -381,7 +381,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.enabledOnLoad eq true", async () => {
+    test("test/ns3/extern/panelA.extern.volume.enabledOnLoad eq true.ns3f", async () => {
         const file = "panelA.extern.volume.enabledOnLoad eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -389,7 +389,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.midi eq 1", async () => {
+    test("test/ns3/extern/panelA.extern.volume.midi eq 1.ns3f", async () => {
         const file = "panelA.extern.volume.midi eq 1.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -397,7 +397,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.midi eq 127", async () => {
+    test("test/ns3/extern/panelA.extern.volume.midi eq 127.ns3f", async () => {
         const file = "panelA.extern.volume.midi eq 127.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -405,7 +405,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.midi eq 64", async () => {
+    test("test/ns3/extern/panelA.extern.volume.midi eq 64.ns3f", async () => {
         const file = "panelA.extern.volume.midi eq 64.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -413,7 +413,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.morph.afterTouch.to.midi eq 100", async () => {
+    test("test/ns3/extern/panelA.extern.volume.morph.afterTouch.to.midi eq 100.ns3f", async () => {
         const file = "panelA.extern.volume.morph.afterTouch.to.midi eq 100.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -421,7 +421,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.morph.controlPedal.to.midi eq 0", async () => {
+    test("test/ns3/extern/panelA.extern.volume.morph.controlPedal.to.midi eq 0.ns3f", async () => {
         const file = "panelA.extern.volume.morph.controlPedal.to.midi eq 0.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -429,7 +429,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.volume.morph.wheel.to.midi eq 126", async () => {
+    test("test/ns3/extern/panelA.extern.volume.morph.wheel.to.midi eq 126.ns3f", async () => {
         const file = "panelA.extern.volume.morph.wheel.to.midi eq 126.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -437,7 +437,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.wheel.enabled eq false", async () => {
+    test("test/ns3/extern/panelA.extern.wheel.enabled eq false.ns3f", async () => {
         const file = "panelA.extern.wheel.enabled eq false.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {
@@ -445,7 +445,7 @@ describe("/ns3/extern", () => {
         });
     });
 
-    test("panelA.extern.wheel.enabled eq true", async () => {
+    test("test/ns3/extern/panelA.extern.wheel.enabled eq true.ns3f", async () => {
         const file = "panelA.extern.wheel.enabled eq true.ns3f";
         const sut = await loadTestCase(root + file);
         sut.data.forEach((d) => {

@@ -5,16 +5,15 @@
 const unzipper = require("unzipper");
 const fs = require("fs");
 const path = require("path");
-const { getSample } = require("../../client/public/server/library/ns3-library-service");
-const { loadNs3SampleFile } = require("../../client/public/server/common/nord-sample");
-const { loadNs3ProgramFile } = require("../../client/public/server/ns3/program/ns3-program");
+const { getSample } = require("../../public/server/library/ns3-library-service");
+const { loadNs3SampleFile } = require("../../public/server/common/nord-sample");
+const { loadNs3ProgramFile } = require("../../public/server/ns3/program/ns3-program");
 const homedir = require("os").homedir();
 const convert = require("xml-js");
-const { loadNs2ProgramFile } = require("../../client/public/server/ns2/program/ns2-program");
+const { loadNs2ProgramFile } = require("../../public/server/ns2/program/ns2-program");
 
 //const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
 const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
-
 
 const samplesByFilename = new Map(); // key is the sample file name as defined in meta.xml file
 const programsByFileName = new Map(); // key is the program file name  as defined in meta.xml file

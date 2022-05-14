@@ -5,22 +5,24 @@ if [ "$1" != "stage" ] && [ "$1" != "lead" ]; then
     exit -1
 fi
 
-rm ./automation/docs/out/*
+rm -rf ./automation/docs/out
+mkdir ./automation/docs/out
 
 # extract all online doc from the source code and save it as markdown files
 
 if [ "$1" == "stage" ]; then
-    jsdoc2md client/public/server/ns3/program/*.js > docs/ns3/program/ns3-doc.md
-    jsdoc2md client/public/server/ns2/program/*.js > docs/ns2/program/ns2-doc.md
+    jsdoc2md public/server/ns3/program/*.js > docs/ns3/program/ns3-doc.md
+    jsdoc2md public/server/ns2/program/*.js > docs/ns2/program/ns2-doc.md
 fi
 
 if [ "$1" == "lead" ]; then
-    jsdoc2md ./client/public/server/nla1/program/*.js > docs/nla1/program/nla1-doc.md
+    jsdoc2md ./public/server/nla1/program/*.js > docs/nla1/program/nla1-doc.md
 fi
 
 # cleanup markdown files
 
 node ./automation/docs/build-doc.js
+
 
 # build pdf file
 
@@ -37,3 +39,7 @@ if [ "$1" == "lead" ]; then
     pandoc ./docs/nla1/header.yaml ./automation/docs/out/*-lead.md -s -o $PANDOC_OUT $PANDOC_OPT
     echo Nord Lead A1 documentation updated, $PANDOC_OUT
 fi
+
+# build doc web site
+
+cat ./automation/docs/out/*-stage.md >./docs/index.md

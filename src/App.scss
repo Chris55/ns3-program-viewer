@@ -1,0 +1,256 @@
+// ag-grid.scss defines structural styles and should be imported first
+@import "~ag-grid-community/src/styles/ag-grid.scss";
+@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+$nord-dark-grey: #3b4047;
+
+.ag-theme-custom-react {
+    @include ag-theme-alpine(
+        (
+            alpine-active-color: $nord-dark-grey,
+            header-foreground-color: white,
+            header-background-color: $nord-dark-grey,
+            range-selection-border-color: #ac9393,
+            header-height: 2.5rem,
+            borders: false,
+            borders-critical: true,
+            font-family: (
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                "Roboto",
+                "Oxygen",
+                "Ubuntu",
+                "Cantarell",
+                "Fira Sans",
+                "Droid Sans",
+                "Helvetica Neue",
+                sans-serif,
+            ),
+        )
+    );
+
+    .ag-icon {
+        // required because Font Awesome uses bold for its icons
+        font-weight: bold;
+        color: white;
+    }
+
+    .ag-header-cell-text {
+        font-style: normal;
+        font-weight: lighter !important;
+    }
+}
+
+$primary: #c84f54;
+$dark: $nord-dark-grey;
+
+//$link-color: #2c2c2c;
+//$link-hover-color: #c84f54;
+
+@import "~bootstrap/scss/bootstrap";
+
+.App {
+    text-align: center;
+}
+
+.ns3-program-logo {
+    //margin-right: 5px;
+    width: 64px;
+    height: 64px;
+}
+
+.nord-tree {
+    padding: 10px;
+    background-color: #343a40;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding-bottom: 10px;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+/*
+ Geneva
+ Lucida Grande
+ */
+
+.nord-footer {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+#page-content {
+    flex: 1 0 auto;
+}
+
+.nord-font {
+    /*font-family: Geneva*/
+}
+
+.nord-font-copyright {
+    font-size: 45%;
+    vertical-align: 70%;
+}
+
+.handmade-container {
+    height: calc(100vh - 56px);
+}
+
+.main-area {
+    height: 96%;
+}
+
+hr.footer-line {
+    background: linear-gradient(to right, white, grey);
+    height: 0.1rem;
+    border: 0;
+    margin: 0;
+}
+
+.handmade {
+    position: absolute;
+    right: 0.2rem;
+    bottom: 0;
+    transform: rotate(-90deg) translate(100%, 0);
+    transform-origin: right bottom;
+    text-transform: uppercase;
+    font-size: x-small;
+    white-space: nowrap;
+    overflow: hidden;
+    border: solid #dbd9d9;
+    border-width: 0.3rem 0 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: transparent;
+}
+
+.handmade a:any-link {
+    color: white;
+}
+
+.work-complete {
+    height: 10px;
+    width: 10px;
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 50%;
+    border-color: grey;
+    display: inline-block;
+    margin: 2px;
+    background-color: #a9d40f;
+}
+
+.work-in-progress {
+    height: 10px;
+    width: 10px;
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 50%;
+    border-color: grey;
+    display: inline-block;
+    margin: 2px;
+    background-color: orange;
+}
+
+#manager-tab-program {
+    color: #282c34;
+}
+
+#manager-tab-synth {
+    color: #282c34;
+}
+
+.manager-search-area {
+    height: 3rem;
+    background-color: $nord-dark-grey;
+    color: white;
+}
+
+.manager-search-text {
+    background-color: transparent;
+    color: white;
+    border: 0;
+}
+
+.manager-file-type-selection {
+    background-color: $nord-dark-grey !important;
+    color: white;
+    border: 0;
+    border-radius: 0;
+}
+
+.manager-file-type-selection:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: white;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+    border: 0;
+    border-radius: 0;
+    background-color: $nord-dark-grey;
+    color: #ddd;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    pointer-events: none;
+    color: #ddd;
+    margin-left: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+//.form-control:focus {
+//    border-color: inherit;
+//    -webkit-box-shadow: none;
+//    box-shadow: none;
+//}
+
+.progress {
+    height: 0.2rem;
+}
+.progress-bar {
+    background-color: $primary;
+}
+
+.progress-fadeOut {
+    opacity: 0;
+    transition: opacity 1000ms linear 1500ms;
+}
+
+// https://github.com/react-bootstrap/react-bootstrap/issues/4981#issuecomment-584240544
+.progress-bar[aria-valuenow="0"] {
+    transition: none;
+}
+
+
+.pointer {
+    cursor: pointer;
+}

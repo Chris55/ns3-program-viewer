@@ -1,15 +1,13 @@
 upload/
 !upload/readme.md
-/client/build/
-/client/userdata/
+build/
+userdata/
 
 
-/client/public/entitlements.mas.inherit.plist
-/client/public/entitlements.mas.plist
-/client/public/entitlements.mas.loginhelper.plist
-/client/dev.provisionprofile
-/client/prod.provisionprofile
-/client/embedded.provisionprofile
+**/entitlements.mas.plist
+**/dev.provisionprofile
+**/prod.provisionprofile
+**/embedded.provisionprofile
 
 # Logs
 logs
@@ -82,7 +80,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+#.env
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -187,3 +185,6 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
+
+.DS_Store
