@@ -165,11 +165,11 @@ exports.loadNs3SampleFile = (buffer, filename) => {
         if (claviaSignature !== "CBIN") {
             throw new Error("Invalid Nord file");
         }
-        const fileExt = buffer.toString("utf8", 8, 12);
-        if (fileExt !== "npno" && fileExt !== "nsmp" && fileExt !== "nsmp3") {
-            throw new Error(fileExt + " file is not supported, select a valid npno/nsmp/nsmp3 file");
+        const ext = buffer.toString("utf8", 8, 12);
+        if (ext !== "npno" && ext !== "nsmp" && ext !== "nsmp3") {
+            throw new Error(ext + " file is not supported, select a valid npno/nsmp/nsmp3 file");
         }
-        isPiano = fileExt === "npno";
+        isPiano = ext === "npno";
     }
 
     const offset04 = buffer.readUInt8(0x04);
@@ -177,7 +177,6 @@ exports.loadNs3SampleFile = (buffer, filename) => {
 
     let versionOffset = 0; // default latest version
     if (offset04 !== 1) {
-        // console.log("Offset 0x04 <> 1 switched to legacy mode");
         versionOffset = -20;
     }
 

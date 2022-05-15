@@ -10,7 +10,6 @@ import Ns2FxAmpSimEq from "./ns2-fx-amp-sim-eq";
 import Ns2Output from "./ns2-output";
 
 const getOrientation = () => {
-    //return window.matchMedia("(orientation: portrait)").matches ? "flex-column" : "flex-row";
     return window.innerWidth < 430 ? "flex-column" : "flex-row";
 };
 

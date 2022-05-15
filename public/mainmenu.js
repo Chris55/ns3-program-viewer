@@ -43,28 +43,28 @@ if (isDev) {
             {
                 label: "Reload",
                 accelerator: "CmdOrCtrl+R",
-                click(item, focusedWindow) {
+                click(_item, focusedWindow) {
                     if (focusedWindow) focusedWindow.reload();
                 },
             },
             {
                 label: "Go Back",
                 accelerator: "",
-                click(item, focusedWindow) {
+                click(_item, focusedWindow) {
                     if (focusedWindow) focusedWindow.webContents.goBack();
                 },
             },
             {
                 label: "Go Forward",
                 accelerator: "",
-                click(item, focusedWindow) {
+                click(_item, focusedWindow) {
                     if (focusedWindow) focusedWindow.webContents.goForward();
                 },
             },
             {
                 label: "Toggle Developer Tools",
                 accelerator: process.platform === "darwin" ? "Alt+Command+I" : "Ctrl+Shift+I",
-                click(item, focusedWindow) {
+                click(_item, focusedWindow) {
                     if (focusedWindow) focusedWindow.webContents.toggleDevTools();
                 },
             },
@@ -95,31 +95,24 @@ if (isDev) {
             {
                 label: "Reload",
                 accelerator: "CmdOrCtrl+R",
-                click(item, focusedWindow) {
+                click(_item, focusedWindow) {
                     if (focusedWindow) focusedWindow.reload();
                 },
             },
             {
                 label: "Go Back",
                 accelerator: "",
-                click(item, focusedWindow) {
+                click(_item, focusedWindow) {
                     if (focusedWindow) focusedWindow.webContents.goBack();
                 },
             },
             {
                 label: "Go Forward",
                 accelerator: "",
-                click(item, focusedWindow) {
+                click(_item, focusedWindow) {
                     if (focusedWindow) focusedWindow.webContents.goForward();
                 },
             },
-            // {
-            //     label: "Toggle Developer Tools",
-            //     accelerator: process.platform === "darwin" ? "Alt+Command+I" : "Ctrl+Shift+I",
-            //     click(item, focusedWindow) {
-            //         if (focusedWindow) focusedWindow.webContents.toggleDevTools();
-            //     },
-            // },
             {
                 type: "separator",
             },

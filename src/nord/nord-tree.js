@@ -9,8 +9,8 @@ export default class NordTree extends Component {
             <JSONTree
                 data={data}
                 hideRoot={true}
-                getItemString={(type, data, itemType, itemString) => <span />}
-                shouldExpandNode={(keyPath, data, level) => true}
+                getItemString={(_type, _data, _itemType, _itemString) => <span />}
+                shouldExpandNode={(_keyPath, _data, _level) => true}
                 theme={{
                     scheme: "custom",
                     author: "wimer hazenberg (http://www.monokai.nl)",

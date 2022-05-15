@@ -9,12 +9,6 @@ export default class Ns3SectionSynthOscillators extends Component {
     render() {
         const osc = this.props.data;
 
-        // const config = osc.waveForm1.useConfigAndPitch ? (
-        //     <NordLabelAndValue enabled={true} label="Config" data={osc.config} table={true} />
-        // ) : (
-        //     <NordLabelAndValue enabled={false} label="Config" data={{ value: "None" }} table={true} />
-        // );
-
         const ctrl = osc.waveForm1.useConfigAndPitch ? (
             <NordLabelAndValueWithMorph label="Ctrl" data={osc.control} />
         ) : (
@@ -22,16 +16,6 @@ export default class Ns3SectionSynthOscillators extends Component {
                 <NordLabelAndValue enabled={false} label="Ctrl" data={{ value: "" }} table={true} />
             </tr>
         );
-
-        // const pitch = osc.waveForm1.useConfigAndPitch ? (
-        //     <tr>
-        //         <NordLabelAndValue label="OSC 2 Pitch" data={osc.pitch} table={true} />
-        //     </tr>
-        // ) : (
-        //     <tr>
-        //         <NordLabelAndValue enabled={false} label="OSC 2 Pitch" data={{ value: "" }} table={true} />
-        //     </tr>
-        // );
 
         const lfoModEnvValue = osc.modulations.isLfo ? osc.modulations.lfoAmount : osc.modulations.modEnvAmount;
 
@@ -50,14 +34,7 @@ export default class Ns3SectionSynthOscillators extends Component {
                                     <tr>
                                         <NordValueOnOff label="Fast Atk" data={osc.fastAttack} table={true} />
                                     </tr>
-                                    {/*<tr>*/}
-                                    {/*    <NordLabelAndValue label="Osc 1 WaveForm" data={osc.waveForm1} table={true} />*/}
-                                    {/*</tr>*/}
-                                    {/*<tr>{config}</tr>*/}
-
                                     {ctrl}
-                                    {/*{pitch}*/}
-
                                     <NordLabelAndValueWithMorph label={osc.modulations.label} data={lfoModEnvValue} />
                                 </tbody>
                             </table>

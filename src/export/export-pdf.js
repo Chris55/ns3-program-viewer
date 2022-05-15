@@ -19,7 +19,6 @@ const getImages = async (data, showAll, callback) => {
         );
 
         const output = document.createElement("div");
-        //output.style.cssText = 'z-index:-1';
         const staticElement = renderToStaticMarkup(doc);
         output.innerHTML = `<div>${staticElement}</div>`;
         const tag = document.getElementById("exportTag");

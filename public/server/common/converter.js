@@ -7,8 +7,6 @@ const path = require("path");
  * @returns {number}
  */
 const round = function (value, precision) {
-    //const multiplier = Math.pow(10, precision || 0);
-    //return Math.round(value * multiplier) / multiplier;
     const multiplier = Math.pow(10, precision || 0);
     return Math.round((value + Number.EPSILON) * multiplier) / multiplier;
 };
@@ -21,12 +19,11 @@ exports.round = round;
  * @param engMax - eng max value
  * @param midiValue - midi value (0/127)
  * @param precision
- * @param midiMin - optional midi min value (default 0)
+ * @param _midiMin - optional midi min value (default 0)
  * @param midiMax - optional midi max value (default 127)
  * @returns {number}
  */
-const midi2LinearValue = function (engMin, engMax, midiValue, precision, midiMin, midiMax) {
-    //const mmin = midiMin || 0; // todo: not yet used
+const midi2LinearValue = function (engMin, engMax, midiValue, precision, _midiMin, midiMax) {
     const mmax = midiMax || 127;
     const result = (midiValue * (engMax - engMin)) / mmax + engMin;
     return round(result, precision);
@@ -227,7 +224,7 @@ exports.getName = (filename) => {
     let name = path.parse(filename).name;
 
     // removes NUF header
-    const regxForum = new RegExp(/^[0-9]{13}-/);
+    const regxForum = new RegExp(/^\d{13}-/);
     if (regxForum.test(name)) {
         name = name.substr(14);
     }
@@ -237,7 +234,7 @@ exports.getName = (filename) => {
     const max = 16;
     let valid = "";
 
-    let regx = new RegExp(/[ a-zA-Z0-9-]/);
+    let regx = new RegExp(/[ a-zA-Z\d-]/);
 
     for (let i = 0; i < name.length && i < max; i++) {
         if (regx.test(name[i])) {

@@ -1,5 +1,5 @@
 export const handy = (ms) =>
-    new Promise((resolve, reject) => {
+    new Promise((resolve, _reject) => {
         setTimeout(function () {
             resolve(true);
         }, ms);

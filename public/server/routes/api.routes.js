@@ -7,14 +7,14 @@ const fs = require("fs").promises;
 const DIR = "./upload/";
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
+    destination: (_req, _file, cb) => {
         cb(null, DIR);
     },
-    filename: (req, file, cb) => {
+    filename: (_req, file, cb) => {
         let originalName = file.originalname;
 
         // removes NUF header
-        const regxForum = new RegExp(/^[0-9]{13}-/);
+        const regxForum = new RegExp(/^\d{13}-/);
         if (regxForum.test(originalName)) {
             originalName = originalName.substr(14);
         }
@@ -26,12 +26,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage: storage,
-    fileFilter: (req, file, cb) => {
+    fileFilter: (_req, file, cb) => {
         if (file.mimetype === "application/octet-stream" || file.mimetype === "application/x-nord") {
             cb(null, true);
         } else {
             cb(null, false);
-            //return cb(new Error('file is not supported'));
         }
     },
 });

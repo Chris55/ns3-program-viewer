@@ -9,7 +9,6 @@ import Ns3FxDelay from "./ns3-fx-delay";
 import Ns3FxAmpSimEq from "./ns3-fx-amp-sim-eq";
 
 const getOrientation = () => {
-    //return window.matchMedia("(orientation: portrait)").matches ? "flex-column" : "flex-row";
     return window.innerWidth < 430 ? "flex-column" : "flex-row";
 };
 

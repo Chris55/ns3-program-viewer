@@ -16,13 +16,6 @@ log.info("App starting...");
 function createWindow() {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize;
 
-    // mainWindow = new BrowserWindow(
-    //     {
-    //         width: Math.round(width * 0.9),
-    //         height: Math.round(height * 0.9),
-    //         icon: path.join(__dirname, "assets/icons/app.png"),
-    //     });
-
     mainWindow = new BrowserWindow({
         width: Math.round(width * 0.9),
         height: Math.round(height * 0.9),
@@ -56,9 +49,7 @@ function createWindow() {
 }
 
 app.on("window-all-closed", () => {
-    //if (process.platform !== "darwin") {
     app.quit();
-    //}
 });
 
 app.on("activate", () => {
@@ -84,7 +75,7 @@ app.on("ready", async () => {
 /***
  * returns JSON data of all Nord files
  */
-ipcMain.handle("download-files", async (event, files) => {
+ipcMain.handle("download-files", async (_event, files) => {
     try {
         const bundle = [];
         for (const file of files) {
@@ -109,7 +100,7 @@ ipcMain.handle("download-files", async (event, files) => {
 /***
  * returns JSON data of all supported Nord file included in the zip (backup or bundle file)
  */
-ipcMain.handle("download-backup", async (event, file, supportedProgramTypes) => {
+ipcMain.handle("download-backup", async (_event, file, supportedProgramTypes) => {
     try {
         const bundle = [];
 
@@ -123,10 +114,9 @@ ipcMain.handle("download-backup", async (event, file, supportedProgramTypes) => 
                 const data = loadNordFile(buffer, fileName);
                 bundle.push(data);
             }
-        }
+        };
 
-        await Promise.all(directory.files.map(x => task(x)));
-
+        await Promise.all(directory.files.map((x) => task(x)));
 
         return {
             success: true,

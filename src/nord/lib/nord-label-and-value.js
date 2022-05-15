@@ -24,16 +24,11 @@ const NordLabelAndValue = ({ enabled, label, title, data, upperCase, valueClass,
     // because its effect cannot be encoded into the server renderer's output format
     const { showDefault } = useSelector(nordSelector);
 
-    let labelClassName =
-        enabled === undefined ? "nord-label nord-on" : enabled === true ? "nord-label nord-on" : "nord-label nord-off";
-
-    let valueClassName =
-        enabled === undefined ? "nord-value nord-on" : enabled === true ? "nord-value nord-on" : "nord-value nord-off";
-
+    let labelClassName = enabled === undefined || enabled === true ? "nord-label nord-on" : "nord-label nord-off";
+    let valueClassName = enabled === undefined || enabled === true ? "nord-value nord-on" : "nord-value nord-off";
     const isDefault1 = data.isDefault !== undefined ? data.isDefault : isDefault;
 
     if (showDefault && isDefault1 !== undefined) {
-        // labelClassName += data.isDefault ? " nord-default-value" : " nord-non-default-value";
         valueClassName += isDefault1 ? " nord-default-value" : " nord-non-default-value";
     }
 

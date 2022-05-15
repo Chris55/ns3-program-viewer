@@ -34,7 +34,7 @@ export default class Ns2 extends Component {
                         <br />
                         <NordLabelAndValue data={data.transpose} enabled={data.transpose.enabled} />
                     </div>
-                    <div className={data.split.enabled ? "col-1 text-right mr-1" : "col-1 text-right mr-1"}>
+                    <div className="col-1 text-right mr-1">
                         <NordLabel enabled={data.split.enabled} label="Split" />
                     </div>
                     <div className={data.split.enabled ? "col-1 mt-1" : "d-none"}>

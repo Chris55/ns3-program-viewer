@@ -133,10 +133,10 @@ const nordSlice = createSlice({
         setError: (state, { payload }) => {
             state.error = payload;
         },
-        toggleShowDefault: (state, { payload }) => {
+        toggleShowDefault: (state, { _payload }) => {
             state.showDefault = !state.showDefault;
         },
-        toggleShowAll: (state, { payload }) => {
+        toggleShowAll: (state, { _payload }) => {
             state.data = setAll(state.data, state.originalData, !state.showAll);
             state.showAll = !state.showAll;
         },
@@ -287,16 +287,11 @@ const loadBackupFile = async (dispatch, file) => {
     const entries = await reader.getEntries();
 
     const formData = new FormData();
-    //let count = 0;
     for (const entry of entries) {
         const ext = getExtension(entry.filename);
         if (supportedProgramTypes.includes(ext)) {
-            //count++;
             const items = entry.filename.split("/");
-            const rawData = await entry.getData(
-                //new Uint8ArrayWriter()
-                new BlobWriter()
-            );
+            const rawData = await entry.getData(new BlobWriter());
             formData.append("nordFiles", rawData, items[2]);
         }
     }
@@ -384,15 +379,6 @@ const toManagerData = (dispatch, dataArray, filename) => {
 
 const onSuccess = (dispatch, response) => {
     if (response.success) {
-        // dispatch(clearBackupData());
-        //
-        // dispatch(
-        //     setLoadingSuccess({
-        //         data: data.data,
-        //         originalData: data.data,
-        //         programs: data.programs,
-        //     })
-        // );
         const managerData = toManagerData(dispatch, response.data, "");
         dispatch(setLoadingBackupSuccess({ ...managerData }));
 

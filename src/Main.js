@@ -58,13 +58,9 @@ const Main = () => {
 
     const exportCallback = (title, currentStep, numberOfSteps, currentValue, maxValue) => {
         const stepSize = 100 / numberOfSteps;
-        const progress = currentStep * stepSize + ((currentValue + 1) * stepSize) / maxValue;
+        const p = currentStep * stepSize + ((currentValue + 1) * stepSize) / maxValue;
         dispatch(setExportingDetail(title));
-        dispatch(
-            setProgress({
-                progress,
-            })
-        );
+        dispatch(setProgress({ p }));
     };
 
     const handleExportPdf = async () => {

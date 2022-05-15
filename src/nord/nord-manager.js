@@ -3,8 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.scss";
 import "ag-grid-community/dist/styles/ag-grid.css";
-//import "ag-grid-community/dist/styles/ag-theme-material.css";
-//import "ag-grid-community/dist/styles/ag-theme-bootstrap.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { useDispatch, useSelector } from "react-redux";
 import { nordSelector, setLoadingSuccess, setManagerSelection } from "../features/nord/nordSliceReducer";
@@ -13,16 +11,11 @@ import "react-splitter-layout/lib/index.css";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
 import { BsSearch } from "react-icons/bs";
 
-const showPerformance = [".nlasbundle", ".nlab"];
-const showSynth = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
-const showLive = [".ns3b", ".ns3fb", ".ns3synthpb", ".ns2pb", ".ns2exb", ".ns2b", ".ns2synthpb", ".ns3sbundle"];
-
 const NordManager = () => {
-    const { programs, synths, lives, performances, managerSelectedIndexes, managerTabSelection, managerFileExt } =
+    const { programs, synths, lives, performances, managerSelectedIndexes, managerTabSelection } =
         useSelector(nordSelector);
 
     const [gridApi, setGridApi] = useState(null);
-    //const [gridColumnApi, setGridColumnApi] = useState(null);
     const [search, setSearch] = useState("");
     const [currentPrograms, setCurrentPrograms] = useState(programs);
 
@@ -59,7 +52,6 @@ const NordManager = () => {
 
     const onGridReady = (params) => {
         setGridApi(params.api);
-        //setGridColumnApi(params.columnApi);
     };
 
     const onGridSizeChanged = () => {
@@ -158,16 +150,6 @@ const NordManager = () => {
                         <Dropdown.Item key="Live" eventKey="Live">
                             Live
                         </Dropdown.Item>
-                        {/*{managerFileExt === "" ||*/}
-                        {/*    (showSynth.includes(managerFileExt) && (*/}
-                        {/*        <Dropdown.Item eventKey="Synth">Synth</Dropdown.Item>*/}
-                        {/*    ))}*/}
-
-                        {/*{showLive.includes(managerFileExt) && <Dropdown.Item eventKey="Live">Live</Dropdown.Item>}*/}
-
-                        {/*{showPerformance.includes(managerFileExt) && (*/}
-                        {/*    <Dropdown.Item eventKey="Performance">Performance</Dropdown.Item>*/}
-                        {/*)}*/}
                     </DropdownButton>
                 </div>
             </div>
@@ -206,9 +188,5 @@ const NordManager = () => {
         </>
     );
 };
-
-// const customComparator = (valueA, valueB) => {
-//     return valueA.toLowerCase().localeCompare(valueB.toLowerCase());
-// };
 
 export default NordManager;
