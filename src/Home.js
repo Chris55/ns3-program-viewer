@@ -17,9 +17,7 @@ import Handmade from "./Handmade";
 import Footer from "./Footer";
 import cx from "classnames";
 import { openUrl } from "./utils/handy";
-import { nordUrl } from "./constants";
-
-const donateUrl = "https://www.buymeacoffee.com/christianfI";
+import { donateUrl, nordUrl } from "./constants";
 
 const Home = () => {
     const { isElectron, progress } = useSelector(nordSelector);
@@ -185,7 +183,7 @@ const Home = () => {
                                         </Card.Subtitle>
 
                                         <Button variant="warning" className="mt-2" onClick={() => openUrl(donateUrl)}>
-                                            <DonateLogo width={30} height={"2rem"} /> Buy Me a Coffee
+                                            <DonateLogo width={32} height={32} /> Buy Me a Coffee
                                         </Button>
                                     </Card.Body>
                                 </Card>
