@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
@@ -20,12 +20,13 @@ import {
 import { Dropdown, Form, Navbar, ProgressBar } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
-import NordManager from "./nord/nord-manager";
 import { buildExportCsv } from "./export/export-csv";
 import cx from "classnames";
 import { BsFileEarmarkPdf } from "react-icons/bs";
 import { GrDocumentCsv } from "react-icons/gr";
 import { ExportDialog } from "./export/ExportDialog";
+// noinspection JSCheckFunctionSignatures
+const NordManager = React.lazy(() => import("./nord/nord-manager"));
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -204,7 +205,10 @@ const Main = () => {
                             secondaryInitialSize={350}
                             secondaryMinSize={10}
                         >
-                            <NordManager />
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <NordManager />
+                            </Suspense>
+
                             {nordDeviceAndSpace}
                         </SplitterLayout>
                     )}
