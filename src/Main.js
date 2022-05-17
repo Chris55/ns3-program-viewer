@@ -2,7 +2,6 @@ import React, { useState, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
-import NordDevice from "./nord/nord-device";
 import { buildExportPdf } from "./export/export-pdf";
 import Home from "./Home";
 import LoadButton from "./LoadButton";
@@ -27,6 +26,8 @@ import { GrDocumentCsv } from "react-icons/gr";
 import { ExportDialog } from "./export/ExportDialog";
 // noinspection JSCheckFunctionSignatures
 const NordManager = React.lazy(() => import("./nord/nord-manager"));
+// noinspection JSCheckFunctionSignatures
+const NordDevice = React.lazy(() => import("./nord/nord-device"));
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -119,7 +120,9 @@ const Main = () => {
     // empty space is added to 'hide' the export process
     const nordDeviceAndSpace = (
         <div>
-            <NordDevice data={data} showAll={showAll} production={production} />
+            <Suspense fallback={<div>Loading...</div>}>
+                <NordDevice data={data} showAll={showAll} production={production} />
+            </Suspense>
             <div style={{ height: "75vh" }} />
             <div id="exportTag" />
         </div>
@@ -205,7 +208,7 @@ const Main = () => {
                             secondaryInitialSize={350}
                             secondaryMinSize={10}
                         >
-                            <Suspense fallback={<div>Loading...</div>}>
+                            <Suspense fallback={<div>Loading Manager...</div>}>
                                 <NordManager />
                             </Suspense>
 
