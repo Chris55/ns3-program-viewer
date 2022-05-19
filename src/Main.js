@@ -24,10 +24,9 @@ import cx from "classnames";
 import { BsFileEarmarkPdf } from "react-icons/bs";
 import { GrDocumentCsv } from "react-icons/gr";
 import { ExportDialog } from "./export/ExportDialog";
+import NordDevice from "./nord/nord-device";
 // noinspection JSCheckFunctionSignatures
 const NordManager = React.lazy(() => import("./nord/nord-manager"));
-// noinspection JSCheckFunctionSignatures
-const NordDevice = React.lazy(() => import("./nord/nord-device"));
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -120,9 +119,7 @@ const Main = () => {
     // empty space is added to 'hide' the export process
     const nordDeviceAndSpace = (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
-                <NordDevice data={data} showAll={showAll} production={production} />
-            </Suspense>
+            <NordDevice data={data} showAll={showAll} production={production} />
             <div style={{ height: "75vh" }} />
             <div id="exportTag" />
         </div>
@@ -208,7 +205,15 @@ const Main = () => {
                             secondaryInitialSize={350}
                             secondaryMinSize={10}
                         >
-                            <Suspense fallback={<div>Loading Manager...</div>}>
+                            <Suspense
+                                fallback={
+                                    <div className="d-flex justify-content-center">
+                                        <div className="spinner-border" role="status">
+                                            <span className="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                }
+                            >
                                 <NordManager />
                             </Suspense>
 
