@@ -136,13 +136,13 @@
         "react-eject": "react-scripts eject",
         "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
         "electron-build": "electron-builder",
+        "dev:electron": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\"",
         "build:x64": "yarn react-build && yarn electron-build build -mwl --publish never",
         "build:arm": "yarn react-build && yarn electron-build build -l --arm64 --publish never",
         "build:electron": "yarn build:x64 && yarn build:arm",
         "deploy:x64": "yarn react-build && yarn electron-build build -mwl --publish=always",
         "deploy:arm": "yarn react-build && yarn electron-build build -l --arm64 --publish=always",
-        "deploy:electron": "yarn deploy:x64 && yarn deploy:arm",
-        "dev:electron": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\""
+        "deploy:electron": "yarn deploy:x64 && yarn deploy:arm"
     },
     "version": "1.5.6"
 }
