@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import { ReactComponent as DonateLogo } from "./assets/bmc-logo.svg";
 import nordLogoProgram from "./assets/nord-logo-program.svg";
 import nordLogoSynth from "./assets/nord-logo-synth.svg";
 import nordLogoProgramBundle from "./assets/nord-logo-program-bundle.svg";
@@ -9,7 +8,7 @@ import nordLogoSynthBundle from "./assets/nord-logo-synth-bundle.svg";
 import nordLogoListBundle from "./assets/nord-logo-list-bundle.svg";
 import nordLogoBackup from "./assets/nord-logo-backup.svg";
 import AppName from "./AppName";
-import { Button, Card, Col, Container, Media, ProgressBar, Row } from "react-bootstrap";
+import { Card, Col, Container, Media, ProgressBar, Row } from "react-bootstrap";
 import LoadButton from "./LoadButton";
 import { useSelector } from "react-redux";
 import { nordSelector } from "./features/nord/nordSliceReducer";
@@ -17,7 +16,7 @@ import Handmade from "./Handmade";
 import Footer from "./Footer";
 import cx from "classnames";
 import { openUrl } from "./utils/handy";
-import { donateUrl, nordUrl } from "./constants";
+import { nordUrl } from "./constants";
 
 const Home = () => {
     const { isElectron, progress } = useSelector(nordSelector);
@@ -175,18 +174,6 @@ const Home = () => {
                                     </Card.Body>
                                 </Card>
 
-                                <Card className="border-0 mt-4">
-                                    <Card.Body>
-                                        <Card.Subtitle className="text-muted">
-                                            If you have enjoyed this application and would like to buy me a coffee you
-                                            can do it here
-                                        </Card.Subtitle>
-
-                                        <Button variant="warning" className="mt-2" onClick={() => openUrl(donateUrl)}>
-                                            <DonateLogo width={32} height={32} /> Buy Me a Coffee
-                                        </Button>
-                                    </Card.Body>
-                                </Card>
                                 <Card className="border-0 text-muted">
                                     <Card.Body>
                                         <Card.Subtitle className="mt-3">Disclaimer</Card.Subtitle>
