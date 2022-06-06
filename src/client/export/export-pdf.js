@@ -45,6 +45,7 @@ export const buildExportPdf = async (data, showAll, callback) => {
     // svg are not rendered by html2canvas in Safari
     // now working in v1.3.2, but still issues
     // https://github.com/niklasvh/html2canvas/issues/2699
+    // current issue: SVG rendering with zoom different from 100% fails in Safari
 
     if (isSafari) throw Error("Safari not fully supported...., please use Chrome ;)");
 
