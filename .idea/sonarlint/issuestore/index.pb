@@ -30,8 +30,6 @@ L
 embedded.provisionprofile.md,8/d/8df986952f5390437fc68157709d25150e2b66fa
 T
 $store/entitlements.mas.inherit.plist,d/c/dc299f9b7954998d1b60132a646289443add5636
-F
-store/afterSignHook.js,2/3/233e7b30972aff18c4a71303d8aef9410c2c827e
 O
 store/app-store-description.txt,4/3/4351e3fc427bd0334e9857bdba0fbf488ef9a757
 O
