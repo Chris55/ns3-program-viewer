@@ -122,7 +122,8 @@
     },
     "scripts": {
         "analyze": "yarn react-build && source-map-explorer 'build/static/js/*.js'",
-        "build": "NODE_ENV=production && yarn install && yarn react-build && webpack --config webpack.config.js",
+        "heroku-prebuild": "yarn install --production=false",
+        "build": "NODE_ENV=production && yarn react-build && webpack --config webpack.config.js",
         "client": "yarn react-start",
         "server": "nodemon src/server/server.js",
         "deploy:web": "heroku git:remote -a ns3-program-viewer && git push heroku main:main",
