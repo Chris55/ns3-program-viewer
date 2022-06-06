@@ -53,7 +53,7 @@
         "@testing-library/jest-dom": "^5.16.3",
         "@testing-library/react": "^13.2.0",
         "@testing-library/user-event": "^14.1.1",
-        "@types/jest": "^27.5.0",
+        "@types/jest": "^28.1.1",
         "better-docs": "^2.7.2",
         "concurrently": "^7.1.0",
         "coverage-badge-creator": "^1.0.11",
@@ -130,7 +130,6 @@
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "dev:electron": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\"",
         "start": "NODE_ENV=production node build/server.min.js",
-        "test": "node test/test-builder && jest --coverage && coverage-badge-creator",
         "react-start": "react-scripts start",
         "react-build": "react-scripts build",
         "react-test": "react-scripts test --env=jsdom",
@@ -145,7 +144,8 @@
         "deploy:electron": "yarn deploy:x64 && yarn deploy:arm",
         "doc:lead": "./docs/build-doc.sh lead",
         "doc:stage": "./docs/build-doc.sh stage",
-        "doc": "yarn doc:stage"
+        "doc": "yarn doc:stage",
+        "test": "node test/test-builder && jest --coverage && coverage-badge-creator"
     },
     "version": "1.5.8"
 }
