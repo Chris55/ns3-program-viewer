@@ -2,9 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
-const api = require("./public/server/routes/api.routes");
 const serveIndex = require("serve-index");
 const helmet = require("helmet");
+const { api } = require("./api");
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -37,15 +37,15 @@ app.use("/api", api);
 
 app.use("/media", express.static("upload"), serveIndex("upload", { icons: true, view: "details" }));
 
-//console.log("env: ", JSON.stringify(process.env, null, 2));
-
 if (process.env.NODE_ENV === "production") {
     // Serve any static files
-    app.use(express.static(path.join(__dirname, "build")));
+    //app.use(express.static(path.join(__dirname, "build")));
+    app.use(express.static(__dirname));
 
     // Handle React routing, return all requests to React app
     app.get("*", function (req, res) {
-        res.sendFile(path.join(__dirname, "build", "index.html"));
+        //res.sendFile(path.join(__dirname, "build", "index.html"));
+        res.sendFile( path.join(__dirname, "index.html"));
     });
 }
 

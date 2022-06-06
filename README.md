@@ -2,7 +2,7 @@
 
 ![Build](https://travis-ci.com/Chris55/ns3-program-viewer.svg?branch=main)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer?ref=badge_shield)
-![](https://img.shields.io/badge/Coverage-88%25-83A603.svg?prefix=$coverage$)
+![](https://img.shields.io/badge/Coverage-91%25-83A603.svg?prefix=$coverage$)
 
 
 The unofficial Nord Stage 2/2EX/3 Program viewer tool.

@@ -1,9 +1,9 @@
-const { app, BrowserWindow, Menu, ipcMain, screen } = require("electron");
+const { app, BrowserWindow, ipcMain, screen } = require("electron");
 const log = require("electron-log");
 const { autoUpdater } = require("electron-updater");
 const path = require("path");
 const isDev = require("electron-is-dev");
-const { loadNordFile } = require("./server/nord-service");
+const { loadNordFile } = require("../server/nord-service");
 const unzipper = require("unzipper");
 const fs = require("fs");
 
@@ -26,16 +26,16 @@ function createWindow() {
             nodeIntegrationInSubFrames: false,
             contextIsolation: true,
             enableRemoteModule: false,
-            preload: path.join(__dirname, "preload.js"),
+            preload: isDev ?
+                path.join(__dirname, "preload.js"):
+                path.join(__dirname, "preload.min.js"),
         },
-        //icon: path.join(__dirname, "assets/icons/app.png"),
-        //titleBarStyle: "hidden"
     });
 
-    mainWindow.loadURL(isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "../build/index.html")}`);
+    mainWindow.loadURL(isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "index.html")}`);
 
     mainWindow.on("closed", () => (mainWindow = null));
-    require("./mainmenu");
+    require("./menu");
 
     // Setting Window Icon - Asset file needs to be in the public/images folder.
     //mainWindow.setIcon(path.join(__dirname, 'images/appicon.ico'));

@@ -56,4 +56,8 @@ fileAssociations:
           - ns3y
           - ns2p
       role: Viewer
+extraMetadata:
+    main: "build/main.min.js"
+
+
 

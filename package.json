@@ -75,7 +75,10 @@
         "showdown": "^2.1.0",
         "unzipper": "^0.10.11",
         "wait-on": "^6.0.1",
-        "xml-js": "^1.6.11"
+        "xml-js": "^1.6.11",
+        "webpack": "^5.73.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-node-externals": "^3.0.0"
     },
     "engines": {
         "node": "16.x"
@@ -101,8 +104,6 @@
         "NS3",
         "File"
     ],
-    "homepage": "./",
-    "main": "public/electron.js",
     "private": true,
     "proxy": "http://localhost:4000/",
     "resolutions": {
@@ -112,6 +113,7 @@
         "nth-check": "^2.0.1"
     },
     "license": "MIT",
+    "homepage": "./",
     "name": "ns-file-parser",
     "prettier": {},
     "repository": {
@@ -120,29 +122,29 @@
     },
     "scripts": {
         "analyze": "yarn react-build && source-map-explorer 'build/static/js/*.js'",
-        "build": "NODE_ENV=production && yarn install && yarn react-build",
+        "build": "NODE_ENV=production && yarn install && yarn react-build && webpack --config webpack.config.js",
         "client": "yarn react-start",
+        "server": "nodemon src/server/server.js",
         "deploy:web": "heroku git:remote -a ns3-program-viewer && git push heroku main:main",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-        "doc:lead": "./docs/build-doc.sh lead",
-        "doc:stage": "./docs/build-doc.sh stage",
-        "doc": "yarn doc:stage",
-        "server": "nodemon server.js",
-        "start": "NODE_ENV=production node server.js",
-        "test": "jest --coverage && coverage-badge-creator",
+        "dev:electron": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\"",
+        "start": "NODE_ENV=production node build/server.min.js",
+        "test": "node test/test-builder && jest --coverage && coverage-badge-creator",
         "react-start": "react-scripts start",
         "react-build": "react-scripts build",
         "react-test": "react-scripts test --env=jsdom",
         "react-eject": "react-scripts eject",
-        "electron-start": "nodemon --watch ./public/* --exec \"electron .\"",
+        "electron-start": "nodemon --watch ./public/* --exec \"electron ./src/electron/electron.js\"",
         "electron-build": "electron-builder",
-        "dev:electron": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\"",
-        "build:x64": "yarn react-build && yarn electron-build build -mwl --publish never",
-        "build:arm": "yarn react-build && yarn electron-build build -l --arm64 --publish never",
+        "build:x64": "yarn react-build && webpack --config webpack.electron.config.js && yarn electron-build build -mwl --publish never",
+        "build:arm": "yarn react-build && webpack --config webpack.electron.config.js && yarn electron-build build -l --arm64 --publish never",
         "build:electron": "yarn build:x64 && yarn build:arm",
         "deploy:x64": "yarn react-build && yarn electron-build build -mwl --publish=always",
         "deploy:arm": "yarn react-build && yarn electron-build build -l --arm64 --publish=always",
-        "deploy:electron": "yarn deploy:x64 && yarn deploy:arm"
+        "deploy:electron": "yarn deploy:x64 && yarn deploy:arm",
+        "doc:lead": "./docs/build-doc.sh lead",
+        "doc:stage": "./docs/build-doc.sh stage",
+        "doc": "yarn doc:stage"
     },
     "version": "1.5.8"
 }

@@ -1,9 +1,9 @@
-let express = require("express"),
-    multer = require("multer"),
-    router = express.Router();
-const { loadNordFile } = require("../nord-service");
+const express = require("express");
+const multer = require("multer");
 const fs = require("fs").promises;
+const { loadNordFile } = require("./nord-service");
 
+const api = express.Router();
 const DIR = "./upload/";
 
 const storage = multer.diskStorage({
@@ -37,7 +37,7 @@ const upload = multer({
 
 // max is 400 program + 400 synth files
 
-router.post("/upload", upload.array("nordFiles", 1000), async (req, res, next) => {
+api.post("/upload", upload.array("nordFiles", 1000), async (req, res, next) => {
     if (!req.files) {
         next(Error("Unsupported file"));
         return;
@@ -76,4 +76,6 @@ router.post("/upload", upload.array("nordFiles", 1000), async (req, res, next) =
     }
 });
 
-module.exports = router;
+module.exports = {
+    api,
+}

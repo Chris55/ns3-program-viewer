@@ -3,8 +3,8 @@ const os = require("os");
 const path = require("path");
 
 const build = async (folder, testFilename) => {
-    const testFile = "./" + testFilename;
-    const testFolder = __dirname + folder;
+
+    const testFolder =path.join(__dirname, folder);
     const filenames = await fs.readdir(testFolder);
 
     let file = "// this file is auto-generated with test-builder.js" + os.EOL + os.EOL;
@@ -37,6 +37,7 @@ const build = async (folder, testFilename) => {
 
     file += "});" + os.EOL + os.EOL;
 
+    const testFile = path.join(__dirname, "../test", testFilename);
     await fs.writeFile(testFile, file);
 };
 

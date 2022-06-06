@@ -1,9 +1,9 @@
 const readline = require("readline");
 const fs = require("fs");
 const os = require("os");
-const ns2Mapping = require("../../public/server/ns2/program/ns2-mapping");
-const ns3Mapping = require("../../public/server/ns3/program/ns3-mapping");
-const commonMapping = require("../../public/server/common/nord-mapping");
+const ns2Mapping = require("../../src/server/ns2/program/ns2-mapping");
+const ns3Mapping = require("../../src/server/ns3/program/ns3-mapping");
+const commonMapping = require("../../src/server/common/nord-mapping");
 
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, "g"), replace);
@@ -16,11 +16,10 @@ function getEnum(name) {
         throw new Error("Typo error somewhere the mapping " + name + " is not available!");
     }
 
-    let lines = ""; //"```" + os.EOL;
+    let lines = "";
     for (const [key, value] of table) {
         lines = lines + "  " + key + " = " + value + os.EOL;
     }
-    //lines = lines + "```" + os.EOL;
     return lines;
 }
 
@@ -35,7 +34,6 @@ const convert = (model, inputFile, outputFile, remove) => {
     });
 
     readInterface.on("line", function (line) {
-        //console.log(line);
         const left = line.substr(0, 5);
 
         if (left === "<a na") {
