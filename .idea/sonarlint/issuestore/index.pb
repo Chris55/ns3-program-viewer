@@ -3,8 +3,6 @@ I
 embedded.provisionprofile,c/4/c4268fc22b00dab5be25354ae494f3b70fa01b40
 H
 test/test-md-reporter.js,9/b/9ba60dfbf76da18d58a025baf6bc4939056896f6
-9
-	.eslintrc,4/b/4be5f5e3cea171c304090be92469b2f2cb51039a
 =
 .editorconfig,6/2/626a747c8694eaae66f2afb3d1a745b045782c70
 L
@@ -50,12 +48,8 @@ A
 public/index.html,f/4/f43ecdf8d666ee908aacce037b4cd72159e4741b
 =
 docs/index.md,0/b/0b3e33619677413fe8f879987c9e0357046fe604
-A
-webpack.config.js,d/5/d5595158cc48f9bf3e51b06f6e6805a8fd2d6262
 w
 G.idea/sonarlint/issuestore/a/d/adc09f6231fa6614a970c8194ee8c416ce5a13d8,3/0/304ea19c85bb984fecfb0fdd1369e12c938fea51
-J
-webpack.electron.config.js,4/7/47bdcef3a57877db32f3dfc999b332d16fdeadc3
 w
 G.idea/sonarlint/issuestore/7/f/7fbce0cf231272b70f43bbabe940d80df06c59a4,c/7/c7747000cc369555dba2f5b74c1d04d13c9cbac3
 w
@@ -120,8 +114,6 @@ O
 src/client/nord/nord-manager.js,0/b/0bc8c6d96cd94e8fda8e3bf68195286672b78ec4
 N
 src/client/nord/nord-device.js,3/2/32a7e594d0a451cf4024234f11c78e6d275e36a7
-9
-	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 D
 src/client/Footer.js,7/4/74c45712ef4b1596cbd4148468b1f834661e3537
 L

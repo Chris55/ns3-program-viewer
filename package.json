@@ -147,5 +147,5 @@
         "doc": "yarn doc:stage",
         "test": "node test/test-builder && jest --coverage && coverage-badge-creator"
     },
-    "version": "1.5.8"
+    "version": "1.5.10"
 }
