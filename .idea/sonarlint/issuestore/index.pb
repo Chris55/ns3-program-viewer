@@ -40,12 +40,8 @@ L
 store/app-store-keywords.txt,8/4/84d5a6b42a6597cb418316ac8c773c4d0056102b
 ;
 .travis.yml,d/e/dea01dd89a3b602828e630677fde5d77c06441c8
-?
-.env.production,5/3/538818e7684624a442fce4828d05432406a7e873
 D
 public/manifest.json,4/2/42e89cd2213b9d5dfae4f63522702c623170d792
-A
-public/index.html,f/4/f43ecdf8d666ee908aacce037b4cd72159e4741b
 =
 docs/index.md,0/b/0b3e33619677413fe8f879987c9e0357046fe604
 w
@@ -56,8 +52,6 @@ w
 G.idea/sonarlint/issuestore/6/2/626a747c8694eaae66f2afb3d1a745b045782c70,8/d/8d336be597d7704b48ea6c12f5e56beb8ed32daa
 L
 automation/docs/build-doc.js,7/1/71850dc1fca7f30feea89fa666eabc33dbcc9121
-w
-G.idea/sonarlint/issuestore/4/b/4be5f5e3cea171c304090be92469b2f2cb51039a,5/5/55ace27b7e7a353418d31109d52535de34b1cba6
 w
 G.idea/sonarlint/issuestore/3/c/3c84dcdc6bbe3d7817c49dcdc327b926fea1808a,1/5/15ab6acc17bd4f2d048dc50beb0dfeb0086a0c18
 P
@@ -102,16 +96,12 @@ E
 src/client/Privacy.js,6/b/6be998e62facf2f007037ded69005b5dbc096dd5
 K
 src/client/serviceWorker.js,2/6/26866e75b9cbdea41f8d02ec6b157b34298c9e20
-A
-src/client/App.js,0/7/07d092e98348e8af948c6359d247c1d01a10d71e
 C
 src/client/App.scss,3/0/301e47413d9471eabed17720adc0d62d839a8ff6
 H
 src/client/setupTests.js,e/2/e268fc01756e341b0e1f8508cd6a02975c6a51db
 w
 G.idea/sonarlint/issuestore/8/d/8df986952f5390437fc68157709d25150e2b66fa,e/7/e785182d3aaae9ab677ad93e38211740d624109a
-O
-src/client/nord/nord-manager.js,0/b/0bc8c6d96cd94e8fda8e3bf68195286672b78ec4
 N
 src/client/nord/nord-device.js,3/2/32a7e594d0a451cf4024234f11c78e6d275e36a7
 D
@@ -428,3 +418,17 @@ w
 G.idea/sonarlint/issuestore/d/a/dac799070c2d0c2fa24462b02c1f2dcc3fb3a1e9,a/e/ae8669a5fd7f2eae36400832d356646ce32457ae
 G
 src/electron/preload.js,d/e/de2f947ad282def672d817ed34339ef2cb2556d9
+O
+src/client/export/export-pdf.js,a/b/ab40611fc04f8bdc58a0057df2915bcd64093705
+9
+	.eslintrc,4/b/4be5f5e3cea171c304090be92469b2f2cb51039a
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+A
+webpack.config.js,d/5/d5595158cc48f9bf3e51b06f6e6805a8fd2d6262
+?
+.env.production,5/3/538818e7684624a442fce4828d05432406a7e873
+J
+webpack.electron.config.js,4/7/47bdcef3a57877db32f3dfc999b332d16fdeadc3
+F
+store/afterSignHook.js,2/3/233e7b30972aff18c4a71303d8aef9410c2c827e
