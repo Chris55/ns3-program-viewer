@@ -121,8 +121,6 @@ N
 src/client/assets/app-logo.svg,8/a/8a02343820cb91444d0b633610668dd6478e5a60
 T
 $src/client/assets/nord-logo-pipe.svg,6/0/605a281897bfb9392b43e968424b559bffd48651
-w
-G.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302,e/d/ed67eb178d523a4b3f117dcbe0eda5196367ceec
 U
 %src/client/assets/nord-logo-synth.svg,a/e/ae755abdcdf84cf8b99f9ab70c7b07ace3b5e452
 U
@@ -429,3 +427,8 @@ J
 webpack.electron.config.js,4/7/47bdcef3a57877db32f3dfc999b332d16fdeadc3
 F
 store/afterSignHook.js,2/3/233e7b30972aff18c4a71303d8aef9410c2c827e
+A
+public/index.html,f/4/f43ecdf8d666ee908aacce037b4cd72159e4741b
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
