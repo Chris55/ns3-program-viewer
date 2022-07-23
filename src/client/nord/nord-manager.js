@@ -165,7 +165,7 @@ const NordManager = () => {
                     onGridReady={onGridReady}
                     onGridSizeChanged={onGridSizeChanged}
                     onSelectionChanged={onSelectionChanged}
-                    onRowDataChanged={onRowDataLoaded}
+                    onRowDataUpdated={onRowDataLoaded}
                     onSortChanged={onSortChanged}
                     rowData={currentPrograms}
                     defaultColDef={{

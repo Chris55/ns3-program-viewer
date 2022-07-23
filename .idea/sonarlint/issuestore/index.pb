@@ -35,8 +35,6 @@ L
 store/entitlements.mac.plist,d/0/d046d7dbf6cbb3939eae474d69cb4a253b084258
 L
 store/app-store-keywords.txt,8/4/84d5a6b42a6597cb418316ac8c773c4d0056102b
-;
-.travis.yml,d/e/dea01dd89a3b602828e630677fde5d77c06441c8
 D
 public/manifest.json,4/2/42e89cd2213b9d5dfae4f63522702c623170d792
 =
@@ -432,3 +430,5 @@ A
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+;
+.travis.yml,d/e/dea01dd89a3b602828e630677fde5d77c06441c8
