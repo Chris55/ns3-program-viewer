@@ -108,6 +108,10 @@
     ],
     "private": true,
     "proxy": "http://localhost:4000/",
+    "resolutions": {
+        "pug": "^3.0.1",
+        "nth-check": "^2.0.1"
+    },
     "license": "MIT",
     "homepage": "./",
     "name": "ns-file-parser",
