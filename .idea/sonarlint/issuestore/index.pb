@@ -77,8 +77,6 @@ D
 src/client/index.css,e/f/ef2bde1aea5a913822f743ab6699c17edd68dbb4
 B
 src/client/Home.js,5/7/57eba277c5aad3d2b1aa4ac20dc7c617925573d3
-<
-src/index.js,f/9/f900edc44cb929c2267a16100a32851f6d5b477d
 F
 src/client/Handmade.js,7/e/7e9e25e099ac225bacd7d8aff370f1fcb37f4f4d
 B
@@ -173,8 +171,6 @@ X
 0src/client/nord/ns2/ns2-section-synth-mod-env.js,8/7/87519f5ed379c728d98475450b967d7b25f4b70e
 T
 $src/client/nord/ns2/ns2-fx-reverb.js,1/5/15e4c28d73ee0442d47431a57689abcdcf914e2e
-D
-src/server/server.js,8/8/888824cc3c5d302cf15c44a8c9b1183ab401fb58
 `
 0src/client/nord/ns2/ns2-section-synth-amp-env.js,1/8/185c6fafd064f909429bcd5f3c98f1cdf2c271e3
 M
@@ -295,8 +291,6 @@ e
 5src/server/library/ns3-nord-sample-library-archive.js,8/3/834d9861b0090d21d672496a10fcb331919c0f98
 Y
 )src/server/library/ns3-library-service.js,3/b/3b6773ce82711b69ad5edbf058318b9ef622cb56
-A
-src/server/api.js,4/e/4e50839a0d4d5a4a78dec14a03ecb863387df37f
 [
 +src/server/library/ns3-product-libraries.js,a/a/aad351ad6de6d23dcd958fba07b6d5960ff54641
 U
@@ -423,12 +417,19 @@ A
 .env.production,5/3/538818e7684624a442fce4828d05432406a7e873
 J
 webpack.electron.config.js,4/7/47bdcef3a57877db32f3dfc999b332d16fdeadc3
-F
-store/afterSignHook.js,2/3/233e7b30972aff18c4a71303d8aef9410c2c827e
 A
 public/index.html,f/4/f43ecdf8d666ee908aacce037b4cd72159e4741b
-:
-
-.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 ;
 .travis.yml,d/e/dea01dd89a3b602828e630677fde5d77c06441c8
+A
+src/client/App.js,0/7/07d092e98348e8af948c6359d247c1d01a10d71e
+O
+src/client/nord/nord-manager.js,0/b/0bc8c6d96cd94e8fda8e3bf68195286672b78ec4
+D
+electron-builder.yml,b/1/b1938f5f8aa5613ea46a5eee720629c8a23eb5d1
+<
+src/index.js,f/9/f900edc44cb929c2267a16100a32851f6d5b477d
+A
+src/server/api.js,4/e/4e50839a0d4d5a4a78dec14a03ecb863387df37f
+U
+%.github/workflows/codeql-analysis.yml,c/3/c3aa8b7f1c613e43d3bb9d5ac52ac6603d945e89
