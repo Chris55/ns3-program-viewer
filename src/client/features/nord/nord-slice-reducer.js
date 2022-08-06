@@ -63,8 +63,6 @@ const nordSlice = createSlice({
         setLoadingBackupSuccess: (state, { payload }) => {
             state.loaded = true;
             state.loading = false;
-            state.data = [];
-            state.originalData = [];
             state.error = null;
             state.showManager =
                 payload.programs.length > 1 ||
@@ -78,19 +76,26 @@ const nordSlice = createSlice({
             state.managerTitle = payload.managerTitle;
             state.managerFileExt = payload.managerFileExt;
             state.managerSelectedIndexes = {};
+            let data = [];
             if (payload.programs.length === 0) {
                 if (payload.synths.length > 0) {
                     state.managerTabSelection = "Synth";
+                    data.push(payload.synths[0].model);
                 } else if (payload.performances.length > 0) {
                     state.managerTabSelection = "Performances";
+                    data.push(payload.performances[0].model);
                 } else if (payload.lives.length > 0) {
                     state.managerTabSelection = "Live";
+                    data.push(payload.lives[0].model);
                 } else {
                     state.managerTabSelection = "Program";
                 }
             } else {
                 state.managerTabSelection = "Program";
+                data.push(payload.programs[0].model);
             }
+            state.data = data;
+            state.originalData = data;
         },
         setManagerSelection: (state, { payload }) => {
             state.managerTabSelection = payload.managerTabSelection;

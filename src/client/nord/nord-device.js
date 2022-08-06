@@ -7,98 +7,50 @@ import Ns2 from "./ns2/ns2";
 import Ns3y from "./ns3/ns3y/ns3y";
 import Ns2s from "./ns2/ns2s/ns2s";
 
-class NordList extends Component {
-    render() {
-        const listItems = this.props.data.map((data) => {
-            let result;
-            if (data && (data.ext === "ns3f" || data.ext === "ns3l")) {
-                result = (
-                    <div className="mb-2">
-                        {this.props.production && <Ns3 data={data} />}
-
-                        {!this.props.production && (
-                            <Tabs id="uncontrolled-tab-example">
-                                <Tab eventKey="panel" title="Panel" disabled={false}>
-                                    <Ns3 data={data} />
-                                </Tab>
-
-                                <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
-                                    <NordTree data={data} />
-                                </Tab>
-                            </Tabs>
-                        )}
-                    </div>
-                );
-            } else if (data && (data.ext === "ns2p" || data.ext === "ns2l")) {
-                result = (
-                    <div className="mb-2">
-                        {this.props.production && <Ns2 data={data} />}
-
-                        {!this.props.production && (
-                            <Tabs id="uncontrolled-tab-example">
-                                <Tab eventKey="panel" title="Panel" disabled={false}>
-                                    <Ns2 data={data} />
-                                </Tab>
-
-                                <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
-                                    <NordTree data={data} />
-                                </Tab>
-                            </Tabs>
-                        )}
-                    </div>
-                );
-            } else if (data && data.ext === "ns3y") {
-                result = (
-                    <div className="mb-2">
-                        {this.props.production && <Ns3y data={data} />}
-
-                        {!this.props.production && (
-                            <Tabs id="uncontrolled-tab-example">
-                                <Tab eventKey="panel" title="Panel" disabled={false}>
-                                    <Ns3y data={data} />
-                                </Tab>
-
-                                <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
-                                    <NordTree data={data} />
-                                </Tab>
-                            </Tabs>
-                        )}
-                    </div>
-                );
-            } else if (data && data.ext === "ns2s") {
-                result = (
-                    <div className="mb-2">
-                        {this.props.production && <Ns2s data={data} />}
-
-                        {!this.props.production && (
-                            <Tabs id="uncontrolled-tab-example">
-                                <Tab eventKey="panel" title="Panel" disabled={false}>
-                                    <Ns2s data={data} />
-                                </Tab>
-
-                                <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
-                                    <NordTree data={data} />
-                                </Tab>
-                            </Tabs>
-                        )}
-                    </div>
-                );
-            } else if (data && data.ext === "nlas") {
-                result = (
-                    <div className="mb-2">
-                        <NordTree data={data} />
-                    </div>
-                );
-            }
-            return (
-                <li className="list-group-item" key={data.uuid} style={{ padding: "0" }}>
-                    {result}
-                </li>
-            );
-        });
-        return <ul className="list-group list-group-flush">{listItems}</ul>;
+const NordGear = ({ data }) => {
+    if (!data) {
+        return <></>;
     }
-}
+    const { ext } = data;
+
+    switch (ext) {
+        case "ns3f":
+        case "ns3l":
+            return <Ns3 data={data} />;
+        case "ns3y":
+            return <Ns3y data={data} />;
+        case "ns2p":
+        case "ns2l":
+            return <Ns2 data={data} />;
+        case "ns2s":
+            return <Ns2s data={data} />;
+        default:
+            return <></>;
+    }
+};
+
+const NordList = ({ programs, production }) => {
+    const listItems = programs.map((data) => (
+        <li className="list-group-item" style={{ padding: "0" }} key={data.uuid}>
+            <div className="mb-2">
+                {production && <NordGear data={data} />}
+
+                {!production && (
+                    <Tabs id="uncontrolled-tab-example">
+                        <Tab eventKey="panel" title="Panel" disabled={false}>
+                            <NordGear data={data} />
+                        </Tab>
+
+                        <Tab eventKey="debug" title="File Properties" disabled={false} className="nord-tree">
+                            <NordTree data={data} />
+                        </Tab>
+                    </Tabs>
+                )}
+            </div>
+        </li>
+    ));
+    return <ul className="list-group list-group-flush">{listItems}</ul>;
+};
 
 export default class NordDevice extends Component {
     shouldComponentUpdate(nextProps, _nextState, _nextContent) {
@@ -118,6 +70,6 @@ export default class NordDevice extends Component {
     }
 
     render() {
-        return <NordList data={this.props.data} production={this.props.production} />;
+        return <NordList programs={this.props.data} production={this.props.production} />;
     }
 }

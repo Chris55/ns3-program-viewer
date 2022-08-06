@@ -15,6 +15,7 @@ import {
     setProgress,
     toggleShowAll,
     toggleShowDefault,
+    toggleShowManager,
 } from "./features/nord/nord-slice-reducer";
 import { Dropdown, Form, Navbar, ProgressBar } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
@@ -37,6 +38,7 @@ const Main = () => {
         data,
         showAll,
         showDefault,
+        showManager,
         exporting,
         production,
         programs,
@@ -55,6 +57,10 @@ const Main = () => {
 
     const handleToggleDefault = () => {
         dispatch(toggleShowDefault());
+    };
+
+    const handleToggleManager = () => {
+        dispatch(toggleShowManager());
     };
 
     const exportCallback = (title, currentStep, numberOfSteps, currentValue, maxValue) => {
@@ -114,7 +120,6 @@ const Main = () => {
     };
 
     const exportDisabled = exporting || loading || data.length === 0;
-    const showManager = programs.length !== 0 || synths.length !== 0;
 
     // empty space is added to 'hide' the export process
     const nordDeviceAndSpace = (
@@ -169,6 +174,18 @@ const Main = () => {
                                         </Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
+
+                                <Form.Check
+                                    className="ml-5"
+                                    label="Manager"
+                                    name="default"
+                                    type="switch"
+                                    id="id-manager"
+                                    disabled={false}
+                                    checked={showManager}
+                                    onChange={handleToggleManager}
+                                    title="Display the Program Manager"
+                                />
                             </Form>
                         </Navbar.Collapse>
                         <h5>{managerTitle}</h5>

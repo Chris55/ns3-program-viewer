@@ -85,8 +85,6 @@ H
 src/client/setupTests.js,e/2/e268fc01756e341b0e1f8508cd6a02975c6a51db
 w
 G.idea/sonarlint/issuestore/8/d/8df986952f5390437fc68157709d25150e2b66fa,e/7/e785182d3aaae9ab677ad93e38211740d624109a
-N
-src/client/nord/nord-device.js,3/2/32a7e594d0a451cf4024234f11c78e6d275e36a7
 D
 src/client/Footer.js,7/4/74c45712ef4b1596cbd4148468b1f834661e3537
 L
@@ -249,10 +247,6 @@ U
 %src/client/nord/ns2/ns2s/ns2s-slot.js,1/d/1d23692ab0521ee27b0e9d654a6823851c960b4b
 w
 G.idea/sonarlint/issuestore/0/1/019d29f8895a1babc3d9a89d482c1f3cb74833b5,5/0/5055959eaa8308d39bd202068f7679c4b063f69e
-V
-&src/client/nord/ns2/model/ns2-model.js,f/2/f2a5573b78dba440969d2d6dc61ef699fff700f8
-V
-&src/client/nord/ns3/model/ns3-model.js,9/0/906153038dbaf8e448949837bfc84ef755733e9b
 J
 src/server/nord-service.js,1/1/11a91a06f2737e7c0f73c1854f131d767fdc9c3d
 Q
