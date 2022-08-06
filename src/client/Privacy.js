@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import AppName from "./AppName";
 import { useSelector } from "react-redux";
-import { nordSelector } from "./features/nord/nordSliceReducer";
+import { nordSelector } from "./features/nord/nord-slice-reducer";
 import Handmade from "./Handmade";
 import Footer from "./Footer";
 

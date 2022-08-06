@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
 import { useSelector } from "react-redux";
-import { nordSelector } from "../../features/nord/nordSliceReducer";
+import { nordSelector } from "../../features/nord/nord-slice-reducer";
 
 /***
  * returns Label & Value

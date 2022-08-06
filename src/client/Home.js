@@ -11,7 +11,7 @@ import AppName from "./AppName";
 import { Card, Col, Container, Media, ProgressBar, Row } from "react-bootstrap";
 import LoadButton from "./LoadButton";
 import { useSelector } from "react-redux";
-import { nordSelector } from "./features/nord/nordSliceReducer";
+import { nordSelector } from "./features/nord/nord-slice-reducer";
 import Handmade from "./Handmade";
 import Footer from "./Footer";
 import cx from "classnames";

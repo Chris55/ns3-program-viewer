@@ -15,7 +15,7 @@ import {
     setProgress,
     toggleShowAll,
     toggleShowDefault,
-} from "./features/nord/nordSliceReducer";
+} from "./features/nord/nord-slice-reducer";
 import { Dropdown, Form, Navbar, ProgressBar } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";

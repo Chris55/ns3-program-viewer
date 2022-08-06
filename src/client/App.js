@@ -10,7 +10,7 @@ import Privacy from "./Privacy";
 import Menu from "./Menu";
 import Offline from "./Offline";
 import { useDispatch, useSelector } from "react-redux";
-import { nordSelector, setError } from "./features/nord/nordSliceReducer";
+import { nordSelector, setError } from "./features/nord/nord-slice-reducer";
 
 const App = () => {
     const { error } = useSelector(nordSelector);

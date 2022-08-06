@@ -1,7 +1,9 @@
 import React from "react";
 import FileUploaderButton from "./utils/file-uploader-button";
 import { useDispatch, useSelector } from "react-redux";
-import { allSupportedTypes, loadFiles, nordSelector } from "./features/nord/nordSliceReducer";
+import { nordSelector } from "./features/nord/nord-slice-reducer";
+import { loadFiles } from "./features/nord/load-files";
+import { allSupportedTypes } from "./features/nord/nord-file-types";
 
 const LoadButton = (props) => {
     const dispatch = useDispatch();

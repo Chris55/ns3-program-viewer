@@ -65,8 +65,6 @@ C
 docs/test-result.md,c/c/ccd9b2ea051041ff25aea2b93b5064429d4d0903
 E
 src/client/AppName.js,6/8/683c689fb203ea047aa3efb5e5464721b0c16b13
-H
-src/client/LoadButton.js,2/c/2cc2a3f6034656e9fc5817ce7726b8ebdb84adb0
 G
 src/client/constants.js,e/d/ed678c0c7447380c9a2c039ab41b229ee6641854
 C
@@ -75,18 +73,10 @@ E
 src/client/Offline.js,b/b/bb878a0b5430645423cab0f089ac647963743d1f
 D
 src/client/index.css,e/f/ef2bde1aea5a913822f743ab6699c17edd68dbb4
-B
-src/client/Home.js,5/7/57eba277c5aad3d2b1aa4ac20dc7c617925573d3
 F
 src/client/Handmade.js,7/e/7e9e25e099ac225bacd7d8aff370f1fcb37f4f4d
-B
-src/client/Main.js,f/d/fd869e3b43110a6591197073a3394d8d43a20955
 w
 G.idea/sonarlint/issuestore/4/3/4351e3fc427bd0334e9857bdba0fbf488ef9a757,9/d/9d37c006ccf30e2a64d0c7bd9539171b6461eccd
-B
-src/client/Menu.js,1/3/13293d103c2044eebae8cf294f3f94311a27c75e
-E
-src/client/Privacy.js,6/b/6be998e62facf2f007037ded69005b5dbc096dd5
 K
 src/client/serviceWorker.js,2/6/26866e75b9cbdea41f8d02ec6b157b34298c9e20
 C
@@ -145,24 +135,14 @@ w
 G.idea/sonarlint/issuestore/8/4/84d5a6b42a6597cb418316ac8c773c4d0056102b,8/5/8559819f5f288f28a3ad8d9277cbf4e0653a8824
 ]
 -src/client/assets/nord-logo-sound-manager.svg,0/5/05fa7b0328629467027bdfb15f833be860643dfc
-Q
-!src/client/export/ExportDialog.js,6/2/623dd40229eb813da1759c9ba51e723a008636ef
-O
-src/client/export/export-csv.js,e/3/e33ce51a94c9bf794ba37c048851bb767f6168e9
-L
-src/client/features/store.js,6/f/6fa7bda2ef2d4fb11d5e457e739cf3e80cd5361d
 K
 src/client/nord/lib/ns3.css,0/8/08458d03259a4d6929ac63283060fa326420f520
-X
-(src/client/nord/lib/nord-value-on-off.js,d/b/db32b1f2fefb33446bf135351c488101727913c1
 Q
 !src/client/nord/lib/nord-label.js,4/3/43e03cfcf03dcd1fb1d596133e0ac1ec5c399ff5
 P
  src/client/nord/lib/converter.js,c/5/c582b055ddf8822582c2667fffb60fea5fd2162a
 \
 ,src/client/nord/ns2/ns2-fx-rotary-speaker.js,b/2/b29078f53cb3034ac52b9eea912d22f57cabe9cf
-[
-+src/client/nord/lib/nord-label-and-value.js,7/5/756195f82d6c3bfedb12c8ce4c67cee78c9fa830
 f
 6src/client/nord/lib/nord-label-and-value-with-morph.js,c/0/c022216c5ba23e4e196efa96d3c785994611aa05
 X
@@ -255,8 +235,6 @@ X
 (src/client/nord/ns3/ns3-fx-compressor.js,1/8/189ba7321f559ae4b68f80294994ad7e60ac5037
 X
 (src/client/nord/ns3/ns3-section-synth.js,e/3/e353f47df9eaea2d11a48dc13058c27ca9873edd
-\
-,src/client/features/nord/nordSliceReducer.js,b/c/bc77bf8b0711177b0e936a520328248de8a8c2af
 P
  src/client/nord/ns2/ns2s/ns2s.js,d/e/defb348a32118c672d149f1f3eb07376c6135eb6
 `
@@ -409,8 +387,6 @@ O
 src/client/export/export-pdf.js,a/b/ab40611fc04f8bdc58a0057df2915bcd64093705
 9
 	.eslintrc,4/b/4be5f5e3cea171c304090be92469b2f2cb51039a
-9
-	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 A
 webpack.config.js,d/5/d5595158cc48f9bf3e51b06f6e6805a8fd2d6262
 ?
@@ -421,10 +397,6 @@ A
 public/index.html,f/4/f43ecdf8d666ee908aacce037b4cd72159e4741b
 ;
 .travis.yml,d/e/dea01dd89a3b602828e630677fde5d77c06441c8
-A
-src/client/App.js,0/7/07d092e98348e8af948c6359d247c1d01a10d71e
-O
-src/client/nord/nord-manager.js,0/b/0bc8c6d96cd94e8fda8e3bf68195286672b78ec4
 D
 electron-builder.yml,b/1/b1938f5f8aa5613ea46a5eee720629c8a23eb5d1
 <

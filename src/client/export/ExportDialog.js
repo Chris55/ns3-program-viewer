@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { nordSelector, setExportOptions } from "../features/nord/nordSliceReducer";
+import { nordSelector, setExportOptions } from "../features/nord/nord-slice-reducer";
 
 export const ExportDialog = ({ show, handleClose }) => {
     const dispatch = useDispatch();

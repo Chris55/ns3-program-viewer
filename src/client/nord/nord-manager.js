@@ -5,7 +5,7 @@ import "../App.scss";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { useDispatch, useSelector } from "react-redux";
-import { nordSelector, setLoadingSuccess, setManagerSelection } from "../features/nord/nordSliceReducer";
+import { nordSelector, setLoadingSuccess, setManagerSelection } from "../features/nord/nord-slice-reducer";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import "react-splitter-layout/lib/index.css";
 import { AgGridColumn, AgGridReact } from "ag-grid-react";
@@ -45,7 +45,6 @@ const NordManager = () => {
         dispatch(
             setLoadingSuccess({
                 data: selectedData,
-                originalData: selectedData,
             })
         );
     };

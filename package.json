@@ -15,7 +15,7 @@
     "dependencies": {
         "@react-pdf/renderer": "^2.3.0",
         "@reduxjs/toolkit": "^1.8.3",
-        "@zip.js/zip.js": "^2.6.3",
+        "@zip.js/zip.js": "^2.6.10",
         "ag-grid-community": "^28.1.0",
         "ag-grid-react": "^28.1.0",
         "axios": "^0.27.2",
@@ -32,6 +32,7 @@
         "file-saver": "^2.0.5",
         "helmet": "^5.1.1",
         "html2canvas": "^1.4.1",
+        "immer": "^9.0.15",
         "jspdf": "^2.5.1",
         "multer": "^1.4.5-lts.1",
         "react": "^18.2.0",
