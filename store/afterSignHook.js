@@ -30,11 +30,8 @@ module.exports = async function (params) {
         console.log("cancel notarize step for type", params.packager.platformSpecificBuildOptions.type);
         return;
     }
-    //console.log(params);
-    //console.error("notarize is DISABLE FOR NOW");
-    //return;
 
-    //console.log("afterSign hook triggered", params);
+    //console.log("afterSign hook triggered", params)
 
     // Same appId in electron-builder.
     let appId = "com.chris55.nord-file-viewer";
@@ -47,7 +44,8 @@ module.exports = async function (params) {
     console.log(`Notarizing ${appId} found at ${appPath}`);
 
     try {
-        console.log("USER", process.env.appleId, process.env.appleIdPassword);
+        // CWE-312: Cleartext Storage of Sensitive Information
+        // console.log("USER", process.env.appleId, process.env.appleIdPassword);
         await electron_notarize.notarize({
             appBundleId: appId,
             appPath: appPath,
