@@ -17,7 +17,7 @@ import {
     toggleShowDefault,
     toggleShowManager,
 } from "./features/nord/nord-slice-reducer";
-import { Dropdown, Form, Navbar, ProgressBar } from "react-bootstrap";
+import { Dropdown, Form, ProgressBar } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
 import { buildExportCsv } from "./export/export-csv";
@@ -25,6 +25,7 @@ import cx from "classnames";
 import { BsFileEarmarkPdf } from "react-icons/bs";
 import { GrDocumentCsv } from "react-icons/gr";
 import { ExportDialog } from "./export/ExportDialog";
+import { useWindowSize } from "@react-hook/window-size";
 import NordDevice from "./nord/nord-device";
 // noinspection JSCheckFunctionSignatures
 const NordManager = React.lazy(() => import("./nord/nord-manager"));
@@ -49,6 +50,7 @@ const Main = () => {
         exportRange,
     } = useSelector(nordSelector);
 
+    const [width, height] = useWindowSize();
     const [showExportDialog, setShowExportDialog] = useState(false);
 
     const handleToggleShow = () => {
@@ -130,6 +132,8 @@ const Main = () => {
         </div>
     );
 
+    const isVerticalLayout = width < height;
+
     return (
         <>
             <ExportDialog show={showExportDialog} handleClose={runExportCsv} />
@@ -145,12 +149,12 @@ const Main = () => {
                         now={progress}
                     />
 
-                    <Navbar className="bg-light">
-                        <Navbar.Collapse className="">
+                    <div className="bg-light p-1 d-flex justify-content-between">
+                        <div>
                             <Form inline className="ml-n2">
                                 <LoadButton className="nav-link" variant="light" />
 
-                                <Dropdown>
+                                <Dropdown className="mr-2">
                                     <Dropdown.Toggle variant="light" id="dropdown-basic">
                                         {exporting ? "Exporting" : "Export"}
                                     </Dropdown.Toggle>
@@ -175,24 +179,44 @@ const Main = () => {
                                     </Dropdown.Menu>
                                 </Dropdown>
 
-                                <Form.Check
-                                    className="ml-5"
-                                    label="Manager"
-                                    name="default"
-                                    type="switch"
-                                    id="id-manager"
-                                    disabled={false}
-                                    checked={showManager}
-                                    onChange={handleToggleManager}
-                                    title="Display the Program Manager"
-                                />
+                                {!isVerticalLayout && (
+                                    <Form.Check
+                                        className="ml-3"
+                                        label="Manager"
+                                        name="default"
+                                        type="switch"
+                                        id="id-manager"
+                                        disabled={false}
+                                        checked={showManager}
+                                        onChange={handleToggleManager}
+                                        title="Display the Program Manager"
+                                    />
+                                )}
                             </Form>
-                        </Navbar.Collapse>
-                        <h5>{managerTitle}</h5>
-                        <Navbar.Collapse className="justify-content-end">
+                        </div>
+
+                        <div className="my-auto  px-1" style={{ paddingTop: "0.5rem" }}>
+                            <h5>{managerTitle}</h5>
+                        </div>
+
+                        <div className="mr-md-2 my-auto">
                             <Form inline>
+                                {isVerticalLayout && (
+                                    <Form.Check
+                                        className="mr-sm-1"
+                                        label="Manager"
+                                        name="default"
+                                        type="switch"
+                                        id="id-manager"
+                                        disabled={false}
+                                        checked={showManager}
+                                        onChange={handleToggleManager}
+                                        title="Display the Program Manager"
+                                    />
+                                )}
+
                                 <Form.Check
-                                    className="mr-5"
+                                    className="mr-sm-1 mr-lg-4"
                                     label="Smart"
                                     name="default"
                                     type="switch"
@@ -200,8 +224,9 @@ const Main = () => {
                                     disabled={false}
                                     checked={showDefault}
                                     onChange={handleToggleDefault}
-                                    title="Highlight all non-init values"
+                                    title="Highlight in red all non-init values"
                                 />
+
                                 <Form.Check
                                     label="All"
                                     name="show"
@@ -212,8 +237,8 @@ const Main = () => {
                                     title="Show all instruments"
                                 />
                             </Form>
-                        </Navbar.Collapse>
-                    </Navbar>
+                        </div>
+                    </div>
 
                     {showManager && (
                         <SplitterLayout
@@ -221,6 +246,7 @@ const Main = () => {
                             percentage={false}
                             secondaryInitialSize={350}
                             secondaryMinSize={10}
+                            vertical={isVerticalLayout}
                         >
                             <Suspense
                                 fallback={

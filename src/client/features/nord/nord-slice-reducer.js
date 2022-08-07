@@ -25,16 +25,7 @@ const initialState = {
     exportRange: "selection",
     managerTitle: "",
     managerFileExt: "",
-    programs: [
-        // {name: "prg1", location: "Bank A"}, {name: "prg2", location: "Bank A"}, {
-        //     name: "prg3",
-        //     location: "Bank A"
-        // }, {name: "prg4", location: "Bank A"},
-        // {name: "prg1", location: "Bank A"}, {name: "prg2", location: "Bank A"}, {
-        //     name: "prg3",
-        //     location: "Bank A"
-        // }, {name: "prg4", location: "Bank A"},
-    ],
+    programs: [],
     synths: [],
     lives: [],
     performances: [],

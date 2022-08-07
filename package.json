@@ -13,6 +13,7 @@
         ]
     },
     "dependencies": {
+        "@react-hook/window-size": "^3.0.7",
         "@react-pdf/renderer": "^2.3.0",
         "@reduxjs/toolkit": "^1.8.3",
         "@zip.js/zip.js": "^2.6.10",
@@ -44,7 +45,7 @@
         "react-router-dom": "^6.3.0",
         "react-scripts": "^5.0.1",
         "react-splitter-layout": "^4.0.0",
-        "react-toastify": "^9.0.7",
+        "react-toastify": "^9.0.8",
         "serve-index": "^1.9.1",
         "source-map-explorer": "^2.5.2",
         "unzipper": "^0.10.11",
