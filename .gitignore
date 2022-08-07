@@ -4,8 +4,8 @@ build/
 userdata/
 
 # SonarLint plugin
-/.idea/sonarlint/
-
+.idea/sonarlint/
+.idea/sonarlint/issuestore/index.pb
 
 **/entitlements.mas.plist
 **/dev.provisionprofile
