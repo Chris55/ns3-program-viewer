@@ -203,7 +203,7 @@ const Main = () => {
                             <Form inline>
                                 {isVerticalLayout && (
                                     <Form.Check
-                                        className="mr-sm-1"
+                                        className="mr-1"
                                         label="Manager"
                                         name="default"
                                         type="switch"
@@ -216,7 +216,7 @@ const Main = () => {
                                 )}
 
                                 <Form.Check
-                                    className="mr-sm-1 mr-lg-4"
+                                    className="mr-1 mr-lg-4"
                                     label="Smart"
                                     name="default"
                                     type="switch"
@@ -228,6 +228,7 @@ const Main = () => {
                                 />
 
                                 <Form.Check
+                                    className="mr-1"
                                     label="All"
                                     name="show"
                                     type="switch"

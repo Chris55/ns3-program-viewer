@@ -408,8 +408,6 @@ H
 src/server/middleware.js,6/f/6f100394d57920050b05eb44c69cf3e4c5193824
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-N
-coverage/coverage-summary.json,4/d/4d1b67063987b117ead00fa2ce025fddb33c3a5b
 O
 src/client/export/export-csv.js,e/3/e33ce51a94c9bf794ba37c048851bb767f6168e9
 A
@@ -438,3 +436,9 @@ V
 &src/client/features/nord/load-files.js,4/a/4ae054847a0631583cdf4baf275be372787c6cd3
 V
 &src/client/nord/ns2/model/ns2-model.js,f/2/f2a5573b78dba440969d2d6dc61ef699fff700f8
+[
++src/client/features/nord/nord-file-types.js,d/3/d3dbd9f079aff24371bcba575e7fb32e6cde99ff
+V
+&src/client/nord/ns3/model/ns3-model.js,9/0/906153038dbaf8e448949837bfc84ef755733e9b
+9
+	yarn.lock,5/3/53585a096fe3a3b96321113856ae62602995a33b
