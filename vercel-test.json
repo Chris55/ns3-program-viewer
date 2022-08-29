@@ -1,7 +1,7 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "version": 2,
-    "builds": [{ "src": "package.json", "use": "@vercel/node" }],
+    "builds": [{ "src": "/build/server.min.js", "use": "@vercel/node" }],
     "routes": [
         {
             "src": "/api/upload",
