@@ -1,0 +1,17 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "version": 2,
+    "builds": [{ "src": "/build/server.min.js", "use": "@now/node-server" }],
+    "routes": [
+        {
+            "src": "/api/upload",
+            "dest": "/build/server.min.js",
+            "methods": ["POST"]
+        },
+        {
+            "src": "/media",
+            "dest": "/build/server.min.js",
+            "methods": ["GET"]
+        }
+    ]
+}
