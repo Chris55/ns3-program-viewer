@@ -1,0 +1,7 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "redirects": [
+        { "source": "/api/upload", "destination": "/build/server.min.js" },
+        { "source": "/media", "destination": "/build/server.min.js" }
+    ]
+}
