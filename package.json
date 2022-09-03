@@ -125,6 +125,7 @@
         "analyze": "yarn react-build && source-map-explorer 'build/static/js/*.js'",
         "heroku-prebuild": "yarn install --production=false",
         "build": "NODE_ENV=production && npm run react-build && webpack --config webpack.config.js",
+        "buildpost": "rm -rf node_modules",
         "build-yarn": "NODE_ENV=production && yarn react-build && webpack --config webpack.config.js",
         "client": "yarn react-start",
         "server": "nodemon src/server/server.js",
