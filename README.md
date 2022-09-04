@@ -7,7 +7,7 @@
 
 The unofficial Nord Stage 2/2EX/3 Program viewer tool.
 
-Online version: [https://ns3-program-viewer.herokuapp.com](https://ns3-program-viewer.herokuapp.com)
+Online version: [https://ns3-program-viewer.cyclic.app](https://ns3-program-viewer.cyclic.app)
 
 Offline version also available as standalone desktop application
 - Windows: https://github.com/Chris55/ns3-program-viewer/releases
