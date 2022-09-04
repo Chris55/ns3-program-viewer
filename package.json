@@ -46,7 +46,6 @@
         "react-scripts": "^5.0.1",
         "react-splitter-layout": "^4.0.0",
         "react-toastify": "^9.0.8",
-        "serve-index": "^1.9.1",
         "source-map-explorer": "^2.5.2",
         "unzipper": "^0.10.11",
         "uuid": "^8.3.2"
@@ -117,11 +116,10 @@
     "scripts": {
         "analyze": "yarn react-build && source-map-explorer 'build/static/js/*.js'",
         "heroku-prebuild": "yarn install --production=false",
-        "build-npm": "NODE_ENV=production && npm run react-build && webpack --config webpack.config.js",
         "build": "NODE_ENV=production && yarn react-build && webpack --config webpack.config.js",
         "client": "yarn react-start",
         "server": "nodemon src/server/server.js",
-        "deploy:web": "heroku git:remote -a ns3-program-viewer && git push heroku main:main",
+        "deploy:heroku": "heroku git:remote -a ns3-program-viewer && git push heroku main:main",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
         "dev:electron": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && yarn electron-start\"",
         "start": "NODE_ENV=production node build/server.min.js",
@@ -142,5 +140,5 @@
         "doc": "yarn doc:stage",
         "test": "node test/test-builder && jest --coverage && coverage-badge-creator"
     },
-    "version": "1.5.11"
+    "version": "1.5.12"
 }

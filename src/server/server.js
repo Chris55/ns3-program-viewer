@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
-const serveIndex = require("serve-index");
 const { api } = require("./api");
 const { appHelmet, appLimiter, apiLimiter } = require("./middleware");
 
@@ -21,8 +20,6 @@ app.use(appHelmet);
 app.use(cors());
 
 app.use("/api", apiLimiter, api);
-
-app.use("/media", apiLimiter, express.static("upload"), serveIndex("upload", { icons: true, view: "details" }));
 
 if (process.env.NODE_ENV === "production") {
     // Serve any static files

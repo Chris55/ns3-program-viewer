@@ -25,19 +25,14 @@ const Privacy = () => {
                                         <li>We don’t log or share your personal information.</li>
                                         <li>We don’t track you.</li>
                                         <li>We don’t profile you.</li>
+                                        {isElectron && (
+                                            <li>
+                                                Downloaded files are stored locally only, nothing is send to a remote
+                                                server.
+                                            </li>
+                                        )}
+                                        {!isElectron && <li>Uploaded files are not stored on the server.</li>}
                                     </ul>
-                                    {isElectron && (
-                                        <Card.Text>
-                                            Downloaded files are stored locally only, nothing is send to a remote
-                                            server.
-                                        </Card.Text>
-                                    )}
-                                    {!isElectron && (
-                                        <Card.Text>
-                                            Uploaded files are stored on the server for processing only and deleted
-                                            every 24h.
-                                        </Card.Text>
-                                    )}
 
                                     <Card.Title className="text-muted  mt-5">About Cookies</Card.Title>
 

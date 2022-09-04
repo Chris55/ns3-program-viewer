@@ -1,31 +1,10 @@
 const express = require("express");
 const multer = require("multer");
-const fs = require("fs").promises;
 const { loadNordFile } = require("./nord-service");
 
 const api = express.Router();
-const DIR = "./upload/";
-
-const storage = multer.diskStorage({
-    destination: (_req, _file, cb) => {
-        cb(null, DIR);
-    },
-    filename: (_req, file, cb) => {
-        let originalName = file.originalname;
-
-        // removes NUF header
-        const regxForum = new RegExp(/^\d{13}-/);
-        if (regxForum.test(originalName)) {
-            originalName = originalName.substr(14);
-        }
-
-        const fileName = originalName.toLowerCase().split(" ").join("-");
-        cb(null, Date.now() + "-" + fileName);
-    },
-});
 
 const upload = multer({
-    storage: storage,
     fileFilter: (_req, file, cb) => {
         if (file.mimetype === "application/octet-stream" || file.mimetype === "application/x-nord") {
             cb(null, true);
@@ -51,17 +30,21 @@ api.post("/upload", upload.array("nordFiles", 1000), async (req, res, next) => {
         const bundle = [];
 
         for (const file of req.files) {
-            console.log(file.path);
+            console.log(file.originalname);
 
-            const buffer = await fs.readFile(file.path);
+            const buffer = file.buffer;
 
-            if (process.env.NODE_ENV !== "production") {
-                // in dev cleanup all files
-                // in prod: no cleanup required heroku free dyno restart every 24h and cleanup everything
-                await fs.unlink(file.path).catch(next);
+            let originalName = file.originalname;
+
+            // removes NUF filename header
+            const regxForum = new RegExp(/^\d{13}-/);
+            if (regxForum.test(originalName)) {
+                originalName = originalName.slice(14);
             }
 
-            const data = loadNordFile(buffer, file.originalname);
+            const fileName = originalName.toLowerCase().split(" ").join("-");
+
+            const data = loadNordFile(buffer, fileName);
             bundle.push(data);
         }
         const response = {
@@ -78,4 +61,4 @@ api.post("/upload", upload.array("nordFiles", 1000), async (req, res, next) => {
 
 module.exports = {
     api,
-}
+};
