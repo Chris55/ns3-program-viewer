@@ -54,7 +54,7 @@ api.post("/upload", upload.array("nordFiles", 1000), async (req, res, next) => {
         };
         res.send(response);
     } catch (err) {
-        console.error(err, err.stack);
+        console.error(err);
         next(err);
     }
 });
