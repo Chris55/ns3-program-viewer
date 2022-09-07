@@ -39,6 +39,7 @@ jobs:
         source_folder: 'build'
         destination_repo: 'chris55/nord-app'
         destination_folder: 'build'
+        destination_branch: 'main'
         user_email: 'christian.florentz@gmail.com'
         user_name: 'chris55'
         commit_msg: '[GHA] Update the build files.'
