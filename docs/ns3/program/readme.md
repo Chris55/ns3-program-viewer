@@ -79,7 +79,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 ## License
 This mapping is provided as-is under the MIT license.
 
-Copyright (c) 2020, 2021 Christian Florentz
+Copyright (c) 2020-2023 Christian Florentz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
