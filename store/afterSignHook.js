@@ -19,7 +19,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const electron_notarize = require("electron-notarize");
+const { notarize } = require("@electron/notarize");
 
 module.exports = async function (params) {
     // Only notarize the app on Mac OS only.
@@ -46,7 +46,7 @@ module.exports = async function (params) {
     try {
         // CWE-312: Cleartext Storage of Sensitive Information
         // console.log("USER", process.env.appleId, process.env.appleIdPassword);
-        await electron_notarize.notarize({
+        await notarize({
             appBundleId: appId,
             appPath: appPath,
             appleId: process.env.appleId,
