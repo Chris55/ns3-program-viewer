@@ -53,6 +53,13 @@
 | Nord Stage 3 Song Bundle          | ns3sbundle |
 | Nord Stage 3 Synth                | ns3y       |
 | Nord Stage 3 Synth Bundle         | ns3synthpb |
+| Nord Stage 4 Backup               | ns4b       |
+| Nord Stage 4 Program              | ns4p       |
+| Nord Stage 4 Program Bundle       | ns4fb      |
+| Nord Stage 4 Song                 | ns4s       |
+| Nord Stage 4 Song Bundle          | ns4sbundle |
+| Nord Stage 4 Synth                | ns4y       |
+| Nord Stage 4 Synth Bundle         | ns4synthpb |
 | Nord Stage Backup                 | nsb        |
 | Nord Stage Piano                  | nsp        |
 | Nord Stage Program                | nspg       |
