@@ -1393,6 +1393,59 @@ exports.ns3NordPianoLibrary = new Map([
         },
     ],
 
+    [
+        0x56e26efe,
+        {
+            name: "Pearl Upright Lrg",
+            info: "GRT 120",
+            version: "6.0",
+            category: "None",
+            size: 127249072,
+            filename: "Pearl Upright Lrg 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x5b940da3,
+        {
+            name: "Pearl Upright Med",
+            info: "GRT 120",
+            version: "6.0",
+            category: "None",
+            size: 107199476,
+            filename: "Pearl Upright Med 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xd518147f,
+        {
+            name: "Pearl Upright Sml",
+            info: "GRT 120",
+            version: "6.0",
+            category: "None",
+            size: 68504512,
+            filename: "Pearl Upright Sml 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x8674192e,
+        {
+            name: "Pearl Upright XL",
+            info: "GRT 120",
+            version: "6.0",
+            category: "None",
+            size: 190580368,
+            filename: "Pearl Upright XL 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
     // Electric
 
     [
