@@ -84,7 +84,7 @@
         "xml-js": "^1.6.11"
     },
     "engines": {
-        "node": "16.x"
+        "node": "18.x"
     },
     "jest": {
         "modulePathIgnorePatterns": [
