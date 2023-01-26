@@ -21,39 +21,67 @@ const getExtension = (fileName) => {
  * @returns {Promise<void>}
  */
 const loadBackupFile = async (dispatch, file, isElectron, production) => {
-    const reader = new ZipReader(new BlobReader(file));
-    const entries = await reader.getEntries();
-
-    const formData = new FormData();
-    for (const entry of entries) {
-        const ext = getExtension(entry.filename);
-        if (supportedProgramTypes.includes(ext)) {
-            const items = entry.filename.split("/");
-            const rawData = await entry.getData(new BlobWriter());
-            formData.append("nordFiles", rawData, items[2]);
-        }
-    }
-    await reader.close();
-
-    let json = {};
+    let json = {
+        data: [],
+        success: false,
+        error: "",
+    };
 
     dispatch(setLoading({ loading: true, progress: 60 }));
 
     if (isElectron) {
         json = await window.electron.downloadBackup(file.path, supportedProgramTypes);
     } else {
+        // load the backup/bundle on client side to read only supported files
+        const reader = new ZipReader(new BlobReader(file));
+        const entries = await reader.getEntries();
+        const payload = [];
+
+        for (const entry of entries) {
+            const ext = getExtension(entry.filename);
+            if (supportedProgramTypes.includes(ext)) {
+                const items = entry.filename.split("/");
+                const rawData = await entry.getData(new BlobWriter());
+                payload.push({
+                    rawData,
+                    name: items[2],
+                });
+            }
+        }
+        await reader.close();
+
+        // payload is now ready to be loaded!
+
         const url = production ? window.location.origin + "/api/upload" : "http://localhost:3000/api/upload";
 
-        const response = await fetch(url, {
-            method: "POST",
-            body: formData,
-        });
+        // creat multiple chunks from the payload
+        // cyclic free tier is not able to load a full backup file
 
-        if (response.ok) {
-            json = await response.json();
-        } else {
-            onError(dispatch, { error: response.statusText });
-            return;
+        const chunkSize = 50;
+        for (let i = 0; i < payload.length; i += chunkSize) {
+            const chunk = payload.slice(i, i + chunkSize);
+            const formData = new FormData();
+            for (const { rawData, name } of chunk) {
+                formData.append("nordFiles", rawData, name);
+            }
+
+            const response = await fetch(url, {
+                method: "POST",
+                body: formData,
+            });
+
+            if (response.ok) {
+                const partialJson = await response.json();
+                if (partialJson.success) {
+                    json.success = true;
+                    json.data.push(...partialJson.data);
+                } else {
+                    json.error = partialJson.error;
+                }
+            } else {
+                onError(dispatch, { error: response.statusText });
+                return;
+            }
         }
     }
 
@@ -65,7 +93,6 @@ const loadBackupFile = async (dispatch, file, isElectron, production) => {
         onError(dispatch, { error: json.error });
     }
 };
-
 
 /***
  * load individual program files
@@ -124,7 +151,6 @@ const onSuccess = (dispatch, response) => {
     }
 };
 
-
 /***
  * processes loading error
  * @param dispatch
@@ -133,7 +159,6 @@ const onSuccess = (dispatch, response) => {
 const onError = (dispatch, err) => {
     dispatch(setLoadingError({ error: err.error }));
 };
-
 
 /***
  * returns final Manager data
@@ -181,7 +206,6 @@ const toManagerData = (dispatch, dataArray, filename) => {
         managerFileExt: getExtension(filename),
     };
 };
-
 
 /***
  * main file loader
