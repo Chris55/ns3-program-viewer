@@ -1,6 +1,12 @@
 import axios from "axios";
 import { BlobReader, BlobWriter, ZipReader } from "@zip.js/zip.js";
-import { fadeOutProgressBar, setLoading, setLoadingBackupSuccess, setLoadingError } from "./nord-slice-reducer";
+import {
+    fadeOutProgressBar,
+    setLoading,
+    setLoadingBackupSuccess,
+    setLoadingError,
+    setProgress,
+} from "./nord-slice-reducer";
 import { supportedBackupTypes, supportedProgramTypes } from "./nord-file-types";
 
 /***
@@ -59,6 +65,8 @@ const loadBackupFile = async (dispatch, file, isElectron, production) => {
 
         const chunkSize = 50;
         for (let i = 0; i < payload.length; i += chunkSize) {
+            const pct = 60 + Math.floor((i * 40) / payload.length);
+            dispatch(setProgress({ progress: pct }));
             const chunk = payload.slice(i, i + chunkSize);
             const formData = new FormData();
             for (const { rawData, name } of chunk) {
@@ -83,6 +91,7 @@ const loadBackupFile = async (dispatch, file, isElectron, production) => {
                 return;
             }
         }
+        dispatch(setProgress({ progress: 100 }));
     }
 
     if (json.success) {
