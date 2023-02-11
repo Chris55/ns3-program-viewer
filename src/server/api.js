@@ -31,20 +31,7 @@ api.post("/upload", upload.array("nordFiles", 1000), async (req, res, next) => {
 
         for (const file of req.files) {
             console.log(file.originalname);
-
-            const buffer = file.buffer;
-
-            let originalName = file.originalname;
-
-            // removes NUF filename header
-            const regxForum = new RegExp(/^\d{13}-/);
-            if (regxForum.test(originalName)) {
-                originalName = originalName.slice(14);
-            }
-
-            const fileName = originalName.toLowerCase().split(" ").join("-");
-
-            const data = loadNordFile(buffer, fileName);
+            const data = loadNordFile(file.buffer, file.originalname);
             bundle.push(data);
         }
         const response = {
