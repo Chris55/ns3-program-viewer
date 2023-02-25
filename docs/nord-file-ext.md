@@ -40,6 +40,7 @@
 | Nord Pipe Organ                   | npip       |
 | Nord Sample                       | nsmp       |
 | Nord Sample (v3)                  | nsmp3      |
+| Nord Sample (v4)                  | nsmp4      |
 | Nord Stage 2 Backup               | ns2b       |
 | Nord Stage 2 EX Backup            | ns2exb     |
 | Nord Stage 2 Program              | ns2p       |
@@ -55,11 +56,12 @@
 | Nord Stage 3 Synth Bundle         | ns3synthpb |
 | Nord Stage 4 Backup               | ns4b       |
 | Nord Stage 4 Program              | ns4p       |
-| Nord Stage 4 Program Bundle       | ns4fb      |
-| Nord Stage 4 Song                 | ns4s       |
-| Nord Stage 4 Song Bundle          | ns4sbundle |
-| Nord Stage 4 Synth                | ns4y       |
-| Nord Stage 4 Synth Bundle         | ns4synthpb |
+| Nord Stage 4 Synth Preset         | ns4y       |
+| Nord Stage 4 Piano Preset         | ns4n       |
+| Nord Stage 4 Organ Preset         | ns4o       |
+| Nord Stage 4 Program Bundle       | ns4pbundle |
+| Nord Stage 4 Synth Preset Bundle  | ns4ybundle |
+| Nord Stage 4 Piano Preset Bundle  | ns4nbundle |
 | Nord Stage Backup                 | nsb        |
 | Nord Stage Piano                  | nsp        |
 | Nord Stage Program                | nspg       |

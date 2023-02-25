@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.scss";
-import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { useDispatch, useSelector } from "react-redux";
 import { nordSelector, setLoadingSuccess, setManagerSelection } from "../features/nord/nord-slice-reducer";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import "react-splitter-layout/lib/index.css";
-import { AgGridColumn, AgGridReact } from "ag-grid-react";
+import { AgGridReact } from "ag-grid-react";
 import { BsSearch } from "react-icons/bs";
 
 const NordManager = () => {
@@ -112,6 +110,13 @@ const NordManager = () => {
         onRowDataLoaded(e);
     };
 
+    const columnDefs = [
+        { headerName: "Loc", field: "location", width: 116, sort: "asc" },
+        { field: "name", width: 180 },
+        { field: "category", width: 120 },
+        { field: "version", width: 80 },
+    ];
+
     const gridClass = "ag-theme-custom-react";
 
     useEffect(() => {
@@ -172,17 +177,13 @@ const NordManager = () => {
                         resizable: true,
                         // comparator: customComparator,
                     }}
+                    columnDefs={columnDefs}
                     sortingOrder={["desc", "asc"]}
                     rowSelection={"multiple"}
                     overlayNoRowsTemplate={
                         '<span style="padding: 10px; border: 1px solid #444; background: lightgoldenrodyellow;">Nothing To Show</span>'
                     }
-                >
-                    <AgGridColumn headerName="Loc" field="location" width={116} sort={"asc"} />
-                    <AgGridColumn field="name" width={180} />
-                    <AgGridColumn field="category" width={120} />
-                    <AgGridColumn field="version" width={80} />
-                </AgGridReact>
+                ></AgGridReact>
             </div>
         </>
     );

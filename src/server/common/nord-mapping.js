@@ -42,12 +42,14 @@ exports.nordFileExtMap = new Map([
     ["npip", "Nord Pipe Organ"],
     ["nsmp", "Nord Sample"],
     ["nsmp3", "Nord Sample (v3)"],
+    ["nsmp4", "Nord Sample (v4)"],
     ["ns2b", "Nord Stage 2 Backup"],
     ["ns2exb", "Nord Stage 2 EX Backup"],
     ["ns2p", "Nord Stage 2 Program"],
     ["ns2pb", "Nord Stage 2 Program Bundle"],
     ["ns2s", "Nord Stage 2 Synth"],
     ["ns2synthpb", "Nord Stage 2 Synth Program Bundle"],
+    ["ns2y", "Nord Stage 2 Settings"],
     ["ns3b", "Nord Stage 3 Backup"],
     ["ns3f", "Nord Stage 3 Program"],
     ["ns3fb", "Nord Stage 3 Program Bundle"],
@@ -55,6 +57,7 @@ exports.nordFileExtMap = new Map([
     ["ns3sbundle", "Nord Stage 3 Song Bundle"],
     ["ns3y", "Nord Stage 3 Synth"],
     ["ns3synthpb", "Nord Stage 3 Synth Bundle"],
+    ["ns3t", "Nord Stage 3 Settings"],
     ["nsb", "Nord Stage Backup"],
     ["nsp", "Nord Stage Piano"],
     ["nspg", "Nord Stage Program"],
@@ -64,6 +67,17 @@ exports.nordFileExtMap = new Map([
     ["nwp", "Nord Wave Program"],
     ["ns2l", "Nord Stage 2 Live"],
     ["ns3l", "Nord Stage 3 Live"],
+    ["ns4l", "Nord Stage 4 Live"],
+    ["ns4b", "Nord Stage 4 Backup"],
+    ["ns4p", "Nord Stage 4 Program"],
+    ["ns4y", "Nord Stage 4 Synth Preset"],
+    ["ns4n", "Nord Stage 4 Piano Preset"],
+    ["ns4o", "Nord Stage 4 Organ Preset"],
+    ["ns4pbundle", "Nord Stage 4 Program Bundle"],
+    ["ns4ybundle", "Nord Stage 4 Synth Preset Bundle"],
+    ["ns4nbundle", "Nord Stage 4 Piano Preset Bundle"],
+    ["ns4obundle", "Nord Stage 4 Organ Preset Bundle"],
+    ["ns4t", "Nord Stage 4 Settings"],
 ]);
 
 /***
@@ -405,4 +419,3 @@ exports.synthCategoryMap = new Map([
         },
     ],
 ]);
-
