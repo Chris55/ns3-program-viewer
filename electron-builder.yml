@@ -14,7 +14,7 @@ publish:
     - provider: github
       owner: Chris55
       repo: ns3-program-viewer
-extraResources: []
+extraResources: ["third-party-licenses.md"]
 afterSign: "./store/afterSignHook.js"
 mac:
     target:
