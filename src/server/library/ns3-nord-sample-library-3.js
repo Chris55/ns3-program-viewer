@@ -1093,6 +1093,18 @@ exports.ns3NordSampleLibrary3 = new Map([
 
     [0x3ccccf0d, { name: "Chinese Wind Section", info: "CH", version: "3.1", category: "Ens Wind/Brass" }],
     [0x993862b, { name: "Dizi ChiOrch", info: "PP", version: "3.0", category: "Solo Wind/Brass" }],
+    [
+        0xe94747f3,
+        {
+            name: "Dizi",
+            info: "PP",
+            version: "3.1",
+            category: "Solo Wind/Brass",
+            size: 4404716,
+            filename: "Dizi_ChiOrch_PP_2.1",
+            ext: "nsmp3",
+        },
+    ],
     [0x4c4711f0, { name: "Erhu ChiOrch", info: "PP", version: "3.0", category: "Solo Strings" }],
     [0xaf2beaf7, { name: "Erhu Tremolo ChiOrch", info: "PP", version: "3.0", category: "Solo Strings" }],
     [0x4e251d93, { name: "Gaohu ChiOrch", info: "PP", version: "3.0", category: "Solo Strings" }],

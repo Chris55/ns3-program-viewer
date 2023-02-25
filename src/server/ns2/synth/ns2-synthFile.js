@@ -1,6 +1,6 @@
 const path = require("path");
 const { ns2Synth } = require("../program/ns2-synth");
-const { zeroPad, getName, checkHeader} = require("../../common/converter");
+const { getName, checkHeader} = require("../../common/nord-file");
 const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 
 /***

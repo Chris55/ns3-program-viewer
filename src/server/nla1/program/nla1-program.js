@@ -1,5 +1,5 @@
 const path = require("path");
-const { getName, checkHeader } = require("../../common/converter");
+const { getName, checkHeader } = require("../../common/nord-file");
 const { nla1ProgramLocation } = require("./nla1-utils");
 const { nordFileExtMap, programCategoryMap } = require("../../common/nord-mapping");
 const { nla1Reverb } = require("./nla1-fx-reverb");

@@ -1,7 +1,7 @@
 const path = require("path");
 const mapping = require("./ns3-mapping");
-const {ns3BooleanValue} = require("./ns3-utils");
-const { getName, getVersion, checkHeader} = require("../../common/converter");
+const { ns3BooleanValue } = require("./ns3-utils");
+const { getName, getVersion, checkHeader } = require("../../common/nord-file");
 const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 const { ns3Panel } = require("./ns3-panel");
 
@@ -37,7 +37,10 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
     const programLocation = {
         bank: bankValue,
         location: locationValue,
-        name: valid && ext === "ns3f" ? String.fromCharCode(65 + bankValue) + ":" + (locationDigit1 + locationDigit2) : (locationValue + 1).toString(),
+        name:
+            valid && ext === "ns3f"
+                ? String.fromCharCode(65 + bankValue) + ":" + (locationDigit1 + locationDigit2)
+                : (locationValue + 1).toString(),
         value: bankValue * 25 + locationValue,
     };
 
@@ -334,7 +337,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         style: {
             value: mapping.ns3DualKeyboardStyleMap.get(dualKeyboardStyle),
             isDefault: dualKeyboardStyle === 0,
-        }
+        },
     };
 
     const global = {
@@ -358,7 +361,7 @@ exports.loadNs3ProgramFile = (buffer, filename) => {
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
-        type: ext === "ns3f" ? "Program": "Live",
+        type: ext === "ns3f" ? "Program" : "Live",
 
         // program location
         id: programLocation,

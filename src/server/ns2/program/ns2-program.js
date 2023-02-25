@@ -3,7 +3,8 @@ const mapping = require("./ns2-mapping");
 const { ns2BooleanValue } = require("./ns2-utils");
 const { ns2Reverb } = require("./ns2-fx-reverb");
 const { ns2Compressor } = require("./ns2-fx-compressor");
-const { zeroPad, getName, checkHeader} = require("../../common/converter");
+const { getName, checkHeader } = require("../../common/nord-file");
+const { zeroPad } = require("../../common/converter");
 const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 const { ns2Slot } = require("./ns2-slot");
 
@@ -32,9 +33,10 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const programLocation = {
         bank: bankValue,
         location: locationValue,
-        name: ext === "ns2p"
-            ? String.fromCharCode(65 + bankValue) + ":" + zeroPad(locationDigit1, 2) + ":" + locationDigit2
-            : (locationValue + 1).toString(),
+        name:
+            ext === "ns2p"
+                ? String.fromCharCode(65 + bankValue) + ":" + zeroPad(locationDigit1, 2) + ":" + locationDigit2
+                : (locationValue + 1).toString(),
         value: bankValue * 100 + locationValue,
     };
     /**
@@ -226,7 +228,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
         filename: filename,
         ext: ext,
         description: nordFileExtMap.get(ext),
-        type: ext === "ns2p" ? "Program": "Live",
+        type: ext === "ns2p" ? "Program" : "Live",
 
         // program location
         id: programLocation,

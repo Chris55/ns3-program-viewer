@@ -11,6 +11,7 @@ const { loadNs3ProgramFile } = require("../../src/server/ns3/program/ns3-program
 const homedir = require("os").homedir();
 const convert = require("xml-js");
 const { loadNs2ProgramFile } = require("../../src/server/ns2/program/ns2-program");
+const { loadNordFile } = require("../../src/server/nord-service");
 
 //const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
 const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
@@ -109,79 +110,79 @@ const getProgramDetails = (filename) => {
 };
 
 const run = async (backupFilename) => {
-    const zip = fs.createReadStream(backupFilename).pipe(unzipper.Parse({ forceStream: true }));
+    const directory = await unzipper.Open.file(backupFilename);
+    await Promise.all(directory.files.map((x) => processFile(x)));
+};
 
-    for await (const entry of zip) {
-        //console.log("loading ", entry.path, "...");
+const processFile = async (entry) => {
+    console.log("loading ", entry.path, "...");
 
-        if (entry.path === "meta.xml") {
-            const buffer = await entry.buffer();
-            const xml = buffer.toString();
-            loadMetadata(xml);
-        } else {
-            const ext = path.extname(entry.path);
-            switch (ext) {
-                case ".npno":
-                case ".nsmp":
-                case ".nsmp3": {
-                    const buffer = await entry.buffer();
-                    loadSample(buffer, entry.path);
-                    break;
+    if (entry.path === "meta.xml") {
+        const buffer = await entry.buffer();
+        const xml = buffer.toString();
+        loadMetadata(xml);
+    } else {
+        const ext = path.extname(entry.path);
+        switch (ext) {
+            case ".npno":
+            case ".nsmp":
+            case ".nsmp3": {
+                const buffer = await entry.buffer();
+                loadSample(buffer, entry.path);
+                break;
+            }
+            case ".ns2p": {
+                const buffer = await entry.buffer();
+                const program = loadNs2ProgramFile(buffer, entry.path);
+
+                let data = getProgramDetails(entry.path);
+
+                if (program.slotA.piano.enabled) {
+                    data.pianoA = program.slotA.piano.debug.sampleId;
                 }
-                case ".ns2p": {
-                    const buffer = await entry.buffer();
-                    const program = loadNs2ProgramFile(buffer, entry.path);
 
-                    let data = getProgramDetails(entry.path);
-
-                    if (program.slotA.piano.enabled) {
-                        data.pianoA = program.slotA.piano.debug.sampleId;
-                    }
-
-                    if (program.slotB.piano.enabled) {
-                        data.pianoB = program.slotB.piano.debug.sampleId;
-                    }
-
-                    // if (program.panelA.synth.oscillators.type.value === "Sample") {
-                    //     updateSampleId(program.panelA.synth.debug.sampleId, entry.path);
-                    // }
-                    //
-                    // if (program.panelB.synth.oscillators.type.value === "Sample") {
-                    //     updateSampleId(program.panelB.synth.debug.sampleId, entry.path);
-                    // }
-
-                    break;
+                if (program.slotB.piano.enabled) {
+                    data.pianoB = program.slotB.piano.debug.sampleId;
                 }
-                case ".ns3f": {
-                    const buffer = await entry.buffer();
-                    const program = loadNs3ProgramFile(buffer, entry.path);
 
-                    const data = getProgramDetails(entry.path);
+                // if (program.panelA.synth.oscillators.type.value === "Sample") {
+                //     updateSampleId(program.panelA.synth.debug.sampleId, entry.path);
+                // }
+                //
+                // if (program.panelB.synth.oscillators.type.value === "Sample") {
+                //     updateSampleId(program.panelB.synth.debug.sampleId, entry.path);
+                // }
 
-                    if (program.panelA.piano.enabled) {
-                        data.pianoA = program.panelA.piano.debug.sampleId;
-                    }
-                    if (program.panelB.piano.enabled) {
-                        data.pianoB = program.panelB.piano.debug.sampleId;
-                    }
+                break;
+            }
+            case ".ns3f": {
+                const buffer = await entry.buffer();
+                const program = loadNs3ProgramFile(buffer, entry.path);
 
-                    if (program.panelA.synth.enabled && program.panelA.synth.oscillators.type.value === "Sample") {
-                        data.synthA = program.panelA.synth.debug.sampleId;
-                    }
+                const data = getProgramDetails(entry.path);
 
-                    if (program.panelB.synth.enabled && program.panelB.synth.oscillators.type.value === "Sample") {
-                        data.synthB = program.panelB.synth.debug.sampleId;
-                    }
-
-                    break;
+                if (program.panelA.piano.enabled) {
+                    data.pianoA = program.panelA.piano.debug.sampleId;
                 }
+                if (program.panelB.piano.enabled) {
+                    data.pianoB = program.panelB.piano.debug.sampleId;
+                }
+
+                if (program.panelA.synth.enabled && program.panelA.synth.oscillators.type.value === "Sample") {
+                    data.synthA = program.panelA.synth.debug.sampleId;
+                }
+
+                if (program.panelB.synth.enabled && program.panelB.synth.oscillators.type.value === "Sample") {
+                    data.synthB = program.panelB.synth.debug.sampleId;
+                }
+                break;
             }
         }
-        entry.autodrain();
     }
 };
 
-run(inputFile).then(() => {
+const main = async () => {
+    await run(inputFile);
     console.log();
 
     const sortedSamplesByFilename = new Map(
@@ -290,4 +291,6 @@ run(inputFile).then(() => {
 
     console.log();
     console.log(alreadyInLibrary.length, "sample(s) already in the library :)");
-});
+};
+
+main();

@@ -1,5 +1,3 @@
-const path = require("path");
-
 /***
  * generic round function
  * @param value
@@ -94,26 +92,6 @@ exports.midi2LogValue = function (min, max, value, precision, unit) {
  */
 exports.zeroPad = (num, places) => String(num).padStart(places, "0");
 
-/**
- *
- * @param buffer {Buffer}
- * @param offset {number}
- */
-exports.getVersion = (buffer, offset) => {
-    const offset14W = buffer.readUInt16LE(offset);
-
-    const majorVersion = Math.trunc(offset14W / 100);
-    const minorVersion = this.zeroPad(offset14W - majorVersion * 100, 2);
-    const version = majorVersion + "." + minorVersion;
-
-    return {
-        majorVersion: majorVersion,
-        minorVersion: Number(minorVersion),
-        version: offset14W,
-        value: version,
-    };
-};
-
 /***
  * Simple linear interpolation
  * @param x0 {Number}
@@ -204,78 +182,4 @@ exports.getMorphModel = (result, labelCallBack) => {
             },
         },
     };
-};
-
-/***
- * returns a valid Nord program name from a filename
- * files from NUF 1624224019581-hello.ns3f returns hello
- *
- * @param filename
- * @returns {string}
- */
-exports.getName = (filename) => {
-    if (!filename) {
-        return "Unnamed";
-    }
-
-    // remove the extension
-    //let name = filename.replace(/\.[^/.]+$/, "");
-    // remove path and ext
-    let name = path.parse(filename).name;
-
-    // removes NUF header
-    const regxForum = new RegExp(/^\d{13}-/);
-    if (regxForum.test(name)) {
-        name = name.substr(14);
-    }
-
-    // valid size and characters
-
-    const max = 16;
-    let valid = "";
-
-    let regx = new RegExp(/[ a-zA-Z\d-]/);
-
-    for (let i = 0; i < name.length && i < max; i++) {
-        if (regx.test(name[i])) {
-            valid += name[i];
-        } else {
-            valid += "-";
-        }
-    }
-
-    return valid;
-};
-
-/***
- * returns filename extension (includes the dot)
- * @param fileName
- * @returns {string}
- */
-exports.getExtension = (fileName) => {
-    return fileName.slice(Math.max(0, fileName.name.lastIndexOf(".")) || Infinity).toLowerCase();
-};
-
-/***
- * Throw exception if invalid signature or invalid file size
- *
- * @param buffer {Buffer}
- * @param supportedSignatures {string[]}
- * @param supportedSizes {number[]}
- */
-exports.checkHeader = (buffer, supportedSignatures, supportedSizes) => {
-    if (buffer.length > 16) {
-        const claviaSignature = buffer.toString("utf8", 0, 4);
-        if (claviaSignature !== "CBIN") {
-            throw new Error("Invalid Nord file");
-        }
-        const signature = buffer.toString("utf8", 8, 12);
-        if (supportedSignatures.includes(signature) === false) {
-            throw new Error(`${signature} file is not supported - ${supportedSignatures.join(",")} type expected.`);
-        }
-    }
-
-    if (supportedSizes.includes(buffer.length) === false) {
-        throw new Error("Invalid file, unexpected file length");
-    }
 };

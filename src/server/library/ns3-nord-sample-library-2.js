@@ -1604,6 +1604,18 @@ exports.ns3NordSampleLibrary2 = new Map([
         },
     ],
     [
+        0xadf1c764,
+        {
+            name: "22violins Leg",
+            info: "SR ste",
+            version: "3.0",
+            category: "Ens Strings",
+            size: 3597036,
+            filename: "22violins_Leg_LoVib__SR_ste_2.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
         0xa069408f,
         {
             name: "23 Violins NoVib",
@@ -1612,6 +1624,30 @@ exports.ns3NordSampleLibrary2 = new Map([
             category: "Ens Strings",
             size: 2380396,
             filename: "23 Violins NoVib__SR ste 2.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xac6290d9,
+        {
+            name: "23 Violins NoVib",
+            info: "SR ste",
+            version: "3.0",
+            category: "Ens Strings",
+            size: 2380396,
+            filename: "23_Violins_NoVib__SR_ste_2.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0x7deaadda,
+        {
+            name: "23 Violins NoVib",
+            info: "SR ste",
+            version: "3.1",
+            category: "Ens Strings",
+            size: 2225132,
+            filename: "23_Violins_NoVib__SR_ste_2.1",
             ext: "nsmp3",
         },
     ],
@@ -1900,6 +1936,18 @@ exports.ns3NordSampleLibrary2 = new Map([
             category: "Ens Strings",
             size: 5951340,
             filename: "SoftStrings Leg_LoVib_SR ste 2.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xb051ec33,
+        {
+            name: "SoftStrings Leg",
+            info: "SR ste",
+            version: "3.0",
+            category: "Ens Strings",
+            size: 5951340,
+            filename: "SoftStrings_Leg_LoVib_SR_ste_2.0",
             ext: "nsmp3",
         },
     ],

@@ -409,6 +409,18 @@ exports.ns3ProductLibraries = new Map([
         },
     ],
     [
+        0x646b482e,
+        {
+            name: "22violins__ste_SRv4",
+            info: "",
+            version: "3.0",
+            category: "Misc",
+            size: 3076460,
+            filename: "22violins__ste_SRv4",
+            ext: "nsmp3",
+        },
+    ],
+    [
         0xe4909bb,
         {
             name: "ChambStringsMarc",

@@ -2,7 +2,7 @@ const path = require("path");
 const { ns3SynthLocation } = require("../program/ns3-utils");
 const { synthCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
 const { ns3Synth } = require("../program/ns3-synth");
-const { getVersion, getName, checkHeader } = require("../../common/converter");
+const { getVersion, getName, checkHeader } = require("../../common/nord-file");
 
 /***
  * returns Nord Stage 3 synth file
