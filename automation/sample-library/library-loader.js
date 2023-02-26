@@ -270,8 +270,12 @@ const main = async () => {
             } else {
                 sampleCount++;
                 //const test = BigInt(x.offset18) - BigInt(id);
+                let acoustics = "";
+                if (x.fileExt === "npno") {
+                    acoustics = ", acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },";
+                }
                 console.info(
-                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],` // ${x.hashId.toString("16")}`
+                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}"${acoustics} }],` // ${x.hashId.toString("16")}`
                 );
             }
         }

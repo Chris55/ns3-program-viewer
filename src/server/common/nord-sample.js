@@ -1,5 +1,5 @@
 const path = require("path");
-const { getVersion } = require("./converter");
+const { getVersion } = require("./nord-file");
 
 const sampleCategoryMap = new Map([
     [
