@@ -11,6 +11,7 @@ import NordValueOnOff from "../lib/nord-value-on-off";
 import NordLabelAndValue from "../lib/nord-label-and-value";
 import Ns3SectionSynthOscillators from "./ns3-section-synth-oscillators";
 import { Ns3SectionSynthDisplay } from "./ns3-section-synth-display";
+import Ns3SectionSynthPreset from "./ns3-section-synth-preset";
 
 export default class Ns3SectionSynth extends Component {
     render() {
@@ -57,26 +58,12 @@ export default class Ns3SectionSynth extends Component {
                                     </div>
 
                                     <div className="ns3-lcd-synth">
-                                        {!ns3y && synth.preset.userPreset && synth.preset.presetName && (
-                                            <div className="nord-font-small" style={{ marginLeft: "5px" }}>
-                                                {synth.preset.userPresetLocationName} {synth.preset.presetName}
-                                            </div>
-                                        )}
-                                        {!ns3y && !synth.preset.userPreset && synth.preset.presetName && (
-                                            <div className="nord-font-small" style={{ marginLeft: "5px" }}>
-                                                <span
-                                                    style={{
-                                                        color: "#3b4047",
-                                                        background: "#f6faf7",
-                                                        padding: "0 0.2rem",
-                                                        marginRight: "0.4rem",
-                                                    }}
-                                                >
-                                                    {synth.preset.samplePresetLocationName}
-                                                </span>
-                                                {synth.preset.presetName}
-                                            </div>
-                                        )}
+                                        <Ns3SectionSynthPreset
+                                            preset={synth.preset}
+                                            ns3y={ns3y}
+                                            oscillators={synth.oscillators}
+                                        />
+
                                         <Ns3SectionSynthDisplay
                                             oscType={synth.oscillators.type.value}
                                             oscWaveForm={synth.oscillators.waveForm1}

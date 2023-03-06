@@ -264,7 +264,7 @@ exports.ns3SynthPreset = (buffer, offset, ns3yFile) => {
             if (ch === 0) {
                 break;
             }
-            if (ch < 255 && ch !== 127) {
+            if (ch < 255 && ch !== 127 && ch >= 32) {
                 name += String.fromCharCode(ch);
             }
         }

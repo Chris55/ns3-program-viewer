@@ -52,6 +52,7 @@
     },
     "description": "The unofficial Nord Stage 2/2EX/3 Program viewer tool.",
     "devDependencies": {
+        "@electron/notarize": "^1.2.3",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^14.0.0",
         "@testing-library/user-event": "^14.4.2",
@@ -62,7 +63,6 @@
         "cross-env": "^7.0.3",
         "electron": "^23.1.1",
         "electron-builder": "^23.3.3",
-        "@electron/notarize": "^1.2.3",
         "emitter": "^0.0.5",
         "eslint": "^8.34.0",
         "eslint-config-prettier": "^8.6.0",
@@ -154,5 +154,5 @@
         "doc": "yarn doc:stage",
         "test": "node test/test-builder && jest --coverage && coverage-badge-creator"
     },
-    "version": "1.6.2"
+    "version": "1.6.2-0306"
 }
