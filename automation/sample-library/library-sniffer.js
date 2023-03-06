@@ -1,14 +1,31 @@
 const fs = require("fs");
 const path = require("path");
-const { ns3ProductLibraries } = require("../../src/server/library/ns3-product-libraries");
-const { ns3NordSampleLibraryArchive } = require("../../src/server/library/ns3-nord-sample-library-archive");
-const { ns3NordPianoLibrary } = require("../../src/server/library/ns3-nord-piano-library");
-const { ns3NordSampleLibrary2 } = require("../../src/server/library/ns3-nord-sample-library-2");
-const { ns3NordSampleLibrary3 } = require("../../src/server/library/ns3-nord-sample-library-3");
 const { getFilesFromDir } = require("./library-helper");
+const { nordLibraries } = require("../../src/server/library/ns3-library-service");
 const homedir = require("os").homedir();
 
-const inputFolder = homedir + "/downloads/lib";
+//Factory Restore Files:
+
+//Nord Stage 4 Factory Restore RevB v0.94
+//Nord Piano 5 Factory Restore Rev E v1.24
+//Nord Stage 3 Factory Restore RevH v2.5X
+//Nord Wave 2 Factory Restore RevC v1.14
+//Nord Grand Factory Restore Rev B v1.5X
+//Nord Electro 6 Factory Restore RevD v2.5x
+
+//Nord Stage 2 EX Factory Restore RevC
+//Nord Stage 2 Factory Restore v1.6 revA
+//Nord Stage EX Factory Restore v6.0 revA
+//Nord Piano 4 Factory Restore RevC v2.5X
+//Nord Piano 3 Factory Restore RevC
+//Nord Piano 2 Factory Restore v1.1 revA
+//Nord Piano Factory Restore v1.02 revA
+//Nord Electro 5 Factory Restore RevC
+//Nord Electro 4D Factory Restore v1.0 revA
+//Nord Electro 4 SWHP Factory Restore v1.0 revB
+//Nord Electro 3 Factory Restore v3.0 revA
+//Nord Electro 3 HP Factory Restore v1.0 revA
+const inputFolder = homedir + "/downloads/Nord Electro 3 HP Factory Restore v1.0 revA";
 
 // cleanup the new folder
 
@@ -28,6 +45,7 @@ inputsFiles.forEach((x) => {
     const filename = path.basename(x, path.extname(x)).toUpperCase();
 
     let existingInLibrary = false;
+
     const checkIfExist = (s) => {
         if (s instanceof Array) {
             // clavinet case not handled here...
@@ -41,15 +59,9 @@ inputsFiles.forEach((x) => {
         }
     };
 
-    ns3NordPianoLibrary.forEach(checkIfExist);
-
-    ns3NordSampleLibrary3.forEach(checkIfExist);
-
-    ns3NordSampleLibrary2.forEach(checkIfExist);
-
-    ns3NordSampleLibraryArchive.forEach(checkIfExist);
-
-    ns3ProductLibraries.forEach(checkIfExist);
+    for (const lib of nordLibraries) {
+        lib.forEach(checkIfExist);
+    }
 
     if (!existingInLibrary) {
         newSample.push(x);

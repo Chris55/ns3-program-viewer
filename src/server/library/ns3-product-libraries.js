@@ -3786,4 +3786,128 @@ exports.ns3ProductLibraries = new Map([
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
     ],
+    // Nord Piano 5 Factory Restore Rev E v1.24.np5b
+    [
+        0x900426c5,
+        {
+            name: "Bambino Upright",
+            info: "Baldwin",
+            version: "6.2",
+            category: "None",
+            size: 107350732,
+            filename: "Bambino Upright Lrg 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    // Nord Piano 3 Factory Restore RevC
+    [
+        0x201142a9,
+        {
+            name: "23 Violins NoVib",
+            info: "SR ste",
+            version: "3.2",
+            category: "Ens Strings",
+            size: 2250604,
+            filename: "23 Violins NoVib__SR ste 2.2",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0x88b58491,
+        {
+            name: "4 Saxes SM",
+            info: "MMaster mono small version",
+            version: "3.0",
+            category: "Ens Wind/Brass",
+            size: 1667820,
+            filename: "4 Saxes SM_Chamberlin_MMaster mono small version 2.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xddc33d25,
+        {
+            name: "Flute SM",
+            info: "MkII mono small version",
+            version: "3.1",
+            category: "Solo Wind/Brass",
+            size: 1782380,
+            filename: "Flute SM_Mellotron_MkII mono small version 2.1",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0x200c4721,
+        {
+            name: "Organ Hmd",
+            info: "BR",
+            version: "3.1",
+            category: "Organ",
+            size: 174956,
+            filename: "Organ Hmd_Orchestron_BR 2.1",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xb2cdf378,
+        {
+            name: "Organ Pipe",
+            info: "BR",
+            version: "3.1",
+            category: "Organ",
+            size: 240492,
+            filename: "Organ Pipe_Orchestron_BR 2.1",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0x4d0596e,
+        {
+            name: "Rock Guitar SM",
+            info: "MkII mono small vers",
+            version: "3.0",
+            category: "Guitar/Ethnic Str",
+            size: 1661036,
+            filename: "Rock Guitar SM_Mellotron_MkII mono small vers 2.0",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0x735f9000,
+        {
+            name: "Trombone SM",
+            info: "M300B mono small version",
+            version: "3.0",
+            category: "Solo Wind/Brass",
+            size: 857580,
+            filename: "Trombone SM_Mellotron_M300B mono small version 2.0",
+            ext: "nsmp3",
+        },
+    ],
+    // Nord Wave 2 Factory Restore RevC v1.14
+    [
+        0x773a9072,
+        {
+            name: "Xiao ChiOrch",
+            info: "PP",
+            version: "3.01",
+            category: "Solo WoodWind",
+            size: 4241772,
+            filename: "Xiao ChiOrch_PP 3.01",
+            ext: "nsmp3",
+        },
+    ],
+    [
+        0xdd842f07,
+        {
+            name: "Xiao Staccato ChiOrch",
+            info: "PP",
+            version: "3.01",
+            category: "Solo WoodWind",
+            size: 166380,
+            filename: "Xiao Staccato ChiOrch_PP 3.01",
+            ext: "nsmp3",
+        },
+    ],
 ]);

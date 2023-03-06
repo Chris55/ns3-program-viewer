@@ -36,6 +36,21 @@ exports.getSampleIdNs2ToNs3 = (ns2PianoSampleId) => {
 };
 
 /***
+ * returns all sample libraries
+ * @type {(Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>|Map<number, {name: string, category: string, version: string, info: string}>)[]}
+ */
+exports.nordLibraries = [
+    ns3NordPianoLibrary,
+    ns3NordSampleLibrary3,
+    ns3NordSampleLibrary2,
+    ns3NordSampleLibraryArchive,
+    ns3ProductLibraries,
+    ns3UserLibraries,
+    ns3ScSoundsLibraries,
+    ns3RedLibrary,
+];
+
+/***
  * returns sample library object
  *
  * @param sampleId hash code needs to be in v3 format
