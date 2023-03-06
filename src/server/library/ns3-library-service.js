@@ -6,7 +6,6 @@ const { ns3NordPianoLibrary } = require("./ns3-nord-piano-library");
 const { ns3ProductLibraries } = require("./ns3-product-libraries");
 const { ns3NordSampleLibraryArchive } = require("./ns3-nord-sample-library-archive");
 const { ns3RedLibrary } = require("./ns3-red-library");
-//const byteSize = require("byte-size");
 
 /***
  *
@@ -78,7 +77,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
     const sample = {
         valid: false,
         value: "",
-        name: "Sample not found",
+        name: "ⓘ Sample not found",
         info: "",
         version: "",
         size: "",
@@ -104,21 +103,12 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         sample.name = sampleLib.name;
         sample.version = sampleLib.version ? "v" + sampleLib.version : "";
         sample.info = sampleLib.info;
-        //sample.size = sampleLib.size ? byteSize(sampleLib.size).toString() : "";
         sample.size = sampleLib.size ? sampleLib.size.toString() : "";
         sample.filename = sampleLib.filename;
     }
     // fallback if piano name is unknown
     // special case is if sampleId = 0 (this happens when program init is used and new piano not saved...)
     if (!sampleLib) {
-        // if (sampleId === 0) {
-        //     sample.value = "Sample 1 (Program Init)";
-        // } else if (location) {
-        //     sample.value = "Sample " + (location + 1);
-        // } else {
-        //     // on NS2 the location is not available in the program !
-        //     sample.value = "Unknown";
-        // }
         if (sampleId === 0 && location === undefined) {
             sample.value = "Sample 1 (Program Init)";
         } else if (location !== undefined) {
