@@ -3,6 +3,8 @@ import React, { Component } from "react";
 export default class Ns3SectionSynthPreset extends Component {
     render() {
         const ns3y = this.props.ns3y;
+        if (ns3y) return;
+
         const preset = this.props.preset;
         const oscillators = this.props.oscillators;
         const hidden =
@@ -14,12 +16,12 @@ export default class Ns3SectionSynthPreset extends Component {
 
         return (
             <React.Fragment>
-                {!ns3y && preset.userPreset && preset.presetName && (
+                {preset.userPreset && preset.presetName && (
                     <div className="nord-font-small" style={{ marginLeft: "5px" }}>
                         {preset.userPresetLocationName} {preset.presetName}
                     </div>
                 )}
-                {!ns3y && !preset.userPreset && preset.presetName && (
+                {!preset.userPreset && preset.presetName && (
                     <div className="nord-font-small" style={{ marginLeft: "5px" }}>
                         <span
                             style={{
