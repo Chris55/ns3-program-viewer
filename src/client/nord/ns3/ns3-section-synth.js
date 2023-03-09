@@ -12,6 +12,7 @@ import NordLabelAndValue from "../lib/nord-label-and-value";
 import Ns3SectionSynthOscillators from "./ns3-section-synth-oscillators";
 import { Ns3SectionSynthDisplay } from "./ns3-section-synth-display";
 import Ns3SectionSynthPreset from "./ns3-section-synth-preset";
+import NordSampleWarning from "../lib/nord-sample-warning";
 
 export default class Ns3SectionSynth extends Component {
     render() {
@@ -19,6 +20,9 @@ export default class Ns3SectionSynth extends Component {
         const ns3y = this.props.ns3y;
         const visible = ns3y || synth.enabled;
         const dimmed = synth.dimmed === true;
+
+        const showSampleLocationWarning = synth.oscillators.type.value === "Sample";
+        const showSampleNotFoundWarning = showSampleLocationWarning && !synth.oscillators.waveForm1.valid;
 
         return (
             <React.Fragment>
@@ -121,6 +125,10 @@ export default class Ns3SectionSynth extends Component {
                                     </div>
                                 )}
                             </div>
+                            <NordSampleWarning
+                                showSampleLocationWarning={showSampleLocationWarning}
+                                showSampleNotFoundWarning={showSampleNotFoundWarning}
+                            />
                         </div>
                     </div>
                 </div>

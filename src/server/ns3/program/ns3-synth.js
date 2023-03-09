@@ -183,14 +183,13 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
     const unison = (synthOffset86 & 0xc0) >>> 6;
     const vibrato = (synthOffset86 & 0x38) >>> 3;
 
-    const amplifierVelocity= (synthOffsetA8 & 0x18) >>> 3;
+    const amplifierVelocity = (synthOffsetA8 & 0x18) >>> 3;
 
     const lfoWave = synthOffset86 & 0x07;
 
     const arpeggiatorEnabled = (synthOffset80 & 0x40) !== 0;
 
     const ns3y = {
-
         /**
          * Offset in file: 0x84 (b0) and 0x85 (b7)
          *
@@ -658,7 +657,6 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                 isDefault: lfoRateMasterClock === false,
             },
         },
-
     };
 
     if (ns3yFile) return ns3y;
@@ -885,6 +883,17 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
 
         ...ns3y,
     };
+
+    const samplePresetIsUsed =
+        !synth.preset.userPreset &&
+        synth.oscillators.type.value === "Sample" &&
+        synth.oscillators.waveForm1.location === synth.preset.samplePresetLocationValue;
+
+    const sampleUnknown = !synth.oscillators.waveForm1.valid;
+
+    if (samplePresetIsUsed && sampleUnknown) {
+        synth.oscillators.waveForm1.name = synth.preset.presetName;
+    }
 
     if (process.env.NODE_ENV === "production") {
         synth.debug = undefined;

@@ -312,6 +312,7 @@ td > * {
     margin-left: -60px;
 }
 
-.nord-tooltip:hover .nord-tooltip-text {
-    visibility: visible;
+.nordSampleWarning {
+    color: #b26b6b;
+    font-size: small;
 }

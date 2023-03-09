@@ -10,6 +10,7 @@ import Ns2SectionSynthLfo from "./ns2-section-synth-lfo";
 import NordValueOnOff from "../lib/nord-value-on-off";
 import NordLabelAndValue from "../lib/nord-label-and-value";
 import Ns2SectionSynthOscillators from "./ns2-section-synth-oscillators";
+import NordSampleWarning from "../lib/nord-sample-warning";
 
 export default class Ns2SectionSynth extends Component {
     render() {
@@ -20,6 +21,8 @@ export default class Ns2SectionSynth extends Component {
         const dimmed = synth.dimmed === true;
 
         const presetName = "";
+        const showSampleNotFoundWarning =
+            synth.oscillators.type.value === "SAMPLE" && !synth.oscillators.waveForm1.valid;
 
         return (
             <React.Fragment>
@@ -111,6 +114,10 @@ export default class Ns2SectionSynth extends Component {
                                     />
                                 )}
                             </div>
+                            <NordSampleWarning
+                                showSampleLocationWarning={showSampleNotFoundWarning}
+                                showSampleNotFoundWarning={showSampleNotFoundWarning}
+                            />
                         </div>
                     </div>
                 </div>
