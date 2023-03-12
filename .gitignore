@@ -2,6 +2,8 @@ upload/
 !upload/readme.md
 build/
 userdata/
+dist/
+node_modules/
 
 # SonarLint plugin
 .idea/sonarlint/
@@ -91,5 +93,4 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 
-/dist/
-/node_modules/
+
