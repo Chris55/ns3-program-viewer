@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const { getFilesFromDir } = require("./library-helper");
 const { nordLibraries } = require("../../src/server/library/ns3-library-service");
+const { getFilesFromDir } = require("../../src/server/common/file-utils");
 const homedir = require("os").homedir();
 
 //Factory Restore Files:

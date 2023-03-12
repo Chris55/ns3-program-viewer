@@ -3,7 +3,6 @@
 //
 
 const unzipper = require("unzipper");
-const fs = require("fs");
 const path = require("path");
 const { getSample } = require("../../src/server/library/ns3-library-service");
 const { loadNs3SampleFile } = require("../../src/server/common/nord-sample");
@@ -11,7 +10,6 @@ const { loadNs3ProgramFile } = require("../../src/server/ns3/program/ns3-program
 const homedir = require("os").homedir();
 const convert = require("xml-js");
 const { loadNs2ProgramFile } = require("../../src/server/ns2/program/ns2-program");
-const { loadNordFile } = require("../../src/server/nord-service");
 
 //const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
 const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";

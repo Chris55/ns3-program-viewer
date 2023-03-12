@@ -1,27 +1,33 @@
-const https = require("https"); // or 'https' for https:// URLs
-const fs = require("fs");
-const homedir = require("os").homedir();
+const { getData } = require("../../src/server/common/file-utils");
+//const homedir = require("os").homedir();
 
-const folder = homedir + "/downloads/";
+//const folder = homedir + "/downloads/";
 
+const run = async () => {
+    const ext = [".npo", ".nsmp", ".nsmp3", ".nsmp4"];
 
-
-const request = https.get("https://www.norduserforum.com/download/file.php?id=11899", function (response) {
-    let filename;
-    try {
-        const contentDisposition = response.headers['content-disposition'];
-        // attachment; filename*=UTF-8''80sDrums.nsmp
-        filename = decodeURI(contentDisposition.split("''")[1]);
+    for (let id = 0; id < 10000; id++) {
+        try {
+            const url = "https://www.norduserforum.com/download/file.php?id=" + id;
+            const result = await getData(url);
+            if (result.success) {
+                const name = result.filename.toLowerCase();
+                if (ext.some((x) => name.endsWith(x))) {
+                    console.log(
+                        `--> id: ${id} name: ${result.filename} size: ${result.data?.length} / ${result.contentLength}`
+                    );
+                } else {
+                    // console.log(
+                    //     `id: ${id} name: ${result.filename} size: ${result.data?.length} / ${result.contentLength}`
+                    // );
+                }
+            } else {
+                //console.log(`id: ${id} ${result.error}`);
+            }
+        } catch (err) {
+            console.error(`id: ${id} error: ${err.message}`);
+        }
     }
-    catch(err) {
-        console.error(err);
-    }
-    if (!filename) {
-        throw new Error(`unable to parse the filename from content-disposition: ${contentDisposition}`);
-    }
+};
 
-    //const filename = response.headers['content-disposition'].split("'")[2];
-    const path = folder + filename;
-    const file = fs.createWriteStream(path);
-    response.pipe(file);
-});
+run();

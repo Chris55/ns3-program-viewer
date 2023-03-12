@@ -106,11 +106,14 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
     let waveForm1 = {
         valid: false,
         value: "",
+        name: "",
         info: "",
         version: "",
+        size: "",
         location: 0,
         useConfigAndPitch: oscConfigValue !== 0,
         isDefault: false,
+        filename: "",
     };
     switch (oscillatorType) {
         case "Classic":
@@ -893,6 +896,7 @@ exports.ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
 
     if (samplePresetIsUsed && sampleUnknown) {
         synth.oscillators.waveForm1.name = synth.preset.presetName;
+        synth.oscillators.waveForm1.valid = true;
     }
 
     if (process.env.NODE_ENV === "production") {

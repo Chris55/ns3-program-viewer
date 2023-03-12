@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { loadNordFile } = require("../../src/server/nord-service");
-const { getFilesFromDir } = require("./library-helper");
+const { getFilesFromDir } = require("../../src/server/common/file-utils");
 const homedir = require("os").homedir();
 
 const inputFolder = homedir + "/downloads/ns3/officials";

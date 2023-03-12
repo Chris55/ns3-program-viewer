@@ -82,6 +82,7 @@ exports.getSample = (sampleId, clavinetModel, location) => {
         version: "",
         size: "",
         location: location ? location : 0,
+        isDefault: false,
         filename: "",
         stringsRes: sampleLib && sampleLib.acoustics && sampleLib.acoustics.stringsRes,
         softRelease: sampleLib && sampleLib.acoustics && sampleLib.acoustics.softRelease,
@@ -117,6 +118,6 @@ exports.getSample = (sampleId, clavinetModel, location) => {
             sample.value = "Sample Unknown";
         }
     }
-
+    sample.isDefault = sample.location === 0;
     return sample;
 };
