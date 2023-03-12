@@ -85,7 +85,7 @@ const nordSlice = createSlice({
                 state.managerTabSelection = "Program";
                 data.push(payload.programs[0].model);
             }
-            state.data = data;
+            state.data = state.showAll ? clonedWithAllInstrumentsEnabled(data) : data;
             state.originalData = data;
         },
         setManagerSelection: (state, { payload }) => {
