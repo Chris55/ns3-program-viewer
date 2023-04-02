@@ -6,7 +6,7 @@ const homedir = require("os").homedir();
 
 //Factory Restore Files:
 
-//Nord Stage 4 Factory Restore RevB v0.94
+//Nord Stage 4 Factory Restore RevC v0.96
 //Nord Piano 5 Factory Restore Rev E v1.24
 //Nord Stage 3 Factory Restore RevH v2.5X
 //Nord Wave 2 Factory Restore RevC v1.14
@@ -25,7 +25,7 @@ const homedir = require("os").homedir();
 //Nord Electro 4 SWHP Factory Restore v1.0 revB
 //Nord Electro 3 Factory Restore v3.0 revA
 //Nord Electro 3 HP Factory Restore v1.0 revA
-const inputFolder = homedir + "/downloads/Nord Electro 3 HP Factory Restore v1.0 revA";
+const inputFolder = homedir + "/downloads/Nord Stage 4 Factory Restore RevC v0.96";
 
 // cleanup the new folder
 
