@@ -1,0 +1,1 @@
+{"ast":null,"code":"'use strict';\n\nexport default typeof Blob !== 'undefined' ? Blob : null;","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

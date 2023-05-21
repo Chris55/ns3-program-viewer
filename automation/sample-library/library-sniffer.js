@@ -25,7 +25,13 @@ const homedir = require("os").homedir();
 //Nord Electro 4 SWHP Factory Restore v1.0 revB
 //Nord Electro 3 Factory Restore v3.0 revA
 //Nord Electro 3 HP Factory Restore v1.0 revA
-const inputFolder = homedir + "/downloads/Nord Stage 4 Factory Restore RevC v0.96";
+
+//Product Libraries
+
+//NP5 JAnt Signature Sound Bank Rev A (1.1 GB)
+//NP5 JAnt Signature Sound Bank Rev B (1.2 GB)
+
+const inputFolder = homedir + "/downloads/JAnt Signature Sound Bank Rev B.np5pbundle";
 
 // cleanup the new folder
 

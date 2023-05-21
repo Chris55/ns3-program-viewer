@@ -1,0 +1,1 @@
+{"ast":null,"code":"'use strict';\n\nexport default typeof FormData !== 'undefined' ? FormData : null;","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

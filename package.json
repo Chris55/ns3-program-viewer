@@ -78,7 +78,7 @@
         "showdown": "^2.1.0",
         "unzipper": "^0.10.11",
         "wait-on": "^7.0.1",
-        "webpack": "^5.75.0",
+        "webpack": "^5.83.1",
         "webpack-cli": "^5.0.1",
         "webpack-node-externals": "^3.0.0",
         "xml-js": "^1.6.11"
@@ -118,7 +118,8 @@
         "lodash.template": "^4.5.0",
         "minimatch": "^3.0.2",
         "nth-check": "^2.0.1",
-        "pug": "^3.0.1"
+        "pug": "^3.0.1",
+        "webpack": "^5.76.0"
     },
     "license": "MIT",
     "homepage": "./",
