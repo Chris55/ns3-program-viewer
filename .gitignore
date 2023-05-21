@@ -3,7 +3,7 @@ upload/
 build/
 userdata/
 dist/
-node_modules/
+**/node_modules
 
 # SonarLint plugin
 .idea/sonarlint/
