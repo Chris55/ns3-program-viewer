@@ -1449,6 +1449,45 @@ exports.ns3NordPianoLibrary = new Map([
     // Electric
 
     [
+        0x25915607,
+        {
+            name: "EP9 Stockholm Lrg",
+            info: "1976 Mark I",
+            version: "6.0",
+            category: "None",
+            size: 53113192,
+            filename: "EP9 Stockholm Lrg 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x5a666ef6,
+        {
+            name: "EP9 Stockholm Med",
+            info: "1976 Mark I",
+            version: "6.0",
+            category: "None",
+            size: 36180696,
+            filename: "EP9 Stockholm Med 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x28e0e0ca,
+        {
+            name: "EP9 Stockholm XL",
+            info: "1976 Mark I",
+            version: "6.0",
+            category: "None",
+            size: 105794226,
+            filename: "EP9 Stockholm XL 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
         0x400c59e6,
         {
             name: "EP8 Nefertiti    Lrg",
