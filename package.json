@@ -109,7 +109,7 @@
     "private": true,
     "proxy": "http://localhost:4000/",
     "resolutions": {
-        "lodash": "^4.17.11"
+        "lodash": "^4.17.12"
     },
     "license": "MIT",
     "homepage": "./",
