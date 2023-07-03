@@ -26,9 +26,7 @@ function createWindow() {
             nodeIntegrationInSubFrames: false,
             contextIsolation: true,
             enableRemoteModule: false,
-            preload: isDev ?
-                path.join(__dirname, "preload.js"):
-                path.join(__dirname, "preload.min.js"),
+            preload: isDev ? path.join(__dirname, "preload.js") : path.join(__dirname, "preload.min.js"),
         },
     });
 
