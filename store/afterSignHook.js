@@ -17,12 +17,15 @@
 // export appleId=emailxxxx@xxx.com
 // export appleIdPassword=xxxx-xxxx-xxxx-xxxx
 
+// teamId is available here: https://developer.apple.com/account#MembershipDetailsCard
+// export teamId=xxxxxx
+
 const fs = require("fs");
 const path = require("path");
 const { notarize } = require("@electron/notarize");
 
 module.exports = async function (params) {
-    // Only notarize the app on Mac OS only.
+    // Only notarize the app on macOS only.
     if (process.platform !== "darwin" || params.electronPlatformName !== "darwin") {
         return;
     }
@@ -44,10 +47,9 @@ module.exports = async function (params) {
     console.log(`Notarizing ${appId} found at ${appPath}`);
 
     try {
-        // CWE-312: Cleartext Storage of Sensitive Information
-        // console.log("USER", process.env.appleId, process.env.appleIdPassword);
         await notarize({
             appBundleId: appId,
+            // tool: "notarytool",
             appPath: appPath,
             appleId: process.env.appleId,
             appleIdPassword: process.env.appleIdPassword,
