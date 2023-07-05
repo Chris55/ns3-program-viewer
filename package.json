@@ -67,7 +67,6 @@
         "eslint": "^8.44.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
-        "generate-license-file": "^2.0.0",
         "jest": "^29.5.0",
         "jsdoc": "^4.0.2",
         "jsdoc-to-markdown": "^8.0.0",
