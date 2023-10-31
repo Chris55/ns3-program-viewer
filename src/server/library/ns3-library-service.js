@@ -1,11 +1,11 @@
-const { ns3ScSoundsLibraries } = require("./ns3-sc-sounds-libraries");
-const { ns3UserLibraries } = require("./ns3-user-libraries");
-const { ns3NordSampleLibrary2 } = require("./ns3-nord-sample-library-2");
-const { ns3NordSampleLibrary3 } = require("./ns3-nord-sample-library-3");
-const { ns3NordPianoLibrary } = require("./ns3-nord-piano-library");
-const { ns3ProductLibraries } = require("./ns3-product-libraries");
-const { ns3NordSampleLibraryArchive } = require("./ns3-nord-sample-library-archive");
-const { ns3RedLibrary } = require("./ns3-red-library");
+import { ns3ScSoundsLibraries } from "./ns3-sc-sounds-libraries.js";
+import { ns3UserLibraries } from "./ns3-user-libraries.js";
+import { ns3NordSampleLibrary2 } from "./ns3-nord-sample-library-2.js";
+import { ns3NordSampleLibrary3 } from "./ns3-nord-sample-library-3.js";
+import { ns3NordPianoLibrary } from "./ns3-nord-piano-library.js";
+import { ns3ProductLibraries } from "./ns3-product-libraries.js";
+import { ns3NordSampleLibraryArchive } from "./ns3-nord-sample-library-archive.js";
+import { ns3RedLibrary } from "./ns3-red-library.js";
 
 /***
  *
@@ -18,7 +18,7 @@ const { ns3RedLibrary } = require("./ns3-red-library");
  * @param ns2PianoSampleId {BigInt}
  * @returns {number}
  */
-exports.getSampleIdNs2ToNs3 = (ns2PianoSampleId) => {
+export const getSampleIdNs2ToNs3 = (ns2PianoSampleId) => {
     // convert the sampleId to NS3 format:
     // b31 is inverted then value is decremented
     // example:
@@ -38,7 +38,7 @@ exports.getSampleIdNs2ToNs3 = (ns2PianoSampleId) => {
  * returns all sample libraries
  * @type {(Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>|Map<number, {name: string, category: string, version: string, info: string}>)[]}
  */
-exports.nordLibraries = [
+export const nordLibraries = [
     ns3NordPianoLibrary,
     ns3NordSampleLibrary3,
     ns3NordSampleLibrary2,
@@ -57,7 +57,7 @@ exports.nordLibraries = [
  * @param location
  * @returns {{size: (string|string), value: (string|*), version: string, info: string}}
  */
-exports.getSample = (sampleId, clavinetModel, location) => {
+export const getSample = (sampleId, clavinetModel, location) => {
     let sampleLib =
         ns3NordPianoLibrary.get(sampleId) ||
         ns3NordSampleLibrary3.get(sampleId) ||

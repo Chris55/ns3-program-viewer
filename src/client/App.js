@@ -4,15 +4,15 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
 import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from "./Main";
-import About from "./About";
-import Privacy from "./Privacy";
-import Menu from "./Menu";
-import Offline from "./Offline";
+import Main from "./Main.js";
+import About from "./About.js";
+import Privacy from "./Privacy.js";
+import Menu from "./Menu.js";
+import Offline from "./Offline.js";
 import { useDispatch, useSelector } from "react-redux";
-import { nordSelector, setError } from "./features/nord/nord-slice-reducer";
+import { nordSelector, setError } from "./features/nord/nord-slice-reducer.js";
 
-const App = () => {
+export const App = () => {
     const { error } = useSelector(nordSelector);
     const dispatch = useDispatch();
 
@@ -51,5 +51,3 @@ const App = () => {
         </>
     );
 };
-
-export default App;

@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import AppName from "./AppName";
-import Handmade from "./Handmade";
-import Footer from "./Footer";
-import { openUrl } from "./utils/handy";
+import AppName from "./AppName.js";
+import Handmade from "./Handmade.js";
+import Footer from "./Footer.js";
+import { openUrl } from "./utils/handy.js";
 import {
     andreasUrl,
     cookieNuf,
@@ -15,7 +15,7 @@ import {
     nordUrl,
     nufUrl,
     rpossemoNuf,
-} from "./constants";
+} from "./constants.js";
 
 const About = () => {
     return (

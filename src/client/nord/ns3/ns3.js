@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "../lib/ns3.css";
-import Ns3Panel from "./ns3-panel";
-import NordLabelAndValue from "../lib/nord-label-and-value";
-import NordLabel from "../lib/nord-label";
-import NordValueOnOff from "../lib/nord-value-on-off";
+import Ns3Panel from "./ns3-panel.js";
+import NordLabelAndValue from "../lib/nord-label-and-value.js";
+import NordLabel from "../lib/nord-label.js";
+import NordValueOnOff from "../lib/nord-value-on-off.js";
 
 export default class Ns3 extends Component {
     render() {

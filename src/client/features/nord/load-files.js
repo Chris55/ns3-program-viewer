@@ -6,8 +6,8 @@ import {
     setLoadingBackupSuccess,
     setLoadingError,
     setProgress,
-} from "./nord-slice-reducer";
-import { supportedBackupTypes, supportedProgramTypes } from "./nord-file-types";
+} from "./nord-slice-reducer.js";
+import { supportedBackupTypes, supportedProgramTypes } from "./nord-file-types.js";
 
 /***
  * returns file extension

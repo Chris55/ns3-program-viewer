@@ -49,7 +49,7 @@ export function Ns3WaveForm({ waveForm, x, y, style }) {
     return (
         <>
             <g transform={translate}>
-                <path d={points} style={style} />}
+                <path d={points} style={style} />
             </g>
         </>
     );

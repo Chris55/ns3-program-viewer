@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { model } from "../../nord/ns2/model/ns2-model";
-import { clonedWithAllInstrumentsEnabled } from "./cloned-with-all-instruments-enabled";
+import { model } from "../../nord/ns2/model/ns2-model.js";
+import { clonedWithAllInstrumentsEnabled } from "./cloned-with-all-instruments-enabled.js";
 
 // to test home page set this to false,
 // if true it shows the default model immediately

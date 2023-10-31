@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import NordValueOnOff from "../lib/nord-value-on-off";
-import NordLabelAndValue from "../lib/nord-label-and-value";
-import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph";
-import NordLabel from "../lib/nord-label";
+import NordValueOnOff from "../lib/nord-value-on-off.js";
+import NordLabelAndValue from "../lib/nord-label-and-value.js";
+import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph.js";
+import NordLabel from "../lib/nord-label.js";
 
 export default class Ns2VolumeAndMore extends Component {
     render() {

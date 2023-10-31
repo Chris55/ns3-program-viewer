@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "../lib/ns3.css";
-import Ns3SectionPiano from "./ns3-section-piano";
-import Ns3SectionOrgan from "./ns3-section-organ";
-import Ns3SectionSynth from "./ns3-section-synth";
-import Ns3FxCompressor from "./ns3-fx-compressor";
-import Ns3FxReverb from "./ns3-fx-reverb";
-import Ns3SectionExtern from "./ns3-section-extern";
-import Ns3Output from "./ns3-output";
+import Ns3SectionPiano from "./ns3-section-piano.js";
+import Ns3SectionOrgan from "./ns3-section-organ.js";
+import Ns3SectionSynth from "./ns3-section-synth.js";
+import Ns3FxCompressor from "./ns3-fx-compressor.js";
+import Ns3FxReverb from "./ns3-fx-reverb.js";
+import Ns3SectionExtern from "./ns3-section-extern.js";
+import Ns3Output from "./ns3-output.js";
 
 export default class Ns3Panel extends Component {
     render() {

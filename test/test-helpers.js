@@ -1,6 +1,6 @@
-const { loadNordFile } = require("../src/server/nord-service");
-const fs = require("fs").promises;
-const path = require("path");
+import { loadNordFile } from "../src/server/nord-service.js";
+import { promises as fs } from "fs";
+import path from "path";
 
 const getNestedObject = (nestedObj, pathArr) => {
     const result = pathArr.reduce((obj, key) => {
@@ -13,15 +13,6 @@ const getNestedObject = (nestedObj, pathArr) => {
         return result;
     }
     throw new Error("something wrong with the api, actual value of " + pathArr.join(".") + " is undefined !!");
-};
-
-const prettyName = (filename) => {
-    let result = filename.replace(/@a/g, "/");
-    result = result.replace("@=", "±");
-    result = result.replace("@p", "+");
-    result = result.replace("@c", ":");
-    result = result.replace("@c", ":");
-    return result;
 };
 
 const loadTestCase = async (filename) => {
@@ -52,7 +43,13 @@ const loadTestCase = async (filename) => {
     };
 };
 
-module.exports = {
-    loadTestCase,
-    prettyName,
+const prettyName = (filename) => {
+    let result = filename.replace(/@a/g, "/");
+    result = result.replace("@=", "±");
+    result = result.replace("@p", "+");
+    result = result.replace("@c", ":");
+    result = result.replace("@c", ":");
+    return result;
 };
+
+export { loadTestCase, prettyName };

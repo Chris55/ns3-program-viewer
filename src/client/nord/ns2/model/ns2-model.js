@@ -1,4 +1,4 @@
-exports.model = {
+export const model = {
     name: "Default Noel",
     filename: "Default Noel.ns2p",
     ext: "ns2p",

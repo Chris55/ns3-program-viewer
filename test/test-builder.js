@@ -1,17 +1,19 @@
-const fs = require("fs").promises;
-const os = require("os");
-const path = require("path");
+import { promises as fs } from "fs";
+import os from "os";
+import path from "path";
+import * as url from "url";
 
 const build = async (folder, testFilename) => {
-
-    const testFolder =path.join(__dirname, folder);
+    const testFolder = path.join(url.fileURLToPath(new URL(".", import.meta.url)), folder);
     const filenames = await fs.readdir(testFolder);
 
     let file = "// this file is auto-generated with test-builder.js" + os.EOL + os.EOL;
-    file += 'const { loadTestCase } = require("./test-helpers");' + os.EOL;
+    file += 'import { loadTestCase } from "./test-helpers.js";' + os.EOL;
+    file += 'import * as url from "url";' + os.EOL;
     file += os.EOL;
 
-    file += 'const root = __dirname + "' + folder + '/";' + os.EOL + os.EOL;
+    file += "const dirname = url.fileURLToPath(new URL('.', import.meta.url));" + os.EOL;
+    file += 'const root = dirname + "' + folder + '/";' + os.EOL + os.EOL;
 
     file += 'describe("' + folder + '", () => {' + os.EOL;
 
@@ -37,7 +39,8 @@ const build = async (folder, testFilename) => {
 
     file += "});" + os.EOL + os.EOL;
 
-    const testFile = path.join(__dirname, "../test", testFilename);
+    const dirname = url.fileURLToPath(new URL(".", import.meta.url));
+    const testFile = path.join(dirname, "../test", testFilename);
     await fs.writeFile(testFile, file);
 };
 

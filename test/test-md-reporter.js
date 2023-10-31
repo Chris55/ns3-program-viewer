@@ -1,9 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-//const { EOL } = require("os");
-const { prettyName } = require("./test-helpers");
+import fs from "fs";
+import path from "path";
+import { prettyName } from "./test-helpers.js";
 
-class MyMarkDownReporter {
+export default class MyMarkDownReporter {
     constructor(globalConfig, options) {
         this._globalConfig = globalConfig;
         this._options = options;
@@ -16,7 +15,7 @@ class MyMarkDownReporter {
         data += `${EOL}# ${results.numPassedTests}/${results.numTotalTests} tests passed${EOL}`;
 
         results.testResults.sort((a, b) =>
-            a.testFilePath > b.testFilePath ? 1 : b.testFilePath > a.testFilePath ? -1 : 0
+            a.testFilePath > b.testFilePath ? 1 : b.testFilePath > a.testFilePath ? -1 : 0,
         );
 
         for (const suite of results.testResults) {
@@ -41,5 +40,3 @@ class MyMarkDownReporter {
         });
     }
 }
-
-module.exports = MyMarkDownReporter;

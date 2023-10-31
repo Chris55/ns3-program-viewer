@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns3/synth/oscillators/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns3/synth/oscillators/";
 
 describe("/ns3/synth/oscillators", () => {
     test("test/ns3/synth/oscillators/panelA.synth.oscillators.config.value eq 1 Pitch and panelA.synth.oscillators.control.value eq 0.0.ns3f", async () => {

@@ -15,7 +15,7 @@ publish:
       owner: Chris55
       repo: ns3-program-viewer
 extraResources: ["third-party-licenses.md"]
-afterSign: "./store/afterSignHook.js"
+afterSign: "./store/afterSignHook.cjs"
 mac:
     target:
         - dmg

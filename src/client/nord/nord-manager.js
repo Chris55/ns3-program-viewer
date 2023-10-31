@@ -3,11 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { nordSelector, setLoadingSuccess, setManagerSelection } from "../features/nord/nord-slice-reducer";
+import { nordSelector, setLoadingSuccess, setManagerSelection } from "../features/nord/nord-slice-reducer.js";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import "react-splitter-layout/lib/index.css";
+//import "react-splitter-layout/lib/index.css";
 import { AgGridReact } from "ag-grid-react";
-import { BsSearch } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs/index.esm.js";
 
 const NordManager = () => {
     const { programs, synths, lives, performances, managerSelectedIndexes, managerTabSelection } =
@@ -26,7 +26,7 @@ const NordManager = () => {
             setManagerSelection({
                 managerTabSelection,
                 indexes,
-            })
+            }),
         );
     };
 
@@ -43,7 +43,7 @@ const NordManager = () => {
         dispatch(
             setLoadingSuccess({
                 data: selectedData,
-            })
+            }),
         );
     };
 
@@ -101,7 +101,7 @@ const NordManager = () => {
         dispatch(
             setManagerSelection({
                 managerTabSelection: eventKey,
-            })
+            }),
         );
     };
 

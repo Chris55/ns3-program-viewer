@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns2/synth/arpeggiator/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns2/synth/arpeggiator/";
 
 describe("/ns2/synth/arpeggiator", () => {
     test("test/ns2/synth/arpeggiator/slotA.synth.arpeggiator.masterClock.enabled eq false.ns2p", async () => {

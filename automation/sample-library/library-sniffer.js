@@ -1,8 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-const { nordLibraries } = require("../../src/server/library/ns3-library-service");
-const { getFilesFromDir } = require("../../src/server/common/file-utils");
-const homedir = require("os").homedir();
+import fs from "fs";
+import path from "path";
+import { nordLibraries } from "../../src/server/library/ns3-library-service.js";
+import { getFilesFromDir } from "../../src/server/common/file-utils.js";
+import { homedir } from "os";
 
 //Factory Restore Files:
 
@@ -28,10 +28,11 @@ const homedir = require("os").homedir();
 
 //Product Libraries
 
-//NP5 JAnt Signature Sound Bank Rev A (1.1 GB)
-//NP5 JAnt Signature Sound Bank Rev B (1.2 GB)
+// NP5 JAnt Signature Sound Bank Rev A (1.1 GB)
+// NP5 JAnt Signature Sound Bank Rev B (1.2 GB)
+// NS4 Filipe Martins Signature Sound Bank (694.8 MB)
 
-const inputFolder = homedir + "/downloads/JAnt Signature Sound Bank Rev B.np5pbundle";
+const inputFolder = homedir + "/downloads/Filipe Martins Signature Sound Bank";
 
 // cleanup the new folder
 

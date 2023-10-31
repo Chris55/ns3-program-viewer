@@ -1,4 +1,4 @@
-const { ipcRenderer, contextBridge, shell } = require("electron");
+import { contextBridge, ipcRenderer, shell } from "electron";
 
 contextBridge.exposeInMainWorld("electron", {
     // Invoke Methods

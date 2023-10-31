@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../lib/ns3.css";
-import Ns3yPanel from "./ns3y-panel";
+import Ns3yPanel from "./ns3y-panel.js";
 
 export default class Ns3y extends Component {
     render() {

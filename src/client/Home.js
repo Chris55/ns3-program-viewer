@@ -7,16 +7,16 @@ import nordLogoProgramBundle from "./assets/nord-logo-program-bundle.svg";
 import nordLogoSynthBundle from "./assets/nord-logo-synth-bundle.svg";
 import nordLogoListBundle from "./assets/nord-logo-list-bundle.svg";
 import nordLogoBackup from "./assets/nord-logo-backup.svg";
-import AppName from "./AppName";
+import AppName from "./AppName.js";
 import { Card, Col, Container, Media, ProgressBar, Row } from "react-bootstrap";
-import LoadButton from "./LoadButton";
+import LoadButton from "./LoadButton.js";
 import { useSelector } from "react-redux";
-import { nordSelector } from "./features/nord/nord-slice-reducer";
-import Handmade from "./Handmade";
-import Footer from "./Footer";
+import { nordSelector } from "./features/nord/nord-slice-reducer.js";
+import Handmade from "./Handmade.js";
+import Footer from "./Footer.js";
 import cx from "classnames";
-import { openUrl } from "./utils/handy";
-import { nordUrl } from "./constants";
+import { openUrl } from "./utils/handy.js";
+import { nordUrl } from "./constants.js";
 
 const Home = () => {
     const { isElectron, progress } = useSelector(nordSelector);

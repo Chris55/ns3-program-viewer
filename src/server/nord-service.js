@@ -1,9 +1,9 @@
-const { loadNs2SynthFile } = require("./ns2/synth/ns2-synthFile");
-const { loadNs3SynthFile } = require("./ns3/synth/ns3-synthFile");
-const { loadNs2ProgramFile } = require("./ns2/program/ns2-program");
-const { loadNs3ProgramFile } = require("./ns3/program/ns3-program");
-const { loadNla1ProgramFile } = require("./nla1/program/nla1-program");
-const { v4: uuidv4 } = require('uuid');
+import { loadNs2SynthFile } from "./ns2/synth/ns2-synthFile.js";
+import { loadNs3SynthFile } from "./ns3/synth/ns3-synthFile.js";
+import { loadNs2ProgramFile } from "./ns2/program/ns2-program.js";
+import { loadNs3ProgramFile } from "./ns3/program/ns3-program.js";
+import { loadNla1ProgramFile } from "./nla1/program/nla1-program.js";
+import { v4 as uuidv4 } from "uuid";
 
 /***
  * returns Nord file mapping object
@@ -11,7 +11,7 @@ const { v4: uuidv4 } = require('uuid');
  * @param filename
  * @returns {{size, uuid: (*|string)}}
  */
-exports.loadNordFile = (buffer, filename) => {
+export const loadNordFile = (buffer, filename) => {
     if (buffer.length > 16) {
         const claviaSignature = buffer.toString("utf8", 0, 4);
         if (claviaSignature !== "CBIN") {

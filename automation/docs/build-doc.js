@@ -1,9 +1,10 @@
-const readline = require("readline");
-const fs = require("fs");
-const os = require("os");
-const ns2Mapping = require("../../src/server/ns2/program/ns2-mapping");
-const ns3Mapping = require("../../src/server/ns3/program/ns3-mapping");
-const commonMapping = require("../../src/server/common/nord-mapping");
+import readline from "readline";
+import fs from "fs";
+import os from "os";
+import * as ns2Mapping from "../../src/server/ns2/program/ns2-mapping.js";
+import * as ns3Mapping from "../../src/server/ns3/program/ns3-mapping.js";
+import * as commonMapping from "../../src/server/common/nord-mapping.js";
+import * as url from "url";
 
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, "g"), replace);
@@ -69,10 +70,11 @@ const convert = (model, inputFile, outputFile, remove) => {
     });
 };
 
-const pathOutput = __dirname + "/../../automation/docs/out/";
-const pathInputNs2 = __dirname + "/../../docs/ns2/program/";
-const pathInputNs3 = __dirname + "/../../docs/ns3/program/";
-const pathInputNla1 = __dirname + "/../../docs/nla1/program/";
+const dirname = url.fileURLToPath(new URL(".", import.meta.url));
+const pathOutput = dirname + "/../../automation/docs/out/";
+const pathInputNs2 = dirname + "/../../docs/ns2/program/";
+const pathInputNs3 = dirname + "/../../docs/ns3/program/";
+const pathInputNla1 = dirname + "/../../docs/nla1/program/";
 
 // outfile files are prefixed with a number to be able to manage the right order in the final pfd file.
 // 00- is the first...

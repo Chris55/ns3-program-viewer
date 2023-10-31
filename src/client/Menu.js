@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Nav, Navbar } from "react-bootstrap";
-import { menuSelector, setActiveKey } from "./features/menu/menu-slice-reducer";
+import { menuSelector, setActiveKey } from "./features/menu/menu-slice-reducer.js";
 import { Link, Outlet } from "react-router-dom";
-import { nordSelector } from "./features/nord/nord-slice-reducer";
+import { nordSelector } from "./features/nord/nord-slice-reducer.js";
 
 const Menu = () => {
     const dispatch = useDispatch();

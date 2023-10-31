@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns3/effects/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns3/effects/";
 
 describe("/ns3/effects", () => {
     test("test/ns3/effects/panelA.effects.ampSimEq.ampType.value eq LP24.ns3f", async () => {

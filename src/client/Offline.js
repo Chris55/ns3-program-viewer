@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Col, Container, Media, Row } from "react-bootstrap";
-import AppName from "./AppName";
+import AppName from "./AppName.js";
 import appleLogo from "./assets/os-logo-apple.png";
 import microsoftLogo from "./assets/os-logo-microsoft.png";
 import linuxLogo from "./assets/os-logo-linux.png";
-import Handmade from "./Handmade";
-import Footer from "./Footer";
+import Handmade from "./Handmade.js";
+import Footer from "./Footer.js";
 
 const Offline = () => {
     return (

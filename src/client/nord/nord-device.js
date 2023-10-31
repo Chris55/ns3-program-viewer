@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import Tabs from "react-bootstrap/Tabs";
-import Tab from "react-bootstrap/Tab";
-import NordTree from "./nord-tree";
-import Ns3 from "./ns3/ns3";
-import Ns2 from "./ns2/ns2";
-import Ns3y from "./ns3/ns3y/ns3y";
-import Ns2s from "./ns2/ns2s/ns2s";
+import NordTree from "./nord-tree.js";
+import Ns3 from "./ns3/ns3.js";
+import Ns2 from "./ns2/ns2.js";
+import Ns3y from "./ns3/ns3y/ns3y.js";
+import Ns2s from "./ns2/ns2s/ns2s.js";
+import { Tabs, Tab } from "react-bootstrap";
 
 const NordGear = ({ data }) => {
     if (!data) {

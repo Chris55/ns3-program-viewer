@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns2/organ/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns2/organ/";
 
 describe("/ns2/organ", () => {
     test("test/ns2/organ/slotA.organ.kbGate.enabled eq true.ns2p", async () => {

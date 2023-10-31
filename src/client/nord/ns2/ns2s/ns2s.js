@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../lib/ns3.css";
-import Ns2sSlot from "./ns2s-slot";
+import Ns2sSlot from "./ns2s-slot.js";
 
 export default class Ns2s extends Component {
     render() {

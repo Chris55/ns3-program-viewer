@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "../lib/ns3.css";
-import Ns2Slot from "./ns2-slot";
-import NordLabelAndValue from "../lib/nord-label-and-value";
-import NordLabel from "../lib/nord-label";
-import Ns2FxCompressor from "./ns2-fx-compressor";
-import Ns2FxReverb from "./ns2-fx-reverb";
-import NordValueOnOff from "../lib/nord-value-on-off";
+import Ns2Slot from "./ns2-slot.js";
+import NordLabelAndValue from "../lib/nord-label-and-value.js";
+import NordLabel from "../lib/nord-label.js";
+import Ns2FxCompressor from "./ns2-fx-compressor.js";
+import Ns2FxReverb from "./ns2-fx-reverb.js";
+import NordValueOnOff from "../lib/nord-value-on-off.js";
 
 export default class Ns2 extends Component {
     render() {

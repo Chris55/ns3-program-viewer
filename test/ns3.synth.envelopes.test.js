@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns3/synth/envelopes/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns3/synth/envelopes/";
 
 describe("/ns3/synth/envelopes", () => {
     test("test/ns3/synth/envelopes/panelA.synth.envelopes.amplifier.attack.midi eq 0 and panelA.synth.envelopes.amplifier.attack.value eq 0.5 ms.ns3f", async () => {

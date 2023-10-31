@@ -1,39 +1,49 @@
-const { app, BrowserWindow, ipcMain, screen } = require("electron");
-const log = require("electron-log");
-const { autoUpdater } = require("electron-updater");
-const path = require("path");
-const isDev = require("electron-is-dev");
-const { loadNordFile } = require("../server/nord-service");
-const unzipper = require("unzipper");
-const fs = require("fs");
+import { app, BrowserWindow, ipcMain, screen } from "electron";
+import fs from "fs";
+import isDev from "electron-is-dev";
+import path from "path";
+import log from "electron-log";
+import autoUpdaterPkg from "electron-updater";
+import { fileURLToPath } from "url";
+import { initMenu } from "./menu.js";
+import { loadNordFile } from "../server/nord-service.js";
+import unzipper from "unzipper";
 
 let mainWindow;
+const { autoUpdater } = autoUpdaterPkg;
 
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = "info";
 log.info("App starting...");
 
-function createWindow() {
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
+async function createWindow() {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+
+    const preload = isDev ? path.join(__dirname, "preload.mjs") : path.join(__dirname, "preload.min.js");
+    console.log("preload", preload);
 
     mainWindow = new BrowserWindow({
         width: Math.round(width * 0.9),
         height: Math.round(height * 0.9),
         webPreferences: {
             devTools: isDev,
-            nodeIntegration: false,
+            nodeIntegration: true,
             nodeIntegrationInWorker: false,
             nodeIntegrationInSubFrames: false,
             contextIsolation: true,
             enableRemoteModule: false,
-            preload: isDev ? path.join(__dirname, "preload.js") : path.join(__dirname, "preload.min.js"),
+            preload,
         },
     });
 
     mainWindow.loadURL(isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "index.html")}`);
 
     mainWindow.on("closed", () => (mainWindow = null));
-    require("./menu");
+    initMenu();
 
     // Setting Window Icon - Asset file needs to be in the public/images folder.
     //mainWindow.setIcon(path.join(__dirname, 'images/appicon.ico'));

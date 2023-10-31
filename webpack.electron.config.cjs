@@ -2,21 +2,21 @@ const path = require("path");
 
 module.exports = [
     {
-        mode: "production",
         entry: "./src/electron/main.js",
+        mode: "production",
         output: {
+            filename: "main.min.js",
             path: path.join(__dirname, "build"),
-            filename: "main.min.js"
         },
         target: "electron-main",
     },
     {
+        entry: "./src/electron/preload.mjs",
         mode: "production",
-        entry: "./src/electron/preload.js",
-        target: "electron-preload",
         output: {
+            filename: "preload.min.js",
             path: path.join(__dirname, "build"),
-            filename: "preload.min.js"
-        }
-    }
+        },
+        target: "electron-preload",
+    },
 ];

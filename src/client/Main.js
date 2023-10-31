@@ -2,9 +2,9 @@ import React, { useState, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
-import { buildExportPdf } from "./export/export-pdf";
-import Home from "./Home";
-import LoadButton from "./LoadButton";
+import { buildExportPdf } from "./export/export-pdf.js";
+import Home from "./Home.js";
+import LoadButton from "./LoadButton.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
     fadeOutProgressBar,
@@ -16,19 +16,20 @@ import {
     toggleShowAll,
     toggleShowDefault,
     toggleShowManager,
-} from "./features/nord/nord-slice-reducer";
+} from "./features/nord/nord-slice-reducer.js";
 import { Dropdown, Form, ProgressBar } from "react-bootstrap";
-import SplitterLayout from "react-splitter-layout";
-import "react-splitter-layout/lib/index.css";
-import { buildExportCsv } from "./export/export-csv";
+
+//import "react-splitter-layout/lib/index.css";
+import { buildExportCsv } from "./export/export-csv.js";
 import cx from "classnames";
-import { BsFileEarmarkPdf } from "react-icons/bs";
-import { GrDocumentCsv } from "react-icons/gr";
-import { ExportDialog } from "./export/ExportDialog";
+import { GrDocumentCsv } from "react-icons/gr/index.esm.js";
+import { ExportDialog } from "./export/ExportDialog.js";
 import { useWindowSize } from "@react-hook/window-size";
-import NordDevice from "./nord/nord-device";
-// noinspection JSCheckFunctionSignatures
-const NordManager = React.lazy(() => import("./nord/nord-manager"));
+import NordDevice from "./nord/nord-device.js";
+import { BsFileEarmarkPdf } from "react-icons/bs/index.esm.js";
+import SplitPane from "react-split-pane";
+
+const NordManager = React.lazy(() => import("./nord/nord-manager.js"));
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -108,7 +109,7 @@ const Main = () => {
                         ...performances.map((x) => x.model),
                     ],
                     exportCallback,
-                    managerTitle
+                    managerTitle,
                 );
             } else {
                 await buildExportCsv(data, exportCallback, data.length === 1 ? data[0].filename : "Nord");
@@ -242,12 +243,15 @@ const Main = () => {
                     </div>
 
                     {showManager && (
-                        <SplitterLayout
-                            primaryIndex={1}
+                        <SplitPane
+                            /* primaryIndex={1}
                             percentage={false}
                             secondaryInitialSize={350}
                             secondaryMinSize={10}
-                            vertical={isVerticalLayout}
+                           */
+                            // vertical={isVerticalLayout}
+                            split={!isVerticalLayout ? "vertical" : "horizontal"}
+                            minSize={300}
                         >
                             <Suspense
                                 fallback={
@@ -262,7 +266,7 @@ const Main = () => {
                             </Suspense>
 
                             {nordDeviceAndSpace}
-                        </SplitterLayout>
+                        </SplitPane>
                     )}
                     {!showManager && nordDeviceAndSpace}
                 </div>

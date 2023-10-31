@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns3/synth/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns3/synth/";
 
 describe("/ns3/synth", () => {
     test("test/ns3/synth/panelA.synth.enabled eq false.ns3f", async () => {

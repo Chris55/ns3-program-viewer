@@ -1,12 +1,12 @@
-const path = require("path");
-const { zeroPad } = require("./converter");
+import path from "path";
+import { zeroPad } from "./converter.js";
 
 /**
  *
  * @param buffer {Buffer}
  * @param offset {number}
  */
-exports.getVersion = (buffer, offset) => {
+export const getVersion = (buffer, offset) => {
     const offset14W = buffer.readUInt16LE(offset);
 
     const majorVersion = Math.trunc(offset14W / 100);
@@ -28,7 +28,7 @@ exports.getVersion = (buffer, offset) => {
  * @param filename
  * @returns {string}
  */
-exports.getName = (filename) => {
+export const getName = (filename) => {
     if (!filename) {
         return "Unnamed";
     }
@@ -67,7 +67,7 @@ exports.getName = (filename) => {
  * @param fileName
  * @returns {string}
  */
-exports.getExtension = (fileName) => {
+export const getExtension = (fileName) => {
     return fileName.slice(Math.max(0, fileName.name.lastIndexOf(".")) || Infinity).toLowerCase();
 };
 
@@ -78,7 +78,7 @@ exports.getExtension = (fileName) => {
  * @param supportedSignatures {string[]}
  * @param supportedSizes {number[]}
  */
-exports.checkHeader = (buffer, supportedSignatures, supportedSizes) => {
+export const checkHeader = (buffer, supportedSignatures, supportedSizes) => {
     if (buffer.length > 16) {
         const claviaSignature = buffer.toString("utf8", 0, 4);
         if (claviaSignature !== "CBIN") {
@@ -101,7 +101,7 @@ exports.checkHeader = (buffer, supportedSignatures, supportedSizes) => {
  * @param offset {number}
  * @param len {number}
  */
-exports.getChecksum = (buffer, offset, len) => {
+export const getChecksum = (buffer, offset, len) => {
     let crc32 = 0xffffffff;
     let sourceHexa = "";
     for (let i = 0; i < len; i++) {

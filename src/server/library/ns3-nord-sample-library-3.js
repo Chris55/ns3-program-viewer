@@ -3,7 +3,7 @@
  *
  * @type {Map<number, {name: string, category: string, version: string, info: string}>}
  */
-exports.ns3NordSampleLibrary3 = new Map([
+export const ns3NordSampleLibrary3 = new Map([
     // Nord Sample Library 3.0 Latest Additions
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-30/latest
 

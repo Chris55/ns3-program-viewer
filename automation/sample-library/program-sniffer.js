@@ -1,8 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-const { loadNordFile } = require("../../src/server/nord-service");
-const { getFilesFromDir } = require("../../src/server/common/file-utils");
-const homedir = require("os").homedir();
+import fs from "fs";
+import path from "path";
+import { loadNordFile } from "../../src/server/nord-service.js";
+import { getFilesFromDir } from "../../src/server/common/file-utils.js";
+import { homedir } from "os";
 
 const inputFolder = homedir + "/downloads/ns3/officials";
 
@@ -28,7 +28,7 @@ inputsFiles.forEach((x) => {
         if (program.panelA.synth.enabled && program.panelA.synth.oscillators.type.value === "Sample") {
             if (program.panelA.synth.oscillators.waveForm1.valid === false) {
                 unknownSamples.push(
-                    `Panel A:${x} (preset name: ${program.panelA.synth.preset.presetName}) sampleId: ${program.panelA.synth.debug.sampleId} `
+                    `Panel A:${x} (preset name: ${program.panelA.synth.preset.presetName}) sampleId: ${program.panelA.synth.debug.sampleId} `,
                 );
             }
         }
@@ -36,7 +36,7 @@ inputsFiles.forEach((x) => {
         if (program.panelB.synth.enabled && program.panelB.synth.oscillators.type.value === "Sample") {
             if (program.panelB.synth.oscillators.waveForm1.valid === false) {
                 unknownSamples.push(
-                    `Panel B:${x} (preset name: ${program.panelB.synth.preset.presetName}) sampleId: ${program.panelB.synth.debug.sampleId} `
+                    `Panel B:${x} (preset name: ${program.panelB.synth.preset.presetName}) sampleId: ${program.panelB.synth.debug.sampleId} `,
                 );
             }
         }

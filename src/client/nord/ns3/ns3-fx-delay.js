@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import NordLabelAndValue from "../lib/nord-label-and-value";
-import NordValueOnOff from "../lib/nord-value-on-off";
-import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph";
+import NordLabelAndValue from "../lib/nord-label-and-value.js";
+import NordValueOnOff from "../lib/nord-value-on-off.js";
+import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph.js";
 
 export default class Ns3FxDelay extends Component {
     render() {

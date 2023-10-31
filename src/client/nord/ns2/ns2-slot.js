@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "../lib/ns3.css";
-import Ns2SectionPiano from "./ns2-section-piano";
-import Ns2SectionOrgan from "./ns2-section-organ";
-import Ns2SectionSynth from "./ns2-section-synth";
-import Ns2SectionExtern from "./ns2-section-extern";
+import Ns2SectionPiano from "./ns2-section-piano.js";
+import Ns2SectionOrgan from "./ns2-section-organ.js";
+import Ns2SectionSynth from "./ns2-section-synth.js";
+import Ns2SectionExtern from "./ns2-section-extern.js";
 
 export default class Ns2Slot extends Component {
     render() {

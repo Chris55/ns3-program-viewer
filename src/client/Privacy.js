@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import AppName from "./AppName";
+import AppName from "./AppName.js";
 import { useSelector } from "react-redux";
-import { nordSelector } from "./features/nord/nord-slice-reducer";
-import Handmade from "./Handmade";
-import Footer from "./Footer";
+import { nordSelector } from "./features/nord/nord-slice-reducer.js";
+import Handmade from "./Handmade.js";
+import Footer from "./Footer.js";
 
 const Privacy = () => {
     const { isElectron } = useSelector(nordSelector);

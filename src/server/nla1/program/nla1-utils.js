@@ -1,4 +1,4 @@
-const {zeroPad} = require("../../common/converter");
+import { zeroPad } from "../../common/converter.js";
 
 /***
  * returns NLA1 program location
@@ -7,7 +7,7 @@ const {zeroPad} = require("../../common/converter");
  * @param locationValue {number}
  * @returns {{bank: number, name: string, location: number, value: number}}
  */
-exports.nla1ProgramLocation = (bankValue, locationValue) => {
+export const nla1ProgramLocation = (bankValue, locationValue) => {
     // bankValue should be between 0 and 7
     // locationValue should be between 0 and 49
     const valid = bankValue <= 7 && locationValue <= 49;
@@ -15,13 +15,10 @@ exports.nla1ProgramLocation = (bankValue, locationValue) => {
     return {
         bank: bankValue,
         location: locationValue,
-        name: valid ? (bankValue + 1) + ":" + zeroPad(loc, 2) : "",
+        name: valid ? bankValue + 1 + ":" + zeroPad(loc, 2) : "",
         value: bankValue * 50 + locationValue,
     };
 };
-
-
-
 
 /***
  * returns NLA1 Boolean obj
@@ -30,7 +27,7 @@ exports.nla1ProgramLocation = (bankValue, locationValue) => {
  * @param defaultValue
  * @returns {{midi: (number), isDefault: boolean, enabled}}
  */
-exports.nla1BooleanValue = (rawValue, defaultValue) => {
+export const nla1BooleanValue = (rawValue, defaultValue) => {
     return {
         midi: rawValue ? 127 : 0,
         enabled: rawValue,

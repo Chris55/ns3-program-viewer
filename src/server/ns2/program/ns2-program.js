@@ -1,12 +1,12 @@
-const path = require("path");
-const mapping = require("./ns2-mapping");
-const { ns2BooleanValue } = require("./ns2-utils");
-const { ns2Reverb } = require("./ns2-fx-reverb");
-const { ns2Compressor } = require("./ns2-fx-compressor");
-const { getName, checkHeader } = require("../../common/nord-file");
-const { zeroPad } = require("../../common/converter");
-const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
-const { ns2Slot } = require("./ns2-slot");
+import path from "path";
+import { ns2BooleanValue } from "./ns2-utils.js";
+import { ns2Reverb } from "./ns2-fx-reverb.js";
+import { ns2Compressor } from "./ns2-fx-compressor.js";
+import { checkHeader, getName } from "../../common/nord-file.js";
+import { zeroPad } from "../../common/converter.js";
+import { nordFileExtMap, programCategoryMap } from "../../common/nord-mapping.js";
+import { ns2Slot } from "./ns2-slot.js";
+import { ns2SplitNoteMap, ns2TransposeMap } from "./ns2-mapping.js";
 
 /***
  * returns Nord Stage 3 program data
@@ -15,7 +15,7 @@ const { ns2Slot } = require("./ns2-slot");
  * @param filename {string}
  * @returns {{split: *, panelA: *, masterClock: {rate: {value: string}}, panelB: *, name: *, transpose: *, category: *, version: string}}
  */
-exports.loadNs2ProgramFile = (buffer, filename) => {
+export const loadNs2ProgramFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
     checkHeader(buffer, ["ns2p", "ns2l"], [547, 565]);
 
@@ -91,7 +91,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
      *
      * @module NS2 File Format
      */
-    let versionOffset = 0; // by default all address mapping are done as per latest NSM export (header type 1)
+    let versionOffset = 0; // by default all address mapping are done as per latest NSM export const (header type 1)
 
     if (offset04 !== 1) {
         // console.log("Offset 0x04 <> 1 switched to legacy mode");
@@ -122,7 +122,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const transposeValue = (offset30 & 0x1e) >>> 1;
     const transpose = {
         enabled: transposeEnabled,
-        value: transposeEnabled ? mapping.ns2TransposeMap.get(transposeValue) : "",
+        value: transposeEnabled ? ns2TransposeMap.get(transposeValue) : "",
         isDefault: transposeValue === 6,
     };
 
@@ -175,10 +175,10 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const split = {
         enabled: splitEnabled,
         low: {
-            note: splitEnabled ? mapping.ns2SplitNoteMap.get(splitLowNote) : "--",
+            note: splitEnabled ? ns2SplitNoteMap.get(splitLowNote) : "--",
         },
         high: {
-            note: splitEnabled && split3Zones ? mapping.ns2SplitNoteMap.get(splitHighNote) : "--",
+            note: splitEnabled && split3Zones ? ns2SplitNoteMap.get(splitHighNote) : "--",
         },
     };
 

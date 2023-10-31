@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../lib/ns3.css";
-import Ns3SectionSynth from "../ns3-section-synth";
+import Ns3SectionSynth from "../ns3-section-synth.js";
 
 export default class Ns3yPanel extends Component {
     render() {

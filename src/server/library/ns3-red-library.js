@@ -3,7 +3,7 @@
  * Hash code done as per v3
  * @type {Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>}
  */
-exports.ns3RedLibrary = new Map([
+export const ns3RedLibrary = new Map([
     [
         0xac56a098,
         {

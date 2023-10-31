@@ -1,5 +1,5 @@
-const helmet = require("helmet");
-const rateLimit = require("express-rate-limit");
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 
 const appHelmet = helmet({
     contentSecurityPolicy: {
@@ -10,8 +10,8 @@ const appHelmet = helmet({
             fontSrc: ["'self'", "data:"],
             imgSrc: ["'self'", "data:"],
             "frame-src": ["'self'"],
-            // "worker-src": ["blob:"],    // required by Chrome to export csv (but Unrecognized in Safari)
-            "child-src": ["blob:"], // required by Safari to export csv
+            // "worker-src": ["blob:"],    // required by Chrome to export const csv (but Unrecognized in Safari)
+            "child-src": ["blob:"], // required by Safari to export const csv
         },
     },
 });
@@ -30,4 +30,4 @@ const appLimiter = rateLimit({
     legacyHeaders: false,
 });
 
-module.exports = { appHelmet, apiLimiter, appLimiter };
+export { appHelmet, apiLimiter, appLimiter };

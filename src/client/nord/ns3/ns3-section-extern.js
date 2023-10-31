@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import NordLabelAndValue from "../lib/nord-label-and-value";
-import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph";
-import Ns3VolumeAndMore from "./ns3-volume-and-more";
-import NordValueOnOff from "../lib/nord-value-on-off";
-import NordLabel from "../lib/nord-label";
+import NordLabelAndValue from "../lib/nord-label-and-value.js";
+import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph.js";
+import Ns3VolumeAndMore from "./ns3-volume-and-more.js";
+import NordValueOnOff from "../lib/nord-value-on-off.js";
+import NordLabel from "../lib/nord-label.js";
 
 export default class Ns3SectionExtern extends Component {
     render() {

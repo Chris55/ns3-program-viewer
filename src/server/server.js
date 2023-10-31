@@ -1,9 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const path = require("path");
-const { api } = require("./api");
-const { appHelmet, appLimiter, apiLimiter } = require("./middleware");
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import path from "path";
+import { api } from "./api.js";
+import { apiLimiter, appHelmet, appLimiter } from "./middleware.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(
     bodyParser.urlencoded({
         extended: true,
-    })
+    }),
 );
 
 app.use(appHelmet);

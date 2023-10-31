@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns3/ns3y/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns3/ns3y/";
 
 describe("/ns3/ns3y", () => {
     test("test/ns3/ns3y/id.name eq 2@c01.ns3y", async () => {

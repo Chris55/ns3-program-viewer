@@ -1,6 +1,6 @@
 import React from "react";
-import { openUrl } from "./utils/handy";
-import { nufUrl } from "./constants";
+import { openUrl } from "./utils/handy.js";
+import { nufUrl } from "./constants.js";
 
 const Handmade = () => {
     return (

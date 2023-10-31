@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import Ns3VolumeAndMore from "./ns3-volume-and-more";
-import Ns3Fx from "./ns3-fx";
-import Ns3SectionSynthAmpEnv from "./ns3-section-synth-amp-env";
-import Ns3SectionSynthFilter from "./ns3-section-synth-filter";
-import Ns3SectionSynthModEnv from "./ns3-section-synth-mod-env";
-import Ns3SectionSynthLfo from "./ns3-section-synth-lfo";
-import NordValueOnOff from "../lib/nord-value-on-off";
-import NordLabelAndValue from "../lib/nord-label-and-value";
-import Ns3SectionSynthOscillators from "./ns3-section-synth-oscillators";
-import { Ns3SectionSynthDisplay } from "./ns3-section-synth-display";
-import Ns3SectionSynthPreset from "./ns3-section-synth-preset";
-import NordSampleWarning from "../lib/nord-sample-warning";
+import Ns3VolumeAndMore from "./ns3-volume-and-more.js";
+import Ns3Fx from "./ns3-fx.js";
+import Ns3SectionSynthAmpEnv from "./ns3-section-synth-amp-env.js";
+import Ns3SectionSynthFilter from "./ns3-section-synth-filter.js";
+import Ns3SectionSynthModEnv from "./ns3-section-synth-mod-env.js";
+import Ns3SectionSynthLfo from "./ns3-section-synth-lfo.js";
+import NordValueOnOff from "../lib/nord-value-on-off.js";
+import NordLabelAndValue from "../lib/nord-label-and-value.js";
+import Ns3SectionSynthOscillators from "./ns3-section-synth-oscillators.js";
+import { Ns3SectionSynthDisplay } from "./ns3-section-synth-display.js";
+import Ns3SectionSynthPreset from "./ns3-section-synth-preset.js";
+import NordSampleWarning from "../lib/nord-sample-warning.js";
 
 export default class Ns3SectionSynth extends Component {
     render() {

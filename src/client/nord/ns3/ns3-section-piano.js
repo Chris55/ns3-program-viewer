@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import Ns3VolumeAndMore from "./ns3-volume-and-more";
-import Ns3Fx from "./ns3-fx";
-import NordLabelAndValue from "../lib/nord-label-and-value";
-import NordValueOnOff from "../lib/nord-value-on-off";
+import Ns3VolumeAndMore from "./ns3-volume-and-more.js";
+import Ns3Fx from "./ns3-fx.js";
+import NordLabelAndValue from "../lib/nord-label-and-value.js";
+import NordValueOnOff from "../lib/nord-value-on-off.js";
 
 export default class Ns3SectionPiano extends Component {
     render() {

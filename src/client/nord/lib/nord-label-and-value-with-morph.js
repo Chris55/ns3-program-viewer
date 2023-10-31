@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ns3.css";
-import NordLabel from "./nord-label";
-import NordLabelAndValue from "./nord-label-and-value";
+import NordLabel from "./nord-label.js";
+import NordLabelAndValue from "./nord-label-and-value.js";
 
 export default class NordLabelAndValueWithMorph extends Component {
     render() {

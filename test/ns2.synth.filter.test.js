@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns2/synth/filter/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns2/synth/filter/";
 
 describe("/ns2/synth/filter", () => {
     test("test/ns2/synth/filter/slotA.synth.filter.frequency.value eq 20 Hz and slotA.synth.filter.frequency.morph.afterTouch.to.value eq 21 kHz.ns2p", async () => {

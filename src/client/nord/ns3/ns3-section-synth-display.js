@@ -1,5 +1,5 @@
 import React from "react";
-import { Ns3ArrowLeft, Ns3ArrowRight, Ns3Knob, Ns3WaveForm } from "./ns3-svg-library";
+import { Ns3ArrowLeft, Ns3ArrowRight, Ns3Knob, Ns3WaveForm } from "./ns3-svg-library.js";
 
 const color = "#f6faf7";
 const strokeWidth = 1.5;

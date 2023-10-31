@@ -2,9 +2,9 @@ import { renderToStaticMarkup } from "react-dom/server";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import React from "react";
-import NordDevice from "../nord/nord-device";
-import { handy, isSafari } from "../utils/handy";
-import { store } from "../features/store";
+import NordDevice from "../nord/nord-device.js";
+import { handy, isSafari } from "../utils/handy.js";
+import { store } from "../features/store.js";
 import { Provider } from "react-redux";
 
 const getImages = async (data, showAll, callback) => {

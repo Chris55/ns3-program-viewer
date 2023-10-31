@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import { Button } from "react-bootstrap";
 
 const FileUploaderButton = (props) => {
     const hiddenFileInput = React.useRef(null);

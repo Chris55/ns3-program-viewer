@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph";
-import NordLabelAndValue from "../lib/nord-label-and-value";
+import NordLabelAndValueWithMorph from "../lib/nord-label-and-value-with-morph.js";
+import NordLabelAndValue from "../lib/nord-label-and-value.js";
 
 export default class Ns2SectionSynthOscillators extends Component {
     render() {

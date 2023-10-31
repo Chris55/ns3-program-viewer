@@ -1,7 +1,7 @@
 /***
  * Midi Control Change
  */
-exports.midiControlChangeMap = new Map([
+export const midiControlChangeMap = new Map([
     [0, "Bank Select"],
     [1, "Modulation Wheel"],
     [2, "Breath Controller"],

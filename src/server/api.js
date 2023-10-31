@@ -1,8 +1,8 @@
-const express = require("express");
-const multer = require("multer");
-const { loadNordFile } = require("./nord-service");
+import express from "express";
+import multer from "multer";
+import { loadNordFile } from "./nord-service.js";
 
-const api = express.Router();
+export const api = express.Router();
 
 const upload = multer({
     fileFilter: (_req, file, cb) => {
@@ -45,7 +45,3 @@ api.post("/upload", upload.array("nordFiles", 1000), async (req, res, next) => {
         next(err);
     }
 });
-
-module.exports = {
-    api,
-};

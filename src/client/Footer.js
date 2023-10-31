@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import AppName from "./AppName";
+import AppName from "./AppName.js";
 
 const Footer = () => {
     return (

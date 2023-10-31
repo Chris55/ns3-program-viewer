@@ -1,8 +1,8 @@
-const path = require("path");
-const { ns3SynthLocation } = require("../program/ns3-utils");
-const { synthCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
-const { ns3Synth } = require("../program/ns3-synth");
-const { getVersion, getName, checkHeader } = require("../../common/nord-file");
+import path from "path";
+import { ns3SynthLocation } from "../program/ns3-utils.js";
+import { nordFileExtMap, synthCategoryMap } from "../../common/nord-mapping.js";
+import { ns3Synth } from "../program/ns3-synth.js";
+import { checkHeader, getName, getVersion } from "../../common/nord-file.js";
 
 /***
  * returns Nord Stage 3 synth file
@@ -11,7 +11,7 @@ const { getVersion, getName, checkHeader } = require("../../common/nord-file");
  * @param filename
  * @returns {{ext: string, synth: *, filename: *, name: *, description: unknown, id: *, category: string | undefined}}
  */
-exports.loadNs3SynthFile = (buffer, filename) => {
+export const loadNs3SynthFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
     checkHeader(buffer, ["ns3y"], [84, 102]);
 

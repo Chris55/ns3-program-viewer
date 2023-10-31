@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const https = require("https");
+import fs from "fs";
+import path from "path";
+import https from "https";
 
 /***
  * Return a list of files of the specified fileTypes in the provided dir,
@@ -9,7 +9,7 @@ const https = require("https");
  * @param fileTypes array of file types you are search files, ex: ['.txt', '.jpg']
  * @returns {[]}
  */
-exports.getFilesFromDir = (dir, fileTypes) => {
+export const getFilesFromDir = (dir, fileTypes) => {
     const filesToReturn = [];
 
     function walkDir(currentPath) {
@@ -32,7 +32,7 @@ exports.getFilesFromDir = (dir, fileTypes) => {
  * @param url
  * @returns {Promise<unknown>}
  */
-exports.getData = async (url) =>
+export const getData = async (url) =>
     new Promise((resolve) => {
         const response = {
             success: false,

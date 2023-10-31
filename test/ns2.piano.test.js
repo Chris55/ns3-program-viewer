@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns2/piano/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns2/piano/";
 
 describe("/ns2/piano", () => {
     test("test/ns2/piano/slotA.piano.clavinetEq.value eq Medium.ns2p", async () => {

@@ -118,7 +118,7 @@
 <dt><a href="#module_NS2 Delay Tempo Master Clock Divisor">NS2 Delay Tempo Master Clock Divisor</a></dt>
 <dd><p>Offset in file:</p>
 </dd>
-<dt><a href="#module_NS2 Delay Ping Pong">NS2 Delay Ping Pong</a></dt>
+<dt><a href="#module_NS2 Delay Ping-Pong">NS2 Delay Ping-Pong</a></dt>
 <dd><p>Offset in file: 0x125 (b2)</p>
 </dd>
 <dt><a href="#module_NS2 Delay Feedback">NS2 Delay Feedback</a></dt>
@@ -903,9 +903,9 @@ offset in file 0x126 (b3-0) and 0x127 (b7)
 Delay Rate / Tempo Morph CtrlPedal
 offset in file 0x127 (b6-2)
 ```
-<a name="module_NS2 Delay Ping Pong"></a>
+<a name="module_NS2 Delay Ping-Pong"></a>
 
-## NS2 Delay Ping Pong
+## NS2 Delay Ping-Pong
 Offset in file: 0x125 (b2)
 
 **Example**  

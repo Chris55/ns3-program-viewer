@@ -1,7 +1,4 @@
-const { getData } = require("../../src/server/common/file-utils");
-//const homedir = require("os").homedir();
-
-//const folder = homedir + "/downloads/";
+import { getData } from "../../src/server/common/file-utils.js";
 
 const run = async () => {
     const ext = [".npo", ".nsmp", ".nsmp3", ".nsmp4"];
@@ -14,7 +11,7 @@ const run = async () => {
                 const name = result.filename.toLowerCase();
                 if (ext.some((x) => name.endsWith(x))) {
                     console.log(
-                        `--> id: ${id} name: ${result.filename} size: ${result.data?.length} / ${result.contentLength}`
+                        `--> id: ${id} name: ${result.filename} size: ${result.data?.length} / ${result.contentLength}`,
                     );
                 } else {
                     // console.log(

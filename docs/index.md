@@ -6316,7 +6316,7 @@ Delay Rate / Tempo Morph CtrlPedal
 offset in file 0x127 (b6-2)
 ```
 
-## NS2 Delay Ping Pong
+## NS2 Delay Ping-Pong
 Offset in file: 0x125 (b2)
 
 ```

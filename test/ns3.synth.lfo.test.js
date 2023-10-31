@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns3/synth/lfo/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns3/synth/lfo/";
 
 describe("/ns3/synth/lfo", () => {
     test("test/ns3/synth/lfo/panelA.synth.lfo.masterClock.enabled eq true.ns3f", async () => {

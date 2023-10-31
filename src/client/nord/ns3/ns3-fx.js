@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../lib/ns3.css";
-import Ns3FxMulti1 from "./ns3-fx-multi-1";
-import Ns3FxMulti2 from "./ns3-fx-multi-2";
-import Ns3FxRotarySpeaker from "./ns3-fx-rotary-speaker";
-import Ns3SectionSynthArp from "./ns3-section-synth-arp";
-import Ns3FxDelay from "./ns3-fx-delay";
-import Ns3FxAmpSimEq from "./ns3-fx-amp-sim-eq";
+import Ns3FxMulti1 from "./ns3-fx-multi-1.js";
+import Ns3FxMulti2 from "./ns3-fx-multi-2.js";
+import Ns3FxRotarySpeaker from "./ns3-fx-rotary-speaker.js";
+import Ns3SectionSynthArp from "./ns3-section-synth-arp.js";
+import Ns3FxDelay from "./ns3-fx-delay.js";
+import Ns3FxAmpSimEq from "./ns3-fx-amp-sim-eq.js";
 
 const getOrientation = () => {
     return window.innerWidth < 430 ? "flex-column" : "flex-row";

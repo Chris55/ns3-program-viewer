@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../lib/ns3.css";
-import Ns2SectionSynth from "../ns2-section-synth";
+import Ns2SectionSynth from "../ns2-section-synth.js";
 
 export default class Ns2sSlot extends Component {
     render() {

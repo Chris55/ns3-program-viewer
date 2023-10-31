@@ -1,8 +1,10 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers.js";
+import * as url from "url";
 
-const root = __dirname + "/ns2/synth/envelopes/";
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const root = dirname + "/ns2/synth/envelopes/";
 
 describe("/ns2/synth/envelopes", () => {
     test("test/ns2/synth/envelopes/slotA.synth.envelopes.amplifier.attack.value eq 103 ms.ns2p", async () => {
