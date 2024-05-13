@@ -15,7 +15,7 @@
 - New SMART mode: highlight non-default values
 
 ### Online version
-[https://ns3-program-viewer.cyclic.app](https://ns3-program-viewer.cyclic.app)
+[https://ns3-program-viewer.glitch.me](https://ns3-program-viewer.glitch.me)
 
 ### Offline version
 Available as standalone desktop application
