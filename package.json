@@ -106,11 +106,8 @@
     ],
     "private": true,
     "resolutions": {
-        "lodash": "^4.17.21"
-    },
-    "//resolutions": {
         "json5": "^1.0.2",
-        "lodash": "^4.17.12",
+        "lodash": "^4.17.21",
         "lodash.template": "^4.5.0",
         "minimatch": "^3.0.5",
         "nth-check": "^2.0.1",
