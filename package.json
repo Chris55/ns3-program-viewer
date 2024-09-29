@@ -18,8 +18,8 @@
         "@reduxjs/toolkit": "^1.9.7",
         "@vitejs/plugin-react": "^4.3.1",
         "@zip.js/zip.js": "^2.7.52",
-        "ag-grid-community": "^30.2.1",
-        "ag-grid-react": "^30.2.1",
+        "ag-grid-community": "^32.2.1",
+        "ag-grid-react": "^32.2.1",
         "body-parser": "^1.20.3",
         "bootstrap": "^4.6.2",
         "byte-size": "^8.2.1",
@@ -155,5 +155,5 @@
         "doc": "yarn doc:stage",
         "test": "node test/test-builder && jest --coverage && coverage-badge-creator"
     },
-    "version": "1.6.4"
+    "version": "1.6.5"
 }

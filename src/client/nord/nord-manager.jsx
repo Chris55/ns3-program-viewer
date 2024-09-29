@@ -179,7 +179,12 @@ const NordManager = () => {
                     }}
                     columnDefs={columnDefs}
                     sortingOrder={["desc", "asc"]}
-                    rowSelection={"multiple"}
+                    rowSelection={{
+                        mode: "multiRow",
+                        checkboxes: false,
+                        headerCheckbox: false,
+                        enableClickSelection: true,
+                    }}
                     overlayNoRowsTemplate={
                         '<span style="padding: 10px; border: 1px solid #444; background: lightgoldenrodyellow;">Nothing To Show</span>'
                     }
