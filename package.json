@@ -108,6 +108,9 @@
         "File"
     ],
     "private": true,
+    "resolutions": {
+        "lodash": "^4.17.21"
+    },
     "//resolutions": {
         "json5": "^1.0.2",
         "lodash": "^4.17.12",
