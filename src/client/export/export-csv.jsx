@@ -1,4 +1,6 @@
 import { BlobWriter, TextReader, ZipWriter } from "@zip.js/zip.js";
+import { saveAs } from "file-saver";
+
 const eol = "\r\n";
 
 const getFlatObject = (object) => {
