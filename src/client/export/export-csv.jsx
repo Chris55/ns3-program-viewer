@@ -1,5 +1,4 @@
 import { BlobWriter, TextReader, ZipWriter } from "@zip.js/zip.js";
-const FileSaver = require("file-saver");
 const eol = "\r\n";
 
 const getFlatObject = (object) => {
@@ -36,5 +35,5 @@ export const buildExportCsv = async (data, callback, managerTitle) => {
     await writer.close();
 
     const blob = await blobWriter.getData();
-    FileSaver.saveAs(blob, `${managerTitle ?? "Nord"}.csv.zip`);
+    saveAs(blob, `${managerTitle ?? "Nord"}.csv.zip`);
 };

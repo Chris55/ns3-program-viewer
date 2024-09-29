@@ -1,4 +1,3 @@
-import axios from "axios";
 import { BlobReader, BlobWriter, ZipReader } from "@zip.js/zip.js";
 import {
     fadeOutProgressBar,
@@ -16,6 +15,11 @@ import { supportedBackupTypes, supportedProgramTypes } from "./nord-file-types";
  */
 const getExtension = (fileName) => {
     return fileName.slice(Math.max(0, fileName.lastIndexOf(".")) || Infinity).toLowerCase();
+};
+
+const getApiUrl = (production) => {
+    return "/api/upload";
+    //return production ? window.location.origin + "/api/upload" : "http://localhost:4000/api/upload";
 };
 
 /***
@@ -58,7 +62,7 @@ const loadBackupFile = async (dispatch, file, isElectron, production) => {
 
         // payload is now ready to be loaded!
 
-        const url = production ? window.location.origin + "/api/upload" : "http://localhost:3000/api/upload";
+        const url = getApiUrl(production);
 
         // creat multiple chunks from the payload
         // cyclic free tier is not able to load a full backup file
@@ -108,10 +112,10 @@ const loadBackupFile = async (dispatch, file, isElectron, production) => {
  * @param dispatch
  * @param files
  * @param isElectron
- * @param _production
+ * @param production
  * @returns {Promise<void>}
  */
-const loadIndividualFiles = async (dispatch, files, isElectron, _production) => {
+const loadIndividualFiles = async (dispatch, files, isElectron, production) => {
     if (isElectron) {
         try {
             const bundle = [];
@@ -134,14 +138,23 @@ const loadIndividualFiles = async (dispatch, files, isElectron, _production) => 
         formData.append("nordFiles", file);
     }
 
-    await axios
-        .post("api/upload", formData, {})
-        .then((res) => {
-            onSuccess(dispatch, res.data);
-        })
-        .catch((err) => {
-            onError(dispatch, err.response.data);
-        });
+    const url = getApiUrl(production);
+
+    const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+    });
+
+    if (response.ok) {
+        const json = await response.json();
+        if (json.success) {
+            onSuccess(dispatch, json);
+        } else {
+            onError(dispatch, { error: json.error });
+        }
+    } else {
+        onError(dispatch, { error: response.statusText });
+    }
 };
 
 /***

@@ -47,11 +47,9 @@ export function Ns3WaveForm({ waveForm, x, y, style }) {
     const points = symbols.get(waveForm);
 
     return (
-        <>
-            <g transform={translate}>
-                <path d={points} style={style} />}
-            </g>
-        </>
+        <g transform={translate}>
+            <path d={points} style={style} />
+        </g>
     );
 }
 

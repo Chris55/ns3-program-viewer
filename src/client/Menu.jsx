@@ -5,12 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { menuSelector, setActiveKey } from "./features/menu/menu-slice-reducer";
 import { Link, Outlet } from "react-router-dom";
-import { nordSelector } from "./features/nord/nord-slice-reducer";
 
 const Menu = () => {
     const dispatch = useDispatch();
     const { activeKey } = useSelector(menuSelector);
-    const { isElectron } = useSelector(nordSelector);
 
     const handleSelect = (key) => {
         dispatch(setActiveKey(key));
@@ -28,18 +26,13 @@ const Menu = () => {
                         <Nav.Link eventKey="privacy" as={Link} to="/privacy">
                             Privacy
                         </Nav.Link>
-                        {/*{!isElectron && (*/}
-                        {/*    // <Nav.Link eventKey="offline" as={Link} to="/offline">*/}
-                        {/*    //     Offline*/}
-                        {/*    // </Nav.Link>*/}
-                        {/*)}*/}
                         <Nav.Link eventKey="about" as={Link} to="/about">
                             About
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 <Navbar.Collapse className="justify-content-end">
-                    <Navbar.Text>version {process.env.REACT_APP_VERSION}</Navbar.Text>
+                    <Navbar.Text>version {import.meta.env.VITE_REACT_APP_VERSION}</Navbar.Text>
                 </Navbar.Collapse>
             </Navbar>
             <Outlet />
