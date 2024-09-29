@@ -40,8 +40,7 @@ const Offline = () => {
                                 <Media.Body>
                                     <h6 className="mb-2 text-muted">MacOS</h6>
                                     <p>
-                                        MacOS Installer x64 (minimum 10.14 - Mojave) is available on the{" "}
-                                        <a href="https://apps.apple.com/app/id1549939673">App Store</a>, or from{" "}
+                                        MacOS Installer x64 (minimum 10.14 - Mojave) is available{" "}
                                         <a href="https://github.com/Chris55/ns3-program-viewer/releases">here</a>.
                                         <br />
                                         (expand Assets and select *.dmg file)

@@ -63,6 +63,60 @@ exports.ns3NordPianoLibrary = new Map([
     ],
 
     [
+        0x84bd5691,
+        {
+            name: "White Grand Sml",
+            info: "Stw B",
+            version: "6.3",
+            category: "None",
+            size: 72222548,
+            filename: "White Grand Sml 6.3",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x18b340ae,
+        {
+            name: "White Grand Med",
+            info: "Stw B",
+            version: "6.3",
+            category: "None",
+            size: 119185492,
+            filename: "White Grand Med 6.3",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x1328267e,
+        {
+            name: "White Grand Lrg",
+            info: "Stw B",
+            version: "6.3",
+            category: "None",
+            size: 135696924,
+            filename: "White Grand Lrg 6.3",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0xc814254e,
+        {
+            name: "White Grand XL",
+            info: "Stw B",
+            version: "6.3",
+            category: "None",
+            size: 213542664,
+            filename: "White Grand XL 6.3",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
         0x2d577b5a,
         {
             name: "Royal Grand 3D Lrg",
@@ -110,6 +164,60 @@ exports.ns3NordPianoLibrary = new Map([
             category: "None",
             size: 209565040,
             filename: "Royal Grand 3D YaS6 XL 5.4",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x42d8c10c,
+        {
+            name: "Royal Grand 3D Sml",
+            info: "YaS6",
+            version: "6.1",
+            category: "None",
+            size: 56307964,
+            filename: "Royal Grand 3D Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x948409af,
+        {
+            name: "Royal Grand 3D Med",
+            info: "YaS6",
+            version: "6.1",
+            category: "None",
+            size: 89821388,
+            filename: "Royal Grand 3D Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x9681ffde,
+        {
+            name: "Royal Grand 3D Lrg",
+            info: "YaS6",
+            version: "6.1",
+            category: "None",
+            size: 108141760,
+            filename: "Royal Grand 3D Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x6986f079,
+        {
+            name: "Royal Grand 3D XL",
+            info: "YaS6",
+            version: "6.1",
+            category: "None",
+            size: 218155972,
+            filename: "Royal Grand 3D XL 6.1",
             ext: "npno",
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
@@ -169,6 +277,60 @@ exports.ns3NordPianoLibrary = new Map([
     ],
 
     [
+        0xc6f3478c,
+        {
+            name: "Velvet Grand Sml",
+            info: "BL model1",
+            version: "6.1",
+            category: "None",
+            size: 63613220,
+            filename: "Velvet Grand Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x501d73a9,
+        {
+            name: "Velvet Grand Med",
+            info: "BL model1",
+            version: "6.1",
+            category: "None",
+            size: 96196624,
+            filename: "Velvet Grand Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x10246533,
+        {
+            name: "Velvet Grand Lrg",
+            info: "BL model1",
+            version: "6.1",
+            category: "None",
+            size: 117392904,
+            filename: "Velvet Grand Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x257cd581,
+        {
+            name: "Velvet Grand XL",
+            info: "BL model1",
+            version: "6.1",
+            category: "None",
+            size: 206848564,
+            filename: "Velvet Grand XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
         0xfca6327e,
         {
             name: "Silver Grand Lrg",
@@ -216,6 +378,61 @@ exports.ns3NordPianoLibrary = new Map([
             category: "None",
             size: 203733508,
             filename: "Silver Grand SK7  XL 5.3",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0xc2adb08d,
+        {
+            name: "Silver Grand Sml",
+            info: "SK7",
+            version: "6.1",
+            category: "None",
+            size: 57755116,
+            filename: "Silver Grand Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0xd595b096,
+        {
+            name: "Silver Grand Med",
+            info: "SK7",
+            version: "6.1",
+            category: "None",
+            size: 93539424,
+            filename: "Silver Grand Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x2fc02cb6,
+        {
+            name: "Silver Grand Lrg",
+            info: "SK7",
+            version: "6.1",
+            category: "None",
+            size: 110275696,
+            filename: "Silver Grand Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x606e8b2b,
+        {
+            name: "Silver Grand XL",
+            info: "SK7",
+            version: "6.1",
+            category: "None",
+            size: 212849748,
+            filename: "Silver Grand XL 6.1",
             ext: "npno",
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
@@ -273,6 +490,58 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
     ],
+    [
+        0xdd65dd34,
+        {
+            name: "Italian Grand Sml",
+            info: "Faz",
+            version: "6.1",
+            category: "None",
+            size: 53340076,
+            filename: "Italian Grand Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x18b19ed3,
+        {
+            name: "Italian Grand Med",
+            info: "Faz",
+            version: "6.1",
+            category: "None",
+            size: 88911808,
+            filename: "Italian Grand Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xe24beb40,
+        {
+            name: "Italian Grand Lrg",
+            info: "Faz",
+            version: "6.1",
+            category: "None",
+            size: 105917888,
+            filename: "Italian Grand Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x6188c10,
+        {
+            name: "Italian Grand XL",
+            info: "Faz",
+            version: "6.1",
+            category: "None",
+            size: 198286248,
+            filename: "Italian Grand XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
 
     [
         0xed7f3a23,
@@ -326,7 +595,58 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
     ],
-
+    [
+        0xbd48a9b2,
+        {
+            name: "Bright Grand Sml",
+            info: "YaS4",
+            version: "6.1",
+            category: "None",
+            size: 46799276,
+            filename: "Bright Grand Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0x7b1c5e7,
+        {
+            name: "Bright Grand Med",
+            info: "YaS4",
+            version: "6.1",
+            category: "None",
+            size: 77275316,
+            filename: "Bright Grand Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0x189aacb9,
+        {
+            name: "Bright Grand Lrg",
+            info: "YaS4",
+            version: "6.1",
+            category: "None",
+            size: 92423400,
+            filename: "Bright Grand Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0x4a2c279e,
+        {
+            name: "Bright Grand XM",
+            info: "YaS4",
+            version: "6.1",
+            category: "None",
+            size: 204921072,
+            filename: "Bright Grand XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
     [
         0x2dc42571,
         {
@@ -379,7 +699,59 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
     ],
+    [
+        0x41224eb6,
+        {
+            name: "Grand Imperial Sml",
+            info: "Bose 290",
+            version: "6.1",
+            category: "None",
+            size: 46071612,
+            filename: "Grand Imperial Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0x2ede7182,
+        {
+            name: "Grand Imperial Med",
+            info: "Bose 290",
+            version: "6.1",
+            category: "None",
+            size: 78511936,
+            filename: "Grand Imperial Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
 
+    [
+        0xf6c1bf91,
+        {
+            name: "Grand Imperial Lrg",
+            info: "Bose 290",
+            version: "6.1",
+            category: "None",
+            size: 94150580,
+            filename: "Grand Imperial Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0xe453f605,
+        {
+            name: "Grand Imperial XL",
+            info: "Bose 290",
+            version: "6.1",
+            category: "None",
+            size: 207171516,
+            filename: "Grand Imperial XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
     [
         0x5f256d93,
         {
@@ -552,7 +924,58 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
         },
     ],
-
+    [
+        0x484e2088,
+        {
+            name: "Studio Grand 2 Sml",
+            info: "YaC7 ver2",
+            version: "6.2",
+            category: "None",
+            size: 51829560,
+            filename: "Studio Grand 2 Sml 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0x21124e07,
+        {
+            name: "Studio Grand 2 Med",
+            info: "YaC7 ver2",
+            version: "6.2",
+            category: "None",
+            size: 84899436,
+            filename: "Studio Grand 2 Med 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0x2823ae71,
+        {
+            name: "Studio Grand 2 Lrg",
+            info: "YaC7 ver2",
+            version: "6.2",
+            category: "None",
+            size: 98900836,
+            filename: "Studio Grand 2 Lrg 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0x6aaf21e6,
+        {
+            name: "Studio Grand 2 XL",
+            info: "YaC7 ver2",
+            version: "6.2",
+            category: "None",
+            size: 185349772,
+            filename: "Studio Grand 2 XL 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
     [
         0x103515a1,
         {
@@ -633,6 +1056,59 @@ exports.ns3NordPianoLibrary = new Map([
         },
     ],
 
+    [
+        0x3aa416ef,
+        {
+            name: "Soft Grand Sml",
+            info: "Ya G2",
+            version: "6.2",
+            category: "None",
+            size: 63999536,
+            filename: "Soft Grand Sml 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xed1cb673,
+        {
+            name: "Soft Grand Med",
+            info: "Ya G2",
+            version: "6.2",
+            category: "None",
+            size: 102226424,
+            filename: "Soft Grand Med 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xe98afb93,
+        {
+            name: "Soft Grand Lrg",
+            info: "Ya G2",
+            version: "6.2",
+            category: "None",
+            size: 123620972,
+            filename: "Soft Grand Lrg 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x7e6ffaca,
+        {
+            name: "Soft Grand XL",
+            info: "Ya G2",
+            version: "6.2",
+            category: "None",
+            size: 209127624,
+            filename: "Soft Grand XL 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
     // Chris Maene Collection
 
     [
@@ -697,6 +1173,61 @@ exports.ns3NordPianoLibrary = new Map([
             category: "None",
             size: 156232992,
             filename: "Mozart FortePno A.Walter XL 5.3",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0xf0d2ca5d,
+        {
+            name: "Mozart Forte Pno Sml",
+            info: "A.Walter",
+            version: "6.1",
+            category: "None",
+            size: 61728652,
+            filename: "Mozart Forte Pno Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0xeb8e4128,
+        {
+            name: "Mozart Forte Pno Med",
+            info: "A.Walter",
+            version: "6.1",
+            category: "None",
+            size: 99834944,
+            filename: "Mozart Forte Pno Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0xbf463295,
+        {
+            name: "Mozart Forte Pno Lrg",
+            info: "A.Walter",
+            version: "6.1",
+            category: "None",
+            size: 115395916,
+            filename: "Mozart Forte Pno Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x306c1f89,
+        {
+            name: "Mozart Forte Pno XL",
+            info: "A.Walter",
+            version: "6.1",
+            category: "None",
+            size: 164357892,
+            filename: "Mozart Forte Pno XL 6.1",
             ext: "npno",
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
@@ -809,6 +1340,59 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
     ],
+    [
+        0xcc10f6bb,
+        {
+            name: "Baby Upright Sml",
+            info: "Nordiska",
+            version: "6.1",
+            category: "None",
+            size: 52097324,
+            filename: "Baby Upright Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x22680a57,
+        {
+            name: "Baby Upright Med",
+            info: "Nordiska",
+            version: "6.1",
+            category: "None",
+            size: 86636836,
+            filename: "Baby Upright Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x10125f88,
+        {
+            name: "Baby Upright Lrg",
+            info: "Nordiska",
+            version: "6.1",
+            category: "None",
+            size: 99193128,
+            filename: "Baby Upright Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x8b33ac37,
+        {
+            name: "Baby Upright XL",
+            info: "Nordiska",
+            version: "6.1",
+            category: "None",
+            size: 142268384,
+            filename: "Baby Upright XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
 
     [
         0xf1011534,
@@ -862,7 +1446,59 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
     ],
+    [
+        0x1b8e81f8,
+        {
+            name: "Amber Upright Lrg",
+            info: "GrSt 132",
+            version: "6.2",
+            category: "None",
+            size: 107156552,
+            filename: "Amber Upright Lrg 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x259a7a51,
+        {
+            name: "Amber Upright Med",
+            info: "GrSt 132",
+            version: "6.2",
+            category: "None",
+            size: 90743232,
+            filename: "Amber Upright Med 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x93507fb3,
+        {
+            name: "Amber Upright Sml",
+            info: "GrSt 132",
+            version: "6.2",
+            category: "None",
+            size: 55112224,
+            filename: "Amber Upright Sml 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
 
+    [
+        0x93198a20,
+        {
+            name: "Amber Upright XL",
+            info: "GrSt 132",
+            version: "6.2",
+            category: "None",
+            size: 173004012,
+            filename: "Amber Upright XL 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
     [
         0x5adcf04c,
         {
@@ -911,6 +1547,73 @@ exports.ns3NordPianoLibrary = new Map([
             category: "None",
             size: 130911920,
             filename: "Bambino Upright Baldwin XL 5.4",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xe6999ce3,
+        {
+            name: "Bambino Upright Lrg",
+            info: "Baldwin",
+            version: "6.1",
+            category: "None",
+            size: 107005296,
+            filename: "Bambino Upright Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0xdae7fd63,
+        {
+            name: "Bambino Upright Sml",
+            info: "Baldwin",
+            version: "6.2",
+            category: "None",
+            size: 57491440,
+            filename: "Bambino Upright Sml 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x900426c5,
+        {
+            name: "Bambino Upright",
+            info: "Baldwin",
+            version: "6.2",
+            category: "None",
+            size: 107350732,
+            filename: "Bambino Upright Lrg 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x90e11b41,
+        {
+            name: "Bambino Upright Med",
+            info: "Baldwin",
+            version: "6.2",
+            category: "None",
+            size: 90160692,
+            filename: "Bambino Upright Med 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x5d704834,
+        {
+            name: "Bambino Upright XL",
+            info: "Baldwin",
+            version: "6.2",
+            category: "None",
+            size: 138390916,
+            filename: "Bambino Upright XL 6.2",
             ext: "npno",
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
@@ -964,6 +1667,60 @@ exports.ns3NordPianoLibrary = new Map([
             category: "None",
             size: 178802840,
             filename: "Mellow Upright Bdrf C130 XL 5.4",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xb4c97594,
+        {
+            name: "Mellow Upright Sml",
+            info: "Bdrf C130",
+            version: "6.1",
+            category: "None",
+            size: 51986948,
+            filename: "Mellow Upright Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x547e5cb9,
+        {
+            name: "Mellow Upright Med",
+            info: "Bdrf C130",
+            version: "6.1",
+            category: "None",
+            size: 84419096,
+            filename: "Mellow Upright Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xcdf806a1,
+        {
+            name: "Mellow Upright Lrg",
+            info: "Bdrf C130",
+            version: "6.1",
+            category: "None",
+            size: 102954088,
+            filename: "Mellow Upright Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x173c7bfc,
+        {
+            name: "Mellow Upright XL",
+            info: "Bdrf C130",
+            version: "6.1",
+            category: "None",
+            size: 178383820,
+            filename: "Mellow Upright XL 6.1",
             ext: "npno",
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
@@ -1114,6 +1871,46 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
         },
     ],
+    [
+        0x954734ab,
+        {
+            name: "Black Upright Sml",
+            info: "Petrof",
+            version: "6.1",
+            category: "None",
+            size: 39988668,
+            filename: "Black Upright Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x44cf436d,
+        {
+            name: "Black Upright Med",
+            info: "Petrof",
+            version: "6.1",
+            category: "None",
+            size: 61892172,
+            filename: "Black Upright Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0x718cb6d8,
+        {
+            name: "Black Upright Lrg",
+            info: "Petrof",
+            version: "6.1",
+            category: "None",
+            size: 82601980,
+            filename: "Black Upright Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
 
     [
         0x354a2c60,
@@ -1152,6 +1949,47 @@ exports.ns3NordPianoLibrary = new Map([
             filename: "HonkyTonkUpright      Sml 5.3",
             ext: "npno",
             acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xe55674e8,
+        {
+            name: "HonkyTonkUpright Sml",
+            info: "Baumgardt",
+            version: "6.1",
+            category: "None",
+            size: 30191776,
+            filename: "HonkyTonkUpright Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x1c03fb5,
+        {
+            name: "HonkyTonkUpright Med",
+            info: "Baumgardt",
+            version: "6.1",
+            category: "None",
+            size: 48892332,
+            filename: "HonkyTonkUpright Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x704c7d42,
+        {
+            name: "HonkyTonkUpright Lrg",
+            info: "Baumgardt",
+            version: "6.1",
+            category: "None",
+            size: 59803204,
+            filename: "HonkyTonkUpright Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
         },
     ],
 
@@ -1245,6 +2083,46 @@ exports.ns3NordPianoLibrary = new Map([
             filename: "Romantic Upright Schimmel Sml5.0",
             ext: "npno",
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0x3704c8b9,
+        {
+            name: "Romantic Upright Sml",
+            info: "Schimmel",
+            version: "6.1",
+            category: "None",
+            size: 37478636,
+            filename: "Romantic Upright Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
+        },
+    ],
+
+    [
+        0x5dd32103,
+        {
+            name: "Romantic Upright Med",
+            info: "Schimmel",
+            version: "6.1",
+            category: "None",
+            size: 61871732,
+            filename: "Romantic Upright Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
+        },
+    ],
+    [
+        0xfd944a2f,
+        {
+            name: "Romantic Upright Lrg",
+            info: "Schimmel",
+            version: "6.1",
+            category: "None",
+            size: 76492464,
+            filename: "Romantic Upright Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: true },
         },
     ],
 
@@ -1392,7 +2270,58 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
         },
     ],
-
+    [
+        0x483e80c4,
+        {
+            name: "Felt Upright Sml",
+            info: "Ya SU118",
+            version: "6.2",
+            category: "None",
+            size: 63768564,
+            filename: "Felt Upright Sml 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xf0c2f7dc,
+        {
+            name: "Felt Upright Med",
+            info: "Ya SU118",
+            version: "6.2",
+            category: "None",
+            size: 101447660,
+            filename: "Felt Upright Med 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xeeb2f44b,
+        {
+            name: "Felt Upright Lrg",
+            info: "Ya SU118",
+            version: "6.2",
+            category: "None",
+            size: 120168656,
+            filename: "Felt Upright Lrg 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x897ec32,
+        {
+            name: "Felt Upright XL",
+            info: "Ya SU118",
+            version: "6.2",
+            category: "None",
+            size: 194468056,
+            filename: "Felt Upright XL 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
     [
         0x56e26efe,
         {
@@ -1539,7 +2468,58 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
         },
     ],
-
+    [
+        0x6fd6cb98,
+        {
+            name: "EP8 Nefertiti XL",
+            info: "1970 Suitcase Mk1",
+            version: "6.1",
+            category: "None",
+            size: 30311350,
+            filename: "EP8 Nefertiti XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x9d566052,
+        {
+            name: "EP8 Nefertiti Lrg",
+            info: "1970 Suitcase Mk1",
+            version: "6.2",
+            category: "None",
+            size: 14304786,
+            filename: "EP8 Nefertiti Lrg 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xde0af76a,
+        {
+            name: "EP8 Nefertiti Sml",
+            info: "1970 Suitcase Mk1",
+            version: "6.2",
+            category: "None",
+            size: 8871834,
+            filename: "EP8 Nefertiti Sml 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xe89af667,
+        {
+            name: "EP8 Nefertiti XL",
+            info: "1970 Suitcase Mk1",
+            version: "6.2",
+            category: "None",
+            size: 30311350,
+            filename: "EP8 Nefertiti XL 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
     // from Brandon Coleman Signature Sound Bank
     [
         0x1016b332,
@@ -1582,6 +2562,32 @@ exports.ns3NordPianoLibrary = new Map([
         },
     ],
     [
+        0x55924263,
+        {
+            name: "EP7 Amped Tines Med",
+            info: "Miked TubeAmplified Mk1",
+            version: "6.1",
+            category: "None",
+            size: 18571636,
+            filename: "EP7 Amped Tines Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x4ad8376,
+        {
+            name: "EP7 Amped Tines",
+            info: "Miked TubeAmplified Mk1",
+            version: "6.1",
+            category: "None",
+            size: 34258314,
+            filename: "EP7 Amped Tines XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
         0xb01c149d,
         {
             name: "Epiano7 Mk1 Med",
@@ -1594,7 +2600,32 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
         },
     ],
-
+    [
+        0x19bd9707,
+        {
+            name: "EP6 Sparkletop Med",
+            info: "1967 Classic model",
+            version: "6.1",
+            category: "None",
+            size: 11452384,
+            filename: "EP6 Sparkletop Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xbd96dd0c,
+        {
+            name: "EP6 Sparkletop XL",
+            info: "1967 Classic model",
+            version: "6.1",
+            category: "None",
+            size: 20431676,
+            filename: "EP6 Sparkletop XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
     [
         0x82a661b9,
         {
@@ -1634,7 +2665,32 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
         },
     ],
-
+    [
+        0x8399ec88,
+        {
+            name: "EP5 BrightTines Med",
+            info: "1975 Suitcase Mk1",
+            version: "6.1",
+            category: "None",
+            size: 15242982,
+            filename: "EP5 BrightTines Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xaea2a00d,
+        {
+            name: "EP5 BrightTines XL",
+            info: "1975 Suitcase Mk1",
+            version: "6.1",
+            category: "None",
+            size: 24638228,
+            filename: "EP5 BrightTines XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
     [
         0x866a30a9,
         {
@@ -1687,7 +2743,32 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
         },
     ],
-
+    [
+        0x67a09cd1,
+        {
+            name: "EP4 Mk5 80s Lrg",
+            info: "1984 Stage MkV",
+            version: "6.1",
+            category: "None",
+            size: 12542858,
+            filename: "EP4 Mk5 80s Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xf44293ad,
+        {
+            name: "EP4 Mk5 80s Sml",
+            info: "1984 Stage MkV",
+            version: "6.1",
+            category: "None",
+            size: 7724128,
+            filename: "EP4 Mk5 80s Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
     [
         0x81a1a00a,
         {
@@ -1727,7 +2808,32 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
         },
     ],
-
+    [
+        0xd2ae5c8c,
+        {
+            name: "EP3 Shallow Close Sml",
+            info: "1981 Stage Mk2",
+            version: "6.1",
+            category: "None",
+            size: 7461474,
+            filename: "EP3 Shallow Close Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xf1587099,
+        {
+            name: "EP3 Shallow Close Lrg",
+            info: "1981 Stage Mk2",
+            version: "6.1",
+            category: "None",
+            size: 11108992,
+            filename: "EP3 Shallow Close Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
     [
         0x96ecd6ba,
         {
@@ -1780,7 +2886,32 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
         },
     ],
-
+    [
+        0xef42cbff,
+        {
+            name: "EP2 Ideal Timbre Sml",
+            info: "1975 Suitcase Mk1",
+            version: "6.1",
+            category: "None",
+            size: 7069026,
+            filename: "EP2 Ideal Timbre Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x21116028,
+        {
+            name: "EP2 Ideal Timbre Lrg",
+            info: "1975 Suitcase Mk1",
+            version: "6.1",
+            category: "None",
+            size: 10858602,
+            filename: "EP2 Ideal Timbre Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
     [
         0x26666d1,
         {
@@ -1833,7 +2964,32 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
         },
     ],
-
+    [
+        0x91396e87,
+        {
+            name: "EP1 Deep Timbre Sml",
+            info: "1978 Stage Mk1",
+            version: "6.1",
+            category: "None",
+            size: 7808954,
+            filename: "EP1 Deep Timbre Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xc44cede0,
+        {
+            name: "EP1 Deep Timbre Lrg",
+            info: "1978 Stage Mk1",
+            version: "6.1",
+            category: "None",
+            size: 12442702,
+            filename: "EP1 Deep Timbre Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
     [
         0x4e099de0,
         {
@@ -1886,7 +3042,6 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: true },
         },
     ],
-
     [
         0xf4de3d37,
         {
@@ -1913,7 +3068,71 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: false },
         },
     ],
-
+    [
+        0xb9079382,
+        {
+            name: "Wurlitzer 1",
+            info: "200A",
+            version: "6.3",
+            category: "None",
+            size: 8718534,
+            filename: "Wurlitzer 1  6.3",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0x8c5eaabb,
+        {
+            name: "Wurlitzer 1",
+            info: "200A",
+            version: "6.2",
+            category: "None",
+            size: 8683786,
+            filename: "Wurlitzer 1  6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0xe099c5cd,
+        {
+            name: "Wurlitzer 1",
+            info: "200A",
+            version: "6.2",
+            category: "None",
+            size: 8683786,
+            filename: "Wurlitzer_1__6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0x394113e2,
+        {
+            name: "Wurlitzer 2",
+            info: "Amped",
+            version: "6.1",
+            category: "None",
+            size: 24141536,
+            filename: "Wurlitzer_2__6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0xfebd1221,
+        {
+            name: "Wurlitzer 2",
+            info: "Amped",
+            version: "6.1",
+            category: "None",
+            size: 24141536,
+            filename: "Wurlitzer 2  6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
     [
         0xc8b6007d,
         {
@@ -1956,6 +3175,32 @@ exports.ns3NordPianoLibrary = new Map([
 
     // Electric Grands
 
+    [
+        0x9ca67476,
+        {
+            name: "EGrand 3 Sml",
+            info: "CP80 Amped",
+            version: "6.1",
+            category: "None",
+            size: 22553348,
+            filename: "EGrand 3 Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0xced0d685,
+        {
+            name: "EGrand 3 Sml",
+            info: "CP80 Amped",
+            version: "6.1",
+            category: "None",
+            size: 22553348,
+            filename: "EGrand_3_Sml_6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
     [
         0x75e6ad52,
         {
@@ -2054,6 +3299,19 @@ exports.ns3NordPianoLibrary = new Map([
     // Clavinet
 
     [
+        0xa0cbfa73,
+        {
+            name: ["Clavinet D6 CA 6.1", "Clavinet D6 CB 6.1", "Clavinet D6 DA 6.1", "Clavinet D6 DB 6.1"],
+            info: "",
+            version: "6.1",
+            category: "None",
+            size: 5935628,
+            filename: "Clavinet D6  6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
         0x1bedfa44,
         {
             name: ["Clavinet D6 CA 5.0", "Clavinet D6 CB 5.0", "Clavinet D6 DA 5.0", "Clavinet D6 DB 5.0"],
@@ -2122,6 +3380,19 @@ exports.ns3NordPianoLibrary = new Map([
         },
     ],
     [
+        0xa2c9a7f2,
+        {
+            name: "French Harpsi 1D",
+            info: "Lo8 Lo4",
+            version: "6.1",
+            category: "None",
+            size: 15021208,
+            filename: "French Harpsi 1D  6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: false },
+        },
+    ],
+    [
         0xd5db0d67,
         {
             name: "French Harpsi 1E",
@@ -2175,6 +3446,19 @@ exports.ns3NordPianoLibrary = new Map([
         },
     ],
     [
+        0xb09c62e6,
+        {
+            name: "Ital Harpsich 1B Long",
+            info: "Long Stri",
+            version: "6.1",
+            category: "None",
+            size: 9997056,
+            filename: "Ital Harpsich 1B Long  6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: false },
+        },
+    ],
+    [
         0x96630d96,
         {
             name: "Ital Harpsich 1C DoubleStr",
@@ -2200,7 +3484,19 @@ exports.ns3NordPianoLibrary = new Map([
             acoustics: { stringsRes: true, softRelease: false, pedalNoise: false },
         },
     ],
-
+    [
+        0xec413082,
+        {
+            name: "Ital Harpsich 1D Lute",
+            info: "Lute",
+            version: "6.1",
+            category: "None",
+            size: 7879472,
+            filename: "Ital Harpsich 1D Lute  6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: false, pedalNoise: false },
+        },
+    ],
     // Digital
 
     [
@@ -2212,6 +3508,19 @@ exports.ns3NordPianoLibrary = new Map([
             category: "None",
             size: 10467176,
             filename: "DigiGrand 1  Sml 5.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0x687e1e8e,
+        {
+            name: "DigiGrand 1 Sml",
+            info: "",
+            version: "6.0",
+            category: "None",
+            size: 12247500,
+            filename: "DigiGrand 1 Sml 6.0",
             ext: "npno",
             acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
         },
@@ -2230,6 +3539,19 @@ exports.ns3NordPianoLibrary = new Map([
         },
     ],
     [
+        0xf06028d7,
+        {
+            name: "DigiGrand 2 Sml",
+            info: "",
+            version: "6.0",
+            category: "None",
+            size: 10279128,
+            filename: "DigiGrand 2 Sml 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
         0x9c9a2f4b,
         {
             name: "DX7 RubbaTines Lrg",
@@ -2238,6 +3560,32 @@ exports.ns3NordPianoLibrary = new Map([
             category: "None",
             size: 9001628,
             filename: "DX RubbaTines Lrg 5.4",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0xa82e5e57,
+        {
+            name: "DX RubbaTines Lrg",
+            info: "",
+            version: "6.0",
+            category: "None",
+            size: 21393378,
+            filename: "DX RubbaTines Lrg 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0x79f07dd9,
+        {
+            name: "DX RubbaTines Lrg",
+            info: "",
+            version: "6.0",
+            category: "None",
+            size: 21393378,
+            filename: "DX_RubbaTines_Lrg_6.0",
             ext: "npno",
             acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
         },
@@ -2253,6 +3601,32 @@ exports.ns3NordPianoLibrary = new Map([
             filename: "DX7 FullTines  Lrg 5.4",
             ext: "npno",
             acoustics: { stringsRes: false, softRelease: false, pedalNoise: false },
+        },
+    ],
+    [
+        0xd123ec90,
+        {
+            name: "DX7 FullTines Lrg",
+            info: "",
+            version: "6.0",
+            category: "None",
+            size: 21537480,
+            filename: "DX7 FullTines Lrg 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0xd7ca6e2a,
+        {
+            name: "DX7 FullTines Lrg",
+            info: "",
+            version: "6.0",
+            category: "None",
+            size: 21537480,
+            filename: "DX7_FullTines_Lrg_6.0",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
         },
     ],
     // https://www.norduserforum.com/viewtopic.php?t=12968
@@ -2299,6 +3673,19 @@ exports.ns3NordPianoLibrary = new Map([
         },
     ],
     [
+        0xa574e479,
+        {
+            name: "Ballad EP1 Med",
+            info: "",
+            version: "6.0",
+            category: "None",
+            size: 25410860,
+            filename: "Ballad EP1 Med 6.0",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
         0xc8bd5649,
         {
             name: "Ballad EP2 Sml",
@@ -2320,6 +3707,19 @@ exports.ns3NordPianoLibrary = new Map([
             category: "None",
             size: 9380790,
             filename: "Hybrid EP  Sml 5.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
+        },
+    ],
+    [
+        0xf76b5475,
+        {
+            name: "Hybrid EP Sml",
+            info: "",
+            version: "6.0",
+            category: "None",
+            size: 10126850,
+            filename: "Hybrid EP Sml 6.0",
             ext: "npno",
             acoustics: { stringsRes: false, softRelease: true, pedalNoise: false },
         },

@@ -30,8 +30,10 @@ const homedir = require("os").homedir();
 
 //NP5 JAnt Signature Sound Bank Rev A (1.1 GB)
 //NP5 JAnt Signature Sound Bank Rev B (1.2 GB)
+//NS3 Brandon Coleman Signature Sound Bank Bundle
+//NS3 Ondre_J_Signature_EPs_Bundle_43yg7bb
 
-const inputFolder = homedir + "/downloads/JAnt Signature Sound Bank Rev B.np5pbundle";
+const inputFolder = homedir + "/downloads/b/2";
 
 // cleanup the new folder
 

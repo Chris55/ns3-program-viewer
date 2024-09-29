@@ -28,11 +28,11 @@ const Menu = () => {
                         <Nav.Link eventKey="privacy" as={Link} to="/privacy">
                             Privacy
                         </Nav.Link>
-                        {!isElectron && (
-                            <Nav.Link eventKey="offline" as={Link} to="/offline">
-                                Offline
-                            </Nav.Link>
-                        )}
+                        {/*{!isElectron && (*/}
+                        {/*    // <Nav.Link eventKey="offline" as={Link} to="/offline">*/}
+                        {/*    //     Offline*/}
+                        {/*    // </Nav.Link>*/}
+                        {/*)}*/}
                         <Nav.Link eventKey="about" as={Link} to="/about">
                             About
                         </Nav.Link>
