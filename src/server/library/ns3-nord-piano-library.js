@@ -8,6 +8,58 @@
 exports.ns3NordPianoLibrary = new Map([
     // Grand Piano
     // https://www.nordkeyboards.com/sound-libraries/nord-piano-library/grand-pianos/white-grand
+    [
+        0x3aa416ef,
+        {
+            name: "Soft Grand Sml",
+            info: "Ya G2",
+            version: "6.2",
+            category: "None",
+            size: 63999536,
+            filename: "Soft Grand Sml 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xed1cb673,
+        {
+            name: "Soft Grand Med",
+            info: "Ya G2",
+            version: "6.2",
+            category: "None",
+            size: 102226424,
+            filename: "Soft Grand Med 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xe98afb93,
+        {
+            name: "Soft Grand Lrg",
+            info: "Ya G2",
+            version: "6.2",
+            category: "None",
+            size: 123620972,
+            filename: "Soft Grand Lrg 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x7e6ffaca,
+        {
+            name: "Soft Grand XL",
+            info: "Ya G2",
+            version: "6.2",
+            category: "None",
+            size: 209127624,
+            filename: "Soft Grand XL 6.2",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
 
     [
         0xf04da306,
