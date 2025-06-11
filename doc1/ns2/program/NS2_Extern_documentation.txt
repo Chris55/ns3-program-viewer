@@ -1,0 +1,182 @@
+EXTERN ENABLE
+Offset in file 0x52 (b5)
+0 = OFF
+1 = ON
+
+EXTERN SPLIT ZONES
+Offset in file 0x56 (b5-3)
+0 = LO
+1 = LO UP
+2 = UP
+3 = UP HI
+4 = HI
+5 = LO UP HI
+
+EXTERN OCTAVE SHIFT
+Offset in file 0x56 (b2-0) and 0x57 (b7)
+0 = -7
+1 = -6
+2 = -5
+3 = -4
+4 = -3
+5 = -2
+6 = -1
+7 = 0
+8 = 1
+9 = 2
+10 = 3
+11 = 4
+12 = 5
+13 = 6
+
+EXTERN PITCHSTICK
+Offset in file 0x57 (b6)
+0 = OFF
+1 = ON
+
+EXTERN SUSTAIN
+Offset in file 0x57 (b5)
+0 = OFF
+1 = ON
+
+EXTERN PARAMETER
+Offset in file 0xff (b7-6)
+0 = MIDI CC
+1 = PROG CHANGE
+2 = VOLUME
+
+EXTERN MIDI CC PARAMETER
+Offset in file 0x103 (b6-0)
+0 = 0
+. . .
+127 = 127
+
+EXTERN MIDI CC Morph WHEEL
+offset in file 0x100 (b6-0) and 0x101 (b7)
+
+EXTERN MIDI CC Morph AT
+offset in file 0x101 (b6-0) and 0x102 (b7)
+
+EXTERN MIDI CC Morph CONTROL PEDAL
+offset in file 0x102 (b6-0) and 0x103 (b7)
+
+EXTERN PROG CHANGE PARAMETER (no morphing !!)
+Offset in file 0x106 (b6-0)
+Starts with "1", maximum at "128"!!
+0 = 1
+1 = 2
+. . .
+127 = 128
+
+EXTERN VOLUME PARAMETER
+Offset in file 0x10a (b0) and 0x10b (b7-2)
+0 = 0
+. . .
+127 = 127
+
+EXTERN VOLUME Morph WHEEL
+offset in file 0x107 (b0) and 0x108 (b7-1)
+
+EXTERN VOLUME Morph AT
+offset in file 0x108 (b0) and 0x109 (b7-1)
+
+EXTERN VOLUME Morph CONTROL PEDAL
+offset in file 0x109 (b0) and 0x10a (b7-1)
+
+EXTERN MIDI CC ENABLE
+offset in file 0x104 (b7)
+0 = OFF
+1 = ON
+
+EXTERN PROG CHANGE ENABLE
+offset in file 0x107 (b7)
+0 = OFF
+1 = ON
+
+EXTERN VOLUME ENABLE
+offset in file 0x10b (b1)
+0 = OFF
+1 = ON
+
+-------------------------------
+
+EXTERN A MIDI Channel
+Offset in file 0x107 (b6-3)
+0 = 1
+1 = 2
+2 = 3
+3 = 4
+4 = 5
+5 = 6
+6 = 7
+7 = 8
+8 = 9
+9 = 10
+10 = 11
+11 = 12
+12 = 13
+13 = 14
+14 = 15
+15 = 16
+
+EXTERN A MIDI Channel Type
+Offset in file 0x107 (b1)
+0 = MIDI
+1 = USB
+
+EXTERN A MIDI Bank Select CC00
+Offset in file 0x105 (b6-0)
+0 = 0
+1 = 1
+. . .
+127 = 127
+
+EXTERN A MIDI Bank Select CC00 Enable/Disable
+Offset in file 0x106 (b7)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Bank Select CC32
+Offset in file 0x104 (b6-0)
+0 = 0
+1 = 1
+. . .
+127 = 127
+
+EXTERN A MIDI Bank Select CC32 Enable/Disable
+Offset in file 0x105 (b7)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI CC Number
+Offset in file 0xff (b5-0) and 0x100 (b7)
+0 = 0
+1 = 1
+. . .
+119 = 119
+
+EXTERN A MIDI Send Wheel
+Offset in file 0x10b (b0)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Send Aftertouch
+Offset in file 0x10c (b7)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Send Control PEDAL
+Offset in file 0x10c (b6)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Send Swell
+Offset in file 0x10c (b2)
+0 = OFF
+1 = ON
+
+EXTERN A MIDI Velocity Curve
+Offset in file 0x10c (b4-3)
+0 = SOFT
+1 = NORMAL
+2 = HARD
