@@ -112,7 +112,7 @@
         "build": "vite build",
         "serve": "vite preview",
         "build:license": "generate-license-file --input package.json --output third-party-licenses.md --overwrite",
-        "doc": "./docs/build-doc.sh stage",
+        "doc": "./doc/build-doc.sh stage",
         "test": "node test/test-builder && node --experimental-vm-modules ./node_modules/.bin/jest --coverage && coverage-badge-creator"
     },
     "type": "module",
