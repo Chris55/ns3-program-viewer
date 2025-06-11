@@ -5,7 +5,7 @@ export default defineConfig(({ command, mode }) => {
     const env = loadEnv(mode, process.cwd(), "");
     const name = "ns3-program-viewer";
     return {
-        base: "/" + name + "/",
+        base: "/" + name,
         build: {
             outDir: "dist",
         },

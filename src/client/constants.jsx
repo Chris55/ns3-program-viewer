@@ -9,4 +9,4 @@ export const rpossemoNuf = "https://www.norduserforum.com/member29445.html";
 export const cookieNuf = "https://www.norduserforum.com/member2298.html";
 export const gordonNuf = "https://www.norduserforum.com/member9895.html";
 export const hobsterNuf = "https://www.norduserforum.com/member15701.html";
-export const donateUrl = "https://www.buymeacoffee.com/christianfI";
+export const fileFormatUrl = "https://chris55.github.io/nord-documentation/";

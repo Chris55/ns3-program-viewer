@@ -6,6 +6,8 @@ import { Nav, Navbar } from "react-bootstrap";
 import { menuSelector, setActiveKey } from "./features/menu/menu-slice-reducer";
 import { Link, Outlet } from "react-router-dom";
 import { nordSelector } from "./features/nord/nord-slice-reducer";
+import { openUrl } from "./utils/handy.jsx";
+import { fileFormatUrl, nufUrl } from "./constants.jsx";
 
 const Menu = () => {
     const dispatch = useDispatch();
@@ -28,11 +30,9 @@ const Menu = () => {
                         <Nav.Link eventKey="privacy" as={Link} to="privacy">
                             Privacy
                         </Nav.Link>
-                        {/*{!isElectron && (*/}
-                        {/*    // <Nav.Link eventKey="offline" as={Link} to="/offline">*/}
-                        {/*    //     Offline*/}
-                        {/*    // </Nav.Link>*/}
-                        {/*)}*/}
+                        <Nav.Link eventKey="doc" as={Link} to="doc">
+                            Documentation
+                        </Nav.Link>
                         <Nav.Link eventKey="about" as={Link} to="about">
                             About
                         </Nav.Link>
