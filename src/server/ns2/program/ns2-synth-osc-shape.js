@@ -1,5 +1,5 @@
-const { getMorphModel, midi2LinearStringValue } = require("../../common/converter");
-const { ns2Morph7Bits } = require("./ns2-morph");
+import { ns2Morph7Bits } from "./ns2-morph";
+import { getMorphModel, midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Oscillator Shape settings
@@ -9,7 +9,7 @@ const { ns2Morph7Bits } = require("./ns2-morph");
  * @param shapeMode '---', 'dtn', 'snc', or 'shp'
  * @returns {{midi: number, value: string, morph: {afterTouch: {to: {midi: ({midi: *, value: string}|string), value: (string)}, enabled: boolean}, controlPedal: {to: {midi: ({midi: *, value: string}|string), value: (string)}, enabled: boolean}, wheel: {to: {midi: ({midi: *, value: string}|string), value: (string)}, enabled: boolean}}}}
  */
-exports.ns2OscShape = (buffer, slotOffset, shapeMode) => {
+const ns2OscShape = (buffer, slotOffset, shapeMode) => {
     const synthOffsetE6W = buffer.readUInt16BE(0xe6 + slotOffset);
     const synthOffsetEb = buffer.readUInt8(0xeb + slotOffset);
     const synthOffsetE3Ww = buffer.readUInt32BE(0xe3 + slotOffset);
@@ -57,7 +57,7 @@ exports.ns2OscShape = (buffer, slotOffset, shapeMode) => {
     };
 };
 
-exports.ns2SkipSampleAttack = (buffer, slotOffset, oscillatorType) => {
+const ns2SkipSampleAttack = (buffer, slotOffset, oscillatorType) => {
     const synthOffsetEc = buffer.readUInt8(0xec + slotOffset);
 
     const skipSampleAttack = oscillatorType === "SAMPLE" && (synthOffsetEc & 2) !== 0;
@@ -96,3 +96,5 @@ exports.ns2SkipSampleAttack = (buffer, slotOffset, oscillatorType) => {
         morph: getMorphModel(morph, (x) => (x ? "On" : "Off")),
     };
 };
+
+export { ns2OscShape, ns2SkipSampleAttack };

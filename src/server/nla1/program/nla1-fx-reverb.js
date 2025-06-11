@@ -6,7 +6,7 @@
  * @param slotOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.nla1Reverb = (buffer, slotOffset) => {
+const nla1Reverb = (buffer, slotOffset) => {
     const reverbOffset85 = buffer.readUInt8(0x85 + slotOffset);
     // const reverbOffset134W = buffer.readUInt16BE(0x134 + slotOffset);
     // const reverbOffset135W = buffer.readUInt16BE(0x135 + slotOffset);
@@ -82,3 +82,5 @@ exports.nla1Reverb = (buffer, slotOffset) => {
         // },
     };
 };
+
+export { nla1Reverb };

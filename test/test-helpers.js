@@ -1,6 +1,6 @@
-const { loadNordFile } = require("../src/server/nord-service");
-const fs = require("fs").promises;
-const path = require("path");
+import { loadNordFile } from "../src/server/nord-service";
+import { promises as fs } from "fs";
+import path from "path";
 
 const getNestedObject = (nestedObj, pathArr) => {
     const result = pathArr.reduce((obj, key) => {
@@ -52,7 +52,4 @@ const loadTestCase = async (filename) => {
     };
 };
 
-module.exports = {
-    loadTestCase,
-    prettyName,
-};
+export { loadTestCase, prettyName };

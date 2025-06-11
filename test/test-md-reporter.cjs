@@ -1,7 +1,14 @@
 const fs = require("fs");
 const path = require("path");
-//const { EOL } = require("os");
-const { prettyName } = require("./test-helpers");
+
+const prettyName = (filename) => {
+    let result = filename.replace(/@a/g, "/");
+    result = result.replace("@=", "±");
+    result = result.replace("@p", "+");
+    result = result.replace("@c", ":");
+    result = result.replace("@c", ":");
+    return result;
+};
 
 class MyMarkDownReporter {
     constructor(globalConfig, options) {
@@ -16,7 +23,7 @@ class MyMarkDownReporter {
         data += `${EOL}# ${results.numPassedTests}/${results.numTotalTests} tests passed${EOL}`;
 
         results.testResults.sort((a, b) =>
-            a.testFilePath > b.testFilePath ? 1 : b.testFilePath > a.testFilePath ? -1 : 0
+            a.testFilePath > b.testFilePath ? 1 : b.testFilePath > a.testFilePath ? -1 : 0,
         );
 
         for (const suite of results.testResults) {

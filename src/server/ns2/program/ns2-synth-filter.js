@@ -1,6 +1,6 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns2-mapping");
-const { ns2Morph7Bits } = require("./ns2-morph");
+import { ns2Morph7Bits } from "./ns2-morph";
+import { ns2SynthFilterFrequencyMap, ns2SynthFilterFrequencyMod2Map, ns2SynthFilterTypeMap } from "./ns2-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  *
@@ -8,7 +8,7 @@ const { ns2Morph7Bits } = require("./ns2-morph");
  * @param slotOffset {number}
  * @returns {{type: {value: string}, resonance: {midi: number, value: string}, kbTrack: {enabled: boolean}, modulations: {mod2: {midi: number, label: (string), value: string}, mod1: {midi: number, value: string}}, frequency: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}}}
  */
-exports.ns2Filter = (buffer, slotOffset) => {
+const ns2Filter = (buffer, slotOffset) => {
     const synthOffsetF3 = buffer.readUInt8(0xf3 + slotOffset);
     const synthOffsetEfW = buffer.readUInt16BE(0xef + slotOffset);
     const synthOffsetEcWw = buffer.readUInt32BE(0xec + slotOffset);
@@ -16,7 +16,7 @@ exports.ns2Filter = (buffer, slotOffset) => {
     const synthOffsetF1W = buffer.readUInt16BE(0xf1 + slotOffset);
     const synthOffsetF2W = buffer.readUInt16BE(0xf2 + slotOffset);
 
-    const filterType = mapping.ns2SynthFilterTypeMap.get((synthOffsetF3 & 0x0e) >>> 1) || "";
+    const filterType = ns2SynthFilterTypeMap.get((synthOffsetF3 & 0x0e) >>> 1) || "";
     const filterFrequencyMidi = (synthOffsetEfW & 0x01fc) >>> 2;
     const filterResonanceMidi = (synthOffsetF0W & 0x03f8) >>> 3;
     const filterModulation1Midi = (synthOffsetF2W & 0x0fe0) >>> 5;
@@ -36,7 +36,7 @@ exports.ns2Filter = (buffer, slotOffset) => {
         type: {
             value: filterType,
 
-            isDefault: filterType === mapping.ns2SynthFilterTypeMap.get(0),
+            isDefault: filterType === ns2SynthFilterTypeMap.get(0),
         },
         /**
          * Offset in file: 0xf3 (b4)
@@ -78,13 +78,13 @@ exports.ns2Filter = (buffer, slotOffset) => {
 
             isDefault: filterFrequencyMidi === 127,
 
-            value: mapping.ns2SynthFilterFrequencyMap.get(filterFrequencyMidi),
+            value: ns2SynthFilterFrequencyMap.get(filterFrequencyMidi),
 
             morph: ns2Morph7Bits(
                 synthOffsetEcWw >>> 1,
                 filterFrequencyMidi,
                 (x) => {
-                    return mapping.ns2SynthFilterFrequencyMap.get(x);
+                    return ns2SynthFilterFrequencyMap.get(x);
                 },
                 false
             ),
@@ -103,7 +103,7 @@ exports.ns2Filter = (buffer, slotOffset) => {
 
             isDefault: filterResonanceMidi === 0,
 
-            value: converter.midi2LinearStringValue(0, 10, filterResonanceMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, filterResonanceMidi, 1, ""),
         },
 
         /**
@@ -119,7 +119,7 @@ exports.ns2Filter = (buffer, slotOffset) => {
 
             isDefault: filterModulation1Midi === 0,
 
-            value: converter.midi2LinearStringValue(0, 10, filterModulation1Midi, 1, ""),
+            value: midi2LinearStringValue(0, 10, filterModulation1Midi, 1, ""),
         },
 
         /**
@@ -138,11 +138,16 @@ exports.ns2Filter = (buffer, slotOffset) => {
 
             isDefault: filterModulation2Midi === 64,
 
-            value: mapping.ns2SynthFilterFrequencyMod2Map.get(filterModulation2Midi),
+            value: ns2SynthFilterFrequencyMod2Map.get(filterModulation2Midi),
 
-            label: (filterModulation2Midi === 63 || filterModulation2Midi === 64)
-                ? "VEL/Env AMT"
-                : (filterModulation2Midi < 64 ? "VEL AMT": "Mod Env AMT"),
+            label:
+                filterModulation2Midi === 63 || filterModulation2Midi === 64
+                    ? "VEL/Env AMT"
+                    : filterModulation2Midi < 64
+                    ? "VEL AMT"
+                    : "Mod Env AMT",
         },
     };
 };
+
+export { ns2Filter };

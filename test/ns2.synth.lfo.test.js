@@ -1,6 +1,11 @@
 // this file is auto-generated with test-builder.js
 
-const { loadTestCase } = require("./test-helpers");
+import { loadTestCase } from "./test-helpers";
+import { fileURLToPath } from "url";
+import path from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const root = __dirname + "/ns2/synth/lfo/";
 

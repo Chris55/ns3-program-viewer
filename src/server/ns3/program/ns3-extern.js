@@ -1,8 +1,7 @@
-const { ns3ExternMidiVelocityCurveMap } = require("./ns3-mapping");
-const { midiControlChangeMap } = require("../../common/midi-mapping");
-const { ns3ExternControlMap } = require("./ns3-mapping");
-const { ns3Morph7Bits } = require("./ns3-morph");
-const { ns3OctaveShift, ns3KbZone, ns3BooleanValue } = require("./ns3-utils");
+import { ns3ExternControlMap, ns3ExternMidiVelocityCurveMap } from "./ns3-mapping";
+import { midiControlChangeMap } from "../../common/midi-mapping";
+import { ns3Morph7Bits } from "./ns3-morph";
+import { ns3BooleanValue, ns3KbZone, ns3OctaveShift } from "./ns3-utils";
 
 /***
  * returns Extern section
@@ -12,7 +11,7 @@ const { ns3OctaveShift, ns3KbZone, ns3BooleanValue } = require("./ns3-utils");
  * @param global
  * @returns {{cc: {text: string, value: number}, kbZone: {array, value}, wheel: {enabled: boolean}, sustainPedal: {enabled: boolean}, channel: {value: (number|string), enabled: boolean}, control: {value: string}, program: {midi: number, enabledOnLoad: boolean, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, velocity: {value: string}, octaveShift: {value: number}, swell: {enabled: boolean}, enabled: boolean, cc00: {value: (number|string), enabled: boolean}, volume: {midi: number, enabledOnLoad: boolean, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string, enabled: boolean}, cc32: {value: (number|string), enabled: boolean}, afterTouch: {enabled: boolean}, pitchStick: {enabled: boolean}, controlPedal: {enabled: boolean}, midiCc: {midi: number, enabledOnLoad: boolean, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}}}
  */
-exports.ns3Extern = (buffer, panelOffset, global) => {
+const ns3Extern = (buffer, panelOffset, global) => {
     const externOffsetF4W = buffer.readUInt16BE(0xf4 + panelOffset);
     const externOffsetF5 = buffer.readUInt8(0xf5 + panelOffset);
     const externOffsetF6 = buffer.readUInt8(0xf6 + panelOffset);
@@ -342,3 +341,5 @@ exports.ns3Extern = (buffer, panelOffset, global) => {
         },
     };
 };
+
+export { ns3Extern };

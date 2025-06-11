@@ -1,4 +1,4 @@
-@use "~ag-grid-community/styles" as ag;
+@use "ag-grid-community/styles" as ag;
 
 $nord-dark-grey: #3b4047;
 $primary: #c84f54;
@@ -46,7 +46,7 @@ $dark: $nord-dark-grey;
     }
 }
 
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 
 .App {
     text-align: center;

@@ -1,8 +1,13 @@
-const mapping = require("./ns2-mapping");
-const { ns2ProgramOutputMap } = require("./ns2-mapping");
-const { formatOrganDrawbars } = require("../../common/converter");
-const { ns2MorphOrganDrawbar } = require("./ns2-morph");
-const { ns2KbZone, ns2OctaveShift, ns2VolumeEx, ns2BooleanValue } = require("./ns2-utils");
+import {
+    ns2OrganB3VibratoModeMap,
+    ns2OrganFarfisaVibratoModeMap,
+    ns2OrganTypeMap,
+    ns2OrganVoxVibratoModeMap,
+    ns2ProgramOutputMap,
+} from "./ns2-mapping";
+import { ns2BooleanValue, ns2KbZone, ns2OctaveShift, ns2VolumeEx } from "./ns2-utils";
+import { ns2MorphOrganDrawbar } from "./ns2-morph";
+import { formatOrganDrawbars } from "../../common/converter";
 
 /***
  * return B3 and Vox Drawbars Preset and Morph
@@ -160,7 +165,7 @@ const hideIfEqual = (from, to) => {
  * @param global
  * @returns {{volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, output: {value: string}, pitchStick: {enabled: boolean}, preset2: {drawbars: number[], percussion: {enabled: boolean}, enabled: boolean, vibrato: {enabled: boolean}}, kbZone: {array, value}, preset1: {drawbars: number[], percussion: {volumeSoft: {enabled: boolean}, harmonicThird: {enabled: boolean}, decayFast: {enabled: boolean}, enabled: boolean}, enabled: boolean, vibrato: {mode: {label: string, value: string}, enabled: boolean}}, sustainPedal: {enabled: boolean}, type: {value: string}, octaveShift: {value: number}, enabled: boolean, latchPedal: {enabled: boolean}, kbGate: {enabled: boolean}}}
  */
-exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
+const ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
     // common
     const organOffset30 = buffer.readUInt8(0x30 + commonOffset);
     const organOffset35 = buffer.readUInt8(0x35 + commonOffset);
@@ -181,7 +186,7 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
     const organOffsetAb = buffer.readUInt8(0xab + panelOffset);
 
     const organTypeValue = (organOffset34 & 0xc0) >>> 6;
-    const organType = mapping.ns2OrganTypeMap.get(organTypeValue);
+    const organType = ns2OrganTypeMap.get(organTypeValue);
     const organTypeIsB3 = organTypeValue === 0;
     const organTypeIsVox = organTypeValue === 1;
     const organTypeIsFarfisa = organTypeValue === 2;
@@ -256,7 +261,7 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          * @module NS2 Organ B3 Vibrato Mode
          */
         organVibratoModeValue = (organOffset35 & 0xe0) >>> 5;
-        organVibratoMode = mapping.ns2OrganB3VibratoModeMap.get(organVibratoModeValue) || "";
+        organVibratoMode = ns2OrganB3VibratoModeMap.get(organVibratoModeValue) || "";
         vibratoChorusModeLabel =
             organVibratoMode.length > 1 && organVibratoMode.charAt(0) === "V" ? "Vibrato" : "Chorus";
 
@@ -292,7 +297,7 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          * @module NS2 Organ Vox Vibrato Mode
          */
         organVibratoModeValue = (organOffset37 & 0x60) >>> 5;
-        organVibratoMode = mapping.ns2OrganVoxVibratoModeMap.get(organVibratoModeValue);
+        organVibratoMode = ns2OrganVoxVibratoModeMap.get(organVibratoModeValue);
 
         drawbars1 = getDrawbars(buffer, 0x76 + panelOffset, true, organType);
         drawbars2 = getDrawbars(buffer, 0xad + panelOffset, true, organType);
@@ -327,17 +332,14 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
          * @module NS2 Organ Farfisa Vibrato Mode
          */
         organVibratoModeValue = (organOffset39 & 0x60) >>> 5;
-        organVibratoMode = mapping.ns2OrganFarfisaVibratoModeMap.get(organVibratoModeValue);
+        organVibratoMode = ns2OrganFarfisaVibratoModeMap.get(organVibratoModeValue);
 
         drawbars1 = getDrawbars(buffer, 0x8d + panelOffset, false, organType);
         drawbars2 = getDrawbars(buffer, 0xc4 + panelOffset, false, organType);
     }
 
     const organEnabled = (organOffset43 & 0x80) !== 0;
-    const organKbZoneEnabled =
-        id === 0
-            ? organEnabled
-            : organEnabled && (global.dualKeyboard.enabled === false); // || global.dualKeyboard.value !== "Organ");
+    const organKbZoneEnabled = id === 0 ? organEnabled : organEnabled && global.dualKeyboard.enabled === false; // || global.dualKeyboard.value !== "Organ");
 
     const organKbZone = ns2KbZone(organKbZoneEnabled, global, (organOffset47 & 0xe0) >>> 5);
 
@@ -916,3 +918,5 @@ exports.ns2Organ = (buffer, id, commonOffset, panelOffset, global) => {
         },
     };
 };
+
+export { ns2Organ };

@@ -1,7 +1,7 @@
 /***
  * Nord File Extension
  */
-exports.nordFileExtMap = new Map([
+const nordFileExtMap = new Map([
     ["ncb", "Nord C2 Backup"],
     ["ncpg", "Nord C2 Program"],
     ["nc2b", "Nord C2D Backup"],
@@ -84,7 +84,7 @@ exports.nordFileExtMap = new Map([
  * Volume dB Values
  * @type {Map<number, string>}
  */
-exports.dBMap = new Map([
+const dBMap = new Map([
     [0, "Off"],
     [1, "-84.2 dB"],
     [2, "-72.1 dB"],
@@ -220,7 +220,7 @@ exports.dBMap = new Map([
  *
  * @type {Map<number, string>}
  */
-exports.programCategoryMap = new Map([
+const programCategoryMap = new Map([
     [0x00, "Acoustic"],
     [0x01, "Bass"],
     [0x02, "Wind"],
@@ -260,7 +260,7 @@ exports.programCategoryMap = new Map([
  * Synth Category
  * @type {Map<number, {subCategory: Map<number, string>, category: string}>}
  */
-exports.synthCategoryMap = new Map([
+const synthCategoryMap = new Map([
     [
         0,
         {
@@ -419,3 +419,5 @@ exports.synthCategoryMap = new Map([
         },
     ],
 ]);
+
+export { nordFileExtMap, dBMap, programCategoryMap, synthCategoryMap };

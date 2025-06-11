@@ -1,18 +1,26 @@
-const fs = require("fs").promises;
-const os = require("os");
-const path = require("path");
+import { promises as fs } from "fs";
+import os from "os";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const build = async (folder, testFilename) => {
-
-    const testFolder =path.join(__dirname, folder);
+    const testFolder = path.join(__dirname, folder);
     const filenames = await fs.readdir(testFolder);
 
-    let file = "// this file is auto-generated with test-builder.js" + os.EOL + os.EOL;
-    file += 'const { loadTestCase } = require("./test-helpers");' + os.EOL;
+    let file = "// this file is auto-generated with test-builder.js" + os.EOL;
     file += os.EOL;
-
-    file += 'const root = __dirname + "' + folder + '/";' + os.EOL + os.EOL;
-
+    file += 'import { loadTestCase } from "./test-helpers";' + os.EOL;
+    file += 'import { fileURLToPath } from "url";' + os.EOL;
+    file += 'import path from "path";' + os.EOL;
+    file += os.EOL;
+    file += "const __filename = fileURLToPath(import.meta.url);" + os.EOL;
+    file += "const __dirname = path.dirname(__filename);" + os.EOL;
+    file += os.EOL;
+    file += 'const root = __dirname + "' + folder + '/";' + os.EOL;
+    file += os.EOL;
     file += 'describe("' + folder + '", () => {' + os.EOL;
 
     const supportedExt = [".ns3f", ".ns3l", ".ns3y", ".ns2p", ".ns2l", ".ns2s", ".nlas"];

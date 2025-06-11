@@ -1,5 +1,6 @@
 import { BlobWriter, TextReader, ZipWriter } from "@zip.js/zip.js";
-const FileSaver = require("file-saver");
+import FileSaver from "file-saver";
+
 const eol = "\r\n";
 
 const getFlatObject = (object) => {

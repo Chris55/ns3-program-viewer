@@ -11,6 +11,7 @@ const production = process.env.NODE_ENV === "production";
 const initialState = {
     production: production,
     isElectron: /electron/i.test(navigator.userAgent),
+    isServerless: true,
     loaded: production ? false : loadedDebug,
     loading: false,
     progress: 0,

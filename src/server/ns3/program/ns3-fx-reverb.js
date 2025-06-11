@@ -1,7 +1,7 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns3-mapping");
-const { ns3BooleanValue } = require("./ns3-utils");
-const { ns3Morph7Bits } = require("./ns3-morph");
+import { ns3BooleanValue } from "./ns3-utils";
+import { ns3Morph7Bits } from "./ns3-morph";
+import { ns3ReverbTypeMap } from "./ns3-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Reverb
@@ -10,7 +10,7 @@ const { ns3Morph7Bits } = require("./ns3-morph");
  * @param panelOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.ns3Reverb = (buffer, panelOffset) => {
+const ns3Reverb = (buffer, panelOffset) => {
     const reverbOffset134 = buffer.readUInt8(0x134 + panelOffset);
     const reverbOffset134W = buffer.readUInt16BE(0x134 + panelOffset);
     const reverbOffset135W = buffer.readUInt16BE(0x135 + panelOffset);
@@ -45,7 +45,7 @@ exports.ns3Reverb = (buffer, panelOffset) => {
          * @module NS3 Reverb Type
          */
         type: {
-            value: mapping.ns3ReverbTypeMap.get(type),
+            value: ns3ReverbTypeMap.get(type),
             isDefault: type === 0,
         },
 
@@ -73,13 +73,13 @@ exports.ns3Reverb = (buffer, panelOffset) => {
 
             isDefault: reverbAmountMidi === 64,
 
-            value: converter.midi2LinearStringValue(0, 10, reverbAmountMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, reverbAmountMidi, 1, ""),
 
             morph: ns3Morph7Bits(
                 reverbOffset136Ww >>> 6,
                 reverbAmountMidi,
                 (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    return midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 false
             ),
@@ -96,3 +96,5 @@ exports.ns3Reverb = (buffer, panelOffset) => {
         bright: ns3BooleanValue((reverbOffset134W & 0x0020) !== 0, false),
     };
 };
+
+export { ns3Reverb };

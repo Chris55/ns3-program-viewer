@@ -47,11 +47,9 @@ export function Ns3WaveForm({ waveForm, x, y, style }) {
     const points = symbols.get(waveForm);
 
     return (
-        <>
-            <g transform={translate}>
-                <path d={points} style={style} />}
-            </g>
-        </>
+        <g transform={translate}>
+            <path d={points} style={style} />
+        </g>
     );
 }
 
@@ -59,11 +57,9 @@ export function Ns3ArrowLeft({ x, y, style }) {
     const translate = `translate(${x} ${y})`;
 
     return (
-        <>
-            <g transform={translate}>
-                <polyline points="15,0 5,0 5,-5 0,0 5,5 5,0" style={style} />
-            </g>
-        </>
+        <g transform={translate}>
+            <polyline points="15,0 5,0 5,-5 0,0 5,5 5,0" style={style} />
+        </g>
     );
 }
 
@@ -71,11 +67,9 @@ export function Ns3ArrowRight({ x, y, style }) {
     const translate = `translate(${x} ${y})`;
 
     return (
-        <>
-            <g transform={translate}>
-                <polyline points="0,0 10,0 10,-6 15,0 10,6 10,0" style={style} />
-            </g>
-        </>
+        <g transform={translate}>
+            <polyline points="0,0 10,0 10,-6 15,0 10,6 10,0" style={style} />
+        </g>
     );
 }
 
@@ -85,7 +79,6 @@ export function Ns3Knob({ x, y, radius, value, min, max, style }) {
     return (
         <>
             <circle cx={knob.x1} cy={knob.y1} r={knob.r} style={style} />
-
             <line x1={knob.x1} y1={knob.y1} x2={knob.x2} y2={knob.y2} style={style} />
         </>
     );

@@ -1,6 +1,6 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns3-mapping");
-const { ns3BooleanValue } = require("./ns3-utils");
+import { ns3BooleanValue } from "./ns3-utils";
+import { ns3EffectSourceMap, ns3RotarySpeakerSpeedMap } from "./ns3-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Rotary Speaker Effect section
@@ -9,7 +9,7 @@ const { ns3BooleanValue } = require("./ns3-utils");
  * @param panelOffset
  * @returns {{stopMode: {enabled: boolean}, source: {value: string}, drive: {value: string}, enabled: boolean, speed: {morph: {afterTouch: {enabled: boolean}, controlPedal: {enabled: boolean}, wheel: {enabled: boolean}}, value: string}}}
  */
-exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
+const ns3RotarySpeakerEffect = (buffer, panelOffset) => {
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffset35 = buffer.readUInt8(0x35 + panelOffset);
     const organOffset35W = buffer.readUInt16BE(0x35 + panelOffset);
@@ -39,7 +39,7 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
          * @module NS3 Rotary Speaker Source
          */
         source: {
-            value: mapping.ns3EffectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
+            value: ns3EffectSourceMap.get((rotarySpeakerOffset10B & 0b01100000) >>> 5),
         },
 
         /**
@@ -53,7 +53,7 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
          * @module NS3 Rotary Speaker Drive
          */
         drive: {
-            value: converter.midi2LinearStringValue(0, 10, drive, 1, ""),
+            value: midi2LinearStringValue(0, 10, drive, 1, ""),
 
             isDefault: drive === 0,
         },
@@ -105,7 +105,7 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
          */
 
         speed: {
-            value: mapping.ns3RotarySpeakerSpeedMap.get(speed),
+            value: ns3RotarySpeakerSpeedMap.get(speed),
 
             isDefault: speed === 0,
 
@@ -123,3 +123,5 @@ exports.ns3RotarySpeakerEffect = (buffer, panelOffset) => {
         },
     };
 };
+
+export { ns3RotarySpeakerEffect };

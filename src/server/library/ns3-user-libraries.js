@@ -3,7 +3,7 @@
  * Hash code done as per v3
  * @type {Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>}
  */
-exports.ns3UserLibraries = new Map([
+const ns3UserLibraries = new Map([
     // NUF My EII, PPG (and others) sample collection
     //https://www.norduserforum.com/post69139.html#p69139
 
@@ -3728,3 +3728,5 @@ exports.ns3UserLibraries = new Map([
         },
     ],
 ]);
+
+export { ns3UserLibraries };

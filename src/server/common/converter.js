@@ -9,8 +9,6 @@ const round = function (value, precision) {
     return Math.round((value + Number.EPSILON) * multiplier) / multiplier;
 };
 
-exports.round = round;
-
 /***
  * convert midi value (0/127) to eng value
  * @param engMin - eng min value
@@ -27,8 +25,6 @@ const midi2LinearValue = function (engMin, engMax, midiValue, precision, _midiMi
     return round(result, precision);
 };
 
-exports.midi2LinearValue = midi2LinearValue;
-
 /***
  * returns scaled value with precision and eng unit.
  * input: (0, 100, 127, 1, '%'), output '100.0 %'
@@ -40,7 +36,7 @@ exports.midi2LinearValue = midi2LinearValue;
  * @param unit: eng unit
  * @returns {string}
  */
-exports.midi2LinearStringValue = function (min, max, value, precision, unit) {
+const midi2LinearStringValue = function (min, max, value, precision, unit) {
     const result = midi2LinearValue(min, max, value, precision).toFixed(precision);
     return unit ? result + " " + unit : result;
 };
@@ -53,7 +49,7 @@ exports.midi2LinearStringValue = function (min, max, value, precision, unit) {
  * @param value midi value (0-127)
  * @returns {string}
  */
-exports.midi2LinearValueAndComplement = function (value) {
+const midi2LinearValueAndComplement = function (value) {
     const result = (value * 100) / 127;
     const val1 = round(result, 0);
     const val2 = 100 - val1;
@@ -71,7 +67,7 @@ exports.midi2LinearValueAndComplement = function (value) {
  * @param unit: eng unit
  * @returns {string}
  */
-exports.midi2LogValue = function (min, max, value, precision, unit) {
+const midi2LogValue = function (min, max, value, precision, unit) {
     // https://stackoverflow.com/questions/19472747/convert-linear-scale-to-logarithmic
     const x0 = 0; // midi min value
     const x1 = 127; // midi max value
@@ -90,7 +86,7 @@ exports.midi2LogValue = function (min, max, value, precision, unit) {
  * @param places
  * @returns {string}
  */
-exports.zeroPad = (num, places) => String(num).padStart(places, "0");
+const zeroPad = (num, places) => String(num).padStart(places, "0");
 
 /***
  * Simple linear interpolation
@@ -101,7 +97,7 @@ exports.zeroPad = (num, places) => String(num).padStart(places, "0");
  * @param x {Number}
  * @returns {number}
  */
-exports.getLinearInterpolation = (x0, y0, x1, y1, x) => {
+const getLinearInterpolation = (x0, y0, x1, y1, x) => {
     return (y0 * (x1 - x) + y1 * (x - x0)) / (x1 - x0);
 };
 
@@ -111,7 +107,7 @@ exports.getLinearInterpolation = (x0, y0, x1, y1, x) => {
  * @param type {string}
  * @returns {string|*}
  */
-exports.formatOrganDrawbars = (d, type) => {
+const formatOrganDrawbars = (d, type) => {
     if (!d) return d;
     if (d.length !== 9) return d;
     if (type !== "B3") return d;
@@ -126,7 +122,7 @@ exports.formatOrganDrawbars = (d, type) => {
  * @param labelCallBack
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled}, controlPedal: {to: {midi: *, value: (*|string)}, enabled}, wheel: {to: {midi: *, value: (*|string)}, enabled}}}
  */
-exports.getMorphModel = (result, labelCallBack) => {
+const getMorphModel = (result, labelCallBack) => {
     return {
         /***
          * Wheel Morphing
@@ -182,4 +178,16 @@ exports.getMorphModel = (result, labelCallBack) => {
             },
         },
     };
+};
+
+export {
+    round,
+    midi2LinearValue,
+    midi2LinearStringValue,
+    midi2LinearValueAndComplement,
+    midi2LogValue,
+    zeroPad,
+    getLinearInterpolation,
+    formatOrganDrawbars,
+    getMorphModel,
 };

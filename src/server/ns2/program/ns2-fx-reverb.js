@@ -1,5 +1,5 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns2-mapping");
+import { ns2ReverbTypeMap } from "./ns2-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Reverb
@@ -8,11 +8,11 @@ const mapping = require("./ns2-mapping");
  * @param offset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.ns2Reverb = (buffer, offset) => {
+const ns2Reverb = (buffer, offset) => {
     const reverbOffset3dW = buffer.readUInt16BE(0x3d + offset);
 
     const reverbAmountMidi = (reverbOffset3dW & 0x0fe0) >>> 5;
-    const reverbType = mapping.ns2ReverbTypeMap.get((reverbOffset3dW & 0x7000) >>> 12);
+    const reverbType = ns2ReverbTypeMap.get((reverbOffset3dW & 0x7000) >>> 12);
 
     return {
         /**
@@ -40,7 +40,7 @@ exports.ns2Reverb = (buffer, offset) => {
          */
         type: {
             value: reverbType,
-            isDefault: reverbType === mapping.ns2ReverbTypeMap.get(2),
+            isDefault: reverbType === ns2ReverbTypeMap.get(2),
         },
 
         /**
@@ -54,7 +54,9 @@ exports.ns2Reverb = (buffer, offset) => {
         amount: {
             midi: reverbAmountMidi,
             isDefault: reverbAmountMidi === 64,
-            value: converter.midi2LinearStringValue(0, 10, reverbAmountMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, reverbAmountMidi, 1, ""),
         },
     };
 };
+
+export { ns2Reverb };

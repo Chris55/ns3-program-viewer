@@ -1,4 +1,4 @@
-const converter = require("../../common/converter");
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Compressor
@@ -7,7 +7,7 @@ const converter = require("../../common/converter");
  * @param offset
  * @returns {{amount: {midi: number, value: string}, fast: {value: boolean}, enabled: boolean}}
  */
-exports.ns2Compressor = (buffer, offset) => {
+const ns2Compressor = (buffer, offset) => {
     const effectOffset3eW = buffer.readUInt16BE(0x3e + offset);
 
     const compressorAmountMidi = (effectOffset3eW & 0x0fe0) >>> 5;
@@ -34,7 +34,9 @@ exports.ns2Compressor = (buffer, offset) => {
         amount: {
             midi: compressorAmountMidi,
             isDefault: compressorAmountMidi === 0,
-            value: converter.midi2LinearStringValue(0, 10, compressorAmountMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, compressorAmountMidi, 1, ""),
         },
     };
 };
+
+export { ns2Compressor };

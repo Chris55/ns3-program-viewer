@@ -26,21 +26,19 @@ const App = () => {
     const isElectron = /electron/i.test(navigator.userAgent);
 
     const details = (
-        <>
-            <Routes>
-                <Route path="/" element={<Menu />}>
-                    <Route path="privacy" element={<Privacy />} />
+        <Routes>
+            <Route path="/" element={<Menu />}>
+                <Route path="privacy" element={<Privacy />} />
 
-                    <Route path="offline" element={<Offline />} />
+                <Route path="offline" element={<Offline />} />
 
-                    <Route path="about" element={<About />} />
+                <Route path="about" element={<About />} />
 
-                    <Route path="" element={<Main />} />
+                <Route path="" element={<Main />} />
 
-                    <Route path="*" element={<Main />} />
-                </Route>
-            </Routes>
-        </>
+                <Route path="*" element={<Main />} />
+            </Route>
+        </Routes>
     );
 
     return (

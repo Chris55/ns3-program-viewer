@@ -1,5 +1,5 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns2-mapping");
+import { ns2EffectSourceMap, ns2RotarySpeakerSpeedMap } from "./ns2-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Rotary Speaker Effect section
@@ -8,7 +8,7 @@ const mapping = require("./ns2-mapping");
  * @param panelOffset
  * @returns {{stopMode: {enabled: boolean}, source: {value: string}, drive: {value: string}, enabled: boolean, speed: {morph: {afterTouch: {enabled: boolean}, controlPedal: {enabled: boolean}, wheel: {enabled: boolean}}, value: string}}}
  */
-exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
+const ns2RotarySpeakerEffect = (buffer, panelOffset) => {
     const rotarySpeakerOffset3f = buffer.readUInt8(0x3f + panelOffset);
     const rotarySpeakerOffset3fW = buffer.readUInt16BE(0x3f + panelOffset);
     const rotarySpeakerOffset40 = buffer.readUInt8(0x40 + panelOffset);
@@ -38,7 +38,7 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
          * @module NS2 Rotary Speaker Source
          */
         source: {
-            value: mapping.ns2EffectSourceMap.get((rotarySpeakerOffset3f & 0x0c) >>> 2),
+            value: ns2EffectSourceMap.get((rotarySpeakerOffset3f & 0x0c) >>> 2),
         },
 
         /**
@@ -52,7 +52,7 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
          * @module NS2 Rotary Speaker Drive
          */
         drive: {
-            value: converter.midi2LinearStringValue(0, 10, drive, 1, ""),
+            value: midi2LinearStringValue(0, 10, drive, 1, ""),
 
             isDefault: drive === 0,
         },
@@ -89,7 +89,7 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
          */
 
         speed: {
-            value: mapping.ns2RotarySpeakerSpeedMap.get(speed),
+            value: ns2RotarySpeakerSpeedMap.get(speed),
 
             isDefault: speed === 0,
 
@@ -107,3 +107,5 @@ exports.ns2RotarySpeakerEffect = (buffer, panelOffset) => {
         },
     };
 };
+
+export { ns2RotarySpeakerEffect };

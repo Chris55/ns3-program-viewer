@@ -3,7 +3,7 @@
  * Hash code done as per v3
  * @type {Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>}
  */
-exports.ns3ScSoundsLibraries = new Map([
+const ns3ScSoundsLibraries = new Map([
     // ASR-10 Sample Library
     // http://www.sc-sounds.com/synths.php
 
@@ -3015,3 +3015,5 @@ exports.ns3ScSoundsLibraries = new Map([
         },
     ],
 ]);
+
+export { ns3ScSoundsLibraries };

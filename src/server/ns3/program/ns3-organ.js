@@ -1,7 +1,12 @@
-const mapping = require("./ns3-mapping");
-const { formatOrganDrawbars } = require("../../common/converter");
-const { ns3MorphOrganDrawbar } = require("./ns3-morph");
-const { ns3KbZone, ns3OctaveShift, ns3VolumeEx, ns3BooleanValue } = require("./ns3-utils");
+import { ns3BooleanValue, ns3KbZone, ns3OctaveShift, ns3VolumeEx } from "./ns3-utils";
+import { ns3MorphOrganDrawbar } from "./ns3-morph";
+import { formatOrganDrawbars } from "../../common/converter";
+import {
+    ns3OrganFarfisaVibratoModeMap,
+    ns3OrganTypeMap,
+    ns3OrganVibratoChorusModeShortNameMap,
+    ns3OrganVoxVibratoModeMap,
+} from "./ns3-mapping";
 
 /***
  * return Drawbars Preset and Morph
@@ -167,7 +172,7 @@ const hideIfEqual = (from, to) => {
  * @param global
  * @returns {{volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}}
  */
-exports.ns3Organ = (buffer, id, panelOffset, global) => {
+const ns3Organ = (buffer, id, panelOffset, global) => {
     const organOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const organOffsetB6W = buffer.readUInt16BE(0xb6 + panelOffset);
     const organOffsetBa = buffer.readUInt8(0xba + panelOffset);
@@ -175,7 +180,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
     const organOffsetD3 = buffer.readUInt8(0xd3 + panelOffset);
     const organOffsetEe = buffer.readUInt8(0xee + panelOffset);
 
-    const organType = mapping.ns3OrganTypeMap.get((organOffsetBb & 0x70) >>> 4);
+    const organType = ns3OrganTypeMap.get((organOffsetBb & 0x70) >>> 4);
     const organTypeIsB3 = organType === "B3";
 
     const organEnabled = (organOffsetB6W & 0x8000) !== 0;
@@ -185,7 +190,7 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
             : organEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.style.value !== "Organ");
 
     const organModeValue = (organOffset34 & 0x0e) >>> 1;
-    let vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue) || "";
+    let vibratoChorusModeShortName = ns3OrganVibratoChorusModeShortNameMap.get(organModeValue) || "";
     let vibratoChorusModeLongName = "";
     let vibratoChorusModeLabel = "";
 
@@ -204,18 +209,17 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
                 vibratoChorusModeShortName === "C2" ||
                 vibratoChorusModeShortName === "C3"
             ) {
-                vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue + 1);
+                vibratoChorusModeShortName = ns3OrganVibratoChorusModeShortNameMap.get(organModeValue + 1);
             }
-            vibratoChorusModeLongName = " - " + mapping.ns3OrganVoxVibratoModeMap.get(vibratoChorusModeShortName) || "";
+            vibratoChorusModeLongName = " - " + ns3OrganVoxVibratoModeMap.get(vibratoChorusModeShortName) || "";
             break;
 
         case "Farfisa":
             vibratoChorusModeLabel = "Vibrato";
             if (vibratoChorusModeShortName === "C1" || vibratoChorusModeShortName === "V3") {
-                vibratoChorusModeShortName = mapping.ns3OrganVibratoChorusModeShortNameMap.get(organModeValue + 1);
+                vibratoChorusModeShortName = ns3OrganVibratoChorusModeShortNameMap.get(organModeValue + 1);
             }
-            vibratoChorusModeLongName =
-                " - " + mapping.ns3OrganFarfisaVibratoModeMap.get(vibratoChorusModeShortName) || "";
+            vibratoChorusModeLongName = " - " + ns3OrganFarfisaVibratoModeMap.get(vibratoChorusModeShortName) || "";
             break;
 
         case "Pipe1":
@@ -647,3 +651,5 @@ exports.ns3Organ = (buffer, id, panelOffset, global) => {
         live: ns3BooleanValue((organOffsetBb & 0x08) !== 0, false),
     };
 };
+
+export { ns3Organ };

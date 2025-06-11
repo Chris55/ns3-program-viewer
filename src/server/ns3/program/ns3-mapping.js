@@ -2,7 +2,7 @@
  * Panel Enable Matrix
  * @type {Map<number, string>}
  */
-exports.ns3PanelEnabledMap = new Map([
+const ns3PanelEnabledMap = new Map([
     [0, "A only"],
     [1, "B only"],
     [2, "A & B"],
@@ -12,7 +12,7 @@ exports.ns3PanelEnabledMap = new Map([
  * Dual Keyboard Style
  * @type {Map<number, string>}
  */
-exports.ns3DualKeyboardStyleMap = new Map([
+const ns3DualKeyboardStyleMap = new Map([
     [0, "Panel"],
     [1, "Organ"],
     [2, "Piano"],
@@ -24,7 +24,7 @@ exports.ns3DualKeyboardStyleMap = new Map([
  *
  * @type {Map<number, (string|boolean[])[]>}
  */
-exports.ns3KbZoneMap = new Map([
+const ns3KbZoneMap = new Map([
     [0, ["O---", [true, false, false, false]]],
     [1, ["-O--", [false, true, false, false]]],
     [2, ["--O-", [false, false, true, false]]],
@@ -41,7 +41,7 @@ exports.ns3KbZoneMap = new Map([
  * Split Note Values
  * @type {Map<number, string>}
  */
-exports.ns3SplitNoteMap = new Map([
+const ns3SplitNoteMap = new Map([
     [0, "F2"],
     [1, "C3"],
     [2, "F3"],
@@ -58,7 +58,7 @@ exports.ns3SplitNoteMap = new Map([
  * Split Width Values
  * @type {Map<number, string>}
  */
-exports.ns3SplitWidthMap = new Map([
+const ns3SplitWidthMap = new Map([
     [0, "1"],
     [1, "6"],
     [2, "12"],
@@ -68,7 +68,7 @@ exports.ns3SplitWidthMap = new Map([
  * Transpose Values
  * @type {Map<number, string>}
  */
-exports.ns3TransposeMap = new Map([
+const ns3TransposeMap = new Map([
     [0, "-6 semi"],
     [1, "-5 semi"],
     [2, "-4 semi"],
@@ -88,7 +88,7 @@ exports.ns3TransposeMap = new Map([
  * Piano Types
  * @type {Map<number, string>}
  */
-exports.ns3PianoTypeMap = new Map([
+const ns3PianoTypeMap = new Map([
     [0, "Grand"],
     [1, "Upright"],
     [2, "Electric"],
@@ -101,7 +101,7 @@ exports.ns3PianoTypeMap = new Map([
  * Piano Timbre Values
  * @type {Map<number, string[]>}
  */
-exports.ns3PianoTimbreMap = new Map([
+const ns3PianoTimbreMap = new Map([
     //  Grand,     Upright,  Electric, Clav,             Digital,  Misc
     [0, ["None", "None", "None", "None", "None", "None"]],
     [1, ["Soft", "Soft", "Soft", "Soft", "Soft", "Soft"]],
@@ -117,7 +117,7 @@ exports.ns3PianoTimbreMap = new Map([
  * Piano Keyboard Touch Mode Values
  * @type {Map<number, string>}
  */
-exports.ns3PianoKbTouchMap = new Map([
+const ns3PianoKbTouchMap = new Map([
     [0, "Normal"],
     [1, "1"],
     [2, "2"],
@@ -128,7 +128,7 @@ exports.ns3PianoKbTouchMap = new Map([
  * Piano Layer Detune Values
  * @type {Map<number, string>}
  */
-exports.ns3PianoLayerDetuneMap = new Map([
+const ns3PianoLayerDetuneMap = new Map([
     [0, "Off"],
     [1, "1"],
     [2, "2"],
@@ -139,7 +139,7 @@ exports.ns3PianoLayerDetuneMap = new Map([
  * Organ Types
  * @type {Map<number, string>}
  */
-exports.ns3OrganTypeMap = new Map([
+const ns3OrganTypeMap = new Map([
     [0, "B3"],
     [1, "Vox"],
     [2, "Farfisa"],
@@ -151,7 +151,7 @@ exports.ns3OrganTypeMap = new Map([
  * Organ Vibrato Modes
  * @type {Map<number, string>}
  */
-exports.ns3OrganVibratoChorusModeShortNameMap = new Map([
+const ns3OrganVibratoChorusModeShortNameMap = new Map([
     [0, "V1"],
     [1, "C1"],
     [2, "V2"],
@@ -164,7 +164,7 @@ exports.ns3OrganVibratoChorusModeShortNameMap = new Map([
  * Organ Vox Vibrato Modes
  * @type {Map<string, string>}
  */
-exports.ns3OrganVoxVibratoModeMap = new Map([
+const ns3OrganVoxVibratoModeMap = new Map([
     ["V1", "Less"],
     ["V2", "More"],
     ["V3", "Original"],
@@ -174,7 +174,7 @@ exports.ns3OrganVoxVibratoModeMap = new Map([
  * Organ Farfisa Vibrato Modes
  * @type {Map<string, string>}
  */
-exports.ns3OrganFarfisaVibratoModeMap = new Map([
+const ns3OrganFarfisaVibratoModeMap = new Map([
     ["V1", "Light/Slow"],
     ["V2", "Light/Fast"],
     ["C2", "Heavy/Slow"],
@@ -185,7 +185,7 @@ exports.ns3OrganFarfisaVibratoModeMap = new Map([
  * Effect Source Values
  * @type {Map<number, string>}
  */
-exports.ns3EffectSourceMap = new Map([
+const ns3EffectSourceMap = new Map([
     [0, "Organ"],
     [1, "Piano"],
     [2, "Synth"],
@@ -195,7 +195,7 @@ exports.ns3EffectSourceMap = new Map([
  * Synth Voice Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthVoiceMap = new Map([
+const ns3SynthVoiceMap = new Map([
     [0, "Poly"],
     [1, "Legato"],
     [2, "Mono"],
@@ -205,7 +205,7 @@ exports.ns3SynthVoiceMap = new Map([
  * Synth Unison Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthUnisonMap = new Map([
+const ns3SynthUnisonMap = new Map([
     [0, "Off"],
     [1, "1"],
     [2, "2"],
@@ -216,7 +216,7 @@ exports.ns3SynthUnisonMap = new Map([
  * Synth Vibrato Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthVibratoMap = new Map([
+const ns3SynthVibratoMap = new Map([
     [0, "Off"],
     [1, "Delay 1"],
     [2, "Delay 2"],
@@ -229,7 +229,7 @@ exports.ns3SynthVibratoMap = new Map([
  * Synth Oscillator Types
  * @type {Map<number, string>}
  */
-exports.ns3SynthOscillatorTypeMap = new Map([
+const ns3SynthOscillatorTypeMap = new Map([
     [0, "Classic"],
     [1, "Wave"],
     [2, "Formant"],
@@ -241,7 +241,7 @@ exports.ns3SynthOscillatorTypeMap = new Map([
  * Synth Oscillator 1 Classic Wave Types
  * @type {Map<number, string>}
  */
-exports.ns3SynthOscillator1ClassicWaveTypeMap = new Map([
+const ns3SynthOscillator1ClassicWaveTypeMap = new Map([
     [0, "Sine"],
     [1, "Triangle"],
     [2, "Saw"],
@@ -256,7 +256,7 @@ exports.ns3SynthOscillator1ClassicWaveTypeMap = new Map([
  * Synth Oscillator 1 Wave Wave Types
  * @type {Map<number, string>}
  */
-exports.ns3SynthOscillator1WaveWaveTypeMap = new Map([
+const ns3SynthOscillator1WaveWaveTypeMap = new Map([
     [0, "Wave 2nd Harm"],
     [1, "Wave 3rd Harm"],
     [2, "Wave 4th Harm"],
@@ -309,7 +309,7 @@ exports.ns3SynthOscillator1WaveWaveTypeMap = new Map([
  * Synth Oscillator 1 Formant Wave Types
  * @type {Map<number, string>}
  */
-exports.ns3SynthOscillator1FormantWaveTypeMap = new Map([
+const ns3SynthOscillator1FormantWaveTypeMap = new Map([
     [0, "Formant Wave Aaa"],
     [1, "Formant Wave Eee"],
     [2, "Formant Wave Iii"],
@@ -325,7 +325,7 @@ exports.ns3SynthOscillator1FormantWaveTypeMap = new Map([
  * Synth Oscillator 1 Super Wave Wave Types
  * @type {Map<number, string>}
  */
-exports.ns3SynthOscillator1SuperWaveTypeMap = new Map([
+const ns3SynthOscillator1SuperWaveTypeMap = new Map([
     [0, "Super Wave Saw"],
     [1, "Super Wave Saw 2"],
     [2, "Super Wave Square"],
@@ -341,7 +341,7 @@ exports.ns3SynthOscillator1SuperWaveTypeMap = new Map([
  * note: // macos: shift + option + =
  * @type {Map<number, string>}
  */
-exports.ns3SynthPitchShiftRangeMap = new Map([
+const ns3SynthPitchShiftRangeMap = new Map([
     [0, "±1 semi"],
     [1, "±2 semi"],
     [2, "±3 semi"],
@@ -358,7 +358,7 @@ exports.ns3SynthPitchShiftRangeMap = new Map([
  * Synth LFO Wave Types
  * @type {Map<number, string>}
  */
-exports.ns3SynthLfoWaveMap = new Map([
+const ns3SynthLfoWaveMap = new Map([
     [0, "Triangle"],
     [1, "Saw"],
     [2, "Neg Saw"],
@@ -370,7 +370,7 @@ exports.ns3SynthLfoWaveMap = new Map([
  * LFO Rate Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthLfoRateMap = new Map([
+const ns3SynthLfoRateMap = new Map([
     [0, "0.03 Hz"],
     [1, "0.03 Hz"],
     [2, "0.03 Hz"],
@@ -505,7 +505,7 @@ exports.ns3SynthLfoRateMap = new Map([
  * LFO Rate Master Clock Division Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthLfoRateMasterClockDivisionMap = new Map([
+const ns3SynthLfoRateMasterClockDivisionMap = new Map([
     [0, "4/1"],
     [1, "4/1"],
     [2, "4/1"],
@@ -640,7 +640,7 @@ exports.ns3SynthLfoRateMasterClockDivisionMap = new Map([
  * Synth Envelope Attack Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthEnvAttackMap = new Map([
+const ns3SynthEnvAttackMap = new Map([
     [0, "0.5 ms"],
     [1, "0.6 ms"],
     [2, "0.7 ms"],
@@ -775,7 +775,7 @@ exports.ns3SynthEnvAttackMap = new Map([
  * Synth Envelope Decay or Release Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthEnvDecayOrReleaseMap = new Map([
+const ns3SynthEnvDecayOrReleaseMap = new Map([
     [0, "3.0 ms"],
     [1, "3.5 ms"],
     [2, "4.0 ms"],
@@ -910,7 +910,7 @@ exports.ns3SynthEnvDecayOrReleaseMap = new Map([
  * Synth Amp Envelope Velocity Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthAmpEnvelopeVelocityMap = new Map([
+const ns3SynthAmpEnvelopeVelocityMap = new Map([
     [0, "Off"],
     [1, "1"],
     [2, "2"],
@@ -921,7 +921,7 @@ exports.ns3SynthAmpEnvelopeVelocityMap = new Map([
  * Synth Oscillator Types
  * @type {Map<number, string>}
  */
-exports.ns3SynthOscillatorsTypeMap = new Map([
+const ns3SynthOscillatorsTypeMap = new Map([
     [0, "None"],
     [1, "1 Pitch"],
     [2, "2 Shape"],
@@ -943,7 +943,7 @@ exports.ns3SynthOscillatorsTypeMap = new Map([
  * Synth Filter Types
  * @type {Map<number, string>}
  */
-exports.ns3SynthFilterTypeMap = new Map([
+const ns3SynthFilterTypeMap = new Map([
     [0, "LP12"],
     [1, "LP24"],
     [2, "Mini Moog"],
@@ -956,7 +956,7 @@ exports.ns3SynthFilterTypeMap = new Map([
  * Synth Filter Keyboard Tracking Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthFilterKbTrackMap = new Map([
+const ns3SynthFilterKbTrackMap = new Map([
     [0, "Off"],
     [1, "1/3"],
     [2, "2/3"],
@@ -967,7 +967,7 @@ exports.ns3SynthFilterKbTrackMap = new Map([
  * Synth Filter Drive Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthFilterDriveMap = new Map([
+const ns3SynthFilterDriveMap = new Map([
     [0, "Off"],
     [1, "1"],
     [2, "2"],
@@ -978,7 +978,7 @@ exports.ns3SynthFilterDriveMap = new Map([
  * Synth Filter Cutoff Frequency Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthFilterCutoffFrequencyMap = new Map([
+const ns3SynthFilterCutoffFrequencyMap = new Map([
     [0, "14 Hz"],
     [1, "15 Hz"],
     [2, "15 Hz"],
@@ -1113,7 +1113,7 @@ exports.ns3SynthFilterCutoffFrequencyMap = new Map([
  * Synth Arpeggiator Range Values
  * @type {Map<number, string>}
  */
-exports.ns3ArpeggiatorRangeMap = new Map([
+const ns3ArpeggiatorRangeMap = new Map([
     [0, "1 Octave"],
     [1, "2 Octaves"],
     [2, "3 Octaves"],
@@ -1124,7 +1124,7 @@ exports.ns3ArpeggiatorRangeMap = new Map([
  * Synth Arpeggiator Pattern Values
  * @type {Map<number, string>}
  */
-exports.ns3ArpeggiatorPatternMap = new Map([
+const ns3ArpeggiatorPatternMap = new Map([
     [0, "Up"],
     [1, "Down"],
     [2, "Up/Down"],
@@ -1135,7 +1135,7 @@ exports.ns3ArpeggiatorPatternMap = new Map([
  * Synth Arpeggiator Master Clock Division Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthArpMasterClockDivisionMap = new Map([
+const ns3SynthArpMasterClockDivisionMap = new Map([
     [0, "1/2"],
     [1, "1/2"],
     [2, "1/2"],
@@ -1270,7 +1270,7 @@ exports.ns3SynthArpMasterClockDivisionMap = new Map([
  * Synth Arpeggiator Rate Values
  * @type {Map<number, string>}
  */
-exports.ns3SynthArpRateMap = new Map([
+const ns3SynthArpRateMap = new Map([
     [0, "16 bpm"],
     [1, "16 bpm"],
     [2, "18 bpm"],
@@ -1405,7 +1405,7 @@ exports.ns3SynthArpRateMap = new Map([
  * Rotary Speaker Speed Values
  * @type {Map<number, string>}
  */
-exports.ns3RotarySpeakerSpeedMap = new Map([
+const ns3RotarySpeakerSpeedMap = new Map([
     [0, "Slow/Stop"],
     [1, "Fast"],
 ]);
@@ -1414,7 +1414,7 @@ exports.ns3RotarySpeakerSpeedMap = new Map([
  * Effect 1 Types
  * @type {Map<number, string>}
  */
-exports.ns3Effect1TypeMap = new Map([
+const ns3Effect1TypeMap = new Map([
     [0, "Panning"],
     [1, "Tremolo"],
     [2, "Ring Mod"],
@@ -1427,7 +1427,7 @@ exports.ns3Effect1TypeMap = new Map([
  * Effect 1 Master Clock Division Values
  * @type {Map<number, string>}
  */
-exports.ns3Effect1MasterClockDivisionMap = new Map([
+const ns3Effect1MasterClockDivisionMap = new Map([
     [0, "4/1"],
     [1, "4/1"],
     [2, "4/1"],
@@ -1562,7 +1562,7 @@ exports.ns3Effect1MasterClockDivisionMap = new Map([
  * Effect 2 Types
  * @type {Map<number, string>}
  */
-exports.ns3Effect2TypeMap = new Map([
+const ns3Effect2TypeMap = new Map([
     [0, "Phaser 1"],
     [1, "Phaser 2"],
     [2, "Flanger"],
@@ -1575,7 +1575,7 @@ exports.ns3Effect2TypeMap = new Map([
  * Reverb Types
  * @type {Map<number, string>}
  */
-exports.ns3ReverbTypeMap = new Map([
+const ns3ReverbTypeMap = new Map([
     [0, "Room 1"],
     [1, "Room 2"],
     [2, "Stage 1"],
@@ -1588,7 +1588,7 @@ exports.ns3ReverbTypeMap = new Map([
  * Delay Filter Type
  * @type {Map<number, string>}
  */
-exports.ns3DelayFilterMap = new Map([
+const ns3DelayFilterMap = new Map([
     [0, "Bypass"],
     [1, "LP"],
     [2, "HP"],
@@ -1599,7 +1599,7 @@ exports.ns3DelayFilterMap = new Map([
  * Delay Tempo Map
  * @type {Map<number, (number|string)[]>}
  */
-exports.ns3DelayTempoMap = new Map([
+const ns3DelayTempoMap = new Map([
     [0, [1500, "1.5 s 40 bpm (1/4)"]],
     [1, [1420, "1.42 s 42 bpm (1/4)"]],
     [2, [1360, "1.36 s 44 bpm (1/4)"]],
@@ -1734,7 +1734,7 @@ exports.ns3DelayTempoMap = new Map([
  * Delay Master Clock Division Values
  * @type {Map<number, string>}
  */
-exports.ns3DelayTempoMasterClockDivisionMap = new Map([
+const ns3DelayTempoMasterClockDivisionMap = new Map([
     [0, "1/2"],
     [1, "1/2"],
     [2, "1/2"],
@@ -1869,7 +1869,7 @@ exports.ns3DelayTempoMasterClockDivisionMap = new Map([
  * Amp Simulation Model
  * @type {Map<number, string>}
  */
-exports.ns3AmpSimTypeMap = new Map([
+const ns3AmpSimTypeMap = new Map([
     [0, "Off"],
     [1, "Twin"],
     [2, "JC"],
@@ -1882,7 +1882,7 @@ exports.ns3AmpSimTypeMap = new Map([
  * Amp Sim / Eq Filter Frequency
  * @type {Map<number, string>}
  */
-exports.ns3AmpSimEqMidFilterFreqMap = new Map([
+const ns3AmpSimEqMidFilterFreqMap = new Map([
     [0, "200 Hz"],
     [1, "205 Hz"],
     [2, "210 Hz"],
@@ -2017,7 +2017,7 @@ exports.ns3AmpSimEqMidFilterFreqMap = new Map([
  * Eq boost/cut table
  * @type {Map<number, string>}
  */
-exports.ns3AmpSimEqdBMap = new Map([
+const ns3AmpSimEqdBMap = new Map([
     [0, "-15.0 dB"],
     [1, "-14.8 dB"],
     [2, "-14.5 dB"],
@@ -2152,7 +2152,7 @@ exports.ns3AmpSimEqdBMap = new Map([
  * Synth Osc Control 0/4
  * @type {Map<number, string>}
  */
-exports.ns3SynthOsc0To4ControlMap = new Map([
+const ns3SynthOsc0To4ControlMap = new Map([
     [0, "0.00"],
     [1, "0.03"],
     [2, "0.06"],
@@ -2287,7 +2287,7 @@ exports.ns3SynthOsc0To4ControlMap = new Map([
  * Synth Osc Modulation
  * @type {Map<number, number>}
  */
-exports.ns3SynthOscModulationMap = new Map([
+const ns3SynthOscModulationMap = new Map([
     [0, -10.0],
     [1, -10.0],
     [2, -9.8],
@@ -2422,7 +2422,7 @@ exports.ns3SynthOscModulationMap = new Map([
  * Synth Modulation 0/210
  * @type {Map<number, string>}
  */
-exports.ns3SynthModulation120Map = new Map([
+const ns3SynthModulation120Map = new Map([
     [0, "10.0"],
     [1, "9.8"],
     [2, "9.7"],
@@ -2550,7 +2550,7 @@ exports.ns3SynthModulation120Map = new Map([
  * Program Output Map
  * @type {Map<number, string>}
  */
-exports.ns3ProgramOutputMap = new Map([
+const ns3ProgramOutputMap = new Map([
     [0, "1-2"],
     [1, "3-4"],
     [2, "3"],
@@ -2562,7 +2562,7 @@ exports.ns3ProgramOutputMap = new Map([
  * Program Output Source Map
  * @type {Map<number, string>}
  */
-exports.ns3ProgramOutputSourceMap = new Map([
+const ns3ProgramOutputSourceMap = new Map([
     [0, "Off"],
     [1, "Organ"],
     [2, "Piano"],
@@ -2573,7 +2573,7 @@ exports.ns3ProgramOutputSourceMap = new Map([
  * Extern Control Types
  * @type {Map<number, string>}
  */
-exports.ns3ExternControlMap = new Map([
+const ns3ExternControlMap = new Map([
     [0, "Midi CC"],
     [1, "Program"],
     [2, "Volume"],
@@ -2583,8 +2583,68 @@ exports.ns3ExternControlMap = new Map([
  * Extern Midi Velocity Curve
  * @type {Map<number, string>}
  */
-exports.ns3ExternMidiVelocityCurveMap = new Map([
+const ns3ExternMidiVelocityCurveMap = new Map([
     [0, "Soft"],
     [1, "Mid"],
     [2, "Hard"],
 ]);
+
+export {
+    ns3PanelEnabledMap,
+    ns3DualKeyboardStyleMap,
+    ns3KbZoneMap,
+    ns3SplitNoteMap,
+    ns3SplitWidthMap,
+    ns3TransposeMap,
+    ns3PianoTypeMap,
+    ns3PianoTimbreMap,
+    ns3PianoKbTouchMap,
+    ns3PianoLayerDetuneMap,
+    ns3OrganTypeMap,
+    ns3OrganVibratoChorusModeShortNameMap,
+    ns3OrganVoxVibratoModeMap,
+    ns3OrganFarfisaVibratoModeMap,
+    ns3EffectSourceMap,
+    ns3SynthVoiceMap,
+    ns3SynthUnisonMap,
+    ns3SynthVibratoMap,
+    ns3SynthOscillatorTypeMap,
+    ns3SynthOscillator1ClassicWaveTypeMap,
+    ns3SynthOscillator1WaveWaveTypeMap,
+    ns3SynthOscillator1FormantWaveTypeMap,
+    ns3SynthOscillator1SuperWaveTypeMap,
+    ns3SynthPitchShiftRangeMap,
+    ns3SynthLfoWaveMap,
+    ns3SynthLfoRateMap,
+    ns3SynthLfoRateMasterClockDivisionMap,
+    ns3SynthEnvAttackMap,
+    ns3SynthEnvDecayOrReleaseMap,
+    ns3SynthAmpEnvelopeVelocityMap,
+    ns3SynthOscillatorsTypeMap,
+    ns3SynthFilterTypeMap,
+    ns3SynthFilterKbTrackMap,
+    ns3SynthFilterDriveMap,
+    ns3SynthFilterCutoffFrequencyMap,
+    ns3ArpeggiatorRangeMap,
+    ns3ArpeggiatorPatternMap,
+    ns3SynthArpMasterClockDivisionMap,
+    ns3SynthArpRateMap,
+    ns3RotarySpeakerSpeedMap,
+    ns3Effect1TypeMap,
+    ns3Effect1MasterClockDivisionMap,
+    ns3Effect2TypeMap,
+    ns3ReverbTypeMap,
+    ns3DelayFilterMap,
+    ns3DelayTempoMap,
+    ns3DelayTempoMasterClockDivisionMap,
+    ns3AmpSimTypeMap,
+    ns3AmpSimEqMidFilterFreqMap,
+    ns3AmpSimEqdBMap,
+    ns3SynthOsc0To4ControlMap,
+    ns3SynthOscModulationMap,
+    ns3SynthModulation120Map,
+    ns3ProgramOutputMap,
+    ns3ProgramOutputSourceMap,
+    ns3ExternControlMap,
+    ns3ExternMidiVelocityCurveMap,
+};

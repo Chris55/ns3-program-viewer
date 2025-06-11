@@ -1,6 +1,6 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns3-mapping");
-const { ns3Morph7Bits } = require("./ns3-morph");
+import { ns3Morph7Bits } from "./ns3-morph";
+import { ns3Effect2TypeMap, ns3EffectSourceMap } from "./ns3-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Effect 2
@@ -9,7 +9,7 @@ const { ns3Morph7Bits } = require("./ns3-morph");
  * @param panelOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.ns3Effect2 = (buffer, panelOffset) => {
+const ns3Effect2 = (buffer, panelOffset) => {
     const effectOffset114 = buffer.readUInt8(0x114 + panelOffset);
     const effectOffset114W = buffer.readUInt16BE(0x114 + panelOffset);
     const effectOffset115W = buffer.readUInt16BE(0x115 + panelOffset);
@@ -39,7 +39,7 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
          *  @module NS3 Effect 2 Source
          */
         source: {
-            value: mapping.ns3EffectSourceMap.get((effectOffset114 & 0x60) >>> 5),
+            value: ns3EffectSourceMap.get((effectOffset114 & 0x60) >>> 5),
         },
 
         /**
@@ -56,7 +56,7 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
          * @module NS3 Effect 2 Type
          */
         type: {
-            value: mapping.ns3Effect2TypeMap.get(effect2Type),
+            value: ns3Effect2TypeMap.get(effect2Type),
             isDefault: effect2Type === 0,
         },
 
@@ -84,13 +84,13 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
 
             isDefault: effect2AmountMidi === 64,
 
-            value: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
 
             morph: ns3Morph7Bits(
                 effectOffset116Ww >>> 4,
                 effect2AmountMidi,
                 (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    return midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 false
             ),
@@ -109,9 +109,11 @@ exports.ns3Effect2 = (buffer, panelOffset) => {
 
             isDefault: effect2RateMidi === 64,
 
-            value: `${converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, "")} (${effect2RateMidi})`,
+            value: `${midi2LinearStringValue(0, 10, effect2RateMidi, 1, "")} (${effect2RateMidi})`,
 
             comment: "2nd value is equivalent to Nord Stage 2",
         },
     };
 };
+
+export { ns3Effect2 };

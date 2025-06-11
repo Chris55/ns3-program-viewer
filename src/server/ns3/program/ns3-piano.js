@@ -1,6 +1,6 @@
-const mapping = require("./ns3-mapping");
-const { getSample } = require("../../library/ns3-library-service");
-const { ns3KbZone, ns3OctaveShift, ns3VolumeEx, ns3BooleanValue } = require("./ns3-utils");
+import { ns3BooleanValue, ns3KbZone, ns3OctaveShift, ns3VolumeEx } from "./ns3-utils";
+import { getSample } from "../../library/ns3-library-service";
+import { ns3PianoKbTouchMap, ns3PianoLayerDetuneMap, ns3PianoTimbreMap, ns3PianoTypeMap } from "./ns3-mapping";
 
 /***
  * returns Piano section
@@ -13,7 +13,7 @@ const { ns3KbZone, ns3OctaveShift, ns3VolumeEx, ns3BooleanValue } = require("./n
  * @param global
  * @returns {{kbTouch: {isDefault: boolean, value: string}, debug: {lib: {size: string, value: (string|*), version: string, info: string}, sampleId: string, sampleVariation: number}, kbZone: {array, value}, softRelease: {midi: number, isDefault: boolean, enabled}, sustainPedal: {midi: number, isDefault: boolean, enabled}, type: {isDefault: boolean, value: string}, octaveShift: {midi, isDefault: boolean, value: string}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: {isDefault: boolean, value: (string|string)}, pitchStick: {midi: number, isDefault: boolean, enabled}, stringResonance: {midi: number, isDefault: boolean, enabled}, name: {size: string, value: (string|*), version: string, info: string}, model: {isDefault: boolean, value: number}, pedalNoise: {midi: number, isDefault: boolean, enabled}, layerDetune: {isDefault: boolean, value: string}}}
  */
-exports.ns3Piano = (buffer, id, panelOffset, global) => {
+const ns3Piano = (buffer, id, panelOffset, global) => {
     const pianoOffset34 = buffer.readUInt8(0x34 + panelOffset);
     const pianoOffset43W = buffer.readUInt16BE(0x43 + panelOffset);
     const pianoOffset47 = buffer.readUInt8(0x47 + panelOffset);
@@ -32,7 +32,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
             : pianoEnabled && (global.dualKeyboard.enabled === false || global.dualKeyboard.style.value !== "Piano");
 
     const pianoTypeValue = (pianoOffset48 & 0x38) >>> 3;
-    const pianoType = mapping.ns3PianoTypeMap.get(pianoTypeValue);
+    const pianoType = ns3PianoTypeMap.get(pianoTypeValue);
 
     const pianoKbZone = ns3KbZone(pianoKbZoneEnabled, global, (pianoOffset43W & 0x7800) >>> 11);
     const pianoModel = ((pianoOffset48W & 0x07c0) >>> 6) + 1;
@@ -55,7 +55,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
     const pianoLib = getSample(pianoSampleId, pianoSampleVariation, pianoModel);
 
     const pianoTimbreRaw = (pianoOffset4e & 0x38) >>> 3;
-    const pianoTimbreValues = mapping.ns3PianoTimbreMap.get(pianoTimbreRaw);
+    const pianoTimbreValues = ns3PianoTimbreMap.get(pianoTimbreRaw);
 
     // Timbre are different for each Piano type
     // with one subtle Harpsi case:
@@ -234,7 +234,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * @module NS3 Piano KB Touch
          */
         kbTouch: {
-            value: mapping.ns3PianoKbTouchMap.get(kbTouch),
+            value: ns3PianoKbTouchMap.get(kbTouch),
             isDefault: kbTouch === 0,
         },
         /**
@@ -251,7 +251,7 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
          * @module NS3 Piano Layer Detune
          */
         layerDetune: {
-            value: mapping.ns3PianoLayerDetuneMap.get(layerDetune),
+            value: ns3PianoLayerDetuneMap.get(layerDetune),
             isDefault: layerDetune === 0,
         },
         /**
@@ -297,3 +297,5 @@ exports.ns3Piano = (buffer, id, panelOffset, global) => {
 
     return piano;
 };
+
+export { ns3Piano };

@@ -3,7 +3,7 @@
  * Hash code done as per v3
  * @type {Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>}
  */
-exports.ns3ProductLibraries = new Map([
+const ns3ProductLibraries = new Map([
     // these samples are not available in the library...
     // library contains a version 3.01 or 3.11, or 3.12
     // but the products uses version with one digit only in the minor version...
@@ -3269,3 +3269,5 @@ exports.ns3ProductLibraries = new Map([
         },
     ],
 ]);
+
+export { ns3ProductLibraries };
