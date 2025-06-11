@@ -27,7 +27,7 @@ The names Nord and Clavia as well as related names, marks, emblems and images ar
 
 ## File Format Documentation
 Handmade unofficial Nord Stage 2/3 Program File Documentation:
-- [Nord Stage Program mapping](https://chris55.github.io/ns3-program-viewer/)
+- [Nord Stage Program mapping](https://chris55.github.io/nord-documentation/)
 
 ## Author
 - [Christian Florentz](https://www.linkedin.com/in/christian-florentz-b2530575/) / [@florence](https://www.norduserforum.com/member26720.html)
