@@ -15,12 +15,7 @@
 - SMART mode: highlight non-default values
 
 ### Online version
-[https://ns3-program-viewer.glitch.me](https://ns3-program-viewer.glitch.me)
-
-### Offline version
-Available as standalone desktop application
-- Windows: https://github.com/Chris55/ns3-program-viewer/releases
-- Mac: AppStore - https://apps.apple.com/app/id1549939673
+[https://chris55.github.io/ns3-program-viewer/](https://chris55.github.io/ns3-program-viewer/)
 
 This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com/nord-stage-forum-f3/ns3-program-viewer-t19939.html).
 
