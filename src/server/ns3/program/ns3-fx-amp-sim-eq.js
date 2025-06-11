@@ -1,7 +1,6 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns3-mapping");
-const { midi2LinearValue } = require("../../common/converter");
-const { ns3Morph7Bits } = require("./ns3-morph");
+import { midi2LinearStringValue, midi2LinearValue } from "../../common/converter";
+import { ns3AmpSimEqdBMap, ns3AmpSimEqMidFilterFreqMap, ns3AmpSimTypeMap, ns3EffectSourceMap } from "./ns3-mapping";
+import { ns3Morph7Bits } from "./ns3-morph";
 
 /***
  * returns Amp Sim / Eq
@@ -10,7 +9,7 @@ const { ns3Morph7Bits } = require("./ns3-morph");
  * @param panelOffset {Number}
  * @returns {{source: {value: string}, type: {value: unknown}, treble: {midi: number, value: string}, drive: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, bassDryWet: {midi: number, value: string}, fltFreq: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, enabled: boolean, midRes: {midi: number, value: string}}}
  */
-exports.ns3AmpSimEq = (buffer, panelOffset) => {
+const ns3AmpSimEq = (buffer, panelOffset) => {
     const eqOffset129 = buffer.readUInt8(0x129 + panelOffset);
     const eqOffset12a = buffer.readUInt8(0x12a + panelOffset);
     const eqOffset12aW = buffer.readUInt16BE(0x12a + panelOffset);
@@ -22,8 +21,8 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
     const eqOffset131Ww = buffer.readUInt32BE(0x131 + panelOffset);
 
     const ampSimTypeRawValue = (eqOffset12a & 0xe0) >>> 5;
-    const ampSimType = mapping.ns3AmpSimTypeMap.get(ampSimTypeRawValue);
-    const redOptions = (ampSimType === "LP24") || (ampSimType === "HP24");
+    const ampSimType = ns3AmpSimTypeMap.get(ampSimTypeRawValue);
+    const redOptions = ampSimType === "LP24" || ampSimType === "HP24";
 
     const trebleRawValue = (eqOffset12aW & 0x1fc0) >> 6;
     const midResRawValue = (eqOffset12bW & 0x3f80) >> 7;
@@ -33,7 +32,6 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
 
     const midResMidi = midi2LinearValue(0, 127, midResRawValue, 0, 0, 120);
     const bassDryWetMidi = midi2LinearValue(0, 127, bassDryWetRawValue, 0, 0, 120);
-
 
     return {
         /**
@@ -55,7 +53,7 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
          *  @module NS3 Amp Sim Eq Source
          */
         source: {
-            value: mapping.ns3EffectSourceMap.get(eqOffset129 & 0x03),
+            value: ns3EffectSourceMap.get(eqOffset129 & 0x03),
         },
 
         /**
@@ -91,7 +89,7 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
 
             isDefault: trebleRawValue === 60,
 
-            value: mapping.ns3AmpSimEqdBMap.get(trebleRawValue),
+            value: ns3AmpSimEqdBMap.get(trebleRawValue),
         },
 
         /**
@@ -107,12 +105,12 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
         midRes: {
             midi: midResMidi,
 
-            isDefault: redOptions ? midResMidi === 64: midResRawValue === 60,
+            isDefault: redOptions ? midResMidi === 64 : midResRawValue === 60,
 
             value:
                 redOptions === true
-                    ? converter.midi2LinearStringValue(0, 10, midResMidi, 1, "")
-                    : mapping.ns3AmpSimEqdBMap.get(midResRawValue),
+                    ? midi2LinearStringValue(0, 10, midResMidi, 1, "")
+                    : ns3AmpSimEqdBMap.get(midResRawValue),
         },
 
         /**
@@ -128,12 +126,12 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
         bassDryWet: {
             midi: bassDryWetMidi,
 
-            isDefault: redOptions ? bassDryWetMidi === 64: bassDryWetRawValue === 60,
+            isDefault: redOptions ? bassDryWetMidi === 64 : bassDryWetRawValue === 60,
 
             value:
                 redOptions === true
-                    ? converter.midi2LinearStringValue(0, 10, bassDryWetMidi, 1, "")
-                    : mapping.ns3AmpSimEqdBMap.get(bassDryWetRawValue),
+                    ? midi2LinearStringValue(0, 10, bassDryWetMidi, 1, "")
+                    : ns3AmpSimEqdBMap.get(bassDryWetRawValue),
         },
 
         /**
@@ -162,13 +160,13 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
 
             isDefault: midFilterFreqMidi === 64,
 
-            value: mapping.ns3AmpSimEqMidFilterFreqMap.get(midFilterFreqMidi),
+            value: ns3AmpSimEqMidFilterFreqMap.get(midFilterFreqMidi),
 
             morph: ns3Morph7Bits(
                 eqOffset12dWw >>> 1,
                 midFilterFreqMidi,
                 (x) => {
-                    return mapping.ns3AmpSimEqMidFilterFreqMap.get(x);
+                    return ns3AmpSimEqMidFilterFreqMap.get(x);
                 },
                 false
             ),
@@ -198,16 +196,18 @@ exports.ns3AmpSimEq = (buffer, panelOffset) => {
 
             isDefault: drive === 0,
 
-            value: converter.midi2LinearStringValue(0, 10, drive, 1, ""),
+            value: midi2LinearStringValue(0, 10, drive, 1, ""),
 
             morph: ns3Morph7Bits(
                 eqOffset131Ww >>> 2,
                 drive,
                 (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    return midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 false
             ),
         },
     };
 };
+
+export { ns3AmpSimEq };

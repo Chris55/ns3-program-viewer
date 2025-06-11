@@ -1,9 +1,6 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns2-mapping");
-const {ns2Morph4Bits} = require("./ns2-morph");
-const { ns2Morph7Bits } = require("./ns2-morph");
-const { ns2Morph12Bits } = require("./ns2-morph");
-const { getLinearInterpolation } = require("../../common/converter");
+import { ns2Morph12Bits, ns2Morph4Bits, ns2Morph7Bits } from "./ns2-morph";
+import { getLinearInterpolation, midi2LinearStringValue } from "../../common/converter";
+import { ns2DelayTempoMap, ns2DelayTempoMasterClockDivisionMap, ns2EffectSourceMap } from "./ns2-mapping";
 
 /***
  * return the formatted tempo value
@@ -14,7 +11,7 @@ const { getLinearInterpolation } = require("../../common/converter");
  */
 const getTempo = (midiValue, tapValue) => {
     // use the default tempo mapping
-    const value = mapping.ns2DelayTempoMap.get(midiValue);
+    const value = ns2DelayTempoMap.get(midiValue);
     if (!(value instanceof Array)) {
         return "error";
     }
@@ -25,8 +22,8 @@ const getTempo = (midiValue, tapValue) => {
     }
 
     // special case (from tap tempo) LSW contains fine tempo adjustment
-    const y0 = mapping.ns2DelayTempoMap.get(midiValue);
-    const y1 = mapping.ns2DelayTempoMap.get(midiValue + 1);
+    const y0 = ns2DelayTempoMap.get(midiValue);
+    const y1 = ns2DelayTempoMap.get(midiValue + 1);
     if (!(y0 instanceof Array) || !(y1 instanceof Array)) {
         return "error";
     }
@@ -42,7 +39,7 @@ const getTempo = (midiValue, tapValue) => {
             signature = "(1/16)";
         }
     }
-    // "1.5 s 40 bpm (1/4)"]],
+    // "1.5 s 40 bpm (1/4)"
     const fineMsString = fineMs >= 1000 ? (fineMs / 1000).toFixed(2) + "s" : Math.round(fineMs) + " ms";
     return fineMsString + " " + Math.round(bpm) + " bpm " + signature;
 };
@@ -54,7 +51,7 @@ const getTempo = (midiValue, tapValue) => {
  * @param panelOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.ns2Delay = (buffer, panelOffset) => {
+const ns2Delay = (buffer, panelOffset) => {
     const delayOffset124Ww = buffer.readUInt32BE(0x124 + panelOffset);
     const delayOffset125 = buffer.readUInt8(0x125 + panelOffset);
     const delayOffset127W = buffer.readUInt16BE(0x127 + panelOffset);
@@ -95,7 +92,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
          *  @module NS2 Delay Source
          */
         source: {
-            value: mapping.ns2EffectSourceMap.get((delayOffset125 & 0x18) >>> 3),
+            value: ns2EffectSourceMap.get((delayOffset125 & 0x18) >>> 3),
         },
 
         /**
@@ -158,7 +155,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
             lsw: delayTempoTapValue,
 
             value: delayMasterClock
-                ? mapping.ns2DelayTempoMasterClockDivisionMap.get(delayTempoClockOnMidiValue)
+                ? ns2DelayTempoMasterClockDivisionMap.get(delayTempoClockOnMidiValue)
                 : getTempo(delayTempoClockOffMidiValue, delayTempoTapValue),
 
             isDefault: delayTempoMidiValue === 64,
@@ -167,7 +164,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
                 ? ns2Morph4Bits(
                       delayOffset124Ww >>> 2,
                       delayTempoClockOnMidiValue,
-                      (x) => mapping.ns2DelayTempoMasterClockDivisionMap.get(x),
+                      (x) => ns2DelayTempoMasterClockDivisionMap.get(x),
                       false
                   )
                 : ns2Morph12Bits(buffer, 0x128 + panelOffset, (x, tap) => getTempo(x, tap), false),
@@ -197,7 +194,7 @@ exports.ns2Delay = (buffer, panelOffset) => {
         feedback: {
             midi: delayFeedbackMidi,
             isDefault: delayFeedbackMidi === 64,
-            value: converter.midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
         },
 
         /**
@@ -220,16 +217,18 @@ exports.ns2Delay = (buffer, panelOffset) => {
         amount: {
             midi: delayAmountMidi,
             isDefault: delayAmountMidi === 64,
-            value: converter.midi2LinearStringValue(0, 10, delayAmountMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, delayAmountMidi, 1, ""),
 
             morph: ns2Morph7Bits(
                 delayOffset12eWw >>> 3,
                 delayAmountMidi,
                 (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    return midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 false
             ),
         },
     };
 };
+
+export { ns2Delay };

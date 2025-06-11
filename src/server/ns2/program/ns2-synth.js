@@ -1,11 +1,31 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns2-mapping");
-const { ns2ProgramOutputMap } = require("./ns2-mapping");
-const { ns2Filter } = require("./ns2-synth-filter");
-const { ns2OscShape, ns2SkipSampleAttack } = require("./ns2-synth-osc-shape");
-const { ns2VolumeEx, ns2OctaveShift, ns2KbZone, ns2BooleanValue } = require("./ns2-utils");
-const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
-const { getSample } = require("../../library/ns3-library-service");
+import {
+    ns2ArpeggiatorPatternMap,
+    ns2ArpeggiatorRangeMap,
+    ns2ProgramOutputMap,
+    ns2SynthArpMasterClockDivisionMap,
+    ns2SynthArpRateMap,
+    ns2SynthEnvAttackMap,
+    ns2SynthEnvDecayMap,
+    ns2SynthEnvReleaseMap,
+    ns2SynthLfoRateMap,
+    ns2SynthLfoRateMasterClockDivisionMap,
+    ns2SynthLfoWaveMap,
+    ns2SynthOscillatorFmStyleWaveFormsMap,
+    ns2SynthOscillatorPulseStyleWaveFormsMap,
+    ns2SynthOscillatorSawStyleWaveFormsMap,
+    ns2SynthOscillatorShapeModMap,
+    ns2SynthOscillatorTriStyleWaveFormsMap,
+    ns2SynthOscillatorTypeMap,
+    ns2SynthOscillatorWaveStyleWaveFormsMap,
+    ns2SynthUnisonMap,
+    ns2SynthVibratoMap,
+    ns2SynthVoiceMap,
+} from "./ns2-mapping";
+import { ns2Filter } from "./ns2-synth-filter";
+import { ns2OscShape, ns2SkipSampleAttack } from "./ns2-synth-osc-shape";
+import { ns2BooleanValue, ns2KbZone, ns2OctaveShift, ns2VolumeEx } from "./ns2-utils";
+import { getSample, getSampleIdNs2ToNs3 } from "../../library/ns3-library-service";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * Synth Envelope Decay / Release value
@@ -18,20 +38,20 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
         case "mod.decay": {
             //if (value === 127) return "Sustain";
             //else
-            return mapping.ns2SynthEnvDecayMap.get(value);
+            return ns2SynthEnvDecayMap.get(value);
         }
         case "mod.release": {
             //if (value === 127) return "Inf";
             //else
-            return mapping.ns2SynthEnvDecayMap.get(value);
+            return ns2SynthEnvDecayMap.get(value);
         }
         case "amp.decay": {
             //if (value === 127) return "Sustain";
             //else
-            return mapping.ns2SynthEnvDecayMap.get(value);
+            return ns2SynthEnvDecayMap.get(value);
         }
         case "amp.release": {
-            return mapping.ns2SynthEnvReleaseMap.get(value);
+            return ns2SynthEnvReleaseMap.get(value);
         }
     }
     return "";
@@ -47,7 +67,7 @@ const synthEnvDecayOrReleaseLabel = function (value, type) {
  * @param ns2sFile - true if input file is ns2s else ns2p file is expected
  * @returns {{voice: {midi: number, isDefault: boolean, value: string}, oscillators: {skipSampleAttack: {isDefault: boolean, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled}, controlPedal: {to: {midi: *, value: (*|string)}, enabled}, wheel: {to: {midi: *, value: (*|string)}, enabled}}, value: string, enabled: *}, type: {isDefault: boolean, value: string}, waveForm1: {valid: boolean, isDefault: boolean, filename: string, location: number, value: string, version: string, useShapeKnob: boolean, info: string}, shapeCtrl: {midi: number, value: string, morph: {afterTouch: {to: {midi: ({midi: *, value: string}|string), value: string}, enabled: boolean}, controlPedal: {to: {midi: ({midi: *, value: string}|string), value: string}, enabled: boolean}, wheel: {to: {midi: ({midi: *, value: string}|string), value: string}, enabled: boolean}}}, shapeMod: {midi: number, isDefault: boolean, label: (string), value: string}}, debug: {lib: {valid: boolean, isDefault: boolean, filename: string, location: number, value: string, version: string, useShapeKnob: boolean, info: string}, sampleId: string}, unison: {midi: number, isDefault: boolean, value: string}, arpeggiator: {isDefault: boolean, rate: {midi: number, isDefault: boolean, value: string}, masterClock: {isDefault: boolean, enabled: boolean}, pattern: {isDefault: boolean, value: string}, range: {isDefault: boolean, value: string}, enabled: boolean}, kbZone: {array, value}, sustainPedal: {midi: number, isDefault: boolean, enabled}, keyboardHold: {midi: number, isDefault: boolean, enabled}, octaveShift: {midi, isDefault: boolean, value: string}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, filter: {type: {value: string}, resonance: {midi: number, value: string}, kbTrack: {enabled: boolean}, modulations: {mod2: {midi: number, label: string, value: string}, mod1: {midi: number, value: string}}, frequency: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}}, output: {isDefault: boolean, value: string}, pitchStick: {midi: number, isDefault: boolean, enabled}, lfo: {rate: {midi: number, isDefault: boolean, value: string}, masterClock: {isDefault: boolean, enabled: boolean}, wave: {isDefault: boolean, value: string}}, glide: {midi: number, isDefault: boolean, value: string}, envelopes: {modulation: {attack: {midi: number, isDefault: boolean, value: string}, release: {midi: number, isDefault: boolean, value: string}, decay: {midi: number, isDefault: boolean, value: string}, velocity: {isDefault: boolean, enabled: boolean}}, amplifier: {attack: {midi: number, isDefault: boolean, value: string}, release: {midi: number, isDefault: boolean, value: string}, decay: {midi: number, isDefault: boolean, value: string}, velocity: {isDefault: boolean, enabled: boolean}}}, latchPedal: {midi: number, isDefault: boolean, enabled}, kbGate: {midi: number, isDefault: boolean, enabled}, vibrato: {midi: number, isDefault: boolean, value: string}}}
  */
-exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
+const ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
     let synthOffset4d = 0;
     let synthOffset4dWw = 0;
     let synthOffset50W = 0;
@@ -102,7 +122,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
     const synthNs2SampleId = BigInt((synthOffsetF4WW & 0x03fffffffcn) >> 2n);
     const sampleId = getSampleIdNs2ToNs3(synthNs2SampleId);
 
-    const oscillatorType = mapping.ns2SynthOscillatorTypeMap.get((synthOffsetE1W & 0x0380) >>> 7);
+    const oscillatorType = ns2SynthOscillatorTypeMap.get((synthOffsetE1W & 0x0380) >>> 7);
 
     let waveForm = {
         valid: false,
@@ -129,7 +149,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
 
     switch (oscillatorType) {
         case "TRI": {
-            const items = mapping.ns2SynthOscillatorTriStyleWaveFormsMap.get(waveForm.location);
+            const items = ns2SynthOscillatorTriStyleWaveFormsMap.get(waveForm.location);
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = label.value;
@@ -138,7 +158,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
             break;
         }
         case "SAW": {
-            const items = mapping.ns2SynthOscillatorSawStyleWaveFormsMap.get(waveForm.location);
+            const items = ns2SynthOscillatorSawStyleWaveFormsMap.get(waveForm.location);
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = label.value;
@@ -146,7 +166,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
             break;
         }
         case "SQR": {
-            const items = mapping.ns2SynthOscillatorPulseStyleWaveFormsMap.get(waveForm.location);
+            const items = ns2SynthOscillatorPulseStyleWaveFormsMap.get(waveForm.location);
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = label.value;
@@ -162,7 +182,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
             break;
         }
         case "FM": {
-            const items = mapping.ns2SynthOscillatorFmStyleWaveFormsMap.get(waveForm.location);
+            const items = ns2SynthOscillatorFmStyleWaveFormsMap.get(waveForm.location);
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = "FM " + label.value;
@@ -170,7 +190,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
             break;
         }
         case "WAVE": {
-            const items = mapping.ns2SynthOscillatorWaveStyleWaveFormsMap.get(waveForm.location);
+            const items = ns2SynthOscillatorWaveStyleWaveFormsMap.get(waveForm.location);
             const label = buildWaveFormLabel(oscillatorType, items);
             waveForm.valid = label.valid;
             waveForm.value = "Wavetable " + label.value;
@@ -265,25 +285,25 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
     const ns2s = {
         voice: {
             midi: voice,
-            value: mapping.ns2SynthVoiceMap.get(voice),
+            value: ns2SynthVoiceMap.get(voice),
             isDefault: voice === 0,
         },
 
         glide: {
             midi: glide,
-            value: converter.midi2LinearStringValue(0, 10, glide, 1, ""),
+            value: midi2LinearStringValue(0, 10, glide, 1, ""),
             isDefault: glide === 0,
         },
 
         unison: {
             midi: unison,
-            value: mapping.ns2SynthUnisonMap.get(unison),
+            value: ns2SynthUnisonMap.get(unison),
             isDefault: unison === 0,
         },
 
         vibrato: {
             midi: vibrato,
-            value: mapping.ns2SynthVibratoMap.get(vibrato),
+            value: ns2SynthVibratoMap.get(vibrato),
             isDefault: vibrato === 0,
         },
 
@@ -392,7 +412,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
                 /***
                  * Synth Shape Mod Value
                  */
-                value: mapping.ns2SynthOscillatorShapeModMap.get(oscModMidi),
+                value: ns2SynthOscillatorShapeModMap.get(oscModMidi),
 
                 label:
                     oscModMidi === 63 || oscModMidi === 64
@@ -444,7 +464,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
 
                     isDefault: envModAttackMidi === 0,
 
-                    value: mapping.ns2SynthEnvAttackMap.get(envModAttackMidi),
+                    value: ns2SynthEnvAttackMap.get(envModAttackMidi),
                 },
 
                 /**
@@ -507,7 +527,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
 
                     isDefault: envAmpAttackMidi === 0,
 
-                    value: mapping.ns2SynthEnvAttackMap.get(envAmpAttackMidi),
+                    value: ns2SynthEnvAttackMap.get(envAmpAttackMidi),
                 },
 
                 /**
@@ -568,7 +588,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
              * @module NS2 Synth Lfo Wave
              */
             wave: {
-                value: mapping.ns2SynthLfoWaveMap.get(lfoWave),
+                value: ns2SynthLfoWaveMap.get(lfoWave),
 
                 isDefault: lfoWave === 0,
             },
@@ -591,8 +611,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
                 isDefault: lfoRateMidi === 0,
 
                 value: lfoRateMasterClock
-                    ? mapping.ns2SynthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
-                    : mapping.ns2SynthLfoRateMap.get(lfoRateMidi),
+                    ? ns2SynthLfoRateMasterClockDivisionMap.get(lfoRateMidi)
+                    : ns2SynthLfoRateMap.get(lfoRateMidi),
             },
 
             /**
@@ -747,8 +767,8 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
                 isDefault: arpeggiatorRateMidi === 0,
 
                 value: arpeggiatorMasterClock
-                    ? mapping.ns2SynthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
-                    : mapping.ns2SynthArpRateMap.get(arpeggiatorRateMidi),
+                    ? ns2SynthArpMasterClockDivisionMap.get(arpeggiatorRateMidi)
+                    : ns2SynthArpRateMap.get(arpeggiatorRateMidi),
             },
 
             /**
@@ -773,7 +793,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
              * @module NS2 Synth Arp Range
              */
             range: {
-                value: mapping.ns2ArpeggiatorRangeMap.get(arpeggiatorRange),
+                value: ns2ArpeggiatorRangeMap.get(arpeggiatorRange),
 
                 isDefault: arpeggiatorRange === 0,
             },
@@ -786,7 +806,7 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
              * @module NS2 Synth Arp Pattern
              */
             pattern: {
-                value: mapping.ns2ArpeggiatorPatternMap.get(arpeggiatorPattern),
+                value: ns2ArpeggiatorPatternMap.get(arpeggiatorPattern),
 
                 isDefault: arpeggiatorPattern === 0,
             },
@@ -812,3 +832,5 @@ exports.ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
 
     return synth;
 };
+
+export { ns2Synth };

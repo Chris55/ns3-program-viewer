@@ -1,6 +1,6 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns2-mapping");
-const { ns2Morph4Bits, ns2Morph7Bits } = require("./ns2-morph");
+import { ns2Morph4Bits, ns2Morph7Bits } from "./ns2-morph";
+import { ns2Effect1MasterClockDivisionMap, ns2Effect2TypeMap, ns2EffectSourceMap } from "./ns2-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Effect 2
@@ -9,7 +9,7 @@ const { ns2Morph4Bits, ns2Morph7Bits } = require("./ns2-morph");
  * @param panelOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, masterClock: {enabled: (boolean|boolean)}, source: {value: string}, type: {value: unknown}, enabled: boolean}}
  */
-exports.ns2Effect2 = (buffer, panelOffset) => {
+const ns2Effect2 = (buffer, panelOffset) => {
     const effectOffset11a = buffer.readUInt8(0x11a + panelOffset);
     const effectOffset11b = buffer.readUInt8(0x11b + panelOffset);
     const effectOffset11bW = buffer.readUInt16BE(0x11b + panelOffset);
@@ -19,7 +19,7 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
     const effectOffset124W = buffer.readUInt16BE(0x124 + panelOffset);
     const effectOffset121Ww = buffer.readUInt32BE(0x121 + panelOffset);
 
-    const effect2Type = mapping.ns2Effect2TypeMap.get(effectOffset11a & 0x07);
+    const effect2Type = ns2Effect2TypeMap.get(effectOffset11a & 0x07);
     const effect2AmountMidi = (effectOffset124W & 0x1fc0) >>> 6;
 
     const effect2MasterClock = (effectOffset11b & 0x80) !== 0;
@@ -50,7 +50,7 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
          *  @module NS2 Effect 2 Source
          */
         source: {
-            value: mapping.ns2EffectSourceMap.get((effectOffset11a & 0x18) >>> 3),
+            value: ns2EffectSourceMap.get((effectOffset11a & 0x18) >>> 3),
         },
 
         /**
@@ -69,7 +69,7 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
         type: {
             value: effect2Type,
 
-            isDefault: effect2Type === mapping.ns2Effect2TypeMap.get(0),
+            isDefault: effect2Type === ns2Effect2TypeMap.get(0),
         },
 
         /**
@@ -94,13 +94,13 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
 
             isDefault: effect2AmountMidi === 64,
 
-            value: converter.midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, effect2AmountMidi, 1, ""),
 
             morph: ns2Morph7Bits(
                 effectOffset121Ww >>> 5,
                 effect2AmountMidi,
                 (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    return midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 false
             ),
@@ -146,25 +146,25 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
 
             isDefault: effect2RateMidi === 64,
 
-            comment: effect2MasterClockUsed ? "": "2nd value is equivalent to Nord Stage 3",
+            comment: effect2MasterClockUsed ? "" : "2nd value is equivalent to Nord Stage 3",
 
             value: effect2MasterClockUsed
-                ? mapping.ns2Effect1MasterClockDivisionMap.get(effect2RateMidi)
-                : effect2RateMidi + " (" + converter.midi2LinearStringValue(0, 10, effect2RateMidi, 1, "") + ")",
+                ? ns2Effect1MasterClockDivisionMap.get(effect2RateMidi)
+                : effect2RateMidi + " (" + midi2LinearStringValue(0, 10, effect2RateMidi, 1, "") + ")",
 
             morph: effect2MasterClockUsed
                 ? ns2Morph4Bits(
-                    effectOffset11bW,
-                    effect2RateMidi,
-                    (x) => mapping.ns2Effect1MasterClockDivisionMap.get(x),
-                    false
-                )
+                      effectOffset11bW,
+                      effect2RateMidi,
+                      (x) => ns2Effect1MasterClockDivisionMap.get(x),
+                      false
+                  )
                 : ns2Morph7Bits(
-                    effectOffset11dWw >>> 4,
-                    effect2RateMidi,
-                    (x) => x + " (" + converter.midi2LinearStringValue(0, 10, x, 1, "") + ")",
-                    false
-                ),
+                      effectOffset11dWw >>> 4,
+                      effect2RateMidi,
+                      (x) => x + " (" + midi2LinearStringValue(0, 10, x, 1, "") + ")",
+                      false
+                  ),
         },
 
         /**
@@ -182,5 +182,4 @@ exports.ns2Effect2 = (buffer, panelOffset) => {
     };
 };
 
-
-
+export { ns2Effect2 };

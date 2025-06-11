@@ -1,6 +1,5 @@
-const mapping = require("./ns3-mapping");
-const {getMorphModel} = require("../../common/converter");
-const { round } = require("../../common/converter");
+import { getMorphModel, round } from "../../common/converter";
+import { ns3SynthModulation120Map } from "./ns3-mapping";
 
 /***
  * returns an array of morph settings
@@ -11,7 +10,7 @@ const { round } = require("../../common/converter");
  * @param forceDisabled optional used on dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.ns3Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
+const ns3Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -53,7 +52,7 @@ exports.ns3Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) =>
  * @param forceDisabled optional used on dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.ns3Morph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
+const ns3Morph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -150,7 +149,7 @@ exports.ns3Morph14Bits = (buffer, offset, labelCallBack, forceDisabled) => {
  * @param left true if called for left value
  * @returns {{afterTouch: {to: {midi: number, value: (string|string)}, enabled: *}, controlPedal: {to: {midi: number, value: (string|string)}, enabled: *}, wheel: {to: {midi: number, value: (string|string)}, enabled: *}}}
  */
-exports.ns3MorphSynthOscillatorModulation = (uint32Value, fromValueRange120, left) => {
+const ns3MorphSynthOscillatorModulation = (uint32Value, fromValueRange120, left) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -167,7 +166,7 @@ exports.ns3MorphSynthOscillatorModulation = (uint32Value, fromValueRange120, lef
         } else if (midiTo > 127) {
             midiTo = 127;
         }
-        const labelTo = mapping.ns3SynthModulation120Map.get(valueTo);
+        const labelTo = ns3SynthModulation120Map.get(valueTo);
         const showed = left === fromValueRange120 < 60;
         const enabled = showed && offset !== 0;
 
@@ -234,7 +233,7 @@ exports.ns3MorphSynthOscillatorModulation = (uint32Value, fromValueRange120, lef
  * @param midiFrom 7-bit original position
  * @returns {{afterTouch: number, controlPedal: number, wheel: number}}
  */
-exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
+const ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -242,7 +241,7 @@ exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
     rawMorphValue[1] = (uint32Value & 0x03e0) >>> 5; // after touch
     rawMorphValue[2] = uint32Value & 0x001f; // control pedal
 
-/*    console.log(
+    /*    console.log(
         "midiFrom",
         midiFrom,
         "wheel",
@@ -282,3 +281,5 @@ exports.ns3MorphOrganDrawbar = (uint32Value, midiFrom) => {
         controlPedal: result[2].midiTo,
     };
 };
+
+export { ns3Morph7Bits, ns3Morph14Bits, ns3MorphSynthOscillatorModulation, ns3MorphOrganDrawbar };

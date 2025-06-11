@@ -1,5 +1,5 @@
+import { getVersion } from "./nord-file";
 const path = require("path");
-const { getVersion } = require("./nord-file");
 
 const sampleCategoryMap = new Map([
     [
@@ -157,7 +157,7 @@ const getString = (buffer, offset) => {
     return str;
 };
 
-exports.loadNs3SampleFile = (buffer, filename) => {
+const loadNs3SampleFile = (buffer, filename) => {
     let isPiano = false;
 
     if (buffer.length > 16) {
@@ -267,3 +267,5 @@ exports.loadNs3SampleFile = (buffer, filename) => {
         offset18: offset18,
     };
 };
+
+export { loadNs3SampleFile };

@@ -1,8 +1,14 @@
-const mapping = require("./ns2-mapping");
-const { ns2ProgramOutputMap } = require("./ns2-mapping");
-const { getSampleIdNs2ToNs3 } = require("../../library/ns3-library-service");
-const { ns2VolumeEx, ns2OctaveShift, ns2KbZone, ns2BooleanValue } = require("./ns2-utils");
-const { getSample } = require("../../library/ns3-library-service");
+import {
+    ns2PianoClavinetEqHiMap,
+    ns2PianoClavinetEqMap,
+    ns2PianoClavinetModelMap,
+    ns2PianoDynamicsMap,
+    ns2PianoSlotDetuneMap,
+    ns2PianoTypeMap,
+    ns2ProgramOutputMap,
+} from "./ns2-mapping";
+import { getSample, getSampleIdNs2ToNs3 } from "../../library/ns3-library-service";
+import { ns2BooleanValue, ns2KbZone, ns2OctaveShift, ns2VolumeEx } from "./ns2-utils";
 
 /***
  * returns Piano section
@@ -13,7 +19,7 @@ const { getSample } = require("../../library/ns3-library-service");
  * @param global
  * @returns {{debug: {lib: {size: string, value: (string|*), version: string, info: string}, sampleId: string}, kbZone: {array, value}, longRelease: {enabled: boolean}, sustainPedal: {enabled: boolean}, type: {value: string}, clavinetEqHi: {value: string, enabled: boolean}, octaveShift: {value: number}, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, output: {value: string}, dynamics: {value: string}, pitchStick: {enabled: boolean}, slotDetune: {value: string}, stringResonance: {enabled: boolean}, name: {size: string, value: (string|*), version: string, info: string}, pedalNoise: {enabled: boolean}, clavinetModel: {value: string, enabled: boolean}, latchPedal: {enabled: boolean}, kbGate: {enabled: boolean}, clavinetEq: {value: string, enabled: boolean}}}
  */
-exports.ns2Piano = (buffer, id, panelOffset, global) => {
+const ns2Piano = (buffer, id, panelOffset, global) => {
     const pianoOffset3b = buffer.readUInt8(0x3b + panelOffset);
     const pianoOffset48 = buffer.readUInt8(0x48 + panelOffset);
     const pianoOffset48Ww = buffer.readUInt32BE(0x48 + panelOffset);
@@ -30,18 +36,15 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
     const pianoOffsetCdWww = buffer.readBigUInt64BE(0xcd + panelOffset);
 
     const pianoEnabled = (pianoOffset48 & 0x80) !== 0;
-    const pianoKbZoneEnabled =
-        id === 0
-            ? pianoEnabled
-            : pianoEnabled && (global.dualKeyboard.enabled === false); // || global.dualKeyboard.value !== "Piano");
+    const pianoKbZoneEnabled = id === 0 ? pianoEnabled : pianoEnabled && global.dualKeyboard.enabled === false; // || global.dualKeyboard.value !== "Piano");
 
     const pianoTypeValue = (pianoOffsetCd & 0xe0) >>> 5;
-    const pianoType = mapping.ns2PianoTypeMap.get(pianoTypeValue);
+    const pianoType = ns2PianoTypeMap.get(pianoTypeValue);
     const clavinetEnabled = pianoType === "Clavinet";
 
     const pianoKbZone = ns2KbZone(pianoKbZoneEnabled, global, (pianoOffset4c & 0xe0) >>> 5);
     const clavinetVariation = (pianoOffsetCeW & 0x0180) >>> 7;
-    const clavinetModel = mapping.ns2PianoClavinetModelMap.get(clavinetVariation);
+    const clavinetModel = ns2PianoClavinetModelMap.get(clavinetVariation);
 
     const ns2PianoSampleId = BigInt((pianoOffsetCdWww & 0x0000003fffffffc0n) >> 6n);
     const pianoSampleId = getSampleIdNs2ToNs3(ns2PianoSampleId);
@@ -204,7 +207,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
 
         slotDetune: {
             midi: slotDetune,
-            value: mapping.ns2PianoSlotDetuneMap.get(slotDetune),
+            value: ns2PianoSlotDetuneMap.get(slotDetune),
             isDefault: slotDetune === 0,
         },
         /**
@@ -243,7 +246,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
 
         dynamics: {
             midi: dynamics,
-            value: mapping.ns2PianoDynamicsMap.get(dynamics),
+            value: ns2PianoDynamicsMap.get(dynamics),
             isDefault: dynamics === 0,
         },
         /**
@@ -269,7 +272,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          */
         clavinetEqHi: {
             enabled: clavinetEnabled,
-            value: mapping.ns2PianoClavinetEqHiMap.get(pianoOffsetCf & 0x03),
+            value: ns2PianoClavinetEqHiMap.get(pianoOffsetCf & 0x03),
             isDefault: false,
         },
         /**
@@ -282,7 +285,7 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
          */
         clavinetEq: {
             enabled: clavinetEnabled,
-            value: mapping.ns2PianoClavinetEqMap.get((pianoOffsetD0 & 0xc0) >>> 6),
+            value: ns2PianoClavinetEqMap.get((pianoOffsetD0 & 0xc0) >>> 6),
             isDefault: false,
         },
 
@@ -306,3 +309,5 @@ exports.ns2Piano = (buffer, id, panelOffset, global) => {
 
     return piano;
 };
+
+export { ns2Piano };

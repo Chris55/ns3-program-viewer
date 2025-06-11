@@ -3,7 +3,7 @@
  * Hash code done as per v3
  * @type {Map<number, {name: string, category: string, version: string, info: string}>}
  */
-exports.ns3NordSampleLibraryArchive = new Map([
+const ns3NordSampleLibraryArchive = new Map([
     // Nord Sample Archive ARP Odyssey
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-archive/arp-odyssey
 
@@ -15307,3 +15307,5 @@ exports.ns3NordSampleLibraryArchive = new Map([
         },
     ],
 ]);
+
+export { ns3NordSampleLibraryArchive };

@@ -1,9 +1,14 @@
-const readline = require("readline");
-const fs = require("fs");
-const os = require("os");
-const ns2Mapping = require("../../src/server/ns2/program/ns2-mapping");
-const ns3Mapping = require("../../src/server/ns3/program/ns3-mapping");
-const commonMapping = require("../../src/server/common/nord-mapping");
+import readline from "readline";
+import fs from "fs";
+import os from "os";
+import * as ns2Mapping from "../../src/server/ns2/program/ns2-mapping.js";
+import * as ns3Mapping from "../../src/server/ns3/program/ns3-mapping.js";
+import * as commonMapping from "../../src/server/common/nord-mapping.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, "g"), replace);

@@ -1,1 +1,0 @@
-nord,keyboards,stage,program,viewer,ns2p,ns3f,ns2,ns3,ns3y,ns2s,ns3b,ns3fb,ns3synthpb,ns2pb,ns2exb,ns2b,ns2synthpb

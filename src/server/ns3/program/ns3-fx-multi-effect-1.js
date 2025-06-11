@@ -1,6 +1,6 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns3-mapping");
-const { ns3Morph7Bits } = require("./ns3-morph");
+import { ns3Morph7Bits } from "./ns3-morph";
+import { ns3Effect1MasterClockDivisionMap, ns3Effect1TypeMap, ns3EffectSourceMap } from "./ns3-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Effect 1
@@ -9,7 +9,7 @@ const { ns3Morph7Bits } = require("./ns3-morph");
  * @param panelOffset
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, masterClock: {enabled: (boolean|boolean)}, source: {value: string}, type: {value: unknown}, enabled: boolean}}
  */
-exports.ns3Effect1 = (buffer, panelOffset) => {
+const ns3Effect1 = (buffer, panelOffset) => {
     const effectOffset10b = buffer.readUInt8(0x10b + panelOffset);
     const effectOffset10bW = buffer.readUInt16BE(0x10b + panelOffset);
     const effectOffset10cW = buffer.readUInt16BE(0x10c + panelOffset);
@@ -18,7 +18,7 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
     const effectOffset110Ww = buffer.readUInt32BE(0x110 + panelOffset);
 
     const effect1TypeMidi = (effectOffset10bW & 0x0380) >>> 7;
-    const effect1Type = mapping.ns3Effect1TypeMap.get(effect1TypeMidi);
+    const effect1Type = ns3Effect1TypeMap.get(effect1TypeMidi);
     const effect1AmountMidi = effectOffset110 & 0x7f;
     const effect1RateMidi = (effectOffset10cW & 0x3f80) >>> 7;
 
@@ -45,7 +45,7 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
          *  @module NS3 Effect 1 Source
          */
         source: {
-            value: mapping.ns3EffectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
+            value: ns3EffectSourceMap.get((effectOffset10b & 0x0c) >>> 2),
         },
 
         /**
@@ -90,13 +90,13 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
 
             isDefault: effect1AmountMidi === 64,
 
-            value: converter.midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, effect1AmountMidi, 1, ""),
 
             morph: ns3Morph7Bits(
                 effectOffset110Ww,
                 effect1AmountMidi,
                 (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    return midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 false
             ),
@@ -130,18 +130,18 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
             isDefault: effect1RateMidi === 64,
 
             value: effect1MasterClockUsed
-                ? mapping.ns3Effect1MasterClockDivisionMap.get(effect1RateMidi)
-                :  `${converter.midi2LinearStringValue(0, 10, effect1RateMidi, 1, "")} (${effect1RateMidi})`,
+                ? ns3Effect1MasterClockDivisionMap.get(effect1RateMidi)
+                : `${midi2LinearStringValue(0, 10, effect1RateMidi, 1, "")} (${effect1RateMidi})`,
 
-            comment: effect1MasterClockUsed ? "": "2nd value is equivalent to Nord Stage 2",
+            comment: effect1MasterClockUsed ? "" : "2nd value is equivalent to Nord Stage 2",
 
             morph: ns3Morph7Bits(
                 effectOffset10dWw >>> 7,
                 effect1RateMidi,
                 (x) => {
                     return effect1MasterClockUsed
-                        ? mapping.ns3Effect1MasterClockDivisionMap.get(x)
-                        : `${converter.midi2LinearStringValue(0, 10, x, 1, "")} (${x})`;
+                        ? ns3Effect1MasterClockDivisionMap.get(x)
+                        : `${midi2LinearStringValue(0, 10, x, 1, "")} (${x})`;
                 },
                 false
             ),
@@ -162,3 +162,5 @@ exports.ns3Effect1 = (buffer, panelOffset) => {
         },
     };
 };
+
+export { ns3Effect1 };

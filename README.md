@@ -7,12 +7,12 @@
 
 - Read and review your favorite [Nord](https://www.nordkeyboards.com) Stage 2/2EX/3 Program settings without any download in the keyboard, no [Nord Sound Manager](https://www.nordkeyboards.com/software-tools/nord-sound-manager) is required.
 - All morph values are immediately visible.
-- Export the patch sheet as PDF for CSV file.
+- Export the patch sheet as PDF or CSV file.
 - Supported file format:
   programs/synth: ns3f, ns3y, ns2p, ns2s,
   backup/bundle: ns3b, ns3fb, ns3synthpb, ns3sbundle, ns2pb, ns2exb, ns2b, ns2synthpb
 - Show instruments even if not enabled.
-- New SMART mode: highlight non-default values
+- SMART mode: highlight non-default values
 
 ### Online version
 [https://ns3-program-viewer.glitch.me](https://ns3-program-viewer.glitch.me)

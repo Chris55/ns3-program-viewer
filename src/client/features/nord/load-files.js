@@ -1,4 +1,4 @@
-import axios from "axios";
+//import axios from "axios";
 import { BlobReader, BlobWriter, ZipReader } from "@zip.js/zip.js";
 import {
     fadeOutProgressBar,
@@ -8,6 +8,8 @@ import {
     setProgress,
 } from "./nord-slice-reducer";
 import { supportedBackupTypes, supportedProgramTypes } from "./nord-file-types";
+import { loadNordFile } from "../../../server/nord-service";
+import { Buffer } from "buffer/";
 
 /***
  * returns file extension
@@ -23,10 +25,11 @@ const getExtension = (fileName) => {
  * @param dispatch
  * @param file
  * @param isElectron
+ * @param isServerless
  * @param production
  * @returns {Promise<void>}
  */
-const loadBackupFile = async (dispatch, file, isElectron, production) => {
+const loadBackupFile = async (dispatch, file, isElectron, isServerless, production) => {
     let json = {
         data: [],
         success: false,
@@ -37,6 +40,36 @@ const loadBackupFile = async (dispatch, file, isElectron, production) => {
 
     if (isElectron) {
         json = await window.electron.downloadBackup(file.path, supportedProgramTypes);
+    } else if (isServerless) {
+        try {
+            const reader = new ZipReader(new BlobReader(file));
+            const entries = await reader.getEntries();
+            const bundle = [];
+
+            for (const entry of entries) {
+                const ext = getExtension(entry.filename);
+                if (supportedProgramTypes.includes(ext)) {
+                    const items = entry.filename.split("/");
+                    const blob = await entry.getData(new BlobWriter());
+                    const arrayBuffer = await blob.arrayBuffer();
+                    const buffer = Buffer.from(arrayBuffer);
+
+                    const data = loadNordFile(buffer, items[2]);
+                    bundle.push(data);
+                }
+            }
+            await reader.close();
+
+            const response = {
+                success: true,
+                error: "",
+                data: bundle,
+            };
+            onSuccess(dispatch, response);
+        } catch (e) {
+            onError(dispatch, { error: e.message });
+        }
+        return;
     } else {
         // load the backup/bundle on client side to read only supported files
         const reader = new ZipReader(new BlobReader(file));
@@ -108,10 +141,34 @@ const loadBackupFile = async (dispatch, file, isElectron, production) => {
  * @param dispatch
  * @param files
  * @param isElectron
+ * @param isServerless
  * @param _production
  * @returns {Promise<void>}
  */
-const loadIndividualFiles = async (dispatch, files, isElectron, _production) => {
+const loadIndividualFiles = async (dispatch, files, isElectron, isServerless, _production) => {
+    if (isServerless) {
+        try {
+            const bundle = [];
+
+            for (const file of files) {
+                const arrayBuffer = await file.arrayBuffer();
+                const buffer = Buffer.from(arrayBuffer);
+
+                const data = loadNordFile(buffer, file.name);
+                bundle.push(data);
+            }
+            const response = {
+                success: true,
+                error: "",
+                data: bundle,
+            };
+            onSuccess(dispatch, response);
+        } catch (e) {
+            onError(dispatch, { error: e.message });
+        }
+        return;
+    }
+
     if (isElectron) {
         try {
             const bundle = [];
@@ -134,14 +191,15 @@ const loadIndividualFiles = async (dispatch, files, isElectron, _production) => 
         formData.append("nordFiles", file);
     }
 
-    await axios
-        .post("api/upload", formData, {})
-        .then((res) => {
-            onSuccess(dispatch, res.data);
-        })
-        .catch((err) => {
-            onError(dispatch, err.response.data);
-        });
+    // not more used
+    // await axios
+    //     .post("api/upload", formData, {})
+    //     .then((res) => {
+    //         onSuccess(dispatch, res.data);
+    //     })
+    //     .catch((err) => {
+    //         onError(dispatch, err.response.data);
+    //     });
 };
 
 /***
@@ -224,7 +282,7 @@ const toManagerData = (dispatch, dataArray, filename) => {
 export const loadFiles = (files) => {
     return async (dispatch, getState) => {
         const { nordStore } = getState();
-        const { isElectron, production } = nordStore;
+        const { isElectron, isServerless, production } = nordStore;
 
         dispatch(setLoading({ loading: true, progress: 10 }));
 
@@ -255,10 +313,10 @@ export const loadFiles = (files) => {
                 onError(dispatch, { error: "Please select only one backup/bundle file..." });
                 return;
             }
-            await loadBackupFile(dispatch, files[0], isElectron, production);
+            await loadBackupFile(dispatch, files[0], isElectron, isServerless, production);
             return;
         }
 
-        await loadIndividualFiles(dispatch, files, isElectron, production);
+        await loadIndividualFiles(dispatch, files, isElectron, isServerless, production);
     };
 };

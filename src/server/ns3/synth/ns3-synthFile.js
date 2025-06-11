@@ -1,8 +1,7 @@
-const path = require("path");
-const { ns3SynthLocation } = require("../program/ns3-utils");
-const { synthCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
-const { ns3Synth } = require("../program/ns3-synth");
-const { getVersion, getName, checkHeader } = require("../../common/nord-file");
+import { ns3SynthLocation } from "../program/ns3-utils";
+import { nordFileExtMap, synthCategoryMap } from "../../common/nord-mapping";
+import { ns3Synth } from "../program/ns3-synth";
+import { checkHeader, getExtension, getName, getVersion } from "../../common/nord-file";
 
 /***
  * returns Nord Stage 3 synth file
@@ -11,7 +10,7 @@ const { getVersion, getName, checkHeader } = require("../../common/nord-file");
  * @param filename
  * @returns {{ext: string, synth: *, filename: *, name: *, description: unknown, id: *, category: string | undefined}}
  */
-exports.loadNs3SynthFile = (buffer, filename) => {
+const loadNs3SynthFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
     checkHeader(buffer, ["ns3y"], [84, 102]);
 
@@ -64,7 +63,7 @@ exports.loadNs3SynthFile = (buffer, filename) => {
         versionOffset -= 20;
     }
 
-    const ext = path.extname(filename).substr(1).toLowerCase();
+    const ext = getExtension(filename);
 
     // used only to pass to ns3Synth(), but not in final output object.
     const global = {
@@ -127,3 +126,5 @@ exports.loadNs3SynthFile = (buffer, filename) => {
 
     return ns3SynthFile;
 };
+
+export { loadNs3SynthFile };

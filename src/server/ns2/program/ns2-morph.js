@@ -1,4 +1,4 @@
-const { getMorphModel } = require("../../common/converter");
+import { getMorphModel } from "../../common/converter";
 
 /***
  * returns an array of morph settings
@@ -9,7 +9,7 @@ const { getMorphModel } = require("../../common/converter");
  * @param forceDisabled optional used on dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.ns2Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
+const ns2Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -46,7 +46,7 @@ exports.ns2Morph7Bits = (uint32Value, midiFrom, labelCallBack, forceDisabled) =>
  * @param forceDisabled optional used on dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.ns2Morph4Bits = (rawMorph, midiFrom, labelCallBack, forceDisabled) => {
+const ns2Morph4Bits = (rawMorph, midiFrom, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -86,7 +86,7 @@ exports.ns2Morph4Bits = (rawMorph, midiFrom, labelCallBack, forceDisabled) => {
  * @param morphOn5Bits {boolean} true for B3/Vox, false for Farfisa
  * @returns {{afterTouch: number, controlPedal: number, wheel: number}}
  */
-exports.ns2MorphOrganDrawbar = (morphData, midiFrom, morphOn5Bits) => {
+const ns2MorphOrganDrawbar = (morphData, midiFrom, morphOn5Bits) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -154,7 +154,7 @@ exports.ns2MorphOrganDrawbar = (morphData, midiFrom, morphOn5Bits) => {
  * @param forceDisabled optional used ont dual knob to disable morph option
  * @returns {{afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}}
  */
-exports.ns2Morph12Bits = (buffer, offset, labelCallBack, forceDisabled) => {
+const ns2Morph12Bits = (buffer, offset, labelCallBack, forceDisabled) => {
     const rawMorphValue = [3];
     const result = [];
 
@@ -171,7 +171,7 @@ exports.ns2Morph12Bits = (buffer, offset, labelCallBack, forceDisabled) => {
     rawMorphValue.forEach((rawValue) => {
         const rawOffsetValue = rawValue & 0x0fff;
         const polarity = (rawValue & 0x1000) !== 0;
-        const offset = polarity ? rawOffsetValue - 4096 : rawOffsetValue;// 2^12
+        const offset = polarity ? rawOffsetValue - 4096 : rawOffsetValue; // 2^12
         let midiTo = midi12From + offset;
         if (midiTo < 0) {
             midiTo = 0;
@@ -242,3 +242,5 @@ exports.ns2Morph12Bits = (buffer, offset, labelCallBack, forceDisabled) => {
         },
     };
 };
+
+export { ns2Morph7Bits, ns2Morph4Bits, ns2MorphOrganDrawbar, ns2Morph12Bits };

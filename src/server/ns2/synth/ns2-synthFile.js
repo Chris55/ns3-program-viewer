@@ -1,7 +1,6 @@
-const path = require("path");
-const { ns2Synth } = require("../program/ns2-synth");
-const { getName, checkHeader} = require("../../common/nord-file");
-const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
+import { ns2Synth } from "../program/ns2-synth";
+import { checkHeader, getExtension, getName } from "../../common/nord-file";
+import { nordFileExtMap, programCategoryMap } from "../../common/nord-mapping";
 
 /***
  * returns Nord Stage 2 Synth file
@@ -10,7 +9,7 @@ const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mappin
  * @param filename {string}
  * @returns {{split: *, panelA: *, masterClock: {rate: {value: string}}, panelB: *, name: *, transpose: *, category: *, version: string}}
  */
-exports.loadNs2SynthFile = (buffer, filename) => {
+const loadNs2SynthFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
     checkHeader(buffer, ["ns2s"], [60, 78]);
 
@@ -82,7 +81,7 @@ exports.loadNs2SynthFile = (buffer, filename) => {
         },
     };
 
-    const ext = path.extname(filename).substr(1).toLowerCase();
+    const ext = getExtension(filename);
 
     const global = {
         version: version,
@@ -130,3 +129,5 @@ exports.loadNs2SynthFile = (buffer, filename) => {
 
     return ns2s;
 };
+
+export { loadNs2SynthFile };

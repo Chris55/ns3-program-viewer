@@ -1,8 +1,12 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns3-mapping");
-const {ns3BooleanValue} = require("./ns3-utils");
-const { getLinearInterpolation } = require("../../common/converter");
-const { ns3Morph7Bits, ns3Morph14Bits } = require("./ns3-morph");
+import { getLinearInterpolation, midi2LinearStringValue } from "../../common/converter";
+import { ns3BooleanValue } from "./ns3-utils";
+import { ns3Morph14Bits, ns3Morph7Bits } from "./ns3-morph";
+import {
+    ns3DelayFilterMap,
+    ns3DelayTempoMap,
+    ns3DelayTempoMasterClockDivisionMap,
+    ns3EffectSourceMap,
+} from "./ns3-mapping";
 
 /***
  * replace the note by unicode value
@@ -29,11 +33,11 @@ const fixSignature = (value) => {
 const getTempo = (masterClock, midiValue, tapValue) => {
     // if master clock is used, get the tempo details from the dedicated map
     if (masterClock) {
-        return mapping.ns3DelayTempoMasterClockDivisionMap.get(midiValue);
+        return ns3DelayTempoMasterClockDivisionMap.get(midiValue);
     }
 
     // else use the default tempo mapping
-    const value = mapping.ns3DelayTempoMap.get(midiValue);
+    const value = ns3DelayTempoMap.get(midiValue);
     if (!(value instanceof Array)) {
         return "error";
     }
@@ -44,8 +48,8 @@ const getTempo = (masterClock, midiValue, tapValue) => {
     }
 
     // special case (from tap tempo) LSW contains fine tempo adjustment
-    const y0 = mapping.ns3DelayTempoMap.get(midiValue);
-    const y1 = mapping.ns3DelayTempoMap.get(midiValue + 1);
+    const y0 = ns3DelayTempoMap.get(midiValue);
+    const y1 = ns3DelayTempoMap.get(midiValue + 1);
     if (!(y0 instanceof Array) || !(y1 instanceof Array)) {
         return "error";
     }
@@ -74,7 +78,7 @@ const getTempo = (masterClock, midiValue, tapValue) => {
  * @param global
  * @returns {{amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}}
  */
-exports.ns3Delay = (buffer, panelOffset, global) => {
+const ns3Delay = (buffer, panelOffset, global) => {
     const delayOffset119 = buffer.readUInt8(0x119 + panelOffset);
     const delayOffset11aW = buffer.readUInt16BE(0x11a + panelOffset);
     const delayOffset11bWw = buffer.readUInt32BE(0x11b + panelOffset);
@@ -124,7 +128,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
          *  @module NS3 Delay Source
          */
         source: {
-            value: mapping.ns3EffectSourceMap.get((delayOffset119 & 0x06) >>> 1),
+            value: ns3EffectSourceMap.get((delayOffset119 & 0x06) >>> 1),
         },
 
         /**
@@ -211,7 +215,6 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
          */
         pingPong: ns3BooleanValue((delayOffset125 & 0x20) !== 0, false),
 
-
         /**
          *  Offset in file: 0x125 (b4-3)
          *
@@ -221,7 +224,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
          *  @module NS3 Delay Filter
          */
         filter: {
-            value: mapping.ns3DelayFilterMap.get(filter),
+            value: ns3DelayFilterMap.get(filter),
             isDefault: filter === 0,
         },
 
@@ -257,7 +260,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
         feedback: {
             midi: delayFeedbackMidi,
 
-            value: converter.midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, delayFeedbackMidi, 1, ""),
 
             isDefault: delayFeedbackMidi === 64,
 
@@ -265,7 +268,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
                 delayOffset126Ww >>> 4,
                 delayFeedbackMidi,
                 (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    return midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 false
             ),
@@ -293,7 +296,7 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
         mix: {
             midi: delayMixMidi,
 
-            value: converter.midi2LinearStringValue(0, 10, delayMixMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, delayMixMidi, 1, ""),
 
             isDefault: delayMixMidi === 64,
 
@@ -301,10 +304,12 @@ exports.ns3Delay = (buffer, panelOffset, global) => {
                 delayOffset122Ww >>> 6,
                 delayMixMidi,
                 (x) => {
-                    return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    return midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 false
             ),
         },
     };
 };
+
+export { ns3Delay };

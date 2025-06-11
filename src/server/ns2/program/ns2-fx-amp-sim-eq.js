@@ -1,5 +1,5 @@
-const converter = require("../../common/converter");
-const mapping = require("./ns2-mapping");
+import { ns2AmpSimEqdBMap, ns2AmpSimEqMidFilterFreqMap, ns2AmpSimTypeMap, ns2EffectSourceMap } from "./ns2-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Amp Sim / Eq
@@ -8,7 +8,7 @@ const mapping = require("./ns2-mapping");
  * @param panelOffset
  * @returns {{ampType: {value: string}, bass: {midi: number, value: string}, mid: {midi: number, value: string}, source: {value: string}, treble: {midi: number, value: string}, overdrive: {midi: number, value: string}, enabled: boolean, midFilterFreq: {midi: number, value: string}}}
  */
-exports.ns2AmpSimEq = (buffer, panelOffset) => {
+const ns2AmpSimEq = (buffer, panelOffset) => {
     const eqOffset133 = buffer.readUInt8(0x133 + panelOffset);
     const eqOffset134 = buffer.readUInt8(0x134 + panelOffset);
     const eqOffset134W = buffer.readUInt16BE(0x134 + panelOffset);
@@ -16,7 +16,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
     const eqOffset136W = buffer.readUInt16BE(0x136 + panelOffset);
     const eqOffset137W = buffer.readUInt16BE(0x137 + panelOffset);
 
-    const ampSimType = mapping.ns2AmpSimTypeMap.get(eqOffset133 & 0x03);
+    const ampSimType = ns2AmpSimTypeMap.get(eqOffset133 & 0x03);
     const trebleMidi = (eqOffset134W & 0x01fc) >>> 2;
     const midMidi = (eqOffset135W & 0x03f8) >>> 3;
     const bassMidi = (eqOffset136W & 0x07f0) >>> 4;
@@ -43,7 +43,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
          *  @module NS2 Amp Sim Eq Source
          */
         source: {
-            value: mapping.ns2EffectSourceMap.get((eqOffset133 & 0x0c) >>> 2),
+            value: ns2EffectSourceMap.get((eqOffset133 & 0x0c) >>> 2),
         },
 
         /**
@@ -56,7 +56,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
          */
         ampType: {
             value: ampSimType,
-            isDefault: ampSimType === mapping.ns2AmpSimTypeMap.get(0),
+            isDefault: ampSimType === ns2AmpSimTypeMap.get(0),
         },
 
         /**
@@ -71,7 +71,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
         treble: {
             midi: trebleMidi,
             isDefault: trebleMidi === 64,
-            value: mapping.ns2AmpSimEqdBMap.get(trebleMidi),
+            value: ns2AmpSimEqdBMap.get(trebleMidi),
         },
 
         /**
@@ -85,7 +85,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
         mid: {
             midi: midMidi,
             isDefault: midMidi === 64,
-            value: mapping.ns2AmpSimEqdBMap.get(midMidi),
+            value: ns2AmpSimEqdBMap.get(midMidi),
         },
 
         /**
@@ -100,7 +100,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
         bass: {
             midi: bassMidi,
             isDefault: bassMidi === 64,
-            value: mapping.ns2AmpSimEqdBMap.get(bassMidi),
+            value: ns2AmpSimEqdBMap.get(bassMidi),
         },
 
         /**
@@ -116,7 +116,7 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
         midFilterFreq: {
             midi: midFilterFreqMidi,
             isDefault: midFilterFreqMidi === 64,
-            value: mapping.ns2AmpSimEqMidFilterFreqMap.get(midFilterFreqMidi),
+            value: ns2AmpSimEqMidFilterFreqMap.get(midFilterFreqMidi),
         },
 
         /**
@@ -130,7 +130,9 @@ exports.ns2AmpSimEq = (buffer, panelOffset) => {
         overdrive: {
             midi: driveMidi,
             isDefault: driveMidi === 0,
-            value: converter.midi2LinearStringValue(0, 10, driveMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, driveMidi, 1, ""),
         },
     };
 };
+
+export { ns2AmpSimEq };

@@ -1,7 +1,7 @@
-const { midiControlChangeMap } = require("../../common/midi-mapping");
-const { ns2Morph7Bits } = require("./ns2-morph");
-const { ns2KbZone, ns2OctaveShift, ns2BooleanValue } = require("./ns2-utils");
-const { ns2ExternControlMap, ns2ExternMidiVelocityCurveMap } = require("./ns2-mapping");
+import { midiControlChangeMap } from "../../common/midi-mapping";
+import { ns2Morph7Bits } from "./ns2-morph";
+import { ns2BooleanValue, ns2KbZone, ns2OctaveShift } from "./ns2-utils";
+import { ns2ExternControlMap, ns2ExternMidiVelocityCurveMap } from "./ns2-mapping";
 
 /***
  * returns Extern section
@@ -10,7 +10,7 @@ const { ns2ExternControlMap, ns2ExternMidiVelocityCurveMap } = require("./ns2-ma
  * @param global
  * @returns {{cc: {text: string, value: number}, kbZone: {array, value}, wheel: {enabled: boolean}, sustainPedal: {enabled: boolean}, channel: {type: (string), value: number}, control: {value: string}, program: {midi: number, value: string, enabled: boolean}, velocity: {value: string}, octaveShift: {value: number}, swell: {enabled: boolean}, enabled: boolean, cc00: {value: number, enabled: boolean}, volume: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string, enabled: boolean}, cc32: {value: number, enabled: boolean}, afterTouch: {enabled: boolean}, pitchStick: {enabled: boolean}, controlPedal: {enabled: boolean}, midiCc: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string, enabled: boolean}}}
  */
-exports.ns2Extern = (buffer, panelOffset, global) => {
+const ns2Extern = (buffer, panelOffset, global) => {
     const externOffset52 = buffer.readUInt8(0x52 + panelOffset);
     const externOffset56W = buffer.readUInt16BE(0x56 + panelOffset);
     const externOffset57 = buffer.readUInt8(0x57 + panelOffset);
@@ -224,7 +224,7 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
              * @module NS2 Extern Midi Channel
              */
             value: channel,
-            isDefault: (channel === 14) && (channelType === "MIDI"),
+            isDefault: channel === 14 && channelType === "MIDI",
 
             /**
              * Offset in file: 0x107 (b1)
@@ -358,3 +358,5 @@ exports.ns2Extern = (buffer, panelOffset, global) => {
         },
     };
 };
+
+export { ns2Extern };

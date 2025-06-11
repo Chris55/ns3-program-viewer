@@ -1,15 +1,15 @@
-const mapping = require("./ns3-mapping");
-const { ns3AmpSimEq } = require("./ns3-fx-amp-sim-eq");
-const { ns3Compressor } = require("./ns3-fx-compressor");
-const { ns3Delay } = require("./ns3-fx-delay");
-const { ns3Effect2 } = require("./ns3-fx-multi-effect-2");
-const { ns3Effect1 } = require("./ns3-fx-multi-effect-1");
-const { ns3RotarySpeakerEffect } = require("./ns3-fx-rotary-speaker");
-const { ns3Reverb } = require("./ns3-fx-reverb");
-const { ns3Extern } = require("./ns3-extern");
-const { ns3Synth } = require("./ns3-synth");
-const { ns3Piano } = require("./ns3-piano");
-const { ns3Organ } = require("./ns3-organ");
+import { ns3Organ } from "./ns3-organ";
+import { ns3Piano } from "./ns3-piano";
+import { ns3Synth } from "./ns3-synth";
+import { ns3Extern } from "./ns3-extern";
+import { ns3Reverb } from "./ns3-fx-reverb";
+import { ns3RotarySpeakerEffect } from "./ns3-fx-rotary-speaker";
+import { ns3Effect1 } from "./ns3-fx-multi-effect-1";
+import { ns3Effect2 } from "./ns3-fx-multi-effect-2";
+import { ns3Delay } from "./ns3-fx-delay";
+import { ns3Compressor } from "./ns3-fx-compressor";
+import { ns3AmpSimEq } from "./ns3-fx-amp-sim-eq";
+import { ns3ProgramOutputMap, ns3ProgramOutputSourceMap } from "./ns3-mapping";
 
 /***
  * returns a complete Panel section
@@ -21,7 +21,7 @@ const { ns3Organ } = require("./ns3-organ");
  * @returns {{organ: {volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, pitchStick: boolean, preset2: string, kbZone: string, preset1: string, sustainPedal: boolean, percussion: {volumeSoft: boolean, harmonicThird: boolean, decayFast: boolean, enabled: boolean}, type: unknown, octaveShift: number, enabled: boolean, live: boolean, vibrato: {mode: string, enabled: boolean}}, synth: {voice: unknown, oscillators: {control: {midi: number, value: string}, fastAttack: boolean, pitch: {midi: number, value: string}, type: unknown, waveForm1: string, config: unknown, modulations: {lfoAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, unison: unknown, arpeggiator: {kbSync: boolean, rate: {midi: number, value: unknown}, masterClock: boolean, pattern: unknown, range: unknown, enabled: boolean}, kbZone: unknown, sustainPedal: boolean, keyboardHold: boolean, octaveShift: unknown, enabled: boolean, volume: {midi: *, value: unknown}, filter: {highPassCutoffFrequency: {midi: number, value: unknown}, cutoffFrequency: {midi: number, value: unknown}, type: unknown, drive: unknown, resonance: {midi: number, value: string}, kbTrack: unknown, modulations: {lfoAmount: {midi: number, value: string}, velAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}, pitchStick: boolean, lfo: {rate: {midi: number, value: unknown}, masterClock: boolean, wave: unknown}, glide: string, envelopes: {modulation: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: boolean}, amplifier: {attack: {midi: number, value: unknown}, release: {midi: number, value: (string|*)}, decay: {midi: number, value: (string|*)}, velocity: unknown}}, vibrato: unknown}, piano: {kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}, effects: {effect1: {amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, masterClock: {enabled: boolean}, source: {value: string}, type: {value: unknown}, enabled: boolean}, effect2: {amount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, rate: {midi: number, value: string}, source: {value: string}, type: {value: string}, enabled: boolean}, rotarySpeaker: {stopMode: {enabled: boolean}, source: {value: string}, drive: {value: string}, enabled: boolean, speed: {morph: {afterTouch: {enabled: boolean}, controlPedal: {enabled: boolean}, wheel: {enabled: boolean}}, value: string}}, reverb: {amount: {midi: number, value: string}, fast: {value: boolean}, enabled: boolean}, compressor: {amount: {midi: number, value: string}, fast: {value: boolean}, enabled: boolean}}, extern: {kbTouch: string, kbZone: string, softRelease: boolean, sustainPedal: boolean, type: string, octaveShift: number, enabled: boolean, volume: {midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}, timbre: string, pitchStick: boolean, stringResonance: boolean, model: number, pedalNoise: boolean, layerDetune: string}, enabled: boolean}}
  */
 
-exports.ns3Panel = function (buffer, id, versionOffset, global) {
+const ns3Panel = function (buffer, id, versionOffset, global) {
     const panelOffset31 = buffer.readUInt8(0x31 + versionOffset);
 
     /**
@@ -68,7 +68,7 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
          * @module NS3 Program Output Main
          */
         main: {
-            value: mapping.ns3ProgramOutputMap.get(outputMain),
+            value: ns3ProgramOutputMap.get(outputMain),
             isDefault: outputMain === 0,
         },
 
@@ -81,7 +81,7 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
          * @module NS3 Program Output Sub Source
          */
         subSource: {
-            value: mapping.ns3ProgramOutputSourceMap.get(outputSubSource),
+            value: ns3ProgramOutputSourceMap.get(outputSubSource),
             isDefault: outputSubSource === 0,
         },
 
@@ -94,7 +94,7 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
          * @module NS3 Program Output Sub Destination
          */
         subDestination: {
-            value: mapping.ns3ProgramOutputMap.get(outputSubDestination),
+            value: ns3ProgramOutputMap.get(outputSubDestination),
             isDefault: outputSubDestination === 1,
         },
     };
@@ -117,3 +117,5 @@ exports.ns3Panel = function (buffer, id, versionOffset, global) {
         output,
     };
 };
+
+export { ns3Panel };

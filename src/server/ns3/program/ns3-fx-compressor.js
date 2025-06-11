@@ -1,5 +1,5 @@
-const converter = require("../../common/converter");
-const { ns3BooleanValue } = require("./ns3-utils");
+import { ns3BooleanValue } from "./ns3-utils";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * returns Compressor
@@ -8,7 +8,7 @@ const { ns3BooleanValue } = require("./ns3-utils");
  * @param panelOffset
  * @returns {{amount: {midi: number, value: string}, fast: {value: boolean}, enabled: boolean}}
  */
-exports.ns3Compressor = (buffer, panelOffset) => {
+const ns3Compressor = (buffer, panelOffset) => {
     const effectOffset139 = buffer.readUInt8(0x139 + panelOffset);
     const effectOffset139W = buffer.readUInt16BE(0x139 + panelOffset);
 
@@ -38,7 +38,7 @@ exports.ns3Compressor = (buffer, panelOffset) => {
 
             isDefault: compressorAmountMidi === 0,
 
-            value: converter.midi2LinearStringValue(0, 10, compressorAmountMidi, 1, ""),
+            value: midi2LinearStringValue(0, 10, compressorAmountMidi, 1, ""),
         },
 
         /**
@@ -52,3 +52,5 @@ exports.ns3Compressor = (buffer, panelOffset) => {
         fast: ns3BooleanValue((effectOffset139W & 0x0020) !== 0, false),
     };
 };
+
+export { ns3Compressor };

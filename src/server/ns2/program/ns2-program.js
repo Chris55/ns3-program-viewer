@@ -1,12 +1,11 @@
-const path = require("path");
-const mapping = require("./ns2-mapping");
-const { ns2BooleanValue } = require("./ns2-utils");
-const { ns2Reverb } = require("./ns2-fx-reverb");
-const { ns2Compressor } = require("./ns2-fx-compressor");
-const { getName, checkHeader } = require("../../common/nord-file");
-const { zeroPad } = require("../../common/converter");
-const { programCategoryMap, nordFileExtMap } = require("../../common/nord-mapping");
-const { ns2Slot } = require("./ns2-slot");
+import { ns2BooleanValue } from "./ns2-utils";
+import { ns2Reverb } from "./ns2-fx-reverb";
+import { ns2Compressor } from "./ns2-fx-compressor";
+import { checkHeader, getExtension, getName } from "../../common/nord-file";
+import { ns2Slot } from "./ns2-slot";
+import { nordFileExtMap, programCategoryMap } from "../../common/nord-mapping";
+import { zeroPad } from "../../common/converter";
+import { ns2SplitNoteMap, ns2TransposeMap } from "./ns2-mapping";
 
 /***
  * returns Nord Stage 3 program data
@@ -15,7 +14,7 @@ const { ns2Slot } = require("./ns2-slot");
  * @param filename {string}
  * @returns {{split: *, panelA: *, masterClock: {rate: {value: string}}, panelB: *, name: *, transpose: *, category: *, version: string}}
  */
-exports.loadNs2ProgramFile = (buffer, filename) => {
+const loadNs2ProgramFile = (buffer, filename) => {
     // throw exception if invalid signature or invalid file size
     checkHeader(buffer, ["ns2p", "ns2l"], [547, 565]);
 
@@ -24,7 +23,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const offset10 = buffer.readUInt8(0x10);
     const offset14W = buffer.readUInt16LE(0x14);
 
-    const ext = path.extname(filename).substr(1).toLowerCase();
+    const ext = getExtension(filename);
 
     const bankValue = buffer.readUInt8(0x0c) & 0x03;
     const locationValue = buffer.readUInt8(0x0e) & 0x7f;
@@ -122,7 +121,7 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const transposeValue = (offset30 & 0x1e) >>> 1;
     const transpose = {
         enabled: transposeEnabled,
-        value: transposeEnabled ? mapping.ns2TransposeMap.get(transposeValue) : "",
+        value: transposeEnabled ? ns2TransposeMap.get(transposeValue) : "",
         isDefault: transposeValue === 6,
     };
 
@@ -175,10 +174,10 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
     const split = {
         enabled: splitEnabled,
         low: {
-            note: splitEnabled ? mapping.ns2SplitNoteMap.get(splitLowNote) : "--",
+            note: splitEnabled ? ns2SplitNoteMap.get(splitLowNote) : "--",
         },
         high: {
-            note: splitEnabled && split3Zones ? mapping.ns2SplitNoteMap.get(splitHighNote) : "--",
+            note: splitEnabled && split3Zones ? ns2SplitNoteMap.get(splitHighNote) : "--",
         },
     };
 
@@ -293,3 +292,5 @@ exports.loadNs2ProgramFile = (buffer, filename) => {
 
     return ns2;
 };
+
+export { loadNs2ProgramFile };

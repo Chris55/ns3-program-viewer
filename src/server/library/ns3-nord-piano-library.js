@@ -5,7 +5,7 @@
  *
  * @type {Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>}
  */
-exports.ns3NordPianoLibrary = new Map([
+const ns3NordPianoLibrary = new Map([
     // Grand Piano
     // https://www.nordkeyboards.com/sound-libraries/nord-piano-library/grand-pianos/white-grand
     [
@@ -3978,3 +3978,5 @@ exports.ns3NordPianoLibrary = new Map([
         },
     ],
 ]);
+
+export { ns3NordPianoLibrary };

@@ -1,12 +1,11 @@
-const path = require("path");
-const { zeroPad } = require("./converter");
+import { zeroPad } from "./converter";
 
 /**
  *
  * @param buffer {Buffer}
  * @param offset {number}
  */
-exports.getVersion = (buffer, offset) => {
+const getVersion = (buffer, offset) => {
     const offset14W = buffer.readUInt16LE(offset);
 
     const majorVersion = Math.trunc(offset14W / 100);
@@ -28,15 +27,13 @@ exports.getVersion = (buffer, offset) => {
  * @param filename
  * @returns {string}
  */
-exports.getName = (filename) => {
+const getName = (filename) => {
     if (!filename) {
         return "Unnamed";
     }
 
-    // remove the extension
-    //let name = filename.replace(/\.[^/.]+$/, "");
     // remove path and ext
-    let name = path.parse(filename).name;
+    let name = filename.replace(/^.*[\\/]/, "").replace(/(\.\w+)+$/, "");
 
     // removes NUF header
     const regxForum = new RegExp(/^\d{13}-/);
@@ -63,12 +60,12 @@ exports.getName = (filename) => {
 };
 
 /***
- * returns filename extension (includes the dot)
- * @param fileName
+ * returns filename extension in lower case (without the dot)
+ * @param fileName {string}
  * @returns {string}
  */
-exports.getExtension = (fileName) => {
-    return fileName.slice(Math.max(0, fileName.name.lastIndexOf(".")) || Infinity).toLowerCase();
+const getExtension = (fileName) => {
+    return fileName.split(".").pop().toLowerCase();
 };
 
 /***
@@ -78,7 +75,7 @@ exports.getExtension = (fileName) => {
  * @param supportedSignatures {string[]}
  * @param supportedSizes {number[]}
  */
-exports.checkHeader = (buffer, supportedSignatures, supportedSizes) => {
+const checkHeader = (buffer, supportedSignatures, supportedSizes) => {
     if (buffer.length > 16) {
         const claviaSignature = buffer.toString("utf8", 0, 4);
         if (claviaSignature !== "CBIN") {
@@ -101,7 +98,7 @@ exports.checkHeader = (buffer, supportedSignatures, supportedSizes) => {
  * @param offset {number}
  * @param len {number}
  */
-exports.getChecksum = (buffer, offset, len) => {
+const getChecksum = (buffer, offset, len) => {
     let crc32 = 0xffffffff;
     let sourceHexa = "";
     for (let i = 0; i < len; i++) {
@@ -151,3 +148,5 @@ const crcTable = [
     0x24b4a3a6, 0xbad03605, 0xcdd70693, 0x54de5729, 0x23d967bf, 0xb3667a2e, 0xc4614ab8, 0x5d681b02, 0x2a6f2b94,
     0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d,
 ];
+
+export { getVersion, getName, getExtension, checkHeader, getChecksum };

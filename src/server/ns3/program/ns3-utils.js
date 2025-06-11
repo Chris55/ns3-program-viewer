@@ -1,7 +1,7 @@
-const mapping = require("./ns3-mapping");
-const { zeroPad } = require("../../common/converter");
-const { dBMap } = require("../../common/nord-mapping");
-const { ns3Morph7Bits } = require("./ns3-morph");
+import { ns3KbZoneMap, ns3SynthModulation120Map } from "./ns3-mapping";
+import { zeroPad } from "../../common/converter";
+import { dBMap } from "../../common/nord-mapping";
+import { ns3Morph7Bits } from "./ns3-morph";
 
 /***
  * Returns two values from a single knob (and equivalent midi value).
@@ -16,9 +16,9 @@ const { ns3Morph7Bits } = require("./ns3-morph");
  * @param valueRange120
  * @returns {{fromValue: string, leftMidi: number, leftLabel: string, rightMidi: number, fromValueRange120, rightLabel: string}}
  */
-exports.ns3KnobDualValues = function (valueRange120) {
+const ns3KnobDualValues = function (valueRange120) {
     const valueRange127 = Math.ceil((valueRange120 * 127) / 120);
-    const value = mapping.ns3SynthModulation120Map.get(valueRange120);
+    const value = ns3SynthModulation120Map.get(valueRange120);
     let leftLabel = "0.0";
     let rightLabel = "0.0";
     let leftMidi = 0;
@@ -51,7 +51,7 @@ exports.ns3KnobDualValues = function (valueRange120) {
  * @param value
  * @returns {string|(string[]|boolean[])[]|(string|boolean[])[]}
  */
-exports.ns3KbZone = (sectionEnabled, global, value) => {
+const ns3KbZone = (sectionEnabled, global, value) => {
     // section is not used
     if (!sectionEnabled) {
         return ["----", [false, false, false, false]];
@@ -62,7 +62,7 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
         return ["0000", [true, true, true, true]];
     }
 
-    let result = mapping.ns3KbZoneMap.get(value);
+    let result = ns3KbZoneMap.get(value);
 
     // on some program value contains an unexpected value
     // example:
@@ -87,7 +87,7 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
         // https://www.norduserforum.com/post132371.html?hilit=os%20older%20version#p132371
         // Eye_Without_Face.ns3f (Piano Panel A)
         if (value === 1 || value === 2) {
-            result = mapping.ns3KbZoneMap.get(5);
+            result = ns3KbZoneMap.get(5);
         }
     } else if (!splitPoints.low && splitPoints.mid && !splitPoints.high) {
         // when only middle split point is enabled, "O---", "-O--, "--O-", and "---O" are invalid zones.
@@ -96,19 +96,19 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
         // https://www.norduserforum.com/viewtopic.php?t=14414
         // uptown_funk.ns3f (Synth Panel A&B)
         if (value === 0 || value === 1) {
-            result = mapping.ns3KbZoneMap.get(4); // "OO--"
+            result = ns3KbZoneMap.get(4); // "OO--"
         } else if (value === 2 || value === 3) {
-            result = mapping.ns3KbZoneMap.get(6); // "--OO"
+            result = ns3KbZoneMap.get(6); // "--OO"
         }
     } else if (splitPoints.low && !splitPoints.mid && !splitPoints.high) {
         // when only low split point is enabled, only "O---", "-OOO", and "OOOO" are valid zones.
         if (value !== 0 && value !== 9) {
-            result = mapping.ns3KbZoneMap.get(8); // "-OOO"
+            result = ns3KbZoneMap.get(8); // "-OOO"
         }
     } else if (!splitPoints.low && !splitPoints.mid && splitPoints.high) {
         // when only high split point is enabled, only "---O", "OOO-", and "OOOO" are valid zones.
         if (value !== 3 && value !== 9) {
-            result = mapping.ns3KbZoneMap.get(7); // "OOO-"
+            result = ns3KbZoneMap.get(7); // "OOO-"
         }
     }
     return result;
@@ -122,7 +122,7 @@ exports.ns3KbZone = (sectionEnabled, global, value) => {
  * @param ns3yFile
  * @returns {{midi: *, value: string, morph: {afterTouch: {to: ({midi: *, value: string}|string), enabled: boolean}, controlPedal: {to: ({midi: *, value: string}|string), enabled: boolean}, wheel: {to: ({midi: *, value: string}|string), enabled: boolean}}}}
  */
-exports.ns3VolumeEx = (buffer, offset, ns3yFile) => {
+const ns3VolumeEx = (buffer, offset, ns3yFile) => {
     let organOffsetB6W = 0;
     let morphOffsetB7Ww = 0;
 
@@ -141,7 +141,7 @@ exports.ns3VolumeEx = (buffer, offset, ns3yFile) => {
         (x) => {
             return dBMap.get(x);
         },
-        false
+        false,
     );
 
     return {
@@ -174,7 +174,7 @@ exports.ns3VolumeEx = (buffer, offset, ns3yFile) => {
  * @param locationValue {number}
  * @returns {{bank: number, name: string, location: number, value: number}}
  */
-exports.ns3ProgramLocation = (bankValue, locationValue) => {
+const ns3ProgramLocation = (bankValue, locationValue) => {
     // bankValue should be between 0 and 15 (A...P)
     // locationValue should be between 0 and 24 (11,12...,54,55)
     // but on older program coding was maybe different
@@ -199,7 +199,7 @@ exports.ns3ProgramLocation = (bankValue, locationValue) => {
  * @param locationValue {number}
  * @returns {{bank: number, name: string, location: number, value: number}}
  */
-exports.ns3SynthLocation = (bankValue, locationValue) => {
+const ns3SynthLocation = (bankValue, locationValue) => {
     return {
         bank: bankValue,
         location: locationValue,
@@ -216,7 +216,7 @@ exports.ns3SynthLocation = (bankValue, locationValue) => {
  * @param ns3yFile
  * @returns {{userPresetLocation: number, samplePresetLocation: number, presetName: string}}
  */
-exports.ns3SynthPreset = (buffer, offset, ns3yFile) => {
+const ns3SynthPreset = (buffer, offset, ns3yFile) => {
     let location = 0;
     if (!ns3yFile) {
         const offset57W = buffer.readUInt16BE(offset);
@@ -314,7 +314,7 @@ exports.ns3SynthPreset = (buffer, offset, ns3yFile) => {
  * @param rawValue
  * @returns {{midi, isDefault: boolean, value: string}}
  */
-exports.ns3OctaveShift = (rawValue) => {
+const ns3OctaveShift = (rawValue) => {
     const offsetShiftOffset = -6;
     const octaveShift = rawValue + offsetShiftOffset;
 
@@ -332,10 +332,21 @@ exports.ns3OctaveShift = (rawValue) => {
  * @param defaultValue
  * @returns {{midi: (number), isDefault: boolean, enabled}}
  */
-exports.ns3BooleanValue = (rawValue, defaultValue) => {
+const ns3BooleanValue = (rawValue, defaultValue) => {
     return {
         midi: rawValue ? 127 : 0,
         enabled: rawValue,
         isDefault: rawValue === defaultValue,
     };
+};
+
+export {
+    ns3KnobDualValues,
+    ns3KbZone,
+    ns3VolumeEx,
+    ns3ProgramLocation,
+    ns3SynthLocation,
+    ns3SynthPreset,
+    ns3OctaveShift,
+    ns3BooleanValue,
 };

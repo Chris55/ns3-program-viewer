@@ -3,7 +3,7 @@
  * Hash code done as per v3
  * @type {Map<number, {ext: string, filename: string, size: number, name: string, category: string, version: string, info: string}>}
  */
-exports.ns3NordSampleLibrary2 = new Map([
+const ns3NordSampleLibrary2 = new Map([
     // Nord Sample Library 2.0 Accordion Harmonium
     // https://www.nordkeyboards.com/sound-libraries/nord-sample-library-20/accordion-harmonium
 
@@ -14809,3 +14809,5 @@ exports.ns3NordSampleLibrary2 = new Map([
         },
     ],
 ]);
+
+export { ns3NordSampleLibrary2 };

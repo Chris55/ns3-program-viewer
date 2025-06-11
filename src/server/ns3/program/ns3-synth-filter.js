@@ -1,7 +1,12 @@
-const mapping = require("./ns3-mapping");
-const converter = require("../../common/converter");
-const { ns3Morph7Bits } = require("./ns3-morph");
-const { ns3KnobDualValues } = require("./ns3-utils");
+import { ns3KnobDualValues } from "./ns3-utils";
+import { ns3Morph7Bits } from "./ns3-morph";
+import {
+    ns3SynthFilterCutoffFrequencyMap,
+    ns3SynthFilterDriveMap,
+    ns3SynthFilterKbTrackMap,
+    ns3SynthFilterTypeMap,
+} from "./ns3-mapping";
+import { midi2LinearStringValue } from "../../common/converter";
 
 /***
  * return Synth Filter section
@@ -10,7 +15,7 @@ const { ns3KnobDualValues } = require("./ns3-utils");
  * @param panelOffset
  * @returns {{highPassCutoffFrequency: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: (string|string)}, cutoffFrequency: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, type: {value: unknown}, drive: {value: string}, resonance: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: (string|string)}, kbTrack: {value: string}, modulations: {lfoAmount: {midi: number, morph: {afterTouch: {to: {midi: *, value: (*|string)}, enabled: *}, controlPedal: {to: {midi: *, value: (*|string)}, enabled: *}, wheel: {to: {midi: *, value: (*|string)}, enabled: *}}, value: string}, velAmount: {midi: number, value: string}, modEnvAmount: {midi: number, value: string}}}}
  */
-exports.ns3Filter = (buffer, panelOffset) => {
+const ns3Filter = (buffer, panelOffset) => {
     const synthOffset98 = buffer.readUInt8(0x98 + panelOffset);
     const synthOffset98W = buffer.readUInt16BE(0x98 + panelOffset);
     const synthOffset99Ww = buffer.readUInt32BE(0x99 + panelOffset);
@@ -22,7 +27,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
     const synthOffsetA5W = buffer.readUInt16BE(0xa5 + panelOffset);
 
     const filterTypeRaw = (synthOffset98 & 0x1c) >>> 2;
-    const filterType = mapping.ns3SynthFilterTypeMap.get(filterTypeRaw);
+    const filterType = ns3SynthFilterTypeMap.get(filterTypeRaw);
     const filterTypeIsLpHp = filterType === "LP+HP";
 
     const kbTrack = (synthOffsetA5W & 0x3000) >>> 12;
@@ -65,7 +70,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
          * @module NS3 Synth Filter Kb Track
          */
         kbTrack: {
-            value: mapping.ns3SynthFilterKbTrackMap.get(kbTrack),
+            value: ns3SynthFilterKbTrackMap.get(kbTrack),
             isDefault: kbTrack === 0,
         },
         /**
@@ -80,7 +85,7 @@ exports.ns3Filter = (buffer, panelOffset) => {
          * @module NS3 Synth Filter Drive
          */
         drive: {
-            value: mapping.ns3SynthFilterDriveMap.get(drive),
+            value: ns3SynthFilterDriveMap.get(drive),
             isDefault: drive === 0,
         },
 
@@ -107,12 +112,12 @@ exports.ns3Filter = (buffer, panelOffset) => {
             lfoAmount: {
                 midi: filterModulation1KnobMidi,
                 isDefault: filterModulation1KnobMidi === 0,
-                value: converter.midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
+                value: midi2LinearStringValue(0, 10, filterModulation1KnobMidi, 1, ""),
                 morph: ns3Morph7Bits(
                     synthOffsetA1Ww >>> 5,
                     filterModulation1KnobMidi,
                     (x) => {
-                        return converter.midi2LinearStringValue(0, 10, x, 1, "");
+                        return midi2LinearStringValue(0, 10, x, 1, "");
                     },
                     false
                 ),
@@ -167,12 +172,12 @@ exports.ns3Filter = (buffer, panelOffset) => {
         cutoffFrequency: {
             midi: filterCutoffFreqKnobMidi,
             isDefault: filterCutoffFreqKnobMidi === 127,
-            value: mapping.ns3SynthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
+            value: ns3SynthFilterCutoffFrequencyMap.get(filterCutoffFreqKnobMidi),
             morph: ns3Morph7Bits(
                 synthOffset99Ww >>> 3,
                 filterCutoffFreqKnobMidi,
                 (x) => {
-                    return mapping.ns3SynthFilterCutoffFrequencyMap.get(x);
+                    return ns3SynthFilterCutoffFrequencyMap.get(x);
                 },
                 false
             ),
@@ -197,13 +202,13 @@ exports.ns3Filter = (buffer, panelOffset) => {
 
             isDefault: filterResFreqHpKnobMidi === 0,
 
-            value: filterTypeIsLpHp ? mapping.ns3SynthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
+            value: filterTypeIsLpHp ? ns3SynthFilterCutoffFrequencyMap.get(filterResFreqHpKnobMidi) : "0.0",
 
             morph: ns3Morph7Bits(
                 synthOffset9dWw >>> 4,
                 filterResFreqHpKnobMidi,
                 (x) => {
-                    return filterTypeIsLpHp ? mapping.ns3SynthFilterCutoffFrequencyMap.get(x) : "none";
+                    return filterTypeIsLpHp ? ns3SynthFilterCutoffFrequencyMap.get(x) : "none";
                 },
                 !filterTypeIsLpHp
             ),
@@ -214,16 +219,18 @@ exports.ns3Filter = (buffer, panelOffset) => {
 
             isDefault: filterResFreqHpKnobMidi === 0,
 
-            value: filterTypeIsLpHp ? "0.0" : converter.midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
+            value: filterTypeIsLpHp ? "0.0" : midi2LinearStringValue(0, 10, filterResFreqHpKnobMidi, 1, ""),
 
             morph: ns3Morph7Bits(
                 synthOffset9dWw >>> 4,
                 filterResFreqHpKnobMidi,
                 (x) => {
-                    return filterTypeIsLpHp ? "none" : converter.midi2LinearStringValue(0, 10, x, 1, "");
+                    return filterTypeIsLpHp ? "none" : midi2LinearStringValue(0, 10, x, 1, "");
                 },
                 filterTypeIsLpHp
             ),
         },
     };
 };
+
+export { ns3Filter };
