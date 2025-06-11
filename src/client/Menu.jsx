@@ -22,10 +22,10 @@ const Menu = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto" activeKey={activeKey} onSelect={handleSelect}>
-                        <Nav.Link eventKey="home" as={Link} to="/home">
+                        <Nav.Link eventKey="home" as={Link} to="home">
                             Home
                         </Nav.Link>
-                        <Nav.Link eventKey="privacy" as={Link} to="/privacy">
+                        <Nav.Link eventKey="privacy" as={Link} to="privacy">
                             Privacy
                         </Nav.Link>
                         {/*{!isElectron && (*/}
@@ -33,7 +33,7 @@ const Menu = () => {
                         {/*    //     Offline*/}
                         {/*    // </Nav.Link>*/}
                         {/*)}*/}
-                        <Nav.Link eventKey="about" as={Link} to="/about">
+                        <Nav.Link eventKey="about" as={Link} to="about">
                             About
                         </Nav.Link>
                     </Nav>
