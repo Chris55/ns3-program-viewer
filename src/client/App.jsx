@@ -24,10 +24,11 @@ const App = () => {
     }, [error]);
 
     const isElectron = /electron/i.test(navigator.userAgent);
+    const root = "/" + process.env.REACT_APP_ROOT;
 
     const details = (
         <Routes>
-            <Route path="/" element={<Menu />}>
+            <Route path={root} element={<Menu />}>
                 <Route path="privacy" element={<Privacy />} />
 
                 <Route path="offline" element={<Offline />} />
