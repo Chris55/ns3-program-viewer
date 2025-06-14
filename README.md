@@ -52,7 +52,7 @@ We contacted Nord Keyboards / Clavia DMI AB support about this project, answer f
 >
 > @Clavia Support.
 
-- Is the mapping accurate?
+- Is the viewer accurate?
 
 This is an online collaboration, feel free to contact us if something is wrong. While we certainly hope this application is useful, none of the authors or contributors place any guarantees as to the accuracy of the data.
 Complete list of tested program configuration is available [here](./test/test-result.md).
