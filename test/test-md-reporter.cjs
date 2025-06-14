@@ -18,7 +18,7 @@ class MyMarkDownReporter {
 
     onRunComplete(contexts, results) {
         const EOL = "  \n";
-        const filename = this._options.filename || "./docs/test-result.md";
+        const filename = this._options.filename || "./test/test-result.md";
         let data = "";
         data += `${EOL}# ${results.numPassedTests}/${results.numTotalTests} tests passed${EOL}`;
 

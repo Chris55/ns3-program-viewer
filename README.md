@@ -14,9 +14,6 @@
 - Show instruments even if not enabled.
 - SMART mode: highlight non-default values
 
-### Online version
-[https://chris55.github.io/ns3-program-viewer/](https://chris55.github.io/ns3-program-viewer/)
-
 This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com/nord-stage-forum-f3/ns3-program-viewer-t19939.html).
 
 ## Disclaimer
@@ -58,4 +55,4 @@ We contacted Nord Keyboards / Clavia DMI AB support about this project, answer f
 - Is the mapping accurate?
 
 This is an online collaboration, feel free to contact us if something is wrong. While we certainly hope this application is useful, none of the authors or contributors place any guarantees as to the accuracy of the data.
-Complete list of tested program configuration is available [here](./docs/test-result.md).
+Complete list of tested program configuration is available [here](./test/test-result.md).

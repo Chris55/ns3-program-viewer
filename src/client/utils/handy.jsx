@@ -5,12 +5,11 @@ export const handy = (ms) =>
         }, ms);
     });
 
+const ua = window.navigator.userAgent;
+const iOS = ua.match(/Macintosh/i) || ua.match(/iPad/i) || ua.match(/iPhone/i);
+const webkit = ua.match(/WebKit/i);
 export const isSafari =
-    navigator.vendor &&
-    navigator.vendor.indexOf("Apple") > -1 &&
-    navigator.userAgent &&
-    navigator.userAgent.indexOf("CriOS") === -1 &&
-    navigator.userAgent.indexOf("FxiOS") === -1;
+    iOS && webkit && !ua.match(/CriOS/i) && !ua.match(/EdgiOS/i) && !ua.match(/Chrome/i) && !ua.match(/Edg/i);
 
 export const openUrl = async (url) => {
     const isElectron = /electron/i.test(navigator.userAgent);

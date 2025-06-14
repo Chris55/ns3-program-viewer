@@ -8,6 +8,9 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import "react-splitter-layout/lib/index.css";
 import { AgGridReact } from "ag-grid-react";
 import { BsSearch } from "react-icons/bs";
+import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
+
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 const NordManager = () => {
     const { programs, synths, lives, performances, managerSelectedIndexes, managerTabSelection } =
@@ -26,7 +29,7 @@ const NordManager = () => {
             setManagerSelection({
                 managerTabSelection,
                 indexes,
-            })
+            }),
         );
     };
 
@@ -43,7 +46,7 @@ const NordManager = () => {
         dispatch(
             setLoadingSuccess({
                 data: selectedData,
-            })
+            }),
         );
     };
 
@@ -80,7 +83,7 @@ const NordManager = () => {
 
     const onFilterTextBoxChanged = (e) => {
         setSearch(e.target.value);
-        gridApi.setQuickFilter(e.target.value);
+        gridApi.setGridOption("quickFilterText", e.target.value);
     };
 
     const onSelectProgramDropdown = (eventKey) => {
@@ -101,7 +104,7 @@ const NordManager = () => {
         dispatch(
             setManagerSelection({
                 managerTabSelection: eventKey,
-            })
+            }),
         );
     };
 
@@ -111,10 +114,10 @@ const NordManager = () => {
     };
 
     const columnDefs = [
-        { headerName: "Loc", field: "location", width: 116, sort: "asc" },
-        { field: "name", width: 180 },
-        { field: "category", width: 120 },
-        { field: "version", width: 80 },
+        { headerName: "Loc", field: "location", width: 90, sort: "asc" },
+        { field: "name", width: 160 },
+        { field: "category", width: 90 },
+        { field: "version", width: 70 },
     ];
 
     const gridClass = "ag-theme-custom-react";
@@ -166,6 +169,8 @@ const NordManager = () => {
                 }}
             >
                 <AgGridReact
+                    theme="legacy"
+                    rowHeight={40}
                     onGridReady={onGridReady}
                     onGridSizeChanged={onGridSizeChanged}
                     onSelectionChanged={onSelectionChanged}
@@ -175,15 +180,26 @@ const NordManager = () => {
                     defaultColDef={{
                         sortable: true,
                         resizable: true,
-                        // comparator: customComparator,
+                        sortingOrder: ["desc", "asc"],
                     }}
                     columnDefs={columnDefs}
-                    sortingOrder={["desc", "asc"]}
-                    rowSelection={"multiple"}
+                    selectionColumnDef={{
+                        sortable: true,
+                        // resizable: true,
+                        // width: 100,
+                        suppressHeaderMenuButton: true,
+                        headerTooltip: "Checkboxes indicate selection",
+                    }}
+                    rowSelection={{
+                        mode: "multiRow",
+                        checkboxes: false,
+                        headerCheckbox: false,
+                        enableClickSelection: true,
+                    }}
                     overlayNoRowsTemplate={
                         '<span style="padding: 10px; border: 1px solid #444; background: lightgoldenrodyellow;">Nothing To Show</span>'
                     }
-                ></AgGridReact>
+                />
             </div>
         </>
     );

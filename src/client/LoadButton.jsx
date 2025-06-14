@@ -18,7 +18,6 @@ const LoadButton = (props) => {
 
     return (
         <FileUploaderButton
-            className={props.className}
             variant={props.variant}
             size={props.size}
             title={loading ? "Loading..." : "Load"}

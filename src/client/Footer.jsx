@@ -1,18 +1,16 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import AppName from "./AppName";
 
 const Footer = () => {
     return (
-        <Row>
-            <Col className="flex-grow-1 text-muted text-right mx-sm-5 mx-sx-2 border-0">
-                <hr className="footer-line" />
-
-                <div style={{ fontSize: "0.9rem" }}>
+        <Card className="border-0">
+            <Card.Body>
+                <Card.Text className="text-end">
                     <AppName /> (c) 2020 - {new Date().getFullYear()} Christian Florentz
-                </div>
-            </Col>
-        </Row>
+                </Card.Text>
+            </Card.Body>
+        </Card>
     );
 };
 

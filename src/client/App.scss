@@ -1,8 +1,21 @@
 @use "ag-grid-community/styles" as ag;
+//@use "bootstrap/scss/bootstrap";
 
 $nord-dark-grey: #3b4047;
+$font-size-root: 0.91rem;
+
 $primary: #c84f54;
 $dark: $nord-dark-grey;
+
+
+@import "bootstrap";
+
+// https://stackoverflow.com/questions/67952873/customizing-bootstrap-5-button-colors-and-properties-in-it
+
+.btn-primary {
+    color: #fff;
+}
+
 
 @include ag.grid-styles(
     (
@@ -16,6 +29,7 @@ $dark: $nord-dark-grey;
         --ag-header-height: 2.5rem,
         --ag-borders: false,
         --ag-borders-critical: true,
+        --ag-font-size: $font-size-root,
         --ag-font-family: (
             -apple-system,
             BlinkMacSystemFont,
@@ -46,14 +60,13 @@ $dark: $nord-dark-grey;
     }
 }
 
-@import "bootstrap/scss/bootstrap";
+
 
 .App {
     text-align: center;
 }
 
 .ns3-program-logo {
-    //margin-right: 5px;
     width: 64px;
     height: 64px;
 }
@@ -105,10 +118,6 @@ $dark: $nord-dark-grey;
     vertical-align: 70%;
 }
 
-.handmade-container {
-    height: calc(100vh - 56px);
-}
-
 .main-area {
     height: 96%;
 }
@@ -120,21 +129,30 @@ hr.footer-line {
     margin: 0;
 }
 
+.handmade-container {
+    //height: calc(100vh - 56px);
+    display: flex;
+}
+
 .handmade {
-    position: absolute;
-    right: 0.2rem;
-    bottom: 0;
-    transform: rotate(-90deg) translate(100%, 0);
-    transform-origin: right bottom;
+    writing-mode: vertical-rl;
+    transform:scale(-1);
+    //position: absolute;
+    //right: 0.2rem;
+    //bottom: 0;
+    //transform: rotate(-90deg) translate(0, 0);
+    //transform-origin: right bottom;
+    align-self: flex-end;
+    text-align: right;
     text-transform: uppercase;
     font-size: x-small;
     white-space: nowrap;
-    overflow: hidden;
     border: solid #dbd9d9;
-    border-width: 0.3rem 0 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background-color: transparent;
+    border-width: 0 0 0 0.3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    //background-color: yellow;
+    //color: #252a2a;
 }
 
 .handmade a:any-link {
@@ -203,6 +221,14 @@ hr.footer-line {
 
 /* Bootstrap 4 text input with search icon */
 
+input::placeholder {
+    color: #6b7077 !important;
+}
+
+::-ms-input-placeholder { /* Edge 12-18 */
+    color: red;
+}
+
 .has-search .form-control {
     padding-left: 2.375rem;
     border: 0;
@@ -225,12 +251,6 @@ hr.footer-line {
     margin-top: 0.5rem;
 }
 
-//.form-control:focus {
-//    border-color: inherit;
-//    -webkit-box-shadow: none;
-//    box-shadow: none;
-//}
-
 .progress {
     height: 0.2rem;
 }
@@ -251,3 +271,8 @@ hr.footer-line {
 .pointer {
     cursor: pointer;
 }
+
+
+
+
+

@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
@@ -17,7 +17,7 @@ import {
     toggleShowDefault,
     toggleShowManager,
 } from "./features/nord/nord-slice-reducer";
-import { Dropdown, Form, ProgressBar } from "react-bootstrap";
+import { Col, Dropdown, Form, ProgressBar, Row, Stack } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
 import { buildExportCsv } from "./export/export-csv";
@@ -27,8 +27,9 @@ import { GrDocumentCsv } from "react-icons/gr";
 import { ExportDialog } from "./export/ExportDialog";
 import { useWindowSize } from "@react-hook/window-size";
 import NordDevice from "./nord/nord-device";
+import NordManager from "./nord/nord-manager.jsx";
 // noinspection JSCheckFunctionSignatures
-const NordManager = React.lazy(() => import("./nord/nord-manager"));
+//const NordManager = React.lazy(() => import("./nord/nord-manager"));
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -108,7 +109,7 @@ const Main = () => {
                         ...performances.map((x) => x.model),
                     ],
                     exportCallback,
-                    managerTitle
+                    managerTitle,
                 );
             } else {
                 await buildExportCsv(data, exportCallback, data.length === 1 ? data[0].filename : "Nord");
@@ -149,12 +150,14 @@ const Main = () => {
                         now={progress}
                     />
 
-                    <div className="bg-light p-1 d-flex justify-content-between">
-                        <div>
-                            <Form inline className="ml-n2">
-                                <LoadButton className="nav-link" variant="light" />
+                    <div className="bg-light">
+                        <Form className="pb-1">
+                            <Stack direction="horizontal" gap={3}>
+                                <div className="align-middle ms-2">
+                                    <LoadButton className="nav-link" variant="light" />
+                                </div>
 
-                                <Dropdown className="mr-2">
+                                <Dropdown className="align-middle">
                                     <Dropdown.Toggle variant="light" id="dropdown-basic">
                                         {exporting ? "Exporting" : "Export"}
                                     </Dropdown.Toggle>
@@ -181,7 +184,7 @@ const Main = () => {
 
                                 {!isVerticalLayout && (
                                     <Form.Check
-                                        className="ml-3"
+                                        className="align-middle"
                                         label="Manager"
                                         name="default"
                                         type="switch"
@@ -192,18 +195,12 @@ const Main = () => {
                                         title="Display the Program Manager"
                                     />
                                 )}
-                            </Form>
-                        </div>
 
-                        <div className="my-auto  px-1" style={{ paddingTop: "0.5rem" }}>
-                            <h5>{managerTitle}</h5>
-                        </div>
+                                <div className="align-bottom w-100 text-center fw-bold">{managerTitle}</div>
 
-                        <div className="mr-md-2 my-auto">
-                            <Form inline>
                                 {isVerticalLayout && (
                                     <Form.Check
-                                        className="mr-1"
+                                        className="align-middle"
                                         label="Manager"
                                         name="default"
                                         type="switch"
@@ -215,30 +212,34 @@ const Main = () => {
                                     />
                                 )}
 
-                                <Form.Check
-                                    className="mr-1 mr-lg-4"
-                                    label="Smart"
-                                    name="default"
-                                    type="switch"
-                                    id="id-default"
-                                    disabled={false}
-                                    checked={showDefault}
-                                    onChange={handleToggleDefault}
-                                    title="Highlight in red all non-init values"
-                                />
+                                <div className=" align-middle ms-auto">
+                                    <Form.Check
+                                        className=""
+                                        label="Smart"
+                                        name="default"
+                                        type="switch"
+                                        id="id-default"
+                                        disabled={false}
+                                        checked={showDefault}
+                                        onChange={handleToggleDefault}
+                                        title="Highlight in red all non-init values"
+                                    />
+                                </div>
 
-                                <Form.Check
-                                    className="mr-1"
-                                    label="All"
-                                    name="show"
-                                    type="switch"
-                                    id="id-show"
-                                    checked={showAll}
-                                    onChange={handleToggleShow}
-                                    title="Show all instruments"
-                                />
-                            </Form>
-                        </div>
+                                <div className="align-middle me-2">
+                                    <Form.Check
+                                        className=""
+                                        label="All"
+                                        name="show"
+                                        type="switch"
+                                        id="id-show"
+                                        checked={showAll}
+                                        onChange={handleToggleShow}
+                                        title="Show all instruments"
+                                    />
+                                </div>
+                            </Stack>
+                        </Form>
                     </div>
 
                     {showManager && (
@@ -249,17 +250,17 @@ const Main = () => {
                             secondaryMinSize={10}
                             vertical={isVerticalLayout}
                         >
-                            <Suspense
-                                fallback={
-                                    <div className="d-flex justify-content-center">
-                                        <div className="spinner-border" role="status">
-                                            <span className="sr-only">Loading...</span>
-                                        </div>
-                                    </div>
-                                }
-                            >
-                                <NordManager />
-                            </Suspense>
+                            {/*<Suspense*/}
+                            {/*    fallback={*/}
+                            {/*        <div className="d-flex justify-content-center">*/}
+                            {/*            <div className="spinner-border" role="status">*/}
+                            {/*                <span className="sr-only">Loading...</span>*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*    }*/}
+                            {/*>*/}
+                            <NordManager />
+                            {/*</Suspense>*/}
 
                             {nordDeviceAndSpace}
                         </SplitterLayout>

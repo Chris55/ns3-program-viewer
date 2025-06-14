@@ -5,14 +5,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { menuSelector, setActiveKey } from "./features/menu/menu-slice-reducer";
 import { Link, Outlet } from "react-router-dom";
-import { nordSelector } from "./features/nord/nord-slice-reducer";
-import { openUrl } from "./utils/handy.jsx";
-import { fileFormatUrl, nufUrl } from "./constants.jsx";
+import Footer from "./Footer.jsx";
+import Disclaimer from "./Disclaimer.jsx";
 
 const Menu = () => {
     const dispatch = useDispatch();
     const { activeKey } = useSelector(menuSelector);
-    const { isElectron } = useSelector(nordSelector);
 
     const handleSelect = (key) => {
         dispatch(setActiveKey(key));
@@ -38,7 +36,7 @@ const Menu = () => {
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-                <Navbar.Collapse className="justify-content-end">
+                <Navbar.Collapse className="justify-content-end me-2">
                     <Navbar.Text>version {process.env.REACT_APP_VERSION}</Navbar.Text>
                 </Navbar.Collapse>
             </Navbar>

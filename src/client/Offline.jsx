@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Container, Media, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import AppName from "./AppName";
 import appleLogo from "./assets/os-logo-apple.png";
 import microsoftLogo from "./assets/os-logo-microsoft.png";
@@ -11,7 +11,7 @@ const Offline = () => {
     return (
         <Container fluid>
             <Row className="handmade-container">
-                <Col xs={1} className="ns3-panel-skin flex-grow-1">
+                <Col xs={1} className="ns3-panel-skin">
                     <Handmade />
                 </Col>
                 <Col>
@@ -29,7 +29,7 @@ const Offline = () => {
                                 </Card.Body>
                             </Card>
 
-                            <Media className="mt-5">
+                            <Card className="mt-5">
                                 <img
                                     width={64}
                                     height={64}
@@ -37,7 +37,7 @@ const Offline = () => {
                                     src={appleLogo}
                                     alt="logo"
                                 />
-                                <Media.Body>
+                                <Card.Body>
                                     <h6 className="mb-2 text-muted">MacOS</h6>
                                     <p>
                                         MacOS Installer x64 (minimum 10.14 - Mojave) is available{" "}
@@ -45,10 +45,10 @@ const Offline = () => {
                                         <br />
                                         (expand Assets and select *.dmg file)
                                     </p>
-                                </Media.Body>
-                            </Media>
+                                </Card.Body>
+                            </Card>
 
-                            <Media className="mt-5">
+                            <Card className="mt-5">
                                 <img
                                     width={64}
                                     height={64}
@@ -56,7 +56,7 @@ const Offline = () => {
                                     src={microsoftLogo}
                                     alt="logo"
                                 />
-                                <Media.Body>
+                                <Card.Body>
                                     <h6 className="mb-2 text-muted">Windows</h6>
                                     <p>
                                         Windows 10 Installer x64 is available{" "}
@@ -64,10 +64,10 @@ const Offline = () => {
                                         <br />
                                         (expand Assets and select *.exe file)
                                     </p>
-                                </Media.Body>
-                            </Media>
+                                </Card.Body>
+                            </Card>
 
-                            <Media className="mt-5">
+                            <Card className="mt-5">
                                 <img
                                     width={54}
                                     height={54}
@@ -75,7 +75,7 @@ const Offline = () => {
                                     src={linuxLogo}
                                     alt="logo"
                                 />
-                                <Media.Body>
+                                <Card.Body>
                                     <h6 className="mb-2 text-muted">Linux Distributions</h6>
                                     <p>
                                         Installer x64 and arm64 are available for Debian/Ubuntu and Fedora/SUSE{" "}
@@ -83,8 +83,8 @@ const Offline = () => {
                                         <br />
                                         (expand Assets and select *.deb or *.rpm file)
                                     </p>
-                                </Media.Body>
-                            </Media>
+                                </Card.Body>
+                            </Card>
                             {/*<div style={{ height: "20vh" }} />*/}
                         </div>
                     </Row>

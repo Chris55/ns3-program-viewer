@@ -16,14 +16,12 @@ import {
     nufUrl,
     rpossemoNuf,
 } from "./constants";
+import Disclaimer from "./Disclaimer.jsx";
 
 const About = () => {
     return (
         <Container fluid>
-            <Row className="handmade-container">
-                <Col xs={1} className="ns3-panel-skin flex-grow-1">
-                    <Handmade />
-                </Col>
+            <Row className="mt-5">
                 <Col>
                     <Row className="main-area">
                         <div className="mx-sm-5 mx-sx-2 mt-3">
@@ -108,21 +106,9 @@ const About = () => {
                                             </a>
                                         </li>
                                     </ul>
-                                    <Card.Title className="mt-5">Disclaimer</Card.Title>
-                                    <Card.Text>
-                                        We are not affiliated, associated, endorsed by, or in any way officially
-                                        connected with{" "}
-                                        <a onClick={() => openUrl(nordUrl)} className="btn-link pointer">
-                                            Nord Keyboards / Clavia DMI AB
-                                        </a>
-                                        , or any of its subsidiaries or its affiliates.
-                                    </Card.Text>
-                                    <Card.Text>
-                                        The names Nord and Clavia as well as related names, marks, emblems and images
-                                        are registered trademarks of their respective owners.
-                                    </Card.Text>
                                 </Card.Body>
                             </Card>
+                            <Disclaimer />
                         </div>
                     </Row>
                     <Footer />

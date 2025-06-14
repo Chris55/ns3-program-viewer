@@ -11,8 +11,7 @@ const root = ReactDOMClient.createRoot(container);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <App />
+            <App className="h-100" />
         </Provider>
-    </React.StrictMode>
+    </React.StrictMode>,
 );
-

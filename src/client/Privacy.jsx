@@ -11,10 +11,7 @@ const Privacy = () => {
 
     return (
         <Container fluid>
-            <Row className="handmade-container">
-                <Col xs={1} className="ns3-panel-skin flex-grow-1">
-                    <Handmade />
-                </Col>
+            <Row className="mt-5">
                 <Col>
                     <Row className="main-area">
                         <div className="mx-sm-5 mx-sx-2 mt-3">

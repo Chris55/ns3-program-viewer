@@ -14,5 +14,13 @@ export default defineConfig(({ command, mode }) => {
             "process.env.REACT_APP_ROOT": JSON.stringify(name),
             "process.env.REACT_APP_VERSION": JSON.stringify(env.REACT_APP_VERSION),
         },
+        css: {
+            preprocessorOptions: {
+                // https://github.com/twbs/bootstrap/issues/40962
+                scss: {
+                    silenceDeprecations: ["mixed-decls", "color-functions", "global-builtin", "import"],
+                },
+            },
+        },
     };
 });

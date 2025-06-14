@@ -30,16 +30,12 @@
 }
 .inner {
     transform: rotate(180deg);
-    /*transition: transform 1s ease-in-out;*/
 }
 
 .ns3-panel-skin {
-    /*background-color: #3b4047;*/
     color: white;
     border-radius: 0;
-
     padding: 0;
-    /*background: linear-gradient(#f6eeee 0%, #af0f27 6%);*/
     background-image: url("red.png");
     background-size: cover;
 }
@@ -47,7 +43,6 @@
 .ns3-section {
     background: whitesmoke;
     margin: 15px 15px 15px 15px;
-    /*padding: 5px;*/
     border-radius: 45px 10px 10px 10px;
     border-color: white;
     border-style: solid;

@@ -20,13 +20,7 @@ const FileUploaderButton = (props) => {
 
     return (
         <>
-            <Button
-                className={props.className}
-                variant={props.variant}
-                size={props.size}
-                disabled={props.disabled}
-                onClick={handleClick}
-            >
+            <Button variant={props.variant} size={props.size} disabled={props.disabled} onClick={handleClick}>
                 {props.title}
             </Button>
             <input

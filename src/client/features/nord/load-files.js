@@ -60,16 +60,14 @@ const loadBackupFile = async (dispatch, file, isElectron, isServerless, producti
             }
             await reader.close();
 
-            const response = {
+            json = {
                 success: true,
                 error: "",
                 data: bundle,
             };
-            onSuccess(dispatch, response);
         } catch (e) {
-            onError(dispatch, { error: e.message });
+            json.error = e.message;
         }
-        return;
     } else {
         // load the backup/bundle on client side to read only supported files
         const reader = new ZipReader(new BlobReader(file));
