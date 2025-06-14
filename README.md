@@ -39,7 +39,7 @@ Nord User Forum [(NUF)](https://www.norduserforum.com/nord-stage-forum-f3/ns3-pr
 - [@gordon](https://www.norduserforum.com/member9895.html),
 - [@Hobster](https://www.norduserforum.com/member15701.html)
 
-Want to collaborate? Read [this](./docs/readme.md).
+Want to collaborate? Read [this](https://github.com/Chris55/nord-documentation).
 
 
 ## FAQ
