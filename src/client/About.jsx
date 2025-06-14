@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import AppName from "./AppName";
-import Handmade from "./Handmade";
 import Footer from "./Footer";
 import { openUrl } from "./utils/handy";
 import {

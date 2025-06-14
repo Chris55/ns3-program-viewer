@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { nordUrl } from "./constants.jsx";
+import { openUrl } from "./utils/handy.jsx";
 
 const Disclaimer = () => {
     return (
