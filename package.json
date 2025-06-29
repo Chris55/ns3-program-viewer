@@ -81,6 +81,9 @@
     "private": true,
     "license": "BSD-3-Clause",
     "name": "ns3-program-viewer",
+    "overrides": {
+        "lodash": ">=4.17.21"
+    },
     "prettier": {},
     "repository": {
         "type": "git",
