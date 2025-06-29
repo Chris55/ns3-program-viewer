@@ -82,7 +82,9 @@
     "license": "BSD-3-Clause",
     "name": "ns3-program-viewer",
     "overrides": {
-        "lodash": ">=4.17.21"
+        "braces": ">=3.0.3",
+        "lodash": ">=4.17.21",
+        "json5": ">=1.0.2"
     },
     "prettier": {},
     "repository": {
