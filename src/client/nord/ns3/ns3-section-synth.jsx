@@ -25,114 +25,112 @@ export default class Ns3SectionSynth extends Component {
         const showSampleNotFoundWarning = showSampleLocationWarning && !synth.oscillators.waveForm1.valid;
 
         return (
-            <React.Fragment>
-                <div className={visible ? this.props.className : "d-none"}>
-                    <div className={dimmed ? "nord-dimmed" : "nord-on"}>
-                        <div>
-                            <div className="no-gutters d-flex flex-row flex-wrap align-items-stretch">
-                                <div className="">
-                                    {ns3y && <div style={{ width: "2rem" }} />}
-                                    {!ns3y && <Ns3VolumeAndMore name={"SYNTH"} data={synth} />}
-                                </div>
-
-                                <div className="row no-gutters flex-column m-1">
-                                    <div>
-                                        <NordLabelAndValue label="Voice" data={synth.voice} />
-                                        <span className="m-1" />
-                                        <NordLabelAndValue
-                                            enabled={synth.voice.value !== "Poly"}
-                                            label="Glide Rate"
-                                            data={synth.glide}
-                                        />
-                                        <span className="m-1" />
-                                        <NordLabelAndValue
-                                            enabled={synth.unison.value !== "Off"}
-                                            label="Unison"
-                                            data={synth.unison}
-                                        />
-                                        <span className="m-1" />
-                                        <NordLabelAndValue
-                                            enabled={synth.vibrato.value !== "Off"}
-                                            label="Vibrato"
-                                            data={synth.vibrato}
-                                        />
-                                        <span className="m-1" />
-
-                                        {!ns3y && <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />}
-                                    </div>
-
-                                    <div className="ns3-lcd-synth">
-                                        <Ns3SectionSynthPreset
-                                            preset={synth.preset}
-                                            ns3y={ns3y}
-                                            oscillators={synth.oscillators}
-                                        />
-
-                                        <Ns3SectionSynthDisplay
-                                            oscType={synth.oscillators.type.value}
-                                            oscWaveForm={synth.oscillators.waveForm1}
-                                            oscConfig={synth.oscillators.config}
-                                            oscPitch={synth.oscillators.pitch}
-                                            oscControl={synth.oscillators.control}
-                                        />
-
-                                        {synth.oscillators.waveForm1.version && (
-                                            <div
-                                                className="nord-font-small"
-                                                style={{
-                                                    margin: "0 5px 5px 5px",
-                                                    padding: "0",
-                                                    lineHeight: "80%",
-                                                }}
-                                            >
-                                                {synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    <div className="row no-gutters d-flex flex-wrap">
-                                        <Ns3SectionSynthOscillators
-                                            className="nord-synth-sub-feature"
-                                            data={synth.oscillators}
-                                        />
-                                        <span className="m-1" />
-                                        <Ns3SectionSynthFilter className="nord-synth-sub-feature" data={synth.filter} />
-                                    </div>
-
-                                    <div className="row no-gutters d-flex flex-wrap">
-                                        <Ns3SectionSynthLfo className="nord-synth-sub-feature" data={synth.lfo} />
-                                        <span className="m-1" />
-                                        <Ns3SectionSynthModEnv
-                                            className="nord-synth-sub-feature"
-                                            data={synth.envelopes.modulation}
-                                        />
-                                        <span className="m-1" />
-                                        <Ns3SectionSynthAmpEnv
-                                            className="nord-synth-sub-feature"
-                                            data={synth.envelopes.amplifier}
-                                        />
-                                    </div>
-                                </div>
-
-                                {!ns3y && (
-                                    <div className="">
-                                        <Ns3Fx
-                                            className=""
-                                            data={this.props.effects}
-                                            source="Synth"
-                                            arp={synth.arpeggiator}
-                                        />
-                                    </div>
-                                )}
+            <div className={visible ? this.props.className : "d-none"}>
+                <div className={dimmed ? "nord-dimmed" : "nord-on"}>
+                    <div>
+                        <div className="no-gutters d-flex flex-row flex-wrap align-items-stretch">
+                            <div className="">
+                                {ns3y && <div style={{ width: "2rem" }} />}
+                                {!ns3y && <Ns3VolumeAndMore name={"SYNTH"} data={synth} />}
                             </div>
-                            <NordSampleWarning
-                                showSampleLocationWarning={showSampleLocationWarning}
-                                showSampleNotFoundWarning={showSampleNotFoundWarning}
-                            />
+
+                            <div className="row no-gutters flex-column m-1">
+                                <div>
+                                    <NordLabelAndValue label="Voice" data={synth.voice} />
+                                    <span className="m-1" />
+                                    <NordLabelAndValue
+                                        enabled={synth.voice.value !== "Poly"}
+                                        label="Glide Rate"
+                                        data={synth.glide}
+                                    />
+                                    <span className="m-1" />
+                                    <NordLabelAndValue
+                                        enabled={synth.unison.value !== "Off"}
+                                        label="Unison"
+                                        data={synth.unison}
+                                    />
+                                    <span className="m-1" />
+                                    <NordLabelAndValue
+                                        enabled={synth.vibrato.value !== "Off"}
+                                        label="Vibrato"
+                                        data={synth.vibrato}
+                                    />
+                                    <span className="m-1" />
+
+                                    {!ns3y && <NordValueOnOff label="Kb Hold" data={synth.keyboardHold} />}
+                                </div>
+
+                                <div className="ns3-lcd-synth">
+                                    <Ns3SectionSynthPreset
+                                        preset={synth.preset}
+                                        ns3y={ns3y}
+                                        oscillators={synth.oscillators}
+                                    />
+
+                                    <Ns3SectionSynthDisplay
+                                        oscType={synth.oscillators.type.value}
+                                        oscWaveForm={synth.oscillators.waveForm1}
+                                        oscConfig={synth.oscillators.config}
+                                        oscPitch={synth.oscillators.pitch}
+                                        oscControl={synth.oscillators.control}
+                                    />
+
+                                    {synth.oscillators.waveForm1.version && (
+                                        <div
+                                            className="nord-font-small"
+                                            style={{
+                                                margin: "0 5px 5px 5px",
+                                                padding: "0",
+                                                lineHeight: "80%",
+                                            }}
+                                        >
+                                            {synth.oscillators.waveForm1.info} {synth.oscillators.waveForm1.version}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="row no-gutters d-flex flex-wrap">
+                                    <Ns3SectionSynthOscillators
+                                        className="nord-synth-sub-feature"
+                                        data={synth.oscillators}
+                                    />
+                                    <span className="m-1" />
+                                    <Ns3SectionSynthFilter className="nord-synth-sub-feature" data={synth.filter} />
+                                </div>
+
+                                <div className="row no-gutters d-flex flex-wrap">
+                                    <Ns3SectionSynthLfo className="nord-synth-sub-feature" data={synth.lfo} />
+                                    <span className="m-1" />
+                                    <Ns3SectionSynthModEnv
+                                        className="nord-synth-sub-feature"
+                                        data={synth.envelopes.modulation}
+                                    />
+                                    <span className="m-1" />
+                                    <Ns3SectionSynthAmpEnv
+                                        className="nord-synth-sub-feature"
+                                        data={synth.envelopes.amplifier}
+                                    />
+                                </div>
+                            </div>
+
+                            {!ns3y && (
+                                <div className="">
+                                    <Ns3Fx
+                                        className=""
+                                        data={this.props.effects}
+                                        source="Synth"
+                                        arp={synth.arpeggiator}
+                                    />
+                                </div>
+                            )}
                         </div>
+                        <NordSampleWarning
+                            showSampleLocationWarning={showSampleLocationWarning}
+                            showSampleNotFoundWarning={showSampleNotFoundWarning}
+                        />
                     </div>
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }
