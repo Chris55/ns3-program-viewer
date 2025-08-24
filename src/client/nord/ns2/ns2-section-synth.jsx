@@ -28,13 +28,13 @@ export default class Ns2SectionSynth extends Component {
             <div className={visible ? this.props.className : "d-none"}>
                 <div className={dimmed ? "nord-dimmed" : "nord-on"}>
                     <div className="">
-                        <div className="no-gutters d-flex flex-row flex-wrap align-items-stretch">
+                        <div className="g-0 d-flex flex-row flex-wrap align-items-start">
                             <div className="">
                                 {ns2s && <div style={{ width: "2rem" }} />}
                                 {!ns2s && <Ns2VolumeAndMore name={"SYNTH"} data={synth} />}
                             </div>
 
-                            <div className="row no-gutters flex-column m-1">
+                            <div className="col g-0  m-1">
                                 <div>
                                     <NordLabelAndValue label="Voice" data={synth.voice} />
                                     <span className="m-1" />
@@ -79,33 +79,40 @@ export default class Ns2SectionSynth extends Component {
                                     </div>
                                 </div>
 
-                                <div className="row no-gutters d-flex flex-wrap">
-                                    <Ns2SectionSynthOscillators
-                                        className="nord-synth-sub-feature"
-                                        data={synth.oscillators}
-                                    />
-                                    <span className="m-1" />
-                                    <Ns2SectionSynthFilter className="nord-synth-sub-feature" data={synth.filter} />
+                                <div className="g-0 d-flex flex-row flex-wrap align-items-start">
+                                    <div className="col">
+                                        <Ns2SectionSynthOscillators
+                                            className="nord-synth-sub-feature"
+                                            data={synth.oscillators}
+                                        />
+                                    </div>
+                                    <div className="col">
+                                        <Ns2SectionSynthFilter className="nord-synth-sub-feature" data={synth.filter} />
+                                    </div>
                                 </div>
 
-                                <div className="row no-gutters d-flex flex-wrap">
-                                    <Ns2SectionSynthLfo className="nord-synth-sub-feature" data={synth.lfo} />
-                                    <span className="m-1" />
-                                    <Ns2SectionSynthModEnv
-                                        className="nord-synth-sub-feature"
-                                        data={synth.envelopes.modulation}
-                                    />
-                                    <span className="m-1" />
-                                    <Ns2SectionSynthAmpEnv
-                                        className="nord-synth-sub-feature"
-                                        data={synth.envelopes.amplifier}
-                                    />
+                                <div className="g-0 d-flex flex-row flex-wrap align-items-start">
+                                    <div className="col">
+                                        <Ns2SectionSynthLfo className="nord-synth-sub-feature" data={synth.lfo} />
+                                    </div>
+                                    <div className="col">
+                                        <Ns2SectionSynthModEnv
+                                            className="nord-synth-sub-feature"
+                                            data={synth.envelopes.modulation}
+                                        />
+                                    </div>
+                                    <div className="col">
+                                        <Ns2SectionSynthAmpEnv
+                                            className="nord-synth-sub-feature"
+                                            data={synth.envelopes.amplifier}
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
                             {!ns2s && (
                                 <Ns2Fx
-                                    className=""
+                                    className="col"
                                     data={this.props.effects}
                                     source="Synth"
                                     arp={synth.arpeggiator}

@@ -5,17 +5,13 @@
 
 .ns3-header {
     background: #3b4047;
-
     color: white;
-    /*margin: 0;*/
     padding: 10px;
     height: 5.5rem !important;
 }
 
 .ns3-panel {
-    /*background: lightgrey;*/
     background: linear-gradient(whitesmoke 0%, lightgrey 6%);
-    /*margin: 2px;*/
 }
 
 .ns3-header-name {
@@ -52,7 +48,6 @@
 .ns3-section-right {
     background: whitesmoke;
     margin: 15px 5px 15px 0;
-    /*padding: 5px;*/
     border-radius: 10px 10px 10px 10px;
     border-color: white;
     border-style: solid;
@@ -60,22 +55,18 @@
 }
 
 .ns3-section-fx {
-    /*border-radius: 10px;*/
     border-style: solid;
     border-color: #eeeded;
     border-width: 0 0 0 1px;
-    /*max-width: 150px!important;*/
     background-color: #f3f3f1;
     margin: 5px 0 5px 10px;
     padding: 5px;
 }
 
 .ns3-section-main-fx {
-    /*border-radius: 10px;*/
     border-style: solid;
     border-color: #eeeded;
     border-width: 0 0 0 1px;
-    /*max-width: 150px!important;*/
     background-color: #f3f3f1;
     margin: 5px 5px 15px 5px;
     padding: 5px;
@@ -85,7 +76,6 @@
     border-style: solid;
     border-color: #eeeded;
     border-width: 0 0 0 1px;
-    /*max-width: 150px!important;*/
     background-color: #f3f3f1;
     margin: 5px 5px 5px 0;
     padding: 5px;
@@ -109,7 +99,6 @@
 }
 
 .nord-default-value {
-    /*color: #c23746;*/
 }
 
 .nord-non-default-value {
@@ -140,8 +129,6 @@
 }
 
 .nord-name {
-    /*font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;*/
-    /*font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;*/
     font-size: 1rem;
     font-stretch: normal;
     font-weight: bold;
@@ -149,15 +136,10 @@
     padding: 10px;
     background-color: #3b4047;
     color: white;
-    /*min-width: 340px;*/
-    /*max-width: 400px;*/
-    /*width: 290px;*/
     width: 240px;
 }
 
 .ns3-lcd-synth {
-    /*font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;;*/
-    /*font-family: 'Lucida Grande', 'Lucida Sans Unicode', arial, sans-serif;*/
     font-size: 1rem;
     font-stretch: normal;
     font-weight: bold;
@@ -165,8 +147,6 @@
     padding: 5px;
     background-color: #3b4047;
     color: white;
-    /*min-width: 340px;*/
-    /*max-width: 400px;*/
     width: 250px;
 }
 
@@ -176,9 +156,7 @@
 }
 
 .nord-morph {
-    /*background-color: #cf1212;*/
-    background-color: #c23746; /*red*/
-    /*background-color: #a9d40f; !*green*!*/
+    background-color: #c23746;
     color: white;
     border-width: 0;
     border-style: none;
@@ -190,9 +168,7 @@
 }
 
 .nord-comment {
-    /*background-color: #cf1212;*/
-    background-color: #c23746; /*red*/
-    /*background-color: #a9d40f; !*green*!*/
+    background-color: #c23746;
     color: white;
     border-width: 0;
     border-style: none;
@@ -208,18 +184,15 @@
 }
 
 .nord-label {
-    /*color: blue;*/
     font-size: 0.75rem;
     text-transform: uppercase;
 }
 
 .nord-value {
-    /*color: red;*/
     font-size: 0.75rem;
 }
 
 .nord-value:hover {
-    /*color: red;*/
     background-color: #eceaea !important;
     cursor: pointer;
 }
@@ -262,10 +235,8 @@
 
 @media (min-width: 768px) {
     .col-sm-0-half {
-        /*float: left;*/
     }
     .col-sm-0-half {
-        /*width: 12.5%;*/
     }
 }
 
@@ -286,8 +257,6 @@ td > * {
 /* Tooltip container */
 .nord-tooltip {
     position: relative;
-    /*display: inline-block;*/
-    /*border-bottom: 1px dotted black; */
 }
 
 /* Tooltip text */

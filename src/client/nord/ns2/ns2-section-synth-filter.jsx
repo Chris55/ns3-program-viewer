@@ -10,70 +10,68 @@ export default class Ns2SectionSynthFilter extends Component {
         const filter = this.props.data;
 
         return (
-            <React.Fragment>
-                <div className={this.props.className}>
-                    <div className="">
-                        <div className="nord-option-title">FILTER</div>
+            <div className={this.props.className}>
+                <div className="">
+                    <div className="nord-option-title">FILTER</div>
 
-                        <table className="table-borderless">
-                            <tbody>
-                                <tr>
-                                    <td className="align-text-top">
-                                        <table className="table-borderless">
-                                            <tbody>
-                                                <tr>
-                                                    <NordLabelAndValue label="Type" data={filter.type} table={true} />
-                                                </tr>
+                    <table className="table-borderless">
+                        <colgroup>
+                            <col />
+                            <col style={{ width: "5%" }} />
+                            <col />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td className="align-text-top">
+                                    <table className="table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <NordLabelAndValue label="Type" data={filter.type} table={true} />
+                                            </tr>
 
-                                                <NordLabelAndValueWithMorph
-                                                    label="Freq"
-                                                    data={filter.frequency}
-                                                    upperCase={false}
+                                            <NordLabelAndValueWithMorph
+                                                label="Freq"
+                                                data={filter.frequency}
+                                                upperCase={false}
+                                            />
+
+                                            <tr>
+                                                <NordLabelAndValue label="Res" data={filter.resonance} table={true} />
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td />
+                                <td className="align-text-top">
+                                    <table className="table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <NordValueOnOff label="Kb Trk" data={filter.kbTrack} table={true} />
+                                            </tr>
+
+                                            <tr>
+                                                <NordLabelAndValue
+                                                    label="LFO AMT"
+                                                    data={filter.modulation1}
+                                                    table={true}
                                                 />
+                                            </tr>
 
-                                                <tr>
-                                                    <NordLabelAndValue
-                                                        label="Res"
-                                                        data={filter.resonance}
-                                                        table={true}
-                                                    />
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                    <td />
-                                    <td />
-                                    <td className="align-text-top">
-                                        <table className="table-borderless">
-                                            <tbody>
-                                                <tr>
-                                                    <NordValueOnOff label="Kb Trk" data={filter.kbTrack} table={true} />
-                                                </tr>
-
-                                                <tr>
-                                                    <NordLabelAndValue
-                                                        label="LFO AMT"
-                                                        data={filter.modulation1}
-                                                        table={true}
-                                                    />
-                                                </tr>
-
-                                                <tr>
-                                                    <NordLabelAndValue
-                                                        label={filter.modulation2.label}
-                                                        data={filter.modulation2}
-                                                        table={true}
-                                                    />
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                            <tr>
+                                                <NordLabelAndValue
+                                                    label={filter.modulation2.label}
+                                                    data={filter.modulation2}
+                                                    table={true}
+                                                />
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }
