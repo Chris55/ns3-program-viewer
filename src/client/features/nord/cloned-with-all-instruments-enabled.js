@@ -1,4 +1,4 @@
-import produce from "immer";
+import { produce } from "immer";
 
 export const clonedWithAllInstrumentsEnabled = (originalData) => {
     const newData = [];
@@ -6,6 +6,7 @@ export const clonedWithAllInstrumentsEnabled = (originalData) => {
         const nextState = produce(baseState, (draftState) => {
             if (draftState.type === "Program" || draftState.type === "Live") {
                 draftState.name += " - (All Instruments Visible)";
+
                 const panelA = draftState.panelA || draftState.slotA;
                 const panelB = draftState.panelB || draftState.slotB;
 
