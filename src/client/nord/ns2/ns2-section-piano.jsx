@@ -13,8 +13,7 @@ export default class Ns2SectionPiano extends Component {
         const dimmed = piano.dimmed === true;
 
         return (
-            <React.Fragment>
-                <div className={visible ? this.props.className : "d-none"}>
+            <div className={visible ? this.props.className : "d-none"}>
                     <div className={dimmed ? "nord-dimmed" : "nord-on"}>
                         <div className="">
                             <div className="no-gutters d-flex flex-row flex-wrap align-items-stretch">
@@ -85,7 +84,6 @@ export default class Ns2SectionPiano extends Component {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
         );
     }
 }

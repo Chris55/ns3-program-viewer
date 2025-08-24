@@ -23,156 +23,110 @@ export default class Ns2SectionExtern extends Component {
         };
 
         return (
-            <React.Fragment>
-                <div className={visible ? this.props.className : "d-none"}>
-                    <div className={dimmed ? "nord-dimmed" : "nord-on"}>
-                        <div className="">
-                            <div className="row no-gutters">
-                                <div className="d-flex">
-                                    <Ns2VolumeAndMore name="EXTERN" data={extern} />
-                                </div>
-
-                                <div className="row no-gutters d-flex flex-wrap">
-                                    <div className="row no-gutters flex-column m-1">
-                                        <table className="table-borderless">
-                                            <tbody>
-                                                {/*<tr>*/}
-                                                {/*    <NordLabelAndValue*/}
-                                                {/*        label="Control"*/}
-                                                {/*        data={extern.control}*/}
-                                                {/*        table={true}*/}
-                                                {/*    />*/}
-                                                {/*</tr>*/}
-
-                                                <tr>
-                                                    <NordLabelAndValue label="Channel" data={channel} table={true} />
-                                                </tr>
-
-                                                <tr>
-                                                    <NordLabelAndValue
-                                                        label="Velocity"
-                                                        data={extern.velocity}
-                                                        table={true}
-                                                    />
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div className="row no-gutters flex-column ml-5 mt-1">
-                                        <table className="table-borderless">
-                                            <tbody>
-                                                <NordLabelAndValueWithMorph
-                                                    enabled={extern.volume.enabled}
-                                                    label="Volume"
-                                                    data={extern.volume}
-                                                />
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div className="row no-gutters flex-column ml-5 mt-1">
-                                        <table className="table-borderless">
-                                            <tbody>
-                                                <tr className={extern.program.enabled ? "" : "nord-off"}>
-                                                    <NordLabelAndValue
-                                                        label="Program Change (1-128)"
-                                                        data={extern.program}
-                                                        table={true}
-                                                    />
-                                                </tr>
-
-                                                <tr>
-                                                    <NordLabel
-                                                        enabled={extern.cc00.enabled || extern.cc32.enabled}
-                                                        label="Bank Select (0-127)"
-                                                        table={true}
-                                                    />
-                                                </tr>
-
-                                                <tr className={extern.cc00.enabled ? "" : "nord-off"}>
-                                                    <NordLabelAndValue
-                                                        label="MSB (CC 0)"
-                                                        data={extern.cc00}
-                                                        table={true}
-                                                    />
-                                                </tr>
-
-                                                <tr className={extern.cc32.enabled ? "" : "nord-off"}>
-                                                    <NordLabelAndValue
-                                                        label="LSB (CC 32)"
-                                                        data={extern.cc32}
-                                                        table={true}
-                                                    />
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div className="row no-gutters flex-column ml-5 mt-1">
-                                        <table className="table-borderless">
-                                            <tbody>
-                                                <tr>
-                                                    <NordLabelAndValue
-                                                        enabled={extern.midiCc.enabled}
-                                                        label="Midi CC"
-                                                        data={cc}
-                                                        table={true}
-                                                    />
-                                                </tr>
-
-                                                <NordLabelAndValueWithMorph
-                                                    enabled={extern.midiCc.enabled}
-                                                    label="Value"
-                                                    data={extern.midiCc}
-                                                />
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div className="row no-gutters flex-column ml-5 mt-1">
-                                        <table className="table-borderless">
-                                            <tbody>
-                                                <tr>
-                                                    <NordValueOnOff
-                                                        label="A.Touch"
-                                                        data={extern.afterTouch}
-                                                        table={true}
-                                                    />
-                                                </tr>
-
-                                                <tr>
-                                                    <NordValueOnOff
-                                                        label="Wheel (CC 1)"
-                                                        data={extern.wheel}
-                                                        table={true}
-                                                    />
-                                                </tr>
-
-                                                <tr>
-                                                    <NordValueOnOff
-                                                        label="CtrlPed (CC 11)"
-                                                        data={extern.controlPedal}
-                                                        table={true}
-                                                    />
-                                                </tr>
-
-                                                <tr>
-                                                    <NordValueOnOff
-                                                        label="Swell (CC 4)"
-                                                        data={extern.swell}
-                                                        table={true}
-                                                    />
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+            <div className={visible ? this.props.className : "d-none"}>
+                <div className={dimmed ? "nord-dimmed" : "nord-on"}>
+                    <div className="">
+                        <div className="g-0 d-flex flex-row flex-wrap align-items-start">
+                            <div className="">
+                                <Ns2VolumeAndMore name="EXTERN" data={extern} />
                             </div>
+
+                            <table className="table-borderless col">
+                                <tbody>
+                                    <tr>
+                                        <NordLabelAndValue label="Channel" data={channel} table={true} />
+                                    </tr>
+
+                                    <tr>
+                                        <NordLabelAndValue label="Velocity" data={extern.velocity} table={true} />
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className="table-borderless col">
+                                <tbody>
+                                    <NordLabelAndValueWithMorph
+                                        enabled={extern.volume.enabled}
+                                        label="Volume"
+                                        data={extern.volume}
+                                    />
+                                </tbody>
+                            </table>
+
+                            <table className="table-borderless col">
+                                <tbody>
+                                    <tr className={extern.program.enabled ? "" : "nord-off"}>
+                                        <NordLabelAndValue
+                                            label="Program Change (1-128)"
+                                            data={extern.program}
+                                            table={true}
+                                        />
+                                    </tr>
+
+                                    <tr>
+                                        <NordLabel
+                                            enabled={extern.cc00.enabled || extern.cc32.enabled}
+                                            label="Bank Select (0-127)"
+                                            table={true}
+                                        />
+                                    </tr>
+
+                                    <tr className={extern.cc00.enabled ? "" : "nord-off"}>
+                                        <NordLabelAndValue label="MSB (CC 0)" data={extern.cc00} table={true} />
+                                    </tr>
+
+                                    <tr className={extern.cc32.enabled ? "" : "nord-off"}>
+                                        <NordLabelAndValue label="LSB (CC 32)" data={extern.cc32} table={true} />
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className="table-borderless col">
+                                <tbody>
+                                    <tr>
+                                        <NordLabelAndValue
+                                            enabled={extern.midiCc.enabled}
+                                            label="Midi CC"
+                                            data={cc}
+                                            table={true}
+                                        />
+                                    </tr>
+
+                                    <NordLabelAndValueWithMorph
+                                        enabled={extern.midiCc.enabled}
+                                        label="Value"
+                                        data={extern.midiCc}
+                                    />
+                                </tbody>
+                            </table>
+
+                            <table className="table-borderless col">
+                                <tbody>
+                                    <tr>
+                                        <NordValueOnOff label="A.Touch" data={extern.afterTouch} table={true} />
+                                    </tr>
+
+                                    <tr>
+                                        <NordValueOnOff label="Wheel (CC 1)" data={extern.wheel} table={true} />
+                                    </tr>
+
+                                    <tr>
+                                        <NordValueOnOff
+                                            label="CtrlPed (CC 11)"
+                                            data={extern.controlPedal}
+                                            table={true}
+                                        />
+                                    </tr>
+
+                                    <tr>
+                                        <NordValueOnOff label="Swell (CC 4)" data={extern.swell} table={true} />
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }
