@@ -4,9 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { menuSelector, setActiveKey } from "./features/menu/menu-slice-reducer";
-import { Link, Outlet } from "react-router-dom";
-import Footer from "./Footer.jsx";
-import Disclaimer from "./Disclaimer.jsx";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { fileFormatUrl } from "./constants.jsx";
 
 const Menu = () => {
     const dispatch = useDispatch();
@@ -28,7 +27,7 @@ const Menu = () => {
                         <Nav.Link eventKey="privacy" as={Link} to="privacy">
                             Privacy
                         </Nav.Link>
-                        <Nav.Link eventKey="doc" as={Link} to="doc">
+                        <Nav.Link eventKey="doc" href={fileFormatUrl} target="_blank">
                             Documentation
                         </Nav.Link>
                         <Nav.Link eventKey="about" as={Link} to="about">

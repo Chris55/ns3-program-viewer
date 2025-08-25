@@ -89,15 +89,15 @@ export default class Ns3SectionSynth extends Component {
                                     )}
                                 </div>
 
-                                <div className="g-0 d-flex flex-row flex-wrap align-items-start row-cols-sm-2">
-                                    <div className="col">
+                                <div className="g-0 d-flex flex-row flex-wrap align-items-start">
+                                    <div className="col-4">
                                         <Ns3SectionSynthOscillators
                                             className="nord-synth-sub-feature"
                                             data={synth.oscillators}
                                         />
                                     </div>
 
-                                    <div className="col">
+                                    <div className="col-8">
                                         <Ns3SectionSynthFilter className="nord-synth-sub-feature" data={synth.filter} />
                                     </div>
                                 </div>

@@ -80,13 +80,13 @@ export default class Ns2SectionSynth extends Component {
                                 </div>
 
                                 <div className="g-0 d-flex flex-row flex-wrap align-items-start">
-                                    <div className="col">
+                                    <div className="col-4">
                                         <Ns2SectionSynthOscillators
                                             className="nord-synth-sub-feature"
                                             data={synth.oscillators}
                                         />
                                     </div>
-                                    <div className="col">
+                                    <div className="col-8">
                                         <Ns2SectionSynthFilter className="nord-synth-sub-feature" data={synth.filter} />
                                     </div>
                                 </div>
