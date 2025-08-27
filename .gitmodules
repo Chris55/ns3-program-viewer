@@ -1,0 +1,3 @@
+[submodule "nord-documentation"]
+	path = nord-documentation
+	url = git@github.com:Chris55/nord-documentation.git
