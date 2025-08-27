@@ -78,7 +78,7 @@
         "File"
     ],
     "private": true,
-    "license": "BSD-3-Clause",
+    "license": "GPL-3.0-or-later",
     "name": "ns3-program-viewer",
     "overrides": {
         "braces": ">=3.0.3",
