@@ -5,7 +5,7 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer?ref=badge_shield)
 ![](https://img.shields.io/badge/Coverage-91%25-83A603.svg?prefix=$coverage$)
 
-- Load and review your favorite [Nord](https://www.nordkeyboards.com) Stage 2/2EX/3 Program without any download to the instrument, no [Nord Sound Manager](https://www.nordkeyboards.com/software-tools/nord-sound-manager) is required.
+- Load and review your favorite [Nord](https://www.nordkeyboards.com) Stage 2/2EX/3 Programs without any download to the instrument, no [Nord Sound Manager](https://www.nordkeyboards.com/software-tools/nord-sound-manager) is required.
 - Load full backup/bundle to review any program.
 - All morph values are immediately visible.
 - Export program settings as PDF or CSV file.
