@@ -1,4 +1,4 @@
-# The unofficial Nord Stage 2/2EX/3 Program Viewer.
+# The unofficial Nord Stage 2/2EX/3 Program Viewer
 
 
 ![Build](https://github.com/Chris55/ns3-program-viewer/workflows/Deploy%20static%20content%20to%20Pages/badge.svg)
