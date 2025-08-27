@@ -5,14 +5,15 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FChris55%2Fns3-program-viewer?ref=badge_shield)
 ![](https://img.shields.io/badge/Coverage-91%25-83A603.svg?prefix=$coverage$)
 
-- Read and review your favorite [Nord](https://www.nordkeyboards.com) Stage 2/2EX/3 Program settings without any download in the keyboard, no [Nord Sound Manager](https://www.nordkeyboards.com/software-tools/nord-sound-manager) is required.
+- Load and review your favorite [Nord](https://www.nordkeyboards.com) Stage 2/2EX/3 Program without any download to the instrument, no [Nord Sound Manager](https://www.nordkeyboards.com/software-tools/nord-sound-manager) is required.
+- Load full backup/bundle to review any program.
 - All morph values are immediately visible.
-- Export the patch sheet as PDF or CSV file.
+- Export program settings as PDF or CSV file.
 - Supported file format:
-  programs/synth: ns3f, ns3y, ns2p, ns2s,
-  backup/bundle: ns3b, ns3fb, ns3synthpb, ns3sbundle, ns2pb, ns2exb, ns2b, ns2synthpb
-- Show instruments even if not enabled.
-- SMART mode: highlight non-default values
+    - programs/synth: ns3f, ns3y, ns2p, ns2s,
+    - backup/bundle: ns3b, ns3fb, ns3synthpb, ns3sbundle, ns2pb, ns2exb, ns2b, ns2synthpb
+- Show instruments even if not enabled in a program.
+- SMART mode: highlight all non-default values
 
 This project is a collaboration from Nord User Forum NUF members, [NUF](https://www.norduserforum.com/nord-stage-forum-f3/ns3-program-viewer-t19939.html).
 
