@@ -15,7 +15,7 @@
     "dependencies": {
         "@react-hook/window-size": "^3.1.1",
         "@reduxjs/toolkit": "^2.9.0",
-        "@zip.js/zip.js": "^2.7.72",
+        "@zip.js/zip.js": "^2.7.73",
         "ag-grid-community": "^34.1.2",
         "ag-grid-react": "^34.1.2",
         "bootstrap": "^5.3.8",
