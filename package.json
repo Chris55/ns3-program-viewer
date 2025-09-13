@@ -49,7 +49,7 @@
         "eslint-plugin-prettier": "^5.5.4",
         "jest": "^30.1.3",
         "prettier": "^3.5.3",
-        "sass": "^1.92.0",
+        "sass": "^1.92.1",
         "vite": "^7.1.5",
         "xml-js": "^1.6.11"
     },
