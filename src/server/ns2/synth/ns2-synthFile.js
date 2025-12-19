@@ -1,6 +1,6 @@
-import { ns2Synth } from "../program/ns2-synth";
-import { checkHeader, getExtension, getName } from "../../common/nord-file";
-import { nordFileExtMap, programCategoryMap } from "../../common/nord-mapping";
+import { ns2Synth } from "../program/ns2-synth.js";
+import { checkHeader, getExtension, getName } from "../../common/nord-file.js";
+import { nordFileExtMap, programCategoryMap } from "../../common/nord-mapping.js";
 
 /***
  * returns Nord Stage 2 Synth file

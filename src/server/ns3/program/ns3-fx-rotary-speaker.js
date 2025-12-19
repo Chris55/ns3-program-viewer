@@ -1,6 +1,6 @@
-import { ns3BooleanValue } from "./ns3-utils";
-import { ns3EffectSourceMap, ns3RotarySpeakerSpeedMap } from "./ns3-mapping";
-import { midi2LinearStringValue } from "../../common/converter";
+import { ns3BooleanValue } from "./ns3-utils.js";
+import { ns3EffectSourceMap, ns3RotarySpeakerSpeedMap } from "./ns3-mapping.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * returns Rotary Speaker Effect section

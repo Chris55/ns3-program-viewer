@@ -1,5 +1,5 @@
-import { getVersion } from "./nord-file";
-const path = require("path");
+import { getVersion } from "./nord-file.js";
+import path from "path";
 
 const sampleCategoryMap = new Map([
     [

@@ -99,5 +99,5 @@
         "test": "node test/test-builder && node --experimental-vm-modules ./node_modules/.bin/jest --coverage && coverage-badge-creator"
     },
     "type": "module",
-    "version": "1.7.0"
+    "version": "1.8.0"
 }

@@ -1,6 +1,6 @@
-import { ns2Morph7Bits } from "./ns2-morph";
-import { ns2SynthFilterFrequencyMap, ns2SynthFilterFrequencyMod2Map, ns2SynthFilterTypeMap } from "./ns2-mapping";
-import { midi2LinearStringValue } from "../../common/converter";
+import { ns2Morph7Bits } from "./ns2-morph.js";
+import { ns2SynthFilterFrequencyMap, ns2SynthFilterFrequencyMod2Map, ns2SynthFilterTypeMap } from "./ns2-mapping.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  *
@@ -86,7 +86,7 @@ const ns2Filter = (buffer, slotOffset) => {
                 (x) => {
                     return ns2SynthFilterFrequencyMap.get(x);
                 },
-                false
+                false,
             ),
         },
 
@@ -144,8 +144,8 @@ const ns2Filter = (buffer, slotOffset) => {
                 filterModulation2Midi === 63 || filterModulation2Midi === 64
                     ? "VEL/Env AMT"
                     : filterModulation2Midi < 64
-                    ? "VEL AMT"
-                    : "Mod Env AMT",
+                      ? "VEL AMT"
+                      : "Mod Env AMT",
         },
     };
 };

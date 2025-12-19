@@ -1,5 +1,5 @@
-import { ns2Morph7Bits } from "./ns2-morph";
-import { getMorphModel, midi2LinearStringValue } from "../../common/converter";
+import { ns2Morph7Bits } from "./ns2-morph.js";
+import { getMorphModel, midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * returns Oscillator Shape settings
@@ -44,7 +44,7 @@ const ns2OscShape = (buffer, slotOffset, shapeMode) => {
                   (x) => {
                       return x - 12;
                   },
-                  false
+                  false,
               )
             : ns2Morph7Bits(
                   synthOffsetE3Ww >>> 5,
@@ -52,7 +52,7 @@ const ns2OscShape = (buffer, slotOffset, shapeMode) => {
                   (x) => {
                       return midi2LinearStringValue(0, 10, x, 1, "");
                   },
-                  false
+                  false,
               ),
     };
 };

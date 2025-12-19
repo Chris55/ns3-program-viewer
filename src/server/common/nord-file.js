@@ -1,4 +1,4 @@
-import { zeroPad } from "./converter";
+import { zeroPad } from "./converter.js";
 
 /**
  *

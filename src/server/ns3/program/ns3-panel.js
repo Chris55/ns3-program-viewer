@@ -1,15 +1,15 @@
-import { ns3Organ } from "./ns3-organ";
-import { ns3Piano } from "./ns3-piano";
-import { ns3Synth } from "./ns3-synth";
-import { ns3Extern } from "./ns3-extern";
-import { ns3Reverb } from "./ns3-fx-reverb";
-import { ns3RotarySpeakerEffect } from "./ns3-fx-rotary-speaker";
-import { ns3Effect1 } from "./ns3-fx-multi-effect-1";
-import { ns3Effect2 } from "./ns3-fx-multi-effect-2";
-import { ns3Delay } from "./ns3-fx-delay";
-import { ns3Compressor } from "./ns3-fx-compressor";
-import { ns3AmpSimEq } from "./ns3-fx-amp-sim-eq";
-import { ns3ProgramOutputMap, ns3ProgramOutputSourceMap } from "./ns3-mapping";
+import { ns3Organ } from "./ns3-organ.js";
+import { ns3Piano } from "./ns3-piano.js";
+import { ns3Synth } from "./ns3-synth.js";
+import { ns3Extern } from "./ns3-extern.js";
+import { ns3Reverb } from "./ns3-fx-reverb.js";
+import { ns3RotarySpeakerEffect } from "./ns3-fx-rotary-speaker.js";
+import { ns3Effect1 } from "./ns3-fx-multi-effect-1.js";
+import { ns3Effect2 } from "./ns3-fx-multi-effect-2.js";
+import { ns3Delay } from "./ns3-fx-delay.js";
+import { ns3Compressor } from "./ns3-fx-compressor.js";
+import { ns3AmpSimEq } from "./ns3-fx-amp-sim-eq.js";
+import { ns3ProgramOutputMap, ns3ProgramOutputSourceMap } from "./ns3-mapping.js";
 
 /***
  * returns a complete Panel section

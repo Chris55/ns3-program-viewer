@@ -1,5 +1,5 @@
-import { ns3BooleanValue } from "./ns3-utils";
-import { midi2LinearStringValue } from "../../common/converter";
+import { ns3BooleanValue } from "./ns3-utils.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * returns Compressor

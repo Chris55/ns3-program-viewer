@@ -1,6 +1,6 @@
-import { ns3Morph7Bits } from "./ns3-morph";
-import { midi2LinearStringValue, midi2LinearValueAndComplement } from "../../common/converter";
-import { ns3SynthOsc0To4ControlMap } from "./ns3-mapping";
+import { ns3Morph7Bits } from "./ns3-morph.js";
+import { midi2LinearStringValue, midi2LinearValueAndComplement } from "../../common/converter.js";
+import { ns3SynthOsc0To4ControlMap } from "./ns3-mapping.js";
 
 /***
  * returns Oscillator Control value
@@ -94,7 +94,7 @@ const ns3OscControl = (buffer, offset, oscConfig) => {
             (x) => {
                 return getOscControlLabel(oscConfig, x);
             },
-            false
+            false,
         ),
     };
 };

@@ -1,8 +1,8 @@
-import { ns3Panel } from "./ns3-panel";
-import { nordFileExtMap, programCategoryMap } from "../../common/nord-mapping";
-import { checkHeader, getExtension, getName, getVersion } from "../../common/nord-file";
-import { ns3BooleanValue } from "./ns3-utils";
-import { ns3DualKeyboardStyleMap, ns3SplitNoteMap, ns3SplitWidthMap, ns3TransposeMap } from "./ns3-mapping";
+import { ns3Panel } from "./ns3-panel.js";
+import { nordFileExtMap, programCategoryMap } from "../../common/nord-mapping.js";
+import { checkHeader, getExtension, getName, getVersion } from "../../common/nord-file.js";
+import { ns3BooleanValue } from "./ns3-utils.js";
+import { ns3DualKeyboardStyleMap, ns3SplitNoteMap, ns3SplitWidthMap, ns3TransposeMap } from "./ns3-mapping.js";
 
 /***
  * returns Nord Stage 3 program data

@@ -1,6 +1,6 @@
-import { ns2Morph12Bits, ns2Morph4Bits, ns2Morph7Bits } from "./ns2-morph";
-import { getLinearInterpolation, midi2LinearStringValue } from "../../common/converter";
-import { ns2DelayTempoMap, ns2DelayTempoMasterClockDivisionMap, ns2EffectSourceMap } from "./ns2-mapping";
+import { ns2Morph12Bits, ns2Morph4Bits, ns2Morph7Bits } from "./ns2-morph.js";
+import { getLinearInterpolation, midi2LinearStringValue } from "../../common/converter.js";
+import { ns2DelayTempoMap, ns2DelayTempoMasterClockDivisionMap, ns2EffectSourceMap } from "./ns2-mapping.js";
 
 /***
  * return the formatted tempo value
@@ -165,7 +165,7 @@ const ns2Delay = (buffer, panelOffset) => {
                       delayOffset124Ww >>> 2,
                       delayTempoClockOnMidiValue,
                       (x) => ns2DelayTempoMasterClockDivisionMap.get(x),
-                      false
+                      false,
                   )
                 : ns2Morph12Bits(buffer, 0x128 + panelOffset, (x, tap) => getTempo(x, tap), false),
         },
@@ -225,7 +225,7 @@ const ns2Delay = (buffer, panelOffset) => {
                 (x) => {
                     return midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                false
+                false,
             ),
         },
     };

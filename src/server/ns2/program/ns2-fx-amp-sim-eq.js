@@ -1,5 +1,5 @@
-import { ns2AmpSimEqdBMap, ns2AmpSimEqMidFilterFreqMap, ns2AmpSimTypeMap, ns2EffectSourceMap } from "./ns2-mapping";
-import { midi2LinearStringValue } from "../../common/converter";
+import { ns2AmpSimEqdBMap, ns2AmpSimEqMidFilterFreqMap, ns2AmpSimTypeMap, ns2EffectSourceMap } from "./ns2-mapping.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * returns Amp Sim / Eq

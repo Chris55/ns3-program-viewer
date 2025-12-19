@@ -1,6 +1,6 @@
-import { midi2LinearStringValue, midi2LinearValue } from "../../common/converter";
-import { ns3AmpSimEqdBMap, ns3AmpSimEqMidFilterFreqMap, ns3AmpSimTypeMap, ns3EffectSourceMap } from "./ns3-mapping";
-import { ns3Morph7Bits } from "./ns3-morph";
+import { midi2LinearStringValue, midi2LinearValue } from "../../common/converter.js";
+import { ns3AmpSimEqdBMap, ns3AmpSimEqMidFilterFreqMap, ns3AmpSimTypeMap, ns3EffectSourceMap } from "./ns3-mapping.js";
+import { ns3Morph7Bits } from "./ns3-morph.js";
 
 /***
  * returns Amp Sim / Eq
@@ -168,7 +168,7 @@ const ns3AmpSimEq = (buffer, panelOffset) => {
                 (x) => {
                     return ns3AmpSimEqMidFilterFreqMap.get(x);
                 },
-                false
+                false,
             ),
         },
 
@@ -204,7 +204,7 @@ const ns3AmpSimEq = (buffer, panelOffset) => {
                 (x) => {
                     return midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                false
+                false,
             ),
         },
     };

@@ -1,7 +1,7 @@
-import { midiControlChangeMap } from "../../common/midi-mapping";
-import { ns2Morph7Bits } from "./ns2-morph";
-import { ns2BooleanValue, ns2KbZone, ns2OctaveShift } from "./ns2-utils";
-import { ns2ExternControlMap, ns2ExternMidiVelocityCurveMap } from "./ns2-mapping";
+import { midiControlChangeMap } from "../../common/midi-mapping.js";
+import { ns2Morph7Bits } from "./ns2-morph.js";
+import { ns2BooleanValue, ns2KbZone, ns2OctaveShift } from "./ns2-utils.js";
+import { ns2ExternControlMap, ns2ExternMidiVelocityCurveMap } from "./ns2-mapping.js";
 
 /***
  * returns Extern section
@@ -144,7 +144,7 @@ const ns2Extern = (buffer, panelOffset, global) => {
                 (x) => {
                     return x.toString();
                 },
-                false
+                false,
             ),
         },
 
@@ -210,7 +210,7 @@ const ns2Extern = (buffer, panelOffset, global) => {
                 (x) => {
                     return x;
                 },
-                false
+                false,
             ),
         },
 

@@ -1,6 +1,6 @@
-import { ns2Morph4Bits, ns2Morph7Bits } from "./ns2-morph";
-import { ns2Effect1MasterClockDivisionMap, ns2Effect1TypeMap, ns2EffectSourceMap } from "./ns2-mapping";
-import { midi2LinearStringValue } from "../../common/converter";
+import { ns2Morph4Bits, ns2Morph7Bits } from "./ns2-morph.js";
+import { ns2Effect1MasterClockDivisionMap, ns2Effect1TypeMap, ns2EffectSourceMap } from "./ns2-mapping.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * returns Effect 1
@@ -112,7 +112,7 @@ const ns2Effect1 = (buffer, panelOffset) => {
                 (x) => {
                     return midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                false
+                false,
             ),
         },
 
@@ -167,13 +167,13 @@ const ns2Effect1 = (buffer, panelOffset) => {
                       effectOffset110W,
                       effect1RateMidi,
                       (x) => ns2Effect1MasterClockDivisionMap.get(x),
-                      false
+                      false,
                   )
                 : ns2Morph7Bits(
                       effectOffset112Ww >>> 4,
                       effect1RateMidi,
                       (x) => x + " (" + midi2LinearStringValue(0, 10, x, 1, "") + ")",
-                      false
+                      false,
                   ),
         },
 

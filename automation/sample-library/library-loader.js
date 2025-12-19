@@ -2,14 +2,14 @@
 // this sample library loader is using the meta.xml file as main input.
 //
 
-const unzipper = require("unzipper");
-const path = require("path");
-const { getSample } = require("../../src/server/library/ns3-library-service");
-const { loadNs3SampleFile } = require("../../src/server/common/nord-sample");
-const { loadNs3ProgramFile } = require("../../src/server/ns3/program/ns3-program");
-const homedir = require("os").homedir();
-const convert = require("xml-js");
-const { loadNs2ProgramFile } = require("../../src/server/ns2/program/ns2-program");
+import unzipper from "unzipper"; // unzipper needs to be added as dep
+import path from "node:path";
+import { getSample } from "../../src/server/library/ns3-library-service.js";
+import { loadNs3SampleFile } from "../../src/server/common/nord-sample.js";
+import { loadNs3ProgramFile } from "../../src/server/ns3/program/ns3-program.js";
+import { homedir } from "node:os";
+import convert from "xml-js";
+import { loadNs2ProgramFile } from "../../src/server/ns2/program/ns2-program.js";
 
 //const inputFile = homedir + "/downloads/Program Bundle Selection.ns2pb";
 const inputFile = homedir + "/downloads/Program Bundle Selection.ns3fb";
@@ -191,7 +191,7 @@ const main = async () => {
             //     console.log(a);
             // }
             return a[0].toLowerCase().localeCompare(b[0].toLowerCase());
-        })
+        }),
     );
 
     metadata.forEach((x, filename) => {
@@ -273,7 +273,7 @@ const main = async () => {
                     acoustics = ", acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },";
                 }
                 console.info(
-                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}"${acoustics} }],` // ${x.hashId.toString("16")}`
+                    `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}"${acoustics} }],`, // ${x.hashId.toString("16")}`
                 );
             }
         }
@@ -287,7 +287,7 @@ const main = async () => {
 
     alreadyInLibrary.forEach((x) => {
         console.warn(
-            `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],` // ${x.offset18.toString("16")} ${test.toString("16")}`
+            `    [0x${x.sampleId}, {name: "${x.sampleName}", info: "${x.sampleInfo}", version: "${x.version}", category: "${x.category}", size: ${x.fileSize}, filename: "${x.fileName}", ext: "${x.fileExt}" }],`, // ${x.offset18.toString("16")} ${test.toString("16")}`
         );
     });
 

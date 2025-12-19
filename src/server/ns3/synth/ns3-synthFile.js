@@ -1,7 +1,7 @@
-import { ns3SynthLocation } from "../program/ns3-utils";
-import { nordFileExtMap, synthCategoryMap } from "../../common/nord-mapping";
-import { ns3Synth } from "../program/ns3-synth";
-import { checkHeader, getExtension, getName, getVersion } from "../../common/nord-file";
+import { ns3SynthLocation } from "../program/ns3-utils.js";
+import { nordFileExtMap, synthCategoryMap } from "../../common/nord-mapping.js";
+import { ns3Synth } from "../program/ns3-synth.js";
+import { checkHeader, getExtension, getName, getVersion } from "../../common/nord-file.js";
 
 /***
  * returns Nord Stage 3 synth file

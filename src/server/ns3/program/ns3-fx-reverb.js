@@ -1,7 +1,7 @@
-import { ns3BooleanValue } from "./ns3-utils";
-import { ns3Morph7Bits } from "./ns3-morph";
-import { ns3ReverbTypeMap } from "./ns3-mapping";
-import { midi2LinearStringValue } from "../../common/converter";
+import { ns3BooleanValue } from "./ns3-utils.js";
+import { ns3Morph7Bits } from "./ns3-morph.js";
+import { ns3ReverbTypeMap } from "./ns3-mapping.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * returns Reverb
@@ -81,7 +81,7 @@ const ns3Reverb = (buffer, panelOffset) => {
                 (x) => {
                     return midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                false
+                false,
             ),
         },
 

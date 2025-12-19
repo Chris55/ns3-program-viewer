@@ -1161,6 +1161,59 @@ const ns3NordPianoLibrary = new Map([
         },
     ],
 
+    [
+        0xc44ebb80,
+        {
+            name: "Astoria Grand Lrg",
+            info: "Stw O",
+            version: "6.1",
+            category: "None",
+            size: 148862328,
+            filename: "Astoria Grand Lrg 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x176876bb,
+        {
+            name: "Astoria Grand Med",
+            info: "Stw O",
+            version: "6.1",
+            category: "None",
+            size: 127289952,
+            filename: "Astoria Grand Med 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0x1d5e33cd,
+        {
+            name: "Astoria Grand Sml",
+            info: "Stw O",
+            version: "6.1",
+            category: "None",
+            size: 78456748,
+            filename: "Astoria Grand Sml 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: false, softRelease: true, pedalNoise: true },
+        },
+    ],
+    [
+        0xf0618279,
+        {
+            name: "Astoria Grand XL",
+            info: "Stw O",
+            version: "6.1",
+            category: "None",
+            size: 218673104,
+            filename: "Astoria Grand XL 6.1",
+            ext: "npno",
+            acoustics: { stringsRes: true, softRelease: true, pedalNoise: true },
+        },
+    ],
+
     // Chris Maene Collection
 
     [

@@ -1,12 +1,12 @@
-import { ns3BooleanValue, ns3KbZone, ns3OctaveShift, ns3VolumeEx } from "./ns3-utils";
-import { ns3MorphOrganDrawbar } from "./ns3-morph";
-import { formatOrganDrawbars } from "../../common/converter";
+import { ns3BooleanValue, ns3KbZone, ns3OctaveShift, ns3VolumeEx } from "./ns3-utils.js";
+import { ns3MorphOrganDrawbar } from "./ns3-morph.js";
+import { formatOrganDrawbars } from "../../common/converter.js";
 import {
     ns3OrganFarfisaVibratoModeMap,
     ns3OrganTypeMap,
     ns3OrganVibratoChorusModeShortNameMap,
     ns3OrganVoxVibratoModeMap,
-} from "./ns3-mapping";
+} from "./ns3-mapping.js";
 
 /***
  * return Drawbars Preset and Morph
@@ -77,7 +77,7 @@ const getDrawbars = function (buffer, offset, type) {
 
     const morphWheel = fixVoxAndFarfisa(
         [m1.wheel, m2.wheel, m3.wheel, m4.wheel, m5.wheel, m6.wheel, m7.wheel, m8.wheel, m9.wheel],
-        type
+        type,
     );
     hideIfEqual(preset, morphWheel);
 
@@ -95,7 +95,7 @@ const getDrawbars = function (buffer, offset, type) {
             m8.afterTouch,
             m9.afterTouch,
         ],
-        type
+        type,
     );
     hideIfEqual(preset, morphAfterTouch);
     const morphAfterTouchPreset = morphAfterTouch.join("");
@@ -112,7 +112,7 @@ const getDrawbars = function (buffer, offset, type) {
             m8.controlPedal,
             m9.controlPedal,
         ],
-        type
+        type,
     );
     hideIfEqual(preset, morphControlPedal);
     const morphControlPedalPreset = morphControlPedal.join("");

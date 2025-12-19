@@ -1,12 +1,12 @@
-import { ns3KnobDualValues } from "./ns3-utils";
-import { ns3Morph7Bits } from "./ns3-morph";
+import { ns3KnobDualValues } from "./ns3-utils.js";
+import { ns3Morph7Bits } from "./ns3-morph.js";
 import {
     ns3SynthFilterCutoffFrequencyMap,
     ns3SynthFilterDriveMap,
     ns3SynthFilterKbTrackMap,
     ns3SynthFilterTypeMap,
-} from "./ns3-mapping";
-import { midi2LinearStringValue } from "../../common/converter";
+} from "./ns3-mapping.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * return Synth Filter section
@@ -119,7 +119,7 @@ const ns3Filter = (buffer, panelOffset) => {
                     (x) => {
                         return midi2LinearStringValue(0, 10, x, 1, "");
                     },
-                    false
+                    false,
                 ),
             },
 
@@ -179,7 +179,7 @@ const ns3Filter = (buffer, panelOffset) => {
                 (x) => {
                     return ns3SynthFilterCutoffFrequencyMap.get(x);
                 },
-                false
+                false,
             ),
         },
 
@@ -210,7 +210,7 @@ const ns3Filter = (buffer, panelOffset) => {
                 (x) => {
                     return filterTypeIsLpHp ? ns3SynthFilterCutoffFrequencyMap.get(x) : "none";
                 },
-                !filterTypeIsLpHp
+                !filterTypeIsLpHp,
             ),
         },
 
@@ -227,7 +227,7 @@ const ns3Filter = (buffer, panelOffset) => {
                 (x) => {
                     return filterTypeIsLpHp ? "none" : midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                filterTypeIsLpHp
+                filterTypeIsLpHp,
             ),
         },
     };

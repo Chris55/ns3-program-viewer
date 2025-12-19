@@ -1,4 +1,4 @@
-import { getMorphModel } from "../../common/converter";
+import { getMorphModel } from "../../common/converter.js";
 
 /***
  * returns an array of morph settings

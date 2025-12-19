@@ -1,4 +1,4 @@
-import { getLinearInterpolation, midi2LinearStringValue, round } from "./converter";
+import { getLinearInterpolation, midi2LinearStringValue, round } from "./converter.js";
 
 test("midi linear 127 to equal 100%", () => {
     expect(midi2LinearStringValue(0, 100, 127, 1, "%")).toBe("100.0 %");

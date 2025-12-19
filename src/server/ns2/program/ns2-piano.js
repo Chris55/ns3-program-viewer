@@ -6,9 +6,9 @@ import {
     ns2PianoSlotDetuneMap,
     ns2PianoTypeMap,
     ns2ProgramOutputMap,
-} from "./ns2-mapping";
-import { getSample, getSampleIdNs2ToNs3 } from "../../library/ns3-library-service";
-import { ns2BooleanValue, ns2KbZone, ns2OctaveShift, ns2VolumeEx } from "./ns2-utils";
+} from "./ns2-mapping.js";
+import { getSample, getSampleIdNs2ToNs3 } from "../../library/ns3-library-service.js";
+import { ns2BooleanValue, ns2KbZone, ns2OctaveShift, ns2VolumeEx } from "./ns2-utils.js";
 
 /***
  * returns Piano section

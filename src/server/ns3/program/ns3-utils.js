@@ -1,7 +1,7 @@
-import { ns3KbZoneMap, ns3SynthModulation120Map } from "./ns3-mapping";
-import { zeroPad } from "../../common/converter";
-import { dBMap } from "../../common/nord-mapping";
-import { ns3Morph7Bits } from "./ns3-morph";
+import { ns3KbZoneMap, ns3SynthModulation120Map } from "./ns3-mapping.js";
+import { zeroPad } from "../../common/converter.js";
+import { dBMap } from "../../common/nord-mapping.js";
+import { ns3Morph7Bits } from "./ns3-morph.js";
 
 /***
  * Returns two values from a single knob (and equivalent midi value).

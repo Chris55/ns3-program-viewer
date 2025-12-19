@@ -1,8 +1,8 @@
-import { loadNs2SynthFile } from "./ns2/synth/ns2-synthFile";
-import { loadNs3SynthFile } from "./ns3/synth/ns3-synthFile";
-import { loadNs2ProgramFile } from "./ns2/program/ns2-program";
-import { loadNs3ProgramFile } from "./ns3/program/ns3-program";
-import { loadNla1ProgramFile } from "./nla1/program/nla1-program";
+import { loadNs2SynthFile } from "./ns2/synth/ns2-synthFile.js";
+import { loadNs3SynthFile } from "./ns3/synth/ns3-synthFile.js";
+import { loadNs2ProgramFile } from "./ns2/program/ns2-program.js";
+import { loadNs3ProgramFile } from "./ns3/program/ns3-program.js";
+import { loadNla1ProgramFile } from "./nla1/program/nla1-program.js";
 import { v4 as uuidv4 } from "uuid";
 
 /***

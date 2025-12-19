@@ -1,6 +1,6 @@
-import { ns3Morph7Bits } from "./ns3-morph";
-import { ns3Effect2TypeMap, ns3EffectSourceMap } from "./ns3-mapping";
-import { midi2LinearStringValue } from "../../common/converter";
+import { ns3Morph7Bits } from "./ns3-morph.js";
+import { ns3Effect2TypeMap, ns3EffectSourceMap } from "./ns3-mapping.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * returns Effect 2
@@ -92,7 +92,7 @@ const ns3Effect2 = (buffer, panelOffset) => {
                 (x) => {
                     return midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                false
+                false,
             ),
         },
 

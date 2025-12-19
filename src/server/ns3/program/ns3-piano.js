@@ -1,6 +1,6 @@
-import { ns3BooleanValue, ns3KbZone, ns3OctaveShift, ns3VolumeEx } from "./ns3-utils";
-import { getSample } from "../../library/ns3-library-service";
-import { ns3PianoKbTouchMap, ns3PianoLayerDetuneMap, ns3PianoTimbreMap, ns3PianoTypeMap } from "./ns3-mapping";
+import { ns3BooleanValue, ns3KbZone, ns3OctaveShift, ns3VolumeEx } from "./ns3-utils.js";
+import { getSample } from "../../library/ns3-library-service.js";
+import { ns3PianoKbTouchMap, ns3PianoLayerDetuneMap, ns3PianoTimbreMap, ns3PianoTypeMap } from "./ns3-mapping.js";
 
 /***
  * returns Piano section

@@ -1,7 +1,7 @@
-import { ns3OscControl } from "./ns3-synth-osc-control";
-import { ns3Filter } from "./ns3-synth-filter";
-import { ns3Morph7Bits, ns3MorphSynthOscillatorModulation } from "./ns3-morph";
-import { getSample } from "../../library/ns3-library-service";
+import { ns3OscControl } from "./ns3-synth-osc-control.js";
+import { ns3Filter } from "./ns3-synth-filter.js";
+import { ns3Morph7Bits, ns3MorphSynthOscillatorModulation } from "./ns3-morph.js";
+import { getSample } from "../../library/ns3-library-service.js";
 import {
     ns3BooleanValue,
     ns3KbZone,
@@ -9,7 +9,7 @@ import {
     ns3OctaveShift,
     ns3SynthPreset,
     ns3VolumeEx,
-} from "./ns3-utils";
+} from "./ns3-utils.js";
 import {
     ns3ArpeggiatorPatternMap,
     ns3ArpeggiatorRangeMap,
@@ -31,8 +31,8 @@ import {
     ns3SynthUnisonMap,
     ns3SynthVibratoMap,
     ns3SynthVoiceMap,
-} from "./ns3-mapping";
-import { midi2LinearStringValue } from "../../common/converter";
+} from "./ns3-mapping.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * Synth Envelope Decay / Release value
@@ -445,8 +445,8 @@ const ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                     oscModulation.fromValueRange120 === 60
                         ? "LFO/Mod Amt"
                         : oscModulation.fromValueRange120 < 60
-                        ? "LFO Amt"
-                        : "Mod Env Amt",
+                          ? "LFO Amt"
+                          : "Mod Env Amt",
                 /**
                  * LFO Amount
                  */
@@ -457,7 +457,7 @@ const ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                     morph: ns3MorphSynthOscillatorModulation(
                         synthOffset95Ww >>> 5,
                         oscModulation.fromValueRange120,
-                        true
+                        true,
                     ),
                 },
                 /**
@@ -470,7 +470,7 @@ const ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                     morph: ns3MorphSynthOscillatorModulation(
                         synthOffset95Ww >>> 5,
                         oscModulation.fromValueRange120,
-                        false
+                        false,
                     ),
                 },
             },
@@ -664,7 +664,7 @@ const ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                             ? ns3SynthLfoRateMasterClockDivisionMap.get(x)
                             : ns3SynthLfoRateMap.get(x);
                     },
-                    false
+                    false,
                 ),
             },
 
@@ -849,7 +849,7 @@ const ns3Synth = (buffer, id, panelOffset, global, ns3yFile) => {
                             ? ns3SynthArpMasterClockDivisionMap.get(x)
                             : ns3SynthArpRateMap.get(x);
                     },
-                    false
+                    false,
                 ),
             },
 

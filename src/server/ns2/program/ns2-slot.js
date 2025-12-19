@@ -1,12 +1,12 @@
-import { ns2Effect2 } from "./ns2-fx-multi-effect-2";
-import { ns2Effect1 } from "./ns2-fx-multi-effect-1";
-import { ns2Delay } from "./ns2-fx-delay";
-import { ns2Extern } from "./ns2-extern";
-import { ns2AmpSimEq } from "./ns2-fx-amp-sim-eq";
-import { ns2RotarySpeakerEffect } from "./ns2-fx-rotary-speaker";
-import { ns2Synth } from "./ns2-synth";
-import { ns2Organ } from "./ns2-organ";
-import { ns2Piano } from "./ns2-piano";
+import { ns2Effect2 } from "./ns2-fx-multi-effect-2.js";
+import { ns2Effect1 } from "./ns2-fx-multi-effect-1.js";
+import { ns2Delay } from "./ns2-fx-delay.js";
+import { ns2Extern } from "./ns2-extern.js";
+import { ns2AmpSimEq } from "./ns2-fx-amp-sim-eq.js";
+import { ns2RotarySpeakerEffect } from "./ns2-fx-rotary-speaker.js";
+import { ns2Synth } from "./ns2-synth.js";
+import { ns2Organ } from "./ns2-organ.js";
+import { ns2Piano } from "./ns2-piano.js";
 
 /***
  * returns a complete Slot section

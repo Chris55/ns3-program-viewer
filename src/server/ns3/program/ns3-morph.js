@@ -1,5 +1,5 @@
-import { getMorphModel, round } from "../../common/converter";
-import { ns3SynthModulation120Map } from "./ns3-mapping";
+import { getMorphModel, round } from "../../common/converter.js";
+import { ns3SynthModulation120Map } from "./ns3-mapping.js";
 
 /***
  * returns an array of morph settings

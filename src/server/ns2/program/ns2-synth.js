@@ -20,12 +20,12 @@ import {
     ns2SynthUnisonMap,
     ns2SynthVibratoMap,
     ns2SynthVoiceMap,
-} from "./ns2-mapping";
-import { ns2Filter } from "./ns2-synth-filter";
-import { ns2OscShape, ns2SkipSampleAttack } from "./ns2-synth-osc-shape";
-import { ns2BooleanValue, ns2KbZone, ns2OctaveShift, ns2VolumeEx } from "./ns2-utils";
-import { getSample, getSampleIdNs2ToNs3 } from "../../library/ns3-library-service";
-import { midi2LinearStringValue } from "../../common/converter";
+} from "./ns2-mapping.js";
+import { ns2Filter } from "./ns2-synth-filter.js";
+import { ns2OscShape, ns2SkipSampleAttack } from "./ns2-synth-osc-shape.js";
+import { ns2BooleanValue, ns2KbZone, ns2OctaveShift, ns2VolumeEx } from "./ns2-utils.js";
+import { getSample, getSampleIdNs2ToNs3 } from "../../library/ns3-library-service.js";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * Synth Envelope Decay / Release value
@@ -418,8 +418,8 @@ const ns2Synth = (buffer, id, slotOffset, global, ns2sFile) => {
                     oscModMidi === 63 || oscModMidi === 64
                         ? "LFO/Env AMT"
                         : oscModMidi < 64
-                        ? "LFO AMT"
-                        : "Mod Env AMT",
+                          ? "LFO AMT"
+                          : "Mod Env AMT",
             },
             /**
              * Offset in file: 0xec (b1)

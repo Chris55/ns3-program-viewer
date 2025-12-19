@@ -1,6 +1,6 @@
-import { ns2Morph7Bits } from "./ns2-morph";
-import { ns2KbZoneMap } from "./ns2-mapping";
-import { dBMap } from "../../common/nord-mapping";
+import { ns2Morph7Bits } from "./ns2-morph.js";
+import { ns2KbZoneMap } from "./ns2-mapping.js";
+import { dBMap } from "../../common/nord-mapping.js";
 
 /***
  * returns Keyboard Zone
@@ -61,7 +61,7 @@ const ns2VolumeEx = (buffer, midiFrom, uint32MorphValues) => {
         (x) => {
             return dBMap.get(x);
         },
-        false
+        false,
     );
 
     return {

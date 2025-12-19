@@ -1,11 +1,11 @@
-import { ns3ScSoundsLibraries } from "./ns3-sc-sounds-libraries";
-import { ns3UserLibraries } from "./ns3-user-libraries";
-import { ns3NordSampleLibrary2 } from "./ns3-nord-sample-library-2";
-import { ns3NordSampleLibrary3 } from "./ns3-nord-sample-library-3";
-import { ns3NordPianoLibrary } from "./ns3-nord-piano-library";
-import { ns3ProductLibraries } from "./ns3-product-libraries";
-import { ns3NordSampleLibraryArchive } from "./ns3-nord-sample-library-archive";
-import { ns3RedLibrary } from "./ns3-red-library";
+import { ns3ScSoundsLibraries } from "./ns3-sc-sounds-libraries.js";
+import { ns3UserLibraries } from "./ns3-user-libraries.js";
+import { ns3NordSampleLibrary2 } from "./ns3-nord-sample-library-2.js";
+import { ns3NordSampleLibrary3 } from "./ns3-nord-sample-library-3.js";
+import { ns3NordPianoLibrary } from "./ns3-nord-piano-library.js";
+import { ns3ProductLibraries } from "./ns3-product-libraries.js";
+import { ns3NordSampleLibraryArchive } from "./ns3-nord-sample-library-archive.js";
+import { ns3RedLibrary } from "./ns3-red-library.js";
 
 /***
  *

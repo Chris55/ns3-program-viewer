@@ -1,11 +1,11 @@
-import { ns2BooleanValue } from "./ns2-utils";
-import { ns2Reverb } from "./ns2-fx-reverb";
-import { ns2Compressor } from "./ns2-fx-compressor";
-import { checkHeader, getExtension, getName } from "../../common/nord-file";
-import { ns2Slot } from "./ns2-slot";
-import { nordFileExtMap, programCategoryMap } from "../../common/nord-mapping";
-import { zeroPad } from "../../common/converter";
-import { ns2SplitNoteMap, ns2TransposeMap } from "./ns2-mapping";
+import { ns2BooleanValue } from "./ns2-utils.js";
+import { ns2Reverb } from "./ns2-fx-reverb.js";
+import { ns2Compressor } from "./ns2-fx-compressor.js";
+import { checkHeader, getExtension, getName } from "../../common/nord-file.js";
+import { ns2Slot } from "./ns2-slot.js";
+import { nordFileExtMap, programCategoryMap } from "../../common/nord-mapping.js";
+import { zeroPad } from "../../common/converter.js";
+import { ns2SplitNoteMap, ns2TransposeMap } from "./ns2-mapping.js";
 
 /***
  * returns Nord Stage 3 program data

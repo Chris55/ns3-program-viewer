@@ -1,4 +1,4 @@
-import { midi2LinearStringValue } from "../../common/converter";
+import { midi2LinearStringValue } from "../../common/converter.js";
 
 /***
  * returns Compressor

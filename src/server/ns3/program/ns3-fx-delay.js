@@ -1,12 +1,12 @@
-import { getLinearInterpolation, midi2LinearStringValue } from "../../common/converter";
-import { ns3BooleanValue } from "./ns3-utils";
-import { ns3Morph14Bits, ns3Morph7Bits } from "./ns3-morph";
+import { getLinearInterpolation, midi2LinearStringValue } from "../../common/converter.js";
+import { ns3BooleanValue } from "./ns3-utils.js";
+import { ns3Morph14Bits, ns3Morph7Bits } from "./ns3-morph.js";
 import {
     ns3DelayFilterMap,
     ns3DelayTempoMap,
     ns3DelayTempoMasterClockDivisionMap,
     ns3EffectSourceMap,
-} from "./ns3-mapping";
+} from "./ns3-mapping.js";
 
 /***
  * replace the note by unicode value
@@ -193,7 +193,7 @@ const ns3Delay = (buffer, panelOffset, global) => {
                               return fixSignature(getTempo(delayMasterClock, x, 0));
                           },
                           // v3.00 is different and I cannot test it, I prefer disable morph for now...
-                          true
+                          true,
                       )
                     : ns3Morph14Bits(
                           buffer,
@@ -201,7 +201,7 @@ const ns3Delay = (buffer, panelOffset, global) => {
                           (msw, lsw) => {
                               return fixSignature(getTempo(delayMasterClock, msw, lsw));
                           },
-                          false
+                          false,
                       ),
         },
 
@@ -270,7 +270,7 @@ const ns3Delay = (buffer, panelOffset, global) => {
                 (x) => {
                     return midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                false
+                false,
             ),
         },
 
@@ -306,7 +306,7 @@ const ns3Delay = (buffer, panelOffset, global) => {
                 (x) => {
                     return midi2LinearStringValue(0, 10, x, 1, "");
                 },
-                false
+                false,
             ),
         },
     };

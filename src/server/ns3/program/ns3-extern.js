@@ -1,7 +1,7 @@
-import { ns3ExternControlMap, ns3ExternMidiVelocityCurveMap } from "./ns3-mapping";
-import { midiControlChangeMap } from "../../common/midi-mapping";
-import { ns3Morph7Bits } from "./ns3-morph";
-import { ns3BooleanValue, ns3KbZone, ns3OctaveShift } from "./ns3-utils";
+import { ns3ExternControlMap, ns3ExternMidiVelocityCurveMap } from "./ns3-mapping.js";
+import { midiControlChangeMap } from "../../common/midi-mapping.js";
+import { ns3Morph7Bits } from "./ns3-morph.js";
+import { ns3BooleanValue, ns3KbZone, ns3OctaveShift } from "./ns3-utils.js";
 
 /***
  * returns Extern section
@@ -136,7 +136,7 @@ const ns3Extern = (buffer, panelOffset, global) => {
                 (x) => {
                     return x;
                 },
-                false
+                false,
             ),
         },
 
@@ -170,7 +170,7 @@ const ns3Extern = (buffer, panelOffset, global) => {
                 (x) => {
                     return x.toString();
                 },
-                false
+                false,
             ),
         },
 
@@ -214,7 +214,7 @@ const ns3Extern = (buffer, panelOffset, global) => {
                 (x) => {
                     return x;
                 },
-                false
+                false,
             ),
         },
 

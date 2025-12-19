@@ -4,10 +4,10 @@ import {
     ns2OrganTypeMap,
     ns2OrganVoxVibratoModeMap,
     ns2ProgramOutputMap,
-} from "./ns2-mapping";
-import { ns2BooleanValue, ns2KbZone, ns2OctaveShift, ns2VolumeEx } from "./ns2-utils";
-import { ns2MorphOrganDrawbar } from "./ns2-morph";
-import { formatOrganDrawbars } from "../../common/converter";
+} from "./ns2-mapping.js";
+import { ns2BooleanValue, ns2KbZone, ns2OctaveShift, ns2VolumeEx } from "./ns2-utils.js";
+import { ns2MorphOrganDrawbar } from "./ns2-morph.js";
+import { formatOrganDrawbars } from "../../common/converter.js";
 
 /***
  * return B3 and Vox Drawbars Preset and Morph
