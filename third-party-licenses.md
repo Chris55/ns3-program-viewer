@@ -1961,12 +1961,11 @@ SOFTWARE.
 
 -----------
 
-The following npm packages may be included in this product:
+The following npm package may be included in this product:
 
- - immer@10.2.0
  - immer@11.0.1
 
-These packages each contain the following license:
+This package contains the following license:
 
 MIT License
 
