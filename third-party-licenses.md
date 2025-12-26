@@ -1963,7 +1963,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - immer@11.0.1
+ - immer@11.1.0
 
 This package contains the following license:
 
