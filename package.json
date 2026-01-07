@@ -24,7 +24,7 @@
         "file-saver": "^2.0.5",
         "html2canvas": "^1.4.1",
         "immer": "^11.1.0",
-        "jspdf": "^3.0.4",
+        "jspdf": "^4.0.0",
         "react": "^19.2.0",
         "react-bootstrap": "^2.10.10",
         "react-dom": "^19.2.0",
