@@ -599,7 +599,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The following npm package may be included in this product:
 
- - jspdf@3.0.4
+ - jspdf@4.0.0
 
 This package contains the following license:
 
@@ -2289,8 +2289,8 @@ SOFTWARE.
 
 The following npm packages may be included in this product:
 
- - react-router-dom@7.11.0
- - react-router@7.11.0
+ - react-router-dom@7.12.0
+ - react-router@7.12.0
 
 These packages each contain the following license:
 
