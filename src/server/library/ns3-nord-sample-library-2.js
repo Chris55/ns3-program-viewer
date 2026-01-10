@@ -12,11 +12,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bandoneon",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1017836,
             filename: "Bandoneon__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -24,11 +24,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bluesharp",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 188652,
             filename: "Bluesharp__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -36,11 +36,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Carina1",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 465772,
             filename: "Carina1_Accordion_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -48,11 +48,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Carina2",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1887212,
             filename: "Carina2_Accordion_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -60,11 +60,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Carina3",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1781868,
             filename: "Carina3_Accordion_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -72,11 +72,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Carina4",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1413740,
             filename: "Carina4_Accordion_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -84,11 +84,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Fan Organ",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1359212,
             filename: "Fan Organ_Capri_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -96,11 +96,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harmonica",
             info: "DV mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 394092,
             filename: "Harmonica__DV mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -108,11 +108,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "IndianHarm1",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 507372,
             filename: "IndianHarm1__PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -120,11 +120,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "IndianHarm2",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1602668,
             filename: "IndianHarm2__PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -132,11 +132,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Melodica",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 302828,
             filename: "Melodica_Fast_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -144,11 +144,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Melodica",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 347372,
             filename: "Melodica_Slow_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -156,11 +156,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MusetteAccordion",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1400556,
             filename: "MusetteAccordion__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -168,11 +168,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Old Harmonium",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1856876,
             filename: "Old Harmonium__ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -180,11 +180,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orfeo Accordion 1",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1584876,
             filename: "Orfeo Accordion 1__PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -192,11 +192,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orfeo Accordion 2",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 349548,
             filename: "Orfeo Accordion 2__PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -204,11 +204,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orfeo Accordion 3",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 241516,
             filename: "Orfeo Accordion 3__PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -216,11 +216,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "PumpOrgan",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1147628,
             filename: "PumpOrgan_Koestler_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -228,11 +228,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "PumpOrgan1",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 608748,
             filename: "PumpOrgan1_Langegrd_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -240,11 +240,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "PumpOrgan2",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 2047084,
             filename: "PumpOrgan2_Langegrd_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -252,11 +252,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Victorini Accordion 1",
             info: "PS",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1935212,
             filename: "Victorini Accordion 1__PS 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -264,11 +264,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Victorini Accordion 2",
             info: "PS",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 539756,
             filename: "Victorini Accordion 2__PS 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -276,11 +276,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Weltmeister1",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 833900,
             filename: "Weltmeister1_Accordion_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -288,11 +288,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Weltmeister2",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 525676,
             filename: "Weltmeister2_Accordion_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -300,11 +300,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Weltmeister3",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 1618668,
             filename: "Weltmeister3_Accordion_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -312,11 +312,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Weltmeister4",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 2320876,
             filename: "Weltmeister4_Accordion_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -328,11 +328,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ARP Quadra Str 8",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 2436332,
             filename: "ARP Quadra Str 8__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -340,11 +340,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ARP Quadra Str",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1466604,
             filename: "ARP Quadra Str_8 4 1_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -352,11 +352,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ARP Quadra Str",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 2131564,
             filename: "ARP Quadra Str_8 4 2_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -364,11 +364,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CE20 Strings",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 980204,
             filename: "CE20 Strings__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -376,11 +376,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Crumar Performer",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1611372,
             filename: "Crumar Performer_Str1_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -388,11 +388,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Crumar Performer",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 944876,
             filename: "Crumar Performer_Str2_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -400,11 +400,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "DX7 Strings",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 2329964,
             filename: "DX7 Strings__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -412,11 +412,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ELKA Rhapsodie",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1384300,
             filename: "ELKA Rhapsodie_Str1_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -424,11 +424,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ELKA Rhapsodie",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1243756,
             filename: "ELKA Rhapsodie_Str2_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -436,11 +436,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1120108,
             filename: "Eminent 310 Str_Full Reg_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -448,11 +448,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1122540,
             filename: "Eminent 310 Str_L 4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -460,11 +460,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 970476,
             filename: "Eminent 310 Str_L 8_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -472,11 +472,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1090796,
             filename: "Eminent 310 Str_L 8+4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -484,11 +484,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 661996,
             filename: "Eminent 310 Str_U 16_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -496,11 +496,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1034988,
             filename: "Eminent 310 Str_U 16+4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -508,11 +508,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 728684,
             filename: "Eminent 310 Str_U 16+8_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -520,11 +520,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1142508,
             filename: "Eminent 310 Str_U 16+8+4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -532,11 +532,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1108588,
             filename: "Eminent 310 Str_U 4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -544,11 +544,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 994028,
             filename: "Eminent 310 Str_U 8_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -556,11 +556,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eminent 310 Str",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1066476,
             filename: "Eminent 310 Str_U 8+4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -568,11 +568,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Farf Polychrome",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1859948,
             filename: "Farf Polychrome_Str 8+4_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -580,11 +580,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Farf Polychrome",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1738604,
             filename: "Farf Polychrome_Strings 8_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -592,11 +592,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "GodwinSymphony",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 2091884,
             filename: "GodwinSymphony_8+4_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -604,11 +604,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "GodwinSymphony",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1284588,
             filename: "GodwinSymphony_Cello_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -616,11 +616,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "GodwinSymphony",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1360108,
             filename: "GodwinSymphony_Viola_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -628,11 +628,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hohn StrMelody2",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 380396,
             filename: "Hohn StrMelody2_String2_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -640,11 +640,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hohner",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1255660,
             filename: "Hohner_StrMelody2_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -652,11 +652,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgDelta",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 872684,
             filename: "KorgDelta_Strings 8_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -664,11 +664,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgDelta",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1114604,
             filename: "KorgDelta_Strings8+4_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -676,11 +676,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgDelta",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1214956,
             filename: "KorgDelta_Synt+Str12_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -688,11 +688,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgDelta",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1303532,
             filename: "KorgDelta_Synt+Str3_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -700,11 +700,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgDelta",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1342316,
             filename: "KorgDelta_Synt+Str5_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -712,11 +712,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgDelta",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1367916,
             filename: "KorgDelta_Synt+Str9_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -724,11 +724,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgLambda",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1612012,
             filename: "KorgLambda_Combi 1_BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -736,11 +736,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgLambda",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1703916,
             filename: "KorgLambda_Combi 2_BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -748,11 +748,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgLambda",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1550188,
             filename: "KorgLambda_Combi 3_BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -760,11 +760,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgLambda",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1468652,
             filename: "KorgLambda_Strings1_BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -772,11 +772,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgLambda",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1903724,
             filename: "KorgLambda_Strings2_BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -784,11 +784,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgTrident",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1036780,
             filename: "KorgTrident_Combi 1_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -796,11 +796,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgTrident",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 838252,
             filename: "KorgTrident_Combi 2_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -808,11 +808,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgTrident",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1302892,
             filename: "KorgTrident_Combi 4_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -820,11 +820,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgTrident",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1358572,
             filename: "KorgTrident_Strings 1_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -832,11 +832,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgTrident",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1042412,
             filename: "KorgTrident_Strings 2_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -844,11 +844,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KorgTrident",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1151980,
             filename: "KorgTrident_Strings 3_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -856,11 +856,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Logan Str Melody",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 913644,
             filename: "Logan Str Melody_16_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -868,11 +868,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Logan Str Melody",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1036524,
             filename: "Logan Str Melody_16+4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -880,11 +880,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Logan Str Melody",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1031788,
             filename: "Logan Str Melody_16+8+4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -892,11 +892,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Logan Str Melody",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1102572,
             filename: "Logan Str Melody_4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -904,11 +904,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Logan Str Melody",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 980716,
             filename: "Logan Str Melody_8_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -916,11 +916,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Logan Str Melody",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 926188,
             filename: "Logan Str Melody_8+4_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -928,11 +928,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Logan Str Melody",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1028332,
             filename: "Logan Str Melody_Combi_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -940,11 +940,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Logan Str Melody",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1014892,
             filename: "Logan Str Melody_Orch_PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -952,11 +952,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Polymoog",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 2487788,
             filename: "Polymoog_Strings 1_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -964,11 +964,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Polymoog",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1427180,
             filename: "Polymoog_Strings 2_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -976,11 +976,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VP-330-Strings",
             info: "PH mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1777644,
             filename: "VP-330-Strings__PH mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -988,11 +988,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ya SK20 Strings",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Analog Strings",
             size: 1034220,
             filename: "Ya SK20 Strings__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1000,11 +1000,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Strings",
             info: "BR",
-            version: "3.1",
+            version: "2.1",
             category: "Analog Strings",
             size: 453356,
             filename: "Strings_Optigan_BR 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -1016,11 +1016,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ashbory Bass",
             info: "BS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 348908,
             filename: "Ashbory Bass_Fing_BS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1028,11 +1028,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bass Flageolet",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 412396,
             filename: "Bass Flageolet__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1040,11 +1040,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BassGit",
             info: "DV mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 423276,
             filename: "BassGit__DV mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1052,11 +1052,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BCL Slap Bass",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 832108,
             filename: "BCL Slap Bass__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1064,11 +1064,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Chapman Stick",
             info: "Bs mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1361132,
             filename: "Chapman Stick__Bs mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1076,11 +1076,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Contra Bass",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 593516,
             filename: "Contra Bass_Plucked_ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1088,11 +1088,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Double Bass Fing",
             info: "BS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 777580,
             filename: "Double Bass Fing__BS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1100,11 +1100,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Double Bass Fing",
             info: "BS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 929516,
             filename: "Double Bass Fing_Vib_BS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1112,11 +1112,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FendPrec Fing",
             info: "BS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 421228,
             filename: "FendPrec Fing_Damp_BS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1124,11 +1124,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FendPrec Pick",
             info: "BS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 264172,
             filename: "FendPrec Pick_Damp_BS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1136,11 +1136,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FndJazz Finger",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 966892,
             filename: "FndJazz Finger_Dir _ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1148,11 +1148,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FndJazzFinger",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1014764,
             filename: "FndJazzFinger_Preamp_ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1160,11 +1160,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FndJazzPlectr",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1305452,
             filename: "FndJazzPlectr_Direct_CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1172,11 +1172,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FndJazzPlectr",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1276012,
             filename: "FndJazzPlectr_Preamp_ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1184,11 +1184,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FndPrec",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1166444,
             filename: "FndPrec_Direct_ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1196,11 +1196,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FndPrec",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1145964,
             filename: "FndPrec_Preamp_ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1208,11 +1208,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Fretless Bass",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1165932,
             filename: "Fretless Bass__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1220,11 +1220,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "G2 Bwana Bass",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 167404,
             filename: "G2 Bwana Bass__CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1232,11 +1232,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hagstrom H8 Pick",
             info: "BS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 666092,
             filename: "Hagstrom H8 Pick_Damp_BS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1244,11 +1244,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hofner 500-1",
             info: "BS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 582252,
             filename: "Hofner 500-1_Pick_BS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1256,11 +1256,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "LadderBass",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1161324,
             filename: "LadderBass__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1268,11 +1268,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MM Fusion Bass",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 318572,
             filename: "MM Fusion Bass__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1280,11 +1280,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SH101 Bass 1",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 233324,
             filename: "SH101 Bass 1__CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1292,11 +1292,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SH101 Bass 2",
             info: "_CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 134252,
             filename: "SH101 Bass 2___CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1304,11 +1304,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 10",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 316524,
             filename: "SynthBass 10__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1316,11 +1316,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 1",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 141676,
             filename: "SynthBass 1__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1328,11 +1328,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 11",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "User",
             size: 1160428,
             filename: "SynthBass 11__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1340,11 +1340,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 12",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1017964,
             filename: "SynthBass 12__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1352,11 +1352,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 13",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1135212,
             filename: "SynthBass 13__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1364,11 +1364,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 2",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 199532,
             filename: "SynthBass 2__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1376,11 +1376,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 3",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 72044,
             filename: "SynthBass 3__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1388,11 +1388,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 4",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 148460,
             filename: "SynthBass 4__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1400,11 +1400,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 5",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 234220,
             filename: "SynthBass 5__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1412,11 +1412,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 6",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 96108,
             filename: "SynthBass 6__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1424,11 +1424,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 7",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 178796,
             filename: "SynthBass 7__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1436,11 +1436,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 8",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 229612,
             filename: "SynthBass 8__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1448,11 +1448,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthBass 9",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 119532,
             filename: "SynthBass 9__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -1464,11 +1464,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "10 Celli Leg",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2489324,
             filename: "10 Celli Leg__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1476,11 +1476,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "10 Celli Stacc",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 777580,
             filename: "10 Celli Stacc__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1488,11 +1488,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "11 Violas Sus",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2954860,
             filename: "11 Violas Sus__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1500,11 +1500,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "12 Violin Leg",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3662572,
             filename: "12 Violin Leg__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1512,11 +1512,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "16 Celli Leg",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3391724,
             filename: "16 Celli Leg_Vib_SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1524,11 +1524,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "16 Violin Leg",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3765996,
             filename: "16 Violin Leg__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1536,11 +1536,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "16 Violin Stacc",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 813676,
             filename: "16 Violin Stacc__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1548,11 +1548,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "16 Violin Stereo",
             info: "M400 stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3610092,
             filename: "16 Violin Stereo_Mellotron_M400 stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1560,11 +1560,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "16 Violins SM",
             info: "M400 mono small version",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 1716204,
             filename: "16 Violins SM_Mellotron_M400 mono small version 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1572,11 +1572,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2 Violins1 SM",
             info: "M400 master small vers",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2171244,
             filename: "2 Violins1 SM_Mellotron_M400 master small vers 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1584,11 +1584,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2 Violins2 SM",
             info: "M300 mono small version",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2481516,
             filename: "2 Violins2 SM_Mellotron_M300 mono small version 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1596,11 +1596,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "22violins Leg",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3597036,
             filename: "22violins Leg_LoVib_ SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1608,11 +1608,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "22violins Leg",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3597036,
             filename: "22violins_Leg_LoVib__SR_ste_2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1620,11 +1620,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "23 Violins NoVib",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2380396,
             filename: "23 Violins NoVib__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1632,11 +1632,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "23 Violins NoVib",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2380396,
             filename: "23_Violins_NoVib__SR_ste_2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1644,11 +1644,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "23 Violins NoVib",
             info: "SR ste",
-            version: "3.1",
+            version: "2.1",
             category: "Ens Strings",
             size: 2225132,
             filename: "23_Violins_NoVib__SR_ste_2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1656,11 +1656,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Violins SM",
             info: "MMaster mono small version",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2561516,
             filename: "3 Violins SM_Chamberlin_MMaster mono small version 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1668,11 +1668,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Violins SM",
             info: "MkII mono small version",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2317804,
             filename: "3 Violins SM_Mellotron_MkII mono small version 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1680,11 +1680,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Violins",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2561516,
             filename: "3 Violins_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1692,11 +1692,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "8 Basses Sus",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2518124,
             filename: "8 Basses Sus__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1704,11 +1704,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChambStr Leg",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4088300,
             filename: "ChambStr Leg_HiVib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1716,11 +1716,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChambStr Leg",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 5224044,
             filename: "ChambStr Leg_NoVib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1728,11 +1728,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChambStr Leg",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4670572,
             filename: "ChambStr Leg_Vib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1740,11 +1740,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChambStr Marc",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4340972,
             filename: "ChambStr Marc_HiVib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1752,11 +1752,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChambStr Marc",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4186732,
             filename: "ChambStr Marc_Vib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1764,11 +1764,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChambStr",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 5087852,
             filename: "ChambStr_Tremolo_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1776,11 +1776,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CombiStrings2",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3148268,
             filename: "CombiStrings2_Vib_SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1788,11 +1788,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FullStrings1",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4151916,
             filename: "FullStrings1_Vib_SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1800,11 +1800,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FullStrings2",
             info: "SR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2511852,
             filename: "FullStrings2__SR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1812,11 +1812,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchStrings Marc",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4282604,
             filename: "OrchStrings Marc_HiVib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1824,11 +1824,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchStrings Marc",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4364012,
             filename: "OrchStrings Marc_Vib _KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1836,11 +1836,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchStrings Sust",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4811628,
             filename: "OrchStrings Sust_HiVib_ KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1848,11 +1848,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchStrings Sust",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 5324908,
             filename: "OrchStrings Sust_NoVib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1860,11 +1860,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchStrings Sust",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 5043052,
             filename: "OrchStrings Sust_Vib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1872,11 +1872,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchStrings",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 5385196,
             filename: "OrchStrings_Tremolo_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1884,11 +1884,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizz 16 Violin",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 860140,
             filename: "Pizz 16 Violin__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1896,11 +1896,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizzicato",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 694252,
             filename: "Pizzicato_ChambStr_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1908,11 +1908,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizzicato",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 947308,
             filename: "Pizzicato_OrchStr_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1920,11 +1920,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizzicato",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 705260,
             filename: "Pizzicato_StudStr_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1932,11 +1932,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoftStrings Leg",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 5951340,
             filename: "SoftStrings Leg_LoVib_SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1944,11 +1944,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoftStrings Leg",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 5951340,
             filename: "SoftStrings_Leg_LoVib_SR_ste_2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1956,11 +1956,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoftStrings Leg",
             info: "SR ste",
-            version: "3.1",
+            version: "2.1",
             category: "Ens Strings",
             size: 5769708,
             filename: "SoftStrings Leg_LoVib_SR ste 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1968,11 +1968,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoftStrings Leg",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 6962796,
             filename: "SoftStrings Leg_NoVib_SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1980,11 +1980,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoftStrings Leg",
             info: "SR ste",
-            version: "3.1",
+            version: "2.1",
             category: "Ens Strings",
             size: 7104492,
             filename: "SoftStrings Leg_NoVib_SR ste 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -1992,11 +1992,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StrEnsPizzicato",
             info: "SR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 82668,
             filename: "StrEnsPizzicato__SR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2004,11 +2004,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "String Sect2 SM",
             info: "M400 mono small version",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2312940,
             filename: "String Sect2 SM_Mellotron_M400 mono small version 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2016,11 +2016,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StringEns",
             info: "SR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2788716,
             filename: "StringEns_Tremolo_SR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2028,11 +2028,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StringOrchestra",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4142444,
             filename: "StringOrchestra_Vib_SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2040,11 +2040,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StringQuartet",
             info: "SR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3616620,
             filename: "StringQuartet_Leg Vib_SR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2052,11 +2052,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Strings Ensemble",
             info: "Korg ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3747180,
             filename: "Strings Ensemble__Korg ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2064,11 +2064,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StudioStr Leg",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4592620,
             filename: "StudioStr Leg_Vib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2076,11 +2076,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StudioStr Mrc",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 6467180,
             filename: "StudioStr Mrc_Vib_KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2088,11 +2088,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StudStringsTrem",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4922220,
             filename: "StudStringsTrem__KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2100,11 +2100,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr FastAtk",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14333676,
             filename: "SymphStr FastAtk_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2112,11 +2112,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr FastAtk",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 10866156,
             filename: "SymphStr FastAtk_Cls_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2124,11 +2124,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Legato",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 15610092,
             filename: "SymphStr Legato_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2136,11 +2136,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Legato",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 15634540,
             filename: "SymphStr Legato_Cls_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2148,11 +2148,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr LegSoft",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12435692,
             filename: "SymphStr LegSoft_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2160,11 +2160,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr LegSoft",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14880876,
             filename: "SymphStr LegSoft_Cls_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2172,11 +2172,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Pizz",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2079084,
             filename: "SymphStr Pizz_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2184,11 +2184,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Pizz",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2458604,
             filename: "SymphStr Pizz_Cls_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2196,11 +2196,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Sordino",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12499820,
             filename: "SymphStr Sordino_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2208,11 +2208,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Sordino",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13944556,
             filename: "SymphStr Sordino_Cls_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2220,11 +2220,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Spicc",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2277228,
             filename: "SymphStr Spicc_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2232,11 +2232,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Spicc",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2346348,
             filename: "SymphStr Spicc_Cls_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2244,11 +2244,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Stacc",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3497836,
             filename: "SymphStr Stacc_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2256,11 +2256,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Stacc",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 1697004,
             filename: "SymphStr Stacc_Cls_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2268,11 +2268,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Trem",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 11120876,
             filename: "SymphStr Trem_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2280,11 +2280,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Tremolo",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12626156,
             filename: "SymphStr Tremolo_Cls_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2292,11 +2292,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr XSoft",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12385260,
             filename: "SymphStr XSoft_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2304,11 +2304,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr XSoft",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13527276,
             filename: "SymphStr XSoft_Cls_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -2320,11 +2320,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Bassoons Sus",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2485612,
             filename: "3 Bassoons Sus__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2332,11 +2332,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Clarinets",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2988268,
             filename: "3 Clarinets__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2344,11 +2344,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Flutes Sus",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2247020,
             filename: "3 Flutes Sus__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2356,11 +2356,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Oboes",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2704620,
             filename: "3 Oboes__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2368,11 +2368,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Trombones Sus",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2398828,
             filename: "3 Trombones Sus__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2380,11 +2380,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Trumpets Sus",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3085420,
             filename: "3 Trumpets Sus__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2392,11 +2392,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4 Horns Sus",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 1950828,
             filename: "4 Horns Sus__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2404,11 +2404,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4 Saxes",
             info: "MMaster Sml mono",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 1747436,
             filename: "4 Saxes_Chamberlin_MMaster Sml mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2416,11 +2416,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "All Winds ",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4585964,
             filename: "All Winds __SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2428,11 +2428,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Brass Drama",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4775404,
             filename: "Brass Drama__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2440,11 +2440,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Brass Ensemble 1",
             info: "Korg 18 ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2279788,
             filename: "Brass Ensemble 1__Korg 18 ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2452,11 +2452,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Brass Ensemble5",
             info: "Korg 54 ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4549740,
             filename: "Brass Ensemble5_mf_Korg 54 ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2464,11 +2464,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrassSect f Fall",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 1369964,
             filename: "BrassSect f Fall_Dbl_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2476,11 +2476,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrassSect f Fall",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 1337836,
             filename: "BrassSect f Fall_S_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2488,11 +2488,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrassSect Pop 1",
             info: "BR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3267436,
             filename: "BrassSect Pop 1__BR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2500,11 +2500,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrassSect Pop 2",
             info: "BR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3156332,
             filename: "BrassSect Pop 2__BR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2512,11 +2512,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrassSect Pop 3",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 5230828,
             filename: "BrassSect Pop 3__BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2524,11 +2524,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrassSect Pop 4",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 5519596,
             filename: "BrassSect Pop 4__BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2536,11 +2536,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrassSect Sus",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3093740,
             filename: "BrassSect Sus_Dbl mf_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2548,11 +2548,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrassSect Sus",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3956204,
             filename: "BrassSect Sus_Sing ff_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2560,11 +2560,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrassSect",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3907052,
             filename: "BrassSect_Dbl f_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2572,11 +2572,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flutes+Clarinets",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3729388,
             filename: "Flutes+Clarinets__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2584,11 +2584,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flutes+Oboe",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2984940,
             filename: "Flutes+Oboe__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2596,11 +2596,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FrenchHorns ff",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2067308,
             filename: "FrenchHorns ff__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2608,11 +2608,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HornSect Funk 1",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 5043564,
             filename: "HornSect Funk 1__BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2620,11 +2620,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Horns+Winds",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4252396,
             filename: "Horns+Winds__SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2632,11 +2632,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HornSect Jazz 1",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 5297388,
             filename: "HornSect Jazz 1__BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2644,11 +2644,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HornTrio",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3833964,
             filename: "HornTrio__CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2656,11 +2656,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HornTrio+Baryton",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4150508,
             filename: "HornTrio+Baryton_Split_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2668,11 +2668,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchBrass 2",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 5075692,
             filename: "OrchBrass 2__BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2680,11 +2680,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchBrass 3",
             info: "BR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4795116,
             filename: "OrchBrass 3__BR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2692,11 +2692,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchFrenchHorn",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3176172,
             filename: "OrchFrenchHorn__KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2704,11 +2704,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchTrombones",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3794156,
             filename: "OrchTrombones__KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2716,11 +2716,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrchTrumpets",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2859628,
             filename: "OrchTrumpets__ KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -2732,11 +2732,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "12 Str Guitar1",
             info: "DV mono",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1513964,
             filename: "12 Str Guitar1__DV mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2744,11 +2744,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "12 Str Guitar2",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 635628,
             filename: "12 Str Guitar2__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2756,11 +2756,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ac Guitar 12 Str",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3918828,
             filename: "Ac Guitar 12 Str__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2768,11 +2768,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ac Guitar Finger",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3679084,
             filename: "Ac Guitar Finger__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2780,11 +2780,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ac Guitar Pick",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3775212,
             filename: "Ac Guitar Pick__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2792,11 +2792,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bandura",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2211820,
             filename: "Bandura_Ukrainian_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2804,11 +2804,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Banjo1",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 412652,
             filename: "Banjo1__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2816,11 +2816,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Banjo2",
             info: "DV stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1543916,
             filename: "Banjo2__DV stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2828,11 +2828,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Buzouki",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1266156,
             filename: "Buzouki__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2840,11 +2840,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CelticHarp",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1044716,
             filename: "CelticHarp__PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2852,11 +2852,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CimbalomDamped",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 669548,
             filename: "CimbalomDamped__PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2864,11 +2864,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CimbalomHard",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3039084,
             filename: "CimbalomHard__PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2876,11 +2876,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CimbalomHarm",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2124268,
             filename: "CimbalomHarm__ PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2888,11 +2888,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CimbalomPizz",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3652716,
             filename: "CimbalomPizz__PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2900,11 +2900,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Classical Guitar",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2510188,
             filename: "Classical Guitar__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2912,11 +2912,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Dist Guitar",
             info: "DV mono",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1463916,
             filename: "Dist Guitar__DV mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2924,11 +2924,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "E Guitar 12 Str",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 4601836,
             filename: "E Guitar 12 Str__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2936,11 +2936,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "E Guitar LP 55",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3474156,
             filename: "E Guitar LP 55__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2948,11 +2948,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "E Guitar S 62",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 4183788,
             filename: "E Guitar S 62__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2960,11 +2960,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "E Guitar T 57",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 4050156,
             filename: "E Guitar T 57__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2972,11 +2972,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Finnish Kantele",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 6139884,
             filename: "Finnish Kantele__PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2984,11 +2984,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harp1",
             info: "DV mono",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 977516,
             filename: "Harp1__DV mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -2996,11 +2996,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harp2",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1341804,
             filename: "Harp2__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3008,11 +3008,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Indian Santoor",
             info: "PS stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2014700,
             filename: "Indian Santoor__PS stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3020,11 +3020,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Indian Surmantal",
             info: "PS stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3673836,
             filename: "Indian Surmantal__PS stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -3036,11 +3036,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FullOrchestra",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Orchestral",
             size: 3610220,
             filename: "FullOrchestra__SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3048,11 +3048,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Strings- Brass",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Orchestral",
             size: 3430252,
             filename: "Strings- Brass__SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3060,11 +3060,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Strings-Winds",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Orchestral",
             size: 5006188,
             filename: "Strings-Winds__SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3072,11 +3072,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Symphonic synths",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Orchestral",
             size: 4293868,
             filename: "Symphonic synths__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3084,11 +3084,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Wind-String-",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Orchestral",
             size: 3275884,
             filename: "Wind-String-_Brass_SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -3100,11 +3100,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CathedralOrgan2",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 4178156,
             filename: "CathedralOrgan2__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3112,11 +3112,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CathedralOrgan3",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 2258412,
             filename: "CathedralOrgan3__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3124,11 +3124,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CathedralOrgan5",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 4708460,
             filename: "CathedralOrgan5__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3136,11 +3136,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrganFlute1",
             info: "DV ste",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 1976044,
             filename: "OrganFlute1__DV ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3148,11 +3148,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrganFlute2",
             info: "DV mono",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 830956,
             filename: "OrganFlute2__DV mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3160,11 +3160,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrganFlute3",
             info: "DV ste",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 2098540,
             filename: "OrganFlute3__DV ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -3176,11 +3176,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Acoustic Piano 2",
             info: "Korg stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 2497004,
             filename: "Acoustic Piano 2__Korg stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3188,11 +3188,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Acoustic Piano 3",
             info: "Korg mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1172972,
             filename: "Acoustic Piano 3__Korg mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3200,11 +3200,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Acoustic Piano 4",
             info: "Korg  stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1860588,
             filename: "Acoustic Piano 4__Korg  stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3212,11 +3212,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cembalo1",
             info: "PS stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 3446892,
             filename: "Cembalo1__PS stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3224,11 +3224,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clavinet1",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 950124,
             filename: "Clavinet1_mic1_CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3236,11 +3236,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clavinet2",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 944876,
             filename: "Clavinet2_mic2_CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3248,11 +3248,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clavinet3",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1077484,
             filename: "Clavinet3_mic1+2_CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3260,11 +3260,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clavinet4",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1193068,
             filename: "Clavinet4_mic1-2_CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3272,11 +3272,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clavinet5",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 2190572,
             filename: "Clavinet5_stereo_CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3284,11 +3284,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "DX7IIC FineTines",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 2001644,
             filename: "DX7IIC FineTines__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3296,11 +3296,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ElGrand CP80",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1120364,
             filename: "ElGrand CP80__CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3308,11 +3308,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Epiano1",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 888300,
             filename: "Epiano1_soft_CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3320,11 +3320,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Epiano2",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 936684,
             filename: "Epiano2__CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3332,11 +3332,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Epiano3",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 872428,
             filename: "Epiano3_shallow_CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3344,11 +3344,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Epiano4",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 881900,
             filename: "Epiano4__CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3356,11 +3356,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Grandmas Upright",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 5691116,
             filename: "Grandmas Upright__PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3368,11 +3368,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "GrandPiano YaC7",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1145580,
             filename: "GrandPiano YaC7__CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3380,11 +3380,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "GrandPiano YaC7",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 2812780,
             filename: "GrandPiano YaC7_stereo_CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3392,11 +3392,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harpsichord",
             info: "ST stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 3028332,
             filename: "Harpsichord__ST stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3404,11 +3404,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harpsichord",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 2204268,
             filename: "Harpsichord_Italia lute_CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3416,11 +3416,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harpsichrd Ital",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 3501420,
             filename: "Harpsichrd Ital_double_CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3428,11 +3428,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harpsichrd Ital",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 3380204,
             filename: "Harpsichrd Ital_sing_CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3440,11 +3440,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HonkTonkPiano",
             info: "ST stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 2879596,
             filename: "HonkTonkPiano__ST stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3452,11 +3452,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MKS20",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 2161772,
             filename: "MKS20__PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3464,11 +3464,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Piano Korg M1",
             info: "Korg mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 368108,
             filename: "Piano Korg M1__Korg mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3476,11 +3476,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "RainPiano",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 2891244,
             filename: "RainPiano__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3488,11 +3488,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Toy Piano",
             info: "DV stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1124972,
             filename: "Toy Piano__DV stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3500,11 +3500,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Wurlitzer",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 910572,
             filename: "Wurlitzer__CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -3516,11 +3516,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2 Cello Leg",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 2885612,
             filename: "2 Cello Leg_Vib_SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3528,11 +3528,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cello 1 SM",
             info: "M-serie mono small version",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 3417068,
             filename: "Cello 1 SM_Chamberlin_M-serie mono small version 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3540,11 +3540,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "DuoStrings",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 5509356,
             filename: "DuoStrings_NoVib_SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3552,11 +3552,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "DuoStrings",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 4944236,
             filename: "DuoStrings_Vib_SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3564,11 +3564,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "NyckelHarpa",
             info: "PS stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1254636,
             filename: "NyckelHarpa__PS stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3576,11 +3576,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizzicato",
             info: "DV stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 403692,
             filename: "Pizzicato__DV stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3588,11 +3588,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Violin SM",
             info: "mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 2119788,
             filename: "Solo Violin SM_Chamberlin_mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3600,11 +3600,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Violin SM",
             info: "M300 mono small vers",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 2856812,
             filename: "Solo Violin SM_Mellotron_M300 mono small vers 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3612,11 +3612,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoloCello 2",
             info: "SR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1903980,
             filename: "SoloCello 2_No Vib_SR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3624,11 +3624,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoloCello 2",
             info: "SR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1988716,
             filename: "SoloCello 2_Vib_SR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3636,11 +3636,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoloCello 3",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 3535340,
             filename: "SoloCello 3_Vib_SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3648,11 +3648,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoloPizzStr",
             info: "SR stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 321772,
             filename: "SoloPizzStr__SR stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3660,11 +3660,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoloViolin 3",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 4344812,
             filename: "SoloViolin 3__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3672,11 +3672,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoloViolin1",
             info: "SR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1278700,
             filename: "SoloViolin1_Vib_SR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3684,11 +3684,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StringsQuartet",
             info: "Korg stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 803308,
             filename: "StringsQuartet_Solo Vib_ Korg stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -3700,11 +3700,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Alphorn",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 965868,
             filename: "Alphorn__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3712,11 +3712,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Alto Saxophone1",
             info: "Korg 15 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 83820,
             filename: "Alto Saxophone1_mf_Korg 15 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3724,11 +3724,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bansuri Asian",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1157996,
             filename: "Bansuri Asian_Flute_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3736,11 +3736,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bass Clarinet 2",
             info: "Korg 12 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 30700,
             filename: "Bass Clarinet 2__Korg 12 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3748,11 +3748,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bass Clarinet",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 2503788,
             filename: "Bass Clarinet__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3760,11 +3760,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bass Trombone",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 2167148,
             filename: "Bass Trombone__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3772,11 +3772,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bassoon Solo",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1905772,
             filename: "Bassoon Solo__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3784,11 +3784,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bolivian Panpipe",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 954476,
             filename: "Bolivian Panpipe__PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3796,11 +3796,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Celtic Whistle",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 946540,
             filename: "Celtic Whistle__PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3808,11 +3808,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clarinet",
             info: "Korg10 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 45420,
             filename: "Clarinet__Korg10 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3820,11 +3820,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "DreamWhistle",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1071468,
             filename: "DreamWhistle_Combi _PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3832,11 +3832,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute Vibrato",
             info: "Korg 7 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 357356,
             filename: "Flute Vibrato__Korg 7 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3844,11 +3844,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "French Horn",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 786028,
             filename: "French Horn__ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3856,11 +3856,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mellotron Flute",
             info: "mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1910380,
             filename: "Mellotron Flute_MkII sml_mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3868,11 +3868,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Muted Trumpet",
             info: "Chamberlin  M",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 2183660,
             filename: "Muted Trumpet_FastVib_Chamberlin  M 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3880,11 +3880,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ney Turkish",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 749292,
             filename: "Ney Turkish_Flute_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3892,11 +3892,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Nor Flute",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1440492,
             filename: "Nor Flute__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3904,11 +3904,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Nordic Whistle",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1055724,
             filename: "Nordic Whistle__PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3916,11 +3916,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Oboe f",
             info: "Korg 14 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 86636,
             filename: "Oboe f__Korg 14 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3928,11 +3928,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pan Flute 1",
             info: "Korg mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 225132,
             filename: "Pan Flute 1__Korg mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3940,11 +3940,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Panflute 2",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1638892,
             filename: "Panflute 2__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3952,11 +3952,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Panflute Tremolo",
             info: "",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1153004,
             filename: "Panflute Tremolo_Slow_ 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3964,11 +3964,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Privilege Flute",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1169260,
             filename: "Privilege Flute__PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3976,11 +3976,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Privilege Flute",
             info: "PS mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 713836,
             filename: "Privilege Flute_Vib_PS mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -3988,11 +3988,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Quena Latin",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 747116,
             filename: "Quena Latin_Flute_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4000,11 +4000,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Recorder Alto",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1073516,
             filename: "Recorder Alto__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4012,11 +4012,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Saxophone  mF",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 526188,
             filename: "Saxophone  mF__CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4024,11 +4024,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Saxophone Vib",
             info: "Korg 17 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 767212,
             filename: "Saxophone Vib__Korg 17 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4036,11 +4036,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SaxSingForte",
             info: "CL mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1259244,
             filename: "SaxSingForte__CL mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4048,11 +4048,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Shakuhachi",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 2085868,
             filename: "Shakuhachi__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4060,11 +4060,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Shehnai Indian",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 377196,
             filename: "Shehnai Indian_Flute_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4072,11 +4072,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoloTrumpet1",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 879724,
             filename: "SoloTrumpet1_ _ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4084,11 +4084,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoloTrumpet1",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 2592236,
             filename: "SoloTrumpet1_MutedF_ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4096,11 +4096,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tenor Saxophone",
             info: "Korg mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 89580,
             filename: "Tenor Saxophone_mf_Korg mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4108,11 +4108,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone Muted",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1467628,
             filename: "Trombone Muted__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4120,11 +4120,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 2208492,
             filename: "Trombone__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4132,11 +4132,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet1Drill",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 892268,
             filename: "Trumpet1Drill__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4144,11 +4144,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet1Mute mf",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1669996,
             filename: "Trumpet1Mute mf__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4156,11 +4156,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tuba",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1501932,
             filename: "Tuba__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -4172,11 +4172,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "A1 Brass",
             info: "NLA1 stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1840876,
             filename: "A1 Brass__NLA1 stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4184,11 +4184,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "A1 JubileeBrass",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1944940,
             filename: "A1 JubileeBrass__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4196,11 +4196,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "A1 SoftFifth",
             info: "NLA1 stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2711148,
             filename: "A1 SoftFifth__NLA1 stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4208,11 +4208,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "A1 The Prophet",
             info: "NLA1 stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2030572,
             filename: "A1 The Prophet__NLA1 stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4220,11 +4220,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AbbaPad",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 2021484,
             filename: "AbbaPad_NL3 ste_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4232,11 +4232,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AnaStrings",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 3381740,
             filename: "AnaStrings_DX7IIC_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4244,11 +4244,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BassnLead",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1828076,
             filename: "BassnLead_M12_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4256,11 +4256,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bells Strings",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1461612,
             filename: "Bells Strings__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4268,11 +4268,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BigSyn",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 3276780,
             filename: "BigSyn_M12_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4280,11 +4280,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bowed",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2702572,
             filename: "Bowed_MMM_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4292,11 +4292,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BrightPad",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 3318764,
             filename: "BrightPad_RJp8_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4304,11 +4304,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Choir",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2242924,
             filename: "Choir_PPGWv_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4316,11 +4316,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Choir1",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1333484,
             filename: "Choir1_PolyC_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4328,11 +4328,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChurchOrgan2",
             info: "NLA1 ste",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2518764,
             filename: "ChurchOrgan2__NLA1 ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4340,11 +4340,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cutting Edge Saws",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 662764,
             filename: "Cutting Edge Saws_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4352,11 +4352,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cyberspace",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1040364,
             filename: "Cyberspace_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4364,11 +4364,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Decay Syn",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 415724,
             filename: "Decay Syn_JP4_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4376,11 +4376,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Detune Saw Lead",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 3757036,
             filename: "Detune Saw Lead_MM_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4388,11 +4388,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Drama Pad",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 1596396,
             filename: "Drama Pad_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4400,11 +4400,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "DSync",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 3632108,
             filename: "DSync_ESynthex_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4412,11 +4412,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "E Guitar",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2120556,
             filename: "E Guitar_DX7IIC_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4424,11 +4424,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Electric Parade",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 931820,
             filename: "Electric Parade_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4436,11 +4436,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Environs",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1184620,
             filename: "Environs__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4448,11 +4448,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "EP",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 182508,
             filename: "EP_Polymoog_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4460,11 +4460,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Fat Fifth",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1517292,
             filename: "Fat Fifth_JX-3P_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4472,11 +4472,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FatClav",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 994028,
             filename: "FatClav_RChrom_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4484,11 +4484,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Filter Funk",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 499436,
             filename: "Filter Funk_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4496,11 +4496,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Footclap",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 572652,
             filename: "Footclap_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4508,11 +4508,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "G2 AnaClassic 1",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1491948,
             filename: "G2 AnaClassic 1__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4520,11 +4520,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "G2 Ecochoir",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 871148,
             filename: "G2 Ecochoir__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4532,11 +4532,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "G2 Eighties",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1752940,
             filename: "G2 Eighties__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4544,11 +4544,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "G2 FM Bells",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1646828,
             filename: "G2 FM Bells__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4556,11 +4556,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "G2 Stage Key",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1100268,
             filename: "G2 Stage Key__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4568,11 +4568,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "G2 Stargate",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 4776684,
             filename: "G2 Stargate__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4580,11 +4580,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "G2 StereoPad",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 2353516,
             filename: "G2 StereoPad__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4592,11 +4592,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "G2 VA Strings",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2790508,
             filename: "G2 VA Strings__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4604,11 +4604,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Glass Brass",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 890732,
             filename: "Glass Brass_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4616,11 +4616,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HeavyWthr",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2082028,
             filename: "HeavyWthr_RJp8_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4628,11 +4628,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hit Stack",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1887724,
             filename: "Hit Stack_PowerSynths_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4640,11 +4640,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Horns",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2031596,
             filename: "Horns_MMM_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4652,11 +4652,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HornSaw",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 5275628,
             filename: "HornSaw__PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4664,11 +4664,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "IonoSphere",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2155628,
             filename: "IonoSphere_NL3 ste_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4676,11 +4676,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Jan Chords",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1574508,
             filename: "Jan Chords_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4688,11 +4688,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "KC Trilogy Lead",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2429676,
             filename: "KC Trilogy Lead_MM_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4700,11 +4700,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Lead Square",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 442604,
             filename: "Lead Square_OB8_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4712,11 +4712,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Litely",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1473772,
             filename: "Litely_NL3 ste_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4724,11 +4724,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Lucky Lead",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 897516,
             filename: "Lucky Lead_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4736,11 +4736,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mallet 2",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 803820,
             filename: "Mallet 2_NL3_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4748,11 +4748,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Massive Pad",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 1997932,
             filename: "Massive Pad_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4760,11 +4760,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mega Huge",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1575916,
             filename: "Mega Huge__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4772,11 +4772,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MetalString",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 3653996,
             filename: "MetalString_ESynthex_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4784,11 +4784,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mighty Pad",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 3947884,
             filename: "Mighty Pad_PowerSynths_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4796,11 +4796,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Model Organ",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1683948,
             filename: "Model Organ_PowerSynths_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4808,11 +4808,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Modern EP Layer",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2531308,
             filename: "Modern EP Layer_PowerSynths_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4820,11 +4820,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Modern Symphonics",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 4293868,
             filename: "Modern Symphonics_PowerSynths_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4832,11 +4832,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Multi EP",
             info: "NLA1 ste",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 621676,
             filename: "Multi EP__NLA1 ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4844,11 +4844,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "NiceLead",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2044396,
             filename: "NiceLead_RJp8_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4856,11 +4856,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Noisy Bell Hard",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1922028,
             filename: "Noisy Bell Hard_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4868,11 +4868,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Notchy Psycho",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2037100,
             filename: "Notchy Psycho_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4880,11 +4880,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Odd Couple",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 755820,
             filename: "Odd Couple_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4892,11 +4892,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Omnious",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 1034988,
             filename: "Omnious_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4904,11 +4904,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "P5 BeatItWave",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1306988,
             filename: "P5 BeatItWave__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4916,11 +4916,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "P5 Funkesizer",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1216108,
             filename: "P5 Funkesizer__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4928,11 +4928,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "P5 Lead Unison",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1354860,
             filename: "P5 Lead Unison__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4940,11 +4940,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "P5 Muted Synth",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 54252,
             filename: "P5 Muted Synth__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4952,11 +4952,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "P5 PitchaPoly",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 693868,
             filename: "P5 PitchaPoly__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4964,11 +4964,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "P5 PPG Lead",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 808812,
             filename: "P5 PPG Lead__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4976,11 +4976,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "P5 Saga Synth",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1879404,
             filename: "P5 Saga Synth__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -4988,11 +4988,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "P5 SuperLead",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1800300,
             filename: "P5 SuperLead_Unison_BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5000,11 +5000,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pad",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 1555820,
             filename: "Pad_Polymoog_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5012,11 +5012,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Paddington",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 2031468,
             filename: "Paddington_JX-3P_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5024,11 +5024,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "PaPano",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 984172,
             filename: "PaPano_M12_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5036,11 +5036,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Piano",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 947308,
             filename: "Piano_PolyC_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5048,11 +5048,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "PointedTrianglesHard",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1114732,
             filename: "PointedTrianglesHard_NL2X_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5060,11 +5060,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "PortaBassLead",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2164204,
             filename: "PortaBassLead_Quadra_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5072,11 +5072,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Attack Pad",
             info: "AW stereo",
-            version: "3.1",
+            version: "2.1",
             category: "Misc Synth",
             size: 1782636,
             filename: "Attack Pad_Layer_AW stereo 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5084,11 +5084,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Celestial Pad",
             info: "AW stereo",
-            version: "3.1",
+            version: "2.1",
             category: "Pad Synth",
             size: 3356268,
             filename: "Celestial Pad__AW stereo 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5096,11 +5096,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "RaveKordz",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2116972,
             filename: "RaveKordz_NL3 ste_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5108,11 +5108,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "RichiM",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2067948,
             filename: "RichiM_NL3 ste_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5120,11 +5120,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SilkStrings",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1627500,
             filename: "SilkStrings__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5132,11 +5132,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Silkworm",
             info: "PH",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1889132,
             filename: "Silkworm_JX-3P_PH 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5144,11 +5144,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SoftPad",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 2624108,
             filename: "SoftPad_M12_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5156,11 +5156,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Spacey",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1201388,
             filename: "Spacey_RChrom_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5168,11 +5168,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "String 1",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 3018860,
             filename: "String 1_CS80_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5180,11 +5180,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Stringer",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 3432940,
             filename: "Stringer_RJp8_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5192,11 +5192,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Stringpad",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 4186860,
             filename: "Stringpad_CS80_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5204,11 +5204,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Strings",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1430636,
             filename: "Strings_Polymoog_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5216,11 +5216,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sweep",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1142380,
             filename: "Sweep_Polymoog_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5228,11 +5228,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sweet Dreams Pad",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 4537580,
             filename: "Sweet Dreams Pad_PowerSynths_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5240,11 +5240,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sync3",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2944236,
             filename: "Sync3_Ody_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5252,11 +5252,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Synth Trumpet",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1724780,
             filename: "Synth Trumpet_MM_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5264,11 +5264,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthPad1",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 1384940,
             filename: "SynthPad1__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5276,11 +5276,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynthPad2",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 1709036,
             filename: "SynthPad2__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5288,11 +5288,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Touch Perco",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 4098924,
             filename: "Touch Perco_DX7IIC_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5300,11 +5300,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Voices",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2501100,
             filename: "Voices_MMM_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5312,11 +5312,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "WarmPad1",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 906604,
             filename: "WarmPad1__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5324,11 +5324,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "WarmPad2",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 1150572,
             filename: "WarmPad2__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5336,11 +5336,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "WarmPad3",
             info: "CL stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 1463532,
             filename: "WarmPad3__CL stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5348,11 +5348,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "WidePad",
             info: "BR",
-            version: "3.0",
+            version: "2.0",
             category: "Pad Synth",
             size: 4140652,
             filename: "WidePad_PPGWv_BR 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5360,11 +5360,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "WurliString",
             info: "NLA1 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 752108,
             filename: "WurliString__NLA1 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5372,11 +5372,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Crisp Attack Pad",
             info: "AW stereo",
-            version: "3.1",
+            version: "2.1",
             category: "Pad Synth",
             size: 1918316,
             filename: "Crisp Attack Pad__AW stereo 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5384,11 +5384,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Digital Air Pad",
             info: "AW stereo",
-            version: "3.1",
+            version: "2.1",
             category: "Pad Synth",
             size: 3589868,
             filename: "Digital Air Pad__AW stereo 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5396,11 +5396,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Glacial Pad",
             info: "AW stereo",
-            version: "3.1",
+            version: "2.1",
             category: "Pad Synth",
             size: 4180204,
             filename: "Glacial Pad__AW stereo 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5408,11 +5408,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Slow Evolution Pad",
             info: "AW stereo",
-            version: "3.1",
+            version: "2.1",
             category: "Pad Synth",
             size: 4423660,
             filename: "Slow Evolution Pad__AW stereo 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5420,11 +5420,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vocalise Pad",
             info: "AW stereo",
-            version: "3.1",
+            version: "2.1",
             category: "Pad Synth",
             size: 2773484,
             filename: "Vocalise Pad__AW stereo 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -5436,11 +5436,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Almglocken",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 3236204,
             filename: "Almglocken__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5448,11 +5448,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bells",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 2175468,
             filename: "Bells__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5460,11 +5460,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bowed Vibra",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 5652844,
             filename: "Bowed Vibra__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5472,11 +5472,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Celeste",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 859244,
             filename: "Celeste__ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5484,11 +5484,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Celeste",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 1882092,
             filename: "Celeste__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5496,11 +5496,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Church Bells",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 2629484,
             filename: "Church Bells__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5508,11 +5508,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Crotales",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 1443052,
             filename: "Crotales__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5520,11 +5520,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Glockenspiel 1",
             info: "Korg 03 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 199020,
             filename: "Glockenspiel 1__Korg 03 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5532,11 +5532,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Glockenspiel 2",
             info: "Korg 04 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 102508,
             filename: "Glockenspiel 2__Korg 04 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5544,11 +5544,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Glockenspiel",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 2738412,
             filename: "Glockenspiel__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5556,11 +5556,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Himalayan",
             info: "BR mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 724588,
             filename: "Himalayan__BR mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5568,11 +5568,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "J-celeste",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 841324,
             filename: "J-celeste__PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5580,11 +5580,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Kalimba",
             info: "Korg01 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 40172,
             filename: "Kalimba__Korg01 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5592,11 +5592,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Marimba",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 242796,
             filename: "Marimba__ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5604,11 +5604,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mbira",
             info: "PS",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 640748,
             filename: "Mbira__PS 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5616,11 +5616,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Metallophone",
             info: "DV ste",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 825708,
             filename: "Metallophone__DV ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5628,11 +5628,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Small Bells",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 1128940,
             filename: "Small Bells__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5640,11 +5640,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmallChimes",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 1679724,
             filename: "SmallChimes__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5652,11 +5652,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Thaigong",
             info: "ST Stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 2801388,
             filename: "Thaigong__ST Stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5664,11 +5664,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "TubularBells",
             info: "ST mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 990060,
             filename: "TubularBells__ST mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5676,11 +5676,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "TubularBells",
             info: "ST ste",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 2338668,
             filename: "TubularBells__ST ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5688,11 +5688,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vibes",
             info: "DV mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 805484,
             filename: "Vibes__DV mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5700,11 +5700,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Xylophone",
             info: "Korg 02 mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 65644,
             filename: "Xylophone__Korg 02 mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -5716,11 +5716,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad4",
             info: "PS",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3546476,
             filename: "AngelicVocalPad4_Aa_PS 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5728,11 +5728,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad4",
             info: "PS",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2895340,
             filename: "AngelicVocalPad4_Oo_PS 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5740,11 +5740,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad5",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2246892,
             filename: "AngelicVocalPad5_Ah_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5752,11 +5752,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad5",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2396652,
             filename: "AngelicVocalPad5_Eeh_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5764,11 +5764,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad5",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2387052,
             filename: "AngelicVocalPad5_Ihh_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5776,11 +5776,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad5",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2137068,
             filename: "AngelicVocalPad5_O_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5788,11 +5788,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad5",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2091372,
             filename: "AngelicVocalPad5_Uhh_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5800,11 +5800,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad6",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3121644,
             filename: "AngelicVocalPad6_Ahh_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5812,11 +5812,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad6",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2464748,
             filename: "AngelicVocalPad6_Ehh_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5824,11 +5824,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad6",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2696940,
             filename: "AngelicVocalPad6_Ihh_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5836,11 +5836,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad6",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2890092,
             filename: "AngelicVocalPad6_Ohh_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5848,11 +5848,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AngelicVocalPad6",
             info: "PS ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2625388,
             filename: "AngelicVocalPad6_Uhh_PS ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5860,11 +5860,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Big Choir",
             info: "SO stereo",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3491820,
             filename: "Big Choir__SO stereo 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5872,11 +5872,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Boys AHH Vib",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3036652,
             filename: "Boys AHH Vib__KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5884,11 +5884,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Boys AHH",
             info: "KH ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3079404,
             filename: "Boys AHH__KH ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5896,11 +5896,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BoysChoir SM",
             info: "M400 stereo version",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2796396,
             filename: "BoysChoir SM_Mellotron_M400 stereo version 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5908,11 +5908,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Choir Aahs",
             info: "BR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3210732,
             filename: "Choir Aahs__ BR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5920,11 +5920,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Choir Boys",
             info: "BR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2689900,
             filename: "Choir Boys__BR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5932,11 +5932,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Choir Mixed Soft",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2548076,
             filename: "Choir Mixed Soft__ SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5944,11 +5944,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Choir Mixed",
             info: "BR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2577388,
             filename: "Choir Mixed__ BR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5956,11 +5956,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Choir",
             info: "BR",
-            version: "3.1",
+            version: "2.1",
             category: "Choir",
             size: 128364,
             filename: "Choir_Orchestron_BR 2.1",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5968,11 +5968,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Female Ahh",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2561260,
             filename: "Female Ahh__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5980,11 +5980,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Female Oh",
             info: "SR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2065900,
             filename: "Female Oh__SR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -5992,11 +5992,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MixCustChoir SM",
             info: "M400 small vers",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 1730028,
             filename: "MixCustChoir SM_Mellotron_M400 small vers 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6004,11 +6004,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmlChoir Fem Ah",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3137772,
             filename: "SmlChoir Fem Ah_Hard_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6016,11 +6016,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmlChoir Fem Ah",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3088364,
             filename: "SmlChoir Fem Ah_Soft_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6028,11 +6028,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmlChoir Fem Oh",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2744812,
             filename: "SmlChoir Fem Oh_Hard_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6040,11 +6040,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmlChoir Fem Oh",
             info: "BR ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2871660,
             filename: "SmlChoir Fem Oh_Soft 2_ BR ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6052,11 +6052,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmlChoir Fem Oh",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2775660,
             filename: "SmlChoir Fem Oh_Soft_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6064,11 +6064,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmlChoir Male Ah",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3005036,
             filename: "SmlChoir Male Ah_Hard_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6076,11 +6076,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmlChoir Male Ah",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3143660,
             filename: "SmlChoir Male Ah_Soft_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6088,11 +6088,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmlChoir Male Oh",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3036652,
             filename: "SmlChoir Male Oh_Hard_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6100,11 +6100,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SmlChoir Male Oh",
             info: "CL ste",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2986604,
             filename: "SmlChoir Male Oh_Soft_CL ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -6116,11 +6116,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Basso",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 575724,
             filename: "Basso_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6128,11 +6128,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "C Clavi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 860140,
             filename: "C Clavi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6140,11 +6140,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav 1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 823660,
             filename: "Clav 1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6152,11 +6152,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav 2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 987628,
             filename: "Clav 2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6164,11 +6164,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav 3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1088108,
             filename: "Clav 3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6176,11 +6176,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav 4",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1018476,
             filename: "Clav 4_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6188,11 +6188,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav 5",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 627564,
             filename: "Clav 5_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6200,11 +6200,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav 6",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 624364,
             filename: "Clav 6_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6212,11 +6212,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav 7",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1052780,
             filename: "Clav 7_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6224,11 +6224,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav Orch",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 858988,
             filename: "Clav Orch_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6236,11 +6236,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 706284,
             filename: "Clav1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6248,11 +6248,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clav2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 683756,
             filename: "Clav2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6260,11 +6260,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ElecP1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 2723436,
             filename: "ElecP1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6272,11 +6272,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ElecP2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 570476,
             filename: "ElecP2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6284,11 +6284,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ElOrg",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 1125228,
             filename: "ElOrg_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6296,11 +6296,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "EPia",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 580076,
             filename: "EPia_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6308,11 +6308,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Grand 1 Hi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1202668,
             filename: "Grand 1 Hi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6320,11 +6320,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "GrandPi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 989548,
             filename: "GrandPi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6332,11 +6332,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HiPiano",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 670444,
             filename: "HiPiano_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6344,11 +6344,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Piano",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 746604,
             filename: "Piano_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6356,11 +6356,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ToyPiano",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1019244,
             filename: "ToyPiano_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -6372,11 +6372,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bar",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 1219436,
             filename: "Bar_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6384,11 +6384,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BassMar",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 192620,
             filename: "BassMar_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6396,11 +6396,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bowl1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 493292,
             filename: "Bowl1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6408,11 +6408,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "C Bell 2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 674668,
             filename: "C Bell 2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6420,11 +6420,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "C Bell",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 404332,
             filename: "C Bell_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6432,11 +6432,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cheng",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 216172,
             filename: "Cheng_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6444,11 +6444,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Chiano",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 660332,
             filename: "Chiano_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6456,11 +6456,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Chimes2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 216044,
             filename: "Chimes2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6468,11 +6468,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clochime",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 222444,
             filename: "Clochime_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6480,11 +6480,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Crotimp",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 111340,
             filename: "Crotimp_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6492,11 +6492,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eatbowl",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 2101612,
             filename: "Eatbowl_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6504,11 +6504,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gam",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 51948,
             filename: "Gam_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6516,11 +6516,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gam2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 494572,
             filename: "Gam2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6528,11 +6528,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gtaraa",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 459500,
             filename: "Gtaraa_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6540,11 +6540,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harp",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 138220,
             filename: "Harp_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6552,11 +6552,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harp2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 633964,
             filename: "Harp2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6564,11 +6564,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Kalim Lo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 211436,
             filename: "Kalim Lo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6576,11 +6576,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Kalim",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 533484,
             filename: "Kalim_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6588,11 +6588,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mach1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 157548,
             filename: "Mach1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6600,11 +6600,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Melodium",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 1591276,
             filename: "Melodium_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6612,11 +6612,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mondorg",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 139884,
             filename: "Mondorg_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6624,11 +6624,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mondorg2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 87660,
             filename: "Mondorg2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6636,11 +6636,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Moutho2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 381804,
             filename: "Moutho2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6648,11 +6648,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Musicbox",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 480620,
             filename: "Musicbox_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6660,11 +6660,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Newbell",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 229484,
             filename: "Newbell_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6672,11 +6672,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Nipple",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 216812,
             filename: "Nipple_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6684,11 +6684,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Nopple",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 109548,
             filename: "Nopple_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6696,11 +6696,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "PD",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 373996,
             filename: "PD_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6708,11 +6708,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rejong",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 553964,
             filename: "Rejong_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6720,11 +6720,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Steel Dr",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 381420,
             filename: "Steel Dr_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6732,11 +6732,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Steel1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 122988,
             filename: "Steel1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6744,11 +6744,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Steel2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 148460,
             filename: "Steel2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6756,11 +6756,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Steel3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 238572,
             filename: "Steel3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6768,11 +6768,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Steeldrum 2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 344684,
             filename: "Steeldrum 2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6780,11 +6780,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Steeldrum",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 381932,
             filename: "Steeldrum_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6792,11 +6792,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ster1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 150252,
             filename: "Ster1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6804,11 +6804,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ster2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 121324,
             filename: "Ster2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6816,11 +6816,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ster3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 118380,
             filename: "Ster3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6828,11 +6828,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Synbell",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 1476716,
             filename: "Synbell_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6840,11 +6840,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Telbell",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 278124,
             filename: "Telbell_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6852,11 +6852,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VibHi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 249324,
             filename: "VibHi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6864,11 +6864,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Viblo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 304108,
             filename: "Viblo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6876,11 +6876,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vibmid",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 493804,
             filename: "Vibmid_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6888,11 +6888,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VibMid2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 304876,
             filename: "VibMid2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6900,11 +6900,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VibOct",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 274540,
             filename: "VibOct_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6912,11 +6912,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VibUp",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 396908,
             filename: "VibUp_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -6928,11 +6928,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BowdBass",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 203628,
             filename: "BowdBass_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6940,11 +6940,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BowedBass2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 320492,
             filename: "BowedBass2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6952,11 +6952,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BowedBass4",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 199788,
             filename: "BowedBass4_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6964,11 +6964,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Brass 1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 626540,
             filename: "Brass 1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6976,11 +6976,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cellpizz",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 257260,
             filename: "Cellpizz_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -6988,11 +6988,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CellShort",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 175212,
             filename: "CellShort_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7000,11 +7000,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cornet Hi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 480236,
             filename: "Cornet Hi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7012,11 +7012,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "F Horn 2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 283116,
             filename: "F Horn 2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7024,11 +7024,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Fallmed",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 120556,
             filename: "Fallmed_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7036,11 +7036,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Fallong",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 122604,
             filename: "Fallong_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7048,11 +7048,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FallSlo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 141548,
             filename: "FallSlo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7060,11 +7060,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flugelbone",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1319276,
             filename: "Flugelbone_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7072,11 +7072,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "K1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 874988,
             filename: "K1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7084,11 +7084,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Loststr2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 862572,
             filename: "Loststr2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7096,11 +7096,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MeloHorn",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 147052,
             filename: "MeloHorn_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7108,11 +7108,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OldHorn",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 457452,
             filename: "OldHorn_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7120,11 +7120,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orch1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 128620,
             filename: "Orch1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7132,11 +7132,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orch2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 152172,
             filename: "Orch2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7144,11 +7144,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orch3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 220908,
             filename: "Orch3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7156,11 +7156,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orch5",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 270316,
             filename: "Orch5_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7168,11 +7168,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orch6",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 179564,
             filename: "Orch6_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7180,11 +7180,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orch7",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 249068,
             filename: "Orch7_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7192,11 +7192,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orch8",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 465772,
             filename: "Orch8_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7204,11 +7204,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orch9",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 362860,
             filename: "Orch9_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7216,11 +7216,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orche10",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 305644,
             filename: "Orche10_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7228,11 +7228,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orche11",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 207468,
             filename: "Orche11_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7240,11 +7240,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orche12",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 719724,
             filename: "Orche12_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7252,11 +7252,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Orche13",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 280428,
             filename: "Orche13_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7264,11 +7264,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "PizzHi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 83308,
             filename: "PizzHi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7276,11 +7276,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizzlo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 119404,
             filename: "Pizzlo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7288,11 +7288,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizzopen",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 293996,
             filename: "Pizzopen_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7300,11 +7300,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizzopen2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 270060,
             filename: "Pizzopen2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7312,11 +7312,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "R Trompet",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1182060,
             filename: "R Trompet_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7324,11 +7324,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "R6",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 146796,
             filename: "R6_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7336,11 +7336,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SHBowB",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 186092,
             filename: "SHBowB_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7348,11 +7348,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StgeSolo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1487468,
             filename: "StgeSolo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7360,11 +7360,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Stringo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 1011948,
             filename: "Stringo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7372,11 +7372,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StrSus",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 795756,
             filename: "StrSus_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7384,11 +7384,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sweet Horn",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 401900,
             filename: "Sweet Horn_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7396,11 +7396,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tramchlo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 177516,
             filename: "Tramchlo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7408,11 +7408,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "TRFall",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 323436,
             filename: "TRFall_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7420,11 +7420,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trip1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 170348,
             filename: "Trip1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7432,11 +7432,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet 2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 127468,
             filename: "Trumpet 2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7444,11 +7444,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet 8VB",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 581868,
             filename: "Trumpet 8VB_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7456,11 +7456,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet Hi 1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 672620,
             filename: "Trumpet Hi 1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7468,11 +7468,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet Hi 2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 364268,
             filename: "Trumpet Hi 2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7480,11 +7480,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet Hi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 824556,
             filename: "Trumpet Hi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7492,11 +7492,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet MidHi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 515052,
             filename: "Trumpet MidHi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7504,11 +7504,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 740716,
             filename: "Trumpet_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7516,11 +7516,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "TrumpFall",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 243052,
             filename: "TrumpFall_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7528,11 +7528,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "V3Sus",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 1163116,
             filename: "V3Sus_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7540,11 +7540,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VinHiA",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1929964,
             filename: "VinHiA_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7552,11 +7552,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ViolaPiz",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 276460,
             filename: "ViolaPiz_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7564,11 +7564,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ViolPiz3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 85740,
             filename: "ViolPiz3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7576,11 +7576,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ViolPiz4",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 156012,
             filename: "ViolPiz4_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7588,11 +7588,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ViolPiz5",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 186860,
             filename: "ViolPiz5_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7600,11 +7600,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ViolSus",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 1195756,
             filename: "ViolSus_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7612,11 +7612,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VlapizzC",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 158828,
             filename: "VlapizzC_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7624,11 +7624,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VlapizzD",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 119916,
             filename: "VlapizzD_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7636,11 +7636,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VlapizzG",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 164076,
             filename: "VlapizzG_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -7652,11 +7652,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Banjo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 143596,
             filename: "Banjo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7664,11 +7664,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bas",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 589292,
             filename: "Bas_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7676,11 +7676,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Basclear",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 161260,
             filename: "Basclear_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7688,11 +7688,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Basspop",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 150508,
             filename: "Basspop_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7700,11 +7700,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BassRick",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1333740,
             filename: "BassRick_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7712,11 +7712,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Blat",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 916460,
             filename: "Blat_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7724,11 +7724,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BS Koto Bend",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 531052,
             filename: "BS Koto Bend_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7736,11 +7736,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BS Koto",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 438764,
             filename: "BS Koto_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7748,11 +7748,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "CGuitar",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 195308,
             filename: "CGuitar_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7760,11 +7760,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "DBLBass 1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 619756,
             filename: "DBLBass 1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7772,11 +7772,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "DirtGit",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 149228,
             filename: "DirtGit_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7784,11 +7784,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ElBass",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 418924,
             filename: "ElBass_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7796,11 +7796,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FuzzGuit",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 403820,
             filename: "FuzzGuit_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7808,11 +7808,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "GitaarB3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 639980,
             filename: "GitaarB3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7820,11 +7820,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gtr",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 375404,
             filename: "Gtr_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7832,11 +7832,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gtr4",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 442092,
             filename: "Gtr4_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7844,11 +7844,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guitar1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 543468,
             filename: "Guitar1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7856,11 +7856,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guitar2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 803052,
             filename: "Guitar2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7868,11 +7868,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guitar3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 179692,
             filename: "Guitar3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7880,11 +7880,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "JazzB1 b",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 125548,
             filename: "JazzB1 b_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7892,11 +7892,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "JazzB1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 129132,
             filename: "JazzB1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7904,11 +7904,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "JazzB2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 457580,
             filename: "JazzB2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7916,11 +7916,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "JazzBas1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 106860,
             filename: "JazzBas1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7928,11 +7928,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Koto 2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 108780,
             filename: "Koto 2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7940,11 +7940,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mandolin",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 525548,
             filename: "Mandolin_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7952,11 +7952,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MufBass",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 239724,
             filename: "MufBass_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7964,11 +7964,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "OrgSitar",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 345836,
             filename: "OrgSitar_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7976,11 +7976,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "PWang",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 550636,
             filename: "PWang_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -7988,11 +7988,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sitar2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 223596,
             filename: "Sitar2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8000,11 +8000,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "StarATX",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 716524,
             filename: "StarATX_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -8016,11 +8016,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Alarm",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 327916,
             filename: "Alarm_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8028,11 +8028,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Arpeg",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 1499756,
             filename: "Arpeg_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8040,11 +8040,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Arrow",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 537068,
             filename: "Arrow_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8052,11 +8052,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Birds",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 224876,
             filename: "Birds_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8064,11 +8064,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bizarre",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 229740,
             filename: "Bizarre_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8076,11 +8076,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Boing",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 152684,
             filename: "Boing_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8088,11 +8088,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Boing2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 133868,
             filename: "Boing2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8100,11 +8100,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Boink",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 54764,
             filename: "Boink_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8112,11 +8112,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bomb",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 145260,
             filename: "Bomb_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8124,11 +8124,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bomb2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 156140,
             filename: "Bomb2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8136,11 +8136,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Breakgls",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 545772,
             filename: "Breakgls_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8148,11 +8148,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bubbly",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 498284,
             filename: "Bubbly_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8160,11 +8160,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bulrora",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 125548,
             filename: "Bulrora_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8172,11 +8172,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bumble",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 264044,
             filename: "Bumble_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8184,11 +8184,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Carhorn",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 82540,
             filename: "Carhorn_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8196,11 +8196,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cfiddle",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 434412,
             filename: "Cfiddle_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8208,11 +8208,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Chirp",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 132332,
             filename: "Chirp_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8220,11 +8220,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cocky",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 138604,
             filename: "Cocky_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8232,11 +8232,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cow",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 256236,
             filename: "Cow_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8244,11 +8244,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cow1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 235756,
             filename: "Cow1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8256,11 +8256,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Dog",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 53740,
             filename: "Dog_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8268,11 +8268,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Drip",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 39148,
             filename: "Drip_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8280,11 +8280,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Drip1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 51564,
             filename: "Drip1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8292,11 +8292,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eend",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 51436,
             filename: "Eend_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8304,11 +8304,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Effshot",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 225900,
             filename: "Effshot_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8316,11 +8316,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "EhhEhh",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 206572,
             filename: "EhhEhh_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8328,11 +8328,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Engrev",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 200300,
             filename: "Engrev_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8340,11 +8340,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Heart",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 73836,
             filename: "Heart_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8352,11 +8352,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Helicptr",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 291436,
             filename: "Helicptr_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8364,11 +8364,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HHH1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 262508,
             filename: "HHH1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8376,11 +8376,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hoest1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 376556,
             filename: "Hoest1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8388,11 +8388,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hoest2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 312428,
             filename: "Hoest2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8400,11 +8400,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "India",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 178412,
             filename: "India_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8412,11 +8412,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Jhu",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 909292,
             filename: "Jhu_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8424,11 +8424,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "LAF3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 247276,
             filename: "LAF3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8436,11 +8436,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Laugh",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 174316,
             filename: "Laugh_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8448,11 +8448,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mark",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 87404,
             filename: "Mark_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8460,11 +8460,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MGun1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 310764,
             filename: "MGun1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8472,11 +8472,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Miauw",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 240108,
             filename: "Miauw_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8484,11 +8484,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Miauw2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 272748,
             filename: "Miauw2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8496,11 +8496,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Moan",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 281836,
             filename: "Moan_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8508,11 +8508,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Night",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 740332,
             filename: "Night_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8520,11 +8520,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Noise1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 350956,
             filename: "Noise1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8532,11 +8532,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ooh",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 120812,
             filename: "Ooh_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8544,11 +8544,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Particle",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 494956,
             filename: "Particle_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8556,11 +8556,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pass",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 224364,
             filename: "Pass_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8568,11 +8568,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Phart",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 272876,
             filename: "Phart_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8580,11 +8580,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pigs",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 200940,
             filename: "Pigs_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8592,11 +8592,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Random3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 398444,
             filename: "Random3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8604,11 +8604,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rev",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 458604,
             filename: "Rev_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8616,11 +8616,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rhythm1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 1336940,
             filename: "Rhythm1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8628,11 +8628,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rhythm2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 534380,
             filename: "Rhythm2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8640,11 +8640,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ricochet",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 155884,
             filename: "Ricochet_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8652,11 +8652,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rnchbell",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 1608428,
             filename: "Rnchbell_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8664,11 +8664,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rooster",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 289516,
             filename: "Rooster_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8676,11 +8676,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Saltup",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 350956,
             filename: "Saltup_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8688,11 +8688,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sandhld",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Synth",
             size: 357100,
             filename: "Sandhld_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8700,11 +8700,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Saw",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 268140,
             filename: "Saw_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8712,11 +8712,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Scream5",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 360428,
             filename: "Scream5_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8724,11 +8724,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Screech",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 143724,
             filename: "Screech_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8736,11 +8736,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Screeech",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 286444,
             filename: "Screeech_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8748,11 +8748,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Seal",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 77036,
             filename: "Seal_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8760,11 +8760,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SH1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 258284,
             filename: "SH1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8772,11 +8772,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sheet",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 130412,
             filename: "Sheet_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8784,11 +8784,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SHHA",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 207980,
             filename: "SHHA_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8796,11 +8796,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Shout",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 304364,
             filename: "Shout_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8808,11 +8808,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Siren",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 181868,
             filename: "Siren_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8820,11 +8820,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sitrplay",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 301420,
             filename: "Sitrplay_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8832,11 +8832,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Slbells",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 1015276,
             filename: "Slbells_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8844,11 +8844,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Smash",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 147820,
             filename: "Smash_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8856,11 +8856,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Snort",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 215020,
             filename: "Snort_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8868,11 +8868,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Spark",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 286316,
             filename: "Spark_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8880,11 +8880,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Spoon",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 181612,
             filename: "Spoon_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8892,11 +8892,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Spoon2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 167660,
             filename: "Spoon2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8904,11 +8904,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SSSTTT",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 348012,
             filename: "SSSTTT_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8916,11 +8916,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Spring",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 273900,
             filename: "Spring_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8928,11 +8928,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sproing1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 216044,
             filename: "Sproing1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8940,11 +8940,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sproing2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 92268,
             filename: "Sproing2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8952,11 +8952,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sword",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 194796,
             filename: "Sword_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8964,11 +8964,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sword2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 685292,
             filename: "Sword2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8976,11 +8976,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Thwack",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 75244,
             filename: "Thwack_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -8988,11 +8988,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tibet1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 464876,
             filename: "Tibet1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9000,11 +9000,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Train",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 216172,
             filename: "Train_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9012,11 +9012,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Traintrx",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 374380,
             filename: "Traintrx_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9024,11 +9024,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trainwsl",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 244972,
             filename: "Trainwsl_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9036,11 +9036,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ufo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 394348,
             filename: "Ufo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -9052,11 +9052,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BS Bally 1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1940076,
             filename: "BS Bally 1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9064,11 +9064,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BS Belly 2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2136428,
             filename: "BS Belly 2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9076,11 +9076,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Eff1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 174828,
             filename: "Eff1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9088,11 +9088,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FBass",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 781420,
             filename: "FBass_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9100,11 +9100,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Fundor",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 912620,
             filename: "Fundor_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9112,11 +9112,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FunSyn",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 574188,
             filename: "FunSyn_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9124,11 +9124,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Grom",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 141548,
             filename: "Grom_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9136,11 +9136,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MBrass",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 446956,
             filename: "MBrass_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9148,11 +9148,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MBrass2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "User",
             size: 637804,
             filename: "MBrass2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9160,11 +9160,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MbWow",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 657260,
             filename: "MbWow_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9172,11 +9172,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MbWowSus",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 722284,
             filename: "MbWowSus_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9184,11 +9184,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MClav",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 288364,
             filename: "MClav_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9196,11 +9196,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MClav2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 703468,
             filename: "MClav2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9208,11 +9208,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MdEeyaw",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 658796,
             filename: "MdEeyaw_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9220,11 +9220,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MdEeyaw2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 540780,
             filename: "MdEeyaw2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9232,11 +9232,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MdOotwa",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 970476,
             filename: "MdOotwa_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9244,11 +9244,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MdWeeeee",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 984684,
             filename: "MdWeeeee_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9256,11 +9256,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Moog",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 575212,
             filename: "Moog_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9268,11 +9268,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MSawToof",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 896492,
             filename: "MSawToof_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9280,11 +9280,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mwa",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Synth",
             size: 717420,
             filename: "Mwa_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9292,11 +9292,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pdow",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 50668,
             filename: "Pdow_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9304,11 +9304,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SynBss2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 239468,
             filename: "SynBss2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9316,11 +9316,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "TLap2Syn",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Synth",
             size: 3393132,
             filename: "TLap2Syn_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9328,11 +9328,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "TLapSyn",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Synth",
             size: 1387244,
             filename: "TLapSyn_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9340,11 +9340,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Twang",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2269548,
             filename: "Twang_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9352,11 +9352,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Whist2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 1880044,
             filename: "Whist2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9364,11 +9364,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Whist5",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 2681196,
             filename: "Whist5_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9376,11 +9376,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Zow1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc Synth",
             size: 145004,
             filename: "Zow1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -9392,11 +9392,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Aah1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 874732,
             filename: "Aah1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9404,11 +9404,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Aahhl1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 658412,
             filename: "Aahhl1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9416,11 +9416,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Aahhl3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 810348,
             filename: "Aahhl3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9428,11 +9428,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Aahhl4",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 1035756,
             filename: "Aahhl4_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9440,11 +9440,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ah2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 1386860,
             filename: "Ah2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9452,11 +9452,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Arr",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 1255020,
             filename: "Arr_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9464,11 +9464,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Arr1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 1656044,
             filename: "Arr1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9476,11 +9476,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bass1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 459884,
             filename: "Bass1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9488,11 +9488,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bass2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 712940,
             filename: "Bass2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9500,11 +9500,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bucchi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 455404,
             filename: "Bucchi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9512,11 +9512,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Do",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 313196,
             filename: "Do_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9524,11 +9524,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "La",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 1185516,
             filename: "La_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9536,11 +9536,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mmm",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 1231212,
             filename: "Mmm_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9548,11 +9548,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Oohh1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 1268716,
             filename: "Oohh1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9560,11 +9560,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sopeee",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 65644,
             filename: "Sopeee_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9572,11 +9572,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Soprano1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 236524,
             filename: "Soprano1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9584,11 +9584,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tenor3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 483948,
             filename: "Tenor3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9596,11 +9596,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "TomBass",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 135660,
             filename: "TomBass_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9608,11 +9608,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vox",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 649196,
             filename: "Vox_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9620,11 +9620,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vox1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 962796,
             filename: "Vox1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -9636,11 +9636,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Alto",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 212332,
             filename: "Alto_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9648,11 +9648,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Alto1",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 676588,
             filename: "Alto1_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9660,11 +9660,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bari",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 113900,
             filename: "Bari_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9672,11 +9672,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bassoon",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 148204,
             filename: "Bassoon_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9684,11 +9684,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bot",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 682732,
             filename: "Bot_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9696,11 +9696,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bot2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 188908,
             filename: "Bot2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9708,11 +9708,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bsoon",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 148204,
             filename: "Bsoon_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9720,11 +9720,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clar2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 288748,
             filename: "Clar2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9732,11 +9732,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ClarHi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 579564,
             filename: "ClarHi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9744,11 +9744,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clarinet",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 408300,
             filename: "Clarinet_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9756,11 +9756,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Delclar3",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 396780,
             filename: "Delclar3_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9768,11 +9768,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Delclar3b",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 214380,
             filename: "Delclar3b_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9780,11 +9780,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Delsax2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 409452,
             filename: "Delsax2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9792,11 +9792,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Doedelz",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 662636,
             filename: "Doedelz_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9804,11 +9804,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flte",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 577772,
             filename: "Flte_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9816,11 +9816,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FltPian",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 615404,
             filename: "FltPian_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9828,11 +9828,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 637932,
             filename: "Flute_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9840,11 +9840,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute2",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 795244,
             filename: "Flute2_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9852,11 +9852,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Fluthi",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 187116,
             filename: "Fluthi_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9864,11 +9864,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Obo",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 521708,
             filename: "Obo_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9876,11 +9876,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Ocarina",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 84076,
             filename: "Ocarina_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9888,11 +9888,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Samax",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 136940,
             filename: "Samax_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9900,11 +9900,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sax",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 261356,
             filename: "Sax_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9912,11 +9912,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Saxy",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 177772,
             filename: "Saxy_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9924,11 +9924,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SaxZ",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 53996,
             filename: "SaxZ_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9936,11 +9936,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SopSax",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 100460,
             filename: "SopSax_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9948,11 +9948,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SusFlt",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 621804,
             filename: "SusFlt_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9960,11 +9960,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swannee",
             info: "CMI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 606444,
             filename: "Swannee_Fairlight_CMI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -9976,11 +9976,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Accordion UL",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 13926764,
             filename: "Accordion UL_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -9988,11 +9988,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Accordion UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 14901740,
             filename: "Accordion UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10000,11 +10000,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Accordion",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 6561132,
             filename: "Accordion_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10012,11 +10012,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Accordion",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 5899372,
             filename: "Accordion_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -10028,11 +10028,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4 Brass UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 10315372,
             filename: "4 Brass UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10040,11 +10040,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4 Brass",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4588396,
             filename: "4 Brass_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10052,11 +10052,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4 Saxes UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 11809132,
             filename: "4 Saxes UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10064,11 +10064,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4 Saxes",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4019820,
             filename: "4 Saxes_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10076,11 +10076,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Alto Sax UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 12166892,
             filename: "Alto Sax UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10088,11 +10088,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Alto Sax",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5798380,
             filename: "Alto Sax_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10100,11 +10100,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AltoSax UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10430188,
             filename: "AltoSax UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10112,11 +10112,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AltoSax",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5526124,
             filename: "AltoSax_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10124,11 +10124,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bass Clarinet UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10982764,
             filename: "Bass Clarinet UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10136,11 +10136,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bass Clarinet",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5387244,
             filename: "Bass Clarinet_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10148,11 +10148,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bassoon UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 8286700,
             filename: "Bassoon UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10160,11 +10160,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bassoon",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4929772,
             filename: "Bassoon_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10172,11 +10172,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Doo-Waa Trombone UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 7242476,
             filename: "Doo-Waa Trombone UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10184,11 +10184,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Doo-Waa Trombone",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4724972,
             filename: "Doo-Waa Trombone_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10196,11 +10196,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 11000172,
             filename: "Flute UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10208,11 +10208,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5872492,
             filename: "Flute_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10220,11 +10220,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "French Horn UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 6341484,
             filename: "French Horn UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10232,11 +10232,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "French Horn",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4465772,
             filename: "French Horn_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10244,11 +10244,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Muted Trombone UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10371180,
             filename: "Muted Trombone UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10256,11 +10256,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Muted Trombone",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5788780,
             filename: "Muted Trombone_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10268,11 +10268,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Muted Trumped FastVib UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 9763180,
             filename: "Muted Trumped FastVib UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10280,11 +10280,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Muted Trumped FastVib",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4139244,
             filename: "Muted Trumped FastVib_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10292,11 +10292,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Muted Trumpet UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 11775852,
             filename: "Muted Trumpet UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10304,11 +10304,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Muted Trumpet",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 6054124,
             filename: "Muted Trumpet_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10316,11 +10316,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Oboe UL",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 12948588,
             filename: "Oboe UL_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10328,11 +10328,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Oboe",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 6264940,
             filename: "Oboe_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10340,11 +10340,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Open Trombone UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10346220,
             filename: "Open Trombone UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10352,11 +10352,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Open Trombone",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4876652,
             filename: "Open Trombone_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10364,11 +10364,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Open Trumpet UL",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 12921964,
             filename: "Open Trumpet UL_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10376,11 +10376,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Open Trumpet UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 11016940,
             filename: "Open Trumpet UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10388,11 +10388,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Open Trumpet",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 6212972,
             filename: "Open Trumpet_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10400,11 +10400,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Open Trumpet",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 6338284,
             filename: "Open Trumpet_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10412,11 +10412,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Slur Trombone UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 6463980,
             filename: "Slur Trombone UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10424,11 +10424,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Slur Trombone",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4895468,
             filename: "Slur Trombone_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10436,11 +10436,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tenor Sax Metallic UL",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 11869932,
             filename: "Tenor Sax Metallic UL_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10448,11 +10448,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tenor Sax Metallic",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 6357996,
             filename: "Tenor Sax Metallic_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10460,11 +10460,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone UL",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 9867628,
             filename: "Trombone UL_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10472,11 +10472,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5335404,
             filename: "Trombone_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10484,11 +10484,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "WaaWaa Trumpet",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5733740,
             filename: "WaaWaa Trumpet_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -10500,11 +10500,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AcGuitar",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 5272044,
             filename: "AcGuitar_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10512,11 +10512,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Acoustic Steel Guitar",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3897964,
             filename: "Acoustic Steel Guitar_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10524,11 +10524,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Banjo UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 8309612,
             filename: "Banjo UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10536,11 +10536,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Banjo",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 4100972,
             filename: "Banjo_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10548,11 +10548,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mandolin UL",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 12344556,
             filename: "Mandolin UL_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10560,11 +10560,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mandolin UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 14250348,
             filename: "Mandolin UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10572,11 +10572,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mandolin",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 6226284,
             filename: "Mandolin_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10584,11 +10584,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Slur Guitar",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 5449324,
             filename: "Slur Guitar_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10596,11 +10596,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Steel Guitar",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 5725036,
             filename: "Steel Guitar_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10608,11 +10608,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tremolo Banjo",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3087724,
             filename: "Tremolo Banjo_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10620,11 +10620,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tremolo Guitar UL",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 11062764,
             filename: "Tremolo Guitar UL_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10632,11 +10632,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tremolo Guitar",
             info: "",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 6795244,
             filename: "Tremolo Guitar_Chamberlin_ 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10644,11 +10644,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tremolo Mandolin",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 4839020,
             filename: "Tremolo Mandolin_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10656,11 +10656,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tremolo Mandolin",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 5171052,
             filename: "Tremolo Mandolin_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -10672,11 +10672,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Dixieland Rhythms",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 3749996,
             filename: "Dixieland Rhythms_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10684,11 +10684,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harp Long Arpeggio",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 7087212,
             filename: "Harp Long Arpeggio_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10696,11 +10696,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harp Short Arpeggio",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 8384236,
             filename: "Harp Short Arpeggio_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10708,11 +10708,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harp Solo",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1855468,
             filename: "Harp Solo_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10720,11 +10720,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SFX1",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 6126188,
             filename: "SFX1_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10732,11 +10732,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SFX2",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 4554604,
             filename: "SFX2_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -10748,11 +10748,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "C-Organ UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 8514540,
             filename: "C-Organ UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10760,11 +10760,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "C-Organ",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 3106412,
             filename: "C-Organ_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10772,11 +10772,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute String Organ UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 8876524,
             filename: "Flute String Organ UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10784,11 +10784,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute String Organ",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 4861292,
             filename: "Flute String Organ_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10796,11 +10796,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Kinura UL",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 11377516,
             filename: "Kinura UL_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10808,11 +10808,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Kinura",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 4928108,
             filename: "Kinura_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10820,11 +10820,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tibia UL",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 10068076,
             filename: "Tibia UL_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10832,11 +10832,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tibia",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 3676268,
             filename: "Tibia_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -10848,11 +10848,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Acoustic Harpsichord",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 7650668,
             filename: "Acoustic Harpsichord_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10860,11 +10860,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Electric Harpsichord",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 7080940,
             filename: "Electric Harpsichord_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10872,11 +10872,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Piano",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 8953964,
             filename: "Piano_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -10888,11 +10888,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Violins UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13786732,
             filename: "3 Violins UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10900,11 +10900,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cello UL",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 13764204,
             filename: "Cello UL_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10912,11 +10912,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Cello",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 6267244,
             filename: "Cello_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10924,11 +10924,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizzicato Bass",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 3882732,
             filename: "Pizzicato Bass_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10936,11 +10936,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pizzicato Violins",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 1801452,
             filename: "Pizzicato Violins_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10948,11 +10948,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Violin UL",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 12426860,
             filename: "Solo Violin UL_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10960,11 +10960,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Violin",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 5164780,
             filename: "Solo Violin_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10972,11 +10972,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Staccato Violin UL",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 9317996,
             filename: "Staccato Violin UL_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10984,11 +10984,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Staccato Violin",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 5294316,
             filename: "Staccato Violin_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -10996,11 +10996,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vibrato Violin UL",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 13562092,
             filename: "Vibrato Violin UL_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11008,11 +11008,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vibrato Violin",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 6045804,
             filename: "Vibrato Violin_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -11024,11 +11024,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "M Glockenspiel",
             info: "",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 3062764,
             filename: "M Glockenspiel_Chamberlin_ 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11036,11 +11036,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "M Marimba",
             info: "",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 4255852,
             filename: "M Marimba_Chamberlin_ 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11048,11 +11048,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "M Tremolo Marimba",
             info: "",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 3252204,
             filename: "M Tremolo Marimba_Chamberlin_ 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11060,11 +11060,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "M Vibraphone",
             info: "",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 9273580,
             filename: "M Vibraphone_Chamberlin_ 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11072,11 +11072,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Marimba Roll",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 5257580,
             filename: "Marimba Roll_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11084,11 +11084,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Marimba",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 4255852,
             filename: "Marimba_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11096,11 +11096,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tremolo Marimba",
             info: "M35",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 3252204,
             filename: "Tremolo Marimba_Chamberlin_M35 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11108,11 +11108,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vibraphone",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 7798764,
             filename: "Vibraphone_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -11124,11 +11124,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Doo Vocal UL",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 6099820,
             filename: "Doo Vocal UL_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11136,11 +11136,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Doo Vocal",
             info: "UU",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 4105196,
             filename: "Doo Vocal_Chamberlin_UU 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11148,11 +11148,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Female Solo Voice UL",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 7898220,
             filename: "Female Solo Voice UL_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11160,11 +11160,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Female Solo Voice",
             info: "M25",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3922028,
             filename: "Female Solo Voice_Chamberlin_M25 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11172,11 +11172,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Male Voice UL",
             info: "MMaster",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 11950828,
             filename: "Male Voice UL_Chamberlin_MMaster 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11184,11 +11184,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Male Voice",
             info: "MMaster mono",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 5958380,
             filename: "Male Voice_Chamberlin_MMaster mono 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -11200,11 +11200,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Dizi UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10492268,
             filename: "Dizi UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11212,11 +11212,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Dizi",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4664172,
             filename: "Dizi_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11224,11 +11224,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Erhu Tremolo",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 2040300,
             filename: "Erhu Tremolo_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11236,11 +11236,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Erhu UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1952492,
             filename: "Erhu UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11248,11 +11248,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Erhu",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1080556,
             filename: "Erhu_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11260,11 +11260,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaohu Tremolo",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 2678764,
             filename: "Gaohu Tremolo_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11272,11 +11272,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaohu UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 2784364,
             filename: "Gaohu UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11284,11 +11284,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaohu",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1274988,
             filename: "Gaohu_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11296,11 +11296,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaoyin Sheng Tremolo",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4067820,
             filename: "Gaoyin Sheng Tremolo_Chi Orch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11308,11 +11308,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaoyin Sheng UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 6592364,
             filename: "Gaoyin Sheng UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11320,11 +11320,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaoyin Sheng",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1565932,
             filename: "Gaoyin Sheng_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11332,11 +11332,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaoyin Suona Tremolo UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3071852,
             filename: "Gaoyin Suona Tremolo UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11344,11 +11344,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaoyin Suona Tremolo",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1525484,
             filename: "Gaoyin Suona Tremolo_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11356,11 +11356,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaoyin Suona UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 8329068,
             filename: "Gaoyin Suona UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11368,11 +11368,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaoyin Suona Vibrato UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 2952812,
             filename: "Gaoyin Suona Vibrato UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11380,11 +11380,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaoyin Suona Vibrato",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 995948,
             filename: "Gaoyin Suona Vibrato_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11392,11 +11392,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Gaoyin Suona",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1451884,
             filename: "Gaoyin Suona_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11404,11 +11404,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guqin Harmonics UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1785964,
             filename: "Guqin Harmonics UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11416,11 +11416,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guqin Harmonics",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1785964,
             filename: "Guqin Harmonics_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11428,11 +11428,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guqin UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1502188,
             filename: "Guqin UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11440,11 +11440,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guqin",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1502188,
             filename: "Guqin_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11452,11 +11452,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guzheng Tremolo",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2118124,
             filename: "Guzheng Tremolo_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11464,11 +11464,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guzheng",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2366444,
             filename: "Guzheng_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11476,11 +11476,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hulusi UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3162732,
             filename: "Hulusi UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11488,11 +11488,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hulusi Vibrato UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3328748,
             filename: "Hulusi Vibrato UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11500,11 +11500,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hulusi Vibrato",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 492652,
             filename: "Hulusi Vibrato_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11512,11 +11512,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hulusi",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 507500,
             filename: "Hulusi_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11524,11 +11524,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Huqin Section Tremolo",
             info: "PP ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3085420,
             filename: "Huqin Section Tremolo_ChiOrch_PP ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11536,11 +11536,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Huqin Section",
             info: "PP ste",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3574380,
             filename: "Huqin Section_ChiOrch_PP ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11548,11 +11548,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Liuqin",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1057772,
             filename: "Liuqin_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11560,11 +11560,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pipa Tremolo",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2036716,
             filename: "Pipa Tremolo_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11572,11 +11572,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pipa",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1544812,
             filename: "Pipa_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11584,11 +11584,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Plucked Strings Section Tremolo",
             info: "PP ste",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3557228,
             filename: "Plucked Strings Section Tremolo_ChiOrch_PP ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11596,11 +11596,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Plucked Strings Section",
             info: "PP ste",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 4613740,
             filename: "Plucked Strings Section_ChiOrch_PP ste 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11608,11 +11608,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Wind Section",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 2765036,
             filename: "Wind Section_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11620,11 +11620,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Xiao Staccato",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 151532,
             filename: "Xiao Staccato_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11632,11 +11632,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Xiao Tremolo",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 1330284,
             filename: "Xiao Tremolo_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11644,11 +11644,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Xiao UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 6596588,
             filename: "Xiao UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11656,11 +11656,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Xiao Vibrato",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 802412,
             filename: "Xiao Vibrato_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11668,11 +11668,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Xiao",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 850028,
             filename: "Xiao_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11680,11 +11680,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Yangqin Bamboo",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 4378732,
             filename: "Yangqin Bamboo_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11692,11 +11692,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Yangqin Rubber",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 4056172,
             filename: "Yangqin Rubber_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11704,11 +11704,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Zhonghu UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1572844,
             filename: "Zhonghu UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11716,11 +11716,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Zhonghu",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 969964,
             filename: "Zhonghu_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11728,11 +11728,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Zhongruan",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 1881708,
             filename: "Zhongruan_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11740,11 +11740,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Zhongyin Sheng Tremolo UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 3660140,
             filename: "Zhongyin Sheng Tremolo UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11752,11 +11752,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Zhongyin Sheng UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 2959596,
             filename: "Zhongyin Sheng UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11764,11 +11764,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Zhongyin Sheng",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 985452,
             filename: "Zhongyin Sheng_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11776,11 +11776,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Zhongyin Suona UL",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5338092,
             filename: "Zhongyin Suona UL_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11788,11 +11788,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Zhongyin Suona",
             info: "PP",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 902508,
             filename: "Zhongyin Suona_ChiOrch_PP 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -11804,11 +11804,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Accordion UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 13042028,
             filename: "Accordion UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11816,11 +11816,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Accordion",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 4517356,
             filename: "Accordion_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11828,11 +11828,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FrAccordion UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 13400428,
             filename: "FrAccordion UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11840,11 +11840,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FrAccordion",
             info: "MkII",
-            version: "3.0",
+            version: "2.0",
             category: "Accordeon/Harm",
             size: 4419052,
             filename: "FrAccordion_Mellotron_MkII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -11856,11 +11856,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2 Brass UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 11364716,
             filename: "2 Brass UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11868,11 +11868,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2 Brass",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4808556,
             filename: "2 Brass_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11880,11 +11880,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2 Saxes UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 12543596,
             filename: "2 Saxes UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11892,11 +11892,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2 Saxes",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 5257708,
             filename: "2 Saxes_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11904,11 +11904,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AltoSax UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 12301548,
             filename: "AltoSax UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11916,11 +11916,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AltoSax",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5307372,
             filename: "AltoSax_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11928,11 +11928,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BassFlute UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10560236,
             filename: "BassFlute UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11940,11 +11940,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BassFlute",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3509228,
             filename: "BassFlute_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11952,11 +11952,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bassoon UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 9799532,
             filename: "Bassoon UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11964,11 +11964,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bassoon",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3350380,
             filename: "Bassoon_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11976,11 +11976,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Brass UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 11433068,
             filename: "Brass UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -11988,11 +11988,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Brass",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4358380,
             filename: "Brass_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12000,11 +12000,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clarinet UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10307948,
             filename: "Clarinet UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12012,11 +12012,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clarinet UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10095084,
             filename: "Clarinet UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12024,11 +12024,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clarinet",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3771500,
             filename: "Clarinet_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12036,11 +12036,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clarinet",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3417964,
             filename: "Clarinet_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12048,11 +12048,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "English Horn UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 12938732,
             filename: "English Horn UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12060,11 +12060,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "English Horn",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4350572,
             filename: "English Horn_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12072,11 +12072,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10705132,
             filename: "Flute UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12084,11 +12084,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3729004,
             filename: "Flute_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12096,11 +12096,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MutedBrass UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 11266156,
             filename: "MutedBrass UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12108,11 +12108,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MutedBrass",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 4030700,
             filename: "MutedBrass_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12120,11 +12120,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Oboe UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 12241772,
             filename: "Oboe UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12132,11 +12132,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Oboe",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3965164,
             filename: "Oboe_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12144,11 +12144,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Recorder UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 11932268,
             filename: "Recorder UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12156,11 +12156,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tenor Sax UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 11252204,
             filename: "Tenor Sax UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12168,11 +12168,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tenor Sax UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 10916716,
             filename: "Tenor Sax UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12180,11 +12180,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tenor Sax",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4522476,
             filename: "Tenor Sax_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12192,11 +12192,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tenor Sax",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5211756,
             filename: "Tenor Sax_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12204,11 +12204,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 9833836,
             filename: "Trombone UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12216,11 +12216,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 9154540,
             filename: "Trombone UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12228,11 +12228,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4088428,
             filename: "Trombone_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12240,11 +12240,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4533740,
             filename: "Trombone_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12252,11 +12252,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 12115308,
             filename: "Trumpet UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12264,11 +12264,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trumpet",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 5209580,
             filename: "Trumpet_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -12280,11 +12280,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AccGuitar",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2159980,
             filename: "AccGuitar_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12292,11 +12292,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Guitar",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3080556,
             filename: "Guitar_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12304,11 +12304,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mandola UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 11327084,
             filename: "Mandola UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12316,11 +12316,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mandola",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2601836,
             filename: "Mandola_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12328,11 +12328,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mandolin UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 10505836,
             filename: "Mandolin UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12340,11 +12340,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Mandolin",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 2898540,
             filename: "Mandolin_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12352,11 +12352,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rock Guitar UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 4375660,
             filename: "Rock Guitar UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12364,11 +12364,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rock Guitar",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3401708,
             filename: "Rock Guitar_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -12380,11 +12380,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HarpsBrass UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10163564,
             filename: "HarpsBrass UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12392,11 +12392,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "HarpsBrass",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 4178924,
             filename: "HarpsBrass_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12404,11 +12404,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "WineGlasses UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10265836,
             filename: "WineGlasses UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12416,11 +12416,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "WineGlasses",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 3538156,
             filename: "WineGlasses_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -12432,11 +12432,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChurchOrgan UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 11955052,
             filename: "ChurchOrgan UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12444,11 +12444,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChurchOrgan UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 11856492,
             filename: "ChurchOrgan UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12456,11 +12456,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChurchOrgan",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 3361132,
             filename: "ChurchOrgan_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12468,11 +12468,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChurchOrgan",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 2764652,
             filename: "ChurchOrgan_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12480,11 +12480,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hammond C3 UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 9720812,
             filename: "Hammond C3 UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12492,11 +12492,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hammond C3",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 4427116,
             filename: "Hammond C3_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12504,11 +12504,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hammond UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 10389612,
             filename: "Hammond UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12516,11 +12516,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hammond UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 11856620,
             filename: "Hammond UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12528,11 +12528,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hammond",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 2290924,
             filename: "Hammond_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12540,11 +12540,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hammond",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 3056364,
             filename: "Hammond_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12552,11 +12552,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Organ UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 10374508,
             filename: "Organ UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12564,11 +12564,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Organ UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 12444780,
             filename: "Organ UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12576,11 +12576,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Organ",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 1524588,
             filename: "Organ_Mellotron_MkI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12588,11 +12588,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Organ",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 1331180,
             filename: "Organ_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12600,11 +12600,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pipe Organ UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 11708396,
             filename: "Pipe Organ UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12612,11 +12612,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Pipe Organ",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 4038508,
             filename: "Pipe Organ_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12624,11 +12624,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "RevOrgan UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 11570796,
             filename: "RevOrgan UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12636,11 +12636,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "RevOrgan",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 2607340,
             filename: "RevOrgan_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12648,11 +12648,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tibia UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 9171436,
             filename: "Tibia UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12660,11 +12660,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tibia",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 2370156,
             filename: "Tibia_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12672,11 +12672,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tibia",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 2403180,
             filename: "Tibia_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -12688,11 +12688,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Clavichord",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 4596076,
             filename: "Clavichord_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12700,11 +12700,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harpsichord",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 4030700,
             filename: "Harpsichord_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12712,11 +12712,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Piano",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 5129324,
             filename: "Piano_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -12728,11 +12728,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "16 Violins UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12135532,
             filename: "16 Violins UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12740,11 +12740,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "16 Violins",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3954156,
             filename: "16 Violins_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12752,11 +12752,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2 Violins UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14119148,
             filename: "2 Violins UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12764,11 +12764,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2 Violins",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 5236972,
             filename: "2 Violins_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12776,11 +12776,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "3 Violins UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13323244,
             filename: "3 Violins UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12788,11 +12788,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Cello UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 11563500,
             filename: "Solo Cello UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12800,11 +12800,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Cello",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 5869932,
             filename: "Solo Cello_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12812,11 +12812,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo String UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 12032236,
             filename: "Solo String UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12824,11 +12824,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo String",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 4793068,
             filename: "Solo String_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12836,11 +12836,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Viola UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 10551020,
             filename: "Solo Viola UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12848,11 +12848,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Viola",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 4520428,
             filename: "Solo Viola_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12860,11 +12860,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Violin UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 13018220,
             filename: "Solo Violin UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12872,11 +12872,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Solo Violin",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 5415532,
             filename: "Solo Violin_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12884,11 +12884,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "String Section 1 UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12660204,
             filename: "String Section 1 UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12896,11 +12896,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "String Section 1",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4869868,
             filename: "String Section 1_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12908,11 +12908,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "String Section 2 UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13213676,
             filename: "String Section 2 UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12920,11 +12920,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "String Section 2",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4907372,
             filename: "String Section 2_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -12936,11 +12936,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Celeste",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 2392172,
             filename: "Celeste_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12948,11 +12948,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Celeste",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 4772844,
             filename: "Celeste_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12960,11 +12960,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Marimba UL",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 10390636,
             filename: "Marimba UL_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12972,11 +12972,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Marimba",
             info: "MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 2366700,
             filename: "Marimba_Mellotron_MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12984,11 +12984,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Slow Vibra UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 9373804,
             filename: "Slow Vibra UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -12996,11 +12996,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Slow Vibra",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 5843052,
             filename: "Slow Vibra_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13008,11 +13008,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "TubularBells UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 7974252,
             filename: "TubularBells UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13020,11 +13020,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "TubularBells",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 6041964,
             filename: "TubularBells_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13032,11 +13032,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vibes NoVib UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 9672812,
             filename: "Vibes NoVib UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13044,11 +13044,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vibes NoVib",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 4656748,
             filename: "Vibes NoVib_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13056,11 +13056,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Vibraphone UL",
             info: "MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 7629932,
             filename: "Vibraphone UL_Mellotron_MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -13072,11 +13072,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4VoiceFemChoir UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 12128492,
             filename: "4VoiceFemChoir UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13084,11 +13084,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4VoiceFemChoir",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 5110892,
             filename: "4VoiceFemChoir_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13096,11 +13096,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4VoiceMaleChoir UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 11070188,
             filename: "4VoiceMaleChoir UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13108,11 +13108,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "4VoiceMaleChoir",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 4291948,
             filename: "4VoiceMaleChoir_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13120,11 +13120,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "8VoiceChoir UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 11698924,
             filename: "8VoiceChoir UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13132,11 +13132,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "8VoiceChoir",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 4348652,
             filename: "8VoiceChoir_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13144,11 +13144,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BoysChoir UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 10259692,
             filename: "BoysChoir UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13156,11 +13156,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BoysChoir",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3730412,
             filename: "BoysChoir_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13168,11 +13168,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MaleSoloVoice UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 11187564,
             filename: "MaleSoloVoice UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13180,11 +13180,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MixCustChoir UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 11335404,
             filename: "MixCustChoir UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13192,11 +13192,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MixCustChoir",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 3577708,
             filename: "MixCustChoir_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -13208,11 +13208,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bruce Cello",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 2207980,
             filename: "Bruce Cello_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13220,11 +13220,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bruce FrenchHorn",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 770924,
             filename: "Bruce FrenchHorn_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13232,11 +13232,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bruce Viola",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Strings",
             size: 1779436,
             filename: "Bruce Viola_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13244,11 +13244,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bruce Voice1",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2431340,
             filename: "Bruce Voice1_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13256,11 +13256,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bruce Voice2",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2301676,
             filename: "Bruce Voice2_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13268,11 +13268,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BSabbath Choir",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 4087020,
             filename: "BSabbath Choir_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13280,11 +13280,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BSabbath Orchestra",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Orchestral",
             size: 6218092,
             filename: "BSabbath Orchestra_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13292,11 +13292,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "BSabbath SFX",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 5311596,
             filename: "BSabbath SFX_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13304,11 +13304,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hackett Vox",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Choir",
             size: 2376172,
             filename: "Hackett Vox_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13316,11 +13316,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Roxy SFX",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Synth",
             size: 3594220,
             filename: "Roxy SFX_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13328,11 +13328,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tangerine SFX1",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 10595820,
             filename: "Tangerine SFX1_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13340,11 +13340,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tangerine SFX2",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 2524140,
             filename: "Tangerine SFX2_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13352,11 +13352,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tangerine SFX3",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 2798316,
             filename: "Tangerine SFX3_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13364,11 +13364,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tangerine SFX4",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 2575852,
             filename: "Tangerine SFX4_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13376,11 +13376,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Yes 2Violins",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 1950572,
             filename: "Yes 2Violins_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13388,11 +13388,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Yes ArpViolins",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 2801772,
             filename: "Yes ArpViolins_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13400,11 +13400,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Yes SFX1",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 2681452,
             filename: "Yes SFX1_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13412,11 +13412,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Yes SFX2",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "FX",
             size: 2997996,
             filename: "Yes SFX2_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13424,11 +13424,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Yes SFX3",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Synth",
             size: 2641772,
             filename: "Yes SFX3_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -13440,11 +13440,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2Violins UL",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14471148,
             filename: "2Violins UL_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13452,11 +13452,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "2Violins",
             info: "M400",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 4200172,
             filename: "2Violins_Mellotron_M400 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13464,11 +13464,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 12765164,
             filename: "Flute UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13476,11 +13476,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Flute",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 4629484,
             filename: "Flute_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13488,11 +13488,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hammond UL",
             info: "M300B",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 11310060,
             filename: "Hammond UL_Mellotron_M300B 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13500,11 +13500,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Hammond",
             info: "M300B",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 3713900,
             filename: "Hammond_Mellotron_M300B 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13512,11 +13512,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harpsichord UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 8391148,
             filename: "Harpsichord UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13524,11 +13524,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harpsichord",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 1705324,
             filename: "Harpsichord_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13536,11 +13536,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Organ UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 11916908,
             filename: "Organ UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13548,11 +13548,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Organ",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 868844,
             filename: "Organ_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13560,11 +13560,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Organ2 UL",
             info: "M300A",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 12116460,
             filename: "Organ2 UL_Mellotron_M300A 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13572,11 +13572,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Organ2",
             info: "M300A",
-            version: "3.0",
+            version: "2.0",
             category: "Organ",
             size: 930412,
             filename: "Organ2_Mellotron_M300A 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13584,11 +13584,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Piano 61 UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 10757740,
             filename: "Piano 61 UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13596,11 +13596,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Piano 61",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Piano",
             size: 5856236,
             filename: "Piano 61_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13608,11 +13608,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sax UL",
             info: "M300B",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 12527596,
             filename: "Sax UL_Mellotron_M300B 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13620,11 +13620,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Sax",
             info: "M300B",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 3268972,
             filename: "Sax_Mellotron_M300B 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13632,11 +13632,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpanishGuitar UL",
             info: "M300",
-            version: "3.0",
+            version: "2.0",
             category: "Guitar/Ethnic Str",
             size: 3518444,
             filename: "SpanishGuitar UL_Mellotron_M300 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13644,11 +13644,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone UL",
             info: "M300A",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 9736172,
             filename: "Trombone UL_Mellotron_M300A 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13656,11 +13656,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone UL",
             info: "M300B",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 9674860,
             filename: "Trombone UL_Mellotron_M300B 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13668,11 +13668,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone",
             info: "M300A",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 2995308,
             filename: "Trombone_Mellotron_M300A 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13680,11 +13680,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Trombone",
             info: "M300B",
-            version: "3.0",
+            version: "2.0",
             category: "Solo Wind/Brass",
             size: 2000620,
             filename: "Trombone_Mellotron_M300B 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13692,11 +13692,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VibesNoVibrato UL",
             info: "M300A",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 8125804,
             filename: "VibesNoVibrato UL_Mellotron_M300A 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13704,11 +13704,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VibesNoVibrato",
             info: "M300A",
-            version: "3.0",
+            version: "2.0",
             category: "Chromatic Perc",
             size: 4414188,
             filename: "VibesNoVibrato_Mellotron_M300A 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -13720,11 +13720,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AfroCuban Organ UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 11095532,
             filename: "AfroCuban Organ UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13732,11 +13732,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bolero Clarinets UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9940460,
             filename: "Bolero Clarinets UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13744,11 +13744,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bossa MovstrBass UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 12703724,
             filename: "Bossa MovstrBass UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13756,11 +13756,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChaCha SwFlutes UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10973164,
             filename: "ChaCha SwFlutes UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13768,11 +13768,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Church Organ UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10042220,
             filename: "Church Organ UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13780,11 +13780,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Dixie TromboneMel UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10492908,
             filename: "Dixie TromboneMel UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13792,11 +13792,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FastJazzBass SFX2 UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10855276,
             filename: "FastJazzBass SFX2 UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13804,11 +13804,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Foxtrot SwFlutes2 UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9648620,
             filename: "Foxtrot SwFlutes2 UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13816,11 +13816,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Foxtrot2 MovPiano UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9034860,
             filename: "Foxtrot2 MovPiano UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13828,11 +13828,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "JazzFox Piano UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10754924,
             filename: "JazzFox Piano UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13840,11 +13840,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "MovBass MovStr UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 12904812,
             filename: "MovBass MovStr UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13852,11 +13852,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ReverbOrgan UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9918060,
             filename: "ReverbOrgan UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13864,11 +13864,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rumba Guitar UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 8700268,
             filename: "Rumba Guitar UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13876,11 +13876,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Samba ElOrgan UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 12640108,
             filename: "Samba ElOrgan UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13888,11 +13888,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SlowFox Woodwinds UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10307820,
             filename: "SlowFox Woodwinds UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13900,11 +13900,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SlowWaltz Celeste UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9007596,
             filename: "SlowWaltz Celeste UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13912,11 +13912,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tango SFX1 UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9244780,
             filename: "Tango SFX1 UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13924,11 +13924,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VienWaltz Marimba UL",
             info: "RyFi MKI",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9175660,
             filename: "VienWaltz Marimba UL_Mellotron_RyFi MKI 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -13940,11 +13940,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Accordion UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10269676,
             filename: "Accordion UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13952,11 +13952,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "AfroCuban SlowPiano UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 8081644,
             filename: "AfroCuban SlowPiano UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13964,11 +13964,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bolero WoodwBrass UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10226412,
             filename: "Bolero WoodwBrass UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13976,11 +13976,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Bossa MovstrBass UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 12717676,
             filename: "Bossa MovstrBass UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -13988,11 +13988,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "ChaCha SwFlutes1 UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 11006572,
             filename: "ChaCha SwFlutes1 UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14000,11 +14000,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Dixie Trombone UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10697452,
             filename: "Dixie Trombone UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14012,11 +14012,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "FastJazzBass OrgTwist UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 11962092,
             filename: "FastJazzBass OrgTwist UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14024,11 +14024,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Foxtrot SwSaxes UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 10457708,
             filename: "Foxtrot SwSaxes UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14036,11 +14036,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Harmonium UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9943276,
             filename: "Harmonium UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14048,11 +14048,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Rumba Guitar UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 8774380,
             filename: "Rumba Guitar UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14060,11 +14060,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SambaOrgan 6-8 UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 12255980,
             filename: "SambaOrgan 6-8 UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14072,11 +14072,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SloJazzBassPi Movstr UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 11356012,
             filename: "SloJazzBassPi Movstr UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14084,11 +14084,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SlowFox TremOrgan UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9681772,
             filename: "SlowFox TremOrgan UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14096,11 +14096,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SlowJazzBass UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 12761324,
             filename: "SlowJazzBass UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14108,11 +14108,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SlowWaltz Guitar UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 5908972,
             filename: "SlowWaltz Guitar UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14120,11 +14120,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Tango MovPiano UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 9106284,
             filename: "Tango MovPiano UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14132,11 +14132,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VibratoOrgan UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 11499372,
             filename: "VibratoOrgan UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14144,11 +14144,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "VienWaltz Accord UL",
             info: "RyFi MKII",
-            version: "3.0",
+            version: "2.0",
             category: "Misc",
             size: 8537324,
             filename: "VienWaltz Accord UL_Mellotron_RyFi MKII 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -14160,11 +14160,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Big Band Soft",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 6548844,
             filename: "Swing Big Band Soft_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14172,11 +14172,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Big Band Soft",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 6736108,
             filename: "Swing Big Band Soft_Close_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14184,11 +14184,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Big Band",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 7834348,
             filename: "Swing Big Band_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14196,11 +14196,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Big Band",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 8874732,
             filename: "Swing Big Band_Close_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14208,11 +14208,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Upright Bass",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 2508396,
             filename: "Swing Upright Bass_Normal_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14220,11 +14220,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Upright Bass",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1613036,
             filename: "Swing Upright Bass_Slap_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14232,11 +14232,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Leg Soft",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13793900,
             filename: "SwingStr Leg Soft_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14244,11 +14244,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Leg Soft",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13586412,
             filename: "SwingStr Leg Soft_Close_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14256,11 +14256,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Legato",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14497132,
             filename: "SwingStr Legato_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14268,11 +14268,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Legato",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14802924,
             filename: "SwingStr Legato_Close_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14280,11 +14280,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Stacc",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3248492,
             filename: "SwingStr Stacc_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14292,11 +14292,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Stacc",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2856940,
             filename: "SwingStr Stacc_Close_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14304,11 +14304,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Tremolo",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14169324,
             filename: "SwingStr Tremolo_Amb_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14316,11 +14316,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Tremolo",
             info: "Project SAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13858668,
             filename: "SwingStr Tremolo_Close_Project SAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14328,11 +14328,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Big Band Soft",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 6554988,
             filename: "Swing Big Band Soft_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14340,11 +14340,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Big Band Soft",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 6735724,
             filename: "Swing Big Band Soft_Close_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14352,11 +14352,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Big Band",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 7834604,
             filename: "Swing Big Band_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14364,11 +14364,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Big Band",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Wind/Brass",
             size: 8873324,
             filename: "Swing Big Band_Close_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14376,11 +14376,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Upright Bass",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 2515052,
             filename: "Swing Upright Bass_Normal_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14388,11 +14388,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "Swing Upright Bass",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Bass",
             size: 1607276,
             filename: "Swing Upright Bass_Slap_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14400,11 +14400,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Leg Soft",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13787884,
             filename: "SwingStr Leg Soft_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14412,11 +14412,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Leg Soft",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13581932,
             filename: "SwingStr Leg Soft_Close_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14424,11 +14424,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Legato",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14493420,
             filename: "SwingStr Legato_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14436,11 +14436,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Legato",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14798700,
             filename: "SwingStr Legato_Close_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14448,11 +14448,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Stacc",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3242092,
             filename: "SwingStr Stacc_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14460,11 +14460,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Stacc",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2854508,
             filename: "SwingStr Stacc_Close_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14472,11 +14472,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Tremolo",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14166508,
             filename: "SwingStr Tremolo_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14484,11 +14484,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SwingStr Tremolo",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13854316,
             filename: "SwingStr Tremolo_Close_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -14498,11 +14498,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr FastAtk",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 14331628,
             filename: "SymphStr FastAtk_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14510,11 +14510,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr FastAtk",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 10863212,
             filename: "SymphStr FastAtk_Cls_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14522,11 +14522,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Legato",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 15610220,
             filename: "SymphStr Legato_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14534,11 +14534,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Legato",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 15633260,
             filename: "SymphStr Legato_Cls_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14546,11 +14546,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr LegSoft",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12434796,
             filename: "SymphStr LegSoft_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14558,11 +14558,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Pizz",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2077676,
             filename: "SymphStr Pizz_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14570,11 +14570,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Pizz",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2457708,
             filename: "SymphStr Pizz_Cls_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14582,11 +14582,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Sordino",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12496236,
             filename: "SymphStr Sordino_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14594,11 +14594,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Sordino",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 13942252,
             filename: "SymphStr Sordino_Cls_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14606,11 +14606,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Spicc",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2275052,
             filename: "SymphStr Spicc_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14618,11 +14618,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Spicc",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 2345452,
             filename: "SymphStr Spicc_Cls_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14630,11 +14630,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Stacc",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 3495916,
             filename: "SymphStr Stacc_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14642,11 +14642,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Stacc",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 1695340,
             filename: "SymphStr Stacc_Cls_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14654,11 +14654,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Tremolo",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 11119596,
             filename: "SymphStr Tremolo_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14666,11 +14666,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr Tremolo",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12624492,
             filename: "SymphStr Tremolo_Cls_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14678,11 +14678,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SymphStr XSoft",
             info: "ProjectSAM",
-            version: "3.0",
+            version: "2.0",
             category: "Ens Strings",
             size: 12383724,
             filename: "SymphStr XSoft_Amb_ProjectSAM 2.0",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
 
@@ -14693,11 +14693,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQ",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 12571628,
             filename: "SpitfireStrQ 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14705,11 +14705,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQFast",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 12602476,
             filename: "SpitfireStrQFast 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14717,11 +14717,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQFlau",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 9846124,
             filename: "SpitfireStrQFlau 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14729,11 +14729,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQMrcShort",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 2543724,
             filename: "SpitfireStrQMrcShort 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14741,11 +14741,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQPizz",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 1098860,
             filename: "SpitfireStrQPizz 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14753,11 +14753,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQSoft",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 15520364,
             filename: "SpitfireStrQSoft 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14765,11 +14765,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQSpic",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 2393708,
             filename: "SpitfireStrQSpic 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14777,11 +14777,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQStac",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 2521964,
             filename: "SpitfireStrQStac 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14789,11 +14789,11 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQTrem",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 7935980,
             filename: "SpitfireStrQTrem 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
         },
     ],
     [
@@ -14801,11 +14801,302 @@ const ns3NordSampleLibrary2 = new Map([
         {
             name: "SpitfireStrQTrmSoft",
             info: "SpitfireAudio",
-            version: "3.2",
+            version: "2.2",
             category: "Ens Strings",
             size: 7368940,
             filename: "SpitfireStrQTrmSoft 2.2",
-            ext: "nsmp3",
+            ext: "nsmp",
+        },
+    ],
+
+    // Nord Sound Collection Supreme Horns
+
+    [
+        0x72021a15,
+        {
+            name: "SupremeClsc",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 13271404,
+            filename: "SupremeClsc 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x5b32b471,
+        {
+            name: "SupremeClscFp",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 8225644,
+            filename: "SupremeClscFp 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xed141717,
+        {
+            name: "SupremeClscMarc",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 1709036,
+            filename: "SupremeClscMarc 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x11c108b2,
+        {
+            name: "SupremeClscMrcS",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 9600108,
+            filename: "SupremeClscMrcS 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x6fc3873b,
+        {
+            name: "SupremeClscSoft",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 10238316,
+            filename: "SupremeClscSoft 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xfa97b673,
+        {
+            name: "SupremeClscStacc",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 1093356,
+            filename: "SupremeClscStacc 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x691b930e,
+        {
+            name: "SupremeMdrn",
+            info: "e-Instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 13683436,
+            filename: "SupremeMdrn 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xf30898d6,
+        {
+            name: "SupremeMdrnFp",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 9941868,
+            filename: "SupremeMdrnFp 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xdf4ea690,
+        {
+            name: "SupremeMdrnMarc",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 2138092,
+            filename: "SupremeMdrnMarc 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x3ee9577b,
+        {
+            name: "SupremeMdrnMrcS",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 10799468,
+            filename: "SupremeMdrnMrcS 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x4115c6d5,
+        {
+            name: "SupremeMdrnSoft",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 11134188,
+            filename: "SupremeMdrnSoft 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xdf2cdbbd,
+        {
+            name: "SupremeMdrnStacc",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 1395820,
+            filename: "SupremeMdrnStacc 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x48498a3c,
+        {
+            name: "SupremeSoul",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 13691500,
+            filename: "SupremeSoul 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xaf8b285,
+        {
+            name: "SupremeSoulFp",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 8659436,
+            filename: "SupremeSoulFp 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xc3dd2613,
+        {
+            name: "SupremeSoulMarc",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 1903724,
+            filename: "SupremeSoulMarc 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x8274c2f0,
+        {
+            name: "SupremeSoulMrcS",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 10551020,
+            filename: "SupremeSoulMrcS 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x669b8c76,
+        {
+            name: "SupremeSoulSoft",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 11600748,
+            filename: "SupremeSoulSoft 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x1c373962,
+        {
+            name: "SupremeSoulStacc",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 1079532,
+            filename: "SupremeSoulStacc 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xf9d7014f,
+        {
+            name: "SupremeSweet",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 13226348,
+            filename: "SupremeSweet 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xfd283398,
+        {
+            name: "SupremeSweetFp",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 8072684,
+            filename: "SupremeSweetFp 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xfa3fd3fe,
+        {
+            name: "SupremeSweetMrc",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 1698412,
+            filename: "SupremeSweetMrc 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x8fbef43e,
+        {
+            name: "SupremeSweetMrcS",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 10846700,
+            filename: "SupremeSweetMrcS 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0x4ec6a8d0,
+        {
+            name: "SupremeSweetSoft",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 12428908,
+            filename: "SupremeSweetSoft 2.2",
+            ext: "nsmp",
+        },
+    ],
+    [
+        0xbe3f09c1,
+        {
+            name: "SupremeSweetStac",
+            info: "e-instruments",
+            version: "2.2",
+            category: "Ens Wind/Brass",
+            size: 1674860,
+            filename: "SupremeSweetStac 2.2",
+            ext: "nsmp",
         },
     ],
 ]);
