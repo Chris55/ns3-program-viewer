@@ -562,7 +562,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The following npm package may be included in this product:
 
- - @zip.js/zip.js@2.8.11
+ - @zip.js/zip.js@2.8.15
 
 This package contains the following license:
 
@@ -1178,7 +1178,7 @@ License: MIT https://github.com/icons8/line-awesome/blob/master/LICENSE.md
 
 The following npm package may be included in this product:
 
- - lodash-es@4.17.22
+ - lodash-es@4.17.23
 
 This package contains the following license:
 
@@ -1963,7 +1963,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - immer@11.1.0
+ - immer@11.1.3
 
 This package contains the following license:
 
@@ -2289,8 +2289,8 @@ SOFTWARE.
 
 The following npm packages may be included in this product:
 
- - react-router-dom@7.12.0
- - react-router@7.12.0
+ - react-router-dom@7.13.0
+ - react-router@7.13.0
 
 These packages each contain the following license:
 
@@ -2322,9 +2322,9 @@ SOFTWARE.
 
 The following npm packages may be included in this product:
 
- - ag-charts-types@13.0.0
- - ag-grid-community@35.0.0
- - ag-grid-react@35.0.0
+ - ag-charts-types@13.0.1
+ - ag-grid-community@35.0.1
+ - ag-grid-react@35.0.1
 
 These packages each contain the following license:
 
