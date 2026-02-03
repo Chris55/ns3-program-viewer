@@ -599,7 +599,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The following npm package may be included in this product:
 
- - jspdf@4.0.0
+ - jspdf@4.1.0
 
 This package contains the following license:
 
