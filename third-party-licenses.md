@@ -562,7 +562,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The following npm package may be included in this product:
 
- - @zip.js/zip.js@2.8.15
+ - @zip.js/zip.js@2.8.16
 
 This package contains the following license:
 
@@ -2256,8 +2256,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 The following npm packages may be included in this product:
 
- - react-dom@19.2.3
- - react@19.2.3
+ - react-dom@19.2.4
+ - react@19.2.4
  - scheduler@0.27.0
  - use-sync-external-store@1.6.0
 
