@@ -18,7 +18,13 @@ export default defineConfig(({ command, mode }) => {
             preprocessorOptions: {
                 // https://github.com/twbs/bootstrap/issues/40962
                 scss: {
-                    silenceDeprecations: ["mixed-decls", "color-functions", "global-builtin", "import"],
+                    silenceDeprecations: [
+                        "color-functions",
+                        "global-builtin",
+                        "import",
+                        "if-function",
+                        "legacy-js-api",
+                    ],
                 },
             },
         },
