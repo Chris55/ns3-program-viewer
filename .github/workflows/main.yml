@@ -42,6 +42,8 @@ jobs:
               env:
                   VITE_STAT_ID: ${{ secrets.VITE_STAT_ID }}
                   VITE_STAT_CODE: ${{ secrets.VITE_STAT_CODE }}
+                  REACT_APP_VERSION: $npm_package_version
+                  REACT_APP_NAME: $npm_package_name
             - name: Setup Pages
               uses: actions/configure-pages@v5
             - name: Upload artifact
