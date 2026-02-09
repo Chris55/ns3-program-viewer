@@ -38,8 +38,6 @@ const About = () => {
                                         wrong.
                                     </Card.Text>
                                     <Card.Text>
-                                        <Navbar.Text>ID {import.meta.env.VITE_STAT_ID}</Navbar.Text>
-                                        <Navbar.Text>CODE {import.meta.env.VITE_STAT_CODE}</Navbar.Text>
                                         To clarify{" "}
                                         <a onClick={() => openUrl(nordUrl)} className="btn-link pointer">
                                             Nord Keyboards / Clavia DMI AB
