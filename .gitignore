@@ -1,3 +1,4 @@
+.env
 upload/
 !upload/readme.md
 build/

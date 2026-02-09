@@ -39,6 +39,9 @@ jobs:
               run: npm ci
             - name: Build
               run: npm run build
+              env:
+                  VITE_STAT_ID: ${{ secrets.VITE_STAT_ID }}
+                  VITE_STAT_CODE: ${{ secrets.VITE_STAT_CODE }}
             - name: Setup Pages
               uses: actions/configure-pages@v5
             - name: Upload artifact
