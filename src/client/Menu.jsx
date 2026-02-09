@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Nav, Navbar } from "react-bootstrap";
 import { menuSelector, setActiveKey } from "./features/menu/menu-slice-reducer";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { fileFormatUrl } from "./constants.jsx";
 
 const Menu = () => {
@@ -36,7 +36,7 @@ const Menu = () => {
                     </Nav>
                 </Navbar.Collapse>
                 <Navbar.Collapse className="justify-content-end me-2">
-                    <Navbar.Text>version {process.env.REACT_APP_VERSION}</Navbar.Text>
+                    <Navbar.Text>version {import.meta.env.VITE_APP_VERSION}</Navbar.Text>
                 </Navbar.Collapse>
             </Navbar>
             <Outlet />

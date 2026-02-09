@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Navbar, Row } from "react-bootstrap";
 import AppName from "./AppName";
 import Footer from "./Footer";
 import { openUrl } from "./utils/handy";
@@ -38,6 +38,8 @@ const About = () => {
                                         wrong.
                                     </Card.Text>
                                     <Card.Text>
+                                        <Navbar.Text>ID {import.meta.env.VITE_STAT_ID}</Navbar.Text>
+                                        <Navbar.Text>CODE {import.meta.env.VITE_STAT_CODE}</Navbar.Text>
                                         To clarify{" "}
                                         <a onClick={() => openUrl(nordUrl)} className="btn-link pointer">
                                             Nord Keyboards / Clavia DMI AB
