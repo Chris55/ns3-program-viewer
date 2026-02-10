@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Container, Navbar, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import AppName from "./AppName";
 import Footer from "./Footer";
 import { openUrl } from "./utils/handy";
