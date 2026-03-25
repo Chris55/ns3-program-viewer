@@ -213,7 +213,7 @@ Apache License
 
 The following npm package may be included in this product:
 
- - @swc/helpers@0.5.17
+ - @swc/helpers@0.5.19
 
 This package contains the following license:
 
@@ -423,15 +423,15 @@ limitations under the License.
 
 The following npm packages may be included in this product:
 
- - @types/lodash@4.17.21
+ - @types/lodash@4.17.24
  - @types/pako@2.0.4
  - @types/prop-types@15.7.15
  - @types/raf@3.4.3
  - @types/react-transition-group@4.4.12
- - @types/react@19.2.7
+ - @types/react@19.2.14
  - @types/trusted-types@2.0.7
  - @types/use-sync-external-store@0.0.6
- - @types/warning@3.0.3
+ - @types/warning@3.0.4
 
 These packages each contain the following license:
 
@@ -826,11 +826,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 The following npm package may be included in this product:
 
- - core-js@3.47.0
+ - core-js@3.49.0
 
 This package contains the following license:
 
-Copyright (c) 2014-2025 Denis Pushkarev, 2025 CoreJS Company
+Copyright (c) 2013–2025 Denis Pushkarev (zloirock.ru)
+Copyright (c) 2025–2026 CoreJS Company (core-js.io)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

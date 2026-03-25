@@ -17,7 +17,7 @@ import {
     toggleShowDefault,
     toggleShowManager,
 } from "./features/nord/nord-slice-reducer";
-import { Col, Dropdown, Form, ProgressBar, Row, Stack } from "react-bootstrap";
+import { Dropdown, Form, ProgressBar, Stack } from "react-bootstrap";
 import SplitterLayout from "react-splitter-layout";
 import "react-splitter-layout/lib/index.css";
 import { buildExportCsv } from "./export/export-csv";
