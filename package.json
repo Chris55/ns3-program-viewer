@@ -78,16 +78,16 @@
         "NS3",
         "File"
     ],
-    "private": true,
     "license": "GPL-3.0-or-later",
     "name": "ns3-program-viewer",
     "overrides": {
         "braces": ">=3.0.3",
         "lodash": ">=4.17.21",
         "json5": ">=1.0.2",
-        "tar": ">=7.5.7"
+        "tar": ">=7.5.11"
     },
     "prettier": {},
+    "private": true,
     "repository": {
         "type": "git",
         "url": "https://github.com/Chris55/ns3-program-viewer.git"
