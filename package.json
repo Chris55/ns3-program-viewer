@@ -82,8 +82,11 @@
     "name": "ns3-program-viewer",
     "overrides": {
         "braces": ">=3.0.3",
-        "lodash": ">=4.17.21",
+        "dompurify": ">=3.3.2",
+        "flatted": ">=3.4.2",
         "json5": ">=1.0.2",
+        "lodash": ">=4.17.21",
+        "minimatch": ">=10.2.3",
         "tar": ">=7.5.11"
     },
     "prettier": {},

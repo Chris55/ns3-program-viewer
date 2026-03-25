@@ -1234,7 +1234,7 @@ terms above.
 
 The following npm package may be included in this product:
 
- - dompurify@3.3.1
+ - dompurify@3.3.3
 
 This package contains the following license:
 
