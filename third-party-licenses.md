@@ -1179,7 +1179,7 @@ License: MIT https://github.com/icons8/line-awesome/blob/master/LICENSE.md
 
 The following npm package may be included in this product:
 
- - lodash-es@4.17.23
+ - lodash-es@4.18.1
 
 This package contains the following license:
 
