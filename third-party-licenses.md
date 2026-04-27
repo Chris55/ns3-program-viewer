@@ -562,7 +562,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The following npm package may be included in this product:
 
- - @zip.js/zip.js@2.8.23
+ - @zip.js/zip.js@2.8.26
 
 This package contains the following license:
 
@@ -2119,36 +2119,6 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - react-toastify@11.0.5
-
-This package contains the following license:
-
-MIT License
-
-Copyright (c) 2023 Fadi Khadra
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
------------
-
-The following npm package may be included in this product:
-
  - @standard-schema/spec@1.1.0
 
 This package contains the following license:
@@ -2239,6 +2209,36 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
+ - react-toastify@11.1.0
+
+This package contains the following license:
+
+MIT License
+
+Copyright (c) Fadi Khadra
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-----------
+
+The following npm package may be included in this product:
+
  - clsx@2.1.1
 
 This package contains the following license:
@@ -2257,8 +2257,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 The following npm packages may be included in this product:
 
- - react-dom@19.2.4
- - react@19.2.4
+ - react-dom@19.2.5
+ - react@19.2.5
  - scheduler@0.27.0
  - use-sync-external-store@1.6.0
 
@@ -2290,8 +2290,8 @@ SOFTWARE.
 
 The following npm packages may be included in this product:
 
- - react-router-dom@7.13.2
- - react-router@7.13.2
+ - react-router-dom@7.14.2
+ - react-router@7.14.2
 
 These packages each contain the following license:
 
@@ -2323,9 +2323,9 @@ SOFTWARE.
 
 The following npm packages may be included in this product:
 
- - ag-charts-types@13.2.0
- - ag-grid-community@35.2.0
- - ag-grid-react@35.2.0
+ - ag-charts-types@13.2.1
+ - ag-grid-community@35.2.1
+ - ag-grid-react@35.2.1
 
 These packages each contain the following license:
 
@@ -2405,7 +2405,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - uuid@13.0.0
+ - uuid@14.0.0
 
 This package contains the following license:
 

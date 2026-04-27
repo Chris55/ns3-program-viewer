@@ -1,5 +1,5 @@
 import React from "react";
-import * as ReactDOMClient from "react-dom/client";
+import ReactDOMClient from "react-dom/client";
 import { Provider } from "react-redux";
 import "./client/index.css";
 import App from "./client/App";
